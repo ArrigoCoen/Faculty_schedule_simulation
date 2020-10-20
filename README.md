@@ -3,6 +3,6 @@
 
 We will follow the next pipeline
 
-![fig](Fig_pipeline.jpeg)
+![fig](Figures/Fig_pipeline.jpeg)
 
 # Simulation
