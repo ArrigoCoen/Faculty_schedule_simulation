@@ -10,7 +10,7 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-# setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Programas/ProgFinal V01")
+# setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/ProgFinal")
 
 # load("mat_def_columnas_MG.RData")
 # View(mat_def_columnas_MG)
