@@ -9,11 +9,9 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
-# Figura ------------------------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del promedio de
-#' alumnos por semestre y de la desviación estándar.
+#' Se cargan los datos
 load("Programas/Figuras PDF/fig_histograma_FA_num_alum_matu_vesp/mat_num_alum_x_hora_x_sem.RData")
 
 # Histograma doble --------------------------------------------------------
@@ -45,36 +43,18 @@ max(vec_num_alum_x_sem_vespertino)#2612
 save(vec_num_alum_x_sem_matutino,file = "vec_num_alum_x_sem_matutino.RData")
 save(vec_num_alum_x_sem_vespertino,file = "vec_num_alum_x_sem_vespertino.RData")
 
-lwd_dens <- 6
-hist(vec_num_alum_x_sem_matutino,col=param_graficas$col1_hist,breaks = seq(0,4600,by = 100),
-     freq = F,ylab = "Densidad",ylim=c(0,0.0015),
-     main="Histograma turnos matutino y vespertino",xlab = "Número alumnos")
-lines(density(vec_num_alum_x_sem_matutino),col=param_graficas$col1_linea,lwd=lwd_dens)
-hist(vec_num_alum_x_sem_vespertino, col=param_graficas$col2_hist,breaks = seq(0,4600,by = 100),
-     freq = F,add=TRUE)
-lines(density(vec_num_alum_x_sem_vespertino),col=param_graficas$col2_linea,lwd=lwd_dens)
-
-legend(2500,0.0016,c("Turno matutino","Turno vespertino"),bty = "n",
-       col=c(param_graficas$col1_linea,param_graficas$col2_linea),lty=c(1,1),
-       cex=1.1,lwd=lwd_dens)
-
 ##Gráfica con freq = T
 hist(vec_num_alum_x_sem_matutino,col=param_graficas$col1_hist,breaks = seq(0,4600,by = 100),
      freq = T,ylab = "Frecuencia",ylim=c(0,25),
      main="Histograma turnos matutino y vespertino",xlab = "Número alumnos")
-# lines(density(vec_num_alum_x_sem_matutino),col=param_graficas$col1_linea,lwd=lwd_dens)
 hist(vec_num_alum_x_sem_vespertino, col=param_graficas$col2_hist,breaks = seq(0,4600,by = 100),
      freq = T,add=TRUE)
-# lines(density(vec_num_alum_x_sem_vespertino),col=param_graficas$col2_linea,lwd=lwd_dens)
 
 legend(2500,25,c("Turno matutino","Turno vespertino"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),lty=c(1,1),
-       cex=1.1,lwd=lwd_dens)
-
+       cex=1.1,lwd=param_graficas$lwd_dens)
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "histograma_FA_num_alum_matu_vesp.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
-
-

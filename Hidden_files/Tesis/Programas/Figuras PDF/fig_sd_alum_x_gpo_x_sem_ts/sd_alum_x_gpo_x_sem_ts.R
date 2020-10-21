@@ -9,17 +9,17 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
-# Figura ------------------------------------------------------------------
 #' Se cargan los datos
 load("Programas/Figuras PDF/fig_sd_alum_x_gpo_x_sem_ts/vec_sd_total_alum.RData")
+
+# Figura ------------------------------------------------------------------
 #' Se convierten los datos en serie de tiempo
 sd_total_alum.ts <- ts(vec_sd_total_alum,frequency = 2, start = c(2008, 1))
 sd_total_alum.ts
 min(sd_total_alum.ts)#24.20968
 max(sd_total_alum.ts)#28.87565
-
 
 #' Se grafica la serie de tiempo
 plot.ts(sd_total_alum.ts,type = "l",

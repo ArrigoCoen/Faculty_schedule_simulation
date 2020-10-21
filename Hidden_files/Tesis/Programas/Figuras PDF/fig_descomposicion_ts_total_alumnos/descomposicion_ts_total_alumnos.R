@@ -9,14 +9,13 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
-
-# Figura ------------------------------------------------------------------
 #' Se cargan los datos del semestre 2008-1 al 2020-1 del número total de
 #' alumnos por semestre
 load("Programas/Figuras PDF/fig_descomposicion_ts_total_alumnos/vec_num_total_alum.RData")
 
+# Figura ------------------------------------------------------------------
 #' Se convierten los datos en serie de tiempo
 num_total_alum.ts <- ts(vec_num_total_alum,frequency = 2, start = c(2008, 1))
 num_total_alum.ts
@@ -32,4 +31,3 @@ plot(num_total_alum.Comp)
 nom_plot <- "descomposicion_ts_total_alumnos.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
-

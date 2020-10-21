@@ -9,17 +9,17 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
-
-# Figura ------------------------------------------------------------------
 #' Se cargan los datos del semestre 2008-1 al 2020-1 del número total de
 #' alumnos por semestre
 load("Programas/Figuras PDF/fig_num_alum_total_x_sem_barplot/vec_num_total_alum.RData")
 
+# Figura ------------------------------------------------------------------
 barplot(vec_num_total_alum,main = "Número de alumnos totales",ylim = c(0,30000),
         xlab="Semestres",ylab="Número de alumnos",col = param_graficas$col_barras,
-        axis.lty=1,las=2,cex.names = 0.82,cex.axis=0.84,
+        axis.lty=1,las=2,cex.names = 0.82,#expansion factor for *axis names*
+        cex.axis=0.82,#expansion factor for *numeric axis labels*
         names.arg=c("2008-1","","","","2010-1",
                     "","","","2012-1","",
                     "","","2014-1","","",

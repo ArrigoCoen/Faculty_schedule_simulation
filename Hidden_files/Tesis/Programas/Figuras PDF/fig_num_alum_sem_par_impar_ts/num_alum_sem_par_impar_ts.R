@@ -9,14 +9,14 @@
 # rm(list=ls())  # Borra variables
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
-# Figura ------------------------------------------------------------------
 #' Se cargan los datos del semestre 2008-1 al 2020-1 del promedio de
 #' alumnos por semestre y de la desviación estándar.
 load("Programas/Figuras PDF/fig_num_alum_sem_par_impar_ts/vec_num_total_alum.RData")
 
-# Histograma doble --------------------------------------------------------
+
+# Figura ------------------------------------------------------------------
 min(vec_num_total_alum)#17796
 max(vec_num_total_alum)#28497
 ind_impar <- seq(from=1,to=length(vec_num_total_alum),by=2)
@@ -67,5 +67,3 @@ legend(20150,23000,c("Semestres impares",
 nom_plot <- "num_alum_sem_par_impar_ts.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
-
-
