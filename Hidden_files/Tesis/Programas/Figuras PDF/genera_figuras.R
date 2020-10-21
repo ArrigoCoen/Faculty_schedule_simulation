@@ -28,7 +28,7 @@ param_graficas$col1_linea = "blue" ##Azul densidad
 param_graficas$col2_linea = "red" ##Rojo densidad
 param_graficas$ancho_pdf = 8 #Anchura para guardar imagen
 param_graficas$altura_pdf = 6 #Altura para guardar imagen
-param_graficas$dir_TeX = "TeX/TeX V05/Pictures/"
+param_graficas$dir_TeX = "TeX/LaTeX/Pictures/"
 
 # Figuras -----------------------------------------------------------------
 
@@ -91,8 +91,8 @@ source("Programas/Figuras PDF/fig_histograma_FR_num_alum_sem_par_impar/histogram
 source("Programas/Figuras PDF/fig_histograma_FR_num_alum_matu_vesp/histograma_FR_num_alum_matu_vesp.R")
 
 #####
-source("Programas/Figuras PDF//.R")
+# source("Programas/Figuras PDF//.R")
 
 #####
-source("Programas/Figuras PDF//.R")
+# source("Programas/Figuras PDF//.R")
 
