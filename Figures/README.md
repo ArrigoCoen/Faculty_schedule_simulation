@@ -1,3 +1,5 @@
-# Data extraction
+# Figures
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here are the figures used in the README file of the repository.
+
+Don't confuse it with the folder where are kept the figures of the TeX file.

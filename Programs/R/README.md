@@ -1,3 +1,3 @@
-# Data extraction
+# R
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here are the R programs that are going to be published on the internet.

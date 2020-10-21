@@ -1,3 +1,3 @@
-# Data extraction
+# Grading skeletons
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here is explained how we grade the skeletons.

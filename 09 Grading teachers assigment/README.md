@@ -1,3 +1,3 @@
-# Data extraction
+# Grading assigments
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here is explained how we grade the assigments.

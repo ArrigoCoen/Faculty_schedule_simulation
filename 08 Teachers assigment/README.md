@@ -1,3 +1,3 @@
-# Data extraction
+# Teachers' assigment
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here is explained how we assign a subject with an hour to a teacher for the semester _t+1_.
