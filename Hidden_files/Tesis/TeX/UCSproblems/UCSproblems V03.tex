@@ -1,0 +1,287 @@
+\documentclass[12pt,spanish]{report}
+\usepackage[spanish,mexico]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[rightcaption]{sidecap}
+\usepackage{wrapfig}
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {Pictures/} }
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{dsfont}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{enumerate} %% Sirve para poder usar entornos como \itemize, \list_type, \enumerate, ...
+\usepackage{float} %%Para poner las figuras donde se desea
+\usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
+
+%Ejemplo para separar una ecuación: //No olvidar el salto de línea "\\"
+%\begin{equation*}
+%\begin{split}
+%(a+b+c+d+e+f)^2 & = a^2+b^2+c^2+d^2+e^2+f^2\\
+%&\quad +2ab+2ac+2ad+2ae+2af\\
+%&\quad +2ef
+%\end{split}
+%\end{equation*}
+
+\begin{document}
+
+\begin{center}
+\textbf{Problema de asignación de cursos universitarios}
+\end{center}
+
+En el problema de asignación de cursos se quiere asociar un profesor con una materia, un día, un salón y un horario. Se toman 2 decisiones: la asignación de profesor por materia y el salón en el cual se va a impartir cada materia. Finalmente se desea maximizar la utilidad de que el profesor $i$ imparta la materia $j$, más la utilidad de que el profesor $i$ imparta alguna materia en el día $t$, más la utilidad de la materia $j$ por ser impartida en el día $t$.
+
+Se definen los siguientes conceptos:
+
+\begin{itemize}
+\item[ ] \textbf{Materia: } Nombre de la clase o curso que se va a impartir.
+
+\item[ ] \textbf{Horario: } Hora o tiempo en el que se imparte alguna materia.
+
+\item[ ] \textbf{Profesor: } Nombre de la persona que va a impartir alguna materia.
+
+\item[ ] \textbf{Salón: } Nombre del lugar en donde se va a impartir alguna materia.
+
+\item[ ] \textbf{Esqueleto: } Conjunto Materia-Horario.
+
+\item[ ] \textbf{Asignación: } Conjunto Materia-Profesor-Horario-Salón.
+
+\item[ ] \textbf{Grupo: } Clave con la que se identifica una asignación.
+
+\item[ ] \textbf{Turno: } Matutino/Vespertino
+\end{itemize}
+
+La notación que se utilizará es:
+
+\begin{itemize}
+\item[ ] \textbf{\textit{j\_materias: }} Número de materias que se van a impartir.
+
+\item[ ] \textbf{\textit{j: }} Índice para materias, $j \in \{ 1, 2, 3, \ldots, j\_materias \}$
+
+\item[ ] \textbf{\textit{i\_prof: }} Número de profesores que van impartir alguna materia.
+
+\item[ ] \textbf{\textit{i: }} Índice para profesores, $i \in \{ 1, 2, 3, \ldots, i\_prof \}$
+
+\item[ ] \textbf{\textit{t\_dias: }} Número de días en los que se darán clases.
+
+\item[ ] \textbf{\textit{t: }} Índice para los días en los que se darán clases, $t \in \{ 1, 2, 3, \ldots, t\_dias \}$
+
+\item[ ] \textbf{\textit{h\_periodos: }} Número de horarios disponibles que hay por día para impartir alguna materia. $h\_periodos = 3$
+
+\item[ ] \textbf{\textit{h: }} Índice para los periodos del día, $h \in \{ 1, 2, 3 \}$
+
+\item[ ] \textbf{\textit{k\_salones: }} Número de salones que se pueden ocupar.
+
+\item[ ] \textbf{\textit{k: }} Índice para salones, $k \in \{ 1, 2, 3, \ldots, k\_salones \}$
+
+\item[ ] \textbf{$U_{j,i}$: } Utilidad de la materia $j$ por ser impartida por el profesor $i$
+
+\item[ ] \textbf{$U_{i,t}$: } Utilidad del profesor $i$ por dar alguna materia el día $t$
+
+\item[ ] \textbf{$U_{j,t}$: } Utilidad de la materia $j$ por ser impartida el día $t$
+
+\item[ ] $ V_{i,t} =
+  \begin{cases}
+    1  & \quad \text{si el profesor } i \text{ puede dar clase el día } t \\
+    0  & \quad \text{e.o.c. } \\
+  \end{cases}
+$
+
+\item[ ] $ V_{j,i} =
+  \begin{cases}
+    1  & \quad \text{si la materia } j \text{ puede ser impartida por  el profesor } i \\
+    0  & \quad \text{e.o.c. } \\
+  \end{cases}
+$
+
+\item[ ] $ V_{j,k} =
+  \begin{cases}
+    1  & \quad \text{si la materia } j \text{ puede impartirse en el salón } k \\
+    0  & \quad \text{e.o.c. } \\
+  \end{cases}
+$
+
+\end{itemize}
+
+\begin{flushleft}
+\textbf{Planteamiento del problema:}
+\end{flushleft}
+
+\begin{enumerate}[i)]
+\item Variables de decisión:
+
+$ x_{j,i,t,h,k} =
+  \begin{cases}
+1  & \quad \text{si la materia } j \text{ es impartida por el profesor  } i,\\
+   &\quad \text{ el día } t, \text{ en el salón } k, \text{ en el periodo } h\\
+0  & \quad \text{e.o.c. } \\
+\end{cases}
+$
+  
+$ y_{i,t} =
+  \begin{cases}
+1  & \quad \text{si el profesor } i \text{ da clases el día } t \\
+0  & \quad \text{e.o.c. } \\
+\end{cases}
+$
+
+Nota: $y_{i,t} \approx M_{t,i} $
+
+  \item Función objetivo: (se desea maximizar la utilidad)
+
+\begin{equation*}
+\begin{split}
+\text{máx} \,\, z &=  \,\, \displaystyle \sum_{i=1}^{l} \sum_{j=1}^{c} \sum_{t=1}^{d} \sum_{k=1}^{e} \sum_{h=1}^{3} x_{j,i,t,h,k} U_{j,i} + \sum_{i=1}^{l} \sum_{t=1}^{d} y_{i,t} U_{i,t} \\
+&\quad  + \sum_{i=1}^{l} \sum_{j=1}^{c} \sum_{t=1}^{d} \sum_{k=1}^{e} \sum_{h=1}^{3} x_{j,i,t,h,k} U_{j,t} \,\,\,\, \text{s. a}
+\end{split}
+\end{equation*}
+
+\item Restricciones:
+  
+  \begin{eqnarray}
+\displaystyle \sum_{i=1}^{l} \sum_{t=1}^{d} \sum_{k=1}^{e} \sum_{h=1}^{3} x_{j,i,t,h,k} &=& 1  \,\,\,\,\,\,\, \forall \,\, j\\
+\displaystyle \sum_{j=1}^{c} \sum_{k=1}^{e} x_{j,i,t,h,k} &\leqslant& y_{i,t} \,\,\,\,\,\,\, \forall \,\, i,t,h\\
+y_{i,t} &\leqslant& V_{i,t} \,\,\,\,\,\,\, \forall \,\, i,t\\
+\displaystyle \sum_{i=1}^{l} \sum_{j=1}^{c} x_{j,i,t,h,k} &\leqslant& 1 \,\,\,\,\,\,\, \forall \,\, t,k,h\\
+\displaystyle \sum_{t=1}^{d} \sum_{k=1}^{e} \sum_{h=1}^{3} x_{j,i,t,h,k} &\leqslant& V_{i,j} \,\,\,\,\,\,\, \forall \,\, i,j\\
+\displaystyle \sum_{i=1}^{l} \sum_{t=1}^{d} \sum_{h=1}^{3} x_{j,i,t,h,k} &\leqslant& V_{j,k}  \,\,\,\,\,\,\, \forall \,\, j,k\\
+x_{j,i,t,h,k}, \,\, y_{i,t},\,\, V_{i,t}, \,\, V_{j,i}, \,\, V_{j,k} &\in& \{0,1\} \,\,\,\,\,\,\, \forall \,\, j,i,t,h,k
+\end{eqnarray}
+\end{enumerate}
+
+Con las restricciones del tipo $(1)$ aseguramos que todas las materias sean dadas. Con las del tipo $(2)$ se indican los días que un profesor imparte una materia y se asegura que cada profesor no tenga más de un curso por periodo de tiempo. Con las restricciones del tipo $(3)$ nos aseguramos que los profesores sean invitados los días de su preferencia. Las restricciones del tipo $(4)$ nos indican que se puede impartir máximo una materia en cada salón por periodo de tiempo. Con las del tipo $(5)$ aseguramos que los profesores tengan asignadas materias que puedan impartir. Las restricciones del tipo $(6)$ especifican que cada materia es asignada a un salón donde pueda impartirse esa clase. Finalmente con las restricciones del tipo $(7)$ se especifica que las variables utilizadas son binarias.\\
+
+
+%El problema de asignación de cursos se plantea como un problema de programación lineal el cual funciona para la solución de casos ``pequeños'' (máximo 6 cursos y 15 profesores).
+
+En el planteamiento se tienen dos tipos de restricciones: duras y suaves, las restricciones duras son las que nos permiten tener soluciones factibles al cumplirlas en su totalidad y las restricciones suaves nos permiten evaluar la calidad de las diferentes soluciones, usualmente están asociadas a preferencias y se cumplen en la medida de lo posible, pero no afectan la factibilidad de las soluciones.
+
+
+
+El conjunto de soluciones se presenta por medio de dos matrices:
+  
+  Sean $ M_{j,i} =
+  \begin{cases}
+1  & \quad \text{si la materia } j \text{ es impartida por el profesor } i \\
+-  & \quad \text{si la materia } j \text{ no puede ser impartida por el profesor } i\\
+0  & \quad \text{e.o.c. } \\
+\end{cases}
+$\\
+
+y $ M_{t,i} =
+  \begin{cases}
+1  & \quad \text{si en el día } t \text{ imparte clase el profesor } i  \\
+-  & \quad \text{si en el día } t \text{ no puede impartir clase el profesor } i  \\
+0  & \quad \text{e.o.c. } \\
+\end{cases}
+$\\
+
+La primera indica la asignación de cada materia con el profesor que la va a impartir y la segunda matriz indica el día en el que cada profesor va a impartir alguna materia.
+
+
+Finalmente se asigna el salón a cada materia con una regla propuesta la cual asigna cada materia al primer salón disponible en el cual se puede impartir ese curso. Si un profesor es invitado más de un día cada curso se imparte en el día con la mayor preferencia y con el mayor número de salones disponibles.
+
+
+\begin{flushleft}
+\textbf{Algoritmos Heurísticos:}
+\end{flushleft}
+
+%Se proponen 3 algoritmos heurísticos los cuales nos sirven para dar solución a los casos ``grandes''.
+%Se proponen 3 algoritmos heurísticos los cuales nos sirven para dar solución al problema ya que es un problema \textit{NP-Duro}. Éstos son \textit{artificial immune algorithm}, algoritmo genético y \textit{simulated annealing algorithm}.
+
+Se proponen 3 algoritmos heurísticos los cuales nos sirven para dar solución al problema debido a que es \textit{NP-Duro}.
+
+Los algoritmos propuestos son:
+  
+  \begin{itemize}
+\item[(1)] Genético:
+
+El algoritmo genético actualmente se utiliza para resolver problemas de optimización tanto discretos como continuos. Se basa en el mecanismo de la selección natural de Darwin, el cual nos indica que el individuo más apto sobrevive, por lo que entre mejores sean los padres, mejor es la descendencia.
+
+Definimos a un cromosoma como una posible solución al problema. En nuestro caso representamos a un cromosoma por medio de una matriz con \textit{j\_materias} renglones y con 3 columnas las cuales representan la asignación de profesor, día y salón, respectivamente, por lo que el renglón $j$ indica que la materia $j$ es impartida por el profesor $i$, el día $t$, en el salón $k$.
+
+El valor de adaptabilidad \textit{fit(x)}, de cada cromosoma, se asigna al evaluar su utilidad en la función objetivo, entre mejor sea el cromosoma, más alto será su valor de adaptabilidad. Los mejores cromosomas de la población actual pasan directamente a la siguiente generación. Se dice que la población evoluciona por medio de tres operadores hasta una condición de paro, los operadores son: \textit{selección, entrecruzamiento \textit{(crossover)} y mutación}.
+
+Los pasos del algoritmo se muestran a continuación:
+
+
+\begin{enumerate}
+\item Se inicia con un grupo de cromosomas generados aleatoriamente, a los cuales se les calcula su valor de adaptabilidad
+
+\item La probabilidad de que el cromosoma $k$ sea elegido para el entrecruzamiento \textit{(crossover)}, es:
+  
+\begin{equation*}
+\begin{split}
+&p_{k} = \dfrac{fit(x)}{\displaystyle \sum_{h = 1}^{pop} fit(h)} \,\,\,\, \text{ donde } pop \,\,\,\, \text{ es el tamaño de la población}\\
+&\quad \text{ de cromosomas }
+\end{split}
+\end{equation*}
+
+
+\item En el entrecruzamiento se mezclan dos padres para generar nuevas soluciones. Se genera un número aleatorio entre cero y uno, $r$, si $r < 0.6$  la primer columna de $M_{ij}$ y la primer columna de $M_{ti}$ del padre $1$ se copian en la nueva solución, las demás columnas se llenan con las columnas del padre $2$. Si la nueva solución no es factible, en la matriz $M_{ij}$, si alguna materia tiene asignada dos profesores, se selecciona uno de ellos de manera aleatoria y el otro se elimina de esa asignación; en caso de que alguna materia no tenga profesor asignado, se le asigna uno aleatoriamente.
+
+\item Se actualiza la matriz $M_{ti}$.
+
+\item Se aplica el operador \textit{mutación}, se selecciona un profesor de manera aleatoria y se cambia el día en el que más tiene clase por el día que menos clases imparte. Ésto se aplica para cada profesor de manera aleatoria, sin repetición.
+
+\item Una vez generadas las nuevas soluciones se elige la mejor entre todas ellas.
+\end{enumerate}
+
+\item[(2)] \textit{Simulated Annealing: }
+
+%Is an effective and general form of optimization.  It is useful in finding global optima in the presence of large numbers of local optima.  “Annealing” refers to an analogy with thermodynamics, specifically with the way that metals cool and anneal.  Simulated annealing uses the objective function of an optimization problem instead of the energy of a material. (Make an algorithm workable.) 
+
+%\url{http://www.cs.cmu.edu/afs/cs.cmu.edu/project/learn-43/lib/photoz/.g/web/glossary/anneal.html}
+
+\begin{enumerate}
+\item Teniendo una solución inicial, se genera una nueva solución $s$, por medio de un operador llamado \textit{movimiento}, en el cual se selecciona una materia de manera aleatoria y se asigna a un profesor que pueda impartir esa materia, se actualizan las matrices $M_{ij}$ y $M_{ti}$.
+
+\item Una vez aplicado el operador \textit{movimiento}, se define un parámetro $t$ llamado temperatura y $\alpha$ la tasa de decremento de temperatura. Se calcula $\Delta = fit(s) - fit(x)$, si $\Delta \leqslant 0$, la solución $s$ se acepta, de lo contrario la probabilidad de que se acepte esa solución es igual a $\mathrm{e}^{\frac{\Delta}{t_{i}}}$, donde $t_{i} = \alpha t_{i-1}$. Para cada temperatura $t_{i}$ se hace un número fijo de movimientos. Las condiciones iniciales son: $t_{1} = 50$ y $\alpha = 0.97$. Conforme el algoritmo avanza, $\alpha$ disminuye su valor.
+\end{enumerate}
+
+
+\item[(3)] \textit{Artificial immune algorithm:} 
+
+\begin{enumerate}
+\item Se definen dos variables, \textit{antígeno} y \textit{anticuerpo}; el antígeno se refiere al problema de asignación de horarios y cada anticuerpo es una solución factible cuyo valor de afinidad es el valor de la función objetivo evaluada.
+
+\item Se genera una nueva población por medio de dos mecanismos: \textit{clonación} y \textit{maduración}. Se quiere clonar a los anticuerpos que mejor eliminen antígenos. Se define un conjunto llamado \textit{alberca de mutación} el cuál es finito y se llena con los mejores anticuerpos, una vez que están los anticuerpos con mayor valor de afinidad se introducen los demás anticuerpos con probabilidad:
+  
+\begin{equation*}
+\begin{split}
+&p_{k} = \dfrac{fit(x)}{\displaystyle \sum_{h = 1}^{pop} fit(h)} \,\,\,\, \text{ donde } pop \,\,\,\, \text{ es el tamaño de la población}\\
+&\quad \text{ de anticuerpos}
+\end{split}
+\end{equation*}
+
+%\begin{split}
+%(a+b+c+d+e+f)^2 & = a^2+b^2+c^2+d^2+e^2+f^2\\
+%&\quad +2ab+2ac+2ad+2ae+2af\\
+%&\quad +2ef
+%\end{split}
+
+\item El objetivo del proceso de maduración es hacer cambios aleatorios en todos los clones que se encuentran en la alberca de mutación por medio del operador \textit{hipermutación}. Se tienen 2 tipos de tasas de hipermutación: \textit{alta} y \textit{baja}. Se usa la tasa baja de hipermutación si se cumple:
+  
+  \begin{equation*}
+\dfrac{aff(x) - aff(mejor anticuerpo)}{aff(mejor anticuerpo)} < 1
+\end{equation*}
+
+Si ésto se cumple, se elige de manera aleatoria una materia y se le asigna a otro profesor con la mayor utilidad por impartir esa materia.
+
+\item  Para el caso de la tasa alta de hipermutación se utiliza el operador definido en el algoritmo genético.
+
+\item Se repite el proceso para cada clon y se elige la mejor solución de las nuevas que se generaron.
+
+\item La solución se acepta si se cumple:
+  
+  \begin{equation*}
+\mathrm{e}^{\frac{aff(x) - aff(creador)}{20}} < 0.1
+\end{equation*}
+
+\end{enumerate}
+
+\end{itemize}
+
+\end{document}

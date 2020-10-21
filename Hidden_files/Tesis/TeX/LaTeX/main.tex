@@ -1,0 +1,563 @@
+%%%% Tipos de Documentos:
+
+%libro: \part  //Tiene partes
+%reporte: \chapter //Tiene capítulos
+%artículo: \section //Sección
+		  % \subsection //Subsección
+			% \subsubsection //Subsubsección
+
+%``COMILLAS''
+%\caption[texto en el índice]{texto en la descripción de la imagen}
+
+%%%% Ejemplo de entorno "enumerate"
+%\begin{enumerate}
+%   \item First level item
+%   \item First level item
+%   \begin{enumerate}
+%     \item Second level item
+%     \item Second level item
+%     \begin{enumerate}
+%       \item Third level item
+%       \item Third level item
+%       \begin{enumerate}
+%         \item Fourth level item
+%         \item Fourth level item
+%       \end{enumerate}
+%     \end{enumerate}
+%   \end{enumerate}
+% \end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PREÁMBULO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[letterpaper,12pt]{book} %%Documento tipo libro, con tamaño de letra 12 y el tamaño de la hoja es "carta"
+%\includeonly{Extraccion_de_datos} %%Para compilar sólo algunos capítulos
+
+
+%% Escritura %%
+\usepackage[utf8]{inputenc} %Soporte para acentos
+\usepackage[T1]{fontenc} % Usamos codificación T1
+\usepackage[spanish,mexico]{babel} %Español (divide las sílabas con las reglas gramaticales del español)
+
+%% Soporte de símbolos adicionales (matemáticas) %%
+\usepackage{amsmath}
+\usepackage{amssymb}		
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{mathptmx}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+%% Para agregar teoremas, definiciones, proposiciones, ejercicios, numerados
+\newtheorem{teo}{Teorema}[chapter] %%Para introducir teoremas numerados por capítulo
+\newtheorem{defn}{Definición}[chapter] %%Para introducir definiciones numeradas por capítulo
+\newtheorem{prop}{Proposición}[chapter] %%Para introducir proposiciones numeradas por capítulo
+\newtheorem{ej}{Ejemplo}[chapter] %%Para introducir proposiciones numeradas por capítulo
+%\newtheorem{teo}{Teorema}[section] %%Para introducir teoremas numerados por sección
+%\newtheorem{defn}{Definition}[section] %%Para introducir definiciones numerados por sección
+
+%% Formato del Documento %%
+\usepackage[lmargin=3cm,rmargin=3cm,top=2cm,bottom=2cm]{geometry} % Especificamos la medida de los márgenes en el documento
+\usepackage{enumerate} %% Sirve para poder usar entornos como \itemize, \list_type, \enumerate, ...
+\usepackage{dsfont}
+\usepackage{lineno} %%Para numerar las líneas.
+%\usepackage{setspace} %Para cambiar el tamaño del espaciado entre cada renglón
+\setlength{\parindent}{2mm} %% Los párrafos NO tienen sangría con 0mm
+%\setlength{\parskip}{3mm} %Para definir el espacio entre cada párrafo
+\usepackage{parskip} %Para poner espacio entre cada párrafo al tener un "enter" de separación (sin poner \\ al final del párrafo)
+%\usepackage{enumitem}  %%Para usar el entorno "enumerate"
+\usepackage{float} %%Para poner las figuras donde se desea
+%Specifier	Permission
+%h	Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
+%t	Position at the top of the page.
+%b	Position at the bottom of the page.
+%p	Put on a special page for floats only.
+%!	Override internal parameters LaTeX uses for determining "good" float positions.
+%H	Places the float at precisely the location in the LaTeX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!.
+\usepackage{multirow} %%Para hacer tablas con filas combinadas
+%\input{nombre_de_archivo} %%To include subfiles in to a subfiles. %%Se pone dentro de los archivos de los capítulos, se pueden guardar secciones o subsecciones.
+
+%%Para poder ingresar el código de R con colores, no sólo usando el entorno "verbatim" %%
+\usepackage{listings} %%NO ACEPTA ACENTOS DENTRO DEL CÓDIGO NI "ñ"
+%\usepackage{listingsutf8}
+\usepackage{color}
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codedarkgreen}{rgb}{0.102,0.4,0}
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{white},   commentstyle=\color{codegreen},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codedarkgreen},
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,     
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+%% Para insertar imágenes %%
+\usepackage[pdftex]{graphicx} %Compilando con pdflatex, esto nos permite insertar imágenes con las siguientes extensiones: .jpg, .png, .pdf, .eps (Postscript Encapsulado)
+\graphicspath{ {Pictures/} }
+\usepackage{wrapfig} %% Sirve para poner figuras entre el texto
+\usepackage{subfigure} %% Necesitamos este paquete para poner las subfiguras horizontales
+%\usepackage{subfig} %% Subfiguras verticales %%%PRODUCE ERROR
+
+%% Otros %%
+\usepackage{url} %%Para agregar páginas de internet
+\usepackage{makeidx}
+\usepackage{verbatim} %% Para poder agregar textos tal cual se escriben, por ejemplo los códigos sin que se modifiquen.
+\usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
+%\usepackage{blindtext}
+%\usepackage{showframe} %% Mostrar la caja de texto
+\usepackage{longtable} %% Tablas grandes
+
+%% Definición de variables %%
+\newcommand{\dfNmatrizChica}{\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|l|p{7.5cm}|p{4.5cm}|}
+\hline
+Col.  & Nombre      & Explicación                                           & Posibles valores               \\ \hline
+1     & Semestre    & Semestre al que pertenece la materia (Año y semestre) & $1^{o}, 2^{o},..., 8^{o}$      \\ \hline
+2     & Plan        & Año en el que se implementó un nuevo plan de estudios & 1983, 1994, 2000, 2006, 2013, 2015, 2017\\ \hline
+3     & Materia     & Clave del curso impartido                             & $\mathbb{N}$                   \\ \hline
+4     & URL         & Nombres de las páginas de los horarios de FC          & Páginas web de FC \\ \hline
+5     & Num. Grupos & Número de grupos que hay en cada página de internet   & $\mathbb{N}$                   \\ \hline
+\end{tabular}}
+\caption{\textit{Descripción de columnas de mat\_posibles\_url}}\label{matPosiblesURL}
+\end{table}}
+
+
+\newcommand{\dfNmatrizGrande}{
+%\centering
+\begin{longtable}{|c|l|p{7.5cm}|p{3.5cm}|}
+%\caption{\textit{Descripción de columnas de m\_grande}}\\
+\hline
+Col. & Nombre & Explicación & Posibles valores \\ 
+\hline
+\endfirsthead %% Con esta instrucción se agrega el encabezado de la tabla inicial
+
+%\multicolumn{4}{l}{Continuación de la Tabla ...}\\
+\hline
+Col. & Nombre & Explicación & Posibles valores \\ 
+\endhead %% Con esta instrucción se agrega el encabezado de cada tabla secundaria (Títulos/Nombres de las columnas)
+
+\multicolumn{4}{l}{La tabla continúa en la siguiente página}\\
+\endfoot %% Se agrega un texto abajo de cada tabla secundaria
+
+%\multicolumn{4}{r}{Fin de la Tabla}\\
+\caption{\textit{Descripción de columnas de m\_grande}} %%Primero imprime "Fin de la Tabla" y luego pone el caption
+\endlastfoot %% Agregamos un texto al final de la tabla, también se podrían repetir los nombres de las columnas
+
+%\hline 
+1 & Materia & Nombre del curso impartido & ``Probabilidad I'' \\ 
+\hline 
+2 & Profesor & Nombre de la persona que va a impartir alguna materia & ``Arrigo Coen Coria'' \\ 
+\hline 
+%3 & Horario & Hora en la que se imparte alguna materia & ``7 a 8'', ``8 a 9'', $\ldots$, ``20 a 21'', ``21 a 22'' \\ 
+3 & Horario & Hora en la que se imparte alguna materia & ``7 a 8'', $\ldots$ , ``21 a 22'' \\ 
+\hline
+4 & horario\_num & Valores de la columna Horario en variables tipo \textit{numeric} & $7,8,9,\ldots,20,21$ \\ 
+\hline
+5 & Lugares & Espacios disponibles por salón & $\mathbb{N}$ \\ 
+\hline 
+6 & Alumnos & Número de estudiantes inscritos por grupo & $\mathbb{N}$ \\ 
+\hline 
+7 & Salón & Espacio físico en el que se imparte alguna materia & ``O123'', ..., ``P105'' \\ 
+\hline 
+8 & Grupo & Clave con la que se identifica una asignación & 4489, 6114, $\ldots$ \\ 
+\hline 
+%8 & Carrera & Nombre de alguna carrera de FC & Actuaría, Ciencias de la Computación, Matemáticas, Matemáticas Aplicadas \\ 
+9 & Carrera & Nombre de alguna carrera de FC & ``Actuaría'', ``Matemáticas'',... \\ 
+\hline 
+10 & Plan & Año en el que se implemento un nuevo plan de estudios & 1983, ..., 2017 \\ 
+\hline 
+11 & Semestre & Semestre al que pertenece la materia (Año y semestre par o impar) & 20081, $\ldots$ , 20192, 20201 \\ 
+\hline 
+12 & Cambios & Clave que indica los cambios que se le han hecho al grupo & $\mathbb{N}$ \\ 
+\hline 
+13 & Turno & Matutino: 7:00-14:00hrs, Vespertino: 15:00-21:00 & M/V \\ 
+\hline 
+14 & Semestre\_de\_materia & Semestre en el que el plan de estudios dicta que se lleva esa materia & ``Primer'', $\ldots$ , ``Optativas'' \\ 
+\hline 
+15 & url & Nombre de la página de los horarios de FC correspondiente al grupo & url's de FC \\ 
+\hline 
+16 & Act2000 & Columna binaria, indica si el grupo pertenece a la carrera de Actuaría, plan 2000 & $0,1$\\
+\hline 
+17 & Act2006 & Columna binaria, indica si el grupo pertenece a la carrera de Actuaría, plan 2006 & $0,1$ \\ 
+\hline 
+18 & Act2015 & Columna binaria, indica si el grupo pertenece a la carrera de Actuaría, plan 2015 & $0,1$ \\ 
+\hline 
+19 & CdC1994 & Columna binaria, indica si el grupo pertenece a la carrera de CdC, plan 1994 & $0,1$ \\ 
+\hline 
+20 & CdC2013 & Columna binaria, indica si el grupo pertenece a la carrera de CdC, plan 2013 & $0,1$ \\ 
+\hline 
+21 & Mat1983 & Columna binaria, indica si el grupo pertenece a la carrera de Matemáticas, plan 1983 & $0,1$ \\ 
+\hline 
+22 & MatAp2017 & Columna binaria, indica si el grupo pertenece a la carrera de MatAp, plan 2017 & $0,1$ \\ 
+\hline 
+23 & NomMat\_Act2000 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2000 & Nombres de materias de FC \\ 
+\hline 
+24 & NomMat\_Act2006 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2006 & Nombres de materias de FC \\ 
+\hline 
+25 & NomMat\_Act2015 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2015 & Nombres de materias de FC \\ 
+\hline 
+26 & NomMat\_CdC1994 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 1994 & Nombres de materias de FC \\ 
+\hline 
+27 & NomMat\_CdC2013 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 2013 & Posibles valores \\ 
+\hline 
+28 & NomMat\_Mat1983 & Indica el nombre de las materia correspondiente a la carrera de Matemáticas plan 1983 & Nombres de materias de FC \\ 
+\hline 
+29 & NomMat\_MAp2017 & Indica el nombre de las materia correspondiente a la carrera de MatAp plan 2017 & Nombres de materias de FC \\ 
+\hline 
+30 & URL\_Act2000 & Indica la URL correspondiente a la carrera de Actuaría plan 2000 & url de FC \\ 
+\hline 
+31 & URL\_Act2006 & Indica la URL correspondiente a la carrera de Actuaría plan 2006 & url de FC \\ 
+\hline 
+32 & URL\_Act2015 & Indica la URL correspondiente a la carrera de Actuaría plan 2015 & url de FC \\ 
+\hline 
+33 & URL\_CdC1994 & Indica la URL correspondiente a la carrera de CdC plan 1994 & url de FC \\ 
+\hline 
+34 & URL\_CdC2013 & Indica la URL correspondiente a la carrera de CdC plan 2013 & url de FC \\ 
+\hline 
+35 & URL\_Mat1983 & Indica la URL correspondiente a la carrera de Matemáticas plan 1983 & url de FC \\ 
+\hline 
+36 & URL\_MAp2017 & Indica la URL correspondiente a la carrera de MatAp plan 2017 & url de FC \\ 
+\hline 
+37 & Num\_materia & Número del nombre de materia de acuerdo al vector \textit{vec\_nom\_materias} & $\mathbb{N}$ \\ 
+\hline 
+\end{longtable}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INICIO DEL DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%Para cambiar el nombre de los títulos de los capítulos/índices/listas/...
+%\renewcommand{\listfigurename}{LISTA DE FIGURAS} %Cambia el título de la lista de figuras, de "Índice de figuras" a "LISTA DE FIGURAS"
+%\renewcommand{\listtablename}{Lista de Tablas} %Cambia el título de la lista de tablas, de "Índice de tablas" a "Lista de Tablas"
+%\renewcommand{\figurename}{Foto} %Cambia el "caption" de las figuras
+%\renewcommand{\tablename}{DATOS} %Cambia el "caption" de las tablas
+
+%\renewcommand{\contentsname}{Índice} %Cambia el título de la tabla de contenidos, de "Índice General" a "Índice"
+\renewcommand\lstlistingname{Código} %Cambia el "caption" de los códigos
+\renewcommand\lstlistlistingname{Códigos} %Cambia el título de los códigos, de "listings" a "Códigos"
+
+\thispagestyle{empty} %Esta página no tiene numeración
+\frontmatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{minipage}{.3\textwidth}
+  \flushleft
+  \center{\includegraphics[scale=.09]{unam.pdf}}
+
+  \vspace{20pt}
+
+  \center{
+    \rule{.5pt}{.6\textheight}
+    \hspace{7pt}
+    \rule{2pt}{.6\textheight}
+    \hspace{7pt}
+    \rule{.5pt}{.6\textheight}
+  } \\
+
+  \center{\includegraphics[scale=.22]{ciencias.pdf}}
+\end{minipage}
+\begin{minipage}{.7\textwidth}
+\flushright
+
+\center{
+
+  \center{
+    \LARGE{U}\large{NIVERSIDAD} \LARGE{N}\large{ACIONAL} 
+    \LARGE{A}\large{UTÓNOMA} \\[10pt]
+    \large{DE} 
+    \LARGE{M}\large{ÉXICO} 
+  } \\
+  \rule{\textwidth}{2pt}
+  \\
+  \hrulefill\\[1cm]
+  
+%  \LARGE{F}\large{ACULTAD DE } \LARGE{C}\large{IENCIAS}\\[2cm]
+  \LARGE{F}\large{ACULTAD DE } \LARGE{C}\large{IENCIAS}\\[1.5cm]
+
+  \large{
+INFERENCIA ESTADÍSTICA APLICADA EN LA GENERACIÓN DE UNA PROPUESTA DE HORARIOS PARA LAS CARRERAS DEL DEPARTAMENTO DE MATEMÁTICAS  %}\\[2cm]
+}\\[1.5cm]
+
+  \huge{
+T \hspace{1cm} E \hspace{1cm} S \hspace{1cm} I \hspace{1cm} S  }\\[1cm]
+
+  \large{QUE PARA OBTENER EL TÍTULO DE:}\\[1cm]
+
+  \large{
+%Actuaria  }\\[1cm]
+ACTUARIA  }\\[1cm]
+
+  \large{PRESENTA:}\\%[1cm]
+
+  \large{
+%Miriam Gabriela Colín Núñez  }\\[1cm]
+MIRIAM GABRIELA COLÍN NÚÑEZ  }\\[1cm]
+  \large{
+TUTOR  }\\%[1cm]
+
+  \large{
+%Dr. Arrigo Coen Coria  }
+DR. ARRIGO COEN CORIA  }\\[1cm]
+
+\normalsize{CIUDAD UNIVERSITARIA, CD. MX., 2020}
+}
+
+\end{minipage}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DRECHOS DE AUTOR %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
+
+\includegraphics[width = \textwidth]{DGB.png}
+
+\textbf{UNAM - Dirección General de Bibliotecas}
+
+\textbf{Tesis Digitales}
+ 
+\textbf{Restricciones de uso}\\
+
+\textbf{DERECHOS RESERVADOS \textcopyright}
+
+\textbf{PROHIBIDA SU REPRODUCCIÓN TOTAL O PARCIAL}\\
+
+Todo el material contenido en esta tesis está protegido por la Ley Federal del Derecho de Autor (LFDA) de los Estados Unidos Mexicanos.\\
+
+El uso de imágenes, fragmentos de videos y demás material que sea objeto de protección de los derechos de autor, será exclusivamente para fines educativos e informativos y deberá citar la fuente donde la obtuvo, mencionando el autor o autores. Cualquier uso distinto como el lucro, reproducción, edición o modificación, será perseguido y sancionado por el respectivo titular de los Derechos de Autor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DATOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
+
+\textbf{Datos de la Alumna:}
+
+Colín
+
+Núñez
+
+Miriam Gabriela
+
+(Teléfono)
+
+Universidad Nacional Autónoma de México
+
+Facultad de Ciencias
+
+Actuaría
+
+(número de cuenta)
+
+
+\textbf{Datos del tutor:}
+
+Dr.
+
+Arrigo
+
+Coen
+
+Coria
+
+
+\textbf{Datos del sinodal 1:}
+
+
+
+
+\textbf{Datos del sinodal 2:}
+
+
+
+
+\textbf{Datos del sinodal 3:}
+
+
+
+
+\textbf{Datos del sinodal 4:}
+
+
+
+
+\textbf{Datos del sinodal 5:}
+
+
+
+
+\textbf{Datos del trabajo escrito:}
+
+%Inferencia estadística aplicada para generar una propuesta de asignación de horarios en las carreras del Departamento de Matemáticas
+%Inferencia estadística aplicada en la generación de una propuesta de asignación de horarios para las carreras del departamento de matemáticas
+%Inferencia estadística aplicada para la generación de horarios de las carreras del departamento de matemáticas
+Inferencia estadística aplicada en la generación de una propuesta de horarios para las carreras del departamento de matemáticas
+
+(Número de Páginas)
+
+2020
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEDICATORIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
+
+\begin{flushright}
+\textit{Dedicado a \\}
+\end{flushright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AGRADECIMIENTOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
+
+\textbf{\Huge{Agradecimientos}}\\
+%%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+%%\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+ 
+¡Muchas gracias a todos!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ÍNDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
+\pagenumbering{Roman} %Para comenzar la numeración de páginas en números romanos
+
+\tableofcontents %% Tabla de Contenidos //Índice
+\listoffigures %%Todo lo que se encuentra en los entornos "figure" y tiene "caption" //nombre
+\listoftables %%Todo lo que se encuentra en los entornos "table" y tiene "caption" //nombre
+\lstlistoflistings %%Todo lo que se encuentra en el entorno "lstlisting" y tiene "caption" //nombre
+
+%% Modos de ubicar figuras:
+%% t = top
+%% b = bottom
+%% h = here
+%% ! = ignorar otras especificaciones
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Aquí empieza la TESIS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage %%Salto de Página
+\mainmatter %%Empieza a enumerar con los naturales
+
+%% El comando \include{} nos permite tener archivos separados y "mandarlos llamar" para crear un nuevo archivo con todo lo que está incluido. Esto nos sirve para generar archivos MUY grandes, por ejemplo libros con muchos capítulos
+%% Construcción Modular: Dividimos en partes nuestro archivo
+%%%%%%%%%%%% IMPORTANTE: Los archivos que se incluyen NO deben de tener preámbulo, sólo el documento "maestro/principal/main" (i.e. como este) lo debe de contener y es el que se compila, los otros no se compilan (porque no tienen preámbulo).
+
+%%%%% Inicio de capítulos %%%%%
+
+\include{Introduccion} %%1
+
+\include{Extraccion_de_datos} %%2
+
+\include{Analisis_estadistico} %%3
+
+\include{Simulacion} %%4
+
+\include{Teoria_de_AG_aplicado_a_horarios} %%5
+
+\include{Resultados_de_AG} %%6
+
+\include{Comportamiento_de_seleccion} %%7
+
+\include{Conclusiones} %%8
+
+%%%%% Apéndices %%%%%
+\backmatter %%Los "Capítulos" ya no se registran como tal en el índice general
+
+%%%%%%%%%% A partir de aquí los apéndices se declaran como secciones, ya que el Capítulo es "Apéndices": %%%%%%%%%%
+
+\include{Apendices} %%A.1
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{X}
+
+%%%%%%%%%%%%%%%%%%% LIBROS %%%%%%%%%%%%%%%%%%%
+
+\bibitem{Casella} Casella G., (2006), \textit{Statistical Inference}, Thomson Press
+
+\bibitem{ChatfieldXing} Chatfield C. y Xing H., (2019), \textit{The Analysis of Time Series An Introduction with R}, Chapman $\&$ Hall/CRC \label{ChatfieldXing}
+
+\bibitem{GibbonsChakraborti} Gibbons J. D. y Chakraborti S., (2011), \textit{Nonparametric Statistical Inference}, Chapman $\&$ Hall/CRC %Fifth Edition
+
+\bibitem{Montgomery} Montgomery D., Jennings C. y Kulahci M., (2015), \textit{Introduction to Time Series Analysis and Forecasting}, Wiley
+
+\bibitem{RinconIntermedio} Rincón L., (2007), \textit{Curso intermedio de probabilidad}, UNAM
+
+\bibitem{Rubinstein} Rubinstein R. y Kroese D., (2016), \textit{Simulation and the Monte Carlo Method}, Wiley%Second Edition
+
+\bibitem{ShumwayStoffer} Shumway R. y Stoffer D., (2017), \textit{Time Series Analysis and Its Applications: With R Examples}, Springer
+
+\bibitem{Yazdani} Yazdani M., Naeri B. y Zeinali E., (2017), \textit{Algorithms for university course scheduling problems}, Tehnički vjesnik 24, Suppl. 2, 241-247 \label{Yazdani}
+
+
+
+
+%\bibitem{Mood} Mood A., Graybill F. y Boes D., (2011), \textit{Introduction to the theory of statics}, McGraw-Hill%%Probability - Nonparametric methods
+
+%\bibitem{Buontempo} Buontempo F., (2019), \textit{Genetic Algorithms and Machine Learning for Programmers: Create AI Models and Evolve Solutions}, Pragmatic Programmers
+
+%\bibitem{RinconProcesos} Rincón L., (2012), \textit{Introducción a los procesos estocásticos}, UNAM \label{RinconProcesos}
+
+%\bibitem{RinconIntro} Rincón L., (2014), \textit{Curso introducción a la probabilidad}, UNAM
+
+%\bibitem{Ross} Ross S., (2014), \textit{A first course in probability}, Pearson \label{Ross}
+
+
+
+%%%%%%%%%%%%%%%%%%% URLS %%%%%%%%%%%%%%%%%%%
+
+\bibitem{IntroEstadisticaMargarita} \url{https://estadisticafciencias.files.wordpress.com/2019/08/introduccic3b3n-a-la-estadc3adstica-versic3b3n-final.pdf} \label{MargaritaJaimeRuthLizbeth}
+
+%\url{https://www.youtube.com/watch?v=b2dGlujy0e4}%%Video plática del Aquelarre
+
+%\url{http://www.fciencias.unam.mx/comunicacion/detalle/2257}%%Hoja Verde: Avisos Aquelarre
+
+%\url{https://computo.fciencias.unam.mx/PortadaTesis-FC/portadaTesis.php}%%Página para generar portada en .tex
+
+%\url{http://www.fciencias.unam.mx/secretarias/general/dep/caratulas.pdf}%%Ejemplos de carátulas
+
+%\url{https://z-lib.org/}%%Página para descargar libros
+
+%\url{http://libgen.rs/}%%Página para descargar libros
+
+%\url{https://www.rinconmatematico.com/instructivolatex/formulas.htm}%%Ejemplos útiles para LaTeX
+
+%\url{https://contrataciondelestado.es/wps/wcm/connect/80732194-3c4d-45eb-b20f-2b0e42f5cc97/DOC20190923123244Manual+de+estilo.pdf?MOD=AJPERES}%%Uso de mayúsculas, referencias de figuras,...
+
+%\url{http://132.248.9.195/ptd2019/marzo/0787319/Index.html}%%Tesis dirigida por Margarita
+
+%\url{http://132.248.9.195/ptd2019/octubre/0796385/Index.html}%%Tesis dirigida por Jaime Vazquez Alamilla
+
+%\url{http://132.248.9.195/ptd2019/noviembre/0798621/Index.html}%%Tesis dirigida por Ruth
+
+%\url{http://132.248.9.195/ptd2020/junio/0802122/Index.html}%%Tesis dirigida por Lizbeth
+
+%%%%%%%%%%%%%%%%%%% IMÁGENES %%%%%%%%%%%%%%%%%%%
+
+
+
+
+\end{thebibliography}
+
+\end{document}

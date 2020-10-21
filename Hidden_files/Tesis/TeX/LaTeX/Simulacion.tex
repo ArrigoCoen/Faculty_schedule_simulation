@@ -1,0 +1,260 @@
+\chapter{Simulación}
+
+La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo que es muy difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. La simulación nos permite experimentar con diversos supuestos que podrían ser muy costosos de realizar. Las áreas en las que se utiliza la simulación como herramienta diaria son por ejemplo en biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería o en las ciencias sociales.
+
+Algunos ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas. Se utiliza para todo tipo de propósitos, por ejemplo para poder realizar predicciones en base a datos históricos o enseñar a los pilotos a volar un avión sin poner en riesgo a la población al volar el avión real.
+
+Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica para poder obtener un mejor resultado al momento de simular sistemas que se hacen cada vez más complejos como las redes neuronales.
+
+A lo largo de este capítulo explicaremos el proceso que seguimos para obtener la asignación de los horarios para cada materia con su respectivo profesor.
+
+\section{Funciones hechas en R}
+
+La función que genera esqueletos se llama \textit{gen\_esqueleto} la cual carga la función \textit{simula\_grupos} y ésta a su vez carga la función \textit{estima\_grupos}.
+
+
+El diagrama de flujo de la función se puede ver en la figura \ref{DF_genAsig}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{diagrama_flujo} %width=\textwidth
+\caption{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}}\label{DF_genAsig}
+\end{figure}
+
+
+\begin{itemize}
+\item \textit{posibles\_url}
+
+\item \textit{gen\_m\_grande}
+
+\item \textit{gen\_m\_grande\_total}
+
+\item \textit{gen\_esqueleto}
+
+\item \textit{gen\_solicitudes}
+
+\item \textit{gen\_asignacion}
+
+\item \textit{gen\_simula\_alumnos}
+
+\item \textit{gen\_simula\_tamano\_grupo}
+\end{itemize}
+
+\input{Sim_obtencionq1q2} %%Subsección %%To include subfiles in to a subfiles use \input{name_of_file}
+
+\section{Simulación de la demanda de alumnos}
+
+En la figura \ref{matAl_corregidos} vemos ...
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
+\caption{\textit{Matriz con alumnos corregidos}}\label{matAl_corregidos}
+\end{figure}
+
+En la figura \ref{vec_alum_sim} vemos...
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{vec_alum_sim_EstadisticaIII} %width=\textwidth
+\caption{\textit{Vector con demanda simulada para el 2020-2}}\label{vec_alum_sim}
+\end{figure}
+
+
+
+\section{Simulación de tamaño de grupos} \label{SimTamGpos}
+
+En esta sección utilizaremos la prueba de la $\chi^{2}$ para Bondad de Ajuste, propuesta por Karl Pearson, para probar la hipótesis formulada en la sección \ref{DitribTamGpos}: 
+
+$H_{0}: $ Los datos representan observaciones de una variable aleatoria con distribución $Poisson(\lambda)$
+
+\textit{vs}
+
+$H_{a}: $ La distribución es otra.
+
+
+La estadística de prueba definida por Pearson es:
+
+\begin{equation}
+T = \displaystyle \sum_{i = 1}^{k} \dfrac{(\textit{o}_{i} - \textit{e}_{i})^{2}}{\textit{e}_{i}}
+\end{equation}
+
+Se rechaza $H_{0}$ si $T > \omega_{1-\alpha}$
+
+
+Donde:
+
+\begin{itemize}
+\item[ ] $k:$ Número de celdas o clases en las que se dividen los datos
+
+\item[ ] $\textit{o}_{i}:$ Frecuencia observada en la celda $i$
+
+\item[ ] $\textit{e}_{i} = n p_{i}:$ Valor esperado  en la celda $i$
+
+\item[ ] $n = \displaystyle \sum_{i = 1}^{n} o_{i}:$ Suma de las observaciones
+
+\item[ ] $p_{i}:$ Probabilidad de que el experimento caiga en la celda $i$
+
+\item[ ] $\displaystyle \sum_{i = 1}^{n} p_{i} = 1$
+
+\item[ ] $\omega_{1-\alpha}:$ Cuantil de la distribución $\chi_{(k-1-m)}^{2}$
+
+\item[ ] $m:$ Número de parámetros estimados %en la distribución de $H_{0}$
+\end{itemize}
+
+Por el resultado \ref{EMVlambda} sabemos que el estimador máximo verosímil de $\lambda$ para la distribución $Poisson(\lambda)$ es la media.
+
+
+En la figura \ref{densidadesNumAl_x_gpo_x_sem} vimos todas las densidades ajustadas para cada semestre. Con los datos que utilizamos para generar el histograma de la figura \ref{histNumAl_x_gpo_x_sem} hicimos un histograma con la densidad ajustada de dichos datos (figura \ref{densidad_tamGpo}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{densidad_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
+\caption{\textit{Densidad ajustada del tamaño de grupo}}\label{densidad_tamGpo}
+\end{figure}
+
+Con la función \verb@fitdist(vec_alumnos, distr = "pois")@, en R, le ajustamos una distribución Poisson a los datos. Nos arrojó el valor estimado de $\lambda$. El resumen del modelo lo podemos ver en la figura \ref{fitdistPois_tamGpo}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{fitdist_poisson_tam_gpo} %width=\textwidth
+\caption{\textit{Resumen del modelo ajustado para el tamaño de grupo}}\label{fitdistPois_tamGpo}
+\end{figure}
+
+
+
+
+
+
+
+\section{Simulación de esqueletos}
+
+
+
+\section{Simulación de solicitudes de profesores oculta y pseudo-real}
+
+En esta sección vamos a explicar cómo hicimos la simulación de la solicitud de los profesores. En la vida real los profesores pueden elegir libremente las materias que quieren impartir y seleccionan las horas a las que desean impartir sus clases. Dado que no contamos con esa información decidimos simular la elección de materias y horarios en base a la información que tenemos de semestres anteriores.
+
+Como vimos en el diagrama \ref{DF_genAsig} simulamos dos veces las solicitudes de los profesores, en el proceso de asignación. A la primera vez que simulamos las solicitudes la llamaremos \textit{Solicitud oculta} y a la segunda la llamaremos \textit{Solicitud pseudo-real}. La explicación de su uso lo vemos a continuación.
+
+\begin{itemize}
+\item[-] Solicitud oculta: La llamamos oculta porque nos ayuda para la generación de los esqueletos. No influye directamente en la asignación final.
+
+\item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real.
+\end{itemize}
+
+Antes de iniciar las simulaciones de elección de materia y de horario obtuvimos un vector y una matriz con la información de las materias y de los profesores, respectivamente.
+
+En el caso de las materias, el vector lo obtuvimos a partir de la matriz \textit{m\_grande\_total} del semestre 2008-1 al 2020-1. No tiene nombres repetidos. Tiene 333 materias.
+
+En el caso de los profesores, la matriz tiene 2 columnas. En la primer columna se tienen los nombres de todos los profesores que han impartido clase desde el semestre 2015-1 hasta el 2020-1. Dichos nombres los obtuvimos de la matriz \textit{m\_grande\_total} de los semestres correspondientes.
+
+En la segunda columna de la matriz, se tiene un $1$ si el profesor es de tiempo completo y un $0$ si no. Para llenarla ingresamos a la página \url{http://www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo} del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos el vector con el nombre de los profesores de tiempo completo. En la figura \ref{profTC_SelectorGadget} podemos ver el código CSS que utilizamos para obtener los datos en R. También observamos que se seleccionaron 94 profesores.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{profesores_TC_SelectorGadget} %width=\textwidth
+\caption{\textit{Profesores de tiempo completo: SelectorGadget}}\label{profTC_SelectorGadget}
+\end{figure}
+
+Al extraer la información en R obtuvimos un vector con 94 entradas. En la figura \ref{profTC_sinLimpiar} podemos ver los primeros 20 valores del vector. Notamos que cada entrada del vector inicia con los caracteres $\backslash n \backslash t \backslash t \backslash t \backslash t \backslash t \backslash t \backslash t$. Estos caracteres, en la presentación final de la página de internet, indican un salto de línea y las tabulaciones o espacio que se tiene de izquierda a derecha.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{profesores_TC_sinLimpiar} %width=\textwidth
+\caption{\textit{Vector de profesores de tiempo completo}}\label{profTC_sinLimpiar}
+\end{figure}
+
+Limpiamos los datos para obtener un vector que sólo tuviera los nombres de los profesores. Eliminamos el título de cada uno porque en los horarios publicados en las páginas de la FC sus nombres no tienen título. De esta manera obtuvimos el vector con el nombre de los profesores de tiempo completo del Departamento de Matemáticas. Dicho vector lo comparamos con la primer columna de la matriz que contiene el nombre de todos los profesores y si los nombres coincidían, entonces poníamos un $1$ en el renglón correspondiente.
+
+\subsection{Simulación de elección de materia}
+
+\subsection{Simulación de elección de horario}
+
+
+
+
+
+
+\section{Calificación de esqueletos de horario}
+
+\begin{eqnarray*}
+L_{materia} &=& -1 \,\,\,\,\,\,  \text{por cada materia no impartida}\\
+x &=& \text{promedio}\\
+y &=& \text{cupo}\\
+L_{dif\_p\_c} (x,y) &=& \begin{cases}
+    \dfrac{a}{190} (x-y)  & \quad \text{si } x<y\\
+    - \dfrac{b}{190} (x-y)  & \quad \text{si } x\geqslant y
+  \end{cases}\\
+a &=& 0.5\\
+b &=& 0.8\\
+L_{categoria}^{1} (mat,solicitud) &=& -c(categoria - 1)\\
+L_{categoria}^{2} (mat,solicitud) &=& -c_{1}(categoria)
+\end{eqnarray*}
+
+Al momento de simular las solicitudes de materias para los profesores suponemos que la que está en primer lugar es la materia que más quiere dar, en segundo lugar, la segunda que quiere dar.
+
+Primero asignar grupos a los profesores de tiempo completo. Después asignar grupos faltantes a los profesores de asignatura.
+
+$L_{materia}$ es la penalización por no tener en el esqueleto una materia que necesitamos.
+
+$L_{dif\_p\_c}$ es la penalización en la asignación de salones. Se tiene un grupo de tamaño $x$ y un salón con capacidad $y$. Se penaliza con $\dfrac{a}{190}$ veces la diferencia entre $x$ y $y$ cuando el tamaño del grupo es menor a la capacidad del salón y se penaliza con $-\dfrac{b}{190}$ veces la diferencia entre $x$ y $y$ cuando el tamaño del grupo es mayor a la capacidad del salón.
+
+El esqueleto depende de la demanda de alumnos y de las solicitudes de los profesores.
+
+Primero se asignan materias a los profesores de tiempo completo y después a los de asignatura.
+
+Los profesores de asignatura pueden quedarse sin materias asignadas.
+
+Penalizaciones:
+
+\begin{enumerate}
+\item Si algún profesor pidió alguna materia y no se la dieron.
+
+\item Si hay alumnos que necesitan una clase a alguna hora y no existe profesor que la imparta.
+
+\item Con $\alpha \times num\_alumnos\_faltantes$ por cada alumno que te faltó en cada hora-materia que tenías que dar. $\alpha > 0$
+
+\item Con $\beta \times num\_alumnos\_sobrantes$ por cada alumno que te pasaste en cada hora-materia que tenías que dar. $\beta > 0$
+
+\end{enumerate}
+
+Queremos el esqueleto con el menor valor en $\alpha + \beta$
+
+Con esto se obtiene un nuevo esqueleto.
+
+
+\section{Generación de asignaciones}
+
+\subsection{Calificación de asignaciones de grupo}
+
+%Los valores del modelo se muestran a continuación:
+
+%\begin{lstlisting}[language=R, caption= \textit{Método Holt-Winters aditivo}]
+%Holt-Winters' additive method 
+%
+%Call:
+% hw(y = tsData, h = 1, seasonal = "additive", level = c(q1, q2)) 
+%
+%  Smoothing parameters:
+%    alpha = 0.1247 
+%    beta  = 1 
+%    gamma = 1 
+%
+%  Initial states:
+%    l = 111 
+%    b = -22.5 
+%    s = -50 50
+%
+%  sigma:  155.8648
+%\end{lstlisting}
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.8]{modelo_HW_total_alumnos_x_sem} %width=\textwidth
+%\caption{\textit{Modelo del método aditivo de Holt-Winters: Total de alumnos por semestre}}
+%\end{figure}
+
+
+
+

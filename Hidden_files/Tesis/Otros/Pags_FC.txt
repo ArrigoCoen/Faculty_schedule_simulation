@@ -1,0 +1,34 @@
+Sólo se tomará en cuenta la información de las carreras del Departamento de
+Matemáticas, es decir, Actuaría, Matemáticas, Matemáticas Aplicadas y 
+Ciencias de la computación.
+
+Para encontrar los horarios de cada materia se observó que la estructura que
+se sigue es la siguiente:
+"http://www.fciencias.unam.mx/docencia/horarios/a/b/c"
+donde a = semestre, b = plan de estudios, c = número de materia.
+De esta manera se hicieron 3 ciclor de tipo "for" los cuales corren:
+Semestre: 20081 20082 20091 20092 20101 20102,...
+Num1: planes de estudio
+Num2: 1:10000 ##Número de materia
+
+Los planes de estudio de cada carrera son:
+
+**Planes de Estudio:
+*Actuaría:
+1972 ---- num1 = 214
+2000 ---- num1 = 119
+2006 ---- num1 = 1176
+2015 ---- num1 = 2017
+
+*Ciencias de la Computación:
+1994 ---- num1 = 218
+2013 ---- num1 = 1556
+
+*Matemáticas:
+1983 ---- num1 = 217
+
+*Matemáticas Aplicadas:
+2017 ---- num1 = 2055
+
+
+Los planes vigentes para Actuaría son los últimos tres.

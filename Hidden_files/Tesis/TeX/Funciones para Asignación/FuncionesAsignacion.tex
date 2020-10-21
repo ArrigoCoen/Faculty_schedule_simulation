@@ -1,0 +1,75 @@
+\documentclass[letterpaper,12pt,spanish]{report} %%Documento tipo libro, con tamaño de letra 12 y el tamaño de la hoja es "carta"
+
+%% Escritura %%
+\usepackage[utf8]{inputenc} %Soporte para acentos
+\usepackage[T1]{fontenc} % Usamos codificación T1
+\usepackage[spanish,mexico]{babel} %Español (divide las sílabas con las reglas gramaticales del español)
+
+%% Soporte de símbolos adicionales (matemáticas) %%
+\usepackage{amsmath}
+\usepackage{amssymb}		
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{mathptmx}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+
+%% Agregar teoremas, definiciones, proposiciones, ejercicios, numerados %%
+\newtheorem{teo}{Teorema}[chapter] %%Para introducir teoremas numerados por capítulo
+\newtheorem{defn}{Definición}[chapter] %%Para introducir definiciones numeradas por capítulo
+\newtheorem{prop}{Proposición}[chapter] %%Para introducir proposiciones numeradas por capítulo
+\newtheorem{ej}{Ejemplo}[chapter] %%Para introducir proposiciones numeradas por capítulo
+%\newtheorem{teo}{Teorema}[section] %%Para introducir teoremas numerados por sección
+%\newtheorem{defn}{Definition}[section]
+
+%% Formato del Documento %%
+\usepackage[lmargin=3cm,rmargin=3cm,top=2cm,bottom=2cm]{geometry} % Especificamos la medida de los márgenes en el documento
+\usepackage{enumerate} %% Sirve para poder usar entornos como \itemize, \list_type, \enumerate, ...
+\usepackage{dsfont}
+\usepackage{lineno} %%Para numerar las líneas.
+%\usepackage{setspace} %Para cambiar el tamaño del espaciado entre cada renglón
+%\usepackage{enumitem}  %%Para usar el entorno "enumerate"
+\usepackage{float} %%Para poner las figuras donde se desea
+%Specifier	Permission
+%h	Place the float here, i.e., approximately at the same point it occurs in the source text (however, not exactly at the spot)
+%t	Position at the top of the page.
+%b	Position at the bottom of the page.
+%p	Put on a special page for floats only.
+%!	Override internal parameters LaTeX uses for determining "good" float positions.
+%H	Places the float at precisely the location in the LaTeX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!.
+\usepackage{multirow} %%Para hacer tablas con filas combinadas
+
+%% Manejo de Imágenes %%
+\usepackage[rightcaption]{sidecap}
+\usepackage{wrapfig}
+\usepackage{graphicx} %package to manage images
+%\graphicspath{ {Pictures/} }
+\usepackage{adjustbox}
+
+%% Otros %%
+\usepackage{url} %%Para agregar páginas de internet
+\usepackage{makeidx}
+\usepackage{verbatim} %% Para poder agregar textos tal cual se escriben, por ejemplo los códigos sin que se modifiquen.
+\setlength{\parindent}{0mm} %% Los párrafos NO tienen sangría
+\usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
+
+\begin{document}
+
+\begin{center}
+\textbf{Funciones para Asignación}
+\end{center}
+
+\begin{defn} %\label{Def1PPH}
+\textbf{Esqueleto}
+
+%Matriz en la que se relacionan las materias por semestre con los horarios en los que se imparten.
+Matriz que tiene como renglones horas y como columnas materias, puede tener como información en la entrada $(i,j)$ el número de grupos o de alumnos simulados para la hora $i$ de la materia $j$.
+\end{defn}
+
+La función que genera esqueletos se llama \textit{gen\_esqueleto} la cual carga la función \textit{simula\_grupos} y ésta a su vez carga la función \textit{estima\_grupos}.
+
+
+
+
+\end{document}
