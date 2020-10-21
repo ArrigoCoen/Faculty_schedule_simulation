@@ -1,3 +1,3 @@
-# Data extraction
+# Data cleaning
 
-Here is explain how to extract the data from the Faculty of Sciences pages.
+Here is explained how the data from the Faculty of Science pages were cleaned.
