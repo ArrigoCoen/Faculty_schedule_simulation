@@ -3,9 +3,6 @@
 
 We will follow the next pipeline
 
-![fig](Figures/Fig_pipeline.jpeg)
+![fig](Figures/Fig_pipeline.png)
 
 # Simulation
-
-# Prueba 1
-# Prueba 2
