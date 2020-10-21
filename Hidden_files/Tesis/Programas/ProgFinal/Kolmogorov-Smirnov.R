@@ -9,427 +9,77 @@
 rm(list=ls())  # Borra variables
 cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
-setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Programas/ProgFinal V01")
+setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/ProgFinal")
 
-
-
-
-# Sn(xi) ------------------------------------------------------------------
-Sn <- function(i,xi,X){
-  #Se definen las variables que se van a utilizar
-  n <- length(X)
-  
-  if(i <= 0){
-    Sn_x <- 0
-  }else{
-    if(xi < X[1]){
-      Sn_x <- 0
-    }else if(xi >= X[n]){
-      Sn_x <- 1
-    }else{##i = 1,2,...,n-1
-      for(i in 1:(n-1)){
-        if(xi>=X[i] && xi<X[i+1]){
-          Sn_x <- i/n
-        }
-      }
-    }
-  }
-
-  return(Sn_x)
-}
-
-
-
-# F(xi) --------------------------------------------------------------------
-F_x <- function(i,xi,EMV_lambda){
-  if(i <= 0){
-    F_xi <- 0
-  }else{
-    F_xi <- sum(dpois(x = 0:xi, lambda = EMV_lambda))
-  }
-  
-  return(F_xi)
-}
-
-
-
-
-# Kolmogorov-Smirnov ------------------------------------------------------
-
-# Poisson(97.7619) --------------------------------------------------------
 #' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
 #' por grupo.
 load("vec_al_x_gpo_todos_sem.RData")
 
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-EMV_lambda <- mean(frec_datos[,1])#97.7619
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_lambda)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_lambda)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_lambda)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-View(tabla_KS)
+# Pruebas Kolmogorov-Smirnov ----------------------------------------------
 
 ##Se rechaza cuando Dn >= Dn_alpha
-Dn <- max(c(tabla_KS[,5],tabla_KS[,6]))#0.3952665
-#alpha = 0.05
-Dn_alpha <- 1.36/sqrt(n)#0.01035606
-#alpha = 0.01
-Dn_alpha <- 1.63/sqrt(n)#0.01241205
-
-#' Dn = 0.3952665 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Poisson con media 97.7619
-
-
-
-# Poisson(34.18746) --------------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-EMV_lambda <- sum(frec_datos[,1]*frec_datos[,2])/n#34.18746
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_lambda)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_lambda)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_lambda)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-View(tabla_KS)
-
-##Se rechaza cuando Dn >= Dn_alpha
-(Dn <- max(c(tabla_KS[,5],tabla_KS[,6])))#0.7365395
-#alpha = 0.05
-(Dn_alpha <- 1.36/sqrt(n))#0.01035606
 #alpha = 0.01
 (Dn_alpha <- 1.63/sqrt(n))#0.01241205
 
-#' Dn = 0.7365395 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Poisson con media 34.18746
+X <- vec_al_x_gpo_todos_sem
+n <- length(X)#17246
 
-
-
-# F_x Normal --------------------------------------------------------------
-F_x <- function(i,xi,EMV_mu,EMV_sigma){
-  if(i <= 0){
-    F_xi <- 0
-  }else{
-    F_xi <- pnorm(xi,EMV_mu,EMV_sigma)
-    # dnorm(xi,EMV_mu,EMV_sigma)
-    # dnorm(frec_datos[,2],mean = 97.761905,sd = 61.530922)
-    # sum(dpois(x = 0:xi, lambda = EMV_lambda))
-  }
-  
-  return(F_xi)
-}
-
-
-
-# Normal(97.761905,61.530922) ----------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-
-fitdistr(frec_datos[,1], densfun="normal")#numAL
-# fitdistr(frec_datos[,2], densfun="normal")#freq
-EMV_mu <- 97.761905
-EMV_sigma <- 61.530922
-# mean = 91.248677,sd = 119.878892
-
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_mu,EMV_sigma)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_mu,EMV_sigma)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_mu,EMV_sigma)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-View(tabla_KS)
-
-##Se rechaza cuando Dn >= Dn_alpha
-(Dn <- max(c(tabla_KS[,5],tabla_KS[,6])))#0.05604988
-#alpha = 0.05
-(Dn_alpha <- 1.36/sqrt(n))#0.01035606
-#alpha = 0.01
-(Dn_alpha <- 1.63/sqrt(n))#0.01241205
-
-#' Dn = 0.05604988 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Normal con mu 97.761905 y sd 61.530922
-
-
-# Normal(91.248677,119.878892) ----------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-
-# fitdistr(frec_datos[,1], densfun="normal")#numAL
-fitdistr(frec_datos[,2], densfun="normal")#freq
-EMV_mu <- 91.248677
-EMV_sigma <- 119.878892
-
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_mu,EMV_sigma)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_mu,EMV_sigma)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_mu,EMV_sigma)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-# View(tabla_KS)
-
-##Se rechaza cuando Dn >= Dn_alpha
-(Dn <- max(c(tabla_KS[,5],tabla_KS[,6])))#0.2232766
-#alpha = 0.05
-(Dn_alpha <- 1.36/sqrt(n))#0.01035606
-#alpha = 0.01
-(Dn_alpha <- 1.63/sqrt(n))#0.01241205
-
-#' Dn = 0.2232766 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Normal con mu 91.248677 y sd 119.878892
-
-
-# F_x Geom --------------------------------------------------------------
-F_x <- function(i,xi,EMV_p){
-  if(i <= 0){
-    F_xi <- 0
-  }else{
-    F_xi <- pgeom(xi,EMV_p)
-  }
-  
-  return(F_xi)
-}
-
-
-
-# Geom(0.0101253616) ------------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-
-fitdistr(frec_datos[,1], densfun="geometric")#numAL
-EMV_p <- 0.0101253616
-# fitdistr(frec_datos[,2], densfun="geometric")#freq
-# EMV_p <- 0.0108402638 
-
-
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_p)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_p)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_p)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-# View(tabla_KS)
-
-##Se rechaza cuando Dn >= Dn_alpha
-(Dn <- max(c(tabla_KS[,5],tabla_KS[,6])))#0.1453128
-#alpha = 0.05
-(Dn_alpha <- 1.36/sqrt(n))#0.01035606
-#alpha = 0.01
-(Dn_alpha <- 1.63/sqrt(n))#0.01241205
-
-#' Dn = 0.1453128 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Normal con p = 0.0101253616
-
-
-# Geom(0.0108402638) ------------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-tabla_KS <- matrix(0,nrow = length(X),ncol = 6)
-Sn_x <- rep(0,length(X))
-
-fitdistr(frec_datos[,2], densfun="geometric")#freq
-EMV_p <- 0.0108402638
-
-
-n <- sum(frec_datos[,2])#17246
-
-tabla_KS[,1] <- frec_datos[,1]
-tabla_KS[,2] <- frec_datos[,2]
-
-for(i in 1:length(X)){
-  xi <- X[i]
-  tabla_KS[i,3] <- Sn(i,xi,X)
-  tabla_KS[i,4] <- F_x(i,xi,EMV_p)
-  tabla_KS[i,5] <- abs(F_x(i,xi,EMV_p)-Sn(i-1,X[i-1],X))
-  tabla_KS[i,6] <- abs(F_x(i,xi,EMV_p)-Sn(i,xi,X))
-}
-colnames(tabla_KS) <- c("NumAlum","Freq","Sn","Fx","Fi-Si-1","Fi-Si")
-# View(tabla_KS)
-
-##Se rechaza cuando Dn >= Dn_alpha
-(Dn <- max(c(tabla_KS[,5],tabla_KS[,6])))#0.1690225
-#alpha = 0.05
-(Dn_alpha <- 1.36/sqrt(n))#0.01035606
-#alpha = 0.01
-(Dn_alpha <- 1.63/sqrt(n))#0.01241205
-
-#' Dn = 0.1690225 > 0.01241205 = Dn_alpha por lo tanto
-#' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Normal con p = 0.0108402638
-
-
-
-# ks.test() ---------------------------------------------------------------
-#' Se cargan los datos del semestre 2008-1 al 2020-1 del número de alumnos
-#' por grupo.
-load("vec_al_x_gpo_todos_sem.RData")
-
-##Se definen las variables que se van a utilizar
-datos <- as.data.frame(table(vec_al_x_gpo_todos_sem))
-frec_datos <- data.frame(NumAlum = as.numeric(as.character(datos$vec_al_x_gpo_todos_sem)),
-                         Freq = datos$Freq)
-X <- frec_datos[,1]
-n <- sum(frec_datos[,2])#17246
+### Poisson
+EMV_lambda <- mean(X)#34.18746
 y <- rpois(n,EMV_lambda)
 # Do x and y come from the same distribution?
-ks.test(X, y)
-
-y <- runif(n)#Unif(0,1)
-# Do x and y come from the same distribution?
-ks.test(X, y)
-
-fitdistr(frec_datos[,1], densfun="exponential")#numAL
-y <- rexp(n,0.0102289333)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.14876
-
-fitdistr(frec_datos[,1], densfun="cauchy")#numAL
-y <- rcauchy(n,91.860712,41.899013)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.13534
-
-fitdistr(frec_datos[,1], densfun="geometric")#numAL
-y <- rgeom(n,0.0101253616)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.14098
-
-fitdistr(frec_datos[,1], densfun="logistic")#numAL
-y <- rlogis(n,95.479765,36.006770)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.065001
-
-
-fitdistr(frec_datos[,1], densfun="negative binomial")#numAL
-y <- rnbinom(n,size = 1.7455436,mu=97.7619048)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.08091
-
-fitdistr(frec_datos[,1], densfun="normal")#numAL
-y <- rnorm(n,97.761905,61.530922)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.055781
-#' Dn = 0.055781 > 0.01241205 = Dn_alpha por lo tanto
+ks.test(X, y)#Dn = 0.4005
+#' Dn = 0.4005 > 0.01241205 = Dn_alpha por lo tanto
 #' se rechaza H0, por lo tanto los datos no siguen una distribución
-#' Normal con mu = 97.761905 y sd = 61.530922
+#' Poisson con lambda = 34.18746
 
-
-fitdistr(frec_datos[,1], densfun="Poisson")#numAL
-y <- rpois(n,97.761905)
+### Exponencial
+fitdistr(X, densfun="exponential")
+y <- rexp(n,0.0292504880 )
 # Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.39525
+ks.test(X, y)#Dn = 0.11701
+#' Dn = 0.11701 > 0.01241205 = Dn_alpha por lo tanto
+#' se rechaza H0, por lo tanto los datos no siguen una distribución
+#' Exponencial con lambda = 0.0292504880
 
-fitdistr(frec_datos[,1], densfun="t")#numAL
-y <- rt(n,df=46.925867)
+### Geométrica
+fitdistr(X, densfun="geometric")#numAL
+y <- rgeom(n,0.0284192122 )
 # Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.98117
+ks.test(X, y)#Dn = 0.10646
+#' Dn = 0.10646 > 0.01241205 = Dn_alpha por lo tanto
+#' se rechaza H0, por lo tanto los datos no siguen una distribución
+#' Geométrica con p = 0.0284192122
 
-
-y <- round(runif(n,0,100))#Unif(0,1)
+### Binomial negativa
+fitdistr(X, densfun="negative binomial")
+y <- rnbinom(n,size = 1.80547812,mu=34.18745219)
 # Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.46591
+ks.test(X, y)#Dn = 0.019599
+#' Dn = 0.019599 > 0.01241205 = Dn_alpha por lo tanto
+#' se rechaza H0, por lo tanto los datos no siguen una distribución
+#' Binomial negativa con size = 1.80547812 y mu = 34.18745219
 
-y <- runif(n,0,100)#Unif(0,1)
+### Normal
+fitdistr(X, densfun="normal")
+y <- rnorm(n,34.18745219,26.5768345)
 # Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.4709
+ks.test(X, y)#Dn = 0.10501
+#' Dn = 0.10501 > 0.01241205 = Dn_alpha => NO se rechaza H0,
+#' por lo tanto los datos siguen una distribución
+#' Normal con mu = 34.18745219 y sd = 26.5768345
 
-y <- runif(n,10,80)#Unif(0,1)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.57672
 
-y <- runif(n,10,100)#Unif(0,1)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.4709
-
-y <- runif(n,0,360)#Unif(0,1)
-# Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.4064
+# Histograma --------------------------------------------------------------
+#' La distribución que se ajusta a los datos es una
+#' Normal(mu = 34.18745219, sd = 26.5768345). Graficamos el histograma con
+#' las frecuencias relativas de los datos. La línea azul es la densidad
+#' ajustada generada por R y la línea roja es la densidad de "n" números
+#' aleatorios con distribución  Normal(34.18745219,26.5768345).
+hist(X,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
+     ylab = "Frecuencia relativa",freq = F,ylim = c(0,0.025),
+     main="Histograma del número de alumnos",xlab = "Número alumnos")
+lines(density(X),col=param_graficas$col1_linea,
+      lwd=param_graficas$lwd_dens)
+lines(density(rnorm(n,34.18745219,26.5768345)),col=param_graficas$col2_linea,
+      lwd=param_graficas$lwd_dens)
