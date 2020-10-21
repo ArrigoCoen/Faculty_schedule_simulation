@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  20 OCT 2020 00:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  20 OCT 2020 23:37
 entering extended mode
 **./main.tex
 (main.tex
@@ -1475,13 +1475,13 @@ LaTeX Info: Redefining \% on input line 473.
 
  (Simulacion.tex
 Cap\'{\i }tulo 4.
-<Pictures/diagrama_flujo.png, id=836, 620.3175pt x 399.74344pt>
+<Pictures/diagrama_flujo.png, id=836, 702.37407pt x 389.20406pt>
 File: Pictures/diagrama_flujo.png Graphic file (type png)
 <use Pictures/diagrama_flujo.png>
 Package pdftex.def Info: Pictures/diagrama_flujo.png  used on input line 20.
-(pdftex.def)             Requested size: 496.25468pt x 319.79517pt.
+(pdftex.def)             Requested size: 491.65851pt x 272.44098pt.
 
-Overfull \hbox (52.67621pt too wide) in paragraph at lines 20--21
+Overfull \hbox (48.08003pt too wide) in paragraph at lines 20--21
  [][] 
  []
 
@@ -1523,23 +1523,23 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 1.
 
-LaTeX Info: Redefining \. on input line 10.
-LaTeX Info: Redefining \% on input line 10.
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
 [38 <./Pictures/diagrama_flujo.png>]
-<Pictures/mat_med_dispersion.png, id=847, 460.72125pt x 203.25937pt>
+<Pictures/mat_med_dispersion.png, id=849, 460.72125pt x 203.25937pt>
 File: Pictures/mat_med_dispersion.png Graphic file (type png)
 <use Pictures/mat_med_dispersion.png>
 Package pdftex.def Info: Pictures/mat_med_dispersion.png  used on input line 45
 .
 (pdftex.def)             Requested size: 414.6453pt x 182.93173pt.
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
- [39 <./Pictures/mat_med_dispersion.png>]
-<Pictures/prom_SD_5m_12p.png, id=858, 150.5625pt x 249.18094pt>
+<Pictures/prom_SD_5m_12p.png, id=852, 150.5625pt x 249.18094pt>
 File: Pictures/prom_SD_5m_12p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_12p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 89.
 (pdftex.def)             Requested size: 150.56212pt x 249.18031pt.
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+ [39 <./Pictures/mat_med_dispersion.png>]
 <Pictures/prom_SD_10m_6p.png, id=861, 170.88844pt x 158.09062pt>
 File: Pictures/prom_SD_10m_6p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_6p.png>
@@ -1566,7 +1566,7 @@ Package pdftex.def Info: Pictures/intervalos_confianza.png  used on input line
 126.
 (pdftex.def)             Requested size: 440.0159pt x 215.00177pt.
 
-Underfull \vbox (badness 3291) has occurred while \output is active []
+Underfull \vbox (badness 6078) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 129.
 LaTeX Info: Redefining \% on input line 129.
@@ -1626,12 +1626,12 @@ Underfull \vbox (badness 4108) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 115.
 LaTeX Info: Redefining \% on input line 115.
  [44]
-<Pictures/fitdist_poisson_tam_gpo.png, id=909, 397.485pt x 84.315pt>
+<Pictures/fitdist_poisson_tam_gpo.png, id=909, 398.23781pt x 128.73094pt>
 File: Pictures/fitdist_poisson_tam_gpo.png Graphic file (type png)
 <use Pictures/fitdist_poisson_tam_gpo.png>
 Package pdftex.def Info: Pictures/fitdist_poisson_tam_gpo.png  used on input li
 ne 120.
-(pdftex.def)             Requested size: 397.48402pt x 84.31477pt.
+(pdftex.def)             Requested size: 398.23683pt x 128.7306pt.
 
 Overfull \hbox (4.07257pt too wide) in paragraph at lines 134--134
 []\T1/ptm/b/n/17.28 Simulación de so-li-ci-tu-des de pro-fe-so-res ocul-ta y ps
@@ -1645,7 +1645,7 @@ LaTeX Info: Redefining \. on input line 137.
 LaTeX Info: Redefining \% on input line 137.
  [45 <./Pictures/densidad_num_alum_x_gpo_x_sem.pdf> <./Pictures/fitdist_poisson
 _tam_gpo.png>]
-<Pictures/profesores_TC_SelectorGadget.png, id=923, 430.60875pt x 478.03593pt>
+<Pictures/profesores_TC_SelectorGadget.png, id=924, 430.60875pt x 478.03593pt>
 File: Pictures/profesores_TC_SelectorGadget.png Graphic file (type png)
 <use Pictures/profesores_TC_SelectorGadget.png>
 Package pdftex.def Info: Pictures/profesores_TC_SelectorGadget.png  used on inp
@@ -1657,7 +1657,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 159.
 LaTeX Info: Redefining \% on input line 159.
  [46]
-<Pictures/profesores_TC_sinLimpiar.png, id=930, 448.67625pt x 257.46187pt>
+<Pictures/profesores_TC_sinLimpiar.png, id=931, 448.67625pt x 257.46187pt>
 File: Pictures/profesores_TC_sinLimpiar.png Graphic file (type png)
 <use Pictures/profesores_TC_sinLimpiar.png>
 Package pdftex.def Info: Pictures/profesores_TC_sinLimpiar.png  used on input l
@@ -1693,12 +1693,12 @@ LaTeX Info: Redefining \% on input line 1.
 ]
 Cap\'{\i }tulo 5.
 [51]
-<Pictures/AG.png, id=958, 672.768pt x 418.70714pt>
+<Pictures/AG.png, id=959, 672.768pt x 418.70714pt>
 File: Pictures/AG.png Graphic file (type png)
 <use Pictures/AG.png>
 Package pdftex.def Info: Pictures/AG.png  used on input line 40.
 (pdftex.def)             Requested size: 302.7428pt x 188.41646pt.
-<Pictures/AG_aplicado.png, id=959, 640.64343pt x 372.64218pt>
+<Pictures/AG_aplicado.png, id=960, 640.64343pt x 372.64218pt>
 File: Pictures/AG_aplicado.png Graphic file (type png)
 <use Pictures/AG_aplicado.png>
 Package pdftex.def Info: Pictures/AG_aplicado.png  used on input line 56.
@@ -1821,7 +1821,7 @@ Overfull \hbox (11.7672pt too wide) in paragraph at lines 77--78
 orarios / pormateria _ 03 . asp$[] 
  []
 
-<Pictures/ITAM_Proba_I.png, id=1028, 1025.33063pt x 313.17pt>
+<Pictures/ITAM_Proba_I.png, id=1029, 1025.33063pt x 313.17pt>
 File: Pictures/ITAM_Proba_I.png Graphic file (type png)
 <use Pictures/ITAM_Proba_I.png>
 Package pdftex.def Info: Pictures/ITAM_Proba_I.png  used on input line 81.
@@ -1886,7 +1886,7 @@ File: lstlang2.sty 2019/09/10 1.8c listings language file
 sty"
 File: lstlang3.sty 2019/09/10 1.8c listings language file
 )
-<Pictures/clases_de_ingles.png, id=1071, 423.83344pt x 268.00125pt>
+<Pictures/clases_de_ingles.png, id=1072, 423.83344pt x 268.00125pt>
 File: Pictures/clases_de_ingles.png Graphic file (type png)
 <use Pictures/clases_de_ingles.png>
 Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 91.
@@ -1910,13 +1910,13 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Info: Redefining \. on input line 140.
 LaTeX Info: Redefining \% on input line 140.
 [65]
-<Pictures/Ej_horarios_20211.png, id=1117, 569.12625pt x 402.75468pt>
+<Pictures/Ej_horarios_20211.png, id=1118, 569.12625pt x 402.75468pt>
 File: Pictures/Ej_horarios_20211.png Graphic file (type png)
 <use Pictures/Ej_horarios_20211.png>
 Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 154
 .
 (pdftex.def)             Requested size: 256.10445pt x 181.23793pt.
-<Pictures/Notas_T26.jpeg, id=1118, 867.24pt x 510.40688pt>
+<Pictures/Notas_T26.jpeg, id=1119, 867.24pt x 510.40688pt>
 File: Pictures/Notas_T26.jpeg Graphic file (type jpg)
 <use Pictures/Notas_T26.jpeg>
 Package pdftex.def Info: Pictures/Notas_T26.jpeg  used on input line 162.
@@ -1927,7 +1927,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 165.
 LaTeX Info: Redefining \% on input line 165.
  [66 <./Pictures/Ej_horarios_20211.png>]
-<Pictures/Ej_Roxygen.png, id=1134, 222.8325pt x 153.57375pt>
+<Pictures/Ej_Roxygen.png, id=1135, 222.8325pt x 153.57375pt>
 File: Pictures/Ej_Roxygen.png Graphic file (type png)
 <use Pictures/Ej_Roxygen.png>
 Package pdftex.def Info: Pictures/Ej_Roxygen.png  used on input line 175.
@@ -1935,7 +1935,7 @@ Package pdftex.def Info: Pictures/Ej_Roxygen.png  used on input line 175.
 LaTeX Info: Redefining \. on input line 184.
 LaTeX Info: Redefining \% on input line 184.
  [67 <./Pictures/Notas_T26.jpeg> <./Pictures/Ej_Roxygen.png>]
-<Pictures/Ej_varianza.jpeg, id=1147, 1284.8pt x 722.7pt>
+<Pictures/Ej_varianza.jpeg, id=1148, 1284.8pt x 722.7pt>
 File: Pictures/Ej_varianza.jpeg Graphic file (type jpg)
 <use Pictures/Ej_varianza.jpeg>
 Package pdftex.def Info: Pictures/Ej_varianza.jpeg  used on input line 206.
@@ -1950,7 +1950,7 @@ Overfull \hbox (159.53743pt too wide) in paragraph at lines 212--213
 LaTeX Info: Redefining \. on input line 215.
 LaTeX Info: Redefining \% on input line 215.
 [68 <./Pictures/Ej_varianza.jpeg>]
-<Pictures/clausula99_CCTPA.png, id=1162, 379.4175pt x 124.21407pt>
+<Pictures/clausula99_CCTPA.png, id=1163, 379.4175pt x 124.21407pt>
 File: Pictures/clausula99_CCTPA.png Graphic file (type png)
 <use Pictures/clausula99_CCTPA.png>
 Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 224.
@@ -1996,8 +1996,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  13212 strings out of 481556
- 200271 string characters out of 2913870
- 733249 words of memory out of 3000000
+ 202116 string characters out of 2913870
+ 733255 words of memory out of 3000000
  27718 multiletter control sequences out of 15000+200000
  617275 words of font info for 151 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2020,9 +2020,9 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (86 pages, 2756847 bytes).
+Output written on main.pdf (86 pages, 2764689 bytes).
 PDF statistics:
- 1402 PDF objects out of 1440 (max. 8388607)
+ 1403 PDF objects out of 1440 (max. 8388607)
  334 named destinations out of 1000 (max. 500000)
  695 words of extra memory for PDF output out of 10000 (max. 10000000)
 
