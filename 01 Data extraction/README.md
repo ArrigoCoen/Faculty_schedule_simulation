@@ -9,7 +9,9 @@ An example of these pages is shown in the next figure:
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
 
 
-We use the SelectorGadget app from Google Chrome. The icon of the app is a magnifying glass.
+We use the SelectorGadget app from Google Chrome. [SelectorGadget-Source](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es)
+
+The icon of the app is a magnifying glass.
 
 After the app had been installed, the steps to obtain the data are:
 
@@ -29,6 +31,3 @@ After the app had been installed, the steps to obtain the data are:
 In the next figure we can see the results of the steps we just described.
 
 ![alt text](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_SelectorGadget.png)
-
-
-[SelectorGadget-Source](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es)
