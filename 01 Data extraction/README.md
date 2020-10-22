@@ -6,6 +6,8 @@ An [example](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607) of th
 
 <a href="http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank">example</a>
 
+%md <a href="http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank">example2</a>
+
 ![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
 
 We use the [SelectorGadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es" target="_blank) app from Google Chrome.
