@@ -4,11 +4,15 @@ Here is explained how to extract the data from the Faculty of Science pages.
 
 An example of these pages is shown in the next figure:
 
+![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
+
 ![alt text](Figures/Fig_source_of_info.png)
 
 ![fig](Figures/Fig_pipeline.png)
 
 ![fig](Figures/Fig_source_of_info.png)
+
+
 
 
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
