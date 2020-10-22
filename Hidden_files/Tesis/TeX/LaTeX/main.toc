@@ -27,11 +27,11 @@
 \contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{44}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Simulación de esqueletos}{44}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Simulación de solicitudes de profesores oculta y pseudo-real}{44}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Simulación de elección de materia}{46}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Simulación de elección de horario}{46}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Calificación de esqueletos de horario}{46}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Generación de asignaciones}{47}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Calificación de asignaciones de grupo}{47}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.6.1}Simulación de elección de materia}{47}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Simulación de elección de horario}{47}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Calificación de esqueletos de horario}{47}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Generación de asignaciones}{48}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Calificación de asignaciones de grupo}{48}{subsection.4.8.1}%
 \contentsline {chapter}{\numberline {5}Teoría del Algoritmo Genético aplicado a los horarios}{49}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Ciclo de la evolución natural}{50}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Selección}{51}{subsection.5.1.1}%
@@ -46,4 +46,4 @@
 \contentsline {chapter}{Apéndices}{61}{chapter*.5}%
 \contentsline {section}{\numberline {8.1}Observaciones / Notas}{61}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Resultados útiles}{67}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Abreviaturas}{69}{section.8.3}%
+\contentsline {section}{\numberline {8.3}Abreviaturas}{68}{section.8.3}%

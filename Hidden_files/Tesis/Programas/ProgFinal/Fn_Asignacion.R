@@ -969,19 +969,19 @@ gen_mat_nom_prof_total <- function(){
   # ind_faltantes <- 1:length(vec_prof_TC)
   # ind_faltantes <- ind_faltantes[-ind_aux]
   #' 1) "Alejandro Ricardo Garciadiego Dantán": Diferencia de acentos (778)
-  #' 2) "Ana Luisa Solís González Cosío": No se encuentra en los horarios
+  #' 2) "Ana Luisa Solís González Cosío": Diferencia en nombre (516,1193)
   #' 3) "Edith Corina Sáenz Valadéz": Diferencia de acentos (107)
-  #' 4) "Emilio Lluis Puebla":  No se encuentra en los horarios
-  #' 5) "Guillermo Sienra Loera": No se encuentra en los horarios
-  #' 6) "Isabel Puga Espinosa": No se encuentra en los horarios
+  #' 4) "Emilio Lluis Puebla": Diferencia en nombre (735)
+  #' 5) "Guillermo Sienra Loera": Diferencia en nombre (141)
+  #' 6) "Isabel Puga Espinosa": Diferencia en nombre (150)
   #' 7) "Ma. Asunción Begoña Fernández Fernández": Diferencia en Ma.-María (667)
-  #' 8) "María de Lourdes Velasco Arregui": No se encuentra en los horarios
+  #' 8) "María de Lourdes Velasco Arregui": Diferencia en nombre. (660,1240)
   #' 9) "Mucuy-kak del Carmen Guevara Aguirre": Diferencia en Kak y kak (127)
   #' 10) "Óscar Alfredo Palmas Velasco": Diferencia de acentos (172)
-  #' 11) "Úrsula Iturrarán Viveros": Diferencia en nombre. (351,871)
+  #' 11) "Úrsula Iturrarán Viveros": Diferencia en nombre (351,871)
   #' 
   #' De estos 11 casos, vamos a modificar a mano: 1,3,7,9,10,11
-  mat_nom_prof_total[c(778,107,667,127,172,351),2] <- 1
+  mat_nom_prof_total[c(778,516,107,735,141,150,667,660,127,172,351),2] <- 1
   colnames(mat_nom_prof_total) <- c("Profesor","Tiempo_Completo")
   save(mat_nom_prof_total, file = "mat_nom_prof_total.RData")
   

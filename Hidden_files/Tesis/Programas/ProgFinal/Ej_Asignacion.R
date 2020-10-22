@@ -200,7 +200,10 @@ length(vec_prof_TC)##94
 #' tiempo completo y 0 si no.
 #'
 mat_nom_prof_total <- gen_mat_nom_prof_total()
+sum(as.numeric(mat_nom_prof_total[,2]))#94
+dim(mat_nom_prof_total)#1387 2
 View(mat_nom_prof_total)
+
 
 # gen_mat_alumnos_corregidos ----------------------------------------------
 #' Title gen_mat_alumnos_corregidos: Función que regresa la matriz 
