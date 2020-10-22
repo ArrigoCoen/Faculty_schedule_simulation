@@ -9,7 +9,7 @@ An example of these pages is shown in the next figure:
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
 
 
-We use the SelectorGadget app from Google Chrome. [SelectorGadget-Source](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es)
+We use the [SelectorGadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) app from Google Chrome.
 
 The icon of the app is a magnifying glass.
 
