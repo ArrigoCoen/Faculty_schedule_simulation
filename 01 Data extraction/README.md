@@ -4,7 +4,7 @@ Here is explained how to extract the data from the Faculty of Science pages.
 
 An example of these pages is shown in the next figure:
 
-![fig](Figures/Fig_source_of_info.png)
+![alt text](Figures/Fig_source_of_info.png)
 
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
 
@@ -28,7 +28,7 @@ After the app had been installed, the steps to obtain the data are:
 
 In the next figure we can see the results of the steps we just described.
 
-![fig](Figures/Fig_SelectorGadget.png)
+![alt text](Figures/Fig_SelectorGadget.png)
 
 
 [SelectorGadget-Source](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es)
