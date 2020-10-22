@@ -6,6 +6,11 @@ An example of these pages is shown in the next figure:
 
 ![alt text](Figures/Fig_source_of_info.png)
 
+![fig](Figures/Fig_pipeline.png)
+
+![fig](Figures/Fig_source_of_info.png)
+
+
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
 
 
