@@ -30,6 +30,6 @@ lines(density(vec_alumnos),col=param_graficas$col1_linea,
       lwd=param_graficas$lwd_dens)
 
 # Se guarda la imagen -----------------------------------------------------
-nom_plot <- "densidad_num_alum_x_gpo_x_sem.pdf"
+nom_plot <- "histograma_FR_num_alum_x_gpo_x_sem.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
