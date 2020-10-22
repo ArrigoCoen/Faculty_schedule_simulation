@@ -29,17 +29,23 @@ source("Fn_Asignacion.R")
 #' el profesor es de tiempo completo y 0 si no.
 #'
 gen_mat_nom_prof_total <- function(){
-  #Se definen las variables que se van a utilizar:
-  mat_nom_prof_total <- data.frame(Profesor = 0,Tiempo_Completo = 0)
-  num_col_Profesor <- arroja_ind_col_MG("Profesor")##2
-  
   #' Se carga la matriz m_grande_total de 2008-1 a 2020-1 de la cual
   #' se va a obtener la lista de nombres que se desea
   load("Matrices m_grande_total/m_grande_total_20151_20201.RData")
   # View(m_grande_total)
   
+  #Se definen las variables que se van a utilizar:
+  mat_nom_prof_total <- data.frame(Profesor = 0,Tiempo_Completo = 0)
+  num_col_Profesor <- arroja_ind_col_MG("Profesor")##2
   
   
+  
+  vec_aux <- unique(m_grande_total[,num_col_Profesor])#1389
+  vec_prof_TC <- carga_info_prof_tiempo_completo()#94
+  
+  ################
+  #### HACER EL VECTOR CON LOS NOMBRES DE LOS PROFESORES TOTALES
+  ################
   
   
   

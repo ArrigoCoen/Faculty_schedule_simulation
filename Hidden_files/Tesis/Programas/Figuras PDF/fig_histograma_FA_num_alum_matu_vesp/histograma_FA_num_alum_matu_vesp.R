@@ -18,8 +18,8 @@ load("Programas/Figuras PDF/fig_histograma_FA_num_alum_matu_vesp/mat_num_alum_x_
 n_cols <- dim(mat_num_alum_x_hora_x_sem)[2]
 mat_num_alum_x_sem_matutino <- mat_num_alum_x_hora_x_sem[1:8,]
 mat_num_alum_x_sem_vespertino <- mat_num_alum_x_hora_x_sem[9:15,]
-save(mat_num_alum_x_sem_matutino,file = "mat_num_alum_x_sem_matutino.RData")
-save(mat_num_alum_x_sem_vespertino,file = "mat_num_alum_x_sem_vespertino.RData")
+# save(mat_num_alum_x_sem_matutino,file = "mat_num_alum_x_sem_matutino.RData")
+# save(mat_num_alum_x_sem_vespertino,file = "mat_num_alum_x_sem_vespertino.RData")
 min(mat_num_alum_x_hora_x_sem[,2:26])#47
 max(mat_num_alum_x_hora_x_sem[,2:26])#4514
 min(mat_num_alum_x_sem_matutino[,2:26])#425
@@ -40,8 +40,8 @@ max(vec_num_alum_x_sem_matutino)#4515
 min(vec_num_alum_x_sem_vespertino)#47
 max(vec_num_alum_x_sem_vespertino)#2612
 
-save(vec_num_alum_x_sem_matutino,file = "vec_num_alum_x_sem_matutino.RData")
-save(vec_num_alum_x_sem_vespertino,file = "vec_num_alum_x_sem_vespertino.RData")
+# save(vec_num_alum_x_sem_matutino,file = "vec_num_alum_x_sem_matutino.RData")
+# save(vec_num_alum_x_sem_vespertino,file = "vec_num_alum_x_sem_vespertino.RData")
 
 ##Gráfica con freq = T
 hist(vec_num_alum_x_sem_matutino,col=param_graficas$col1_hist,breaks = seq(0,4600,by = 100),

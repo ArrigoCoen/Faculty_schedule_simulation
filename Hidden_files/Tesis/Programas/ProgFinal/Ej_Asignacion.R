@@ -184,6 +184,14 @@ materia <- "Estadística I"
 arroja_num_materia(materia,param)
 
 
+# carga_info_prof_tiempo_completo -----------------------------------------
+#' Title carga_info_prof_tiempo_completo: Función que extrae los nombres de
+#' los profesores de tiempo completo del Departamento de Matemáticas.
+#'
+vec_prof_TC <- carga_info_prof_tiempo_completo()
+length(vec_prof_TC)##94
+
+
 # gen_mat_alumnos_corregidos ----------------------------------------------
 #' Title gen_mat_alumnos_corregidos: Función que regresa la matriz 
 #' "mat_alumnos_corregidos" de 15 renglones (horas) y k+s-1 columnas, la
