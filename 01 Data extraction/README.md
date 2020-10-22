@@ -2,7 +2,9 @@
 
 Here is explained how to extract the data from the Faculty of Science pages.
 
-An [example](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank) of these pages is shown in the next figure:
+An [example](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607) of these pages is shown in the next figure:
+
+<a href="http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank">example</a>
 
 ![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
 
