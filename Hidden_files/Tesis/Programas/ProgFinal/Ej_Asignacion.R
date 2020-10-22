@@ -191,6 +191,16 @@ arroja_num_materia(materia,param)
 vec_prof_TC <- carga_info_prof_tiempo_completo()
 length(vec_prof_TC)##94
 
+# gen_mat_nom_prof_total --------------------------------------------------
+#' Title gen_mat_nom_prof_total: Función que carga la matriz
+#' "m_grande_total" de los semestres 2015-1 a 2020-1 de la cual se va
+#' obtiene la lista de nombres de los profesores sin repetición. La matriz
+#' "mat_nom_prof_total" tiene 2 columnas, en la primera se tiene el nombre
+#' de los profesores y en la segunda se tiene un 1 si el profesor es de
+#' tiempo completo y 0 si no.
+#'
+mat_nom_prof_total <- gen_mat_nom_prof_total()
+View(mat_nom_prof_total)
 
 # gen_mat_alumnos_corregidos ----------------------------------------------
 #' Title gen_mat_alumnos_corregidos: Función que regresa la matriz 
