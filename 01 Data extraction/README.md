@@ -6,15 +6,6 @@ An example of these pages is shown in the next figure:
 
 ![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
 
-![alt text](Figures/Fig_source_of_info.png)
-
-![fig](Figures/Fig_pipeline.png)
-
-![fig](Figures/Fig_source_of_info.png)
-
-
-
-
 [Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
 
 
@@ -37,7 +28,7 @@ After the app had been installed, the steps to obtain the data are:
 
 In the next figure we can see the results of the steps we just described.
 
-![alt text](Figures/Fig_SelectorGadget.png)
+![alt text](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_SelectorGadget.png)
 
 
 [SelectorGadget-Source](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es)
