@@ -2,14 +2,11 @@
 
 Here is explained how to extract the data from the Faculty of Science pages.
 
-An example of these pages is shown in the next figure:
+An [example ](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607){:target="_blank"} of these pages is shown in the next figure:
 
 ![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
 
-[Faculty of Science Schedules](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607)
-
-
-We use the [SelectorGadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es) app from Google Chrome.
+We use the [SelectorGadget](https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es){:target="_blank"} app from Google Chrome.
 
 The icon of the app is a magnifying glass.
 
