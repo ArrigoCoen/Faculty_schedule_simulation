@@ -232,6 +232,16 @@ mat_alumnos_corregidos
 (vec_sim_1_sem <- simula_alumnos(mat_alumnos_corregidos,param))
 
 
+# gen_mat_demanda_alumnos -------------------------------------------------
+#' Title gen_mat_demanda_alumnos: Función que genera la matriz
+#' "mat_demanda_alumnos" con 15 renglones (horas) y 333 columnas (materias).
+#' En la entrada (i,j) se tiene el número de alumnos simulados para la hora
+#' i, y la materia j.
+#'
+mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)
+View(mat_demanda_alumnos)
+
+
 # gen_solicitudes_1_profesor ----------------------------------------------
 #' Title gen_solicitudes_1_profesor: Función que genera la solicitud de 
 #' un solo profesor. Arroja la matriz "mat_1_solicitud" de 4 columnas
