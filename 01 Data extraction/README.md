@@ -4,6 +4,12 @@ Here is explained how to extract the data from the Faculty of Science pages.
 
 An <a href="http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank">example</a> of these pages is shown in the next figure:
 
+[example](<a href="http://www.fciencias.unam.mx/docencia/horarios/20201/217/607/" target="_blank">example</a>)
+
+[example](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607/ "title" target="_blank")
+
+[example](http://www.fciencias.unam.mx/docencia/horarios/20201/217/607" target="_blank)
+
 ![source_of_info](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_source_of_info.png)
 
 We use the <a href="https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=es" target="_blank">SelectorGadget</a> app from Google Chrome.
