@@ -35,21 +35,21 @@ gen_asignacion_completa <- function(param,param_sim){
     vec_alum_sim <- simula_alumnos(mat_alumnos_corregidos,param)
     mat_demanda_alumnos[,d] <- vec_alum_sim
   }
-  cat("\nEl proceso tardó: ",(proc.time()-ptm)[3]," segundos\n")##45.97
-  
+  cat("\nEl proceso tardó: ",(proc.time()-ptm)[3]," segundos\n")##45.91
   rownames(mat_demanda_alumnos) <- param$nombre_hrs
   colnames(mat_demanda_alumnos) <- param$vec_nom_materias_total
   View(mat_demanda_alumnos)
   
   #' 2) Simulación de solicitudes de profesores de t+1 (oculta)
-  gen_solicitudes(param)
+  mat_solicitudes <- gen_solicitudes(param)#8.47 seg
+  View(mat_solicitudes)
   
   #' 3) Simulación de esqueletos: Aquí ya va a salir el mejor esqueleto
   #' (ya calificado y con AG)
   gen_esqueleto(directorio_info,param)
   
   #' 4) Simulación de solicitudes de profesores (pseudo-real)
-  gen_solicitudes(param)
+  mat_solicitudes <- gen_solicitudes(param)#8.56 seg
   
   #' 5) Asignación
   gen_asignacion(mat_esqueleto,mat_solicitudes,param)

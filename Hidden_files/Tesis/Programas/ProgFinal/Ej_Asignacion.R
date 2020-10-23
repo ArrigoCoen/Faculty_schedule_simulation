@@ -152,6 +152,7 @@ num_col_URL_CdC1994 <- arroja_ind_col_MG("URL_CdC1994")##33
 num_col_URL_CdC2013 <- arroja_ind_col_MG("URL_CdC2013")##34
 num_col_URL_Mat1983 <- arroja_ind_col_MG("URL_Mat1983")##35
 num_col_URL_MAp2017 <- arroja_ind_col_MG("URL_MAp2017")##36
+num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
 
 
 # checa_ind_materia -------------------------------------------------------
@@ -231,10 +232,37 @@ mat_alumnos_corregidos
 (vec_sim_1_sem <- simula_alumnos(mat_alumnos_corregidos,param))
 
 
-# gen_solicitudes ---------------------------------------------------------
-#' Title gen_solicitudes: Función que guarda, en una matriz, la información
-#' de las solicitudes de materia y de horario de todos los profesores las
-#' cuales se generan por medio de las simulaciones de dichas elecciones
-#' (materia y horario).
+# gen_solicitudes_1_profesor ----------------------------------------------
+#' Title gen_solicitudes_1_profesor: Función que genera la solicitud de 
+#' un solo profesor. Arroja la matriz "mat_1_solicitud" de 4 columnas
+#' (Profesor,TC,Materia, Horario) y 6 renglones que tiene la información de
+#' la solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
+#' horarios.
 #'
-mat_solicitudes <- gen_solicitudes(param)
+nom_prof<- "Arrigo Coen Coria"
+tipo_prof <- 0
+gen_solicitudes_1_profesor(nom_prof,tipo_prof,param)
+nom_prof<- "Margarita Elvira Chávez Cano"
+tipo_prof <- 1
+gen_solicitudes_1_profesor(nom_prof,tipo_prof,param)
+
+
+# gen_solicitudes ---------------------------------------------------------
+#' Title gen_solicitudes: Función que genera la solicitud de todos los
+#' profesores en la matriz "mat_nom_prof_total". Arroja la matriz
+#' "mat_solicitudes" de 4 columnas (Profesor,TC,Materia, Horario). Tiene la
+#' información de las solicitudes de los profesores. Se eligen hasta dos
+#' materias y hasta 3 diferentes horarios. Se quitan los renglones repetidos.
+#'
+mat_solicitudes <- gen_solicitudes(param)#8.56 seg
+View(mat_solicitudes)
+
+
+
+
+
+
+
+
+
+
