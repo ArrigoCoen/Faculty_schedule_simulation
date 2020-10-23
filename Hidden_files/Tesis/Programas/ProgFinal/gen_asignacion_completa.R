@@ -16,26 +16,34 @@ source("Fn_Asignacion.R")
 # gen_asignacion_completa -------------------------------------------------
 gen_asignacion_completa <- function(param,param_sim){
 
-  #' 1) Extracción de datos y simulación de alumnos de t+1
+  #' 1-3) Extracción de datos y simulación de alumnos de t+1
   mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#47.48 seg
   View(mat_demanda_alumnos)
   
-  #' 2) Simulación de solicitudes de profesores de t+1 (oculta)
+  #' 4a) Simulación de solicitudes de profesores de t+1 (oculta)
   mat_solicitudes <- gen_solicitudes(param)#8.47 seg
   View(mat_solicitudes)
   
-  #' 3) Simulación de esqueletos: Aquí ya va a salir el mejor esqueleto
-  #' (ya calificado y con AG)
-  gen_esqueleto(directorio_info,param)
+  #' 5) Simulación de esqueletos
+  gen_esqueleto(,param)
   
-  #' 4) Simulación de solicitudes de profesores (pseudo-real)
+  #' 6) Calificación de esqueletos
+  califica_esqueleto()
+  
+  #' 7) AG aplicado a esqueletos: Aquí ya va a salir un buen esqueleto
+  AG_esqueleto()
+  
+  #' 4b) Simulación de solicitudes de profesores (pseudo-real)
   mat_solicitudes <- gen_solicitudes(param)#8.56 seg
   
-  #' 5) Asignación
+  #' 8) Asignación
   gen_asignacion(mat_esqueleto,mat_solicitudes,param)
     
-  #' 6) Calificación de asignación
+  #' 9) Calificación de asignación
   califica_asignaciones()
+  
+  #' 10) AG aplicado a asignaciones: Aquí ya va a salir una buena asignación
+  AG_asignaciones()
   
   return(mat_asignaciones)
 }

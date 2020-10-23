@@ -120,6 +120,9 @@ load(file = "mat_nom_prof_total.RData")
 param$mat_nom_prof_total = mat_nom_prof_total
 
 load("Matrices m_grande_total/m_grande_total_20151_20201.RData")
+#Se quitan los renglones con NA
+# m_grande_total <- m_grande_total[!is.na(m_grande_total[,1]),]
+# param$m_grande_2015 = m_grande_total[!is.na(m_grande_total[,1]),]
 param$m_grande_2015 = m_grande_total
 
 # param_sim ---------------------------------------------------------------
@@ -1226,10 +1229,10 @@ gen_mat_demanda_alumnos <- function(param,param_sim){
 
 # gen_solicitudes_1_profesor ----------------------------------------------
 #' Title gen_solicitudes_1_profesor: Función que genera la solicitud de 
-#' un solo profesor. Arroja la matriz "mat_1_solicitud" de 4 columnas
-#' (Profesor,TC,Materia, Horario) y 6 renglones que tiene la información de
-#' la solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
-#' horarios.
+#' un solo profesor. Arroja la matriz "mat_1_solicitud" de 5 columnas
+#' (Profesor,TC,Materia,Num_Materia,Horario) y 6 renglones que tiene la
+#' información de la solicitud de "nom_prof". Se eligen 2 materias y hasta
+#' 3 diferentes horarios.
 #'
 #' @param nom_prof: Nombre del profesor del que se va a obtener la solicitud.
 #' @param tipo_prof: Variable binaria que vale 1 si el profesor es de
@@ -1240,9 +1243,10 @@ gen_mat_demanda_alumnos <- function(param,param_sim){
 #' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
-#' @return mat_1_solicitud: Matriz de 4 columnas (Profesor,TC,Materia,
-#' Horario) y 6 renglones que tiene la información de la solicitud de
-#' "nom_prof". Se eligen 2 materias y hasta 3 diferentes horarios.
+#' @return mat_1_solicitud: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) y 6 renglones que tiene la información de la
+#' solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
+#' horarios.
 #'
 #' @examples
 #' mat_1_solicitud <- gen_solicitudes_1_profesor("Arrigo Coen",0,param)
@@ -1256,7 +1260,7 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
   vec_nom_materias_total <- param$vec_nom_materias_total#333
   m_grande_2015 <- param$m_grande_2015#8393 37
   mat_1_solicitud <- data.frame(Profesor = 0,TC = 0, Materia = rep(0,6),
-                                Horario = 0)
+                                Num_Materia = 0,Horario = 0)
   
   #Se definen las variables con la información de "nom_prof"
   mat_1_prof <- m_grande_2015[m_grande_2015[,num_col_Profesor]==nom_prof,]
@@ -1267,34 +1271,39 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
   mat_1_solicitud[,1] <- nom_prof
   mat_1_solicitud[,2] <- tipo_prof
   
-  #Se llena la columna "Materia"
+  #Se llena las columnas "Materia" y "Num_Materia"
   if(length(materias_num_prof)==2){
     mat_1_solicitud[1:3,3] <- vec_nom_materias_total[materias_num_prof[1]]
     mat_1_solicitud[4:6,3] <- vec_nom_materias_total[materias_num_prof[2]]
+    mat_1_solicitud[1:3,4] <- materias_num_prof[1]
+    mat_1_solicitud[4:6,4] <- materias_num_prof[2]
   }else if(length(materias_num_prof)==1){
     mat_1_solicitud[,3] <- vec_nom_materias_total[materias_num_prof]
+    mat_1_solicitud[,4] <- materias_num_prof
   }else if(length(materias_num_prof)>2){
     muestra_materias <- sample(materias_num_prof,size = 2)
     mat_1_solicitud[1:3,3] <- vec_nom_materias_total[muestra_materias[1]]
     mat_1_solicitud[4:6,3] <- vec_nom_materias_total[muestra_materias[2]]
+    mat_1_solicitud[1:3,4] <- muestra_materias[1]
+    mat_1_solicitud[4:6,4] <- muestra_materias[2]
   }
   
   #Se llena la columna "Horario"
   #' A lo más van a tener 3 horas diferentes
   if(length(horas_prof)==3){
-    mat_1_solicitud[c(1,4),4] <- horas_prof[1]
-    mat_1_solicitud[c(2,5),4] <- horas_prof[2]
-    mat_1_solicitud[c(3,6),4] <- horas_prof[3]
+    mat_1_solicitud[c(1,4),5] <- horas_prof[1]
+    mat_1_solicitud[c(2,5),5] <- horas_prof[2]
+    mat_1_solicitud[c(3,6),5] <- horas_prof[3]
   }else if(length(horas_prof)==2){
-    mat_1_solicitud[c(1:2,4:5),4] <- horas_prof[1]
-    mat_1_solicitud[c(3,6),4] <- horas_prof[2]
+    mat_1_solicitud[c(1:2,4:5),5] <- horas_prof[1]
+    mat_1_solicitud[c(3,6),5] <- horas_prof[2]
   }else if(length(horas_prof)==1){
-    mat_1_solicitud[,4] <- horas_prof
+    mat_1_solicitud[,5] <- horas_prof
   }else if(length(horas_prof)>3){
     muestra_horas <- sample(horas_prof,size = 3)
-    mat_1_solicitud[c(1,4),4] <- muestra_horas[1]
-    mat_1_solicitud[c(2,5),4] <- muestra_horas[2]
-    mat_1_solicitud[c(3,6),4] <- muestra_horas[3]
+    mat_1_solicitud[c(1,4),5] <- muestra_horas[1]
+    mat_1_solicitud[c(2,5),5] <- muestra_horas[2]
+    mat_1_solicitud[c(3,6),5] <- muestra_horas[3]
   }
   
   return(mat_1_solicitud)
@@ -1304,9 +1313,10 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
 # gen_solicitudes ---------------------------------------------------------
 #' Title gen_solicitudes: Función que genera la solicitud de todos los
 #' profesores en la matriz "mat_nom_prof_total". Arroja la matriz
-#' "mat_solicitudes" de 4 columnas (Profesor,TC,Materia, Horario). Tiene la
-#' información de las solicitudes de los profesores. Se eligen hasta dos
-#' materias y hasta 3 diferentes horarios. Se quitan los renglones repetidos.
+#' "mat_solicitudes" de 5 columnas (Profesor,TC,Materia,Num_Materia,Horario)
+#' que tiene la información de las solicitudes de todos los profesores. Se
+#' eligen 2 materias y hasta 3 diferenteshorarios. Se quitan los renglones
+#' repetidos.
 #'
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
 #' funciones que se mandan llamar.
@@ -1314,10 +1324,10 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
 #' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
-#' @return mat_solicitudes: Matriz de 4 columnas (Profesor,TC,Materia,
-#' Horario). Tiene la información de las solicitudes de los profesores. Se
-#' eligen hasta dos materias y hasta 3 diferentes horarios. Se quitan los
-#' renglones repetidos.
+#' @return mat_solicitudes: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) y 6 renglones que tiene la información de la
+#' solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
+#' horarios. Se quitan los renglones repetidos.
 #'
 #' @examples
 #' mat_solicitudes <- gen_solicitudes(param)
@@ -1331,7 +1341,7 @@ gen_solicitudes <- function(param){
   mat_nom_prof_total <- param$mat_nom_prof_total#1387 2
   m_grande_2015 <- param$m_grande_2015#8409 37
   mat_solicitudes <- data.frame(Profesor = 0,TC = 0, Materia = 0,
-                                Horario = 0)
+                                Num_Materia = 0,Horario = 0)
   
   #' Se quitan los renglones de ceros, con NA o vaciós en la
   #' columna de "Profesor"
@@ -1359,252 +1369,57 @@ gen_solicitudes <- function(param){
 }
 
 
+##########################################################################
+##### ESQUELETO #####
+## Funciones que generan un esqueleto del siguiente semestre.
+##########################################################################
+
+# simula_alum_x_profesor --------------------------------------------------
+#' Title simula_alum_x_profesor: Función que simula el número de alumnos
+#' para un profesor y una materia. Se obtiene la información del número de
+#' alumnos que ha tenido el profesor (del 2015-1 al 2020-1), se toma el
+#' mín y el máx, se simula una uniforme en ese intervalo, se redondea el
+#' valor con la función ceiling y así se obtiene el valor simulado.
+#'
+#' @param renglon: Vector con la información del profesor elegido para
+#' asignarle un grupo.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' 
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
+#'
+#' @return num_alum_x_profesor: Número de alumnos simulados de un profesor
+#' y una materia.
+#'
+#' @examples
+#' num_alum_x_profesor <- simula_alum_x_profesor(renglon,param)
+#' 
+simula_alum_x_profesor <- function(renglon,param){
+  #Se definen las variables que se van a utilizar
+  nom_prof <- as.character(renglon[1])
+  num_materia <- as.numeric(renglon[4])
+  num_col_Profesor <- arroja_ind_col_MG("Profesor")##2
+  num_col_Alumnos <- arroja_ind_col_MG("Alumnos")##6
+  num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
+  m_grande_2015 <- param$m_grande_2015
+  m_grande_2015 <- m_grande_2015[!is.na(m_grande_2015[,num_col_Profesor]),]
+  sub_mat_prof <- m_grande_2015[m_grande_2015[,num_col_Profesor]==nom_prof,]
+  sub_mat <- sub_mat_prof[sub_mat_prof[,num_col_NumMateria]==num_materia,]
+  
+  num_Alumnos <- as.numeric(sub_mat[,num_col_Alumnos])
+  num_alum_x_profesor <- ceiling(runif(1,min = min(num_Alumnos),
+                                       max = max(num_Alumnos)))
+  return(num_alum_x_profesor)
+}
+
+
+
+
 
 ##### **AQUÍ** #####
 
 
-##########################################################################
-##### SIMULACIÓN #####
-#'Funciones encargadas de extraer, estimar y simular el número de alumnos
-#'totales y el tamaño de cada grupo.
-##########################################################################
-
-# simula_tam_gpo_1_materia -----------------------------------------------------
-#' Title simula_tam_gpo_1_materia: Función que simula el tamaño de los grupos por
-#' materia en cada hora dependiendo del número de alumnos que se han tenido.
-#'
-#' @param materia: Nombre de algún curso impartido en la FC
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' 
-#' @example materia <- "Probabilidad I"
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
-#' m_grande_total)
-#'
-#' @return sim_tam_gpo_x_hora: Vector que indica el tamaño simulado de cada
-#' grupo por hora.
-#'
-simula_tam_gpo_1_materia <- function(materia,param){
-  ##Inicializamos las variables que se van a utilizar
-  # lista_def_columnas_MG <- param$lista_def_columnas_MG
-  m_grande_total <- param$m_grande_total
-  ind_materia <- checa_ind_materia(materia,m_grande_total)
-  num_col_horario_num <- arroja_ind_col_MG("horario_num")
-  num_col_Alumnos <- arroja_ind_col_MG("Alumnos")
-  horario_num <- m_grande_total[,num_col_horario_num]
-  Alumnos <- m_grande_total[,num_col_Alumnos]
-  
-  ##Matriz con 2 columnas: Horas-Número de alumnos de "materia", en tipo "numeric"
-  datos_horas_alumnos <- cbind(horario_num[ind_materia],Alumnos[ind_materia])
-  colnames(datos_horas_alumnos) <- c("Horas","Alumnos")
-  vec_horas <- 7:21
-  sim_tam_gpo_x_hora <- rep(0,length(param$nombre_hrs))
-  
-  for(d in 1:length(param$nombre_hrs)){
-    ##Se toman las cantidades > 0 de alumnos por hora
-    vec_tam <- datos_horas_alumnos[datos_horas_alumnos[,1]==vec_horas[d],2]
-    #' No aplicamos la función unique al vector para respetar la probabilidad
-    #' de elegir tamaños de grupo entre más repetidos haya.
-    # vec_tam <- unique(vec_tam[vec_tam>0])
-    vec_tam <- vec_tam[vec_tam>0]
-    if(length(vec_tam) > 1){
-      sim_tam_gpo_x_hora[d] <- sample(vec_tam,size = 1)
-    }else if(length(vec_tam) == 1){
-      ## Cuando el vector sólo tiene una entrada la función sample
-      ##toma una muestra aleatoria entre 1 y el número en esa entrada,
-      ##es por ello que se separan en casos de acuerdo a la longitud
-      ##del vector.
-      sim_tam_gpo_x_hora[d] <- vec_tam
-    }
-  }#Fin for(d)
-  
-  return(sim_tam_gpo_x_hora)
-}
-
-
-# gen_mat_simula_gpos_1_materia --------------------------------------
-#' Title gen_mat_simula_gpos_1_materia: Función que guarda la matriz 
-#' "mat_simula_grupos_una_materia" por materia, la cual contiene 24 columnas:
-#' Materia, Horario, Número de grupos simulados, Número de alumnos simulados,
-#' las últimas 20 columnas indican el número de simulaciones del tamaño de
-#' grupo, en sus renglones se tiene el número de alumnos de cada grupo
-#' simulado por hora.
-#'
-#' @param materia: Nombre de algún curso impartido en la FC
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' 
-#' @example materia <- "Probabilidad I"
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
-#' m_grande_total)
-#'
-#' @return mat_simula_grupos_una_materia: Matriz con 24 columnas: Materia, Horario,
-#' Número de grupos simulados, Número de alumnos simulados, las últimas 20
-#' columnas indican el número de simulaciones del tamaño de grupo, en sus
-#' renglones se tiene el número de alumnos de cada grupo por hora.
-#' 
-gen_mat_simula_gpos_1_materia <- function(materia,param){
-  # Se obtiene el índice de los renglones de la matriz "m_grande_total"
-  #que tienen la información de "materia"
-  m_grande_total <- param$m_grande_total
-  ind_materia <- checa_ind_materia(materia,m_grande_total)
-  
-  ##Se define la matriz como data frame
-  mat_simula_grupos_una_materia <- data.frame(Materia = 0,Horario = param$nombre_hrs,
-                                              Núm.Gpos.Simulados = 0,
-                                              Núm.Al.Simulados = 0,Sim_1 = 0,Sim_2 = 0,
-                                              Sim_3 = 0,Sim_4 = 0,Sim_5 = 0,Sim_6 = 0,
-                                              Sim_7 = 0,Sim_8 = 0,Sim_9 = 0,Sim_10 = 0,
-                                              Sim_11 = 0,Sim_12 = 0,Sim_13 = 0,Sim_14 = 0,
-                                              Sim_15 = 0,Sim_16 = 0,Sim_17 = 0,Sim_18 = 0,
-                                              Sim_19 = 0,Sim_20 = 0)
-  
-  ## Números de columna de la matriz "mat_simula_grupos_una_materia"
-  col_def_Materia <- arroja_ind_col_SG("Materia") ##1
-  col_def_Horario <- arroja_ind_col_SG("Horario") ##2
-  col_grupos_simulados <- arroja_ind_col_SG("Grupos_Simulados") ##3
-  col_alum_sim_total <- arroja_ind_col_SG("Alumnos_Simulados_Totales") ##4
-  col_1er_grupo <- arroja_ind_col_SG("col_1er_grupo") ##5
-  col_ult_grupo <- arroja_ind_col_SG("col_ult_grupo") ##24
-  rango_grupos <- col_1er_grupo:col_ult_grupo
-  
-  ##Se llenan las columnas: "Materia", "Horario" y "Núm.Al.Simulados" la cual 
-  #tiene el número de alumnos simulados para "materia" en cada horario.
-  # El número 15 es porque hay 15 horarios en total (7-8,...,21-22)
-  vec_renglones <- 1:length(param$Horas)
-  mat_simula_grupos_una_materia[vec_renglones,col_def_Materia] <- materia
-  # mat_simula_grupos_una_materia[vec_renglones,col_def_Horario] <- param$nombre_hrs
-  vec_alumnos_simulados <- simula_alumnos_1_materia(materia,param)
-  mat_simula_grupos_una_materia[vec_renglones,col_alum_sim_total] <- vec_alumnos_simulados
-  
-  ##Se llenan las demás columnas de la matriz "mat_simula_grupos_una_materia",
-  #en caso de que si haya habido grupos simulados para "materia"
-  if(sum(vec_alumnos_simulados) > 0){
-    for(d in rango_grupos){##Se recorren las columnas
-      # cat("\n d =",d)
-      alto <- 0
-      while(alto == 0){
-        #Se simula el tamaño de grupo por hora en cada columna
-        sim_tam_gpo_x_hora <- simula_tam_gpo_1_materia(materia,param)
-        for(j in 1:length(param$Horas)){ ##Se recorren los renglones
-          # cat("\nj =",j)
-          num_alumnos <- mat_simula_grupos_una_materia[j,col_alum_sim_total]
-          
-          ##Preguntamos si la suma de los alumnos sigue siendo menor
-          #al número de alumnos simulados
-          if(sum(mat_simula_grupos_una_materia[j,rango_grupos])<num_alumnos){
-            mat_simula_grupos_una_materia[j,d] <- sim_tam_gpo_x_hora[j]
-            # cat("\n Entra al primer if")
-          }else if(sum(mat_simula_grupos_una_materia[j,rango_grupos])>=num_alumnos
-                   || d==col_ult_grupo){
-            # cat("\n Entra al segundo if")
-            alto <- 1
-          }
-          # cat("\n alto =",alto)
-        }##Fin de for(j) #Renglones
-      }##Fin de while
-    }##Fin de for(d) #Columnas
-    
-    ##Se llena la columna con el número de grupos simulados por materia y
-    ##se restan tantos alumnos como sean necesarios en el último grupo
-    ##para que la suma del número de alumnos por grupo sea igual al número
-    ##de alumnos simulados. Después se acomodan de mayor a menor los grupos.
-    for(k in 1:length(param$Horas)){
-      renglon <- mat_simula_grupos_una_materia[k,rango_grupos]
-      num_gpos_sim <- length(renglon[renglon>0])
-      mat_simula_grupos_una_materia[k,col_grupos_simulados] <- num_gpos_sim
-      num_alum_sim <- mat_simula_grupos_una_materia[k,col_alum_sim_total]
-      suma_alum_x_gpo <- sum(mat_simula_grupos_una_materia[k,col_1er_grupo:col_ult_grupo])
-      col_ult_gpo_sim <- col_alum_sim_total+num_gpos_sim
-      
-      mat_simula_grupos_una_materia[k,col_ult_gpo_sim] <- mat_simula_grupos_una_materia[k,col_ult_gpo_sim]-
-        (suma_alum_x_gpo-num_alum_sim)
-      
-      rango <- col_1er_grupo:col_ult_gpo_sim
-      mat_simula_grupos_una_materia[k,rango] <- sort(mat_simula_grupos_una_materia[k,rango],
-                                                     decreasing = T)
-    }
-  }else{ #Si no hay grupos simulados de "materia"
-    mat_simula_grupos_una_materia <- data.frame(Materia = 0,Horario = param$nombre_hrs,
-                                                Núm.Gpos.Simulados = 0,
-                                                Núm.Al.Simulados = 0,Sim_1 = 0,Sim_2 = 0,
-                                                Sim_3 = 0,Sim_4 = 0,Sim_5 = 0,Sim_6 = 0,
-                                                Sim_7 = 0,Sim_8 = 0,Sim_9 = 0,Sim_10 = 0,
-                                                Sim_11 = 0,Sim_12 = 0,Sim_13 = 0,Sim_14 = 0,
-                                                Sim_15 = 0,Sim_16 = 0,Sim_17 = 0,Sim_18 = 0,
-                                                Sim_19 = 0,Sim_20 = 0)
-    ##Se llena la columna: "Materia"
-    mat_simula_grupos_una_materia[vec_renglones,col_def_Materia] <- materia
-  }
-  
-  # View(mat_simula_grupos_una_materia)
-  # nom_archivo <- paste0("mat_simula_grupos por materia 20202/mat_simula_grupos_",materia,".RData")
-  # save(mat_simula_grupos_una_materia,file = nom_archivo)
-  return(mat_simula_grupos_una_materia)
-}
-
-
-# gen_list_n_sim_1_materia --------------------------------------------------
-#' Title gen_list_n_sim_1_materia: Función que hace "n" simulaciones fijando un
-#' semestre y una materia; arroja una matriz con el número de alumnos por
-#' grupo ordenados de mayor a menor por cada hora. Las "n" matrices generadas
-#' se guardan en una lista llamada "lista_mat_n_sim". Cada matriz generada
-#' tiene 24 columnas: Materia, Horario, Número total de grupos simulados,
-#' Número total de alumos simulados, las siguientes 20 columnas contienen
-#' el número de alumnos simulados, ordenados de mayor a menor. Las matrices
-#' generadas se guardan en una lista llamada "lista_mat_n_sim".
-#'
-#' @param materia: Nombre de algún curso impartido en la FC.
-#' @param num_materia: Número del índice de "materia" en "vec_nom_materias_total"
-#' @param num_sim: Número de matrices simuladas.
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' 
-#' @example materia <- "Probabilidad I"
-#' @example num_materia <- 60
-#' @example num_sim <- 10
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
-#' m_grande_total)
-#'
-#' @return lista_mat_n_sim: Lista que contiene las "n" matrices generadas con
-#' el número de alumnos simulados, ordenados de mayor a menor.
-#'
-gen_list_n_sim_1_materia <- function(materia,num_sim,param){
-  #Se definen las variables que se van a utilizar
-  sem_sig <- param$sem_sig
-  num_materia <- arroja_num_materia(materia,param)
-  m_grande_total <- param$m_grande_total
-  
-  #Se inicia con las n simulaciones
-  lista_mat_n_sim <- list()
-  nombres_lista <- 0
-  for(k in 1:num_sim){
-    # cat("\nSimulación número ",k)
-    mat_1_sim <- gen_mat_simula_gpos_1_materia(materia,param)
-    
-    lista_mat_n_sim[[k]] <- mat_1_sim
-    nombres_lista <- c(nombres_lista,paste0("mat_",k,"_sim"))
-  }
-  #Se quita el cero que está al inicio del vector de nombres
-  nombres_lista <- nombres_lista[-1]
-  names(lista_mat_n_sim) <- nombres_lista
-  
-  nom_lista_n_sim <- gen_nom_list_n_sim_1_materia(num_sim,num_materia,sem_sig)
-  
-  save(lista_mat_n_sim,file = nom_lista_n_sim)
-  return(lista_mat_n_sim)
-}
-
-
-
-##########################################################################
-##### ESQUELETO #####
-## Funciones que generan un esqueleto del siguiente semestre. Arroja un
-##error en caso de no encontrar algún archivo que requiera.
-##########################################################################
 
 
 # gen_esqueleto -----------------------------------------------------------

@@ -268,7 +268,16 @@ mat_solicitudes <- gen_solicitudes(param)#8.56 seg
 View(mat_solicitudes)
 
 
-
+# simula_alum_x_profesor --------------------------------------------------
+#' Title simula_alum_x_profesor: Función que simula el número de alumnos
+#' para un profesor y una materia. Se obtiene la información del número de
+#' alumnos que ha tenido el profesor (del 2015-1 al 2020-1), se toma el
+#' mín y el máx, se simula una uniforme en ese intervalo, se redondea el
+#' valor con la función ceiling y así se obtiene el valor simulado.
+#'
+renglon <- c("Gerardo Sánchez Licea",1,"Análisis Matemático I",
+             30,12)
+(num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
 
 
 
