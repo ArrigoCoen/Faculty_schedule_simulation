@@ -1616,7 +1616,7 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   rownames(mat_esqueleto) <- 1:15
   colnames(mat_esqueleto) <- 1:333
   
-  ##### Profesores de tiempo completo #####
+  ##### Profesores de tiempo completo
   mat_solicitudes_TC <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==1,]
   mat_prof_TC <- cbind(unique(mat_solicitudes_TC[,1]),
                        rep(0,length(unique(mat_solicitudes_TC[,1]))))
@@ -1625,7 +1625,7 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   mat_prof_TC <- lista_ciclo_TC[[2]]
   colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
   
-  ##### Profesores de asignatura #####
+  ##### Profesores de asignatura
   mat_solicitudes_asignatura <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==0,]
   mat_prof_asig <- cbind(unique(mat_solicitudes_asignatura[,1]),
                          rep(0,length(unique(mat_solicitudes_asignatura[,1]))))

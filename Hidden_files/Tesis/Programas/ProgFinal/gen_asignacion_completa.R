@@ -25,7 +25,11 @@ gen_asignacion_completa <- function(param,param_sim){
   View(mat_solicitudes)
   
   #' 5) Simulación de esqueletos
-  gen_esqueleto(,param)
+  lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,
+                                        param)#19.48seg
+  mat_esqueleto <- lista_info_esqueleto[[1]]
+  mat_prof_TC <- lista_info_esqueleto[[2]]
+  mat_prof_asig <- lista_info_esqueleto[[3]]
   
   #' 6) Calificación de esqueletos
   califica_esqueleto()
