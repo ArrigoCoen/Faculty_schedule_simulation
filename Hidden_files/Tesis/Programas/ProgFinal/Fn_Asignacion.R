@@ -1485,124 +1485,175 @@ actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
 
 
 
-
-
-##### **AQUÍ** #####
-
+# ciclo_esqueleto ---------------------------------------------------------
+#' Title ciclo_esqueleto: Función auxiliar de "gen_esqueleto" encargada de
+#' realizar el ciclo. Recibe las matrices dependiendo si se está en el caso
+#' de profesores de tiempo completo o de asignatura.
+#'
+#' @param cota: Cota para que el ciclo no sea infinito.
+#' @param mat_solicitudes: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) que tiene la información de las solicitudes de los
+#' profesores.
+#' @param mat_prof: Matriz de 2 columnas con el nombre de los profesores y
+#' el número de materias que se le han asignado.
+#' @param mat_demanda: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
+#'
+#' @return lista_ciclo: Lista con la matriz "mat_esqueleto", la matriz
+#' "mat_prof" y la matriz "mat_demanda".
+#'
+#' @examples
+#' lista_ciclo <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,mat_esqueleto)
+#' lista_ciclo <- ciclo_esqueleto(6500,mat_solicitudes_asig,mat_prof_asig,mat_esqueleto)
+#' 
+ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
+  #Se definen las variables que se van a utilizar
+  mat_esqueleto <- matrix(0,nrow = length(param$Horas),
+                          ncol = length(param$vec_nom_materias_total))
+  rownames(mat_esqueleto) <- 1:15
+  colnames(mat_esqueleto) <- 1:333
+  
+  for(n in 1:cota){#Cota para que el ciclo no sea infinito
+    # cat("\n Iteración: ",n)
+    if(sum(mat_demanda)>0 && dim(mat_solicitudes)[1]>0){
+      #Número aleatorio para elegir profesor
+      (num_al <- round(runif(1,min = 1,max = dim(mat_prof)[1])))
+      (profesor <- mat_prof[num_al,1])
+      mat_aux <- mat_solicitudes[mat_solicitudes[,1]==profesor,]
+      
+      if(dim(mat_aux)[1]>0){#Si hay información de "profesor"
+        #Número aleatorio para elegir materia
+        (num_al_2 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
+        (materia_al <- mat_aux[num_al_2,3])
+        (num_materia_al <- mat_aux[num_al_2,4])
+        
+        #Número aleatorio para elegir horario
+        (num_al_3 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
+        (hora_al <- mat_aux[num_al_3,5])
+        
+        (renglon <- c(profesor,1,materia_al,num_materia_al,hora_al))
+        
+        #Índices de renglón y columna para "mat_esqueleto"
+        (M_i <- which(param$Horas == as.numeric(renglon[5])))
+        (M_j <- as.numeric(renglon[4]))
+        
+        #Se verifica si la demanda ha sido cubierta o no
+        (sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda,renglon))
+        
+        if(sobran_alum_1si_0no == 1){#Aún hay alumnos sin clase para esa materia
+          #Simulamos el número de alumnos para este grupo
+          (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
+          
+          #Se actualizan las entradas de las matrices auxiliares
+          mat_demanda[M_i,M_j] <- max(0,mat_demanda[M_i,M_j]-num_alum_x_profesor)
+          mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
+          
+          mat_prof[num_al,2] <- as.numeric(mat_prof[num_al,2]) + 1
+          prof_mas_2 <- 0
+          if(mat_prof[num_al,2] >= 2){
+            prof_mas_2 <- 1
+          }
+          mat_solicitudes <- actualiza_mat_solicitudes(mat_solicitudes,
+                                                       renglon,prof_mas_2)
+        }#Fin if(dim(mat_aux)[1]>0)
+      }#Fin if Demanda existente
+    }#Fin if Condiciones de paro
+  }#Fin for(n)
+  
+  lista_ciclo <- list()
+  lista_ciclo[[1]] <- mat_esqueleto
+  lista_ciclo[[2]] <- mat_prof
+  lista_ciclo[[3]] <- mat_demanda
+  names(lista_ciclo) <- c("mat_esqueleto","mat_prof","mat_demanda")
+  return(lista_ciclo)
+}
 
 
 
 # gen_esqueleto -----------------------------------------------------------
-#' Title: gen_esqueleto: Función que genera una matriz llamada
-#' "mat_esqueleto", del semestre actual (sem_fin) que contiene el número
-#' de grupos simulados para cada materia en cada hora. Arroja un error en
-#' caso de no encontrar algún archivo que requiera.
+#' Title gen_esqueleto: Función que arroja una lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores de
+#' asignatura y el número de materias asignadas.
 #'
-#' @param sem_fin: Variable tipo "integer" que indica el semestre
-#' del cual se quiere obtener el esqueleto.
-#' @param n_semestres_anteriores: Variable tipo "integer" que indica el
-#' número de semestres anteriores al semestre actual para poder generar el
-#' esqueleto.
-#' @param directorio_info: Vector que contiene la ubicación y el nombre de
-#' los archivos tipo ".Rdata" en donde se hayan guardado las matrices que
-#' contienen la información de los semestres que se requieren para obtener
-#' el esqueleto.
+#' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 333
+#' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
+#' simulados para la hora i, y la materia j.
+#' @param mat_solicitudes: Matriz de 4 columnas (Profesor,TC,Materia,
+#' Horario). Tiene la información de las solicitudes de los profesores. Se
+#' eligen hasta dos materias y hasta 3 diferentes horarios. Se quitan los
+#' renglones repetidos.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
 #' 
-#' @example sem_fin <- 20201
-#' @example n_semestres_anteriores <- 5
-#' @example directorio_info <- c("m_grande por semestre/m_grande_20081.RData",
-#' "m_grande por semestre/m_grande_20082.RData")
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
-#' @return mat_esqueleto: Matriz de 15 renglones con las horas (7-8,8-9,...,
-#' 21-22) y tantas columnas como materias.
+#' @return lista_info_esqueleto: Lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
+#' de asignatura y el número de materias asignadas.
 #'
-gen_esqueleto <- function(directorio_info,param){
-  # Start the clock!
-  ptm <- proc.time()
+#' @examples
+#' lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,param)
+#' 
+gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
+  ptm <- proc.time()# Start the clock!
+  #Se definen las variables que se van a utilizar
+  mat_demanda_aux <- mat_demanda_alumnos
+  mat_solicitudes_aux <- mat_solicitudes[as.numeric(mat_solicitudes[,5])>0,]
+  mat_esqueleto <- matrix(0,nrow = length(param$Horas),
+                          ncol = length(param$vec_nom_materias_total))
+  rownames(mat_esqueleto) <- 1:15
+  colnames(mat_esqueleto) <- 1:333
   
-  n_semestres_anteriores <- param$n_semestres_anteriores
-  ##Se verifica que existen los archivos que se necesitan para formar el
-  ##esqueleto.
-  valida_info <- 0
-  num_sem <- 0
-  n_renglones <- 0
+  ##### Profesores de tiempo completo #####
+  mat_solicitudes_TC <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==1,]
+  mat_prof_TC <- cbind(unique(mat_solicitudes_TC[,1]),
+                       rep(0,length(unique(mat_solicitudes_TC[,1]))))
+  lista_ciclo_TC <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,
+                                    mat_demanda_aux)
+  mat_prof_TC <- lista_ciclo_TC[[2]]
+  colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
   
-  for(i in 1:n_semestres_anteriores){
-    ##CHECAR SI SE CAMBIA LA MANERA DE VERIFICAR LA EXISTENCIA DE LOS ARCHIVOS##
-    if(file.exists(directorio_info[i])){
-      num_sem <- num_sem +1
-      load(directorio_info[i])
-      n_renglones <- n_renglones + nrow(m_grande)}}
+  ##### Profesores de asignatura #####
+  mat_solicitudes_asignatura <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==0,]
+  mat_prof_asig <- cbind(unique(mat_solicitudes_asignatura[,1]),
+                         rep(0,length(unique(mat_solicitudes_asignatura[,1]))))
   
-  if(num_sem==n_semestres_anteriores){
-    valida_info <- 1}
+  lista_ciclo_asig <- ciclo_esqueleto(6500,mat_solicitudes_asignatura,
+                                      mat_prof_asig,lista_ciclo_TC[[3]])
+  mat_prof_asig <- lista_ciclo_asig[[2]]
+  colnames(mat_prof_asig) <- c("Profesor","Materias_Asig")
   
-  if(valida_info == 1){
-    ##Se carga m_grande_total
-    vec_excepciones <- "Inglés"
-    nom_archivo_MGT <- paste0("Matrices m_grande_total/m_grande_total_",
-                              param$sem_ini,"_",param$sem_fin,".RData")
-    if(!file.exists(nom_archivo_MGT)){
-      gen_m_grande_total(vec_excepciones,param)
-    }else{
-      load(nom_archivo_MGT)
-    }
-    
-    #' Se define el vector de materias (vector con los nombres de todas las
-    #' materias que se imparten en el Departamento de Matemáticas de la
-    #' Facultad de Ciencias de la UNAM) y las variables que se utilizan
-    nombre_hrs <- param$nombre_hrs
-    vec_grupos_simulados <- rep(0,length(nombre_hrs))
-    mat_simula_grupos <- guarda_mat_simula_grupos_1_sem(param)
-    # load("vec_nom_materias_total.RData")
-    materias_unicas <- param$vec_nom_materias_total#Vector con el nombre de las materias
-    
-    ## Inicializamos la matriz que va a contener la demanda simulada del
-    ##número de grupos del siguiente semestre. Tiene tantos renglones como
-    ##horas y tantas columnas como materias impartidas.
-    mat_esqueleto <- matrix(0, nrow=length(param$nombre_hrs),
-                            ncol=length(materias_unicas))
-    
-    vec_para_for <- 1:length(materias_unicas)
-    pb <- txtProgressBar(min = 1, max = length(vec_para_for),
-                         style = 3, width = 60)
-    for(i in vec_para_for){
-      setTxtProgressBar(pb, i)
-      # version_matriz <- as.character(i)
-      cat("\n***Iteración ",i," de ",length(materias_unicas))
-      
-      ##Se busca el vector con el número de grupos simulado de materia
-      mat_info_grupos <- mat_simula_grupos[
-        mat_simula_grupos[,1]==materias_unicas[i],c(2,3)]
-      
-      for(d in 1:length(nombre_hrs)){##Se recorren las horas
-        if(dim(mat_info_grupos)[1] != 0){
-          for(j in 1:dim(mat_info_grupos)[1]){ ##Se recorren los renglones
-            hora <- mat_info_grupos[j,1]
-            if(hora==nombre_hrs[d]){
-              vec_grupos_simulados[d] <- mat_info_grupos[j,2]}}}}
-      
-      mat_esqueleto[,i] <- vec_grupos_simulados
-    }
-    close(pb)
-    rownames(mat_esqueleto) <- param$nombre_hrs
-    colnames(mat_esqueleto) <- materias_unicas
-  }else{
-    cat("\nNo se encontraron todos los archivos necesarios para generar 
-        el esqueleto")
-  }
-  # Se guarda la variable tipo lista "lista_esqueleto", la cual contiene las
-  #matrices "mat_simula_grupos" y "mat_esqueleto"
-  lista_esqueleto <- list(mat_simula_grupos = mat_simula_grupos,
-                          mat_esqueleto = mat_esqueleto)
+  #Se suman los grupos de los profesores de tiempo completo y los de asignatura
+  mat_esqueleto <- lista_ciclo_TC[[1]] + lista_ciclo_asig[[1]]
+  rownames(mat_esqueleto) <- param$nombre_hrs
+  colnames(mat_esqueleto) <- param$vec_nom_materias_total
   
-  save(lista_esqueleto,file = paste0("lista_esqueleto_",param$sem_sig,".RData"))
-  save(mat_simula_grupos,file = paste0("mat_simula_grupos por semestre/mat_simula_grupos_",
-                                       param$sem_sig,".RData"))
+  lista_info_esqueleto <- list()
+  lista_info_esqueleto[[1]] <- mat_esqueleto
+  lista_info_esqueleto[[2]] <- mat_prof_TC
+  lista_info_esqueleto[[3]] <- mat_prof_asig
+  names(lista_info_esqueleto) <- c("mat_esqueleto","mat_prof_TC",
+                                   "mat_prof_asig")
   
-  cat("La función gen_esqueleto tomó: ", (proc.time()-ptm)[3]/60," minutos\n\n\n" )
-  return(mat_esqueleto)
+  cat("\nLa función gen_esqueleto tardó: ",(proc.time()-ptm)[3],
+      " segundos\n")#19.48seg
+  return(lista_info_esqueleto)
 }
+
+
+##### **AQUÍ** #####
 
 
 

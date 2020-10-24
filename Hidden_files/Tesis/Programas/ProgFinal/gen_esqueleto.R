@@ -16,42 +16,101 @@ source("Fn_Asignacion.R")
 
 
 
-# verifica_demanda_cubierta -----------------------------------------------
-#' Title verifica_demanda_cubierta: Función que arroja un 1 si aún existen
-#' alumnos en la i-ésima hora y en la materia j, cero si no.
+# ciclo_esqueleto ---------------------------------------------------------
+#' Title ciclo_esqueleto: Función auxiliar de "gen_esqueleto" encargada de
+#' realizar el ciclo. Recibe las matrices dependiendo si se está en el caso
+#' de profesores de tiempo completo o de asignatura.
 #'
-#' @param mat_demanda_aux: Matriz con la demanda de alumnos que se le están
-#' constantemente restando los alumnos ya simulados.
-#' @param renglon: Vector con la información del profesor elegido para
-#' asignarle un grupo.
+#' @param cota: Cota para que el ciclo no sea infinito.
+#' @param mat_solicitudes: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) que tiene la información de las solicitudes de los
+#' profesores.
+#' @param mat_prof: Matriz de 2 columnas con el nombre de los profesores y
+#' el número de materias que se le han asignado.
+#' @param mat_demanda: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
 #'
-#' @return sobran_alum_1si_0no: Variable binaria que vale 1 si aún existen
-#' alumnos en la i-ésima hora y en la materia j, cero si no.
+#' @return lista_ciclo: Lista con la matriz "mat_esqueleto", la matriz
+#' "mat_prof" y la matriz "mat_demanda".
 #'
 #' @examples
-#' sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda_aux,renglon)
+#' lista_ciclo <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,mat_esqueleto)
+#' lista_ciclo <- ciclo_esqueleto(6500,mat_solicitudes_asig,mat_prof_asig,mat_esqueleto)
 #' 
-verifica_demanda_cubierta <- function(mat_demanda_aux,renglon){
-  ind_hora <- which(7:21 == as.numeric(renglon[5]))
+ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
+  #Se definen las variables que se van a utilizar
+  mat_esqueleto <- matrix(0,nrow = length(param$Horas),
+                          ncol = length(param$vec_nom_materias_total))
+  rownames(mat_esqueleto) <- 1:15
+  colnames(mat_esqueleto) <- 1:333
   
-  #' La primera condición evita errores cuando no hay hora en la
-  #' columna "Horario"
-  if(length(ind_hora>0) && 
-     mat_demanda_aux[ind_hora,as.numeric(renglon[4])] > 0){
-    sobran_alum_1si_0no <- 1
-  }else{
-    sobran_alum_1si_0no <- 0
-  }
+  for(n in 1:cota){#Cota para que el ciclo no sea infinito
+    # cat("\n Iteración: ",n)
+    if(sum(mat_demanda)>0 && dim(mat_solicitudes)[1]>0){
+      #Número aleatorio para elegir profesor
+      (num_al <- round(runif(1,min = 1,max = dim(mat_prof)[1])))
+      (profesor <- mat_prof[num_al,1])
+      mat_aux <- mat_solicitudes[mat_solicitudes[,1]==profesor,]
+      
+      if(dim(mat_aux)[1]>0){#Si hay información de "profesor"
+        #Número aleatorio para elegir materia
+        (num_al_2 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
+        (materia_al <- mat_aux[num_al_2,3])
+        (num_materia_al <- mat_aux[num_al_2,4])
+        
+        #Número aleatorio para elegir horario
+        (num_al_3 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
+        (hora_al <- mat_aux[num_al_3,5])
+        
+        (renglon <- c(profesor,1,materia_al,num_materia_al,hora_al))
+        
+        #Índices de renglón y columna para "mat_esqueleto"
+        (M_i <- which(param$Horas == as.numeric(renglon[5])))
+        (M_j <- as.numeric(renglon[4]))
+        
+        #Se verifica si la demanda ha sido cubierta o no
+        (sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda,renglon))
+        
+        if(sobran_alum_1si_0no == 1){#Aún hay alumnos sin clase para esa materia
+          #Simulamos el número de alumnos para este grupo
+          (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
+          
+          #Se actualizan las entradas de las matrices auxiliares
+          mat_demanda[M_i,M_j] <- max(0,mat_demanda[M_i,M_j]-num_alum_x_profesor)
+          mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
+          
+          mat_prof[num_al,2] <- as.numeric(mat_prof[num_al,2]) + 1
+          prof_mas_2 <- 0
+          if(mat_prof[num_al,2] >= 2){
+            prof_mas_2 <- 1
+          }
+          mat_solicitudes <- actualiza_mat_solicitudes(mat_solicitudes,
+                                                          renglon,prof_mas_2)
+        }#Fin if(dim(mat_aux)[1]>0)
+      }#Fin if Demanda existente
+    }#Fin if Condiciones de paro
+  }#Fin for(n)
   
-  return(sobran_alum_1si_0no)
+  lista_ciclo <- list()
+  lista_ciclo[[1]] <- mat_esqueleto
+  lista_ciclo[[2]] <- mat_prof
+  lista_ciclo[[3]] <- mat_demanda
+  names(lista_ciclo) <- c("mat_esqueleto","mat_prof","mat_demanda")
+  return(lista_ciclo)
 }
 
 
 
 # gen_esqueleto -----------------------------------------------------------
-#' Title gen_esqueleto: Función que arroja la matriz "mat_esqueleto" que
-#' tiene 15 renglones (horas) y 333 columnas (materias). En la entrada (i,j)
-#' se tiene el número de grupos simulados para la hora i, y la materia j.
+#' Title gen_esqueleto: Función que arroja una lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores de
+#' asignatura y el número de materias asignadas.
 #'
 #' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 333
 #' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
@@ -70,10 +129,10 @@ verifica_demanda_cubierta <- function(mat_demanda_aux,renglon){
 #' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j.
-#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de tiempo
-#' completo y el número de materias asignadas.
-#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores de
-#' asignatura y el número de materias asignadas.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
+#' de asignatura y el número de materias asignadas.
 #'
 #' @examples
 #' lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,param)
@@ -92,127 +151,43 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   mat_solicitudes_TC <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==1,]
   mat_prof_TC <- cbind(unique(mat_solicitudes_TC[,1]),
                        rep(0,length(unique(mat_solicitudes_TC[,1]))))
-  for(n in 1:1000){#Cota para que el ciclo no sea infinito
-    cat("\n Iteración: ",n)
-    if(sum(mat_demanda_aux)>0 && dim(mat_solicitudes_TC)[1]>0){
-      #Número aleatorio para elegir profesor
-      (num_al <- round(runif(1,min = 1,max = dim(mat_prof_TC)[1])))
-      (profesor <- mat_prof_TC[num_al,1])
-      mat_aux <- mat_solicitudes_TC[mat_solicitudes_TC[,1]==profesor,]
-      
-      if(dim(mat_aux)[1]>0){#Si hay información de "profesor"
-        #Número aleatorio para elegir materia
-        (num_al_2 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
-        (materia_al <- mat_aux[num_al_2,3])
-        (num_materia_al <- mat_aux[num_al_2,4])
-        
-        #Número aleatorio para elegir horario
-        (num_al_3 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
-        (hora_al <- mat_aux[num_al_3,5])
-        
-        (renglon <- c(profesor,1,materia_al,num_materia_al,hora_al))
-        
-        #Índices de renglón y columna para "mat_esqueleto"
-        (M_i <- which(param$Horas == as.numeric(renglon[5])))
-        (M_j <- as.numeric(renglon[4]))
-        
-        #Se verifica si la demanda ha sido cubierta o no
-        (sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda_aux,renglon))
-        
-        if(sobran_alum_1si_0no == 1){#Aún hay alumnos sin clase para esa materia
-          #Simulamos el número de alumnos para este grupo
-          (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
-          
-          #Se actualizan las entradas de las matrices auxiliares
-          mat_demanda_aux[M_i,M_j] <- max(0,mat_demanda_aux[M_i,M_j]-num_alum_x_profesor)
-          mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
-          
-          mat_prof_TC[num_al,2] <- as.numeric(mat_prof_TC[num_al,2]) + 1
-          prof_mas_2 <- 0
-          if(mat_prof_TC[num_al,2] >= 2){
-            prof_mas_2 <- 1
-          }
-          mat_solicitudes_TC <- actualiza_mat_solicitudes(mat_solicitudes_TC,
-                                                          renglon,prof_mas_2)
-          cat("\n Se eligió la materia ",as.character(renglon[3]),
-              " a las ",as.character(renglon[5])," hrs. \n Se simularon ",
-              num_alum_x_profesor," alumnos.\n Antes se tenían ",
-              mat_demanda_alumnos[M_i,M_j]," alumnos y ahora se tienen ",
-              mat_demanda_aux[M_i,M_j]," alumnos.\n Se tienen ",mat_esqueleto[M_i,M_j],
-              " grupos para la materia.")
-        }#Fin if(dim(mat_aux)[1]>0)
-      }#Fin if: Demanda existente
-    }#Fin if: Condiciones de paro
-  }#Fin for(n)
+  lista_ciclo_TC <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,
+                                    mat_demanda_aux)
+  mat_prof_TC <- lista_ciclo_TC[[2]]
+  colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
 
-  
   ##### Profesores de asignatura #####
   mat_solicitudes_asignatura <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==0,]
   mat_prof_asig <- cbind(unique(mat_solicitudes_asignatura[,1]),
                          rep(0,length(unique(mat_solicitudes_asignatura[,1]))))
-  for(n in 1:6500){#Cota para que el ciclo no sea infinito
-    cat("\n Iteración: ",n)
-    if(sum(mat_demanda_aux)>0 && dim(mat_solicitudes_asignatura)[1]>0){
-      #Número aleatorio para elegir profesor
-      (num_al <- round(runif(1,min = 1,max = dim(mat_prof_asig)[1])))
-      (profesor <- mat_prof_asig[num_al,1])
-      mat_aux <- mat_solicitudes_asignatura[mat_solicitudes_asignatura[,1]==profesor,]
-      
-      if(dim(mat_aux)[1]>0){#Si hay información de "profesor"
-        #Número aleatorio para elegir materia
-        (num_al_2 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
-        (materia_al <- mat_aux[num_al_2,3])
-        (num_materia_al <- mat_aux[num_al_2,4])
-        
-        #Número aleatorio para elegir horario
-        (num_al_3 <- round(runif(1,min = 1,max = dim(mat_aux)[1])))
-        (hora_al <- mat_aux[num_al_3,5])
-        
-        (renglon <- c(profesor,1,materia_al,num_materia_al,hora_al))
-        
-        #Índices de renglón y columna para "mat_esqueleto"
-        (M_i <- which(param$Horas == as.numeric(renglon[5])))
-        (M_j <- as.numeric(renglon[4]))
-        
-        #Se verifica si la demanda ha sido cubierta o no
-        (sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda_aux,renglon))
-        
-        if(sobran_alum_1si_0no == 1){#Aún hay alumnos sin clase para esa materia
-          #Simulamos el número de alumnos para este grupo
-          (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
-          
-          #Se actualizan las entradas de las matrices auxiliares
-          mat_demanda_aux[M_i,M_j] <- max(0,mat_demanda_aux[M_i,M_j]-num_alum_x_profesor)
-          mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
-          
-          mat_prof_asig[num_al,2] <- as.numeric(mat_prof_asig[num_al,2]) + 1
-          prof_mas_2 <- 0
-          if(mat_prof_asig[num_al,2] >= 2){
-            prof_mas_2 <- 1
-          }
-          mat_solicitudes_asignatura <- actualiza_mat_solicitudes(mat_solicitudes_asignatura,
-                                                                  renglon,prof_mas_2)
-          cat("\n Se eligió la materia ",as.character(renglon[3]),
-              " a las ",as.character(renglon[5])," hrs. \n Se simularon ",
-              num_alum_x_profesor," alumnos.\n Antes se tenían ",
-              mat_demanda_alumnos[M_i,M_j]," alumnos y ahora se tienen ",
-              mat_demanda_aux[M_i,M_j]," alumnos.\n Se tienen ",mat_esqueleto[M_i,M_j],
-              " grupos para la materia.")
-        }#Fin if(dim(mat_aux)[1]>0)
-      }#Fin if Demanda existente
-    }#Fin if Condiciones de paro
-  }#Fin for(n)
   
+  lista_ciclo_asig <- ciclo_esqueleto(6500,mat_solicitudes_asignatura,
+                                      mat_prof_asig,lista_ciclo_TC[[3]])
+  mat_prof_asig <- lista_ciclo_asig[[2]]
+  colnames(mat_prof_asig) <- c("Profesor","Materias_Asig")
+  
+  #Se suman los grupos de los profesores de tiempo completo y los de asignatura
+  mat_esqueleto <- lista_ciclo_TC[[1]] + lista_ciclo_asig[[1]]
   rownames(mat_esqueleto) <- param$nombre_hrs
   colnames(mat_esqueleto) <- param$vec_nom_materias_total
-  colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
-  colnames(mat_prof_asig) <- c("Profesor","Materias_Asig")
   
   lista_info_esqueleto <- list()
   lista_info_esqueleto[[1]] <- mat_esqueleto
   lista_info_esqueleto[[2]] <- mat_prof_TC
   lista_info_esqueleto[[3]] <- mat_prof_asig
-  names(lista_info_esqueleto) <- c("mat_esqueleto","mat_prof_TC","mat_prof_asig")
-  cat("\nLa función gen_esqueleto tardó: ",(proc.time()-ptm)[3]," segundos\n")##45.91
+  names(lista_info_esqueleto) <- c("mat_esqueleto","mat_prof_TC",
+                                   "mat_prof_asig")
+  
+  cat("\nLa función gen_esqueleto tardó: ",(proc.time()-ptm)[3],
+      " segundos\n")#19.48seg
   return(lista_info_esqueleto)
 }
+
+
+
+# Ej. ---------------------------------------------------------------------
+
+lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,param)
+
+
+

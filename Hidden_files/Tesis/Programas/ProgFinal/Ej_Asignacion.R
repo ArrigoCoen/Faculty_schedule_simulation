@@ -280,8 +280,21 @@ renglon <- c("Gerardo Sánchez Licea",1,"Análisis Matemático I",
 (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
 
 
-
-
+# gen_esqueleto -----------------------------------------------------------
+#' Title gen_esqueleto: Función que arroja una lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores de
+#' asignatura y el número de materias asignadas.
+#'
+lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,
+                                      param)#19.48seg
+View(lista_info_esqueleto[[1]])
+View(lista_info_esqueleto[[2]])
+View(lista_info_esqueleto[[3]])
 
 
 

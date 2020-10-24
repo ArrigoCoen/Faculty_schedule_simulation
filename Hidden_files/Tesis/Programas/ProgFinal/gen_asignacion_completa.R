@@ -17,7 +17,7 @@ source("Fn_Asignacion.R")
 gen_asignacion_completa <- function(param,param_sim){
 
   #' 1-3) Extracción de datos y simulación de alumnos de t+1
-  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#47.48 seg
+  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#46.19 seg
   View(mat_demanda_alumnos)
   
   #' 4a) Simulación de solicitudes de profesores de t+1 (oculta)
