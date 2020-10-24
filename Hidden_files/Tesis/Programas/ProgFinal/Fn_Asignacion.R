@@ -1213,7 +1213,7 @@ gen_mat_demanda_alumnos <- function(param,param_sim){
     vec_alum_sim <- simula_alumnos(mat_alumnos_corregidos,param)
     mat_demanda_alumnos[,d] <- vec_alum_sim
   }
-  cat("\nEl proceso tardó: ",(proc.time()-ptm)[3]," segundos\n")##45.91
+  cat("\nLa función gen_mat_demanda_alumnos tardó: ",(proc.time()-ptm)[3]," segundos\n")##45.91
   rownames(mat_demanda_alumnos) <- param$nombre_hrs
   colnames(mat_demanda_alumnos) <- param$vec_nom_materias_total
   
@@ -1411,6 +1411,76 @@ simula_alum_x_profesor <- function(renglon,param){
   num_alum_x_profesor <- ceiling(runif(1,min = min(num_Alumnos),
                                        max = max(num_Alumnos)))
   return(num_alum_x_profesor)
+}
+
+
+# verifica_demanda_cubierta -----------------------------------------------
+#' Title verifica_demanda_cubierta: Función que arroja un 1 si aún existen
+#' alumnos en la i-ésima hora y en la materia j, cero si no.
+#'
+#' @param mat_demanda_aux: Matriz con la demanda de alumnos que se le están
+#' constantemente restando los alumnos ya simulados.
+#' @param renglon: Vector con la información del profesor elegido para
+#' asignarle un grupo.
+#'
+#' @return sobran_alum_1si_0no: Variable binaria que vale 1 si aún existen
+#' alumnos en la i-ésima hora y en la materia j, cero si no.
+#'
+#' @examples
+#' sobran_alum_1si_0no <- verifica_demanda_cubierta(mat_demanda_aux,renglon)
+#' 
+verifica_demanda_cubierta <- function(mat_demanda_aux,renglon){
+  ind_hora <- which(7:21 == as.numeric(renglon[5]))
+  
+  #' La primera condición evita errores cuando no hay hora en la
+  #' columna "Horario"
+  if(length(ind_hora>0) && 
+     mat_demanda_aux[ind_hora,as.numeric(renglon[4])] > 0){
+    sobran_alum_1si_0no <- 1
+  }else{
+    sobran_alum_1si_0no <- 0
+  }
+  
+  return(sobran_alum_1si_0no)
+}
+
+
+# actualiza_mat_solicitudes -----------------------------------------------
+#' Title actualiza_mat_solicitudes: Función que actualiza la matriz
+#' "mat_solicitudes". Le quitamos las horas que ya dieron los profesores.
+#'
+#' @param mat_a_actualizar: Matriz de solictudes. Puede ser de los
+#' profesores de tiempo completo o de asignatura.
+#' @param renglon: Vector con la información del profesor elegido para
+#' asignarle un grupo.
+#' @param prof_mas_2: Variable binaria que vale 1 si el profesor ya tiene
+#' 2 o más materias asignadas y 0 si no.
+#'
+#' @return mat_solicitudes_act: Matriz de solicitudes actualizada.
+#'
+#' @examples
+#' mat_solicitudes_act <- actualiza_mat_solicitudes(mat_a_actualizar,renglon,
+#' prof_mas_2)
+#' 
+actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
+  # Se definen las variables que se van a utilizar
+  profesor <- which(mat_a_actualizar[,1]==renglon[1])
+  
+  if(prof_mas_2 == 1){
+    mat_solicitudes_act <- mat_a_actualizar[-profesor,]
+  }else{
+    hora <- which(mat_a_actualizar[,5]==renglon[5])
+    #' Se intersectan los conjuntos para tener los índices que se
+    #' deben retirar de la matriz
+    indices <- intersect(profesor,hora)
+    if(length(indices) > 0){
+      mat_solicitudes_act <- mat_a_actualizar[-indices,]
+    }else{
+      mat_solicitudes_act <- mat_a_actualizar
+    }
+  }
+  
+  return(mat_solicitudes_act)
 }
 
 
