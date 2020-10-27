@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  27 OCT 2020 13:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  27 OCT 2020 14:06
 entering extended mode
 **./main.tex
 (main.tex
@@ -1596,8 +1596,9 @@ Package pdftex.def Info: Pictures/mat_med_dispersion_pruebaAleatoria.png  used
 on input line 134.
 (pdftex.def)             Requested size: 384.15666pt x 266.26732pt.
 )
-LaTeX Info: Redefining \. on input line 45.
-LaTeX Info: Redefining \% on input line 45.
+(Sim_demanda_alumnos.tex
+LaTeX Info: Redefining \. on input line 4.
+LaTeX Info: Redefining \% on input line 4.
  [44 <./Pictures/intervalos_confianza.png> <./Pictures/mat_med_dispersion_prueb
 aAleatoria.png>]
 <Pictures/mat_alumnos_corregidos_EstadisticaIII.png, id=910, 307.1475pt x 305.6
@@ -1606,102 +1607,90 @@ File: Pictures/mat_alumnos_corregidos_EstadisticaIII.png Graphic file (type png
 )
 <use Pictures/mat_alumnos_corregidos_EstadisticaIII.png>
 Package pdftex.def Info: Pictures/mat_alumnos_corregidos_EstadisticaIII.png  us
-ed on input line 102.
+ed on input line 19.
 (pdftex.def)             Requested size: 245.71832pt x 244.51381pt.
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
-
-[45 <./Pictures/mat_alumnos_corregidos_EstadisticaIII.png>]
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
+ [45 <./Pictures/mat_alumnos_corregidos_EstadisticaIII.png>]
 <Pictures/vec_alum_sim_EstadisticaIII.png, id=921, 100.87688pt x 304.88907pt>
 File: Pictures/vec_alum_sim_EstadisticaIII.png Graphic file (type png)
 <use Pictures/vec_alum_sim_EstadisticaIII.png>
 Package pdftex.def Info: Pictures/vec_alum_sim_EstadisticaIII.png  used on inpu
-t line 116.
+t line 33.
 (pdftex.def)             Requested size: 80.7016pt x 243.91158pt.
-LaTeX Info: Redefining \. on input line 125.
-LaTeX Info: Redefining \% on input line 125.
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
  [46 <./Pictures/vec_alum_sim_EstadisticaIII.png>]
 <Pictures/mat_demanda_alumnos.png, id=927, 726.46407pt x 339.51843pt>
 File: Pictures/mat_demanda_alumnos.png Graphic file (type png)
 <use Pictures/mat_demanda_alumnos.png>
-Package pdftex.def Info: Pictures/mat_demanda_alumnos.png  used on input line 1
-29.
+Package pdftex.def Info: Pictures/mat_demanda_alumnos.png  used on input line 4
+6.
 (pdftex.def)             Requested size: 508.52138pt x 237.66127pt.
 
-Overfull \hbox (64.9429pt too wide) in paragraph at lines 129--130
+Overfull \hbox (64.9429pt too wide) in paragraph at lines 46--47
  [][] 
  []
 
-<Pictures/profesores_TC_SelectorGadget.png, id=930, 430.60875pt x 478.03593pt>
+) (Sim_info_solicitudes.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [47 <./Pictures/mat_demanda_alumnos.png>]
+<Pictures/profesores_TC_SelectorGadget.png, id=942, 430.60875pt x 478.03593pt>
 File: Pictures/profesores_TC_SelectorGadget.png Graphic file (type png)
 <use Pictures/profesores_TC_SelectorGadget.png>
 Package pdftex.def Info: Pictures/profesores_TC_SelectorGadget.png  used on inp
-ut line 147.
+ut line 13.
 (pdftex.def)             Requested size: 344.48746pt x 382.42926pt.
 
-Underfull \vbox (badness 4981) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
- [47 <./Pictures/mat_demanda_alumnos.png>]
-<Pictures/profesores_TC_sinLimpiar.png, id=938, 448.67625pt x 257.46187pt>
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ [48]
+<Pictures/profesores_TC_sinLimpiar.png, id=950, 448.67625pt x 257.46187pt>
 File: Pictures/profesores_TC_sinLimpiar.png Graphic file (type png)
 <use Pictures/profesores_TC_sinLimpiar.png>
 Package pdftex.def Info: Pictures/profesores_TC_sinLimpiar.png  used on input l
-ine 155.
+ine 21.
 (pdftex.def)             Requested size: 358.94148pt x 205.96976pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 158.
-LaTeX Info: Redefining \% on input line 158.
- [48 <./Pictures/profesores_TC_SelectorGadget.png>]
-LaTeX Info: Redefining \. on input line 201.
-LaTeX Info: Redefining \% on input line 201.
- [49 <./Pictures/profesores_TC_sinLimpiar.png>]
-Overfull \hbox (4.07257pt too wide) in paragraph at lines 212--212
-[]\T1/ptm/b/n/17.28 Simulación de so-li-ci-tu-des de pro-fe-so-res ocul-ta y ps
-eudo-
- []
-
-LaTeX Info: Redefining \. on input line 237.
-LaTeX Info: Redefining \% on input line 237.
-[50]
-<Pictures/mat_1_solicitud_Margarita.png, id=959, 475.7775pt x 157.33781pt>
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ [49 <./Pictures/profesores_TC_SelectorGadget.png>]
+LaTeX Info: Redefining \. on input line 67.
+LaTeX Info: Redefining \% on input line 67.
+ [50 <./Pictures/profesores_TC_sinLimpiar.png>]) (Sim_solicitudes.tex
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
+ [51]
+<Pictures/mat_1_solicitud_Margarita.png, id=970, 475.7775pt x 157.33781pt>
 File: Pictures/mat_1_solicitud_Margarita.png Graphic file (type png)
 <use Pictures/mat_1_solicitud_Margarita.png>
 Package pdftex.def Info: Pictures/mat_1_solicitud_Margarita.png  used on input 
-line 264.
+line 54.
 (pdftex.def)             Requested size: 380.6225pt x 125.8704pt.
-LaTeX Info: Redefining \. on input line 276.
-LaTeX Info: Redefining \% on input line 276.
+)
+Underfull \vbox (badness 2057) has occurred while \output is active []
 
-Overfull \hbox (2.41081pt too wide) has occurred while \output is active
-\T1/ptm/m/sl/12 4.5.  SIMULACIÓN DE SOLICITUDES DE PROFESORES OCULTA Y PSEUDO-R
-EAL \T1/ptm/m/n/12 51
- []
-
-[51 <./Pictures/mat_1_solicitud_Margarita.png>]
-<Pictures/Ej_esqueleto_20202.png, id=975, 558.58687pt x 338.76563pt>
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
+ [52 <./Pictures/mat_1_solicitud_Margarita.png>]
+<Pictures/Ej_esqueleto_20202.png, id=984, 558.58687pt x 338.76563pt>
 File: Pictures/Ej_esqueleto_20202.png Graphic file (type png)
 <use Pictures/Ej_esqueleto_20202.png>
-Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 30
-4.
+Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 80
+.
 (pdftex.def)             Requested size: 446.8701pt x 271.01285pt.
 
-Overfull \hbox (3.29163pt too wide) in paragraph at lines 304--305
+Overfull \hbox (3.29163pt too wide) in paragraph at lines 80--81
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
- [52]
-LaTeX Info: Redefining \. on input line 331.
-LaTeX Info: Redefining \% on input line 331.
-
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
 [53 <./Pictures/Ej_esqueleto_20202.png>])
 LaTeX Info: Redefining \. on input line 475.
 LaTeX Info: Redefining \% on input line 475.
@@ -2009,13 +1998,13 @@ LaTeX Info: Redefining \% on input line 21.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 567.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 567.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 056C6143C28F386C981FA0114F674461;3616.
+(rerunfilecheck)             Checksum: 62B9B1C28A21BF5B393D3727278C2C0F;3595.
  ) 
 Here is how much of TeX's memory you used:
- 13261 strings out of 481556
- 202804 string characters out of 2913870
+ 13270 strings out of 481556
+ 203302 string characters out of 2913870
  736485 words of memory out of 3000000
- 27737 multiletter control sequences out of 15000+200000
+ 27740 multiletter control sequences out of 15000+200000
  618983 words of font info for 154 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,17n,46p,1021b,2067s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2037,7 +2026,7 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (88 pages, 2822695 bytes).
+Output written on main.pdf (88 pages, 2822751 bytes).
 PDF statistics:
  1448 PDF objects out of 1728 (max. 8388607)
  361 named destinations out of 1000 (max. 500000)

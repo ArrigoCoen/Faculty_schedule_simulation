@@ -24,10 +24,10 @@
 \contentsline {section}{\numberline {4.1}Funciones hechas en R}{39}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Obtención de los parámetros $q_{1}$ y $q_{2}$}{40}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Simulación de la demanda de alumnos}{45}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Obtención de información para solicitudes}{47}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Simulación de solicitudes de profesores oculta y pseudo-real}{50}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Simulación de tamaño de grupos}{52}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Simulación de esqueletos}{52}{section.4.7}%
+\contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{47}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Obtención de información para solicitudes}{48}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Simulación de solicitudes de profesores}{51}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Simulación de esqueletos}{53}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Calificación de esqueletos de horario}{53}{section.4.8}%
 \contentsline {section}{\numberline {4.9}Generación de asignaciones}{54}{section.4.9}%
 \contentsline {subsection}{\numberline {4.9.1}Calificación de asignaciones de grupo}{54}{subsection.4.9.1}%

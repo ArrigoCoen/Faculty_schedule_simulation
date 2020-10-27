@@ -39,235 +39,7 @@ El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la 
 
 \input{Sim_obtencionq1q2} %%Subsección %%To include subfiles in to a subfiles use \input{name_of_file}
 
-\section{Simulación de la demanda de alumnos}
-
-La demanda del número de alumnos para el siguiente semestre la hicimos por materia y por hora. Para poder hacer la simulación lo primero que hicimos fue acomodar la información que teníamos por semestres y por hora. El procedimiento que seguimos es el siguiente:
-
-\begin{enumerate}
-\item Definir el semestre del cual se quiere obtener la simulación.
-
-\item Definir el número de semestres que se quieren como ventana de información.
-
-\item Tomar una submatriz de \textit{m\_grande\_total} con la información de una materia para los semestres en la ventana de información.
-
-\item Para cada semestre dentro de la ventana de información se suma el número de alumnos en cada hora.
-
-\item Se obtiene una matriz de $15 \times k$ ($k$ es el número de semestres en la ventana) como la que se puede ver en la figura \ref{matAl_corregidos}.
-\end{enumerate}
-
-%Por ejemplo si teníamos en el semestre 2018-2 una matriz como la que se muestra en la tabla \ref{TablaVariasMaterias} entonces por cada hora sumamos los datos y así para cada semestre.
-%\begin{table}[h]
-%\centering
-%\begin{tabular}{|c|c|c|}
-%\hline 
-%Horario & Materia 1 & Materia 2 \\ 
-%\hline 
-%7-8 & 0 & 0 \\ 
-%\hline 
-%8-9 & 0 & 0 \\ 
-%\hline 
-%9-10 & 0 & 0 \\ 
-%\hline 
-%10-11 & 0 & 0 \\ 
-%\hline 
-%11-12 & 11 & 33 \\ 
-%\hline 
-%12-13 & 45 & 30 \\ 
-%\hline 
-%13-14 & 0 & 0 \\ 
-%\hline 
-%14-15 & 0 & 0 \\ 
-%\hline 
-%15-16 & 0 & 0 \\ 
-%\hline 
-%16-17 & 0 & 0 \\ 
-%\hline 
-%17-18 & 30 & 22 \\ 
-%\hline 
-%18-19 & 0 & 0 \\ 
-%\hline 
-%19-20 & 0 & 0 \\ 
-%\hline 
-%20-21 & 18 & 35 \\ 
-%\hline 
-%21-22 & 0 & 0 \\ 
-%\hline
-%\end{tabular} 
-%\caption{\textit{Ejemplo de información varias materias}}\label{TablaVariasMaterias}
-%\end{table}
-%Podemos ver un ejemplo de la matriz que se formó, al aplicar el procedimiento descrito, para varios semestres, en la figura \ref{matAl_corregidos}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.8]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
-\caption{\textit{Ejemplo de matriz con alumnos corregidos}}\label{matAl_corregidos}
-\end{figure}
-
-Con el procedimiento descrito pudimos generar vectores por hora y aplicar la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la figura \ref{vec_alum_sim} vemos el vector con la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Estadística III}.
-
-Notamos que el valor de la demanda de alumnos es cero cuando en todos los semestres de alguna hora no hay datos. En el ejemplo, es el caso de las 7hrs, 8hrs, 13hrs, 14hrs, 15hrs, 16hrs y 21hrs.
-
-Observando los datos de las 10hrs. vemos que en los semestres pares no hay alumnos, por lo que en la simulación se obtiene únicamente un alumno. Si vemos los datos de las 17hrs vemos que de los 5 semestres en la ventana se tienen alumnos en los semestres pares y en un semestre impar, el número de alumnos simulados para esa hora son 31 alumnos.
-
-Con estos ejemplos podemos ver de manera tangible que el modelo si respeta la estacionalidad semestral que tienen los datos.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.8]{vec_alum_sim_EstadisticaIII} %width=\textwidth
-\caption{\textit{Ejemplo de vector con demanda simulada para el 2020-2}}\label{vec_alum_sim}
-\end{figure}
-
-Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $15 \times 333$. En la figura \ref{matDemandaAlum} podemos ver un ejemplo de cómo se ve la matriz formada.
-
-Analicemos 2 pares de grupos, primero veamos la segunda y la quinta columna, que corresponden a las materias de \textit{Álgebra Superior II} y \textit{Geometría Analítica I}, respectivamente. Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres pares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande, a diferencia de los alumnos simulados para \textit{Álgebra Superior II}, en donde hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares con una de semestres impares.
-
-Ahora analicemos las columnas 4 y 8, correspondientes a las materias de \textit{Seminario de Topología A} y \textit{Probabilidad II}. La primera es una materia optativa para Matemáticas y la segunda es una materia obligatoria para Actuaría, correspondiente a semestres pares y optativa para Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas. El número total de alumnos simulados para \textit{Seminario de Topología A} es menor a 20, en cambio para \textit{Probabilidad II} se tiene una gran cantidad de alumnos a las 8hrs, 9hrs y 10hrs. Considerando los valores que se tienen en el turno vespertino para \textit{Probabilidad II}, notamos que a las 19hrs también hay una gran cantidad de alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia obligatoria y una optativa, así como la diferencia entre el turno matutino y vespertino.
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.7]{mat_demanda_alumnos} %width=\textwidth
-\caption{\textit{Ejemplo de matriz con demanda simulada para el 2020-2}}\label{matDemandaAlum}
-\end{figure}
-
-
-
-\section{Obtención de información para solicitudes} \label{InfoSolicitudes}
-
-Antes de iniciar las simulaciones de elección de materia y de horario obtuvimos un vector y una matriz con la información de las materias y de los profesores, respectivamente.
-
-En el caso de las materias, el vector \textit{vec\_nom\_materias\_total} lo obtuvimos a partir de la matriz \textit{m\_grande\_total} del semestre 2008-1 al 2020-1. No tiene nombres repetidos. Tiene 333 materias.
-
-En el caso de los profesores, la matriz \textit{mat\_nom\_prof\_total} tiene 2 columnas. En la primer columna se tienen los nombres de todos los profesores que han impartido clase desde el semestre 2015-1 hasta el 2020-1. Dichos nombres los obtuvimos de la matriz \textit{m\_grande\_total} de los semestres correspondientes.
-
-En la segunda columna de la matriz, se tiene un $1$ si el profesor es de tiempo completo y un $0$ si no. Para llenarla ingresamos a la página \url{http://www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo} del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos el vector con el nombre de los profesores de tiempo completo. En la figura \ref{profTC_SelectorGadget} podemos ver el código CSS que utilizamos para obtener los datos en R. También observamos que se seleccionaron 94 profesores.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.8]{profesores_TC_SelectorGadget} %width=\textwidth
-\caption{\textit{Profesores de tiempo completo: SelectorGadget}}\label{profTC_SelectorGadget}
-\end{figure}
-
-Al extraer la información en R obtuvimos un vector con 94 entradas. En la figura \ref{profTC_sinLimpiar} podemos ver los primeros 20 valores del vector. Notamos que cada entrada del vector inicia con los caracteres $\backslash n \backslash t \backslash t \backslash t \backslash t \backslash t \backslash t \backslash t$. Estos caracteres, en la presentación final de la página de internet, indican un salto de línea y las tabulaciones o espacios que se tienen de izquierda a derecha.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.8]{profesores_TC_sinLimpiar} %width=\textwidth
-\caption{\textit{Vector de profesores de tiempo completo}}\label{profTC_sinLimpiar}
-\end{figure}
-
-Limpiamos los datos para obtener un vector que sólo tuviera los nombres de los profesores. Eliminamos el título de cada uno porque en los horarios publicados en las páginas de la FC sus nombres no tienen título. También eliminamos los espacios finales que había en algunos nombres.
-
-De esta manera obtuvimos el vector con el nombre de los profesores de tiempo completo del Departamento de Matemáticas. Dicho vector lo comparamos con la primer columna de la matriz \textit{mat\_nom\_prof\_total}, cuando los nombres coincidieron, pusimos un $1$ en el renglón correspondiente.
-
-Al limpiar los datos encontramos 11 nombres que analizamos a mano porque no aparecía el $1$ en su respectivo renglón. Encontramos que no aparecía la información necesaria en la matriz \textit{mat\_nom\_prof\_total} por diferencias en los nombres. Encontramos diferencias por acentos, por mayúsculas y por nombre incompleto. En la tabla \ref{DifNomProfTC} vemos los nombres que aparecen en las páginas de FC comparados con los que aparecen en la página del Departamento de Matemáticas.
-
-\begin{table}[h]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|c|c|}
-\hline 
-\textbf{Nombre en páginas de FC} & \textbf{Nombre en página del Depto. de Matemáticas} \\ 
-\hline 
-Alejandro Ricardo Garciadiego Dantan & Alejandro Ricardo Garciadiego Dantán \\ 
-\hline 
-Edith Corina Sáenz Valadez & Edith Corina Sáenz Valadéz \\ 
-\hline 
-Emilio Esteban Lluis Puebla & Emilio Lluis Puebla \\
-\hline 
-Guillermo Javier Francisco Sienra Loera & Guillermo Sienra Loera \\
-\hline 
-María Asunción Begoña Fernández Fernández & Ma. Asunción Begoña Fernández Fernández \\ 
-\hline 
-María Concepción Ana Luisa Solís González-Cosío & Ana Luisa Solís González Cosío \\ 
-\hline
-María Isabel Puga Espinosa & Isabel Puga Espinosa \\ 
-\hline 
-María Lourdes Velasco Arreguí & María de Lourdes Velasco Arregui \\ 
-\hline 
-Mucuy-Kak del Carmen Guevara Aguirre & Mucuy-kak del Carmen Guevara Aguirre \\ 
-\hline 
-Oscar Alfredo Palmas Velasco & Óscar Alfredo Palmas Velasco \\ 
-\hline 
-Úrsula Xiomara Iturrarán Viveros & Úrsula Iturrarán Viveros \\ 
-\hline 
-\end{tabular}
-} 
-\caption{\textit{Diferencias en nombres de profesores de tiempo completo}}\label{DifNomProfTC}
-\end{table}
-
-Finalmente en la matriz \textit{mat\_nom\_prof\_total} se tiene la información de 1387 profesores de los cuales 94 son profesores de tiempo completo.
-
-Algunas notas a considerar de esta matriz son:
-
-\begin{itemize}
-\item[-] Hay profesores que se repiten por diferencia de acentos. Ej. \textit{César Alejandro Arellano Ruíz, Luis Eduardo García Hernández}
-
-\item[-] Hay profesores que se repiten por tener a lado el nombre de los ayudantes. Ej. \textit{Fermín Alberto Viniegra Heberlein, Edgar Vázquez Luis}
-
-\item[-] Puede haber profesores que ya no impartan clases en la FC.
-\end{itemize}
-
-
-\section{Simulación de solicitudes de profesores oculta y pseudo-real}
-
-En esta sección vamos a explicar cómo hicimos la simulación de la solicitud de los profesores. En la vida real los profesores pueden elegir libremente las materias que quieren impartir y seleccionan las horas a las que desean impartir sus clases. Dado que no contamos con esa información decidimos simular la elección de materias y horarios en base a la información que tenemos de semestres anteriores.
-
-Como vimos en el diagrama \ref{DF_genAsig} simulamos dos veces las solicitudes de los profesores, en el proceso de asignación. A la primera vez que simulamos las solicitudes la llamaremos \textit{Solicitud oculta} y a la segunda la llamaremos \textit{Solicitud pseudo-real}. La explicación de su uso lo vemos a continuación.
-
-\begin{itemize}
-\item[-] Solicitud oculta: La llamamos oculta porque nos ayuda para la generación de los esqueletos. No influye directamente en la asignación final.
-
-\item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real. Nos ayuda directamente a realizar la asignación final.
-\end{itemize}
-
-El procedimiento para ambos casos es el mismo. Al finalizar obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}. La matriz tiene 5 columnas (Profesor, TC, Materia, Num\_Materia, Horario) y 6 renglones. Tiene la información de la solicitud de un profesor. Se eligen 2 materias y hasta 3 diferentes horarios.  Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
-
-\begin{enumerate}
-\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
-
-\item Llenar la columna \textit{Profesor} de \textit{mat\_1\_solicitud} con el nombre del profesor del cual queremos realizar la solicitud.
-
-\item Llenar la columna \textit{TC} de \textit{mat\_1\_solicitud}. Esta columna tiene unos si el profesor es de tiempo completo y ceros si es un profesor de asignatura.
-
-\item Obtener la información de las materias que ha impartido el profesor elegido. Guardar la información en el vector \verb@materias_profesor@. Se tienen 3 casos con respecto al número de materias impartidas:
-
-\begin{enumerate}
-\item El número de materias es 2: Llenar los primeros 3 renglones, de la columna \textit{Materia}, con la información de la materia 1 y los últimos 3 renglones con la información de la segunda materia.
-
-\item El número de materias es mayor o igual a 3: Se toma una muestra de dos materias, con la función \verb@sample(materias_profesor, size = 2)@ en \textit{R}. Se llena la columna \textit{Materia} como el caso anterior.
-
-\item El número de materias es 1: Llenar la columna \textit{Materia} con la materia impartida por el profesor elegido.
-\end{enumerate}
-
-\item Llenar la columna \textit{Num\_Materia} de \textit{mat\_1\_solicitud} con los números de materia correspondientes a las materias elegidas en el paso anterior.
-
-\item Obtener la información de las horas en las que ha dado clases el profesor elegido. Guardar la información en el vector \verb@horas_profesor@. Se tienen 4 casos con respecto al número de horas:
-
-\begin{enumerate}
-\item El número de horas es 3: Llenar los renglones 1 y 4, de la columna \textit{Horario}, con la información de la hora 1; los renglones 2 y 5 con la información de la hora 2 y los renglones 3 y 6 con la información de la hora 3.
-
-\item El número de horas es mayor o igual a 4: Se toma una muestra de 3 horas, con la función \verb@sample(horas_profesor, size = 3)@ en \textit{R}. Se llena la columna \textit{Horario} como el caso anterior.
-
-\item El número de horas es 2: Llenar los renglones 1,2,4 y 5, de la columna \textit{Horario}, con la información de la hora 1 y los renglones 3 y 6 con la información de la hora 2.
-
-\item El número de horas es 1: Llenar la columna \textit{Horario} con la hora en la que ha dado clases el profesor elegido.
-\end{enumerate}
-
-
-\end{enumerate}
-
-En la figura \ref{mat_1_solicitud_Margarita} vemos un ejemplo de la matriz \textit{mat\_1\_solicitud}.
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.8]{mat_1_solicitud_Margarita} %width=\textwidth
-\caption{\textit{Ejemplo de matriz de solicitudes de un profesor}}\label{mat_1_solicitud_Margarita}
-\end{figure}
-
-El proceso se repite para cada uno de los profesores en la matriz \textit{mat\_nom\_prof\_total} obtenida en la sección \ref{InfoSolicitudes}. En la matriz formada quitamos los renglones repetidos para poder simuar adecuadamente los esqueletos.
-
-
+\input{Sim_demanda_alumnos}
 
 \section{Simulación de tamaño de grupos}
 
@@ -276,7 +48,7 @@ En esta sección vamos a explicar cómo hicimos la simulación del tamaño de gr
 Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
 \begin{enumerate}
-%\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
+\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
 
 \item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
 
@@ -290,6 +62,10 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 \end{enumerate}
 
 Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
+
+\input{Sim_info_solicitudes}
+
+\input{Sim_solicitudes}
 
 
 
