@@ -23,27 +23,25 @@
 \BOOKMARK [1][-]{section.4.1}{Funciones hechas en R}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.2}{Obtenci\363n de los par\341metros q1 y q2}{chapter.4}% 24
 \BOOKMARK [1][-]{section.4.3}{Simulaci\363n de la demanda de alumnos}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.4}{Simulaci\363n de tama\361o de grupos}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.5}{Obtenci\363n de informaci\363n para solicitudes}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.6}{Simulaci\363n de solicitudes de profesores oculta y pseudo-real}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.6.1}{Simulaci\363n de elecci\363n de materia}{section.4.6}% 29
-\BOOKMARK [2][-]{subsection.4.6.2}{Simulaci\363n de elecci\363n de horario}{section.4.6}% 30
-\BOOKMARK [1][-]{section.4.7}{Simulaci\363n de esqueletos}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.8}{Calificaci\363n de esqueletos de horario}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.9}{Generaci\363n de asignaciones}{chapter.4}% 33
-\BOOKMARK [2][-]{subsection.4.9.1}{Calificaci\363n de asignaciones de grupo}{section.4.9}% 34
-\BOOKMARK [0][-]{chapter.5}{Teor\355a del Algoritmo Gen\351tico aplicado a los horarios}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Ciclo de la evoluci\363n natural}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.1.1}{Selecci\363n}{section.5.1}% 37
-\BOOKMARK [2][-]{subsection.5.1.2}{Cruce}{section.5.1}% 38
-\BOOKMARK [2][-]{subsection.5.1.3}{Mutaci\363n}{section.5.1}% 39
-\BOOKMARK [2][-]{subsection.5.1.4}{Reemplazamiento}{section.5.1}% 40
-\BOOKMARK [1][-]{section.5.2}{Algoritmo Gen\351tico aplicado a la generaci\363n de esqueletos de horario}{chapter.5}% 41
-\BOOKMARK [1][-]{section.5.3}{Algoritmo Gen\351tico aplicado a la generaci\363n de asignaciones de grupos}{chapter.5}% 42
-\BOOKMARK [0][-]{chapter.6}{Resultados del Algoritmo Gen\351tico}{}% 43
-\BOOKMARK [0][-]{chapter.7}{Comportamiento de la selecci\363n}{}% 44
-\BOOKMARK [0][-]{chapter.8}{Conclusiones}{}% 45
-\BOOKMARK [0][-]{chapter*.5}{Ap\351ndices}{}% 46
-\BOOKMARK [1][-]{section.8.1}{Observaciones / Notas}{chapter*.5}% 47
-\BOOKMARK [1][-]{section.8.2}{Resultados \372tiles}{chapter*.5}% 48
-\BOOKMARK [1][-]{section.8.3}{Abreviaturas}{chapter*.5}% 49
+\BOOKMARK [1][-]{section.4.4}{Obtenci\363n de informaci\363n para solicitudes}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{Simulaci\363n de solicitudes de profesores oculta y pseudo-real}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.6}{Simulaci\363n de tama\361o de grupos}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.7}{Simulaci\363n de esqueletos}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.8}{Calificaci\363n de esqueletos de horario}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.9}{Generaci\363n de asignaciones}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.9.1}{Calificaci\363n de asignaciones de grupo}{section.4.9}% 32
+\BOOKMARK [0][-]{chapter.5}{Teor\355a del Algoritmo Gen\351tico aplicado a los horarios}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Ciclo de la evoluci\363n natural}{chapter.5}% 34
+\BOOKMARK [2][-]{subsection.5.1.1}{Selecci\363n}{section.5.1}% 35
+\BOOKMARK [2][-]{subsection.5.1.2}{Cruce}{section.5.1}% 36
+\BOOKMARK [2][-]{subsection.5.1.3}{Mutaci\363n}{section.5.1}% 37
+\BOOKMARK [2][-]{subsection.5.1.4}{Reemplazamiento}{section.5.1}% 38
+\BOOKMARK [1][-]{section.5.2}{Algoritmo Gen\351tico aplicado a la generaci\363n de esqueletos de horario}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.3}{Algoritmo Gen\351tico aplicado a la generaci\363n de asignaciones de grupos}{chapter.5}% 40
+\BOOKMARK [0][-]{chapter.6}{Resultados del Algoritmo Gen\351tico}{}% 41
+\BOOKMARK [0][-]{chapter.7}{Comportamiento de la selecci\363n}{}% 42
+\BOOKMARK [0][-]{chapter.8}{Conclusiones}{}% 43
+\BOOKMARK [0][-]{chapter*.5}{Ap\351ndices}{}% 44
+\BOOKMARK [1][-]{section.8.1}{Observaciones / Notas}{chapter*.5}% 45
+\BOOKMARK [1][-]{section.8.2}{Resultados \372tiles}{chapter*.5}% 46
+\BOOKMARK [1][-]{section.8.3}{Abreviaturas}{chapter*.5}% 47

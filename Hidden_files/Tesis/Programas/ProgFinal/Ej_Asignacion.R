@@ -254,7 +254,8 @@ tipo_prof <- 0
 gen_solicitudes_1_profesor(nom_prof,tipo_prof,param)
 nom_prof<- "Margarita Elvira Chávez Cano"
 tipo_prof <- 1
-gen_solicitudes_1_profesor(nom_prof,tipo_prof,param)
+mat_1_solicitud <- gen_solicitudes_1_profesor(nom_prof,tipo_prof,param)
+View(mat_1_solicitud)
 
 
 # gen_solicitudes ---------------------------------------------------------

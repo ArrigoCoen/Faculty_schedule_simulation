@@ -1316,7 +1316,7 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
 #' profesores en la matriz "mat_nom_prof_total". Arroja la matriz
 #' "mat_solicitudes" de 5 columnas (Profesor,TC,Materia,Num_Materia,Horario)
 #' que tiene la información de las solicitudes de todos los profesores. Se
-#' eligen 2 materias y hasta 3 diferenteshorarios. Se quitan los renglones
+#' eligen 2 materias y hasta 3 diferentes horarios. Se quitan los renglones
 #' repetidos.
 #'
 #' @param param: Lista con los diferentes parámetros que se utilizan en las

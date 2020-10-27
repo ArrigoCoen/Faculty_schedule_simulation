@@ -132,34 +132,7 @@ Ahora analicemos las columnas 4 y 8, correspondientes a las materias de \textit{
 
 
 
-
-
-\section{Simulación de tamaño de grupos}
-
-En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
-
-Hicimos una función en \textit{R} que realiza los siguientes pasos:
-
-\begin{enumerate}
-\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
-
-\item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
-
-\item Tomar el mínimo $(a)$ y el máximo $(b)$ de esos datos.
-
-\item Generar un número aleatorio con distribución uniforme en ese intervalo con la función \verb@runif(1,min = a, max = b)@ en \textit{R}.
-
-\item Redondear el número aleatorio con la función \verb@ceiling()@ en \textit{R}.
-
-\item Regresa el número redondeado.
-\end{enumerate}
-
-Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
-
-
-
-
-\section{Obtención de información para solicitudes}
+\section{Obtención de información para solicitudes} \label{InfoSolicitudes}
 
 Antes de iniciar las simulaciones de elección de materia y de horario obtuvimos un vector y una matriz con la información de las materias y de los profesores, respectivamente.
 
@@ -245,15 +218,78 @@ Como vimos en el diagrama \ref{DF_genAsig} simulamos dos veces las solicitudes d
 \begin{itemize}
 \item[-] Solicitud oculta: La llamamos oculta porque nos ayuda para la generación de los esqueletos. No influye directamente en la asignación final.
 
-\item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real.
+\item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real. Nos ayuda directamente a realizar la asignación final.
 \end{itemize}
 
+El procedimiento para ambos casos es el mismo. Al finalizar obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}. La matriz tiene 5 columnas (Profesor, TC, Materia, Num\_Materia, Horario) y 6 renglones. Tiene la información de la solicitud de un profesor. Se eligen 2 materias y hasta 3 diferentes horarios.  Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
+
+\begin{enumerate}
+\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
+
+\item Llenar la columna \textit{Profesor} de \textit{mat\_1\_solicitud} con el nombre del profesor del cual queremos realizar la solicitud.
+
+\item Llenar la columna \textit{TC} de \textit{mat\_1\_solicitud}. Esta columna tiene unos si el profesor es de tiempo completo y ceros si es un profesor de asignatura.
+
+\item Obtener la información de las materias que ha impartido el profesor elegido. Guardar la información en el vector \verb@materias_profesor@. Se tienen 3 casos con respecto al número de materias impartidas:
+
+\begin{enumerate}
+\item El número de materias es 2: Llenar los primeros 3 renglones, de la columna \textit{Materia}, con la información de la materia 1 y los últimos 3 renglones con la información de la segunda materia.
+
+\item El número de materias es mayor o igual a 3: Se toma una muestra de dos materias, con la función \verb@sample(materias_profesor, size = 2)@ en \textit{R}. Se llena la columna \textit{Materia} como el caso anterior.
+
+\item El número de materias es 1: Llenar la columna \textit{Materia} con la materia impartida por el profesor elegido.
+\end{enumerate}
+
+\item Llenar la columna \textit{Num\_Materia} de \textit{mat\_1\_solicitud} con los números de materia correspondientes a las materias elegidas en el paso anterior.
+
+\item Obtener la información de las horas en las que ha dado clases el profesor elegido. Guardar la información en el vector \verb@horas_profesor@. Se tienen 4 casos con respecto al número de horas:
+
+\begin{enumerate}
+\item El número de horas es 3: Llenar los renglones 1 y 4, de la columna \textit{Horario}, con la información de la hora 1; los renglones 2 y 5 con la información de la hora 2 y los renglones 3 y 6 con la información de la hora 3.
+
+\item El número de horas es mayor o igual a 4: Se toma una muestra de 3 horas, con la función \verb@sample(horas_profesor, size = 3)@ en \textit{R}. Se llena la columna \textit{Horario} como el caso anterior.
+
+\item El número de horas es 2: Llenar los renglones 1,2,4 y 5, de la columna \textit{Horario}, con la información de la hora 1 y los renglones 3 y 6 con la información de la hora 2.
+
+\item El número de horas es 1: Llenar la columna \textit{Horario} con la hora en la que ha dado clases el profesor elegido.
+\end{enumerate}
+
+
+\end{enumerate}
+
+En la figura \ref{mat_1_solicitud_Margarita} vemos un ejemplo de la matriz \textit{mat\_1\_solicitud}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.8]{mat_1_solicitud_Margarita} %width=\textwidth
+\caption{\textit{Ejemplo de matriz de solicitudes de un profesor}}\label{mat_1_solicitud_Margarita}
+\end{figure}
+
+El proceso se repite para cada uno de los profesores en la matriz \textit{mat\_nom\_prof\_total} obtenida en la sección \ref{InfoSolicitudes}. En la matriz formada quitamos los renglones repetidos para poder simuar adecuadamente los esqueletos.
 
 
 
-\subsection{Simulación de elección de materia}
+\section{Simulación de tamaño de grupos}
 
-\subsection{Simulación de elección de horario}
+En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
+
+Hicimos una función en \textit{R} que realiza los siguientes pasos:
+
+\begin{enumerate}
+%\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
+
+\item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
+
+\item Tomar el mínimo $(a)$ y el máximo $(b)$ de esos datos.
+
+\item Generar un número aleatorio con distribución uniforme en ese intervalo con la función \verb@runif(1,min = a, max = b)@ en \textit{R}.
+
+\item Redondear el número aleatorio con la función \verb@ceiling()@ en \textit{R}.
+
+\item Regresa el número redondeado.
+\end{enumerate}
+
+Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
 
 
 
