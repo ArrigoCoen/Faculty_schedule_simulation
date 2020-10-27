@@ -138,7 +138,23 @@ Ahora analicemos las columnas 4 y 8, correspondientes a las materias de \textit{
 
 En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
 
+Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
+\begin{enumerate}
+\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
+
+\item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
+
+\item Tomar el mínimo $(a)$ y el máximo $(b)$ de esos datos.
+
+\item Generar un número aleatorio con distribución uniforme en ese intervalo con la función \verb@runif(1,min = a, max = b)@ en \textit{R}.
+
+\item Redondear el número aleatorio con la función \verb@ceiling()@ en \textit{R}.
+
+\item Regresa el número redondeado.
+\end{enumerate}
+
+Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
 
 
 
