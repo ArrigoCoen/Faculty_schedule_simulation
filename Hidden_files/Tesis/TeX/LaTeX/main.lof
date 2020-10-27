@@ -44,11 +44,12 @@
 \contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 pruebas}}}{41}{figure.4.6}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}}}{42}{figure.4.7}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}}}{42}{figure.4.8}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Matriz con alumnos corregidos}}}{43}{figure.4.9}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Vector con demanda simulada para el 2020-2}}}{43}{figure.4.10}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{45}{figure.4.11}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{46}{figure.4.12}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{48}{figure.4.13}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}}}{43}{figure.4.9}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2}}}{44}{figure.4.10}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}}}{45}{figure.4.11}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{46}{figure.4.12}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{47}{figure.4.13}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{49}{figure.4.14}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}}}{52}{figure.5.1}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Algoritmo Genético aplicado}}}{53}{figure.5.2}%
