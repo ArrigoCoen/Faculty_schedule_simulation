@@ -37,11 +37,11 @@ El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la 
 \item \textit{gen\_simula\_tamano\_grupo}
 \end{itemize}
 
-\input{Sim_obtencionq1q2} %%Subsección %%To include subfiles in to a subfiles use \input{name_of_file}
+\input{Sim_obtencionq1q2} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
-\input{Sim_demanda_alumnos}
+\input{Sim_demanda_alumnos} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
-\section{Simulación de tamaño de grupos}
+\section{Simulación de tamaño de grupos} \label{SimTamGpos}
 
 En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
 
@@ -63,17 +63,59 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
 Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
 
-\input{Sim_info_solicitudes}
+\input{Sim_info_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
-\input{Sim_solicitudes}
+\input{Sim_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
 
 
 \section{Simulación de esqueletos}
 
-Matriz de 2 columnas (Materia-Horario). En el renglón $i$ se tiene la información de cada grupo simulado para \textit{t+1}.
+En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, la cual tiene 15 renglones y 333 columnas. En la entrada $(i,j)$ se tiene el numero de grupos simulados para la \textit{i-ésima} hora y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
 
-Se utiliza un matriz auxiliar de 3 columnas (Materia-Horario-Demanda\_Alum). En el renglón $i$ se tiene la información del número de alumnos simulados para la hora y materia correspondientes.
+El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
+
+\begin{enumerate}
+\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver sección \ref{SimDemandaAlumnos}).
+
+\item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver sección \ref{SimSolicitudesProfesores}).
+
+\item Elegir un profesor de tiempo completo al azar.
+
+\item Elegir al azar un horario y una materia que haya solicitado el profesor elegido en el paso anterior. Con estos datos sabemos las coordenadas $(i,j)$ para las matrices \textit{mat\_demanda\_alumnos} y \textit{mat\_esqueleto}.
+
+\item Verificar que a esa materia en esa hora aún le sobran alumnos. En la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
+
+\item Simular el número de alumnos para ese grupo (ver sección \ref{SimTamGpos}).
+
+\item Restar el número de alumnos simulados en el paso anterior, de la materia y hora elegidas. En la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
+
+\item Ese profesor ya no puede impartir clases a esa hora. Retirar renglones correspondientes de \textit{mat\_solicitudes}.
+
+\item Repetir los pasos de 3 a 8.
+
+\item Una vez que se terminen los profesores de tiempo completo, hacer los pasos de 3 a 9 con los profesores de asignatura.
+\end{enumerate}
+
+Algunas notas a considerar del procedimiento son:
+
+\begin{itemize}
+\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
+
+\item[-] Los profesores sólo pueden tener asignadas a lo más 2 materias.
+
+\item[-] Las condiciones de paro del proceso son:
+
+\begin{itemize}
+\item[a)] Ya se cubrió toda la demanda
+
+\item[b)] Ya no hay más profesores
+
+\item[c)] Llegar a una cota predefinida para que el ciclo no se haga infinito o tarde mucho en cumplir las condiciones anteriores.
+\end{itemize}
+\end{itemize}
+
+En la figura \ref{esqueleto20202} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-1. Observemos las últimas 4 columnas que corresponden a las materias de Cálculo I, II, III y IV. Notamos que el número de grupos simulados para las materias de semestres pares (Cálculo II y IV) es mayor que para las materias de semestres impares. Esto se debe al comportamiento observado en \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par.
 
 \begin{figure}[H]
 \centering
