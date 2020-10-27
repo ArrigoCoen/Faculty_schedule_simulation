@@ -162,10 +162,11 @@ param_graficas$col1_hist = "skyblue" ##Azul cielo histogramas
 param_graficas$col2_hist = rgb(1,0,0,1/4)##Rojo histogramas
 param_graficas$col1_linea = "blue" ##Azul densidad
 param_graficas$col2_linea = "red" ##Rojo densidad
+param_graficas$col3_linea = "purple" ##Morado densidad
+param_graficas$lwd_dens = 6 #Ancho de línea para densidad ajustada
 param_graficas$ancho_pdf = 8 #Anchura para guardar imagen
 param_graficas$altura_pdf = 6 #Altura para guardar imagen
-param_graficas$dir_TeX = "TeX/TeX V05/Pictures/"
-
+param_graficas$dir_TeX = "TeX/LaTeX/Pictures/"
 
 
 

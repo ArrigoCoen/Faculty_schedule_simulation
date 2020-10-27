@@ -16,20 +16,20 @@ setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulatio
 load("vec_al_x_gpo_todos_sem.RData")
 
 # Pruebas Kolmogorov-Smirnov ----------------------------------------------
+X <- vec_al_x_gpo_todos_sem
+n <- length(X)#17246
 
 ##Se rechaza cuando Dn >= Dn_alpha
 #alpha = 0.01
 (Dn_alpha <- 1.63/sqrt(n))#0.01241205
 
-X <- vec_al_x_gpo_todos_sem
-n <- length(X)#17246
-
 ### Poisson
+fitdistr(X, densfun="poisson")
 EMV_lambda <- mean(X)#34.18746
 y <- rpois(n,EMV_lambda)
 # Do x and y come from the same distribution?
-ks.test(X, y)#Dn = 0.4005
-#' Dn = 0.4005 > 0.01241205 = Dn_alpha por lo tanto
+ks.test(X, y)#Dn = 0.39974
+#' Dn = 0.39974 > 0.01241205 = Dn_alpha por lo tanto
 #' se rechaza H0, por lo tanto los datos no siguen una distribución
 #' Poisson con lambda = 34.18746
 
@@ -65,7 +65,7 @@ fitdistr(X, densfun="normal")
 y <- rnorm(n,34.18745219,26.5768345)
 # Do x and y come from the same distribution?
 ks.test(X, y)#Dn = 0.10501
-#' Dn = 0.10501 > 0.01241205 = Dn_alpha => NO se rechaza H0,
+#' Dn = 0.10501 > 0.01241205 = Dn_alpha => se rechaza H0,
 #' por lo tanto los datos siguen una distribución
 #' Normal con mu = 34.18745219 y sd = 26.5768345
 
@@ -83,3 +83,9 @@ lines(density(X),col=param_graficas$col1_linea,
       lwd=param_graficas$lwd_dens)
 lines(density(rnorm(n,34.18745219,26.5768345)),col=param_graficas$col2_linea,
       lwd=param_graficas$lwd_dens)
+
+legend(100,0.01,c("Densidad ajustada a los datos",
+                  "Densidad de una Normal(34.18,26.57)"),
+       bty = "n",
+       col=c(param_graficas$col1_linea,param_graficas$col2_linea),
+       lty=c(1,1),cex=1.1,lwd=param_graficas$lwd_dens)
