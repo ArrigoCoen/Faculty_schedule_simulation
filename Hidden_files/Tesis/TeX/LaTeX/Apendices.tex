@@ -1,6 +1,5 @@
-\chapter{Apéndices} %%
-
-\section{Observaciones / Notas} %
+\begin{appendices}
+\chapter{Observaciones / Notas} %
 
 \begin{enumerate}
 	\item La matriz \verb+ mat_posibles_url+ se define con un tamaño fijo antes de correr el algoritmo para que no se demore por tener un objeto que va cambiando de tamaño, por lo que al final de haberle aplicado la función se le deben de quitar los renglones que no tienen información.
@@ -249,8 +248,8 @@ Con esta información se decidió observar caso por caso los renglones que requi
   \item 
 \end{enumerate}
 
-
-\section{Resultados útiles} %
+%\appendix
+\chapter{Resultados útiles} %
 
 \begin{defn} \label{EMVlambda}
 \textbf{Estimador máximo verosímil de $\lambda$}
@@ -284,20 +283,8 @@ ln \mathcal{L}(X_{1}, X_{2}, \ldots, X_{n};\lambda) &=& -n\lambda + \displaystyl
 
 
 
-
-\section{Abreviaturas} %
-%\begin{itemize}
-%\item CdC:= Ciencias de la Computación
-%
-%\item FC:= Facultad de Ciencias de la UNAM
-%
-%\item MatAp:= Matemáticas Aplicadas
-%
-%\item UNAM:= Universidad Nacional Autónoma de México
-%
-%\item  URL:= Uniform Resource Locator
-%\end{itemize}
-
+%\appendix
+\chapter{Abreviaturas} %
 
 \begin{table}[H]
 \centering
@@ -326,4 +313,11 @@ ln \mathcal{L}(X_{1}, X_{2}, \ldots, X_{n};\lambda) &=& -n\lambda + \displaystyl
 \end{tabular} 
 \caption{\textit{Abreviaturas}}
 \end{table}
+\end{appendices}
+
+
+
+%\appendix
+%\chapter{Apéndices} %%
+
 

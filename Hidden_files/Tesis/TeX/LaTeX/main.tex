@@ -77,6 +77,8 @@
 %H	Places the float at precisely the location in the LaTeX code. Requires the float package (\usepackage{float}). This is somewhat equivalent to h!.
 \usepackage{multirow} %%Para hacer tablas con filas combinadas
 %\input{nombre_de_archivo} %%To include subfiles in to a subfiles. %%Se pone dentro de los archivos de los capítulos, se pueden guardar secciones o subsecciones.
+\usepackage[title,titletoc]{appendix} %%Para definir apéndices
+\renewcommand{\appendixname}{A} %%Para cambiar "Appendix" por algún otro nombre
 
 %%Para poder ingresar el código de R con colores, no sólo usando el entorno "verbatim" %%
 \usepackage{listings} %%NO ACEPTA ACENTOS DENTRO DEL CÓDIGO NI "ñ"
@@ -483,7 +485,7 @@ Inferencia estadística aplicada en la generación de una propuesta de horarios 
 \include{Conclusiones} %%8
 
 %%%%% Apéndices %%%%%
-\backmatter %%Los "Capítulos" ya no se registran como tal en el índice general
+%\backmatter %%Los "Capítulos" ya no se registran como tal en el índice general
 
 %%%%%%%%%% A partir de aquí los apéndices se declaran como secciones, ya que el Capítulo es "Apéndices": %%%%%%%%%%
 
@@ -491,7 +493,7 @@ Inferencia estadística aplicada en la generación de una propuesta de horarios 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFÍA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{X}
-
+\addcontentsline{toc}{chapter}{Bibliografía}
 %%%%%%%%%%%%%%%%%%% LIBROS %%%%%%%%%%%%%%%%%%%
 
 \bibitem{Casella} Casella G., (2006), \textit{Statistical Inference}, Thomson Press
