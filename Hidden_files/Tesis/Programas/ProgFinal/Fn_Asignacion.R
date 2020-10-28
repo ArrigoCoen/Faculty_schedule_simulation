@@ -1510,6 +1510,7 @@ actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
 #' 
 ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
   #Se definen las variables que se van a utilizar
+  num_alum_simulados <- 0
   mat_esqueleto <- matrix(0,nrow = length(param$Horas),
                           ncol = length(param$vec_nom_materias_total))
   rownames(mat_esqueleto) <- 1:15
@@ -1545,6 +1546,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
         if(sobran_alum_1si_0no == 1){#Aún hay alumnos sin clase para esa materia
           #Simulamos el número de alumnos para este grupo
           (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
+          num_alum_simulados <- num_alum_simulados + num_alum_x_profesor
           
           #Se actualizan las entradas de las matrices auxiliares
           mat_demanda[M_i,M_j] <- max(0,mat_demanda[M_i,M_j]-num_alum_x_profesor)
@@ -1566,7 +1568,10 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
   lista_ciclo[[1]] <- mat_esqueleto
   lista_ciclo[[2]] <- mat_prof
   lista_ciclo[[3]] <- mat_demanda
-  names(lista_ciclo) <- c("mat_esqueleto","mat_prof","mat_demanda")
+  lista_ciclo[[4]] <- mat_solicitudes
+  lista_ciclo[[5]] <- num_alum_simulados
+  names(lista_ciclo) <- c("mat_esqueleto","mat_prof","mat_demanda",
+                          "mat_solicitudes","num_alum_simulados")
   return(lista_ciclo)
 }
 
@@ -1603,6 +1608,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
 #' tiempo completo y el número de materias asignadas.
 #' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
 #' de asignatura y el número de materias asignadas.
+#' 4) 
 #'
 #' @examples
 #' lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,param)
@@ -1625,6 +1631,8 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
                                     mat_demanda_aux)
   mat_prof_TC <- lista_ciclo_TC[[2]]
   colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
+  mat_solicitudes_TC <- lista_ciclo_TC[[4]]
+  num_alum_sim_TC <- lista_ciclo_TC[[5]]
   
   ##### Profesores de asignatura
   mat_solicitudes_asignatura <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==0,]
@@ -1635,18 +1643,30 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
                                       mat_prof_asig,lista_ciclo_TC[[3]])
   mat_prof_asig <- lista_ciclo_asig[[2]]
   colnames(mat_prof_asig) <- c("Profesor","Materias_Asig")
+  mat_solicitudes_asignatura <- lista_ciclo_asig[[4]]
+  num_alum_sim_asig <- lista_ciclo_asig[[5]]
   
   #Se suman los grupos de los profesores de tiempo completo y los de asignatura
   mat_esqueleto <- lista_ciclo_TC[[1]] + lista_ciclo_asig[[1]]
   rownames(mat_esqueleto) <- param$nombre_hrs
   colnames(mat_esqueleto) <- param$vec_nom_materias_total
   
+  #Se suma el número de alumnos simulados
+  num_alum_simulados <- num_alum_sim_TC + num_alum_sim_asig
+  
   lista_info_esqueleto <- list()
   lista_info_esqueleto[[1]] <- mat_esqueleto
   lista_info_esqueleto[[2]] <- mat_prof_TC
   lista_info_esqueleto[[3]] <- mat_prof_asig
+  lista_info_esqueleto[[4]] <- lista_ciclo_asig[[3]]
+  lista_info_esqueleto[[5]] <- mat_solicitudes_TC
+  lista_info_esqueleto[[6]] <- mat_solicitudes_asignatura
+  lista_info_esqueleto[[7]] <- num_alum_simulados
   names(lista_info_esqueleto) <- c("mat_esqueleto","mat_prof_TC",
-                                   "mat_prof_asig")
+                                   "mat_prof_asig","mat_demanda_aux",
+                                   "mat_solicitudes_TC",
+                                   "mat_solicitudes_asignatura",
+                                   "num_alum_sim_TC")
   
   cat("\nLa función gen_esqueleto tardó: ",(proc.time()-ptm)[3],
       " segundos\n")#19.48seg
