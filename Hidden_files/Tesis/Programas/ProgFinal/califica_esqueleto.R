@@ -42,7 +42,7 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto){
       # cat("\n No fue impartida la materia: ",vec_nom_materias_total[c])
     }
   }
-  Lmateria <- -materias_no_impartidas
+  # Lmateria <- -materias_no_impartidas
   #Quitamos el cero inicial
   # nom_materias_no_impartidas <- nom_materias_no_impartidas[-1]
   # cat("\n Las materias no impartidas son: ",nom_materias_no_impartidas)
@@ -51,14 +51,14 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto){
   #Penalización por cada alumno faltante
   alfa <- 0.5
   num_alum_faltantes <- sum(mat_demanda_aux)
-  pena_faltantes <- -alfa*num_alum_faltantes
+  pena_faltantes <- alfa*num_alum_faltantes
   
   
   #Penalización por cada alumno sobrante
   beta <- 0.8
   alum_con_gpo <- sum(mat_demanda_alumnos)-sum(mat_demanda_aux)
   num_alum_sobrantes <- max(0,num_alum_simulados-alum_con_gpo)
-  pena_sobrantes <- -beta*num_alum_sobrantes
+  pena_sobrantes <- beta*num_alum_sobrantes
   
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
@@ -94,7 +94,7 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto){
       pena_x_materia <- pena_x_materia + 2
     }
   }
-  pena_x_materia <- -pena_x_materia
+  # pena_x_materia <- -pena_x_materia
   
   
   #' Si hay alumnos que necesitan una clase a alguna hora y no
@@ -115,9 +115,9 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto){
       pena_alum_sin_clase <- pena_alum_sin_clase + 1
     }
   }
-  pena_alum_sin_clase <- -pena_alum_sin_clase
+  # pena_alum_sin_clase <- -pena_alum_sin_clase
   
-  calif_esqueleto <- sum(Lmateria,pena_faltantes,pena_sobrantes,
+  calif_esqueleto <- -sum(materias_no_impartidas,pena_faltantes,pena_sobrantes,
                          pena_x_materia,pena_alum_sin_clase)
   return(calif_esqueleto)
 }

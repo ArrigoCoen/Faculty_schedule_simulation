@@ -185,6 +185,29 @@ materia <- "Estadística I"
 arroja_num_materia(materia,param)
 
 
+# agrega_nom_1_materia_en_vec ---------------------------------------------
+#' Title agrega_nom_1_materia_en_vec: Función que recibe como parámetros el
+#' nombre de una materia y el vector con los nombres de las materias y
+#' guarda la materia en caso de dar la opción de "SI". También imprime una
+#' lista con los diferentes nombres que pudiera tener "materia" en
+#' "vec_nom_materias_total"
+#' Por ejemplo "Estadística III" y "Modelos de Supervivencia y de Series
+#' de Tiempo".
+materia <- "Taller de Redacción"
+vec_nom_materias_total <- param$vec_nom_materias_total
+agrega_nom_1_materia_en_vec(materia,vec_nom_materias_total)
+
+load(file = "vec_nom_materias_total.RData")
+param$vec_nom_materias_total = vec_nom_materias_total
+vec_nom_materias_total <- param$vec_nom_materias_total
+materia <- "Solución Numérica de Ecuaciones Diferenciales Ordinarias"
+agrega_nom_1_materia_en_vec(materia,vec_nom_materias_total)
+
+load(file = "vec_nom_materias_total.RData")
+param$vec_nom_materias_total = vec_nom_materias_total
+vec_nom_materias_total <- param$vec_nom_materias_total
+
+
 # carga_info_prof_tiempo_completo -----------------------------------------
 #' Title carga_info_prof_tiempo_completo: Función que extrae los nombres de
 #' los profesores de tiempo completo del Departamento de Matemáticas.
@@ -204,6 +227,24 @@ mat_nom_prof_total <- gen_mat_nom_prof_total()
 sum(as.numeric(mat_nom_prof_total[,2]))#94
 dim(mat_nom_prof_total)#1387 2
 View(mat_nom_prof_total)
+
+
+# gen_mat_materias_x_carrera ----------------------------------------------
+#' Title gen_mat_materias_x_carrera: Función que genera la lista con las
+#' matrices que tienen los nombres de las materias de cada carrera y el
+#' número de materia para cada materia.
+#'
+
+gen_mat_materias_x_carrera(param)
+load("lista_mat_materias_x_carrera.RData")
+mat_materias_act <- lista_mat_materias_x_carrera[[1]]
+View(mat_materias_act)
+mat_materias_CdC <- lista_mat_materias_x_carrera[[2]]
+View(mat_materias_CdC)
+mat_materias_mate <- lista_mat_materias_x_carrera[[3]]
+View(mat_materias_mate)
+mat_materias_mateAp <- lista_mat_materias_x_carrera[[4]]
+View(mat_materias_mateAp)
 
 
 # gen_mat_alumnos_corregidos ----------------------------------------------

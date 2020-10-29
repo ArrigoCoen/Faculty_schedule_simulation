@@ -106,7 +106,7 @@ param$m_grande_total = matrix(0,ncol = length(param$nom_cols_MG))
 param$m_grande_2015 = matrix(0,ncol = length(param$nom_cols_MG))
 param$vec_nom_materias_total = 0
 param$mat_nom_prof_total = 0
-
+param$num_max_asig = 2
 
 
 load(file = paste0("Matrices m_grande_total/m_grande_total_",
@@ -739,6 +739,68 @@ gen_sub_m_filtrada <- function(materia,sem_sig,param,param_sim){
 #'de la facultad de Ciencias.
 ##########################################################################
 
+# agrega_nom_1_materia_en_vec ---------------------------------------------
+#' Title agrega_nom_1_materia_en_vec: Función que recibe como parámetros el
+#' nombre de una materia y el vector con los nombres de las materias y
+#' guarda la materia en caso de dar la opción de "SI". También imprime una
+#' lista con los diferentes nombres que pudiera tener "materia" en
+#' "vec_nom_materias_total"
+#' Por ejemplo "Estadística III" y "Modelos de Supervivencia y de Series
+#' de Tiempo".
+#'
+#' @param materia: Nombre de algún curso impartido en la FC.
+#' @param vec_nom_materias_total: Vector que contiene el nombre de las
+#' materias sin repetición, conservando los nombres más recientes. 
+#'
+#' @examples
+#' agrega_nom_1_materia_en_vec(materia,vec_nom_materias_total)
+#'
+agrega_nom_1_materia_en_vec <- function(materia,vec_nom_materias_total){
+  #' Se carga la matriz m_grande_total de 2008-1 a 2020-1 de la cual
+  #' se va a obtener la lista de nombres que se desea
+  load("Matrices m_grande_total/m_grande_total_20081_20201.RData")
+  
+  #Se definen las variables que se van a utilizar
+  num_col_Materia <- arroja_ind_col_MG("Materia")##1
+  num_col_NomMat_Act2000 <- arroja_ind_col_MG("NomMat_Act2000")##23
+  num_col_NomMat_MAp2017 <- arroja_ind_col_MG("NomMat_MAp2017")##29
+  vec_materias <- unique(m_grande_total[,num_col_Materia])##531
+  
+  var_aux <- vec_nom_materias_total[vec_nom_materias_total == materia]
+  # var_aux <- vec_nom_materias_total[vec_nom_materias_total == "materia"]
+  if(length(var_aux) != 0){#Si el nombre de "materia" se encuentra en el vector
+    cat("\n\n La materia ",materia," se encuentra en el vector como ",materia)
+  }else{
+    ind_materia <- checa_ind_materia(materia,m_grande_total)
+    
+    if(length(ind_materia) != 0){#Si "materia" se encuentra en el vector con otro nombre
+      mat_aux <- m_grande_total[ind_materia,c(num_col_Materia,
+                                              num_col_NomMat_Act2000:num_col_NomMat_MAp2017)]
+      mat_aux <- unique(mat_aux)
+      vec_aux <- mat_aux[mat_aux != 0]
+      nom_aux <- 0
+      
+      for(k in 1:length(vec_aux)){
+        nom_aux <- c(nom_aux,vec_nom_materias_total[vec_nom_materias_total == vec_aux[k]])
+      }
+      if(length(nom_aux) > 1){
+        #Se quita el cero inicial
+        nom_aux <- nom_aux[-1]
+        cat("\n\n La materia ",materia," se encuentra en el vector como \n",nom_aux) 
+      }
+    }else{#Si "materia" NO se encuentra en el vector
+      cat("\n\n La materia ",materia," NO se encuentra en el vector")
+      cat("\nAgregar la materia al vector: \n (1) SI \n (0) NO")
+      agrega_materia = scan(file = "", what = numeric(), n = 1)
+      
+      if(agrega_materia == 1){
+        vec_nom_materias_total <- c(vec_nom_materias_total,materia)
+        save(vec_nom_materias_total, file = "vec_nom_materias_total.RData")
+        cat("\n La materia ",materia," se agregó al vector")
+      }else{
+        cat("\n La materia ",materia," NO se agregó al vector")}}}
+}
+
 
 # carga_info_prof_tiempo_completo -----------------------------------------
 #' Title carga_info_prof_tiempo_completo: Función que extrae los nombres de
@@ -1206,7 +1268,11 @@ gen_mat_materias_x_carrera <- function(param){
   }#Fin for(d)
   
   mat_materias_act[33,2] <- 297
+  mat_materias_act[79,2] <- 330
   mat_materias_mateAp[65,2] <- 333
+  mat_materias_mateAp[35,2] <- 88#Economía-Actuaría de Monserrat Esquivel López
+  #http://www.fciencias.unam.mx/docencia/horarios/20201/2017/1540
+  #http://www.fciencias.unam.mx/docencia/horarios/20201/2055/923
   
   lista_mat_materias_x_carrera <- list()
   lista_mat_materias_x_carrera[[1]] <- mat_materias_act
@@ -1390,7 +1456,7 @@ simula_alumnos <- function(mat_alumnos_corregidos,param){
 
 # gen_mat_demanda_alumnos -------------------------------------------------
 #' Title gen_mat_demanda_alumnos: Función que genera la matriz
-#' "mat_demanda_alumnos" con 15 renglones (horas) y 333 columnas (materias).
+#' "mat_demanda_alumnos" con 15 renglones (horas) y 335 columnas (materias).
 #' En la entrada (i,j) se tiene el número de alumnos simulados para la hora
 #' i, y la materia j.
 #'
@@ -1405,7 +1471,7 @@ simula_alumnos <- function(mat_alumnos_corregidos,param){
 #' materia = "Estadística III", num_sim = 10, m_filtrada = matrix(0),
 #' sub_m_filtrada = matrix(0,ncol = length(param$nom_cols_MG)))
 #'
-#' @return mat_demanda_alumnos: Matriz de 15 renglones (horas) y 333
+#' @return mat_demanda_alumnos: Matriz de 15 renglones (horas) y 335
 #' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
 #' simulados para la hora i, y la materia j.
 #'
@@ -1475,7 +1541,7 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
   num_col_Profesor <- arroja_ind_col_MG("Profesor")
   num_col_horario_num <- arroja_ind_col_MG("horario_num")##4
   num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
-  vec_nom_materias_total <- param$vec_nom_materias_total#333
+  vec_nom_materias_total <- param$vec_nom_materias_total#335
   m_grande_2015 <- param$m_grande_2015#8393 37
   mat_1_solicitud <- data.frame(Profesor = 0,TC = 0, Materia = rep(0,6),
                                 Num_Materia = 0,Horario = 0)
@@ -1671,20 +1737,20 @@ verifica_demanda_cubierta <- function(mat_demanda_aux,renglon){
 #' profesores de tiempo completo o de asignatura.
 #' @param renglon: Vector con la información del profesor elegido para
 #' asignarle un grupo.
-#' @param prof_mas_2: Variable binaria que vale 1 si el profesor ya tiene
+#' @param prof_max_asig: Variable binaria que vale 1 si el profesor ya tiene
 #' 2 o más materias asignadas y 0 si no.
 #'
 #' @return mat_solicitudes_act: Matriz de solicitudes actualizada.
 #'
 #' @examples
 #' mat_solicitudes_act <- actualiza_mat_solicitudes(mat_a_actualizar,renglon,
-#' prof_mas_2)
+#' prof_max_asig)
 #' 
-actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
+actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_max_asig){
   # Se definen las variables que se van a utilizar
   profesor <- which(mat_a_actualizar[,1]==renglon[1])
   
-  if(prof_mas_2 == 1){
+  if(prof_max_asig == 1){
     mat_solicitudes_act <- mat_a_actualizar[-profesor,]
   }else{
     hora <- which(mat_a_actualizar[,5]==renglon[5])
@@ -1714,7 +1780,7 @@ actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
 #' profesores.
 #' @param mat_prof: Matriz de 2 columnas con el nombre de los profesores y
 #' el número de materias que se le han asignado.
-#' @param mat_demanda: Matriz de 15 renglones (horas) y 333 columnas
+#' @param mat_demanda: Matriz de 15 renglones (horas) y 335 columnas
 #' (materias). En la entrada (i,j) se tiene el número de alumnos simulados
 #' para la hora i, y la materia j.
 #'
@@ -1725,13 +1791,14 @@ actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_mas_2){
 #' lista_ciclo <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,mat_esqueleto)
 #' lista_ciclo <- ciclo_esqueleto(6500,mat_solicitudes_asig,mat_prof_asig,mat_esqueleto)
 #' 
-ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
+ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
+                            num_max_asig){
   #Se definen las variables que se van a utilizar
   num_alum_simulados <- 0
   mat_esqueleto <- matrix(0,nrow = length(param$Horas),
                           ncol = length(param$vec_nom_materias_total))
-  rownames(mat_esqueleto) <- 1:15
-  colnames(mat_esqueleto) <- 1:333
+  rownames(mat_esqueleto) <- 1:length(param$Horas)
+  colnames(mat_esqueleto) <- 1:length(param$vec_nom_materias_total)
   
   for(n in 1:cota){#Cota para que el ciclo no sea infinito
     # cat("\n Iteración: ",n)
@@ -1770,12 +1837,12 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
           mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
           
           mat_prof[num_al,2] <- as.numeric(mat_prof[num_al,2]) + 1
-          prof_mas_2 <- 0
-          if(mat_prof[num_al,2] >= 2){
-            prof_mas_2 <- 1
+          prof_max_asig <- 0
+          if(mat_prof[num_al,2] >= num_max_asig){
+            prof_max_asig <- 1
           }
           mat_solicitudes <- actualiza_mat_solicitudes(mat_solicitudes,
-                                                       renglon,prof_mas_2)
+                                                       renglon,prof_max_asig)
         }#Fin if(dim(mat_aux)[1]>0)
       }#Fin if Demanda existente
     }#Fin if Condiciones de paro
@@ -1796,7 +1863,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
 
 # gen_esqueleto -----------------------------------------------------------
 #' Title gen_esqueleto: Función que arroja una lista con las matrices:
-#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 335 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j.
 #' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
@@ -1804,7 +1871,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
 #' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores de
 #' asignatura y el número de materias asignadas.
 #'
-#' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 333
+#' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 335
 #' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
 #' simulados para la hora i, y la materia j.
 #' @param mat_solicitudes: Matriz de 4 columnas (Profesor,TC,Materia,
@@ -1818,7 +1885,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
 #' @return lista_info_esqueleto: Lista con las matrices:
-#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 333 columnas
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 335 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j.
 #' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
@@ -1833,19 +1900,20 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda){
 gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
+  num_max_asig <- param$num_max_asig
   mat_demanda_aux <- mat_demanda_alumnos
   mat_solicitudes_aux <- mat_solicitudes[as.numeric(mat_solicitudes[,5])>0,]
   mat_esqueleto <- matrix(0,nrow = length(param$Horas),
                           ncol = length(param$vec_nom_materias_total))
-  rownames(mat_esqueleto) <- 1:15
-  colnames(mat_esqueleto) <- 1:333
+  rownames(mat_esqueleto) <- 1:length(param$Horas)
+  colnames(mat_esqueleto) <- 1:length(param$vec_nom_materias_total)
   
   ##### Profesores de tiempo completo
   mat_solicitudes_TC <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==1,]
   mat_prof_TC <- cbind(unique(mat_solicitudes_TC[,1]),
                        rep(0,length(unique(mat_solicitudes_TC[,1]))))
   lista_ciclo_TC <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,
-                                    mat_demanda_aux)
+                                    mat_demanda_aux,num_max_asig)
   mat_prof_TC <- lista_ciclo_TC[[2]]
   colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
   mat_solicitudes_TC <- lista_ciclo_TC[[4]]
@@ -1857,7 +1925,8 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
                          rep(0,length(unique(mat_solicitudes_asignatura[,1]))))
   
   lista_ciclo_asig <- ciclo_esqueleto(6500,mat_solicitudes_asignatura,
-                                      mat_prof_asig,lista_ciclo_TC[[3]])
+                                      mat_prof_asig,lista_ciclo_TC[[3]],
+                                      num_max_asig)
   mat_prof_asig <- lista_ciclo_asig[[2]]
   colnames(mat_prof_asig) <- c("Profesor","Materias_Asig")
   mat_solicitudes_asignatura <- lista_ciclo_asig[[4]]
@@ -2437,7 +2506,7 @@ gen_nom_heatmap <- function(tipo,num_materia,sem_sig){
 #'
 gen_mat_n_sim_n_sem <- function(vec_sem_sig,vec_k_sem_info,num_sim,param){
   #Se definen las variables que se van a utilizar
-  ## Se carga el vector que contiene 333 materias para que todas las listas
+  ## Se carga el vector que contiene 335 materias para que todas las listas
   ##de cada semestre tengan las mismas materias.
   # load("vec_nom_materias_total.RData")
   Materias <- param$vec_nom_materias_total
@@ -2893,68 +2962,6 @@ gen_mat_materias_rep <- function(param){
   return(mat_materias_rep)
 }
 
-
-# checa_nom_1_materia_en_vec ----------------------------------------------
-#' Title checa_nom_1_materia_en_vec: Función que recibe como parámetros el
-#' nombre de una materia y el vector con los nombres de las materias e
-#' imprime una lista con los diferentes nombres que pudiera tener "materia"
-#' en "vec_nom_materias_total"
-#' Por ejemplo "Estadística III" y "Modelos de Supervivencia y de Series
-#' de Tiempo".
-#'
-#' @param materia: Nombre de algún curso impartido en la FC.
-#' @param vec_nom_materias_total: Vector que contiene el nombre de las
-#' materias sin repetición, conservando los nombres más recientes. 
-#'
-#' @example materia <- "Estadística III"
-#' @example vec_nom_materias_total <- c("Robótica","Inglés VI","Sistemas
-#' Dinámicos no Lineales",...,"Almacenes y Minería de Datos")
-#'
-checa_nom_1_materia_en_vec <- function(materia,vec_nom_materias_total){
-  #' Se carga la matriz m_grande_total de 2008-1 a 2020-1 de la cual
-  #' se va a obtener la lista de nombres que se desea
-  load("Matrices m_grande_total/m_grande_total_20081_20201.RData")
-  
-  #Se definen las variables que se van a utilizar
-  num_col_Materia <- arroja_ind_col_MG("Materia")##1
-  num_col_NomMat_Act2000 <- arroja_ind_col_MG("NomMat_Act2000")##23
-  num_col_NomMat_MAp2017 <- arroja_ind_col_MG("NomMat_MAp2017")##29
-  vec_materias <- unique(m_grande_total[,num_col_Materia])##531
-  
-  var_aux <- vec_nom_materias_total[vec_nom_materias_total == materia]
-  # var_aux <- vec_nom_materias_total[vec_nom_materias_total == "materia"]
-  if(length(var_aux) != 0){#Si el nombre de "materia" se encuentra en el vector
-    cat("\n\n La materia ",materia," se encuentra en el vector como ",materia)
-  }else{
-    ind_materia <- checa_ind_materia(materia,m_grande_total)
-    
-    if(length(ind_materia) != 0){#Si "materia" se encuentra en el vector con otro nombre
-      mat_aux <- m_grande_total[ind_materia,c(num_col_Materia,
-                                              num_col_NomMat_Act2000:num_col_NomMat_MAp2017)]
-      mat_aux <- unique(mat_aux)
-      vec_aux <- mat_aux[mat_aux != 0]
-      nom_aux <- 0
-      
-      for(k in 1:length(vec_aux)){
-        nom_aux <- c(nom_aux,vec_nom_materias_total[vec_nom_materias_total == vec_aux[k]])
-      }
-      if(length(nom_aux) > 1){
-        #Se quita el cero inicial
-        nom_aux <- nom_aux[-1]
-        cat("\n\n La materia ",materia," se encuentra en el vector como \n",nom_aux) 
-      }
-    }else{#Si "materia" NO se encuentra en el vector
-      cat("\n\n La materia ",materia," NO se encuentra en el vector")
-      cat("\nAgregar la materia al vector: \n (1) SI \n (0) NO")
-      agrega_materia = scan(file = "", what = numeric(), n = 1)
-      
-      if(agrega_materia == 1){
-        vec_nom_materias_total <- c(vec_nom_materias_total,materia)
-        save(vec_nom_materias_total, file = "vec_nom_materias_total.RData")
-        cat("\n La materia ",materia," se agregó al vector")
-      }else{
-        cat("\n La materia ",materia," NO se agregó al vector")}}}
-}
 
 
 # checa_nom_materias_en_vec -----------------------------------------------

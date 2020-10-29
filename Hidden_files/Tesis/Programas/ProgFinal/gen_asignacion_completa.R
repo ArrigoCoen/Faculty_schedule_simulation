@@ -17,16 +17,16 @@ source("Fn_Asignacion.R")
 gen_asignacion_completa <- function(param,param_sim){
 
   #' 1-3) Extracción de datos y simulación de alumnos de t+1
-  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#46.19 seg
+  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#44.84 seg
   View(mat_demanda_alumnos)
   
   #' 4a) Simulación de solicitudes de profesores de t+1 (oculta)
-  mat_solicitudes <- gen_solicitudes(param)#8.47 seg
+  mat_solicitudes <- gen_solicitudes(param)#8.14 seg
   View(mat_solicitudes)
   
   #' 5) Simulación de esqueletos
   lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,
-                                        param)#17.53 seg
+                                        param)#16.73 / 10.27seg
   
   #' 6) Calificación de esqueletos
   califica_esqueleto()
