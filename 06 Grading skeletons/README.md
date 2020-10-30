@@ -2,7 +2,7 @@
 
 Here is explained how we grade the skeletons.
 
-Before we can grade a skeleton we need the numner of students simulated and the following matrixes:
+Before we can grade a skeleton we need the number of students simulated and the following matrixes:
 
 - Number of students expected for the next semester _mat\_students\_sim_ (by hour and subject).
 
@@ -28,8 +28,13 @@ We have 5 different penalties:
 
 5. **Classes without a teacher:** The grade is reduce in one for each teacher that can give a class that has positive number of students in _mat\_students\_sim\_aux_. 
 
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_.
 
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos.png)
 
+In the next figure we can see the graphic of the sum of the number of students without class plus the number of students simulated over the needs.
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_sum_over_and_under_students.png)
 
 
 
