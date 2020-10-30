@@ -4,29 +4,29 @@ Here is explained how we grade the skeletons.
 
 Before we can grade a skeleton we need the numner of students simulated and the following matrixes:
 
-i) Number of students expected for the next semester _mat\_students\_sim_ (by hour and subject).
+- Number of students expected for the next semester _mat\_students\_sim_ (by hour and subject).
 
-ii) Simulated skeleton _mat\_skeleton_
+- Simulated skeleton _mat\_skeleton_
 
-iii) Number of subjects assigned to a full-time teacher
+- Number of subjects assigned to a full-time teacher
 
-iv) Number of students left after simulating the skeleton
+- Number of students left after simulating the skeleton _mat\_students\_sim\_aux_
 
-v) Full-time teachers' requests
+- Full-time teachers' requests
 
-vi) Part-time teachers' requests
+- Part-time teachers' requests
 
 We have 5 different penalties:
 
 1. **Subjects needed but not given:** The grade is reduce in one for each subject that has students in _mat\_students\_sim_ but doesn't have a group in _mat\_skeleton_.
 
-2. **Students without class**
+2. **Students without class:** The grade is reduce in _alpha_ times the number of students left in _mat\_students\_sim\_aux_ (positive ones).
 
-3. **Students simulated over the needs**
+3. **Students simulated over the needs:** The grade is reduce in _-beta_ times the number of students left in _mat\_students\_sim\_aux_ (negative ones).
 
-4. **Subjects requested but not given**
+4. **Subjects requested but not given:** The grade is reduce in one for each subject that a full-time teacher requested but he/she wasn't assigned to it (up to 2 subjects).
 
-5. **Classes without a teacher**
+5. **Classes without a teacher:** The grade is reduce in one for each teacher that can give a class that has positive number of students in _mat\_students\_sim\_aux_. 
 
 
 
