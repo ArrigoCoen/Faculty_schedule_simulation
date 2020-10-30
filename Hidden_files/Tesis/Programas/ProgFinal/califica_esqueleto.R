@@ -104,14 +104,14 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
   pena_x_materia##61
   
   
-  #' Si hay alumnos que necesitan una clase a alguna hora y no
-  #' existe profesor que la imparta. Se penaliza por cada profesor
-  #' que pueda impartir la materia j en la hora i y esa entrada de
-  #' la matriz "mat_demanda_aux" aún tenga alumnos.
+  #' Penalización por cada profesor que pueda impartir la materia j en
+  #' la hora i y esa entrada de la matriz "mat_demanda_aux" aún tenga
+  #' alumnos. Se penaliza por cada grupo que no se le asignó un profesor
+  #' que si podía dar clase.
   # media_alum <- 34.18746
   mat_solicitudes <- rbind(mat_solicitudes_TC,mat_solicitudes_asignatura)
   mat_i_j <- matrix(0,nrow = dim(mat_solicitudes)[1],ncol = 2)
-  pena_alum_sin_clase <- 0
+  pena_gpos_sin_prof <- 0
   
   for(r in 1:dim(mat_solicitudes)[1]){#Recorre los renglones
     #' Se llenan los índices en los que un profesor puede dar
@@ -125,13 +125,17 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
     i <- as.numeric(mat_i_j[r,1])
     j <- as.numeric(mat_i_j[r,2])
     if(mat_demanda_aux[i,j] > 0){
-      pena_alum_sin_clase <- pena_alum_sin_clase + 1
+      pena_gpos_sin_prof <- pena_gpos_sin_prof + 1
     }
   }
-  pena_alum_sin_clase#148
+  pena_gpos_sin_prof#148
+  
+  #' Si hay alumnos que necesitan una clase a alguna hora y no
+  #' existe profesor que la imparta.
+  
   
   calif_esqueleto <- -sum(materias_no_impartidas,pena_faltantes,pena_sobrantes,
-                         pena_x_materia,pena_alum_sin_clase)#-13854.6
+                         pena_x_materia,pena_gpos_sin_prof)#-13854.6
   return(calif_esqueleto)
 }
 
