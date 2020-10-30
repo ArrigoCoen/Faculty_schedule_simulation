@@ -24,6 +24,10 @@ param_graficas$col_barras = "skyblue" ##Azul cielo
 # param_graficas$col1_hist = rgb(0,0,1,1/4)##Azul histogramas
 param_graficas$col1_hist = "skyblue" ##Azul cielo histogramas
 param_graficas$col2_hist = rgb(1,0,0,1/4)##Rojo histogramas
+param_graficas$col3_hist = "purple" ##Morado histogramas
+param_graficas$col4_hist = "magenta" ##Magenta histogramas
+param_graficas$col5_hist = "limegreen" ##Verde histogramas
+# param_graficas$col5_hist = "green" ##Verde histogramas
 param_graficas$col1_linea = "blue" ##Azul densidad
 param_graficas$col2_linea = "red" ##Rojo densidad
 param_graficas$col3_linea = "purple" ##Morado densidad
@@ -85,11 +89,12 @@ source("Programas/Figuras PDF/fig_prom_alum_x_hora_barplot/prom_alum_x_hora_barp
 ##### Histograma con densidad ajustadad por prueba de Kolmogorov-Smirnov
 source("Programas/Figuras PDF/fig_histograma_FR_prueba_KS/histograma_FR_prueba_KS.R")
 
-#####
-# source("Programas/Figuras PDF//.R")
+##### Histograma del número de alumnos por carrera
+source("Programas/Figuras PDF/fig_histogramas_FA_num_alum_x_carrera/histogramas_FA_num_alum_x_carrera.R")
+dev.off()#Utliza función par()
 
-#####
-# source("Programas/Figuras PDF//.R")
+##### Densidades del número de alumnos por carrera
+source("Programas/Figuras PDF/fig_histogramas_FR_num_alum_x_carrera/histogramas_FR_num_alum_x_carrera.R")
 
 #####
 # source("Programas/Figuras PDF//.R")
