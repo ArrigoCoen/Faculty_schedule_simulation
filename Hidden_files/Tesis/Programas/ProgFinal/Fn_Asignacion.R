@@ -1411,7 +1411,7 @@ gen_mat_alumnos_corregidos <- function(vec_s_sem_k_info,param,param_sim){
         mat_hora_alum <- mat_aux[mat_aux[,1]==vec_s_sem_k_info[c],c(2,3)]
         for(r in 1:length(param$Horas)){
           # cat("\nr = ",r)
-          vec_aux <- mat_hora_alum[mat_hora_alum[,1]==param$Horas[r],2]
+          vec_aux <- as.numeric(mat_hora_alum[mat_hora_alum[,1]==param$Horas[r],2])
           if(length(vec_aux)>0){
             renglon <- c(vec_s_sem_k_info[c],param$Horas[r],sum(vec_aux))
             mat_aux2 <- rbind(mat_aux2,renglon)
@@ -1854,7 +1854,8 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
   
   for(n in 1:cota){#Cota para que el ciclo no sea infinito
     # cat("\n Iteración: ",n)
-    if(sum(mat_demanda)>0 && dim(mat_solicitudes)[1]>0){
+    #Se suman los valores positivos de la demanda de alumnos
+    if(sum(mat_demanda[mat_demanda>0])>0 && dim(mat_solicitudes)[1]>0){
       #Número aleatorio para elegir profesor
       (num_al <- round(runif(1,min = 1,max = dim(mat_prof)[1])))
       (profesor <- mat_prof[num_al,1])
@@ -1885,7 +1886,9 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
           num_alum_simulados <- num_alum_simulados + num_alum_x_profesor
           
           #Se actualizan las entradas de las matrices auxiliares
-          mat_demanda[M_i,M_j] <- max(0,mat_demanda[M_i,M_j]-num_alum_x_profesor)
+          # mat_demanda[M_i,M_j] <- max(0,mat_demanda[M_i,M_j]-num_alum_x_profesor)
+          #' Permitimos los negativos que nos muestran los alumnos sobrantes
+          mat_demanda[M_i,M_j] <- mat_demanda[M_i,M_j]-num_alum_x_profesor
           mat_esqueleto[M_i,M_j] <- mat_esqueleto[M_i,M_j] + 1
           
           mat_prof[num_al,2] <- as.numeric(mat_prof[num_al,2]) + 1
