@@ -36,8 +36,8 @@ In the next figure we can see the graphic of the sum of the number of students w
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_sum_over_and_under_students.PNG)
 
+In the next figure we can see the histogram of the number of students without class and the number of students simulated over the needs.
 
-
-
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_histogram_over_and_under_students.PNG)
 
 
