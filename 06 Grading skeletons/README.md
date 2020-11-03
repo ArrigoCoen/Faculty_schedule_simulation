@@ -28,7 +28,7 @@ We have 5 different penalties:
 
 5. **Classes without a teacher:** The grade is reduce in one for each teacher that can give a class that has positive number of students in _mat\_students\_sim\_aux_. 
 
-In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_. The white spaces are the spaces when there is a zero in the (i,j) of _mat\_students\_sim_. If the color blue is darker it means it's a positive number, which belongs to the number of students over the needed. If the color is lighter it means a negative color, which belongs to the number of students under the needed.
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_. The white means that the entry (i,j) of _mat\_students\_sim_ is a zero so _NaN's_ or _infinity_ are generated in the division. If the color blue is darker it means it's a positive number, which belongs to the number of students over the needed. If the color is lighter it means a negative color, which belongs to the number of students under the needed.
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos.png)
 
@@ -44,9 +44,15 @@ In the best scenario, we didn't simulate over the number of students needed (whe
 
 In the next figure we can see the graphic of the number of students simulated under the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_. If the sum, by subjects of _mat\_students\_sim_ is zero, then we assign a plus infinity to that division. _R_ doesn't graphic those data.
 
-The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any group for the students needed. And in the best scenario, we simulated at least the number of students needed, (when we reach 0).
-
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_under_students_over_simulated.PNG)
+
+The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any group for the students needed. And in the best scenario, we simulated at least the number of students needed, (when we reach 0). In the next figure we can see the subjects that doesn't have any students simulated.
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_students_simulated.PNG)
+
+In the next figure we can see the subjects that at least have the number of students needed.
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_under_students.PNG)
 
 In the next figure we can see the histogram of the number of students without class and the number of students simulated over the needs.
 
