@@ -32,6 +32,23 @@ In the next figure we can see the heatmap of the division of the matrix _mat\_st
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos.png)
 
+In the next figure we can see the graphic of the number of students simulated over the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_.
+
+If the sum, by subjects of _mat\_students\_sim_ is zero, then we assign a plus infinity to that division. _R_ doesn't graphic those data.
+
+The range of the data is from -27 to 0 (without infinity). That means that in the worst scenario, we have simulated 27 times over the number of students needed. And in the best scenario, we didn't simulate over the number of students needed (0).
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_over_students_over_simulated.PNG)
+
+In the next figure we can see the graphic of the number of students simulated under the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_.
+
+If the sum, by subjects of _mat\_students\_sim_ is zero, then we assign a plus infinity to that division. _R_ doesn't graphic those data.
+
+The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any of the students needed. And in the best scenario, we simulated at least the number of students needed, (when we reach 0).
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_under_students_over_simulated.PNG)
+
+
 In the next figure we can see the graphic of the sum of the number of students without class plus the number of students simulated over the needs.
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_sum_over_and_under_students.PNG)
