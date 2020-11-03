@@ -48,11 +48,11 @@ In the next figure we can see the graphic of the number of students simulated un
 
 The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any group for the students needed. And in the best scenario, we simulated at least the number of students needed, (when we reach 0). In the next figure we can see the subjects that doesn't have any students simulated.
 
-![Fig_subjects_with_no_students_simulated](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_students_simulated.PNG)
+![Fig_subjects_with_no_students_simulated](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_students_simulated.png)
 
 In the next figure we can see the subjects that at least have the number of students needed.
 
-![Fig_subjects_with_no_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_under_students.PNG)
+![Fig_subjects_with_no_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_under_students.png)
 
 In the next figure we can see the histogram of the number of students without class and the number of students simulated over the needs.
 
