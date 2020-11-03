@@ -266,7 +266,7 @@ barplot(c(sum(length(vec_sobrantes[vec_sobrantes==0]),
               length(vec_faltantes[vec_faltantes==0])),
           sum(length(vec_sobrantes[vec_sobrantes<0]),
               length(vec_faltantes[vec_faltantes>0]))),
-        main = "Número de alumnos sobrantes o faltantes",ylim = c(0,500),
+        main = "Número de grupos con alumnos sobrantes y faltantes",ylim = c(0,500),
         ylab="Número de alumnos",col = param_graficas$col_barras,#xlab="Número de alumnos",
         axis.lty=1,las=1,cex.names = 0.82,#expansion factor for *axis names*
         cex.axis=0.82,#expansion factor for *numeric axis labels*
@@ -288,6 +288,37 @@ mat_porcentajes <- mat_demanda_aux/mat_demanda_alumnos
 colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
 heatmap(mat_porcentajes, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Porcentajes alumnos sobrantes y faltantes")
+
+mat_porcentajes_sobrantes <- matrix(0,nrow = dim(mat_porcentajes)[1],
+                                    ncol = dim(mat_porcentajes)[2])
+mat_porcentajes_faltantes <- matrix(0,nrow = dim(mat_porcentajes)[1],
+                                    ncol = dim(mat_porcentajes)[2])
+for(c in 1:dim(mat_porcentajes)[2]){
+  for(r in 1:dim(mat_porcentajes)[1]){
+    if(mat_demanda_alumnos[r,c] == 0){
+      mat_porcentajes_sobrantes[r,c] <- -Inf
+      mat_porcentajes_faltantes[r,c] <- Inf
+    }else{
+      if(mat_demanda_aux[r,c] <= 0){#Sobrantes
+        #Cuando mat_demanda_aux[r,c]>0 => se queda un 0 en la entrada (r,c)
+        mat_porcentajes_sobrantes[r,c] <- mat_demanda_aux[r,c]/mat_demanda_alumnos[r,c]
+      }else if(mat_demanda_aux[r,c] >= 0){#Faltantes
+        #Cuando mat_demanda_aux[r,c]<0 => se queda un 0 en la entrada (r,c)
+        mat_porcentajes_faltantes[r,c] <- mat_demanda_aux[r,c]/mat_demanda_alumnos[r,c]
+      }
+    }
+  }#Fin for(r)
+}#Fin for(c)
+rownames(mat_porcentajes_sobrantes) <- param$nombre_hrs
+colnames(mat_porcentajes_sobrantes) <- param$vec_nom_materias_total
+rownames(mat_porcentajes_faltantes) <- param$nombre_hrs
+colnames(mat_porcentajes_faltantes) <- param$vec_nom_materias_total
+
+colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+heatmap(mat_porcentajes_sobrantes, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Porcentajes alumnos sobrantes")
+heatmap(mat_porcentajes_faltantes, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Porcentajes alumnos faltantes")
 #************************************************************
 
 mat_porcentajes <- matrix(0,dim(mat_demanda_aux)[1],dim(mat_demanda_aux)[2])

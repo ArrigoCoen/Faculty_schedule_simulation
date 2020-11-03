@@ -28,9 +28,18 @@ We have 5 different penalties:
 
 5. **Classes without a teacher:** The grade is reduce in one for each teacher that can give a class that has positive number of students in _mat\_students\_sim\_aux_. 
 
-In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_. The white means that the entry (i,j) of _mat\_students\_sim_ is a zero so _NaN's_ or _infinity_ are generated in the division. If the color blue is darker it means it's a positive number, which belongs to the number of students over the needed. If the color is lighter it means a negative color, which belongs to the number of students under the needed.
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_. The white means that the entry (i,j) of _mat\_students\_sim_ is a zero so _NaN's_ or _infinity_ are generated in the division. If the color blue is darker it means it's a positive number, which belongs to the number of students over the needed. If the color is lighter it means a negative number, which belongs to the number of students under the needed.
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos.png)
+
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_ only for the number of students over needs. The white means that the entry (i,j) of _mat\_students\_sim_ is a zero so _-Inf_ are generated in the division. If the color blue is darker it means it's a number closer to zero. If the color is lighter it means the number is closer to _-Inf_.
+
+![Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos_over_needs](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos_over_needs.png)
+
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_ only for the number of students under needs. The white means that the entry (i,j) of _mat\_students\_sim_ is a zero so _Inf_ are generated in the division. If the color blue is darker it means it's a number closer to _Inf_. If the color is lighter it means the number is closer to zero.
+
+![Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos_under_needs](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos_under_needs.png)
+
 
 In the next figure we can see the graphic of the number of students simulated over the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_. If the sum, by subjects of _mat\_students\_sim_ is zero, then we assign a plus infinity to that division. _R_ doesn't graphic those data.
 
