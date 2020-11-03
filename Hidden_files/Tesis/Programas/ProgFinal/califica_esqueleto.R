@@ -197,17 +197,22 @@ for(d in 1:length(vec_nom_materias_total)){
 }
 mat_sobran_faltan_razon <- data.frame(Materias = vec_nom_materias_total,
                                     Sobran_Razon = sobran_razon,
-                                    Faltan_Razon = faltan_razon)
+                                    Faltan_Razon = faltan_razon,
+                                    demanda_x_materia = tabla_info[,5])
 View(mat_sobran_faltan_razon)
 mean(mat_sobran_faltan_razon[,2])#Inf
 
+#************************************************************
 plot(as.numeric(sort(mat_sobran_faltan_razon[,2])),
      main="Número de alumnos sobrantes entre demanda",
-     xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes*****
+     xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes
+View(mat_sobran_faltan_razon[mat_sobran_faltan_razon[,2]==0,c(1,2,4)])
+
 plot(as.numeric(sort(mat_sobran_faltan_razon[,3])),
      main="Número de alumnos faltantes entre demanda",
-     xlab = "Materias",ylab = "Alumnos faltantes")#Faltantes*****
-
+     xlab = "Materias",ylab = "Alumnos faltantes")#Faltantes
+View(mat_sobran_faltan_razon[mat_sobran_faltan_razon[,3]==1,c(1,3,4)])
+#************************************************************
 
 
 

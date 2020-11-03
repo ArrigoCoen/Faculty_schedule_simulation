@@ -46,7 +46,7 @@ In the next figure we can see the graphic of the number of students simulated un
 
 ![Fig_under_students_over_simulated](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_under_students_over_simulated.PNG)
 
-The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any group for the students needed. In the next figure we can see the subjects that doesn't have any students simulated.
+The range of the data is from 0 to 1 (without infinity). That means that in the worst scenario, when we reach 1, we didn't simulate any group for the students needed. In the next figure we can see the subjects that doesn't have any students simulated. In the third column of the matrix we can see the number of students needed for the next semester, they are oredered from the lowest to the highest number.
 
 ![Fig_subjects_with_no_students_simulated](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_students_simulated.png)
 
