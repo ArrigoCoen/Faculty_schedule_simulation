@@ -34,11 +34,17 @@ In the next figure we can see the heatmap of the division of the matrix _mat\_st
 
 In the next figure we can see the graphic of the number of students simulated over the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_.
 
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_over_students_over_simulated.PNG)
+
 If the sum, by subjects of _mat\_students\_sim_ is zero, then we assign a plus infinity to that division. _R_ doesn't graphic those data.
 
-The range of the data is from -27 to 0 (without infinity). That means that in the worst scenario, we have simulated 27 times over the number of students needed. And in the best scenario, we didn't simulate over the number of students needed (0).
+The range of the data is from -27 to 0 (without infinity). That means that in the worst scenario, we have simulated 27 times over the number of students needed.
 
-![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_over_students_over_simulated.PNG)
+The two subjects with the lowest rate are _Finanzas I_ and _Historia de las Matemáticas I_. After that we have the subjects that we can see in the following figure, those are from -15 to -1.
+
+![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_over_students.PNG)
+
+In the best scenario, we didn't simulate over the number of students needed (when we reach 0).
 
 In the next figure we can see the graphic of the number of students simulated under the needs over the sum, by subjects, of the number of students simulated in _mat\_students\_sim_.
 
