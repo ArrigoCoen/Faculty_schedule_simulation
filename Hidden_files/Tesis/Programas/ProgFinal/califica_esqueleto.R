@@ -206,12 +206,12 @@ mean(mat_sobran_faltan_razon[,2])#Inf
 plot(as.numeric(sort(mat_sobran_faltan_razon[,2])),
      main="Número de alumnos sobrantes entre demanda",
      xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes
-View(mat_sobran_faltan_razon[mat_sobran_faltan_razon[,2]==0,c(1,2,4)])
 
 plot(as.numeric(sort(mat_sobran_faltan_razon[,3])),
      main="Número de alumnos faltantes entre demanda",
      xlab = "Materias",ylab = "Alumnos faltantes")#Faltantes
 View(mat_sobran_faltan_razon[mat_sobran_faltan_razon[,3]==1,c(1,3,4)])
+View(mat_sobran_faltan_razon[mat_sobran_faltan_razon[,3]==0,c(1,3,4)])
 #************************************************************
 
 
@@ -252,6 +252,25 @@ legend(400,0.03,c("Alumnos sobrantes","Alumnos faltantes"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
        lty=c(1,1),cex=1.1,lwd=param_graficas$lwd_dens)
 
+# barplot(c(sum(length(vec_sobrantes[vec_sobrantes==0]),
+#               length(vec_faltantes[vec_faltantes==0])),
+#           length(vec_sobrantes[vec_sobrantes<0]),#Sobrantes
+#           length(vec_faltantes[vec_faltantes>0])),#Faltantes
+#         main = "Número de alumnos sobrantes o faltantes",ylim = c(0,500),
+#         ylab="Número de alumnos",col = param_graficas$col_barras,#xlab="Número de alumnos",
+#         axis.lty=1,las=1,cex.names = 0.82,#expansion factor for *axis names*
+#         cex.axis=0.82,#expansion factor for *numeric axis labels*
+#         names.arg=c("Ceros","Sobrantes","Faltantes"))
+
+barplot(c(sum(length(vec_sobrantes[vec_sobrantes==0]),
+              length(vec_faltantes[vec_faltantes==0])),
+          sum(length(vec_sobrantes[vec_sobrantes<0]),
+              length(vec_faltantes[vec_faltantes>0]))),
+        main = "Número de alumnos sobrantes o faltantes",ylim = c(0,500),
+        ylab="Número de alumnos",col = param_graficas$col_barras,#xlab="Número de alumnos",
+        axis.lty=1,las=1,cex.names = 0.82,#expansion factor for *axis names*
+        cex.axis=0.82,#expansion factor for *numeric axis labels*
+        names.arg=c("Ceros","Distintos de cero"))
 
 hist(vec_sobrantes[vec_sobrantes<0], col=param_graficas$col1_hist,
      breaks = seq(-410,780,by = 10),freq = F,ylim=c(0,0.03),

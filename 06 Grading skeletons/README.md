@@ -50,7 +50,7 @@ The range of the data is from 0 to 1 (without infinity). That means that in the 
 
 ![Fig_subjects_with_no_students_simulated](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_students_simulated.png)
 
-In the best scenario, we simulated at least the number of students needed, (when we reach 0). In the next figure we can see the subjects that at least have the number of students needed.
+In the best scenario, we simulated at least the number of students needed, (when we reach 0). In the next figure we can see the subjects that at least have the number of students needed. In the third column of the matrix we can see the number of students needed for the next semester, they are oredered from the lowest to the highest number.
 
 ![Fig_subjects_with_no_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_with_no_under_students.png)
 
@@ -69,6 +69,10 @@ In the next figure we can see the subjects that have more than 200 students simu
 In the next figure we can see the subjects that have more than 200 students simulated under the needs. In the third column of the matriz we can see the number of students needed for the next semester for each subject.
 
 ![Fig_subjects_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_under_students.png)
+
+In the next figure we can see the barplot of the number of groups with students without class plus the number of groups with students simulated over the needs compared with the number of groups that doesn't have under or over simulated students.
+
+![Fig_barplot_over_and_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_barplot_over_and_under_students.PNG)
 
 
 
