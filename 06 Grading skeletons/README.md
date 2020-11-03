@@ -62,3 +62,13 @@ In the next figure we can see the histogram of the last data but without zeros.
 
 ![Fig_histogram_over_and_under_students_no_zeros](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_histogram_over_and_under_students_no_zeros.PNG)
 
+In the next figure we can see the subjects that have more than 200 students simulated over the needs. In the third column of the matriz we can see the number of students needed for the next semester for each subject.
+
+![Fig_subjects_over_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_over_students.png)
+
+In the next figure we can see the subjects that have more than 200 students simulated under the needs. In the third column of the matriz we can see the number of students needed for the next semester for each subject.
+
+![Fig_subjects_under_students](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_subjects_under_students.png)
+
+
+
