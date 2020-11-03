@@ -28,7 +28,7 @@ We have 5 different penalties:
 
 5. **Classes without a teacher:** The grade is reduce in one for each teacher that can give a class that has positive number of students in _mat\_students\_sim\_aux_. 
 
-In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_.
+In the next figure we can see the heatmap of the division of the matrix _mat\_students\_sim\_aux_ divided by _mat\_students\_sim_. The white spaces are the spaces when there is a zero in the (i,j) of _mat\_students\_sim_. If the color blue is darker it means it's a positive number, which belongs to the number of students over the needed. If the color is lighter it means a negative color, which belongs to the number of students under the needed.
 
 ![mat_demanda_aux_divided_by_mat_demanda_alumnos](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_mat_demanda_aux_divided_by_mat_demanda_alumnos.png)
 
