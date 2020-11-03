@@ -143,7 +143,9 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
 
 # Tabla -------------------------------------------------------------------
 tabla_info <- data.frame(Materia = vec_nom_materias_total,Num_Al_Sobra = 0,
-                         Num_Al_Falta = 0,Num_Exactas = 0)
+                         Num_Al_Falta = 0,Num_Exactas = 0,
+                         demanda_x_materia = 0)#,sim1_menos_simfinal = 0)
+
 ## El número de alumnos sobrantes se representa con números negativos.
 for(d in 1:dim(tabla_info)[1]){
   #Recorre renglones de la tabla, columnas de la matriz
@@ -152,27 +154,65 @@ for(d in 1:dim(tabla_info)[1]){
   ceros_antes <- length(mat_demanda_alumnos[mat_demanda_alumnos[,d]==0,d])
   ceros_despues <- length(mat_demanda_aux[mat_demanda_aux[,d]==0,d])
   tabla_info[d,4] <- ceros_despues - ceros_antes
+  tabla_info[d,5] <- sum(mat_demanda_alumnos[,d])
+  # tabla_info[d,6] <- sum(mat_demanda_alumnos[,d]) - sum(mat_demanda_aux[,d])
 }
 View(tabla_info)
 
+vec_alum_sobrantes <- tabla_info[,2]
+vec_alum_faltantes <- tabla_info[,3]
+vec_alum_exactos <- tabla_info[,4]
+vec_sobrantes <- as.numeric(sort(vec_alum_sobrantes))
+vec_faltantes <- as.numeric(sort(vec_alum_faltantes))
+vec_exactos <- as.numeric(sort(vec_alum_exactos))
 
 # Gráficas ----------------------------------------------------------------
 sobran_mas_faltan <- as.numeric(tabla_info[,2] + tabla_info[,3])
-# mat_sobran_mas_faltan <- cbind(tabla_info[,1],sobran_mas_faltan)
 mat_sobran_mas_faltan <- data.frame(Materias = vec_nom_materias_total,
                                     Suma_Sobran_Faltan = sobran_mas_faltan)
 mat_sobran_mas_faltan <- mat_sobran_mas_faltan[order(mat_sobran_mas_faltan[,2]),]
 View(mat_sobran_mas_faltan)
-mean(mat_sobran_mas_faltan[,2])
+mean(mat_sobran_mas_faltan[,2])#2.21791
 
-plot(as.numeric(sort(tabla_info[,2])))#Sobrantes
-plot(as.numeric(sort(tabla_info[,3])))#Faltantes
-plot(as.numeric(mat_sobran_mas_faltan[,2]))#Suma
+plot(as.numeric(sort(tabla_info[,2])),main="Número de alumnos sobrantes",
+     xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes
+plot(as.numeric(sort(tabla_info[,3])),main="Número de alumnos faltantes",
+     xlab = "Materias",ylab = "Alumnos faltantes")#Faltantes
+plot(as.numeric(mat_sobran_mas_faltan[,2]),
+     main="Suma de alumnos sobrantes mas faltantes",
+     xlab = "Materias",ylab = "Suma")#Suma
+
+
+
+sobran_razon <- rep(0,length(vec_nom_materias_total))
+faltan_razon <- rep(0,length(vec_nom_materias_total))
+for(d in 1:length(vec_nom_materias_total)){
+  if(tabla_info[d,5] == 0){
+    sobran_razon[d] <- Inf
+    faltan_razon[d] <- Inf
+  }else{
+    sobran_razon[d] <- vec_alum_sobrantes[d]/tabla_info[d,5]
+    faltan_razon[d] <- vec_alum_faltantes[d]/tabla_info[d,5]
+  }
+}
+mat_sobran_faltan_razon <- data.frame(Materias = vec_nom_materias_total,
+                                    Sobran_Razon = sobran_razon,
+                                    Faltan_Razon = faltan_razon)
+View(mat_sobran_faltan_razon)
+mean(mat_sobran_faltan_razon[,2])#Inf
+
+plot(as.numeric(sort(mat_sobran_faltan_razon[,2])),
+     main="Número de alumnos sobrantes entre demanda",
+     xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes*****
+plot(as.numeric(sort(mat_sobran_faltan_razon[,3])),
+     main="Número de alumnos faltantes entre demanda",
+     xlab = "Materias",ylab = "Alumnos faltantes")#Faltantes*****
+
+
 
 
 
 # Histogramas -------------------------------------------------------------
-vec_sobrantes <- as.numeric(sort(tabla_info[,2]))
 min(vec_sobrantes)#-401
 max(vec_sobrantes)#0
 
@@ -181,41 +221,50 @@ hist(vec_sobrantes,col=param_graficas$col1_hist,breaks = seq(-410,0,by = 10),
      main="Histograma alumnos sobrantes",xlab = "Número alumnos")
 
 
-vec_faltantes <- as.numeric(sort(tabla_info[,3]))
 min(vec_faltantes)#0
 max(vec_faltantes)#755
-
 hist(vec_faltantes,col=param_graficas$col1_hist,breaks = seq(0,780,by = 10),
      freq = T,ylab = "Frecuencia",#ylim=c(0,0.025),
      main="Histograma alumnos faltantes",xlab = "Número alumnos")
 
-vec_exactos <- as.numeric(sort(tabla_info[,4]))
+
 min(vec_exactos)#0
 max(vec_exactos)#2
-
 hist(vec_exactos,col=param_graficas$col1_hist,breaks = seq(0,10,by = 1),
      freq = T,ylab = "Frecuencia",#ylim=c(0,0.025),
      main="Histograma alumnos exactos",xlab = "Número alumnos")
 
 
-
+#************************************************************
 hist(vec_sobrantes, col=param_graficas$col1_hist,
      breaks = seq(-410,780,by = 10),freq = F,ylim=c(0,0.07),
      ylab = "Frecuencia relativa",xlab = "Número alumnos",
      # ylab = "Densidad",xlab = "Número alumnos",
      main="Alumnos sobrantes y faltantes")
-# lines(density(vec_sobrantes),col=param_graficas$col1_linea,
-#       lwd=param_graficas$lwd_dens)
 hist(vec_faltantes,col=param_graficas$col2_hist,
      breaks = seq(0,780,by = 10),freq = F,add=TRUE)
-# lines(density(vec_faltantes),col=param_graficas$col2_linea,
-#       lwd=param_graficas$lwd_dens)
+legend(400,0.03,c("Alumnos sobrantes","Alumnos faltantes"),bty = "n",
+       col=c(param_graficas$col1_linea,param_graficas$col2_linea),
+       lty=c(1,1),cex=1.1,lwd=param_graficas$lwd_dens)
+
+
+hist(vec_sobrantes[vec_sobrantes<0], col=param_graficas$col1_hist,
+     breaks = seq(-410,780,by = 10),freq = F,ylim=c(0,0.03),
+     ylab = "Frecuencia relativa",xlab = "Número alumnos",
+     # ylab = "Densidad",xlab = "Número alumnos",
+     main="Alumnos sobrantes y faltantes sin ceros")
+hist(vec_faltantes[vec_faltantes>0],col=param_graficas$col2_hist,
+     breaks = seq(0,780,by = 10),freq = F,add=TRUE)
+legend(400,0.03,c("Alumnos sobrantes","Alumnos faltantes"),bty = "n",
+       col=c(param_graficas$col1_linea,param_graficas$col2_linea),
+       lty=c(1,1),cex=1.1,lwd=param_graficas$lwd_dens)
 
 
 mat_porcentajes <- mat_demanda_aux/mat_demanda_alumnos
 colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
 heatmap(mat_porcentajes, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Porcentajes alumnos sobrantes y faltantes")
+#************************************************************
 
 mat_porcentajes <- matrix(0,dim(mat_demanda_aux)[1],dim(mat_demanda_aux)[2])
 for(c in 1:dim(mat_demanda_aux)[2]){
@@ -231,7 +280,7 @@ for(c in 1:dim(mat_demanda_aux)[2]){
 
 colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
 heatmap(mat_porcentajes, Colv = NA, Rowv = NA, scale="none",col=colMain,
-        main = "Porcentajes alumnos sobrantes y faltantes")
+        main = "Porcentajes alumnos sobrantes y faltantes sin infinitos")
 
 min(mat_porcentajes)#-74
 max(mat_porcentajes)#1
