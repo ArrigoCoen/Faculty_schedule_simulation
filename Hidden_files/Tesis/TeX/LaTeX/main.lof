@@ -1,72 +1,72 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces \textit {Número de alumnos totales por semestres pares e impares}}}{6}{figure.1.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces \textit {Histograma del número de alumnos por semestre}}}{7}{figure.1.2}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces \textit {Número de alumnos por turno}}}{8}{figure.1.3}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces \textit {Histograma del número de alumnos por turno}}}{8}{figure.1.4}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \textit {Número de alumnos totales por semestres pares e impares: Probabilidad I}}}{6}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textit {Histograma del número de alumnos por semestre: Probabilidad I}}}{7}{figure.1.2}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces \textit {Número de alumnos por turno: Probabilidad I}}}{8}{figure.1.3}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces \textit {Histograma del número de alumnos por turno: Probabilidad I}}}{9}{figure.1.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Página de horarios de la FC}}}{9}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Aplicación SelectorGadget}}}{10}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Tipo de grupo A}}}{12}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Tipo de grupo B}}}{13}{figure.2.4}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Tipo de grupo C}}}{13}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces \textit {Ejemplo de página web en blanco}}}{14}{figure.2.6}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Ejemplo de grupo sin información de salón}}}{14}{figure.2.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces \textit {Ejemplo de grupo sin información de alumnos}}}{15}{figure.2.8}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Ejemplo de grupo sólo con horario}}}{15}{figure.2.9}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{16}{figure.2.10}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces \textit {Ejemplo de información repetida: Materia con nombres distintos}}}{16}{figure.2.11}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces \textit {Ejemplo de información repetida: Mismo profesor, materias distintas}}}{17}{figure.2.12}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces \textit {Ejemplo de grupo con un alumno}}}{17}{figure.2.13}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces \textit {Ejemplo de grupo con medias horas}}}{18}{figure.2.14}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces \textit {Ejemplo de grupo con horarios múltiples}}}{18}{figure.2.15}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{18}{figure.2.16}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces \textit {Ejemplo de grupo con estructura diferente}}}{19}{figure.2.17}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Página de horarios de la Facultad de Ciencias}}}{12}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Aplicación SelectorGadget}}}{13}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Tipo de grupo A}}}{15}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Tipo de grupo B}}}{15}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Tipo de grupo C}}}{16}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces \textit {Ejemplo de página web en blanco}}}{16}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Ejemplo de grupo sin información de salón}}}{17}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces \textit {Ejemplo de grupo sin información de alumnos}}}{17}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Ejemplo de grupo sólo con horario}}}{18}{figure.2.9}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{18}{figure.2.10}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces \textit {Ejemplo de información repetida: Materia con nombres distintos}}}{19}{figure.2.11}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces \textit {Ejemplo de información repetida: Mismo profesor, materias distintas}}}{20}{figure.2.12}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces \textit {Ejemplo de grupo con un alumno}}}{20}{figure.2.13}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces \textit {Ejemplo de grupo con medias horas}}}{21}{figure.2.14}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces \textit {Ejemplo de grupo con horarios múltiples}}}{21}{figure.2.15}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{21}{figure.2.16}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces \textit {Ejemplo de grupo con estructura diferente}}}{22}{figure.2.17}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Número total de alumnos por semestre}}}{25}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Media de alumnos por semestre}}}{26}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces \textit {Desviación estándar del número de alumnos por semestre}}}{27}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \textit {Descomposición por el método aditivo de Holt-Winters: Total de alumnos por semestre}}}{28}{figure.3.4}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \textit {Número de alumnos de semestres pares e impares}}}{29}{figure.3.5}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \textit {Histograma del número de alumnos de semestres pares e impares}}}{30}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Número de alumnos por turno de todos los semestres}}}{31}{figure.3.7}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces \textit {Histograma del número de alumnos de los turnos matutino y vespertino}}}{32}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Histograma del número de alumnos por carrera}}}{33}{figure.3.9}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces \textit {Densidades del número de alumnos por carrera}}}{34}{figure.3.10}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces \textit {Histograma del número de alumnos por grupo de todos los semestres}}}{35}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces \textit {Densidades del número de alumnos por grupo de cada semestre}}}{36}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces \textit {Histograma con densidad ajustadad por prueba de Kolmogorov-Smirnov}}}{38}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces \textit {Número promedio de grupos por hora}}}{39}{figure.3.14}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces \textit {Número promedio de alumnos por hora}}}{40}{figure.3.15}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Número total de alumnos por semestre}}}{27}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Media de alumnos por semestre}}}{28}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \textit {Desviación estándar del número de alumnos por semestre}}}{29}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \textit {Descomposición por el método aditivo de Holt-Winters: Total de alumnos por semestre}}}{30}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \textit {Número de alumnos de semestres pares e impares}}}{31}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \textit {Histograma del número de alumnos de semestres pares e impares}}}{32}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Número de alumnos por turno de todos los semestres}}}{33}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces \textit {Histograma del número de alumnos de los turnos matutino y vespertino}}}{34}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces \textit {Histograma del número de alumnos por carrera}}}{35}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces \textit {Densidades del número de alumnos por carrera}}}{36}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces \textit {Histograma del número de alumnos por grupo de todos los semestres}}}{37}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces \textit {Densidades del número de alumnos por grupo de cada semestre}}}{38}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces \textit {Histograma con densidad ajustadad por prueba de Kolmogorov-Smirnov}}}{40}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces \textit {Número promedio de grupos por hora}}}{41}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces \textit {Número promedio de alumnos por hora}}}{42}{figure.3.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \textit {Diagrama de flujo de la función \textbf {gen\_asignacion}}}}{42}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {Matriz con medidas de dispersión}}}{43}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 12 pruebas}}}{44}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 6 pruebas}}}{44}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 4 pruebas}}}{45}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 pruebas}}}{45}{figure.4.6}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}}}{46}{figure.4.7}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}}}{46}{figure.4.8}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}}}{47}{figure.4.9}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2}}}{48}{figure.4.10}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}}}{49}{figure.4.11}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{51}{figure.4.12}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{52}{figure.4.13}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de matriz de solicitudes de un profesor}}}{54}{figure.4.14}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{56}{figure.4.15}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \textit {Diagrama de flujo de la función \textbf {gen\_asignacion}}}}{44}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {Matriz con medidas de dispersión}}}{45}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 12 pruebas}}}{46}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 6 pruebas}}}{46}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 4 pruebas}}}{47}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 pruebas}}}{47}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}}}{48}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}}}{48}{figure.4.8}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}}}{49}{figure.4.9}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2}}}{50}{figure.4.10}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}}}{51}{figure.4.11}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{53}{figure.4.12}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{54}{figure.4.13}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de matriz de solicitudes de un profesor}}}{56}{figure.4.14}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{58}{figure.4.15}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}}}{60}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Algoritmo Genético aplicado}}}{61}{figure.5.2}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}}}{62}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Algoritmo Genético aplicado}}}{63}{figure.5.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces \textit {ITAM Probabilidad I}}}{69}{figure.8.1}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces \textit {ITAM Probabilidad I}}}{71}{figure.8.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}}}{72}{figure.alph1.Alph1.1}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}}}{74}{figure.alph1.Alph1.2}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}}}{75}{figure.alph1.Alph1.3}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}}}{75}{figure.alph1.Alph1.4}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}}}{76}{figure.alph1.Alph1.5}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}}}{77}{figure.alph1.Alph1.6}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}}}{74}{figure.alph1.Alph1.1}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}}}{76}{figure.alph1.Alph1.2}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}}}{77}{figure.alph1.Alph1.3}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}}}{77}{figure.alph1.Alph1.4}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}}}{78}{figure.alph1.Alph1.5}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}}}{79}{figure.alph1.Alph1.6}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

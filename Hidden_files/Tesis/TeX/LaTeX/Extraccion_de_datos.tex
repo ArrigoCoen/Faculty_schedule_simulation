@@ -1,32 +1,32 @@
 \chapter{Extracción de datos}
 
-La fuente de información de donde se obtuvieron los datos utilizados son las páginas de los horarios de la Facultad de Ciencias de la UNAM. Cada página contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Sólo se toma en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
+La fuente de información de donde obtuvimos los datos utilizados son las páginas de los horarios de la Facultad de Ciencias de la UNAM. Cada página contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Sólo tomamos en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
 
-La información que se puede extraer de las páginas mencionadas es: nombre de profesores, nombre de ayudantes, salón, horario, plan, carrera, año y tipo de semestre (ej. \textit{2018-2} implica que es el semestre par del 2018), materia, semestre de la materia. (ej. \textit{Quinto Semestre}), tipo de materia (obligatoria u optativa), fecha, horario y salón de exámenes finales. En la figura \ref{pagFC} se muestra un ejemplo de dichas páginas.
+La información que se puede extraer de las páginas mencionadas es: nombre de profesores, nombre de ayudantes, salón, horario, plan, carrera, año y tipo de semestre (ej. \textit{2018-2} implica que es el semestre par del 2018), materia, semestre de la materia. (ej. \textit{Quinto Semestre}), tipo de materia (obligatoria u optativa) y fechas, horarios y salones de exámenes finales. En la figura \ref{pagFC} se muestra un ejemplo de dichas páginas.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.6]{Fuente_de_info} %width=\textwidth
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20201/217/607} %%URL de la imagen
-\caption{\textit{Página de horarios de la FC}}\label{pagFC}
+\caption[\textit{Página de horarios de la Facultad de Ciencias}]{\textit{Página de horarios de la Facultad de Ciencias: Muestra la información de los horarios de la materia ``Lenguajes de Programación y sus Paradigmas'', de la carrera de Matemáticas, plan 1983, del semestre 2020-1.}}\label{pagFC}
 \end{figure}
 
 \section{Extracción de información con la aplicación SelectorGadget}
 
-Para extraer los datos de las páginas de la FC se utilizó una aplicación de Google Chrome llamada \textit{SelectorGadget}, la cual permite seleccionar la información deseada y ésta arroja una sección del código CSS de la página web el cual se introduce en R para que se descargue la información deseada.
+Para extraer los datos de las páginas de la FC utilizamos una aplicación de Google Chrome llamada \textit{SelectorGadget}, la cual permite seleccionar la información deseada y ésta arroja una sección del código CSS de la página web el cual se introduce en R para que se descargue la información deseada.
 
-En la figura \ref{appSelectorGadget} se puede ver un ejemplo del funcionamiento de la aplicación. El ícono de la aplicación es una lupa, el cual se encuentra señalado por la flecha roja. Una vez presionado el ícono se seleccionó el nombre de algún profesor (en color verde), la aplicación automáticamente seleccionó todas las entradas que coindicidían (en color amarillo), pero debido a que se seleccionó más información de la deseada entonces se dió click sobre un salón y el nombre de un ayudante (en color rojo). En el cuadro de texto, la aplicación arroja la sección del código CSS correspondiente, junto al código mencionado, se puede observar que se seleccionaron 15 entradas correspondientes a los nombres de los profesores de la materia de Probabilidad I.
+En la figura \ref{appSelectorGadget} se puede ver un ejemplo del funcionamiento de la aplicación. El ícono de la aplicación es una lupa, el cual se encuentra señalado por la flecha roja. Una vez presionado el ícono seleccionamos el nombre de un profesor (en color verde), la aplicación automáticamente seleccionó todas las entradas que coindicidían (en color amarillo). Debido a que se seleccionó más información de la deseada entonces dimos click sobre un salón y el nombre de un ayudante (en color rojo). En el cuadro de texto, la aplicación arroja la sección del código CSS correspondiente. Junto al código mencionado, se puede observar que se seleccionaron 15 entradas correspondientes a los nombres de los profesores de la materia de \textit{Probabilidad I}, de la carrera de Actuaría, plan 2015.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.65]{SelectorGadget} %width=\textwidth
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20181/2017/625} %%URL de la imagen
-\caption{\textit{Aplicación SelectorGadget}}\label{appSelectorGadget}
+\caption[\textit{Aplicación SelectorGadget}]{\textit{Aplicación SelectorGadget: Se muestra cómo se ve una página de internet al usar la aplicación mientras se selecciona la información que deseamos extraer.}}\label{appSelectorGadget}
 \end{figure}
 
 \section{Estructura de las páginas web}
 
-El estar haciendo la búsqueda de información, de manera manual, de los horarios para cada materia, cada carrera y cada uno de sus planes de estudio, requiere de mucho tiempo de trabajo, por lo que decidimos buscar la existencia de alguna estructura en las páginas web de los horarios de la FC para poder realizar la búsqueda de la información de una manera automática y mucho más rápida. Se observó que la estructura que siguen todas las páginas de internet es la siguiente:
+El estar haciendo la búsqueda de información, de manera manual, de los horarios para cada materia, cada carrera y cada uno de sus planes de estudio, requiere de mucho tiempo de trabajo. Decidimos buscar la existencia de alguna estructura en las páginas web de los horarios de la FC para poder realizar la búsqueda de la información de una manera automática y mucho más rápida. Observamos que la estructura que siguen todas las páginas de internet es la siguiente:
 
 \begin{center}
 \textit{\textbf{http://www.fciencias.unam.mx/docencia/horarios/a/b/c}}
@@ -42,13 +42,13 @@ Se tiene una raíz común para todas las páginas y al final se tienen tres núm
 \item[ ] c = número de materia, $c \in \{1,1000\}$.
 \end{itemize}
 
-Para la realización de este trabajo se tomaron en cuenta sólo los planes de estudio vigentes al día de hoy, los cuales son todos los planes mostrados en la tabla \ref{PlanesEstudio}, salvo el plan 1972 de Actuaría. Dicha tabla muestra los planes de estudio de cada carrera con su clave correspondiente.
+Para la realización de este trabajo tomamos en cuenta sólo los planes de estudio vigentes al día de hoy, los cuales son todos los planes mostrados en la tabla \ref{PlanesEstudio}, salvo el plan 1972 de Actuaría. Dicha tabla muestra los planes de estudio de cada carrera con su clave correspondiente.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{|c|c|}
  \hline 
-  PLAN & CLAVE \\ 
+  \textbf{PLAN} & \textbf{CLAVE} \\ 
  \hline 
  \multicolumn{2}{|c|}{Actuaría} \\ 
  \hline 
@@ -75,57 +75,51 @@ Para la realización de este trabajo se tomaron en cuenta sólo los planes de es
  2017 & 2055 \\ 
  \hline 
  \end{tabular}
-\caption{\textit{Planes de estudio por carrera con clave}}\label{PlanesEstudio}
+\caption[\textit{Planes de estudio por carrera con clave}]{\textit{Planes de estudio por carrera con clave: La clave de cada plan de estudios se sutituye en \textbf{b} en la estructura de las páginas web.}}\label{PlanesEstudio}
 \end{table}
 
-Una vez identificada la estructura de las páginas web se pudo realizar la búsqueda de información de manera automatizada. Se decidió que $c \in \{1,2,3, \ldots, 10 000\}$.
+Una vez identificada la estructura de las páginas web pudimos realizar la búsqueda de información de manera automatizada. Originalmente decidimos que $c \in \{1,2,3, \ldots, 10 000\}$. Hicimos una función que genera una matriz llamada \textit{mat\_posibles\_url}, en la cual se guardan, entre otros datos, las URL's de las páginas de los horarios de la FC. La función sólo guarda las URL's que si existen. Al obtener dicha matriz, observamos que el valor máximo que toma $c$ es 991, por lo que redujimos su conjunto de posibles valores y definimos $c \in \{1, \ldots, 1 000\}$.
 
-Se hizo una función que genera una matriz llamada \textit{mat\_posibles\_url}, en la cual se guardan, entre otros datos, las URL's de las páginas de los horarios de la FC. La función sólo guarda las URL's que si existen.
-
-Al obtener la matriz, se observó que el valor máximo que toma $c$ es 991, por lo que se redujo su conjunto de posibles valores y se definió $c \in \{1, \ldots, 1 000\}$.
-
-Las categorías de las columnas de la matriz \verb+mat_posibles_url+ se definen en la tabla \ref{matPosiblesURL}.
+Las categorías de las columnas de la matriz \textit{mat\_posibles\_url} están descritas en la tabla \ref{matPosiblesURL}.
 
 \dfNmatrizChica %%Tabla con la información de la matriz chica
 
 
 \section{Tipos de grupos de las páginas web de la Facultad de Ciencias} \label{TiposDeGpos}
 
-Al inicio se encontraron tres tipos de grupos dentro de las páginas de horarios de la FC, cada uno con información similar, pero se hizo la separación de acuerdo a sus diferencias.
-
-En este trabajo se considera como semestre actual al semestre $2020-1$.
-
-En todos los grupos se puede encontrar la información del nombre de profesor, nombre de ayudante, salón, horario y el número de alumnos inscritos en el grupo.
+Al inicio encontramos tres tipos de grupos dentro de las páginas de horarios de la FC. Cada uno con información similar, pero hicimos la separación de acuerdo a sus diferencias. Cabe aclarar que en este trabajo consideramos como semestre actual al semestre $2020-1$. En todos los grupos se puede encontrar la información del nombre de profesor, nombre del o de los ayudantes, salón, horario y el número de alumnos inscritos en el grupo.
 
 \begin{enumerate}
-\item[a)] En el grupo \textbf{A} se tienen las páginas correspondientes al semestre actual. Este grupo tiene la información del número de lugares diponibles por salón, pero no contiene la información de los exámenes finales.
+\item[a)] En el grupo \textbf{A} se tienen las páginas correspondientes al semestre actual. Este grupo tiene la información del número de lugares diponibles por salón, pero no contiene la información de los exámenes finales, porque se considera que el semestres aún está en curso y aún no termina. En la figura \ref{GpoA} podemos ver un ejemplo de este tipo de grupo.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{GrupoA} %width=\textwidth
-\caption{\textit{Tipo de grupo A}}
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/1707}
+\caption[\textit{Tipo de grupo A}]{\textit{Tipo de grupo A: Correspondiente al semestre en curso que aún no finaliza.}}\label{GpoA}
 \end{figure}
 
 
-\item[b)] En el grupo \textbf{B} se tienen las páginas correspondientes a semestres entre el $2018-2$ y el semestre anterior al actual, con respecto al año en curso. En este tipo de grupos se tiene información del número de lugares disponibles por salón y la información de los exámenes finales.
+\item[b)] En el grupo \textbf{B} se tienen las páginas correspondientes a semestres entre el $2018-2$ y el semestre anterior al actual, con respecto al año en curso. En este tipo de grupos se tiene información del número de lugares disponibles por salón y la información de los exámenes finales, porque son semestres que ya finalizaron. En la figura \ref{GpoB} encontramos un ejemplo de este tipo de grupo.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{GrupoB} %width=\textwidth
-\caption{\textit{Tipo de grupo B}}
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20182/217/625}
+\caption[\textit{Tipo de grupo B}]{\textit{Tipo de grupo B: Correspondiente a semestres ya finalizados, posteriores al semestre 2018-2.}}\label{GpoB}
 \end{figure}
 
-\item[c)] En el grupo \textbf{C} se tienen las páginas correspondientes a semestres anteriores al $2018-1$, incluyéndolo, este tipo de grupos tiene información de los exámenes finales, pero no contiene la información del número de lugares disponibles por salón.
-\end{enumerate}
+\item[c)] En el grupo \textbf{C} se tienen las páginas correspondientes a semestres anteriores al $2018-1$, incluyéndolo. Este tipo de grupos tiene información de los exámenes finales, pero no contiene la información del número de lugares disponibles por salón. En la figura \ref{GpoC} podemos ver un ejemplo.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{GrupoC} %width=\textwidth
-\caption{\textit{Tipo de grupo C}}
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20181/1556/399}
+\caption[\textit{Tipo de grupo C}]{\textit{Tipo de grupo C: Correspondiente a semestres ya finalizados, anteriores al semestre 2018-1, incluyéndolo.}}\label{GpoC}
 \end{figure}
+\end{enumerate}
+
+
 
 \section{Limpieza de base de datos}
 
