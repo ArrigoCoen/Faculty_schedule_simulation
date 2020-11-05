@@ -183,7 +183,7 @@ plot(as.numeric(mat_sobran_mas_faltan[,2]),
      xlab = "Materias",ylab = "Suma")#Suma
 
 
-
+#************************************************************
 sobran_razon <- rep(0,length(vec_nom_materias_total))
 faltan_razon <- rep(0,length(vec_nom_materias_total))
 for(d in 1:length(vec_nom_materias_total)){
@@ -202,7 +202,7 @@ mat_sobran_faltan_razon <- data.frame(Materias = vec_nom_materias_total,
 View(mat_sobran_faltan_razon)
 mean(mat_sobran_faltan_razon[,2])#Inf
 
-#************************************************************
+
 plot(as.numeric(sort(mat_sobran_faltan_razon[,2])),
      main="Número de alumnos sobrantes entre demanda",
      xlab = "Materias",ylab = "Alumnos sobrantes")#Sobrantes
@@ -288,7 +288,7 @@ mat_porcentajes <- mat_demanda_aux/mat_demanda_alumnos
 colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
 heatmap(mat_porcentajes, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Porcentajes alumnos sobrantes y faltantes")
-
+View(mat_porcentajes)
 mat_porcentajes_sobrantes <- matrix(0,nrow = dim(mat_porcentajes)[1],
                                     ncol = dim(mat_porcentajes)[2])
 mat_porcentajes_faltantes <- matrix(0,nrow = dim(mat_porcentajes)[1],
