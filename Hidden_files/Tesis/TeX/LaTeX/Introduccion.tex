@@ -9,7 +9,7 @@ Lo que motivó la realización de este trabajo es la aportación que se puede ha
 
 Actualmente para hacer la asignación de horarios primero se reune el comité encargado de dicha tarea a realizar manualmente los esqueletos de los horarios. Éstos se dan a conocer a los profesores y ellos eligen diferentes opciones de materias y posibles horas en las cuales les gustaría impartir sus clases. Una vez que los profesores han hecho sus solicitudes, se vuelve a hacer una o varias juntas para la asignación final de los horarios que se hace de manera manual.
 
-Se tienen dos tipos de profesores, los de tiempo completo y los de asignatura. Los profesores de TC, por contrato, deben de cubrir ciertas horas de clase por lo que al momento de hacer la asignación, éstos tienen prioridad sobre los profesores de asignatura. Finalmente se publican los horarios a los alumnos.
+Se tienen dos tipos de profesores, los de tiempo completo (TC) y los de asignatura. Los profesores de TC, por contrato, deben de cubrir ciertas horas de clase por lo que al momento de hacer la asignación, éstos tienen prioridad sobre los profesores de asignatura. Finalmente se publican los horarios a los alumnos.
 
 Una vez que los alumnos han elegido las materias que les gustaría tomar deben de ir con el profesor y él o ella les debe de firmar su tira de materias, si es que el cupo del salón lo permite. En caso de que el alumno no consiga la firma de la materia que desea, deberá buscar una segunda o tercera opción o incluso tener que meterla en algún semestre posterior.
 
@@ -70,6 +70,12 @@ $X_{14}:$ Revisar/Investigar al respecto del problema y resolverlo
 
 $num\_sim:$ Número de simulaciones de la demanda de alumnos para $s$
 
+$E:$ Matriz de 15 renglones y tantas columnas como materias se tienen. En cada entrada se tiene la información del número de alumnos simulados en los grupos al crear \textit{mat\_esqueleto}.
+
+$D:$ Matriz de 15 renglones y tantas columnas como materias se tienen. En la entrada $(i,j)$ se tiene la información de la demanda de alumnos para la i-ésima hora y la materia $j$.
+
+$bin\_DUE:$ Matriz binaria de 15 renglones y tantas columnas como materias se tienen. Tiene un 1 en la entrada $(i,j)$ si $E_{ij}$ o $D_{ij}$ tienen un valor distinto de cero. Tiene un cero e.o.c.
+
 %$:$ 
 %
 %$:$ 
@@ -79,6 +85,9 @@ $num\_sim:$ Número de simulaciones de la demanda de alumnos para $s$
 %$:$ 
 %
 %$:$ 
+%
+%$:$ 
+
 
 \section{Planteamiento del problema}
 
@@ -127,14 +136,14 @@ $
 \item Restricciones:
   
 \begin{eqnarray}
-\displaystyle \sum_{i=1}^{p} \sum_{h=1}^{15} x_{j,i,h} &=& 1  \,\,\,\,\,\,\, \forall \,\, j\\
-\displaystyle \sum_{j=1}^{m} x_{j,i,h} &\leqslant& 1 \,\,\,\,\,\,\, \forall \,\, i,h\\
-\displaystyle \sum_{h=1}^{15} x_{j,i,h} &\leqslant& V_{i,j} \,\,\,\,\,\,\, \forall \,\, i,j\\
-x_{j,i,h}, \,\, V_{j,i} &\in& \{0,1\} \,\,\,\,\,\,\, \forall \,\, j,i,h
+\displaystyle \sum_{i=1}^{p} \sum_{h=1}^{15} x_{j,i,h} &=& 1  \,\,\,\,\,\,\, \forall \,\, j\label{DarTodasMaterias}\\
+\displaystyle \sum_{j=1}^{m} x_{j,i,h} &\leqslant& 1 \,\,\,\,\,\,\, \forall \,\, i,h \label{UnCursoXhora}\\
+\displaystyle \sum_{h=1}^{15} x_{j,i,h} &\leqslant& V_{i,j} \,\,\,\,\,\,\, \forall \,\, i,j \label{ProfesorPuedeImpartir}\\
+x_{j,i,h}, \,\, V_{j,i} &\in& \{0,1\} \,\,\,\,\,\,\, \forall \,\, j,i,h \label{VarBinarias}
 \end{eqnarray}
 \end{enumerate}
 
-Con las restricciones del tipo $(1)$ aseguramos que todas las materias sean dadas. Con las del tipo $(2)$ se asegura que cada profesor no tenga más de un curso por hora. Con las del tipo $(3)$ aseguramos que los profesores tengan asignadas materias que puedan impartir. Finalmente con las restricciones del tipo $(4)$ se especifica que las variables utilizadas son binarias.
+Con las restricciones del tipo (\ref{DarTodasMaterias}) aseguramos que todas las materias sean dadas. Con las del tipo (\ref{UnCursoXhora}) aseguramos que cada profesor no tenga más de un curso por hora. Con las del tipo (\ref{ProfesorPuedeImpartir}) aseguramos que los profesores tengan asignadas materias que puedan impartir. Finalmente con las restricciones del tipo (\ref{VarBinarias}) se especifica que las variables utilizadas son binarias.
 
 En el planteamiento se tienen dos tipos de restricciones: duras y suaves. Las restricciones duras son las que nos permiten tener soluciones factibles al cumplirlas en su totalidad y las restricciones suaves nos permiten evaluar la calidad de las diferentes soluciones. Usualmente las restricciones suaves están asociadas a preferencias y se cumplen en la medida de lo posible, pero no afectan la factibilidad de las soluciones.
 
@@ -146,27 +155,27 @@ El conjunto de soluciones se presenta por medio de la matriz \textit{mat\_asigna
  \hline 
  \textbf{Materia} & \textbf{Profesor} & \textbf{Horario} \\ 
  \hline 
- Inferencia Estadística & Margarita Chávez Cano & 9-10 \\ 
+ Inferencia Estadística & Margarita Elvira Chávez Cano & 9-10 \\ 
  \hline 
  Estadística II & Jaime Vázquez Alamilla & 10-11 \\ 
  \hline 
- Estadística Bayesiana  & Ruth Fuentes García & 11-12 \\ 
+ Estadística Bayesiana  & Ruth Selene Fuentes García & 11-12 \\ 
  \hline 
  Estadística III  & Lizbeth Naranjo Albarrán & 13-14 \\ 
  \hline 
  \end{tabular}  
-\caption[\textit{Ejemplo de asignación}]{\textit{Ejemplo de asignación: Esta tabla muestra un ejemplo de la matriz mat\_asignaciones que tiene 3 columnas (Materia, Profesor, Horario)}}\label{EjAsig}
+\caption[\textit{Ejemplo de asignación}]{\textit{Ejemplo de asignación: Esta tabla muestra un ejemplo de la matriz mat\_asignaciones que tiene 3 columnas (Materia, Profesor, Horario).}}\label{EjAsig}
 \end{table}
 
 
 \section{Objetivos}
 
-El primer objetivo del trabajo es hacer dos funciones:
+El primer objetivo del trabajo es hacer dos funciones que generen:
 
 \begin{enumerate}
-\item[i)] Una función que genere esqueletos de horarios
+\item[i)] Esqueletos de horarios
 
-\item[ii)] Una función que genere una asignación de profesores por materia y por horario. La asignación debe cubrir la demanda de alumnos estimada para el semestre siguiente.
+\item[ii)] Una asignación de profesores por materia y por horario. La asignación debe cubrir la demanda de alumnos estimada para el semestre siguiente.
 \end{enumerate}
 
 
@@ -175,7 +184,7 @@ Los esqueletos de horarios son utilizados para simular una posible elección de 
 El segundo objetivo es disminuir el tiempo utilizado actualmente para la realización de la asignación de horarios.
 
 
-\section{Datos a analizar}
+\section{Datos a analizar} \label{DatosAnalizar}
 
 Para poder realizar un análisis adecuado de los datos, hicimos dos divisiones de ellos. La primera fue con respecto al tipo de semestre, par o impar y la segunda con respecto al turno, matutino o vespertino.
 

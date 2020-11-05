@@ -7,7 +7,7 @@
 			% \subsubsection //Subsubsección
 
 %``COMILLAS''
-%\caption[texto en el índice]{texto en la descripción de la imagen}
+%\caption[\textit{texto en el índice}]{\textit{texto en la descripción del pie de figura/tabla}}\label{•}
 
 %%%% Ejemplo de entorno "enumerate"
 %\begin{enumerate}
@@ -160,11 +160,11 @@
 \endfoot %% Se agrega un texto abajo de cada tabla secundaria
 
 %\multicolumn{4}{r}{Fin de la Tabla}\\
-\caption{\textit{Descripción de columnas de m\_grande}} %%Primero imprime "Fin de la Tabla" y luego pone el caption
+\caption[\textit{Descripción de las columnas de la matriz m\_grande}]{\textit{Descripción de las columnas de la matriz m\_grande: En esta tabla se describe el contenido de las columnas de las matrices en las que se guarda la información por semestres.}}%%Primero imprime "Fin de la Tabla" y luego pone el caption
 \endlastfoot %% Agregamos un texto al final de la tabla, también se podrían repetir los nombres de las columnas
 
 %\hline 
-1 & Materia & Nombre del curso impartido & ``Probabilidad I'' \\ 
+1 & Materia & Nombre de algún curso impartido en la FC & ``Probabilidad I'' \\ 
 \hline 
 2 & Profesor & Nombre de la persona que va a impartir alguna materia & ``Arrigo Coen Coria'' \\ 
 \hline 
@@ -177,22 +177,22 @@
 \hline 
 6 & Alumnos & Número de estudiantes inscritos por grupo & $\mathbb{N}$ \\ 
 \hline 
-7 & Salón & Espacio físico en el que se imparte alguna materia & ``O123'', ..., ``P105'' \\ 
+7 & Salón & Espacio físico en el que se imparte alguna materia & ``O218'', ..., ``P105'' \\ 
 \hline 
 8 & Grupo & Clave con la que se identifica una asignación & 4489, 6114, $\ldots$ \\ 
 \hline 
 %8 & Carrera & Nombre de alguna carrera de FC & Actuaría, Ciencias de la Computación, Matemáticas, Matemáticas Aplicadas \\ 
-9 & Carrera & Nombre de alguna carrera de FC & ``Actuaría'', ``Matemáticas'',... \\ 
+9 & Carrera & Nombre de alguna carrera de la FC & ``Actuaría'', ``Matemáticas'',... \\ 
 \hline 
-10 & Plan & Año en el que se implemento un nuevo plan de estudios & 1983, ..., 2017 \\ 
+10 & Plan & Año en el que se implemento un nuevo plan de estudios & 1983, 1994, ..., 2017 \\ 
 \hline 
 11 & Semestre & Semestre al que pertenece la materia (Año y semestre par o impar) & 20081, $\ldots$ , 20192, 20201 \\ 
 \hline 
 12 & Cambios & Clave que indica los cambios que se le han hecho al grupo & $\mathbb{N}$ \\ 
 \hline 
-13 & Turno & Matutino: 7:00-14:00hrs, Vespertino: 15:00-21:00 & M/V \\ 
+13 & Turno & Matutino: 7:00-14:00hrs, Vespertino: 15:00-21:00 & M,V \\ 
 \hline 
-14 & Semestre\_de\_materia & Semestre en el que el plan de estudios dicta que se lleva esa materia & ``Primer'', $\ldots$ , ``Optativas'' \\ 
+14 & Semestre\_de\_materia & Semestre en el que el plan de estudios dicta que se lleva esa materia & ``Primer Semestre'', $\ldots$ , ``Optativas'' \\ 
 \hline 
 15 & url & Nombre de la página de los horarios de FC correspondiente al grupo & url's de FC \\ 
 \hline 
@@ -238,7 +238,7 @@
 \hline 
 36 & URL\_MAp2017 & Indica la URL correspondiente a la carrera de MatAp plan 2017 & url de FC \\ 
 \hline 
-37 & Num\_materia & Número del nombre de materia de acuerdo al vector \textit{vec\_nom\_materias} & $\mathbb{N}$ \\ 
+37 & Num\_materia & Número de materia de acuerdo al vector \textit{vec\_nom\_materias} & $\mathbb{N}$ \\ 
 \hline 
 \end{longtable}}
 

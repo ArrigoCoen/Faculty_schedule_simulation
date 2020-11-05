@@ -14,19 +14,19 @@
 \contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Ejemplo de grupo sin información de salón}}}{17}{figure.2.7}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces \textit {Ejemplo de grupo sin información de alumnos}}}{17}{figure.2.8}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Ejemplo de grupo sólo con horario}}}{18}{figure.2.9}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{18}{figure.2.10}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{19}{figure.2.10}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces \textit {Ejemplo de información repetida: Materia con nombres distintos}}}{19}{figure.2.11}%
 \contentsline {figure}{\numberline {2.12}{\ignorespaces \textit {Ejemplo de información repetida: Mismo profesor, materias distintas}}}{20}{figure.2.12}%
 \contentsline {figure}{\numberline {2.13}{\ignorespaces \textit {Ejemplo de grupo con un alumno}}}{20}{figure.2.13}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces \textit {Ejemplo de grupo con medias horas}}}{21}{figure.2.14}%
 \contentsline {figure}{\numberline {2.15}{\ignorespaces \textit {Ejemplo de grupo con horarios múltiples}}}{21}{figure.2.15}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{21}{figure.2.16}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{22}{figure.2.16}%
 \contentsline {figure}{\numberline {2.17}{\ignorespaces \textit {Ejemplo de grupo con estructura diferente}}}{22}{figure.2.17}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Número total de alumnos por semestre}}}{27}{figure.3.1}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Media de alumnos por semestre}}}{28}{figure.3.2}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces \textit {Desviación estándar del número de alumnos por semestre}}}{29}{figure.3.3}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \textit {Descomposición por el método aditivo de Holt-Winters: Total de alumnos por semestre}}}{30}{figure.3.4}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \textit {Descomposición por el método aditivo de Holt-Winters}}}{30}{figure.3.4}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces \textit {Número de alumnos de semestres pares e impares}}}{31}{figure.3.5}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces \textit {Histograma del número de alumnos de semestres pares e impares}}}{32}{figure.3.6}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces \textit {Número de alumnos por turno de todos los semestres}}}{33}{figure.3.7}%
@@ -35,7 +35,7 @@
 \contentsline {figure}{\numberline {3.10}{\ignorespaces \textit {Densidades del número de alumnos por carrera}}}{36}{figure.3.10}%
 \contentsline {figure}{\numberline {3.11}{\ignorespaces \textit {Histograma del número de alumnos por grupo de todos los semestres}}}{37}{figure.3.11}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces \textit {Densidades del número de alumnos por grupo de cada semestre}}}{38}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces \textit {Histograma con densidad ajustadad por prueba de Kolmogorov-Smirnov}}}{40}{figure.3.13}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces \textit {Histograma con densidades ajustadas}}}{40}{figure.3.13}%
 \contentsline {figure}{\numberline {3.14}{\ignorespaces \textit {Número promedio de grupos por hora}}}{41}{figure.3.14}%
 \contentsline {figure}{\numberline {3.15}{\ignorespaces \textit {Número promedio de alumnos por hora}}}{42}{figure.3.15}%
 \addvspace {10\p@ }
