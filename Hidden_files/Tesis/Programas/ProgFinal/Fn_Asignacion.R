@@ -28,6 +28,7 @@
 # install.packages('miceadds')
 # install.packages('rJava')
 # install.packages('xlsx')
+# install.packages("writexl")
 # install.packages('astsa')
 # install.packages('ggplot2')
 # install.packages('knitr')
@@ -39,7 +40,7 @@
 # install.packages('TTR')
 # install.packages('randomcoloR')
 # install.packages('manipulate')
-install.packages('fitdistrplus')
+# install.packages('fitdistrplus')
 
 
 #Loading packages
@@ -52,6 +53,7 @@ library('xml2')
 # library('miceadds')
 library('stringr')
 # library('xlsx')
+library("writexl")#Para guardar data frames
 library(RColorBrewer)
 library(astsa, quietly=TRUE, warn.conflicts=FALSE)
 library(ggplot2)
@@ -1283,6 +1285,8 @@ gen_mat_materias_x_carrera <- function(param){
   lista_mat_materias_x_carrera[[2]] <- mat_materias_CdC
   lista_mat_materias_x_carrera[[3]] <- mat_materias_mate
   lista_mat_materias_x_carrera[[4]] <- mat_materias_mateAp
+  names(lista_mat_materias_x_carrera) <- c("Actuaria","CdD","Mate",
+                                           "MateAp")
   
   save(lista_mat_materias_x_carrera,
        file = paste0("lista_mat_materias_x_carrera.RData"))
@@ -1308,7 +1312,7 @@ gen_mat_materias_x_carrera <- function(param){
 #' guarda_num_alum_x_carrera(param,param_sim)
 #' 
 guarda_num_alum_x_carrera <- function(param,param_sim){
-  #Se carga la lista con la infomración de las materias de cada carrera
+  #Se carga la lista con la información de las materias de cada carrera
   load("lista_mat_materias_x_carrera.RData")
   
   #Se definen las variables que se van a utilizar

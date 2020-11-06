@@ -14,8 +14,6 @@ source("Fn_Asignacion.R")
 
 
 # califica_esqueleto ------------------------------------------------------
-
-# califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto){
 califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
                                param){
   #Se definen las variables que se van a utilizar
