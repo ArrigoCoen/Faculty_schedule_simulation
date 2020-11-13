@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  12 NOV 2020 11:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  13 NOV 2020 15:13
 entering extended mode
 **./main.tex
 (main.tex
@@ -433,19 +433,6 @@ e.cfg")
 \subfig@top=\skip65
 \subfig@bottom=\skip66
 )
-("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
-\Urlmuskip=\muskip17
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\makeidx.sty"
-Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
-) ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.s
-ty"
-Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks36
-\verbatim@line=\toks37
-\verbatim@in@stream=\read3
-)
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\hyperref.
 sty"
 Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
@@ -510,6 +497,10 @@ Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4800.
 \c@Hy@tempcnt=\count297
+ ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/url\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen179
 
@@ -569,6 +560,39 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip67
 )
+("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.st
+y"
+Package: caption 2020/09/02 v3.5a Customizing captions (AR)
+
+("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.s
+ty"
+Package: caption3 2020/08/30 v2.0 caption3 kernel (AR)
+\captionmargin=\dimen182
+\captionmargin@=\dimen183
+\captionwidth=\dimen184
+\caption@tempdima=\dimen185
+\caption@indent=\dimen186
+\caption@parindent=\dimen187
+\caption@hangindent=\dimen188
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count304
+\c@continuedfloat=\count305
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: subfigure package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\makeidx.sty"
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+) ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\verbatim.s
+ty"
+Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks36
+\verbatim@line=\toks37
+\verbatim@in@stream=\read3
+)
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\longtable.st
 y"
 Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
@@ -576,22 +600,22 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip69
 \LTpre=\skip70
 \LTpost=\skip71
-\LTchunksize=\count304
-\LTcapwidth=\dimen182
+\LTchunksize=\count306
+\LTcapwidth=\dimen189
 \LT@head=\box53
 \LT@firsthead=\box54
 \LT@foot=\box55
 \LT@lastfoot=\box56
-\LT@cols=\count305
-\LT@rows=\count306
-\c@LT@tables=\count307
-\c@LT@chunks=\count308
+\LT@cols=\count307
+\LT@rows=\count308
+\c@LT@tables=\count309
+\c@LT@chunks=\count310
 \LT@p@ftn=\toks38
 )
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backen
 d-pdfmode.def"
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count309
+\l__kernel_color_stack_int=\count311
 \l__pdf_internal_box=\box57
 ) (main.aux
 LaTeX Info: Redefining \. on input line 21.
@@ -602,30 +626,30 @@ LaTeX Info: Redefining \% on input line 21.
 (Comportamiento_de_seleccion.aux) (Conclusiones.aux) (Apendices.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 256.
+LaTeX Font Info:    ... okay on input line 256.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 25
-1.
+6.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
+LaTeX Info: Redefining \. on input line 256.
+LaTeX Info: Redefining \% on input line 256.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -661,21 +685,21 @@ LaTeX Info: Redefining \% on input line 251.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count310
+\c@lstlisting=\count312
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-p
 df.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count311
-\scratchdimen=\dimen183
+\scratchcounter=\count313
+\scratchdimen=\dimen190
 \scratchbox=\box58
-\nofMPsegments=\count312
-\nofMParguments=\count313
+\nofMPsegments=\count314
+\nofMParguments=\count315
 \everyMPshowfont=\toks39
-\MPscratchCnt=\count314
-\MPscratchDim=\dimen184
-\MPnumerator=\count315
-\makeMPintoPDFobject=\count316
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen191
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
 \everyMPtoPDFconversion=\toks40
 )
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epsto
@@ -685,7 +709,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 251.
+Package hyperref Info: Link coloring OFF on input line 256.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -699,75 +723,83 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty"
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count317
+\c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 251.
-LaTeX Info: Redefining \pageref on input line 251.
-LaTeX Info: Redefining \nameref on input line 251.
+LaTeX Info: Redefining \ref on input line 256.
+LaTeX Info: Redefining \pageref on input line 256.
+LaTeX Info: Redefining \nameref on input line 256.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<Pictures/unam.pdf, id=195, 822.27202pt x 924.25299pt>
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: longtable package is loaded.
+
+("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\ltcaption.
+sty"
+Package: ltcaption 2020/05/30 v1.4b longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+<Pictures/unam.pdf, id=203, 822.27202pt x 924.25299pt>
 File: Pictures/unam.pdf Graphic file (type pdf)
 <use Pictures/unam.pdf>
-Package pdftex.def Info: Pictures/unam.pdf  used on input line 268.
+Package pdftex.def Info: Pictures/unam.pdf  used on input line 273.
 (pdftex.def)             Requested size: 74.00128pt x 83.17917pt.
-<Pictures/ciencias.pdf, id=196, 359.74399pt x 411.136pt>
+<Pictures/ciencias.pdf, id=204, 359.74399pt x 411.136pt>
 File: Pictures/ciencias.pdf Graphic file (type pdf)
 <use Pictures/ciencias.pdf>
-Package pdftex.def Info: Pictures/ciencias.pdf  used on input line 280.
+Package pdftex.def Info: Pictures/ciencias.pdf  used on input line 285.
 (pdftex.def)             Requested size: 79.14392pt x 90.4502pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 281.
+ 286.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd
 "
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 281.
+ 286.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd
 "
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 281.
+ 286.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd
 "
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 281.
+ 286.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd
 "
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 28
-1.
+6.
  ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
-81.
+86.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 286.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 286.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 281.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 286.
 LaTeX Font Info:    Trying to load font information for U+rsfs on input line 28
-1.
+6.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.28001pt too wide) in paragraph at lines 266--329
+Overfull \hbox (2.28001pt too wide) in paragraph at lines 271--334
 []$[]$ $[]$ 
  []
 
@@ -780,32 +812,32 @@ unam.pdf> <./Pictures/ciencias.pdf
 pdfTeX warning: pdflatex (file ./Pictures/ciencias.pdf): PDF inclusion: multipl
 e pdfs with page group included in a single page
 >]
-<Pictures/DGB.png, id=206, 712.91344pt x 78.2925pt>
+<Pictures/DGB.png, id=214, 712.91344pt x 78.2925pt>
 File: Pictures/DGB.png Graphic file (type png)
 <use Pictures/DGB.png>
-Package pdftex.def Info: Pictures/DGB.png  used on input line 337.
+Package pdftex.def Info: Pictures/DGB.png  used on input line 342.
 (pdftex.def)             Requested size: 443.57848pt x 48.71407pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--344
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
 
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
-45.
+50.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 347--348
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
 
  []
 
 [2 <./Pictures/DGB.png>] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 438--441
+Underfull \hbox (badness 10000) in paragraph at lines 443--446
 
  []
 
@@ -816,20 +848,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 ...co aplicado a los horarios}{61}{chapter.5}
+l.36 ...ignaciones de grupo}{58}{subsection.4.8.1}
                                                   % [1
 
 ])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 450.
-LaTeX Info: Redefining \% on input line 450.
+LaTeX Info: Redefining \. on input line 455.
+LaTeX Info: Redefining \% on input line 455.
 pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.450 \listoffigures
+l.455 \listoffigures
                      %%Todo lo que se encuentra en los entornos "figure" y t...
 [2] (main.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -838,20 +870,20 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.III}) ha
 s been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ...extbf {gen\_asignacion}}}}{40}{figure.4.1}
+l.42 ...ignacion}}\relax }}{40}{figure.caption.45}
                                                   % [3
 
 ])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-LaTeX Info: Redefining \. on input line 451.
-LaTeX Info: Redefining \% on input line 451.
+LaTeX Info: Redefining \. on input line 456.
+LaTeX Info: Redefining \% on input line 456.
 pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.451 \listoftables
+l.456 \listoftables
                     %%Todo lo que se encuentra en los entornos "table" y tie...
 [4] (main.lot
 LaTeX Info: Redefining \. on input line 1.
@@ -864,13 +896,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.V}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.452 \lstlistoflistings
+l.457 \lstlistoflistings
                          %%Todo lo que se encuentra en el entorno "lstlistin...
 [5
 
 ]
-LaTeX Info: Redefining \. on input line 452.
-LaTeX Info: Redefining \% on input line 452.
+LaTeX Info: Redefining \. on input line 457.
+LaTeX Info: Redefining \% on input line 457.
  [6
 
 ] (main.lol)
@@ -878,8 +910,8 @@ LaTeX Info: Redefining \% on input line 452.
 \openout7 = `main.lol'.
 
  [7]
-LaTeX Info: Redefining \. on input line 463.
-LaTeX Info: Redefining \% on input line 463.
+LaTeX Info: Redefining \. on input line 468.
+LaTeX Info: Redefining \% on input line 468.
  [8
 
 ]
@@ -891,30 +923,33 @@ Cap\'{\i }tulo 1.
 
 
 ]
-LaTeX Info: Redefining \. on input line 71.
-LaTeX Info: Redefining \% on input line 71.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
  [2]
-LaTeX Info: Redefining \. on input line 134.
-LaTeX Info: Redefining \% on input line 134.
+LaTeX Info: Redefining \. on input line 132.
+LaTeX Info: Redefining \% on input line 132.
  [3]
 Underfull \hbox (badness 3260) in paragraph at lines 167--167
-[]\T1/ptm/m/n/12 Tabla 1.1: []\T1/ptm/m/it/12 Ejemplo de asig-na-ción: Es-ta ta
+[]\T1/ptm/m/n/12 Tabla 1.1: |\T1/ptm/m/it/12 Ejem-plo de asig-na-ción: Es-ta ta
 -bla mues-tra un ejem-plo de la ma-triz
  []
 
-LaTeX Info: Redefining \. on input line 179.
-LaTeX Info: Redefining \% on input line 179.
+LaTeX Info: Redefining \. on input line 178.
+LaTeX Info: Redefining \% on input line 178.
 [4]
-<Pictures/num_alum_sem_par_impar_Proba_I.pdf, id=493, 578.16pt x 433.62pt>
+<Pictures/num_alum_sem_par_impar_Proba_I.pdf, id=503, 578.16pt x 433.62pt>
 File: Pictures/num_alum_sem_par_impar_Proba_I.pdf Graphic file (type pdf)
 <use Pictures/num_alum_sem_par_impar_Proba_I.pdf>
 Package pdftex.def Info: Pictures/num_alum_sem_par_impar_Proba_I.pdf  used on i
 nput line 199.
 (pdftex.def)             Requested size: 317.98898pt x 238.49173pt.
-LaTeX Info: Redefining \. on input line 204.
-LaTeX Info: Redefining \% on input line 204.
- [5 <./Pictures/num_alum_sem_par_impar_Proba_I.pdf>]
-<Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf, id=505, 578.16pt x 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
+ [5]
+<Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf, id=509, 578.16pt x 
 433.62pt>
 File: Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf Graphic file (t
 ype pdf)
@@ -922,43 +957,46 @@ ype pdf)
 Package pdftex.def Info: Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.
 pdf  used on input line 209.
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
-<Pictures/num_alum_x_turno_Proba_I.pdf, id=507, 578.16pt x 433.62pt>
-File: Pictures/num_alum_x_turno_Proba_I.pdf Graphic file (type pdf)
-<use Pictures/num_alum_x_turno_Proba_I.pdf>
-Package pdftex.def Info: Pictures/num_alum_x_turno_Proba_I.pdf  used on input l
-ine 221.
-(pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 227.
-LaTeX Info: Redefining \% on input line 227.
-[6 <./Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf>]
-<Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf, id=523, 578.16pt x 433.62
+<Pictures/num_alum_x_turno_Proba_I.pdf, id=511, 578.16pt x 433.62pt>
+File: Pictures/num_alum_x_turno_Proba_I.pdf Graphic file (type pdf)
+<use Pictures/num_alum_x_turno_Proba_I.pdf>
+Package pdftex.def Info: Pictures/num_alum_x_turno_Proba_I.pdf  used on input l
+ine 220.
+(pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf, id=513, 578.16pt x 433.62
 pt>
 File: Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf Graphic file (type pd
 f)
 <use Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf>
 Package pdftex.def Info: Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf  u
-sed on input line 231.
+sed on input line 230.
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
-
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
+[6 <./Pictures/num_alum_sem_par_impar_Proba_I.pdf>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
-LaTeX Info: Redefining \. on input line 471.
-LaTeX Info: Redefining \% on input line 471.
- [7 <./Pictures/num_alum_x_turno_Proba_I.pdf>]
-LaTeX Info: Redefining \. on input line 471.
-LaTeX Info: Redefining \% on input line 471.
- [8 <./Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf>]
+LaTeX Info: Redefining \. on input line 476.
+LaTeX Info: Redefining \% on input line 476.
+ [7 <./Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf>]
+LaTeX Info: Redefining \. on input line 476.
+LaTeX Info: Redefining \% on input line 476.
+ [8 <./Pictures/num_alum_x_turno_Proba_I.pdf> <./Pictures/histograma_FR_num_alu
+m_x_turno_Proba_I.pdf>]
 \openout2 = `Extraccion_de_datos.aux'.
 
  (Extraccion_de_datos.tex
 Cap\'{\i }tulo 2.
-<Pictures/Fuente_de_info.png, id=549, 735.49782pt x 470.50781pt>
+<Pictures/Fuente_de_info.png, id=559, 735.49782pt x 470.50781pt>
 File: Pictures/Fuente_de_info.png Graphic file (type png)
 <use Pictures/Fuente_de_info.png>
 Package pdftex.def Info: Pictures/Fuente_de_info.png  used on input line 9.
@@ -968,7 +1006,7 @@ Package pdftex.def Info: Pictures/Fuente_de_info.png  used on input line 9.
 
 
  <./Pictures/Fuente_de_info.png>]
-<Pictures/SelectorGadget.png, id=555, 660.96938pt x 477.28313pt>
+<Pictures/SelectorGadget.png, id=565, 660.96938pt x 477.28313pt>
 File: Pictures/SelectorGadget.png Graphic file (type png)
 <use Pictures/SelectorGadget.png>
 Package pdftex.def Info: Pictures/SelectorGadget.png  used on input line 22.
@@ -985,12 +1023,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Info: Redefining \. on input line 91.
 LaTeX Info: Redefining \% on input line 91.
 [11]
-<Pictures/GrupoA.png, id=568, 534.49687pt x 122.70844pt>
+<Pictures/GrupoA.png, id=578, 534.49687pt x 122.70844pt>
 File: Pictures/GrupoA.png Graphic file (type png)
 <use Pictures/GrupoA.png>
 Package pdftex.def Info: Pictures/GrupoA.png  used on input line 97.
 (pdftex.def)             Requested size: 427.59807pt x 98.16687pt.
-<Pictures/GrupoB.png, id=570, 511.15968pt x 130.23656pt>
+<Pictures/GrupoB.png, id=580, 511.15968pt x 130.23656pt>
 File: Pictures/GrupoB.png Graphic file (type png)
 <use Pictures/GrupoB.png>
 Package pdftex.def Info: Pictures/GrupoB.png  used on input line 107.
@@ -1001,7 +1039,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 111.
 LaTeX Info: Redefining \% on input line 111.
  [12 <./Pictures/GrupoA.png>]
-<Pictures/GrupoC.png, id=579, 555.57562pt x 112.16907pt>
+<Pictures/GrupoC.png, id=589, 555.57562pt x 112.16907pt>
 File: Pictures/GrupoC.png Graphic file (type png)
 <use Pictures/GrupoC.png>
 Package pdftex.def Info: Pictures/GrupoC.png  used on input line 116.
@@ -1018,7 +1056,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<Pictures/FaltaInfo_A.png, id=582, 635.45514pt x 389.99757pt>
+<Pictures/FaltaInfo_A.png, id=592, 635.45514pt x 389.99757pt>
 File: Pictures/FaltaInfo_A.png Graphic file (type png)
 <use Pictures/FaltaInfo_A.png>
 Package pdftex.def Info: Pictures/FaltaInfo_A.png  used on input line 11.
@@ -1027,23 +1065,23 @@ LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
 
 [13 <./Pictures/GrupoB.png> <./Pictures/GrupoC.png>]
-<Pictures/FaltaInfo_B.png, id=593, 615.9375pt x 366.2775pt>
+<Pictures/FaltaInfo_B.png, id=603, 615.9375pt x 366.2775pt>
 File: Pictures/FaltaInfo_B.png Graphic file (type png)
 <use Pictures/FaltaInfo_B.png>
 Package pdftex.def Info: Pictures/FaltaInfo_B.png  used on input line 19.
 (pdftex.def)             Requested size: 277.16931pt x 164.82335pt.
-<Pictures/FaltaInfo_C.png, id=596, 457.98067pt x 397.079pt>
+<Pictures/FaltaInfo_C.png, id=606, 457.98067pt x 397.079pt>
 File: Pictures/FaltaInfo_C.png Graphic file (type png)
 <use Pictures/FaltaInfo_C.png>
 Package pdftex.def Info: Pictures/FaltaInfo_C.png  used on input line 27.
 (pdftex.def)             Requested size: 274.79051pt x 238.24922pt.
 
-Underfull \vbox (badness 7256) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 30.
 LaTeX Info: Redefining \% on input line 30.
  [14 <./Pictures/FaltaInfo_A.png> <./Pictures/FaltaInfo_B.png>]
-<Pictures/FaltaInfo_D.png, id=606, 362.10281pt x 246.9225pt>
+<Pictures/FaltaInfo_D.png, id=616, 362.10281pt x 246.9225pt>
 File: Pictures/FaltaInfo_D.png Graphic file (type png)
 <use Pictures/FaltaInfo_D.png>
 Package pdftex.def Info: Pictures/FaltaInfo_D.png  used on input line 35.
@@ -1053,12 +1091,12 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 
 [15 <./Pictures/FaltaInfo_C.png> <./Pictures/FaltaInfo_D.png>]
-<Pictures/InfoRepetida_A_1.png, id=616, 373.395pt x 228.855pt>
+<Pictures/InfoRepetida_A_1.png, id=626, 373.395pt x 228.855pt>
 File: Pictures/InfoRepetida_A_1.png Graphic file (type png)
 <use Pictures/InfoRepetida_A_1.png>
 Package pdftex.def Info: Pictures/InfoRepetida_A_1.png  used on input line 12.
 (pdftex.def)             Requested size: 284.52756pt x 174.39604pt.
-<Pictures/InfoRepetida_A_2.png, id=617, 363.60844pt x 220.57407pt>
+<Pictures/InfoRepetida_A_2.png, id=627, 363.60844pt x 220.57407pt>
 File: Pictures/InfoRepetida_A_2.png Graphic file (type png)
 <use Pictures/InfoRepetida_A_2.png>
 Package pdftex.def Info: Pictures/InfoRepetida_A_2.png  used on input line 13.
@@ -1072,23 +1110,23 @@ Overfull \hbox (3.40942pt too wide) in paragraph at lines 17--18
 LaTeX Info: Redefining \. on input line 18.
 LaTeX Info: Redefining \% on input line 18.
 [16 <./Pictures/InfoRepetida_A_1.png> <./Pictures/InfoRepetida_A_2.png>]
-<Pictures/InfoRepetida_B_1.png, id=628, 347.79938pt x 263.48438pt>
+<Pictures/InfoRepetida_B_1.png, id=638, 347.79938pt x 263.48438pt>
 File: Pictures/InfoRepetida_B_1.png Graphic file (type png)
 <use Pictures/InfoRepetida_B_1.png>
 Package pdftex.def Info: Pictures/InfoRepetida_B_1.png  used on input line 21.
 (pdftex.def)             Requested size: 284.52756pt x 215.56004pt.
-<Pictures/InfoRepetida_B_2.png, id=629, 465.23813pt x 263.48438pt>
+<Pictures/InfoRepetida_B_2.png, id=639, 465.23813pt x 263.48438pt>
 File: Pictures/InfoRepetida_B_2.png Graphic file (type png)
 <use Pictures/InfoRepetida_B_2.png>
 Package pdftex.def Info: Pictures/InfoRepetida_B_2.png  used on input line 22.
 (pdftex.def)             Requested size: 284.52756pt x 161.14334pt.
-<Pictures/Ej_gpo_repetido_1.png, id=633, 317.68687pt x 170.13562pt>
+<Pictures/Ej_gpo_repetido_1.png, id=643, 317.68687pt x 170.13562pt>
 File: Pictures/Ej_gpo_repetido_1.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_1.png>
 Package pdftex.def Info: Pictures/Ej_gpo_repetido_1.png  used on input line 132
 .
 (pdftex.def)             Requested size: 284.52756pt x 152.39113pt.
-<Pictures/Ej_gpo_repetido_2.png, id=634, 516.42938pt x 182.93344pt>
+<Pictures/Ej_gpo_repetido_2.png, id=644, 516.42938pt x 182.93344pt>
 File: Pictures/Ej_gpo_repetido_2.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_2.png>
 Package pdftex.def Info: Pictures/Ej_gpo_repetido_2.png  used on input line 133
@@ -1099,7 +1137,7 @@ LaTeX Info: Redefining \% on input line 135.
 
 [17 <./Pictures/InfoRepetida_B_1.png> <./Pictures/InfoRepetida_B_2.png>])
 (ED_otros_problemas_extraer_info.tex
-<Pictures/Ej_un_alumno.png, id=648, 334.24875pt x 57.96657pt>
+<Pictures/Ej_un_alumno.png, id=658, 334.24875pt x 57.96657pt>
 File: Pictures/Ej_un_alumno.png Graphic file (type png)
 <use Pictures/Ej_un_alumno.png>
 Package pdftex.def Info: Pictures/Ej_un_alumno.png  used on input line 10.
@@ -1108,7 +1146,7 @@ LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
  [18 <./Pictures/Ej_gpo_repetido_1.png> <./Pictures/Ej_gpo_repetido_2.png> <./P
 ictures/Ej_un_alumno.png>]
-<Pictures/Ej_gpo_medias_hrs.png, id=659, 438.8897pt x 62.48344pt>
+<Pictures/Ej_gpo_medias_hrs.png, id=669, 438.8897pt x 62.48344pt>
 File: Pictures/Ej_gpo_medias_hrs.png Graphic file (type png)
 <use Pictures/Ej_gpo_medias_hrs.png>
 Package pdftex.def Info: Pictures/Ej_gpo_medias_hrs.png  used on input line 21.
@@ -1120,7 +1158,7 @@ Overfull \hbox (18.43436pt too wide) in paragraph at lines 26--27
 /n/12 http : / / www . fciencias . unam . mx / docencia /
  []
 
-<Pictures/Ej_gpo_horarios_multiples.png, id=662, 573.64313pt x 202.50656pt>
+<Pictures/Ej_gpo_horarios_multiples.png, id=672, 573.64313pt x 202.50656pt>
 File: Pictures/Ej_gpo_horarios_multiples.png Graphic file (type png)
 <use Pictures/Ej_gpo_horarios_multiples.png>
 Package pdftex.def Info: Pictures/Ej_gpo_horarios_multiples.png  used on input 
@@ -1131,7 +1169,7 @@ Overfull \hbox (15.33664pt too wide) in paragraph at lines 32--33
  [][] 
  []
 
-<Pictures/Ej_gpo_ingles.png, id=665, 274.77657pt x 45.92157pt>
+<Pictures/Ej_gpo_ingles.png, id=675, 274.77657pt x 45.92157pt>
 File: Pictures/Ej_gpo_ingles.png Graphic file (type png)
 <use Pictures/Ej_gpo_ingles.png>
 Package pdftex.def Info: Pictures/Ej_gpo_ingles.png  used on input line 40.
@@ -1140,7 +1178,7 @@ LaTeX Info: Redefining \. on input line 43.
 LaTeX Info: Redefining \% on input line 43.
 [19 <./Pictures/Ej_gpo_medias_hrs.png> <./Pictures/Ej_gpo_horarios_multiples.pn
 g>]
-<Pictures/Ej_gpo_con_estructura_diferente.png, id=677, 572.89032pt x 202.50656p
+<Pictures/Ej_gpo_con_estructura_diferente.png, id=687, 572.89032pt x 202.50656p
 t>
 File: Pictures/Ej_gpo_con_estructura_diferente.png Graphic file (type png)
 <use Pictures/Ej_gpo_con_estructura_diferente.png>
@@ -1165,12 +1203,6 @@ Overfull \hbox (41.70827pt too wide) in alignment at lines 138--138
 
 Overfull \hbox (41.70827pt too wide) in alignment at lines 138--138
  [] [] [] [] 
- []
-
-
-Underfull \hbox (badness 1990) in paragraph at lines 138--138
-[]\T1/ptm/m/n/12 Tabla 2.3: \T1/ptm/m/it/12 Des-crip-ción de las co-lum-nas de 
-la ma-triz
  []
 
 
@@ -1235,8 +1267,8 @@ png>]
 LaTeX Info: Redefining \. on input line 138.
 LaTeX Info: Redefining \% on input line 138.
  [21])
-LaTeX Info: Redefining \. on input line 473.
-LaTeX Info: Redefining \% on input line 473.
+LaTeX Info: Redefining \. on input line 478.
+LaTeX Info: Redefining \% on input line 478.
  [22]
 \openout2 = `Analisis_estadistico.aux'.
 
@@ -1250,13 +1282,13 @@ Cap\'{\i }tulo 3.
 LaTeX Info: Redefining \. on input line 76.
 LaTeX Info: Redefining \% on input line 76.
  [24]
-<Pictures/num_alum_total_x_sem_barplot.pdf, id=710, 578.16pt x 433.62pt>
+<Pictures/num_alum_total_x_sem_barplot.pdf, id=720, 578.16pt x 433.62pt>
 File: Pictures/num_alum_total_x_sem_barplot.pdf Graphic file (type pdf)
 <use Pictures/num_alum_total_x_sem_barplot.pdf>
 Package pdftex.def Info: Pictures/num_alum_total_x_sem_barplot.pdf  used on inp
 ut line 79.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<Pictures/prom_alum_total_x_sem_ts.pdf, id=712, 578.16pt x 433.62pt>
+<Pictures/prom_alum_total_x_sem_ts.pdf, id=722, 578.16pt x 433.62pt>
 File: Pictures/prom_alum_total_x_sem_ts.pdf Graphic file (type pdf)
 <use Pictures/prom_alum_total_x_sem_ts.pdf>
 Package pdftex.def Info: Pictures/prom_alum_total_x_sem_ts.pdf  used on input l
@@ -1268,7 +1300,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 90.
 LaTeX Info: Redefining \% on input line 90.
  [25 <./Pictures/num_alum_total_x_sem_barplot.pdf>]
-<Pictures/sd_alum_x_gpo_x_sem_ts.pdf, id=724, 578.16pt x 433.62pt>
+<Pictures/sd_alum_x_gpo_x_sem_ts.pdf, id=734, 578.16pt x 433.62pt>
 File: Pictures/sd_alum_x_gpo_x_sem_ts.pdf Graphic file (type pdf)
 <use Pictures/sd_alum_x_gpo_x_sem_ts.pdf>
 Package pdftex.def Info: Pictures/sd_alum_x_gpo_x_sem_ts.pdf  used on input lin
@@ -1278,7 +1310,7 @@ LaTeX Info: Redefining \. on input line 100.
 LaTeX Info: Redefining \% on input line 100.
  [26 <./Pictures/prom_alum_total_x_sem_ts.pdf> <./Pictures/sd_alum_x_gpo_x_sem_
 ts.pdf>]
-<Pictures/descomposicion_ts_total_alumnos.pdf, id=742, 578.16pt x 433.62pt>
+<Pictures/descomposicion_ts_total_alumnos.pdf, id=752, 578.16pt x 433.62pt>
 File: Pictures/descomposicion_ts_total_alumnos.pdf Graphic file (type pdf)
 <use Pictures/descomposicion_ts_total_alumnos.pdf>
 Package pdftex.def Info: Pictures/descomposicion_ts_total_alumnos.pdf  used on 
@@ -1295,7 +1327,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 114.
 LaTeX Info: Redefining \% on input line 114.
  [27 <./Pictures/descomposicion_ts_total_alumnos.pdf>]
-<Pictures/num_alum_sem_par_impar_ts.pdf, id=759, 578.16pt x 433.62pt>
+<Pictures/num_alum_sem_par_impar_ts.pdf, id=769, 578.16pt x 433.62pt>
 File: Pictures/num_alum_sem_par_impar_ts.pdf Graphic file (type pdf)
 <use Pictures/num_alum_sem_par_impar_ts.pdf>
 Package pdftex.def Info: Pictures/num_alum_sem_par_impar_ts.pdf  used on input 
@@ -1306,7 +1338,7 @@ Overfull \hbox (18.95015pt too wide) in paragraph at lines 117--118
  [][] 
  []
 
-<Pictures/histograma_FR_num_alum_sem_par_impar.pdf, id=761, 578.16pt x 433.62pt
+<Pictures/histograma_FR_num_alum_sem_par_impar.pdf, id=771, 578.16pt x 433.62pt
 >
 File: Pictures/histograma_FR_num_alum_sem_par_impar.pdf Graphic file (type pdf)
 
@@ -1317,7 +1349,7 @@ d on input line 126.
 LaTeX Info: Redefining \. on input line 129.
 LaTeX Info: Redefining \% on input line 129.
 [28 <./Pictures/num_alum_sem_par_impar_ts.pdf>]
-<Pictures/num_alum_matu_vesp_ts.pdf, id=773, 578.16pt x 433.62pt>
+<Pictures/num_alum_matu_vesp_ts.pdf, id=783, 578.16pt x 433.62pt>
 File: Pictures/num_alum_matu_vesp_ts.pdf Graphic file (type pdf)
 <use Pictures/num_alum_matu_vesp_ts.pdf>
 Package pdftex.def Info: Pictures/num_alum_matu_vesp_ts.pdf  used on input line
@@ -1327,7 +1359,7 @@ LaTeX Info: Redefining \. on input line 140.
 LaTeX Info: Redefining \% on input line 140.
  [29 <./Pictures/histograma_FR_num_alum_sem_par_impar.pdf> <./Pictures/num_alum
 _matu_vesp_ts.pdf>]
-<Pictures/histograma_FR_num_alum_matu_vesp.pdf, id=796, 578.16pt x 433.62pt>
+<Pictures/histograma_FR_num_alum_matu_vesp.pdf, id=806, 578.16pt x 433.62pt>
 File: Pictures/histograma_FR_num_alum_matu_vesp.pdf Graphic file (type pdf)
 <use Pictures/histograma_FR_num_alum_matu_vesp.pdf>
 Package pdftex.def Info: Pictures/histograma_FR_num_alum_matu_vesp.pdf  used on
@@ -1338,7 +1370,7 @@ Overfull \hbox (18.95015pt too wide) in paragraph at lines 145--146
  [][] 
  []
 
-<Pictures/histogramas_FA_num_alum_x_carrera.pdf, id=798, 578.16pt x 433.62pt>
+<Pictures/histogramas_FA_num_alum_x_carrera.pdf, id=808, 578.16pt x 433.62pt>
 File: Pictures/histogramas_FA_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FA_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FA_num_alum_x_carrera.pdf  used o
@@ -1347,7 +1379,7 @@ n input line 156.
 LaTeX Info: Redefining \. on input line 159.
 LaTeX Info: Redefining \% on input line 159.
 [30 <./Pictures/histograma_FR_num_alum_matu_vesp.pdf>]
-<Pictures/histogramas_FR_num_alum_x_carrera.pdf, id=815, 578.16pt x 433.62pt>
+<Pictures/histogramas_FR_num_alum_x_carrera.pdf, id=825, 578.16pt x 433.62pt>
 File: Pictures/histogramas_FR_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FR_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FR_num_alum_x_carrera.pdf  used o
@@ -1357,7 +1389,7 @@ LaTeX Info: Redefining \. on input line 174.
 LaTeX Info: Redefining \% on input line 174.
  [31 <./Pictures/histogramas_FA_num_alum_x_carrera.pdf> <./Pictures/histogramas
 _FR_num_alum_x_carrera.pdf>]
-<Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf, id=836, 578.16pt x 433.62pt>
+<Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf, id=846, 578.16pt x 433.62pt>
 File: Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf Graphic file (type pdf)
 <use Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf>
 Package pdftex.def Info: Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf  used 
@@ -1368,7 +1400,7 @@ Overfull \hbox (18.95015pt too wide) in paragraph at lines 177--178
  [][] 
  []
 
-<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=838, 578.16pt x 433.62pt>
+<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=848, 578.16pt x 433.62pt>
 File: Pictures/densidades_num_alum_x_gpo_x_sem.pdf Graphic file (type pdf)
 <use Pictures/densidades_num_alum_x_gpo_x_sem.pdf>
 Package pdftex.def Info: Pictures/densidades_num_alum_x_gpo_x_sem.pdf  used on 
@@ -1390,7 +1422,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 200.
 LaTeX Info: Redefining \% on input line 200.
  [33 <./Pictures/densidades_num_alum_x_gpo_x_sem.pdf>]
-<Pictures/histograma_FR_prueba_KS.pdf, id=867, 578.16pt x 433.62pt>
+<Pictures/histograma_FR_prueba_KS.pdf, id=877, 578.16pt x 433.62pt>
 File: Pictures/histograma_FR_prueba_KS.pdf Graphic file (type pdf)
 <use Pictures/histograma_FR_prueba_KS.pdf>
 Package pdftex.def Info: Pictures/histograma_FR_prueba_KS.pdf  used on input li
@@ -1411,7 +1443,7 @@ LaTeX Info: Redefining \. on input line 231.
 LaTeX Info: Redefining \% on input line 231.
 
 [35 <./Pictures/histograma_FR_prueba_KS.pdf>]
-<Pictures/num_prom_gpos_x_hora_barplot.pdf, id=884, 578.16pt x 433.62pt>
+<Pictures/num_prom_gpos_x_hora_barplot.pdf, id=894, 578.16pt x 433.62pt>
 File: Pictures/num_prom_gpos_x_hora_barplot.pdf Graphic file (type pdf)
 <use Pictures/num_prom_gpos_x_hora_barplot.pdf>
 Package pdftex.def Info: Pictures/num_prom_gpos_x_hora_barplot.pdf  used on inp
@@ -1422,7 +1454,7 @@ Overfull \hbox (18.95015pt too wide) in paragraph at lines 237--238
  [][] 
  []
 
-<Pictures/prom_alum_x_hora_barplot.pdf, id=887, 578.16pt x 433.62pt>
+<Pictures/prom_alum_x_hora_barplot.pdf, id=897, 578.16pt x 433.62pt>
 File: Pictures/prom_alum_x_hora_barplot.pdf Graphic file (type pdf)
 <use Pictures/prom_alum_x_hora_barplot.pdf>
 Package pdftex.def Info: Pictures/prom_alum_x_hora_barplot.pdf  used on input l
@@ -1439,8 +1471,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 248.
 LaTeX Info: Redefining \% on input line 248.
  [36 <./Pictures/num_prom_gpos_x_hora_barplot.pdf>])
-LaTeX Info: Redefining \. on input line 475.
-LaTeX Info: Redefining \% on input line 475.
+LaTeX Info: Redefining \. on input line 480.
+LaTeX Info: Redefining \% on input line 480.
  [37 <./Pictures/prom_alum_x_hora_barplot.pdf>]
 \openout2 = `Simulacion.aux'.
 
@@ -1453,7 +1485,7 @@ LaTeX Info: Redefining \% on input line 1.
 
 ]
 Cap\'{\i }tulo 4.
-<Pictures/diagrama_flujo.png, id=916, 700.86844pt x 392.96812pt>
+<Pictures/diagrama_flujo.png, id=926, 700.86844pt x 392.96812pt>
 File: Pictures/diagrama_flujo.png Graphic file (type png)
 <use Pictures/diagrama_flujo.png>
 Package pdftex.def Info: Pictures/diagrama_flujo.png  used on input line 17.
@@ -1500,7 +1532,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 [40 <./Pictures/diagrama_flujo.png>]
-<Pictures/mat_med_dispersion.png, id=928, 460.72125pt x 203.25937pt>
+<Pictures/mat_med_dispersion.png, id=938, 460.72125pt x 203.25937pt>
 File: Pictures/mat_med_dispersion.png Graphic file (type png)
 <use Pictures/mat_med_dispersion.png>
 Package pdftex.def Info: Pictures/mat_med_dispersion.png  used on input line 45
@@ -1509,12 +1541,12 @@ Package pdftex.def Info: Pictures/mat_med_dispersion.png  used on input line 45
 LaTeX Info: Redefining \. on input line 51.
 LaTeX Info: Redefining \% on input line 51.
  [41 <./Pictures/mat_med_dispersion.png>]
-<Pictures/prom_SD_5m_12p.png, id=938, 150.5625pt x 249.18094pt>
+<Pictures/prom_SD_5m_12p.png, id=948, 150.5625pt x 249.18094pt>
 File: Pictures/prom_SD_5m_12p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_12p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 89.
 (pdftex.def)             Requested size: 150.56212pt x 249.18031pt.
-<Pictures/prom_SD_10m_6p.png, id=941, 170.88844pt x 158.09062pt>
+<Pictures/prom_SD_10m_6p.png, id=951, 170.88844pt x 158.09062pt>
 File: Pictures/prom_SD_10m_6p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_6p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_6p.png  used on input line 99.
@@ -1523,29 +1555,29 @@ LaTeX Info: Redefining \. on input line 105.
 LaTeX Info: Redefining \% on input line 105.
 
 [42 <./Pictures/prom_SD_5m_12p.png> <./Pictures/prom_SD_10m_6p.png>]
-<Pictures/prom_SD_10m_4p.png, id=949, 168.63pt x 113.67468pt>
+<Pictures/prom_SD_10m_4p.png, id=959, 168.63pt x 113.67468pt>
 File: Pictures/prom_SD_10m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_4p.png  used on input line 109.
 (pdftex.def)             Requested size: 168.62958pt x 113.6744pt.
-<Pictures/prom_SD_5m_4p.png, id=952, 168.63pt x 112.92188pt>
+<Pictures/prom_SD_5m_4p.png, id=962, 168.63pt x 112.92188pt>
 File: Pictures/prom_SD_5m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_4p.png  used on input line 118.
 (pdftex.def)             Requested size: 168.62958pt x 112.92159pt.
-<Pictures/intervalos_confianza.png, id=956, 628.59843pt x 307.1475pt>
+<Pictures/intervalos_confianza.png, id=966, 628.59843pt x 307.1475pt>
 File: Pictures/intervalos_confianza.png Graphic file (type png)
 <use Pictures/intervalos_confianza.png>
 Package pdftex.def Info: Pictures/intervalos_confianza.png  used on input line 
 126.
 (pdftex.def)             Requested size: 440.0159pt x 215.00177pt.
 
-Underfull \vbox (badness 6078) has occurred while \output is active []
+Underfull \vbox (badness 7362) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 129.
 LaTeX Info: Redefining \% on input line 129.
  [43 <./Pictures/prom_SD_10m_4p.png> <./Pictures/prom_SD_5m_4p.png>]
-<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=962, 426.84468pt x 295.855
+<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=972, 426.84468pt x 295.855
 32pt>
 File: Pictures/mat_med_dispersion_pruebaAleatoria.png Graphic file (type png)
 <use Pictures/mat_med_dispersion_pruebaAleatoria.png>
@@ -1558,7 +1590,7 @@ LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
  [44 <./Pictures/intervalos_confianza.png> <./Pictures/mat_med_dispersion_prueb
 aAleatoria.png>]
-<Pictures/mat_alumnos_corregidos_EstadisticaIII.png, id=968, 307.1475pt x 305.6
+<Pictures/mat_alumnos_corregidos_EstadisticaIII.png, id=978, 307.1475pt x 305.6
 4188pt>
 File: Pictures/mat_alumnos_corregidos_EstadisticaIII.png Graphic file (type png
 )
@@ -1566,10 +1598,10 @@ File: Pictures/mat_alumnos_corregidos_EstadisticaIII.png Graphic file (type png
 Package pdftex.def Info: Pictures/mat_alumnos_corregidos_EstadisticaIII.png  us
 ed on input line 19.
 (pdftex.def)             Requested size: 245.71832pt x 244.51381pt.
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
+LaTeX Info: Redefining \. on input line 29.
+LaTeX Info: Redefining \% on input line 29.
  [45 <./Pictures/mat_alumnos_corregidos_EstadisticaIII.png>]
-<Pictures/vec_alum_sim_EstadisticaIII.png, id=979, 100.87688pt x 304.88907pt>
+<Pictures/vec_alum_sim_EstadisticaIII.png, id=989, 100.87688pt x 304.88907pt>
 File: Pictures/vec_alum_sim_EstadisticaIII.png Graphic file (type png)
 <use Pictures/vec_alum_sim_EstadisticaIII.png>
 Package pdftex.def Info: Pictures/vec_alum_sim_EstadisticaIII.png  used on inpu
@@ -1578,7 +1610,7 @@ t line 33.
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
  [46 <./Pictures/vec_alum_sim_EstadisticaIII.png>]
-<Pictures/mat_demanda_alumnos.png, id=985, 726.46407pt x 339.51843pt>
+<Pictures/mat_demanda_alumnos.png, id=995, 726.46407pt x 339.51843pt>
 File: Pictures/mat_demanda_alumnos.png Graphic file (type png)
 <use Pictures/mat_demanda_alumnos.png>
 Package pdftex.def Info: Pictures/mat_demanda_alumnos.png  used on input line 4
@@ -1593,7 +1625,7 @@ Overfull \hbox (64.9429pt too wide) in paragraph at lines 46--47
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [47 <./Pictures/mat_demanda_alumnos.png>]
-<Pictures/profesores_TC_SelectorGadget.png, id=1000, 430.60875pt x 478.03593pt>
+<Pictures/profesores_TC_SelectorGadget.png, id=1010, 430.60875pt x 478.03593pt>
 
 File: Pictures/profesores_TC_SelectorGadget.png Graphic file (type png)
 <use Pictures/profesores_TC_SelectorGadget.png>
@@ -1606,7 +1638,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 16.
 LaTeX Info: Redefining \% on input line 16.
  [48]
-<Pictures/profesores_TC_sinLimpiar.png, id=1008, 448.67625pt x 257.46187pt>
+<Pictures/profesores_TC_sinLimpiar.png, id=1018, 448.67625pt x 257.46187pt>
 File: Pictures/profesores_TC_sinLimpiar.png Graphic file (type png)
 <use Pictures/profesores_TC_sinLimpiar.png>
 Package pdftex.def Info: Pictures/profesores_TC_sinLimpiar.png  used on input l
@@ -1618,25 +1650,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
  [49 <./Pictures/profesores_TC_SelectorGadget.png>]
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 66.
+LaTeX Info: Redefining \% on input line 66.
  [50 <./Pictures/profesores_TC_sinLimpiar.png>]) (Sim_solicitudes.tex
 LaTeX Info: Redefining \. on input line 29.
 LaTeX Info: Redefining \% on input line 29.
  [51]
-<Pictures/mat_1_solicitud_Margarita.png, id=1028, 475.7775pt x 157.33781pt>
+<Pictures/mat_1_solicitud_Margarita.png, id=1038, 475.7775pt x 157.33781pt>
 File: Pictures/mat_1_solicitud_Margarita.png Graphic file (type png)
 <use Pictures/mat_1_solicitud_Margarita.png>
 Package pdftex.def Info: Pictures/mat_1_solicitud_Margarita.png  used on input 
 line 54.
 (pdftex.def)             Requested size: 380.6225pt x 125.8704pt.
 )
-Underfull \vbox (badness 2057) has occurred while \output is active []
-
 LaTeX Info: Redefining \. on input line 75.
 LaTeX Info: Redefining \% on input line 75.
  [52 <./Pictures/mat_1_solicitud_Margarita.png>]
-<Pictures/Ej_esqueleto_20202.png, id=1047, 555.57562pt x 339.51843pt>
+<Pictures/Ej_esqueleto_20202.png, id=1057, 555.57562pt x 339.51843pt>
 File: Pictures/Ej_esqueleto_20202.png Graphic file (type png)
 <use Pictures/Ej_esqueleto_20202.png>
 Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 12
@@ -1647,10 +1677,10 @@ Overfull \hbox (0.88261pt too wide) in paragraph at lines 122--123
  [][] 
  []
 
-LaTeX Info: Redefining \. on input line 124.
-LaTeX Info: Redefining \% on input line 124.
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
 [53]
-<Pictures/histograma_FR_D-E_x_gpo.png, id=1063, 967.36406pt x 496.85625pt>
+<Pictures/histograma_FR_D-E_x_gpo.png, id=1073, 967.36406pt x 496.85625pt>
 File: Pictures/histograma_FR_D-E_x_gpo.png Graphic file (type png)
 <use Pictures/histograma_FR_D-E_x_gpo.png>
 Package pdftex.def Info: Pictures/histograma_FR_D-E_x_gpo.png  used on input li
@@ -1661,13 +1691,11 @@ Overfull \hbox (40.10237pt too wide) in paragraph at lines 132--133
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 135.
-LaTeX Info: Redefining \% on input line 135.
- [54 <./Pictures/Ej_esqueleto_20202.png>]
-<Pictures/histograma_FR_D-E_D_x_gpo.png, id=1071, 971.12813pt x 507.39563pt>
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+[54 <./Pictures/Ej_esqueleto_20202.png> <./Pictures/histograma_FR_D-E_x_gpo.png
+>]
+<Pictures/histograma_FR_D-E_D_x_gpo.png, id=1082, 971.12813pt x 507.39563pt>
 File: Pictures/histograma_FR_D-E_D_x_gpo.png Graphic file (type png)
 <use Pictures/histograma_FR_D-E_D_x_gpo.png>
 Package pdftex.def Info: Pictures/histograma_FR_D-E_D_x_gpo.png  used on input 
@@ -1678,11 +1706,7 @@ Overfull \hbox (41.9844pt too wide) in paragraph at lines 141--142
  [][] 
  []
 
-LaTeX Info: Redefining \. on input line 147.
-LaTeX Info: Redefining \% on input line 147.
-[55 <./Pictures/histograma_FR_D-E_x_gpo.png> <./Pictures/histograma_FR_D-E_D_x_
-gpo.png>]
-<Pictures/histograma_FR_D-E_x_materia.png, id=1079, 980.91469pt x 506.6428pt>
+<Pictures/histograma_FR_D-E_x_materia.png, id=1084, 980.91469pt x 506.6428pt>
 File: Pictures/histograma_FR_D-E_x_materia.png Graphic file (type png)
 <use Pictures/histograma_FR_D-E_x_materia.png>
 Package pdftex.def Info: Pictures/histograma_FR_D-E_x_materia.png  used on inpu
@@ -1693,7 +1717,13 @@ Overfull \hbox (46.87767pt too wide) in paragraph at lines 150--151
  [][] 
  []
 
-<Pictures/histograma_FR_D-E_D_x_materia.png, id=1081, 971.88094pt x 499.11469pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 153.
+LaTeX Info: Redefining \% on input line 153.
+ [55 <./Pictures/histograma_FR_D-E_D_x_gpo.png>]
+<Pictures/histograma_FR_D-E_D_x_materia.png, id=1091, 971.88094pt x 499.11469pt
 >
 File: Pictures/histograma_FR_D-E_D_x_materia.png Graphic file (type png)
 <use Pictures/histograma_FR_D-E_D_x_materia.png>
@@ -1705,49 +1735,39 @@ Overfull \hbox (42.36081pt too wide) in paragraph at lines 159--160
  [][] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 162.
-LaTeX Info: Redefining \% on input line 162.
- [56 <./Pictures/histograma_FR_D-E_x_materia.png>]
-<Pictures/error_rel_mate_para_ciencias_app.png, id=1088, 248.42813pt x 347.0465
+LaTeX Info: Redefining \. on input line 164.
+LaTeX Info: Redefining \% on input line 164.
+[56 <./Pictures/histograma_FR_D-E_x_materia.png> <./Pictures/histograma_FR_D-E_
+D_x_materia.png>]
+<Pictures/error_rel_mate_para_ciencias_app.png, id=1099, 248.42813pt x 347.0465
 7pt>
 File: Pictures/error_rel_mate_para_ciencias_app.png Graphic file (type png)
 <use Pictures/error_rel_mate_para_ciencias_app.png>
 Package pdftex.def Info: Pictures/error_rel_mate_para_ciencias_app.png  used on
  input line 167.
 (pdftex.def)             Requested size: 248.42752pt x 347.04572pt.
+LaTeX Info: Redefining \. on input line 193.
+LaTeX Info: Redefining \% on input line 193.
+ [57 <./Pictures/error_rel_mate_para_ciencias_app.png>])
+LaTeX Info: Redefining \. on input line 482.
+LaTeX Info: Redefining \% on input line 482.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 170.
-LaTeX Info: Redefining \% on input line 170.
- [57 <./Pictures/histograma_FR_D-E_D_x_materia.png>]
-LaTeX Info: Redefining \. on input line 196.
-LaTeX Info: Redefining \% on input line 196.
- [58 <./Pictures/error_rel_mate_para_ciencias_app.png>])
-LaTeX Info: Redefining \. on input line 477.
-LaTeX Info: Redefining \% on input line 477.
- [59]
+[58]
 \openout2 = `Teoria_de_AG_aplicado_a_horarios.aux'.
 
  (Teoria_de_AG_aplicado_a_horarios.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [60
+Cap\'{\i }tulo 5.
+[59
 
 
 
 ]
-Cap\'{\i }tulo 5.
-[61]
-<Pictures/AG.png, id=1118, 672.768pt x 418.70714pt>
+<Pictures/AG.png, id=1119, 672.768pt x 418.70714pt>
 File: Pictures/AG.png Graphic file (type png)
 <use Pictures/AG.png>
 Package pdftex.def Info: Pictures/AG.png  used on input line 40.
 (pdftex.def)             Requested size: 302.7428pt x 188.41646pt.
-<Pictures/AG_aplicado.png, id=1119, 640.64343pt x 372.64218pt>
+<Pictures/AG_aplicado.png, id=1120, 640.64343pt x 372.64218pt>
 File: Pictures/AG_aplicado.png Graphic file (type png)
 <use Pictures/AG_aplicado.png>
 Package pdftex.def Info: Pictures/AG_aplicado.png  used on input line 56.
@@ -1759,20 +1779,20 @@ LaTeX Info: Redefining \. on input line 59.
 LaTeX Info: Redefining \% on input line 59.
 
 Overfull \hbox (12.16653pt too wide) has occurred while \output is active
-\T1/ptm/m/n/12 62 \T1/ptm/m/sl/12 CAPÍTULO 5.  TEORÍA DEL ALGORITMO GENÉTICO AP
+\T1/ptm/m/n/12 60 \T1/ptm/m/sl/12 CAPÍTULO 5.  TEORÍA DEL ALGORITMO GENÉTICO AP
 LICADO A LOS HORARIOS
  []
 
-[62 <./Pictures/AG.png>])
-LaTeX Info: Redefining \. on input line 479.
-LaTeX Info: Redefining \% on input line 479.
+[60 <./Pictures/AG.png>])
+LaTeX Info: Redefining \. on input line 484.
+LaTeX Info: Redefining \% on input line 484.
 
 Overfull \hbox (68.61324pt too wide) has occurred while \output is active
 \T1/ptm/m/sl/12 5.2.  ALGORITMO GENÉTICO APLICADO A LA GENERACIÓN DE ESQUELETOS
- DE HORARIO \T1/ptm/m/n/12 63
+ DE HORARIO \T1/ptm/m/n/12 61
  []
 
-[63 <./Pictures/AG_aplicado.png>]
+[61 <./Pictures/AG_aplicado.png>]
 \openout2 = `Resultados_de_AG.aux'.
 
  (Resultados_de_AG.tex
@@ -1780,20 +1800,32 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 
 Overfull \hbox (12.16653pt too wide) has occurred while \output is active
-\T1/ptm/m/n/12 64 \T1/ptm/m/sl/12 CAPÍTULO 5.  TEORÍA DEL ALGORITMO GENÉTICO AP
+\T1/ptm/m/n/12 62 \T1/ptm/m/sl/12 CAPÍTULO 5.  TEORÍA DEL ALGORITMO GENÉTICO AP
 LICADO A LOS HORARIOS
  []
 
-[64
+[62
 
 
 
 ]
 Cap\'{\i }tulo 6.
-) [65]
+) [63]
 \openout2 = `Comportamiento_de_seleccion.aux'.
 
  (Comportamiento_de_seleccion.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [64
+
+
+
+]
+Cap\'{\i }tulo 7.
+) [65]
+\openout2 = `Conclusiones.aux'.
+
+ (Conclusiones.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [66
@@ -1801,20 +1833,8 @@ LaTeX Info: Redefining \% on input line 1.
 
 
 ]
-Cap\'{\i }tulo 7.
-) [67]
-\openout2 = `Conclusiones.aux'.
-
- (Conclusiones.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [68
-
-
-
-]
 Cap\'{\i }tulo 8.
-[69]
+[67]
 Overfull \hbox (43.63466pt too wide) in paragraph at lines 35--36
 [][]$\T1/cmtt/m/n/12 https : / / psicologia . iztacala . unam . mx / avisos2020
  / horarios21 _ 1 / 21-[]1 _ 3-[]TERCER %
@@ -1858,7 +1878,7 @@ poAl . aspx ? Gpo = 1AV1 & PaId =
 
 LaTeX Info: Redefining \. on input line 74.
 LaTeX Info: Redefining \% on input line 74.
-[70]
+[68]
 Overfull \hbox (5.5937pt too wide) in paragraph at lines 75--76
 [][]$\T1/cmtt/m/n/12 http : / / escolar1 . rhon . itam . mx / licenciaturas / h
 orarios / seleccion _ 03 . asp$[] 
@@ -1870,7 +1890,7 @@ Overfull \hbox (11.7672pt too wide) in paragraph at lines 77--78
 orarios / pormateria _ 03 . asp$[] 
  []
 
-<Pictures/ITAM_Proba_I.png, id=1187, 1025.33063pt x 313.17pt>
+<Pictures/ITAM_Proba_I.png, id=1189, 1025.33063pt x 313.17pt>
 File: Pictures/ITAM_Proba_I.png Graphic file (type png)
 <use Pictures/ITAM_Proba_I.png>
 Package pdftex.def Info: Pictures/ITAM_Proba_I.png  used on input line 81.
@@ -1904,15 +1924,15 @@ Overfull \hbox (36.46117pt too wide) in paragraph at lines 98--99
 / fechas _ de _ examenes _ humanidades _
  []
 
-[71 <./Pictures/ITAM_Proba_I.png>])
-LaTeX Info: Redefining \. on input line 485.
-LaTeX Info: Redefining \% on input line 485.
- [72]
+[69 <./Pictures/ITAM_Proba_I.png>])
+LaTeX Info: Redefining \. on input line 490.
+LaTeX Info: Redefining \% on input line 490.
+ [70]
 \openout2 = `Apendices.aux'.
 
  (Apendices.tex
 Ap\'{e}ndice A.
-[73
+[71
 
 
 
@@ -1936,14 +1956,14 @@ File: lstlang2.sty 2019/09/10 1.8c listings language file
 sty"
 File: lstlang3.sty 2019/09/10 1.8c listings language file
 )
-<Pictures/clases_de_ingles.png, id=1230, 423.83344pt x 268.00125pt>
+<Pictures/clases_de_ingles.png, id=1231, 423.83344pt x 268.00125pt>
 File: Pictures/clases_de_ingles.png Graphic file (type png)
 <use Pictures/clases_de_ingles.png>
 Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 88.
 (pdftex.def)             Requested size: 275.48845pt x 174.19873pt.
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
- [74 <./Pictures/clases_de_ingles.png>]
+LaTeX Info: Redefining \. on input line 95.
+LaTeX Info: Redefining \% on input line 95.
+ [72 <./Pictures/clases_de_ingles.png>]
 Overfull \hbox (1.92279pt too wide) in paragraph at lines 110--111
 []$[] [] [] []$ 
  []
@@ -1957,14 +1977,14 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 118.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 118.
-[75]
-<Pictures/Ej_horarios_20211.png, id=1276, 569.12625pt x 402.75468pt>
+[73]
+<Pictures/Ej_horarios_20211.png, id=1278, 569.12625pt x 402.75468pt>
 File: Pictures/Ej_horarios_20211.png Graphic file (type png)
 <use Pictures/Ej_horarios_20211.png>
 Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 151
 .
 (pdftex.def)             Requested size: 256.10445pt x 181.23793pt.
-<Pictures/Notas_T26.jpeg, id=1277, 867.24pt x 510.40688pt>
+<Pictures/Notas_T26.jpeg, id=1279, 867.24pt x 510.40688pt>
 File: Pictures/Notas_T26.jpeg Graphic file (type jpg)
 <use Pictures/Notas_T26.jpeg>
 Package pdftex.def Info: Pictures/Notas_T26.jpeg  used on input line 159.
@@ -1974,14 +1994,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
- [76 <./Pictures/Ej_horarios_20211.png>]
-<Pictures/Ej_Roxygen.png, id=1292, 222.8325pt x 153.57375pt>
+ [74 <./Pictures/Ej_horarios_20211.png>]
+<Pictures/Ej_Roxygen.png, id=1294, 222.8325pt x 153.57375pt>
 File: Pictures/Ej_Roxygen.png Graphic file (type png)
 <use Pictures/Ej_Roxygen.png>
 Package pdftex.def Info: Pictures/Ej_Roxygen.png  used on input line 172.
 (pdftex.def)             Requested size: 222.83195pt x 153.57336pt.
- [77 <./Pictures/Notas_T26.jpeg> <./Pictures/Ej_Roxygen.png>]
-<Pictures/Ej_varianza.jpeg, id=1305, 1284.8pt x 722.7pt>
+ [75 <./Pictures/Notas_T26.jpeg> <./Pictures/Ej_Roxygen.png>]
+<Pictures/Ej_varianza.jpeg, id=1307, 1284.8pt x 722.7pt>
 File: Pictures/Ej_varianza.jpeg Graphic file (type jpg)
 <use Pictures/Ej_varianza.jpeg>
 Package pdftex.def Info: Pictures/Ej_varianza.jpeg  used on input line 203.
@@ -1995,14 +2015,14 @@ Overfull \hbox (159.53743pt too wide) in paragraph at lines 209--210
 
 LaTeX Info: Redefining \. on input line 212.
 LaTeX Info: Redefining \% on input line 212.
-[78 <./Pictures/Ej_varianza.jpeg>]
-<Pictures/clausula99_CCTPA.png, id=1321, 379.4175pt x 124.21407pt>
+[76 <./Pictures/Ej_varianza.jpeg>]
+<Pictures/clausula99_CCTPA.png, id=1322, 379.4175pt x 124.21407pt>
 File: Pictures/clausula99_CCTPA.png Graphic file (type png)
 <use Pictures/clausula99_CCTPA.png>
 Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 221.
 
 (pdftex.def)             Requested size: 303.53441pt x 99.37137pt.
- [79 <./Pictures/clausula99_CCTPA.png>]
+ [77 <./Pictures/clausula99_CCTPA.png>]
 Overfull \hbox (1.11371pt too wide) in paragraph at lines 259--260
 []\T1/ptm/b/n/12 Mecánica Ana-lí-ti-ca (13) \T1/ptm/m/n/12 -> In-tro-duc-ción M
 a-te-má-ti-ca a la Me-cá-ni-ca Ce-les-te (119) 
@@ -2010,13 +2030,13 @@ a-te-má-ti-ca a la Me-cá-ni-ca Ce-les-te (119)
 
 LaTeX Info: Redefining \. on input line 296.
 LaTeX Info: Redefining \% on input line 296.
-[80]
+[78]
 Overfull \hbox (7.21057pt too wide) in paragraph at lines 311--312
 []\T1/ptm/m/n/12 Arquitectura de Compu-tado-ras \T1/ptm/b/n/12 (102) \T1/ptm/m/
 n/12 -> \T1/ptm/b/n/12 Or-ga-ni-za-ción y Ar-qui-tec-tu-ra de Compu-
  []
 
-[81]
+[79]
 Overfull \hbox (15.59842pt too wide) in paragraph at lines 343--344
 []\T1/ptm/b/n/12 Graficación por Compu-tado-ras (186) \T1/ptm/m/n/12 -> Vi-sua-
 li-za-ción (188) -> Geo-me-tría Compu-
@@ -2030,39 +2050,52 @@ Overfull \hbox (9.77783pt too wide) in paragraph at lines 345--346
 
 LaTeX Info: Redefining \. on input line 365.
 LaTeX Info: Redefining \% on input line 365.
-[82] [83]
-LaTeX Info: Redefining \. on input line 375.
-LaTeX Info: Redefining \% on input line 375.
- [84
+[80]
+Overfull \hbox (41.87955pt too wide) in paragraph at lines 370--371
+[]\T1/ptm/m/n/12 Los co-man-dos [][]\T1/cmtt/m/n/12 \subsecname{\ref{nom_subsec
+cion}}[]\T1/ptm/m/n/12 , [] []\T1/cmtt/m/n/12 \secname{\ref{nom_seccion}}[]\T1/
+ptm/m/n/12 ,
+ []
+
+
+Overfull \hbox (40.84773pt too wide) in paragraph at lines 370--371
+[] []\T1/cmtt/m/n/12 \subsectionname{\ref{nom_subseccion}} []\T1/ptm/m/n/12 y [
+][]\T1/cmtt/m/n/12 \subsectionname{\ref{nom_seccion}}
+ []
+
+[81]
+LaTeX Info: Redefining \. on input line 423.
+LaTeX Info: Redefining \% on input line 423.
+ [82
 
 ]
 Ap\'{e}ndice B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85]
-LaTeX Info: Redefining \. on input line 410.
-LaTeX Info: Redefining \% on input line 410.
+ [83]
+LaTeX Info: Redefining \. on input line 458.
+LaTeX Info: Redefining \% on input line 458.
 
-[86]
+[84]
 Ap\'{e}ndice C.
-) [87
+) [85
 
 ]
-LaTeX Info: Redefining \. on input line 495.
-LaTeX Info: Redefining \% on input line 495.
- [88
+LaTeX Info: Redefining \. on input line 500.
+LaTeX Info: Redefining \% on input line 500.
+ [86
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 534--535
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
 [][]$\T1/cmtt/m/n/12 https : / / estadisticafciencias . files . wordpress . com
  / 2019 / 08 /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 569.
-[89]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 569.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 574.
+[87]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 574.
  (main.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
@@ -2070,23 +2103,19 @@ LaTeX Info: Redefining \% on input line 21.
 (Analisis_estadistico.aux) (Simulacion.aux)
 (Teoria_de_AG_aplicado_a_horarios.aux) (Resultados_de_AG.aux)
 (Comportamiento_de_seleccion.aux) (Conclusiones.aux) (Apendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 569.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 569.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 574.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 574.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 54E1B072EC6B860FD46CBBF7A7562DDE;3724.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: 70C8BE7E372639BB1173BC54CD7D85CD;3922.
  ) 
 Here is how much of TeX's memory you used:
- 13473 strings out of 481556
- 207914 string characters out of 2913870
- 737350 words of memory out of 3000000
- 27906 multiletter control sequences out of 15000+200000
+ 14690 strings out of 481556
+ 232036 string characters out of 2913870
+ 751778 words of memory out of 3000000
+ 29090 multiletter control sequences out of 15000+200000
  621831 words of font info for 156 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,46p,1039b,2095s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,17n,46p,1039b,2081s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\miri_\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ectt1200.pk>{C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/b
 ase/8r.enc}<C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -2105,9 +2134,9 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (102 pages, 2937020 bytes).
+Output written on main.pdf (100 pages, 2943721 bytes).
 PDF statistics:
- 1600 PDF objects out of 1728 (max. 8388607)
- 392 named destinations out of 1000 (max. 500000)
- 740 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1634 PDF objects out of 1728 (max. 8388607)
+ 416 named destinations out of 1000 (max. 500000)
+ 756 words of extra memory for PDF output out of 10000 (max. 10000000)
 

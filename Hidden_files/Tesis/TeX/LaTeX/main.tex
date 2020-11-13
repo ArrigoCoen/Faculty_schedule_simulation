@@ -116,14 +116,19 @@
 \usepackage{subfigure} %% Necesitamos este paquete para poner las subfiguras horizontales
 %\usepackage{subfig} %% Subfiguras verticales %%%PRODUCE ERROR
 
+%% Referencias %%
+\usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
+\usepackage[hypcap=true]{caption} %%  The link (of the reference) points to the top of the image
+%\usepackage{nameref} %% Para poner el nombre del objeto que se está referenciando. Ej. Si se tiene Figura 1.3 Ejemplo de animales, con nameref se imprime "Ejemplo de animales.
+
 %% Otros %%
 \usepackage{url} %%Para agregar páginas de internet
 \usepackage{makeidx}
 \usepackage{verbatim} %% Para poder agregar textos tal cual se escriben, por ejemplo los códigos sin que se modifiquen.
-\usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
 %\usepackage{blindtext}
 %\usepackage{showframe} %% Mostrar la caja de texto
 \usepackage{longtable} %% Tablas grandes
+
 
 %% Definición de variables %%
 \newcommand{\dfNmatrizChica}{\begin{table}[h]
