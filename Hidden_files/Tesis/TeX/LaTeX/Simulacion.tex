@@ -125,6 +125,54 @@ En la figura \ref{esqueleto20202} vemos un ejemplo de la matriz \textit{mat\_esq
 
 \subsection{Calificación de esqueletos de horario}
 
+En la figura \ref{dif_D_E_gpo} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{histograma_FR_D-E_x_gpo} %width=\textwidth
+\caption{\textit{Histograma de la diferencia de las matrices D - E por grupo}}\label{dif_D_E_gpo}
+\end{figure}
+
+
+En la figura \ref{difRel_D_E_gpo} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{histograma_FR_D-E_D_x_gpo} %width=\textwidth
+\caption{\textit{Histograma de la diferencia relativa de las matrices D y E por grupo}}\label{difRel_D_E_gpo}
+\end{figure}
+
+
+En la figura \ref{dif_D_E_materia} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{histograma_FR_D-E_x_materia} %width=\textwidth
+\caption{\textit{Histograma de la diferencia de las matrices D - E por materia}}\label{dif_D_E_materia}
+\end{figure}
+
+
+En la figura \ref{difRel_D_E_materia} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.5]{histograma_FR_D-E_D_x_materia} %width=\textwidth
+\caption{\textit{Histograma de la diferencia relativa de las matrices D y E por materia}}\label{difRel_D_E_materia}
+\end{figure}
+
+Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la figura \ref{difRel_mate_ciencias_app} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos la los valores de la última columna de la figura.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{error_rel_mate_para_ciencias_app} %width=\textwidth
+\caption{\textit{Ejemplo de error relativo: Matemáticas para las Ciencias Aplicadas I}}\label{difRel_mate_ciencias_app}
+\end{figure}
+
+
+
+
+
+
 \begin{eqnarray*}
 L_{materia} &=& -1 \,\,\,\,\,\,  \text{por cada materia no impartida}\\
 x &=& \text{promedio}\\

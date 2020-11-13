@@ -19,10 +19,10 @@ gen_asignacion_completa <- function(param,param_sim){
   #' 1-3) Extracción de datos y simulación de alumnos de t+1
   # set.seed(8654)
   set.seed(1806)
-  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#44.84 seg
+  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#39.95 seg
   View(mat_demanda_alumnos)
   
-  #' 4a) Simulación de solicitudes de profesores de t+1 (oculta)
+  #' 4a) Simulación de solicitudes de profesores del siguiente semestre (oculta)
   # set.seed(8654)
   set.seed(1806)
   mat_solicitudes <- gen_solicitudes(param)#8.14 seg

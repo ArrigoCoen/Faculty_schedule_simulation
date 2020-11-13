@@ -14,201 +14,103 @@ source("Fn_Asignacion.R")
 
 
 
-# gen_mat_nom_materias_total ----------------------------------------------
-gen_mat_nom_materias_total <- function(param,param_sim){
-  #se carga la lista con el nombre de las materias por carrera
-  load("lista_mat_materias_x_carrera.RData")
-  #Se definen las variables que se van a utilizar
-  materias_act <- lista_mat_materias_x_carrera[[1]]
-  materias_CdC <- lista_mat_materias_x_carrera[[2]]
-  materias_mate <- lista_mat_materias_x_carrera[[3]]
-  materias_mateAp <- lista_mat_materias_x_carrera[[4]]
-  mat_nombres_carreras <- unique(rbind(materias_act,materias_CdC,materias_mate,materias_mateAp))
-  
-  vec_nom_materias_total <- param$vec_nom_materias_total
-  m_grande_2015 <- param$m_grande_2015
-  param$m_grande_total = m_grande_2015
-  param_sim$k_sem_ant = 11
-  param_sim$vec_sem_sig = 20202
-  num_col_Materia <- arroja_ind_col_MG("Materia")
-  num_col_NomMat_Act2000 <- arroja_ind_col_MG("NomMat_Act2000")
-  num_col_NomMat_MAp2017 <- arroja_ind_col_MG("NomMat_MAp2017")
-  ind_quitar <- 0
-  cont <- 1
-  mat_nom_materias <- data.frame(Materia = vec_nom_materias_total,
-                                 Num_Materia = 1:length(vec_nom_materias_total),
-                                 Nom1 = 0,Nom2 = 0,Nom3 = 0,Nom4 = 0,Nom5 = 0,
-                                 Nom6 = 0,Nom7 = 0,Nom8 = 0,Nom9 = 0,Nom10 = 0,
-                                 Nom11 = 0,Nom12 = 0,Nom13 = 0,Nom14 = 0,Nom15 = 0,
-                                 Nom16 = 0,Nom17 = 0,Nom18 = 0,Nom19 = 0,Nom20 = 0)
-  
-  for(d in 1:length(vec_nom_materias_total)){
-    cat("\n = ",d)
-    materia <- vec_nom_materias_total[d]
-    param_sim$Materias = materia
-    matriz <- gen_mat_m_filtrada(param,param_sim)
-    
-    if(dim(matriz)[1] == 0){
-      cat("\nEliminar ",materia," de la lista, tiene índice ",d)
-      ind_quitar <- c(ind_quitar,d)
-    }else{
-      nom_materias <- unique(matriz[,c(num_col_Materia,
-                                       num_col_NomMat_Act2000:num_col_NomMat_MAp2017)])
-      nom_materias <- unique(nom_materias[nom_materias!=0])
-      if(d == mat_nombres_carreras[order(mat_nombres_carreras[,2]),][cont,2]){
-        nom_materias <- c(nom_materias,
-                          mat_nombres_carreras[order(mat_nombres_carreras[,2]),][d,1])
-        cont <- cont + 1
-      }
-      mat_nom_materias[d,3:(3+length(nom_materias)-1)] <- nom_materias
-    }
-  }#Fin for(d)
-  #Se quita el cero del inicio
-  ind_quitar <- ind_quitar[-1]
-  
-}
-
-
-
-
-# PRUEBAS -----------------------------------------------------------------
-mat_nombres_carreras <- mat_nombres_carreras[order(mat_nombres_carreras[,2]),]
-
-materias_extras <- setdiff(1:length(vec_nom_materias_total),mat_nombres_carreras[,2])
-length(materias_extras)#104
-View(vec_nom_materias_total[materias_extras])
-
-mat_nom_materias[223,3] <- "Sistemas Dinámicos Discretos II"
-View(mat_nom_materias)
-
-
-vec_nom_materias_aux <- vec_nom_materias_total
-mat_nom_materias_total <- data.frame(Materia = 0,
-                                     Num_Materia = 1:length(vec_nom_materias_total),
-                                     Nom1 = 0,Nom2 = 0,Nom3 = 0,Nom4 = 0,Nom5 = 0,
-                                     Nom6 = 0,Nom7 = 0,Nom8 = 0,Nom9 = 0,Nom10 = 0,
-                                     Nom11 = 0,Nom12 = 0,Nom13 = 0,Nom14 = 0,Nom15 = 0,
-                                     Nom16 = 0,Nom17 = 0,Nom18 = 0,Nom19 = 0,Nom20 = 0)
-
-mat_nom_materias_total[mat_nombres_carreras[,2],1] <- mat_nombres_carreras[,1]
-mat_nom_materias_total[mat_nombres_carreras[,2],c(3:22)] <- mat_nom_materias[
-  mat_nombres_carreras[,2],c(3:22)]
-
-nom_adm_act_riesgo <- mat_nom_materias[c(1,148,288),]
-nom_adm_act_riesgo <- nom_adm_act_riesgo[,c(1,3:20)]
-nom_adm_act_riesgo <- unique(nom_adm_act_riesgo[nom_adm_act_riesgo!=0])
-mat_nom_materias_total[1,1:(2+length(nom_adm_act_riesgo))] <- 
-  c("Administración Actuarial del Riesgo",
-    1,nom_adm_act_riesgo)
-mat_nom_materias_total[c(148,288),] <- rep("X",dim(mat_nom_materias_total)[2])
-
-nom_rec_bus_info_text <- mat_nom_materias[c(3,257),]
-nom_rec_bus_info_text <- nom_rec_bus_info_text[,c(1,3:20)]
-nom_rec_bus_info_text <- unique(nom_rec_bus_info_text[nom_rec_bus_info_text!=0])
-mat_nom_materias_total[3,1:(2+length(nom_rec_bus_info_text))] <- 
-  c("Recuperación y Búsqueda de Información en Textos",3,nom_rec_bus_info_text)
-mat_nom_materias_total[c(257),] <- rep("X",dim(mat_nom_materias_total)[2])
-
-mat_nom_materias_total[4,] <- mat_nom_materias[4,]
-mat_nom_materias_total[4,8] <- "Temas Selectos de Ingeniería de Software A"
-mat_nom_materias_total[c(192,258,278),] <- rep("X",dim(mat_nom_materias_total)[2])
-
-mat_nom_materias_total[60,5] <- "Probabilidad y Estadística"
-mat_nom_materias_total[5,] <- rep("X",dim(mat_nom_materias_total)[2])
-
-mat_nom_materias_total[260,] <- rep("X",dim(mat_nom_materias_total)[2])
-
-mat_nom_materias_total[11,4] <- "Electromagnetismo II/Electromagnetismo II/Electromagnetismo II"
-
-nom_fun_esp <- mat_nom_materias[c(12,53),]
-nom_fun_esp <- nom_fun_esp[,c(1,3:20)]
-nom_fun_esp <- unique(nom_fun_esp[nom_fun_esp!=0])
-mat_nom_materias_total[12,1:(2+length(nom_fun_esp))] <- 
-  c("Funciones Especiales y Transformadas Integrales",12,nom_fun_esp)
-mat_nom_materias_total[53,] <- rep("X",dim(mat_nom_materias_total)[2])
-
-mat_nom_materias_total[16,4] <- "Mecánica Cuántica/Mecánica Cuántica/Mecánica Cuántica"
-
-mat_nom_materias_total[24,c(5,6)] <- 0
-
-mat_nom_materias_total[26,c(5,6)] <- 0
-
-mat_nom_materias_total[27,c(5,6)] <- 0
-mat_nom_materias_total[310,c(4,5)] <- 0
-
-mat_nom_materias_total[34,] <- mat_nom_materias[34,]
-mat_nom_materias_total[34,5] <- 0
-
-mat_nom_materias_total[36,1] <- "Introducción a las Matemáticas Discretas"
-mat_nom_materias_total[311,] <- rep("X",dim(mat_nom_materias_total)[2])
-
-
-
-
-# vec_nom_materias_aux <- vec_nom_materias_aux[-c(1,148,288,3,257)]
-#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # arroja_nom_correcto -----------------------------------------------------
-arroja_nom_correcto <- function(param){
+#' Title arroja_nom_correcto: Función que arroja un vector con el nombre
+#' correcto de la materia ingresada y su número de materia.
+#'
+#' @param nom_materia: Nombre de alguna materia impartida en la FC.
+#'
+#' @return vec_info_nombre: Vector con el nombre correcto de la materia
+#' ingresada y su número de materia.
+#'
+#' @examples
+#' vec_info_nombre <- arroja_nom_correcto("Estadística I")
+#' vec_info_nombre <- arroja_nom_correcto(nom_materia)
+#' 
+arroja_nom_correcto <- function(nom_materia){
+  load("mat_nom_materias_total.RData")
   #Se definen las variables que se van a utilizar
-  vec_nom_materias_total <- param$vec_nom_materias_total
-  m_grande_2015 <- param$m_grande_2015
-  View(vec_nom_materias_total)
-  View(m_grande_2015)
+  # vec_info_nombre <- rep(0,2)
+  mat_nom_materias_total
+  which(nom_materia == mat_nom_materias_total[,3:dim(mat_nom_materias_total)[2]])
   
-  df_nom_materias_total <- data.frame(Num_Materia = 1:length(vec_nom_materias_total),
-                                      Materia = vec_nom_materias_total)
+  for(d in 1:dim(mat_nom_materias_total)[1]){
+    ind <- which(nom_materia == mat_nom_materias_total[d,3:dim(mat_nom_materias_total)[2]])
+    if(length(ind) > 0){
+      vec_info_nombre <- c(mat_nom_materias_total[d,1],d)
+    }
+  }
   
-  
-  
+  cat("\n La materia ",nom_materia," se llama: ",vec_info_nombre[1],
+      ". Su número de materia es: ",vec_info_nombre[2])
+  return(vec_info_nombre)
 }
 
 
-# corrige_nom_materias ----------------------------------------------------
-corrige_nom_materias <- function(param){
-  #Se definen las variables que se van a utilizar
-  vec_nom_materias_total <- param$vec_nom_materias_total
-  
-  View(vec_nom_materias_total)
-  View(m_grande_2015)
-  
-  
-  
-  
-  
-}
+# Ej. ---------------------------------------------------------------------
+nom_materia <- "Administración"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+
+nom_materia <- "Estadística I"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+nom_materia <- "Inferencia Estadística"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+
 
 
 
 # actualiza_col_num_materia -----------------------------------------------
-actualiza_col_num_materia <- function(){
+#' Title actualiza_col_num_materia: Función que actualiza las matrices
+#' "m_grande" con el nombre correcto para las materias y también actualiza
+#' el número de materia en caso de ser necesario.
+#'
+#' se deben de tomar en cuenta al crear "m_grande".
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
+#'
+#' @examples
+#' actualiza_col_num_materia(param)
+#' 
+actualiza_col_num_materia <- function(param){
   #Se definen las variables que se van a utilizar
+  # semestres <- param$sem_totales
+  semestres <- param$sem_totales[20:length(param$sem_totales)]
+  num_col_Materia <- arroja_ind_col_MG("Materia")##1
+  num_col_Profesor <- arroja_ind_col_MG("Profesor")##2
+  num_col_Cambios <- arroja_ind_col_MG("Cambios")##12
+  num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
   
-  
+  for(s in 1:(length(semestres)-1)){
+    sem_info <- semestres[s]
+    nom_m_grande <- paste0("m_grande por semestre/m_grande_",sem_info,".RData")
+    load(nom_m_grande)
+    m_grande <- m_grande[m_grande[,num_col_Profesor]!=0,]
+    m_grande <- m_grande[!is.na(m_grande[,num_col_Materia]),]
+    
+    for(r in 1:dim(m_grande)[1]){#Recorre renglones
+      nom_materia <- m_grande[r,num_col_Materia]
+      vec_info_nombre <- arroja_nom_correcto(nom_materia)
+      if(vec_info_nombre[1] != 0){
+        #Cuando si se encuentra el nombre de
+        m_grande[r,num_col_Materia] <- vec_info_nombre[1]
+        
+        if(m_grande[r,num_col_NumMateria] != vec_info_nombre[2]){
+          #' En caso de que se haya cambiado el número de materia se registra
+          #' en la columna de cambios.
+          m_grande[r,num_col_Cambios] <- paste0(m_grande[r,num_col_Cambios],"/5")
+        }
+      }
+      m_grande[r,num_col_NumMateria] <- vec_info_nombre[2]
+    }#Fin for(r)
+    save(m_grande,file = nom_m_grande)
+  }#Fin for(d)
 }
+
+
+
+# Ej. ---------------------------------------------------------------------
+actualiza_col_num_materia(param)
+
+

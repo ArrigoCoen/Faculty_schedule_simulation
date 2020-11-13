@@ -32,7 +32,7 @@ source("Fn_Asignacion.R")
 #' Title gen_m_grande_total: Función que genera la matriz "m_grande_total"
 #' para un intervalo dado.
 #'
-param$sem_ini = 20151##Inicio de información real
+param$sem_ini = 20131##Inicio de información real
 param$sem_fin = 20201##Fin de información real
 param$sem_sig = 20202##Semestre de simulación
 param$sem_totales <- (20081:param$sem_sig)[(20081:param$sem_sig)%% 10>0
@@ -45,9 +45,9 @@ param$n_semestres_anteriores = length(param$Semestres)
 # param$sem_ini = 20081##Inicio de información real
 # param$sem_fin = 20192##Fin de información real
 # param$sem_sig = 20201##Semestre de simulación
-# param$sem_totales <- (20081:param$sem_sig)[(20081:param$sem_sig)%% 10>0 
+# param$sem_totales <- (20081:param$sem_sig)[(20081:param$sem_sig)%% 10>0
 #                                            &(20081:param$sem_sig)%% 10<3]
-# param$Semestres = (param$sem_ini:param$sem_fin)[(param$sem_ini:param$sem_fin) 
+# param$Semestres = (param$sem_ini:param$sem_fin)[(param$sem_ini:param$sem_fin)
 #                                                 %% 10>0 &(param$sem_ini:param$sem_fin) %% 10<3]
 # param$nombre_sem = as.character(param$Semestres)
 # param$n_semestres_anteriores = length(param$Semestres)
@@ -182,7 +182,24 @@ checa_ind_materia(materia,m_grande_total)
 #' con ese nombre.
 #'
 materia <- "Estadística I"
-arroja_num_materia(materia,param)
+(num_materia <- arroja_num_materia(materia))
+materia <- "Estadística IV"
+arroja_num_materia(materia)
+
+
+# arroja_nom_correcto -----------------------------------------------------
+#' Title arroja_nom_correcto: Función que arroja un vector con el nombre
+#' correcto de la materia ingresada y su número de materia.
+#'
+nom_materia <- "Administración"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+nom_materia <- "/Principios de Computación Distribuida/Computación Concurrente"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+
+nom_materia <- "Estadística I"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
+nom_materia <- "Inferencia Estadística"
+vec_info_nombre <- arroja_nom_correcto(nom_materia)
 
 
 # agrega_nom_1_materia_en_vec ---------------------------------------------
