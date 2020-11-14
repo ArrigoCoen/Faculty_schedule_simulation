@@ -16,21 +16,25 @@ setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulatio
 load("Programas/Figuras PDF/fig_densidades_num_alum_x_gpo_x_sem/lista_num_al_x_gpo_x_sem.Rdata")
 
 # Figura ------------------------------------------------------------------
-#' Se convierten los datos en serie de tiempo
-sem_20081 <- lista_num_al_x_gpo_x_sem[[1]]
-sem_20081.ts <- ts(sem_20081,frequency = 1, start = c(7, 1))
-sem_20081.ts
-
 #Se crea la base de la gráfica con los datos del semestre 2008-1
 plot(0:360,ylim=c(0,0.025),type="n",
      main = "Densidades",xlab="Número de alumnos",ylab="Densidad",
      col=param_graficas$col1_linea,pch="o")
 lwd_dens <- 2
-lines(density(sem_20081),col=param_graficas$col1_linea,lwd=lwd_dens)
+colores <- c("chartreuse","chartreuse1","chartreuse2","chartreuse3","chartreuse4",#Verdes
+             "limegreen","olivedrab1","olivedrab2","olivedrab3","mediumspringgreen",#Verdes
+             # "gold","gold1","gold2","gold3","goldenrod1",#Amarillos
+             "deeppink","deeppink1","deeppink2","deeppink3","maroon1",#Rosas
+             "hotpink","hotpink1","hotpink2","hotpink3","magenta",#Rosas
+             # "firebrick","firebrick1","firebrick2","firebrick3","firebrick4",#Rojos
+             # "darkorchid","darkorchid1","darkorchid2","darkorchid3","darkorchid4",#Morados
+             # "dodgerblue","dodgerblue1","dodgerblue2","dodgerblue3","dodgerblue4")#Azules
+             "deepskyblue","deepskyblue1","deepskyblue2","deepskyblue3","skyblue")#Azules
 
 #Se generan las demás líneas correspondientes a cada semestre
-for(d in 2:length(lista_num_al_x_gpo_x_sem)){
-  line_color <- randomColor(hue=param_graficas$col1_linea)
+for(d in 1:length(lista_num_al_x_gpo_x_sem)){
+  # line_color <- randomColor(hue=param_graficas$col1_linea)
+  line_color <- colores[d]
   lines(density(lista_num_al_x_gpo_x_sem[[d]]),col=line_color,lwd=lwd_dens)
 }
 

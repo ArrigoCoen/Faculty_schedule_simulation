@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  13 NOV 2020 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  13 NOV 2020 21:36
 entering extended mode
 **./main.tex
 (main.tex
@@ -1375,7 +1375,7 @@ File: Pictures/histogramas_FA_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FA_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FA_num_alum_x_carrera.pdf  used o
 n input line 156.
-(pdftex.def)             Requested size: 346.89867pt x 260.17401pt.
+(pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 LaTeX Info: Redefining \. on input line 159.
 LaTeX Info: Redefining \% on input line 159.
 [30 <./Pictures/histograma_FR_num_alum_matu_vesp.pdf>]
@@ -1384,7 +1384,7 @@ File: Pictures/histogramas_FR_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FR_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FR_num_alum_x_carrera.pdf  used o
 n input line 165.
-(pdftex.def)             Requested size: 346.89867pt x 260.17401pt.
+(pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1408,28 +1408,31 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 180.
 LaTeX Info: Redefining \% on input line 180.
  [32 <./Pictures/histogramas_FR_num_alum_x_carrera.pdf>]
-<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=852, 578.16pt x 433.62pt>
+LaTeX Info: Redefining \. on input line 187.
+LaTeX Info: Redefining \% on input line 187.
+ [33 <./Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf>]
+<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=862, 578.16pt x 433.62pt>
 File: Pictures/densidades_num_alum_x_gpo_x_sem.pdf Graphic file (type pdf)
 <use Pictures/densidades_num_alum_x_gpo_x_sem.pdf>
 Package pdftex.def Info: Pictures/densidades_num_alum_x_gpo_x_sem.pdf  used on 
-input line 186.
+input line 190.
 (pdftex.def)             Requested size: 462.52863pt x 346.89647pt.
 
-Overfull \hbox (18.95015pt too wide) in paragraph at lines 186--187
+Overfull \hbox (18.95015pt too wide) in paragraph at lines 190--191
  [][] 
  []
 
+LaTeX Info: Redefining \. on input line 204.
+LaTeX Info: Redefining \% on input line 204.
+[34 <./Pictures/densidades_num_alum_x_gpo_x_sem.pdf>]
+Overfull \hbox (11.03981pt too wide) in paragraph at lines 209--210
+\OML/ztmcm/m/it/12 D[] \OMS/ztmcm/m/n/12 )$ \T1/ptm/m/n/12 se re-cha-za $\OML/z
+tmcm/m/it/12 H[]$\T1/ptm/m/n/12 , por lo tan-to los da-tos no si-guen una dis-t
+ri-bu-ción $\OML/ztmcm/m/it/12 Normal\OT1/ztmcm/m/n/12 (34\OML/ztmcm/m/it/12 :\
+OT1/ztmcm/m/n/12 18\OML/ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 26\OML/ztmcm/m/it/12 
+:\OT1/ztmcm/m/n/12 57)$\T1/ptm/m/n/12 . 
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 189.
-LaTeX Info: Redefining \% on input line 189.
- [33 <./Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 200.
-LaTeX Info: Redefining \% on input line 200.
- [34 <./Pictures/densidades_num_alum_x_gpo_x_sem.pdf>]
 <Pictures/histograma_FR_prueba_KS.pdf, id=881, 578.16pt x 433.62pt>
 File: Pictures/histograma_FR_prueba_KS.pdf Graphic file (type pdf)
 <use Pictures/histograma_FR_prueba_KS.pdf>
@@ -2139,7 +2142,7 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (100 pages, 2944209 bytes).
+Output written on main.pdf (100 pages, 2944736 bytes).
 PDF statistics:
  1634 PDF objects out of 1728 (max. 8388607)
  416 named destinations out of 1000 (max. 500000)
