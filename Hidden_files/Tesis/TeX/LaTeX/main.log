@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  13 NOV 2020 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  13 NOV 2020 18:33
 entering extended mode
 **./main.tex
 (main.tex
@@ -1123,17 +1123,17 @@ Package pdftex.def Info: Pictures/InfoRepetida_B_2.png  used on input line 22.
 <Pictures/Ej_gpo_repetido_1.png, id=643, 317.68687pt x 170.13562pt>
 File: Pictures/Ej_gpo_repetido_1.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_1.png>
-Package pdftex.def Info: Pictures/Ej_gpo_repetido_1.png  used on input line 132
+Package pdftex.def Info: Pictures/Ej_gpo_repetido_1.png  used on input line 131
 .
 (pdftex.def)             Requested size: 284.52756pt x 152.39113pt.
 <Pictures/Ej_gpo_repetido_2.png, id=644, 516.42938pt x 182.93344pt>
 File: Pictures/Ej_gpo_repetido_2.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_2.png>
-Package pdftex.def Info: Pictures/Ej_gpo_repetido_2.png  used on input line 133
+Package pdftex.def Info: Pictures/Ej_gpo_repetido_2.png  used on input line 132
 .
 (pdftex.def)             Requested size: 426.79134pt x 151.18712pt.
-LaTeX Info: Redefining \. on input line 135.
-LaTeX Info: Redefining \% on input line 135.
+LaTeX Info: Redefining \. on input line 134.
+LaTeX Info: Redefining \% on input line 134.
 
 [17 <./Pictures/InfoRepetida_B_1.png> <./Pictures/InfoRepetida_B_2.png>])
 (ED_otros_problemas_extraer_info.tex
@@ -2134,7 +2134,7 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (100 pages, 2943721 bytes).
+Output written on main.pdf (100 pages, 2943686 bytes).
 PDF statistics:
  1634 PDF objects out of 1728 (max. 8388607)
  416 named destinations out of 1000 (max. 500000)

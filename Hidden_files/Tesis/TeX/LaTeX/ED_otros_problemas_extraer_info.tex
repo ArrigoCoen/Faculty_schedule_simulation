@@ -1,9 +1,9 @@
 \subsection{Otros problemas al extraer información}
 
 Al extraer la información surgieron otros problemas. En algunos casos se tuvieron que analizar las materias a mano para poder guardar la infomración de manera adecuada. A continuación se presentan los diferentes casos encontrados:
-
-\begin{itemize}
-\item[-] Dentro de la obtención de datos del número de alumnos, no se lee la información cuando se tiene \textit{Un alumno}, ya que no se reconoce el texto \textit{Un} como el número $1$. En la figura \ref{UnAlumno} vemos un ejemplo de este caso.
+  
+  \begin{itemize}
+\item[-] Dentro de la obtención de datos del número de alumnos, no se lee la información cuando se tiene \textit{Un alumno}, ya que no se reconoce el texto \textit{Un} como el número $1$. En la \figurename{\ref{UnAlumno}} vemos un ejemplo de este caso.
 
 \begin{figure}[H]
 \centering
@@ -13,8 +13,8 @@ Al extraer la información surgieron otros problemas. En algunos casos se tuvier
 \end{figure}
 
 Para resolver este problema se identificó la variable tipo \textit{string} igual a \textit{Un} para convertir la información y así poder utilizar los datos obtenidos.
-  
-\item[-] El algoritmo supone que todas las clases duran una hora y no se consideran las medias horas: \url{http://www.fciencias.unam.mx/docencia/horarios/20172/1556/820}. En la figura \ref{MediasHoras} mostramos un ejemplo en donde se considera que esa materia inicia a las 18hrs.
+
+\item[-] El algoritmo supone que todas las clases duran una hora y no se consideran las medias horas: \url{http://www.fciencias.unam.mx/docencia/horarios/20172/1556/820}. En la \figurename{\ref{MediasHoras}} mostramos un ejemplo en donde se considera que esa materia inicia a las 18hrs.
 
 \begin{figure}[H]
 \centering
@@ -24,16 +24,16 @@ Para resolver este problema se identificó la variable tipo \textit{string} igua
 \end{figure}
 
 \item[-] Se tienen materias con múltiples horarios:\url{http://www.fciencias.unam.mx/docencia/horarios/20181/2055/1323}. En estos casos sólo se registran los horarios y salones en los que los profesores imparten su clase, no se toman en cuenta las clases impartidas por los ayudantes.
-  
-En la figura \ref{horariosMultiples} tenemos un ejemplo de este caso en donde el profesor imparte su clase los lunes, miércoles y viernes de 13-14hrs en el salón O215, hay una ayudantía los martes y jueves de 13-14hrs en el salón O215 y otra ayudantía los martes de 11-13hrs en el salón 304 (Yelizcalli). Se considera que esta materia inicia a las 13hrs y se imparte en el salón O215.
-  
+
+En la \figurename{\ref{horariosMultiples}} tenemos un ejemplo de este caso en donde el profesor imparte su clase los lunes, miércoles y viernes de 13-14hrs en el salón O215, hay una ayudantía los martes y jueves de 13-14hrs en el salón O215 y otra ayudantía los martes de 11-13hrs en el salón 304 (Yelizcalli). Se considera que esta materia inicia a las 13hrs y se imparte en el salón O215.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{Ej_gpo_horarios_multiples} %width=\textwidth
 \caption[\textit{Ejemplo de grupo con horarios múltiples}]{\textit{Ejemplo de grupo con horarios múltiples: En estos grupos sólo se toman en cuenta los horarios y salones en los que los profesores imparten clase.}}\label{horariosMultiples}
 \end{figure}
-  
-\item[-] Las materias de inglés no se imparten todos los días de la semana, en algunos casos se imparten clases en línea: \url{http://www.fciencias.unam.mx/docencia/horarios/20202/2017/1135}. Se registran únicamente los horarios de los días en que se imparten las clases presenciales. En la figura \ref{casoIngles} mostramos un ejemplo de este caso.
+
+\item[-] Las materias de inglés no se imparten todos los días de la semana, en algunos casos se imparten clases en línea: \url{http://www.fciencias.unam.mx/docencia/horarios/20202/2017/1135}. Se registran únicamente los horarios de los días en que se imparten las clases presenciales. En la \figurename{\ref{casoIngles}} mostramos un ejemplo de este caso.
 
 \begin{figure}[H]
 \centering
@@ -41,7 +41,7 @@ En la figura \ref{horariosMultiples} tenemos un ejemplo de este caso en donde el
 \caption[\textit{Ejemplo de grupo de inglés}]{\textit{Ejemplo de grupo de inglés: Las clases no se imparten todos los días. Hay sesiones virtuales. Sólo se toma en cuenta el horario de las clases presenciales.}}\label{casoIngles}
 \end{figure}
 
-\item[-] Se tienen grupos que no tienen la misma estructura que los tipos de grupos \textbf{A}, \textbf{B} y \textbf{C} definidos en la sección \ref{TiposDeGpos}: \url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/872}, debido a ello el código CSS utilizado no sirve para obtener toda la información que se puede obtener del grupo. En la figura \ref{GpoEstructuraDiferente} tenemos un ejemplo de este caso en donde no se lee adecuadamente el número de alumnos inscritos en el grupo.
+\item[-] Se tienen grupos que no tienen la misma estructura que los tipos de grupos \textbf{A}, \textbf{B} y \textbf{C} definidos en la Sección \ref{TiposDeGpos}: \url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/872}, debido a ello el código CSS utilizado no sirve para obtener toda la información que se puede obtener del grupo. En la \figurename{\ref{GpoEstructuraDiferente}} tenemos un ejemplo de este caso en donde no se lee adecuadamente el número de alumnos inscritos en el grupo.
 
 \begin{figure}[H]
 \centering
