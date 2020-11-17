@@ -1,21 +1,21 @@
 \chapter{Simulación}
 
-La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo que es muy difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. La simulación nos permite experimentar con diversos supuestos que podrían ser muy costosos de realizar. Las áreas en las que se utiliza la simulación como herramienta diaria son por ejemplo en biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería o en las ciencias sociales.
+La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo y difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. La simulación nos permite experimentar con diversos supuestos que podrían ser muy costosos de realizar físicamente. Las áreas en las que se utiliza la simulación como herramienta diaria son por ejemplo en biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería o en las ciencias sociales.
 
 Algunos ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas. Se utiliza para todo tipo de propósitos, por ejemplo para poder realizar predicciones en base a datos históricos o enseñar a los pilotos a volar un avión sin poner en riesgo a la población al volar el avión real.
 
-Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica para poder obtener un mejor resultado al momento de simular sistemas que se hacen cada vez más complejos como las redes neuronales.
+Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica. Ésto para obtener un mejor resultado al momento de simular sistemas que se hacen cada vez más complejos como las redes neuronales.
 
 A lo largo de este capítulo explicaremos el proceso que seguimos para obtener la asignación de los horarios para cada materia con su respectivo profesor.
 
 \section{Funciones hechas en R}
 
-El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la figura \ref{DF_genAsig}.
+El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la \figurename{\ref{DF_genAsig}}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.7]{diagrama_flujo} %width=\textwidth
-\caption{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}}\label{DF_genAsig}
+\caption[\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}]{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}: Muestra el proceso que se sigue para la obtención de la matriz de asignación de horario.}}\label{DF_genAsig}
 \end{figure}
 
 
@@ -58,10 +58,10 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
 \item Redondear el número aleatorio con la función \verb@ceiling()@ en \textit{R}.
 
-\item Regresa el número redondeado.
+\item Regresar el número redondeado.
 \end{enumerate}
 
-Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver \ref{DitribTamGpos}).
+Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver Sección \ref{DitribTamGpos}).
 
 \input{Sim_info_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 

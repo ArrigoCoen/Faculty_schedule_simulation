@@ -39,39 +39,39 @@
 \contentsline {figure}{\numberline {3.14}{\ignorespaces \textit {Número promedio de grupos por hora}}}{36}{figure.caption.43}%
 \contentsline {figure}{\numberline {3.15}{\ignorespaces \textit {Número promedio de alumnos por hora}}}{37}{figure.caption.44}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \textit {Diagrama de flujo de la función \textbf {gen\_asignacion}}\relax }}{40}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {Matriz con medidas de dispersión}\relax }}{41}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 12 pruebas}\relax }}{42}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 6 pruebas}\relax }}{42}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 4 pruebas}\relax }}{43}{figure.caption.50}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 pruebas}\relax }}{43}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}\relax }}{44}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}\relax }}{44}{figure.caption.53}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}\relax }}{45}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2}\relax }}{46}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}\relax }}{47}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}\relax }}{49}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector de profesores de tiempo completo}\relax }}{50}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de matriz de solicitudes de un profesor}\relax }}{52}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}\relax }}{54}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces \textit {Histograma de la diferencia de las matrices D - E por grupo}\relax }}{54}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces \textit {Histograma de la diferencia relativa de las matrices D y E por grupo}\relax }}{55}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces \textit {Histograma de la diferencia de las matrices D - E por materia}\relax }}{56}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces \textit {Histograma de la diferencia relativa de las matrices D y E por materia}\relax }}{56}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces \textit {Ejemplo de error relativo: Matemáticas para las Ciencias Aplicadas I}\relax }}{57}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \textit {Diagrama de flujo de la función \textbf {gen\_asignacion}}}}{40}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {Matriz con información por materia}}}{42}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 12 pruebas}}}{42}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 6 pruebas}}}{43}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 4 pruebas}}}{43}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 pruebas}}}{44}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}}}{44}{figure.caption.52}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}}}{45}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}}}{46}{figure.caption.54}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2 de Estadística III}}}{47}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}}}{48}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{50}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{51}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de matriz de solicitudes de un profesor}}}{53}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}\relax }}{55}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces \textit {Histograma de la diferencia de las matrices D - E por grupo}\relax }}{56}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces \textit {Histograma de la diferencia relativa de las matrices D y E por grupo}\relax }}{56}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces \textit {Histograma de la diferencia de las matrices D - E por materia}\relax }}{57}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces \textit {Histograma de la diferencia relativa de las matrices D y E por materia}\relax }}{57}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces \textit {Ejemplo de error relativo: Matemáticas para las Ciencias Aplicadas I}\relax }}{58}{figure.caption.66}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}\relax }}{60}{figure.caption.67}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Algoritmo Genético aplicado}\relax }}{61}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}\relax }}{62}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Algoritmo Genético aplicado}\relax }}{63}{figure.caption.68}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces \textit {ITAM Probabilidad I}\relax }}{69}{figure.caption.69}%
+\contentsline {figure}{\numberline {8.1}{\ignorespaces \textit {ITAM Probabilidad I}\relax }}{71}{figure.caption.69}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}\relax }}{72}{figure.caption.70}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}\relax }}{74}{figure.caption.71}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}\relax }}{75}{figure.caption.72}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}\relax }}{75}{figure.caption.73}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}\relax }}{76}{figure.caption.74}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}\relax }}{77}{figure.caption.75}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}\relax }}{74}{figure.caption.70}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}\relax }}{76}{figure.caption.71}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}\relax }}{77}{figure.caption.72}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}\relax }}{77}{figure.caption.73}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}\relax }}{78}{figure.caption.74}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}\relax }}{79}{figure.caption.75}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
