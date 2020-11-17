@@ -71,28 +71,26 @@ Con este procedimiento simulamos el tamaño de los grupos con respecto a los pro
 
 \section{Simulación de esqueletos}
 
-En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, la cual tiene 15 renglones y 335 columnas. En la entrada $(i,j)$ se tiene el numero de grupos simulados para la \textit{i-ésima} hora y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
-
-El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
+En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, la cual tiene $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene el numero de grupos simulados para la hora $i$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores. El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
 
 \begin{enumerate}
-\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver sección \ref{SimDemandaAlumnos}).
+\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{SimDemandaAlumnos}).
 
-\item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver sección \ref{SimSolicitudesProfesores}).
+\item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver Sección \ref{SimSolicitudesProfesores}).
 
 \item Elegir un profesor de tiempo completo al azar.
 
-\item Elegir al azar un horario y una materia que haya solicitado el profesor elegido en el paso anterior. Con estos datos sabemos las coordenadas $(i,j)$ para las matrices \textit{mat\_demanda\_alumnos} y \textit{mat\_esqueleto}.
+\item Elegir al azar un horario y una materia que haya solicitado el profesor elegido en el paso anterior. Con estos datos obtenemos las coordenadas $(i,j)$ para las matrices \textit{mat\_demanda\_alumnos} y \textit{mat\_esqueleto}.
 
-\item Verificar que a esa materia en esa hora aún le sobran alumnos. En la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
+\item Verificar que a esa materia en esa hora aún le sobran alumnos, en la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
 
-\item Simular el número de alumnos para ese grupo (ver sección \ref{SimTamGpos}).
+\item Simular el número de alumnos para ese grupo (ver Sección \ref{SimTamGpos}).
 
-\item Restar el número de alumnos simulados en el paso anterior, de la materia y hora elegidas. En la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
+\item Restar el número de alumnos simulados en el paso anterior, de la materia y hora elegidas, en la entrada $(i,j)$ de \textit{mat\_demanda\_alumnos}.
 
 \item Ese profesor ya no puede impartir clases a esa hora. Retirar renglones correspondientes de \textit{mat\_solicitudes}.
 
-\item Repetir los pasos de 3 a 8.
+\item Repetir los pasos de 3 a 8 hasta que se terminen los profesores.
 
 \item Una vez que se terminen los profesores de tiempo completo, hacer los pasos de 3 a 9 con los profesores de asignatura.
 \end{enumerate}
@@ -100,7 +98,9 @@ El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el sig
 Algunas notas a considerar del procedimiento son:
 
 \begin{itemize}
-\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
+%\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
+
+\item[-] Los profesores de tiempo completo deben cumplir con sus horas, por contrato.
 
 \item[-] Los profesores sólo pueden tener asignadas a lo más 2 materias.
 
@@ -115,17 +115,17 @@ Algunas notas a considerar del procedimiento son:
 \end{itemize}
 \end{itemize}
 
-En la figura \ref{esqueleto20202} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-1. Observemos las últimas 4 columnas que corresponden a las materias de Cálculo I, II, III y IV. Notamos que el número de grupos simulados para las materias de semestres pares (Cálculo II y IV) es mayor que para las materias de semestres impares. Esto se debe al comportamiento observado en \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par.
+En la \figurename{\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de Cálculo I, II, III y IV. Notamos que el número de grupos simulados para las materias de semestres pares (Cálculo II y IV) es mayor que para las materias de semestres impares. Esto se debe al comportamiento observado en la Sección \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{Ej_esqueleto_20202} %width=\textwidth
-\caption{\textit{Ejemplo de esqueleto para el semestre 2020-2}}\label{esqueleto20202}
+\includegraphics[scale = 0.7]{Ej_esqueleto_20202} %width=\textwidth
+\caption[\textit{Ejemplo de esqueleto para el semestre 2020-2}]{\textit{Ejemplo de esqueleto para el semestre 2020-2: En la entrada (i,j) podemos observar el número de alumnos simulados para la hora i y la materia j.}}\label{esqueleto20202}
 \end{figure}
 
 \subsection{Calificación de esqueletos de horario}
 
-En la figura \ref{dif_D_E_gpo} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
+En la \figurename{\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
 
 \begin{figure}[H]
 \centering
@@ -134,7 +134,7 @@ En la figura \ref{dif_D_E_gpo} vemos el histograma de la diferencia de las matri
 \end{figure}
 
 
-En la figura \ref{difRel_D_E_gpo} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
+En la \figurename{\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
 
 \begin{figure}[H]
 \centering
@@ -143,34 +143,30 @@ En la figura \ref{difRel_D_E_gpo} vemos el histograma de la diferencia relativa 
 \end{figure}
 
 
-En la figura \ref{dif_D_E_materia} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
+En la \figurename{\ref{dif_D_E_materia}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.5]{histograma_FR_D-E_x_materia} %width=\textwidth
+\includegraphics[scale = 0.4]{histograma_FR_D-E_x_materia} %width=\textwidth
 \caption{\textit{Histograma de la diferencia de las matrices D - E por materia}}\label{dif_D_E_materia}
 \end{figure}
 
 
-En la figura \ref{difRel_D_E_materia} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
+En la \figurename{\ref{difRel_D_E_materia}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.5]{histograma_FR_D-E_D_x_materia} %width=\textwidth
+\includegraphics[scale = 0.4]{histograma_FR_D-E_D_x_materia} %width=\textwidth
 \caption{\textit{Histograma de la diferencia relativa de las matrices D y E por materia}}\label{difRel_D_E_materia}
 \end{figure}
 
-Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la figura \ref{difRel_mate_ciencias_app} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos la los valores de la última columna de la figura.
+Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la \figurename{\ref{difRel_mate_ciencias_app}} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos los valores de la última columna de la figura.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 1]{error_rel_mate_para_ciencias_app} %width=\textwidth
+\includegraphics[scale = 0.8]{error_rel_mate_para_ciencias_app} %width=\textwidth
 \caption{\textit{Ejemplo de error relativo: Matemáticas para las Ciencias Aplicadas I}}\label{difRel_mate_ciencias_app}
 \end{figure}
-
-
-
-
 
 
 \begin{eqnarray*}
@@ -214,9 +210,9 @@ Penalizaciones:
 
 \end{enumerate}
 
-Queremos el esqueleto con el menor valor en $\alpha + \beta$
+%Queremos el esqueleto con el menor valor en $\alpha + \beta$
 
-Con esto se obtiene un nuevo esqueleto.
+Con esto se califica un esqueleto.
 
 
 \section{Generación de asignaciones}
