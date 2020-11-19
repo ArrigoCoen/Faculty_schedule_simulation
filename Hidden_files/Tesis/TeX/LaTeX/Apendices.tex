@@ -162,7 +162,11 @@ Con esta información se decidió observar caso por caso los renglones que requi
   
   \item En caso de tener subsecciones: entre 3 y 4
   
+  \item Ser muy directa al escribir, pero explicar mucho más (platicar más). No hacer enunciados tan largos. No puede haber párrafos formados por un sólo enunciado. Escribir una idea por enunciado. No sólo escribir en párrafos, utilizar listas, tablas, ...  
+  
   \item La estructura de cada párrafo debe ser de tipo \textit{reloj de arena}. Ir de lo general a lo particular y volver a lo general con una conclusión.
+  
+  \item Un enunciado equivale a una idea. Un párrafo equivale a un conjunto de ideas comunes.
   
   \item Sea $D = \dfrac{r - s}{s}$, donde \textit{r} son datos reales, \textit{s} datos simulados y \textit{D} la diferencia relativa, se busca que $D \in \left[ -\dfrac{1}{2},\dfrac{1}{2}\right]$. 
   
@@ -172,7 +176,7 @@ Con esta información se decidió observar caso por caso los renglones que requi
 \includegraphics[scale = 1]{Ej_Roxygen} %width=\textwidth
 \caption{\textit{Ejemplo de Roxygen}}
 \end{figure}
-  
+
   \item Escribir en el archivo de LaTeX pequeños comentarios de la idea que se quiere transmitir en cada párrafo (de 2 a 3 palabras claves). Ésto sirve para referencias futuras y para ordenar los párrafos con mayor facilidad.
   
   \item Escribir párrafos de 2 a 3 enunciados completos, no dejar enunciados solos a menos que contengan información muy importante.
@@ -182,8 +186,6 @@ Con esta información se decidió observar caso por caso los renglones que requi
   \item Cuidar el tamaño de letra en las gráficas que se pongan
   
   \item No poner abreviaturas en los títulos.
-  
-  \item Ser muy directa al escribir, pero explicar mucho más (platicar más). No hacer enunciados tan largos. Escribir una idea por enunciado. No sólo escribir en párrafos, utilizar listas, tablas, ...
   
   \item La imagen \ref{img_en_ing_2} tiene título en inglés, se tienen 2 opciones: dejarlo así o buscar cómo cambiarlo.
   
@@ -361,23 +363,29 @@ Con esta información se decidió observar caso por caso los renglones que requi
   
 	\item Arrigo dijo que posiblemente alguien se va a quejar del hecho de que actualmente las inscripciones ya no se hacen con tira de materias firmada.
   
-  \item El comando \verb+\figurename{\ref{nom_figura}}+ imprime la palabra \textit{Figura} antes del número correspondiente a la figura de la referencia.
+  \item El comando \verb+\figurename{~\ref{nom_figura}}+ imprime la palabra \textit{Figura} antes del número correspondiente a la figura de la referencia.
   
-  \item El comando \verb+\chaptername{\ref{nom_capitulo}}+ imprime la palabra \textit{Capítulo} antes del número correspondiente al capítulo de la referencia.
+  \item El comando \verb+\chaptername{~\ref{nom_capitulo}}+ imprime la palabra \textit{Capítulo} antes del número correspondiente al capítulo de la referencia.
 
-  \item El comando \verb+ \tablename{\ref{nom_tabla}}+ imprime la palabra \textit{Tabla} antes del número correspondiente a la tabla de la referencia.
+  \item El comando \verb+ \tablename{~\ref{nom_tabla}}+ imprime la palabra \textit{Tabla} antes del número correspondiente a la tabla de la referencia.
+
+  \item En los 3 comandos anteriores la \verb+~+ sirve para poner un espacio entre el nombre y el número.
   
   \item Los comandos \verb+\subsecname{\ref{nom_subseccion}}+, \verb+ \secname{\ref{nom_seccion}}+, \verb+ \subsectionname{\ref{nom_subseccion}}+ y \verb+\subsectionname{\ref{nom_seccion}}+ no existen.
   
-  \item 
+  \item Para cada figura, al momento de explicarla, pensar en el mensaje principal que se quiere transmitir y \textit{dejarla hablar} por sí sola.
   
-  \item 
+  \item Nos interesa más el comportamiento de semestres más recientes. Darle más peso a ellos en las figuras.
   
-  \item 
+  \item Utilizar la coma de Oxford en caso de confusión o si el último elemento es compuesto. Ej. Finanzas II, Procesos Estocásticos I, y Probabilidad y Estadística.
   
-  \item 
-  
-  \item 
+  \item Imagen que muestra el uso de Plan de estudio con sus diferentes variantes \textit{Plan de Estudio, Plan de Estudios, Planes de Estudios, Planes de Estudio}. Los links en donde se encuentran esos nombres son: \url{https://www.dgae-siae.unam.mx/educacion/planes.php} y \url{https://www.dgae.unam.mx/planes/licenciatura.html}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{planes_de_estudio} %width=\textwidth
+\caption{\textit{Nombres planes de estudio}}
+\end{figure}
   
   \item 
   
