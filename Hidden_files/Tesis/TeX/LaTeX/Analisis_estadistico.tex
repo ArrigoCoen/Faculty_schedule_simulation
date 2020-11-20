@@ -7,7 +7,7 @@
 
 Debido a que los datos obtenidos no son independientes entre sí, las herramientas elegidas para realizar un análisis estadístico de los datos fueron las series de tiempo. A continuación se describe su definición y aplicación para explicar el motivo de la elección de dichas herramientas estadísticas.
 
-Definimos a una serie de tiempo como una secuencia de observaciones $X_{t}$ ordenadas cronológicamente, en donde los datos al tiempo presente dependen de las observaciones anteriores, es decir existe una depencia de $X_{t}$ con $\{X_{t-1}, X_{t-2}, X_{t-3}, \ldots, X_{1}\}$.
+Definimos a una serie de tiempo como una secuencia de observaciones $X_{t}$ ordenadas cronológicamente. Los datos al tiempo presente dependen de las observaciones anteriores, es decir existe una depencia de $X_{t}$ con $\{X_{t-1}, X_{t-2}, X_{t-3}, \ldots, X_{1}\}$.
 
 Denotamos a una serie de tiempo como:
   \begin{equation}
@@ -35,12 +35,12 @@ Chatfield y Xing nos indican, en su libro \textit{The Analysis of Time Series An
 Con estos tipos de variaciones se forman 3 modelos de estacionalidad:
   
   \begin{enumerate}
-\item Aditivo: Se tiene variación estacional aditiva y se utiliza cuando la varianza o la desviación estándar de la serie de tiempo se mantienen constantes a lo largo del tiempo.
+\item Aditivo: Se tiene variación estacional aditiva. Se utiliza cuando la varianza o la desviación estándar de la serie de tiempo se mantienen constantes a lo largo del tiempo.
 \begin{equation}
 X_{t} = m_{t} + s_{t} + y_{t}
 \end{equation}
 
-\item Multiplicativo: Se tiene variación estacional multiplicativa. Se utiliza cuando la varianza o la desviación estándar de los datos cambian a través del tiempo. Su variabilididad puede ser mayor o menor conforme pasa el tiempo.
+\item Multiplicativo: Se tiene variación estacional multiplicativa. Se utiliza cuando la varianza o la desviación estándar de los datos cambian a través del tiempo. Su variabilidad puede ser mayor o menor conforme pasa el tiempo.
 \begin{equation}
 X_{t} = m_{t}s_{t}y_{t}
 \end{equation}
@@ -59,20 +59,20 @@ Los objetivos principales al hacer el análisis de una serie de tiempo son:
 \item[-] Predecir: Teniendo una serie de tiempo se desea conocer qué va a pasar en el futuro. Es conveniente tener varios periodos de información para que la predicción sea lo más acertada posible.
 \end{itemize}
 
-Las áreas en las que se pueden aplicar las series de tiempo son por ejemplo en economía, demografía, finanzas, medio ambiente, ingeniería o medicina. Algunos ejemplos más precisos de su aplicación son: precios de acciones diarios, niveles de producción en la agricultura mensuales, medición del sonido por segundos, electrocardiogramas, medición de terremotos, tasa de mortalidad, tasa de natalidad, barriles de petróleo producidos al año, entre otros.
+Las áreas en las que se pueden aplicar las series de tiempo son por ejemplo en economía, demografía, finanzas, medio ambiente, ingeniería o medicina. Algunos ejemplos más precisos de su aplicación son: precios de acciones diarios, niveles de producción en la agricultura mensuales, medición del sonido por segundos, barriles de petróleo producidos al año, electrocardiogramas, medición de terremotos, tasa de mortalidad, tasa de natalidad, entre otros.
 
 
 \section{Análisis estadístico básico}
 
-En esta sección haremos un análisis de los datos obtenidos. Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo. El método que vamos a utilizar para mostrar dichos patrones y para realizar predicciones de los datos es el método Holt-Winters aditivo.
+En esta sección haremos un análisis de los datos obtenidos. Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo. El método que vamos a utilizar para mostrar dichos patrones de los datos es el método Holt-Winters aditivo.
 
 %El método Holt-Winters aditivo se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia aproximadamente lineal y de estacionalidad.
 
-El método se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia y de estacionalidad. Existen pruebas, que hemos hecho a los datos, para comprobar que los datos que obtuvimos cumplen con los supuestos del método. Éstas pruebas se muestran a lo largo de esta sección.
+El método se utiliza para describir y predecir valores de series de tiempo que tienen componentes de tendencia y de estacionalidad. Existen pruebas, que hemos hecho a los datos, para comprobar que los datos obtenidos cumplen con los supuestos del método. Éstas pruebas se muestran a lo largo de esta sección.
 
 Primero graficamos los datos como serie de tiempo y después mostramos algunas gráficas de barras. Vamos a observar el comportamiento de los datos, veremos si tiene alguna tendencia y variación estacional.
 
-En la \figurename{\ref{TotalAlumBarras}} se muestra la gráfica de barras con el número total de alumnos que toman clases por semestre. A simple vista notamos que tiene una tendencia creciente y una estacionalidad semestral. Podemos ver también que el número de alumnos de los semestres impares es siempre mayor al de los semestres pares. Éste fenómeno los vimos en la \figurename{\ref{ParImparProbaI}} al hacer el análisis correspondiente a los datos de la materia \textit{Probabilidad I}.
+En la \figurename{~\ref{TotalAlumBarras}} se muestra la gráfica de barras con el número total de alumnos que toman clases por semestre. A simple vista notamos que tiene una tendencia creciente y una estacionalidad semestral. Podemos ver también que el número de alumnos de los semestres impares es siempre mayor al de los semestres pares. Éste fenómeno los vimos en la \figurename{~\ref{ParImparProbaI}} al hacer el análisis correspondiente a los datos de la materia \textit{Probabilidad I}.
 
 \begin{figure}[H]
 \centering
@@ -80,15 +80,15 @@ En la \figurename{\ref{TotalAlumBarras}} se muestra la gráfica de barras con el
 \caption[\textit{Número total de alumnos por semestre}]{\textit{Número total de alumnos por semestre: Vemos la gráfica de barras del número total de alumnos inscritos por cada semestre. Observamos que año con año el número aumenta. Las barras de los semestres impares son mayores que las barras de los semestres pares.}}\label{TotalAlumBarras}
 \end{figure}
 
-En la \figurename{\ref{prom_alum_x_sem_ts}} se muestra la gráfica de la media del número de alumnos que toman clases por semestre de todas las materias. Observamos que los valores tienen una tendencia creciente, esto nos indica que cada semestre, en promedio hay más alumnos tomando clases en la FC.
+En la \figurename{~\ref{prom_alum_x_sem_ts}} se muestra la gráfica de la media del número de alumnos que toman clases por semestre de todas las materias. Observamos que los valores tienen una tendencia creciente, esto nos indica que cada semestre, en promedio, hay más alumnos tomando clases en la FC.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.6]{prom_alum_total_x_sem_ts.pdf} %width=\textwidth
-\caption[\textit{Media de alumnos por semestre}]{\textit{Media de alumnos por semestre: Se observa una tendencia creciente en el promedio de alumnos por semestre. Se tiene la infomraición del semestre 2008-1 al 2020-1.}}\label{prom_alum_x_sem_ts}
+\caption[\textit{Media de alumnos por semestre}]{\textit{Media de alumnos por semestre: Se observa una tendencia creciente en el promedio de alumnos por semestre. Se tiene la información del semestre 2008-1 al 2020-1.}}\label{prom_alum_x_sem_ts}
 \end{figure}
 
-En la \figurename{\ref{sd_alum_x_gpo_x_sem_ts}} se muestra la gráfica de la desviación estándar del número de alumnos por grupo y por semestre de todas las materias. Observamos que los valores se mantienen constantes a lo largo del tiempo. Su rango se encuentra entre 24 y 29.
+En la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} se muestra la gráfica de la desviación estándar del número de alumnos por grupo y por semestre de todas las materias. Observamos que los valores se mantienen constantes a lo largo del tiempo. Su rango se encuentra entre 24 y 29.
 
 \begin{figure}[H]
 \centering
@@ -96,7 +96,7 @@ En la \figurename{\ref{sd_alum_x_gpo_x_sem_ts}} se muestra la gráfica de la des
 \caption[\textit{Desviación estándar del número de alumnos por semestre}]{\textit{Desviación estándar del número de alumnos por semestre: Vemos que el comportamiento de los datos es constante a lo largo del tiempo.}}\label{sd_alum_x_gpo_x_sem_ts}
 \end{figure}
 
-En la \figurename{\ref{img_en_ing_2}} se observan 4 diferentes gráficas, en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre. En la segunda se muestra la tendecia de los datos, la cual notamos que es creciente. En la tercera vemos la componente estacional que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve la componente aleatoria de los datos la cual ya no tiene estacionalidad ni tendencia.
+En la \figurename{~\ref{img_en_ing_2}} se observan 4 diferentes gráficas, en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre. En la segunda se muestra la tendecia de los datos, la cual notamos que es creciente. En la tercera vemos la componente estacional que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve la componente aleatoria de los datos la cual ya no tiene estacionalidad ni tendencia.
 
 \begin{figure}[H]
 \centering
@@ -104,22 +104,22 @@ En la \figurename{\ref{img_en_ing_2}} se observan 4 diferentes gráficas, en la 
 \caption[\textit{Descomposición por el método aditivo de Holt-Winters}]{\textit{Descomposición por el método aditivo de Holt-Winters: Los datos considerados en esta descomposición es el número total de alumnos por semestre.}}\label{img_en_ing_2}
 \end{figure}
 
-Viendo la \figurename{\ref{img_en_ing_2}} notamos que los datos tienen estacionalidad semestral y una tendencia creciente, por lo tanto confirmamos que se puede utilizar el método Holt-Winters ya que se cumplen los supuestos que se requieren. Para verificar que el modelo de estacionalidad adecuado es el aditivo, vemos la \figurename{\ref{sd_alum_x_gpo_x_sem_ts}} y notamos que la desviación estándar permanece constante a lo largo del tiempo.
+Viendo la \figurename{~\ref{img_en_ing_2}} notamos que los datos tienen estacionalidad semestral y una tendencia creciente, por lo tanto confirmamos que se puede utilizar el método Holt-Winters ya que se cumplen los supuestos que se requieren. Para verificar que el modelo de estacionalidad adecuado es el aditivo, vemos la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} y notamos que la desviación estándar permanece constante a lo largo del tiempo.
 
 Con estas observaciones concluímos que el método Holt-Winters aditivo es el método adecuado para poder hacer predicciones con nuestros datos.
 
 \section{Análisis estadístico por grupo de datos} \label{AE_x_GpoDeDatos}
 
-En la \figurename{\ref{NumAlTotal_ParImpar_ts}} vemos la gráfica del número de alumnos separado por semestres pares e impares. Se observa un comportamiento similar al de la \figurename{\ref{ParImparProbaI}}, de la Sección \ref{DatosAnalizar}. Vemos con mayor claridad lo que ocurre en la \figurename{\ref{TotalAlumBarras}}, los datos efectivamente tienen una tendencia creciente. Notamos que el número de alumnos de los semestres impares es mayor al número total de alumnos de los semestres pares en todos los semestres, salvo en el semestre 2018-1 en donde el número de alumnos es menor a los de los semestres adyacentes, los cuales son el 2017-2 y el 2018-2.
+En la \figurename{~\ref{NumAlTotal_ParImpar_ts}} vemos la gráfica del número de alumnos separado por semestres pares e impares. Se observa un comportamiento similar al de la \figurename{~\ref{ParImparProbaI}}, de la Sección \ref{DatosAnalizar}. Vemos con mayor claridad lo que ocurre en la \figurename{~\ref{TotalAlumBarras}}, los datos efectivamente tienen una tendencia creciente. Notamos que el número de alumnos de los semestres impares es mayor al número total de alumnos de los semestres pares en todos los semestres, salvo en el semestre 2018-1 en donde el número de alumnos es menor a los de los semestres adyacentes.%, los cuales son el 2017-2 y el 2018-2.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{num_alum_sem_par_impar_ts.pdf} %width=\textwidth
-\caption[\textit{Número de alumnos de semestres pares e impares}]{\textit{Número de alumnos de semestres pares e impares: Observamos una tendencia creciente y en general el número de alumnos se semestres impares (línea azul) es mayor al número de alumnos de semestres pares (línea roja).}}\label{NumAlTotal_ParImpar_ts}
+\caption[\textit{Número de alumnos de semestres pares e impares}]{\textit{Número de alumnos de semestres pares e impares: Observamos una tendencia creciente y en general el número de alumnos de semestres impares (línea azul) es mayor al número de alumnos de semestres pares (línea roja).}}\label{NumAlTotal_ParImpar_ts}
 \end{figure}
 
 
-En la \figurename{\ref{histNumAlTotal_ParImpar}} observamos el histograma doble del número total de alumnos de semestres pares e impares con sus respectivas densidades ajustadas. Notamos que hay una ligera diferencia entre el número de alumnos de los semestres pares con respecto al número de alumnos de los semestres impares. Existe una mayor cantidad de grupos en los semestres pares con un menor número de alumnos, que en los semestres impares. Hay una mayor cantidad de grupos en los semestres impares contra los semestres pares, que tienen entre 35 y 100 alumnos. Tanto para los semestres pares como para los impares, el comportamiento de las distribuciones ajustadas es muy parecido.
+En la \figurename{~\ref{histNumAlTotal_ParImpar}} observamos el histograma doble del número total de alumnos de semestres pares e impares con sus respectivas densidades ajustadas. Notamos que hay una ligera diferencia entre el número de alumnos de los semestres pares con respecto al número de alumnos de los semestres impares. Existe una mayor cantidad de grupos en los semestres pares con un menor número de alumnos, que en los semestres impares. Hay una mayor cantidad de grupos en los semestres impares contra los semestres pares, que tienen entre 35 y 100 alumnos. Tanto para los semestres pares como para los impares, el comportamiento de las densidades ajustadas es muy parecido.
 
 \begin{figure}[H]
 \centering
@@ -128,7 +128,7 @@ En la \figurename{\ref{histNumAlTotal_ParImpar}} observamos el histograma doble 
 \end{figure}
 
 
-En la \figurename{\ref{NumAlTotal_MatuVesp_ts}} mostramos la gráfica del número de alumnos por turno: matutino y vespertino. Se puede observar que en todo momento el número de alumnos del turno matutino es mayor al número de alumnos del turno vespertino.
+En la \figurename{~\ref{NumAlTotal_MatuVesp_ts}} mostramos la gráfica del número de alumnos por turno: matutino y vespertino. Se puede observar que en todo momento el número de alumnos del turno matutino es mayor al número de alumnos del turno vespertino.
 
 \begin{figure}[H]
 \centering
@@ -136,9 +136,9 @@ En la \figurename{\ref{NumAlTotal_MatuVesp_ts}} mostramos la gráfica del númer
 \caption[\textit{Número de alumnos por turno de todos los semestres}]{\textit{Número de alumnos por turno de todos los semestres: Observamos que la línea azul (turno matutino) está en todo momento por encima de la línea roja (turno vespertino).}}\label{NumAlTotal_MatuVesp_ts}
 \end{figure}
 
-Este comportamiento lo vimos en la \figurename{\ref{num_alum_x_turno_Proba_I}} al hacer el análisis para la materia \textit{Probabilidad I} en la Sección \ref{DatosAnalizar}.
+Este comportamiento lo vimos en la \figurename{~\ref{num_alum_x_turno_Proba_I}} al hacer el análisis para la materia \textit{Probabilidad I} en la Sección \ref{DatosAnalizar}.
 
-Los datos que se graficaron en el histograma de la \figurename{\ref{histNumAlTotal_MatuVesp}} son los alumnos totales por hora de cada semestre. En dicha figura se muestra el histograma doble de los datos divididos en los turnos matutino y vespertino. Notamos que las densidades ajustadas de cada turno son completamente diferentes. Al ver la gráfica podemos concluir que hay más alumnos en el turno matutino que en el vespertino.
+Los datos que se graficaron en el histograma de la \figurename{~\ref{histNumAlTotal_MatuVesp}} son los alumnos totales por hora de cada semestre. En dicha figura se muestra el histograma doble de los datos divididos en los turnos matutino y vespertino. Notamos que las densidades ajustadas de cada turno son completamente diferentes. Al ver la gráfica podemos concluir que hay más alumnos en el turno matutino que en el vespertino.
 
 \begin{figure}[H]
 \centering
@@ -149,7 +149,7 @@ Los datos que se graficaron en el histograma de la \figurename{\ref{histNumAlTot
 
 \section{Análisis estadístico por carrera}
 
-En la \figurename{\ref{histFAnumAl_x_carrera}} vemos un histograma para cada carrera, del Departamento de Matemáticas, con el número total de alumnos por grupos. Vemos que los datos tienen un comportamiento similar. Esto se puede explicar por el hecho de que todas las carreras tienen básicamente el mismo tronco común. Es decir, comparten muchas de las materias impartidas en los primeros 4 semestres, por lo que muchos de los grupos de una carrera se encuentran en otra. Cabe mencionar que el número máximo de alumnos por grupo para la CdC es 211 y para el resto de las carreras es 353.
+En la \figurename{~\ref{histFAnumAl_x_carrera}} vemos un histograma para cada carrera, del Departamento de Matemáticas, con el número total de alumnos por grupo. Vemos que los datos tienen un comportamiento similar. Esto se puede explicar por el hecho de que todas las carreras tienen básicamente el mismo tronco común. Es decir, comparten muchas de las materias impartidas en los primeros 4 semestres, por lo que muchos de los grupos de una carrera se encuentran en otra. Cabe mencionar que el número máximo de alumnos por grupo para la CdC es 211 y para el resto de las carreras es 353.
 
 \begin{figure}[H]
 \centering
@@ -158,19 +158,19 @@ En la \figurename{\ref{histFAnumAl_x_carrera}} vemos un histograma para cada car
 \end{figure}
 
 
-En la \figurename{\ref{histFRnumAl_x_carrera}} vemos una gráfica con las densidades ajustadas a los datos del número de alumnos por grupos para cada carrera. Al ver la densidad ajustada a los datos de la carrera de Matemáticas vemos que tiene una mayor concentración de grupos que tienen aproximadamente entre 10 y 30 alumnos. También podemos observar que en Actuaría y en Matemáticas Aplicadas hay una mayor concentración en los grupos que tienen aproximadamente entre 50 y 75 alumnos, que en Matemáticas o en Ciencias de la Computación. Si vemos la densidad ajustada a los datos de Ciencias de la Computación notamos que hay dos grandes concentraciones, una en los grupos de aproximadamente entre 20 y 30 alumnos y otra entre 40 y 50 alumnos. Con esta gráfica podemos confirmar lo que vimos en la \figurename{\ref{histFAnumAl_x_carrera}}, que el comportamiento es similar para todas las carreras.
+En la \figurename{~\ref{histFRnumAl_x_carrera}} vemos una gráfica con las densidades ajustadas a los datos del número de alumnos por grupos para cada carrera. Al ver la densidad ajustada a los datos de la carrera de Matemáticas vemos que tiene una mayor concentración de grupos que tienen aproximadamente entre 10 y 30 alumnos. También podemos observar que en Actuaría y en Matemáticas Aplicadas hay una mayor concentración en los grupos que tienen aproximadamente entre 50 y 75 alumnos, que en Matemáticas o en Ciencias de la Computación. Si vemos la densidad ajustada a los datos de Ciencias de la Computación notamos que hay dos grandes concentraciones, una en los grupos de aproximadamente entre 20 y 30 alumnos y otra entre 40 y 50 alumnos. Con esta gráfica podemos ver con mayor claridad lo que observamos en la \figurename{~\ref{histFAnumAl_x_carrera}}, el comportamiento es similar para todas las carreras pero cada una tiene su propia distribución.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.55]{histogramas_FR_num_alum_x_carrera.pdf} %width=\textwidth
-\caption[\textit{Densidades del número de alumnos por carrera}]{\textit{Densidades del número de alumnos por carrera: Vemos que las densidades ajustadas, para cada carrera, son muy similares.}}\label{histFRnumAl_x_carrera}
+\caption[\textit{Densidades del número de alumnos por carrera}]{\textit{Densidades del número de alumnos por carrera: Vemos que las densidades ajustadas, para cada carrera, son similares.}}\label{histFRnumAl_x_carrera}
 \end{figure}
 
 
 %\section{Distribución del número de alumnos por grupo / tamaño de grupo}
 \section{Distribución del tamaño de los grupos} \label{DitribTamGpos}
 
-En la \figurename{\ref{histNumAl_x_gpo_x_sem}} se muestra el histograma del número de alumnos por grupo de todos los semestres, desde el 2008-1 hasta el 2020-1. Observamos el mismo comportamiento que en las Figuras \ref{histNumAlTotal_ParImpar}, \ref{histFAnumAl_x_carrera} y \ref{histFRnumAl_x_carrera}. La mayor frecuencia se encuentra en los grupos que tienen entre 10 y 20 alumnos.
+En la \figurename{~\ref{histNumAl_x_gpo_x_sem}} se muestra el histograma del número de alumnos por grupo de todos los semestres, desde el 2008-1 hasta el 2020-1. Observamos el mismo comportamiento que en las Figuras \ref{histNumAlTotal_ParImpar}, \ref{histFAnumAl_x_carrera} y \ref{histFRnumAl_x_carrera}. La mayor frecuencia se encuentra en los grupos que tienen entre 10 y 20 alumnos.
 
 \begin{figure}[H]
 \centering
@@ -179,7 +179,7 @@ En la \figurename{\ref{histNumAl_x_gpo_x_sem}} se muestra el histograma del núm
 \end{figure}
 
 
-En la \figurename{\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas con las densidades ajustadas a los valores del número de alumnos por grupo de cada semestre. Cada línea corresponde a un semestre. Se tomaron los datos de 25 semestres, del 2008-1 al 2020-1. Notamos que el comportamiento es prácticamente el mismo en todos los semestres, salvo en dos cuyo pico máximo es mucho menor que los demás. 
+En la \figurename{~\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas con las densidades ajustadas a los valores del número de alumnos por grupo de cada semestre. Cada línea corresponde a un semestre. Se tomaron los datos de 25 semestres, del 2008-1 al 2020-1. Notamos que el comportamiento es prácticamente el mismo en todos los semestres, salvo en dos cuyo pico máximo es mucho menor que los demás. 
 
 \begin{figure}[H]
 \centering
@@ -214,7 +214,7 @@ En nuestro caso los valores de las variables son: $n = 17,246$ y $\alpha = 0.01$
 
 Hicimos otra prueba suponiendo que los datos tienen una distribución $Normal(\mu,\sigma)$. Para simular los datos de $Y$ utilizamos los estimadores máximo verosímiles de $\mu$ y $\sigma$. Estos estimadores los obtuvimos con la función \verb@fitdistr(X, densfun="normal")@, en \textit{R}. Los valores de los estimadores son $\hat{\mu} = 34.1874638$ y $\hat{\sigma} = 26.5768345$. El resultado de la función de la prueba de Kolmogorov-Smirnov es $D_{17246} = 0.10513$. Como $D_{17246} = 0.10513 > 0.01145 = D_{17246}^{0.99} \Rightarrow $ se rechaza $H_{0}$, por lo tanto los datos no siguen una distribución $Normal(34.18,26.57)$.
 
-Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la hipótesis nula. En la \figurename{\ref{histFR_pruebaKS}} vemos únicamente los casos que expusimos en esta sección. El histograma representa las frecuencias relativas de los datos del número de alumnos por grupo para cada semestre. La línea azul es la densidad ajustada generada por \textit{R}, la línea morada es la densidad de $n$ números aleatorios con distribución  $Poisson(34.18)$ y la línea roja es la densidad de $n$ números aleatorios con distribución  $Normal(34.18,26.57)$.
+Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la hipótesis nula. En la \figurename{~\ref{histFR_pruebaKS}} vemos únicamente los casos que expusimos en esta sección. El histograma representa las frecuencias relativas de los datos del número de alumnos por grupo para cada semestre. La línea azul es la densidad ajustada generada por \textit{R}, la línea morada es la densidad de $n$ números aleatorios con distribución  $Poisson(34.18)$ y la línea roja es la densidad de $n$ números aleatorios con distribución  $Normal(34.18,26.57)$.
 
 %Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la hipótesis nula. Con estos resultados concluímos que el ajuste que se pudiera hacer a los datos tendría que ser en dos partes. Un ejemplo de una posible partición de los datos es que se puede ajustar una distribución para los datos que están entre 0 y 100, y otra distribución para los datos mayores a 100. Esto debido a que a pesar de ser pocos los datos mayores a 100, si impactan en la distribución total. El análisis con esta propuesta no lo realizamos para este trabajo.
 
@@ -231,7 +231,7 @@ Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la
 
 En esta sección veremos algunas gráficas cuyo eje $x$ corresponde a las horas en las que se imparten las clases. Se empieza por la clase de 7-8hrs y se termina con la clase de 21-22hrs. Primero mostraremos el comportamiento del promedio de grupos por hora y después el comportamiento del promedio del número de alumnos por hora.
 
-En la \figurename{\ref{num_prom_gpos_x_hora_barplot}} vemos la gráfica de barras con el número promedio de grupos por hora. Tomamos la información de 25 semestres. Observamos una disminución considerable de los grupos a las 15hrs. Podemos concluir que es debido a que a esa hora, usualmente la gente sale a comer. A las 21hrs se tiene el menor número de grupos, esto se puede explicar por el hecho de que es la última clase impartida en la FC.
+En la \figurename{~\ref{num_prom_gpos_x_hora_barplot}} vemos la gráfica de barras con el número promedio de grupos por hora. Tomamos la información de 25 semestres. Observamos una disminución considerable de los grupos a las 15hrs. Podemos concluir que es debido a que a esa hora, usualmente la gente sale a comer. A las 21hrs se tiene el menor número de grupos, esto se puede explicar por el hecho de que es la última clase impartida en la FC.
 
 Hay un descenso leve a las 9hrs donde se pudiera suponer que la gente sale a desayunar. En mi caso particular, al estudiar la carrera de Actuaría, tenía clases desde las 7a.m. por lo que las 9a.m. era una buena hora para hacer una pequeña pausa en el horario y tener un descanso para desayunar. Esta hora coincide con el cambio en el que se dejan de impartir las materias exclusivas para los actuarios como Teoría del Seguro, MASP o MASD. Es decir, a partir de las 9 de la mañana se imparten materias de todas las carreras.
 
@@ -244,7 +244,7 @@ A las 10 de la mañana se tiene el número máximo de grupos. Con esta informaci
 \caption[\textit{Número promedio de grupos por hora}]{\textit{Número promedio de grupos por hora: Se observa una disminución considerable a las 15hrs y a las 21hrs. El valor más alto se encuentra a las 10hrs.}}\label{num_prom_gpos_x_hora_barplot}
 \end{figure}
 
-En la \figurename{\ref{prom_alum_x_hora_barplot}} se muestra la gráfica de barras con el promedio del número de alumnos por hora. Notamos que el comportamiento de ésta gráfica es muy similar al de la gráfica mostrada en la \figurename{\ref{num_prom_gpos_x_hora_barplot}}. El pico más alto de los datos también se tiene a las 10 de la mañana y el menor número de alumnos se encuentra a las 21hrs. También hay una disminución considerable a las 15hrs.
+En la \figurename{~\ref{prom_alum_x_hora_barplot}} se muestra la gráfica de barras con el promedio del número de alumnos por hora. Notamos que el comportamiento de ésta gráfica es muy similar al de la gráfica mostrada en la \figurename{~\ref{num_prom_gpos_x_hora_barplot}}. El pico más alto de los datos también se tiene a las 10 de la mañana y el menor número de alumnos se encuentra a las 21hrs. También hay una disminución considerable a las 15hrs.
 
 \begin{figure}[H]
 \centering

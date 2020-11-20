@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  18 NOV 2020 20:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  18 NOV 2020 23:13
 entering extended mode
 **./main.tex
 (main.tex
@@ -2194,7 +2194,7 @@ Here is how much of TeX's memory you used:
  29100 multiletter control sequences out of 15000+200000
  625223 words of font info for 158 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,17n,46p,1024b,2081s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,17n,46p,1042b,2081s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\miri_\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\
 ectt1200.pk>{C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/b
 ase/8r.enc}<C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
@@ -2213,7 +2213,7 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (104 pages, 2960934 bytes).
+Output written on main.pdf (104 pages, 2961910 bytes).
 PDF statistics:
  1671 PDF objects out of 1728 (max. 8388607)
  427 named destinations out of 1000 (max. 500000)
