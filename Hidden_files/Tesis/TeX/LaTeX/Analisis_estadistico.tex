@@ -179,7 +179,13 @@ En la \figurename{~\ref{histNumAl_x_gpo_x_sem}} se muestra el histograma del nú
 \end{figure}
 
 
-En la \figurename{~\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas con las densidades ajustadas a los valores del número de alumnos por grupo de cada semestre. Cada línea corresponde a un semestre. Se tomaron los datos de 25 semestres, del 2008-1 al 2020-1. Notamos que el comportamiento es prácticamente el mismo en todos los semestres, salvo en dos cuyo pico máximo es mucho menor que los demás. 
+En la \figurename{~\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas con las densidades ajustadas a los valores del número de alumnos por grupo de cada semestre. Cada línea corresponde a un semestre. Se tomaron los datos de 25 semestres, del 2008-1 al 2020-1. Notamos que el comportamiento va cambiando conforme pasa el tiempo.
+
+En dicha figura, las líneas de color verde corresponden a las densidades ajustadas a los datos de los semestres del 2008-1 al 2012-2. Las de color rosa corresponden a los semestres del 2013-1 al 2017-2. Las de color azul corresponden a los semestres 2018-1 al 2020-1.
+
+Vemos que en los semestres más antiguos se tiene una concentración mayor en los grupos que tienen aproximadamente entre 10 y 30 alumnos. En los semestres más recientes la mayor concentración se tiene en los grupos con aproximadamente entre 25 y 50 alumnos. Esto lo podemos explicar con el hecho de que cada semestre incrementa el número de alumnos inscritos en la facultad, por lo tanto el tamaño de los grupos aumenta.
+
+También podemos observar que conforme pasa el tiempo la media y la varianza aumentan. Es decir, en semestres antiguos se tiene una menor media y varianza. Ésto comparado con los semestres más actuales, los cuales tienen una media y varianza mayor.
 
 \begin{figure}[H]
 \centering
@@ -187,15 +193,7 @@ En la \figurename{~\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas c
 \caption[\textit{Densidades del número de alumnos por grupo de cada semestre}]{\textit{Densidades del número de alumnos por grupo de cada semestre: Cada línea corresponde a la densidad ajustada de los datos de un semestre entre el 2008-1 y el 2020-1}}\label{densidadesNumAl_x_gpo_x_sem}
 \end{figure}
 
-En dicha figura, las líneas con colores verdes corresponden a las densidades ajustadas de los datos de los semestres del 2008-1 al 2012-2. Las densidades con colores rosas corresponden a los semestres del 2013-1 al 2017-2. Las líneas de las densidades ajustadas con colores azules corresponden a los semestres 2018-1 al 2020-1. Vemos que en los semestres más antiguos se tiene una concentración mayor en los grupos que tienen aproximadamente entre 10 y 30 alumnos. En los semestres más recientes la mayor concentración se tiene en los grupos con aproximadamente entre 25 y 50 alumnos. Esto lo podemos explicar con el hecho de que cada semestre incrementa el número de alumnos inscritos en la facultad, por lo tanto el tamaño de los grupos aumenta.
-
-También podemos ver que en los semestres del 2013-1 al 2017-2 se tuvieron grupos con más de 350 alumnos. En los semestres más recientes el número máximo de alumnos por grupo fue alrededor de 250. Esto lo podemos explicar por las medidas que se tomaron después del sismo del 19 de septiembre de 2017, con respecto al tamaño de los grupos;  el número de alumnos inscritos no podía ser mayor al número de lugares disponibles por salón.
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale = 0.8]{densidades_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
-%\caption[\textit{Densidades del número de alumnos por grupo de cada semestre}]{\textit{Densidades del número de alumnos por grupo de cada semestre: Cada línea corresponde a la densidad ajustada de los datos de un semestre entre el 2008-1 y el 2020-1}}\label{densidadesNumAl_x_gpo_x_sem}
-%\end{figure}
+En los semestres del 2013-1 al 2017-2 se tuvieron grupos con más de 350 alumnos. En los semestres más recientes el número máximo de alumnos por grupo fue alrededor de 250. Esto lo podemos explicar por las medidas que se tomaron después del sismo del 19 de septiembre de 2017, con respecto al tamaño de los grupos. El número de alumnos inscritos no podía ser mayor al número de lugares disponibles por salón.
 
 Viendo las Figuras \ref{histNumAl_x_gpo_x_sem} y \ref{densidadesNumAl_x_gpo_x_sem}, podríamos concluir que la distribución que mejor se ajusta al tamaño de los grupos es la distribución Poisson por la forma en la que están distribuidos los datos. Para probar esta hipótesis utilizamos la función \verb@ks.test(X,Y)@, de \textit{R}, para hacer la prueba de Kolmogorov-Smirnov.
 
@@ -209,10 +207,14 @@ Por [\ref{Miller}] sabemos que:
 D_{n}^{1-\alpha} = \sqrt{\dfrac{ln \left(\dfrac{1}{\alpha}\right)}{2n}} - 1.6693 n^{-1} - 0.20562 n^{-\frac{3}{2}}
 \end{equation}
 
-En nuestro caso los valores de las variables son: $n = 17,246$ y $\alpha = 0.01$. Sustituyendo en la ecuación \ref{Dn_KS} tenemos que $D_{17246}^{0.99} = 0.01145794823$. Con la función \verb@ks.test(X,Y)@, de \textit{R}, obtenemos el valor de $D_{17246} = 0.39974$. Como $D_{17246} = 0.39974 > 0.01145 = D_{17246}^{0.99} \Rightarrow $ se rechaza $H_{0}$, por lo tanto los datos no siguen una distribución Poisson con $\lambda = 34.18$.
+En nuestro caso los valores de las variables son: $n = 17,246$ y $\alpha = 0.01$. Sustituyendo en la ecuación \ref{Dn_KS} tenemos que $D_{17246}^{0.99} = 0.01145794823$. Con la función \verb@ks.test(X,Y)@, de \textit{R}, obtenemos el valor de $D_{17246} = 0.39974$.
+
+Como $D_{17246} = 0.39974 > 0.01145 = D_{17246}^{0.99}$, entonces se rechaza $H_{0}$, por lo tanto los datos no siguen una distribución Poisson con $\lambda = 34.18$.
 
 
-Hicimos otra prueba suponiendo que los datos tienen una distribución $Normal(\mu,\sigma)$. Para simular los datos de $Y$ utilizamos los estimadores máximo verosímiles de $\mu$ y $\sigma$. Estos estimadores los obtuvimos con la función \verb@fitdistr(X, densfun="normal")@, en \textit{R}. Los valores de los estimadores son $\hat{\mu} = 34.1874638$ y $\hat{\sigma} = 26.5768345$. El resultado de la función de la prueba de Kolmogorov-Smirnov es $D_{17246} = 0.10513$. Como $D_{17246} = 0.10513 > 0.01145 = D_{17246}^{0.99} \Rightarrow $ se rechaza $H_{0}$, por lo tanto los datos no siguen una distribución $Normal(34.18,26.57)$.
+Hicimos otra prueba suponiendo que los datos tienen una distribución $Normal(\mu,\sigma)$. Para simular los datos de $Y$ utilizamos los estimadores máximo verosímiles de $\mu$ y $\sigma$. Estos estimadores los obtuvimos con la función \verb@fitdistr(X, densfun="normal")@, en \textit{R}. Los valores de los estimadores son $\hat{\mu} = 34.1874638$ y $\hat{\sigma} = 26.5768345$. El resultado de la función de la prueba de Kolmogorov-Smirnov es $D_{17246} = 0.10513$.
+
+Como $D_{17246} = 0.10513 > 0.01145 = D_{17246}^{0.99}$, entonces se rechaza $H_{0}$, por lo tanto los datos no siguen una distribución $Normal(34.18,26.57)$.
 
 Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la hipótesis nula. En la \figurename{~\ref{histFR_pruebaKS}} vemos únicamente los casos que expusimos en esta sección. El histograma representa las frecuencias relativas de los datos del número de alumnos por grupo para cada semestre. La línea azul es la densidad ajustada generada por \textit{R}, la línea morada es la densidad de $n$ números aleatorios con distribución  $Poisson(34.18)$ y la línea roja es la densidad de $n$ números aleatorios con distribución  $Normal(34.18,26.57)$.
 
@@ -231,11 +233,13 @@ Hicimos más pruebas con otras distribuciones y en todos los casos rechazamos la
 
 En esta sección veremos algunas gráficas cuyo eje $x$ corresponde a las horas en las que se imparten las clases. Se empieza por la clase de 7-8hrs y se termina con la clase de 21-22hrs. Primero mostraremos el comportamiento del promedio de grupos por hora y después el comportamiento del promedio del número de alumnos por hora.
 
-En la \figurename{~\ref{num_prom_gpos_x_hora_barplot}} vemos la gráfica de barras con el número promedio de grupos por hora. Tomamos la información de 25 semestres. Observamos una disminución considerable de los grupos a las 15hrs. Podemos concluir que es debido a que a esa hora, usualmente la gente sale a comer. A las 21hrs se tiene el menor número de grupos, esto se puede explicar por el hecho de que es la última clase impartida en la FC.
+En la \figurename{~\ref{num_prom_gpos_x_hora_barplot}} vemos la gráfica de barras con el número promedio de grupos por hora. Tomamos la información de 25 semestres. Observamos una disminución considerable del número de grupos a las 15hrs. Podemos concluir que es debido a que a esa hora, usualmente la gente sale a comer. A las 21hrs se tiene el menor número de grupos, esto se puede explicar por el hecho de que es la última clase impartida en la FC.
 
-Hay un descenso leve a las 9hrs donde se pudiera suponer que la gente sale a desayunar. En mi caso particular, al estudiar la carrera de Actuaría, tenía clases desde las 7a.m. por lo que las 9a.m. era una buena hora para hacer una pequeña pausa en el horario y tener un descanso para desayunar. Esta hora coincide con el cambio en el que se dejan de impartir las materias exclusivas para los actuarios como Teoría del Seguro, MASP o MASD. Es decir, a partir de las 9 de la mañana se imparten materias de todas las carreras.
+Hay un descenso leve a las 9hrs donde se pudiera suponer que la gente sale a desayunar. Desde las 7hrs se pueden encontrar clases como \textit{Cálculo Diferencial e Integral}. Pero en general, las clases impartidas a las 7hrs y a las 8hrs suelen ser materias exclusivas para los actuarios como \textit{Teoría del Seguro, Matemáticas Actuariales del Seguro de Personas I y II, o Matemáticas Actuariales del Seguro de Daños}. Podemos decir que a partir de las 9 de la mañana se imparten materias de todas las carreras.
 
-A las 10 de la mañana se tiene el número máximo de grupos. Con esta información se podría medir la capacidad que debería de tener la facultad en cuanto al número de salones necesarios para cubrir la demanda de grupos. Si se está preparado para cubrir la demanda del pico más alto de todas las horas, entonces los demás casos están cubiertos por tener menor número de grupos.
+%Hay un descenso leve a las 9hrs donde se pudiera suponer que la gente sale a desayunar. En mi caso particular, al estudiar la carrera de Actuaría, tenía clases desde las 7a.m. por lo que las 9a.m. era una buena hora para hacer una pequeña pausa en el horario y tener un descanso para desayunar. Esta hora coincide con el cambio en el que se dejan de impartir las materias exclusivas para los actuarios como Teoría del Seguro, MASP o MASD. Es decir, a partir de las 9 de la mañana se imparten materias de todas las carreras.
+
+A las 10 de la mañana se tiene el número máximo de grupos. Con esta información se podría medir la capacidad que debería de tener la facultad en cuanto al número de salones necesarios para cubrir la demanda de grupos. Si se está preparado para cubrir la demanda del pico más alto de todas las horas, entonces los demás casos están cubiertos por tener un menor número de grupos.
 
 
 \begin{figure}[H]

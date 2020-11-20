@@ -174,7 +174,7 @@ param_graficas$ancho_pdf = 8 #Anchura para guardar imagen
 param_graficas$altura_pdf = 6 #Altura para guardar imagen
 param_graficas$dir_TeX = "TeX/LaTeX/Pictures/"
 
-
+# demo(graphics) # Ejecútela usted
 
 
 # mat_def_columnas_MG -----------------------------------------------------

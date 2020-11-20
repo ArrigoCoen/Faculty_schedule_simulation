@@ -59,7 +59,7 @@ legend(175,0.026,c("Actuaría","Ciencias de la Computación","Matemáticas",
                  "Matemáticas Aplicadas"),bty = "n",
        col=c(param_graficas$col1_hist,param_graficas$col3_hist,
              param_graficas$col5_hist,param_graficas$col4_hist),
-       lty=c(1,1),cex=1.1,lwd=lwd_dens)
+       lty=c(1,1,1,1),cex=1.1,lwd=c(lwd_dens,lwd_dens,lwd_dens,lwd_dens))
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "histogramas_FR_num_alum_x_carrera.pdf"
