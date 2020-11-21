@@ -1,8 +1,8 @@
 \section{Simulación de la demanda de alumnos} \label{SimDemandaAlumnos}
 
-La demanda del número de alumnos para el siguiente semestre la hicimos por materia y por hora. Para poder hacer la simulación lo primero que hicimos fue acomodar la información que teníamos por semestres y por hora. El procedimiento que seguimos es el siguiente:
-
-\begin{enumerate}
+La demanda del número de alumnos para el siguiente semestre la hicimos por materia y por hora. Para poder hacer la simulación lo primero que hicimos fue acomodar la información que teníamos por semestres y por hora. El procedimiento que seguimos fue el siguiente:
+  
+  \begin{enumerate}
 \item Definir el semestre del cual se quiere obtener la simulación (\textit{sem\_sig}).
 
 \item Definir el número de semestres que se quieren como ventana de información (\textit{k}).
@@ -11,32 +11,40 @@ La demanda del número de alumnos para el siguiente semestre la hicimos por mate
 
 \item Para cada semestre dentro de la ventana de información se suma el número de alumnos en cada hora.
 
-\item Se obtiene una matriz de $15 \times k$ como la que se puede ver en la \figurename{\ref{matAl_corregidos}}.
+\item Se obtiene una matriz de $t \times k$ como la que se puede ver en la \figurename{~\ref{matAl_corregidos}}.
 \end{enumerate}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
-\caption[\textit{Ejemplo de matriz con alumnos corregidos}]{\textit{Ejemplo de matriz con alumnos corregidos: Se puede ver la información del número de alumnos reales de la materia Estadística III por semestre y para cada hora.}}\label{matAl_corregidos}
+\includegraphics[scale = 1]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
+\caption[\textit{Ejemplo de matriz con alumnos corregidos}]{\textit{Ejemplo de matriz con alumnos corregidos: Se puede ver la información del número de alumnos reales de la materia ``Modelos de Supervivencia y Series de Tiempo'' por semestre y para cada hora.}}\label{matAl_corregidos}
 \end{figure}
 
-Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{\ref{vec_alum_sim}} vemos el vector con la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Estadística III / Modelos de Supervivencia y Series de Tiempo}.
+%Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{~\ref{vec_alum_sim}} vemos el vector con la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Modelos de Supervivencia y Series de Tiempo}.
 
-Notamos que el valor de la demanda de alumnos es cero cuando en todos los semestres de alguna hora no hay datos. En el ejemplo, es el caso de las 7hrs, 8hrs, 13hrs, 14hrs, 15hrs, 16hrs y 21hrs.
+Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{~\ref{matAl_corregidos_y_sim}} vemos la matriz vista en la \figurename{~\ref{matAl_corregidos}} junto con el vector de alumnos simulados (señalado en rojo). El vector contiene la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Modelos de Supervivencia y Series de Tiempo}.
 
-Observando los datos de las 10hrs. vemos que en los semestres pares no hay alumnos, por lo que en la simulación se obtiene únicamente un alumno. Si vemos los datos de las 17hrs vemos que de los 5 semestres en la ventana se tienen alumnos en los semestres pares y en un semestre impar, el número de alumnos simulados para esa hora son 31 alumnos. Con estos ejemplos podemos ver de manera tangible que el modelo si respeta la estacionalidad semestral que tienen los datos.
+Notamos que el valor de la demanda de alumnos es cero cuando en todos los semestres de alguna hora no hay datos. En el ejemplo, es el caso de las 7hrs, 8hrs, 13hrs, 14hrs, 15hrs, 16hrs y 21hrs. Observando los datos de las 10hrs. vemos que en los semestres pares no hay alumnos, por lo que en la simulación se obtiene únicamente un alumno.
+
+Si vemos los datos de las 17hrs vemos que de los 5 semestres en la ventana se tienen alumnos en los semestres pares y en un semestre impar, el número de alumnos simulados para esa hora son 31 alumnos. Con estos ejemplos podemos ver de manera tangible que el modelo si respeta la estacionalidad semestral que tienen los datos.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{vec_alum_sim_EstadisticaIII} %width=\textwidth
-\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de Estadística III}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de Estadística III: Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia Estadística III / Modelos de Supervivencia y Series de Tiempo}}\label{vec_alum_sim}
+\includegraphics[scale = 0.8]{mat_alumnos_corregidos_con_Sim_EstadisticaIII} %width=\textwidth
+\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo'': Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''.}}\label{matAl_corregidos_y_sim}
 \end{figure}
 
-Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$. Recordemos que $t$ es el número de hroas del día y $m$ es el número de materias que se van a impartir. En la \figurename{\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.8]{vec_alum_sim_EstadisticaIII} %width=\textwidth
+%\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo'': Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''}}\label{vec_alum_sim}
+%\end{figure}
 
-Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (5). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande, a diferencia de los alumnos simulados para \textit{Álgebra Superior II}, en donde hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares con una de semestres impares.
+Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$. Recordemos que $t$ es el número de horas del día y $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
 
-Ahora analicemos las columnas de \textit{Seminario de Topología A} (4) y \textit{Probabilidad II} (8). La primera es una materia optativa para Matemáticas y la segunda es una materia obligatoria para Actuaría, correspondiente a semestres pares y optativa para Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas. El número total de alumnos simulados para \textit{Seminario de Topología A} es menor a 20, en cambio para \textit{Probabilidad II} se tiene una gran cantidad de alumnos a las 8hrs, 9hrs y 10hrs. Considerando los valores que se tienen en el turno vespertino para \textit{Probabilidad II}, notamos que a las 19hrs también hay una gran cantidad de alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia obligatoria y una optativa, así como la diferencia entre el turno matutino y vespertino.
+Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (5). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande. Para \textit{Álgebra Superior II} hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares y una de semestres impares.
+
+Ahora analicemos las columnas de \textit{Seminario de Topología A} (4) y \textit{Probabilidad II} (8). La primera es una materia optativa para Matemáticas. La segunda es una materia obligatoria para Actuaría, correspondiente a semestres pares y optativa para Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas. El número total de alumnos simulados para \textit{Seminario de Topología A} es menor a 20, en cambio para \textit{Probabilidad II} se tiene una gran cantidad de alumnos a las 8hrs, 9hrs y 10hrs. Considerando los valores que se tienen en el turno vespertino para \textit{Probabilidad II}, notamos que a las 19hrs también hay una gran cantidad de alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia obligatoria y una optativa, así como la diferencia entre el turno matutino y vespertino.
 
 
 \begin{figure}[H]

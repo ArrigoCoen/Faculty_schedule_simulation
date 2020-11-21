@@ -24,16 +24,17 @@
 \contentsline {section}{\numberline {3.4}Distribución del tamaño de los grupos}{34}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Comportamientos por hora}{37}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Simulación}{41}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Funciones hechas en R}{41}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Obtención de los parámetros $q_{1}$ y $q_{2}$}{42}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Simulación de la demanda de alumnos}{47}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{50}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Obtención de información para solicitudes}{51}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Simulación de solicitudes de profesores}{54}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Simulación de esqueletos}{56}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Calificación de esqueletos}{57}{subsection.4.7.1}%
-\contentsline {section}{\numberline {4.8}Generación de asignaciones}{61}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Calificación de asignaciones}{61}{subsection.4.8.1}%
+\contentsline {section}{\numberline {4.1}Obtención de nombres de materias}{41}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Funciones hechas en R}{42}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Obtención de los parámetros $q_{1}$ y $q_{2}$}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Simulación de la demanda de alumnos}{47}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Simulación de tamaño de grupos}{50}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Obtención de nombres de profesores}{51}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Simulación de solicitudes de profesores}{54}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Simulación de esqueletos}{56}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Calificación de esqueletos}{57}{subsection.4.8.1}%
+\contentsline {section}{\numberline {4.9}Generación de asignaciones}{61}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Calificación de asignaciones}{61}{subsection.4.9.1}%
 \contentsline {chapter}{\numberline {5}Teoría del Algoritmo Genético aplicado a los horarios}{63}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Ciclo de la evolución natural}{64}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Selección}{65}{subsection.5.1.1}%

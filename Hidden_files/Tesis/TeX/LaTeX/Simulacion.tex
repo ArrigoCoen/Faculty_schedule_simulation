@@ -8,9 +8,11 @@ Actualmente se combinan diferentes metodologías de simulación con el software 
 
 A lo largo de este capítulo explicaremos el proceso que seguimos para obtener la asignación de los horarios para cada materia con su respectivo profesor.
 
+\input{Sim_nom_materias} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
+
 \section{Funciones hechas en R}
 
-El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la \figurename{\ref{DF_genAsig}}.
+El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la \figurename{~\ref{DF_genAsig}}.
 
 \begin{figure}[H]
 \centering
@@ -46,8 +48,8 @@ El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la 
 En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
 
 Hicimos una función en \textit{R} que realiza los siguientes pasos:
-
-\begin{enumerate}
+  
+  \begin{enumerate}
 \item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
 
 \item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
@@ -63,17 +65,16 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
 Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver Sección \ref{DitribTamGpos}).
 
-\input{Sim_info_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
+\input{Sim_nom_profesores} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
 \input{Sim_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
-
 
 
 \section{Simulación de esqueletos}
 
 En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, la cual tiene $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene el numero de grupos simulados para la hora $i$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores. El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
-
-\begin{enumerate}
+  
+  \begin{enumerate}
 \item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{SimDemandaAlumnos}).
 
 \item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver Sección \ref{SimSolicitudesProfesores}).
@@ -96,8 +97,8 @@ En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esquele
 \end{enumerate}
 
 Algunas notas a considerar del procedimiento son:
-
-\begin{itemize}
+  
+  \begin{itemize}
 %\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
 
 \item[-] Los profesores de tiempo completo deben cumplir con sus horas, por contrato.
@@ -105,8 +106,8 @@ Algunas notas a considerar del procedimiento son:
 \item[-] Los profesores sólo pueden tener asignadas a lo más 2 materias.
 
 \item[-] Las condiciones de paro del proceso son:
-
-\begin{itemize}
+  
+  \begin{itemize}
 \item[a)] Ya se cubrió toda la demanda
 
 \item[b)] Ya no hay más profesores
@@ -115,7 +116,7 @@ Algunas notas a considerar del procedimiento son:
 \end{itemize}
 \end{itemize}
 
-En la \figurename{\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de Cálculo I, II, III y IV. Notamos que el número de grupos simulados para las materias de semestres pares (Cálculo II y IV) es mayor que para las materias de semestres impares. Esto se debe al comportamiento observado en la Sección \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par.
+En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de \textit{Cálculo Diferencial e Integral I, II, III} y \textit{IV}. Notamos que el número de grupos simulados para las materias de semestres pares \textit{(Cálculo Diferencial e Integral II y IV)} es mayor que para las materias de semestres impares \textit{(Cálculo Diferencial e Integral I y III)}. Esto se debe al comportamiento descrito en la Sección \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par.
 
 \begin{figure}[H]
 \centering
@@ -126,7 +127,7 @@ En la \figurename{\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{ma
 %\subsection{Calificación de esqueletos de horario}
 \subsection{Calificación de esqueletos}
 
-En la \figurename{\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
+En la \figurename{~\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
 
 \begin{figure}[H]
 \centering
@@ -135,7 +136,7 @@ En la \figurename{\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las
 \end{figure}
 
 
-En la \figurename{\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
+En la \figurename{~\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
 
 \begin{figure}[H]
 \centering
@@ -144,7 +145,7 @@ En la \figurename{\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia rel
 \end{figure}
 
 
-En la \figurename{\ref{dif_D_E_materia}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
+En la \figurename{~\ref{dif_D_E_materia}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
 
 \begin{figure}[H]
 \centering
@@ -153,7 +154,7 @@ En la \figurename{\ref{dif_D_E_materia}} vemos el histograma de la diferencia de
 \end{figure}
 
 
-En la \figurename{\ref{difRel_D_E_materia}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
+En la \figurename{~\ref{difRel_D_E_materia}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
 
 \begin{figure}[H]
 \centering
@@ -161,7 +162,7 @@ En la \figurename{\ref{difRel_D_E_materia}} vemos el histograma de la diferencia
 \caption{\textit{Histograma de la diferencia relativa de las matrices D y E por materia}}\label{difRel_D_E_materia}
 \end{figure}
 
-Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la \figurename{\ref{difRel_mate_ciencias_app}} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos los valores de la última columna de la figura.
+Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la \figurename{~\ref{difRel_mate_ciencias_app}} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos los valores de la última columna de la figura.
 
 \begin{figure}[H]
 \centering
@@ -175,9 +176,9 @@ L_{materia} &=& -1 \,\,\,\,\,\,  \text{por cada materia no impartida}\\
 x &=& \text{promedio}\\
 y &=& \text{cupo}\\
 L_{dif\_p\_c} (x,y) &=& \begin{cases}
-    \dfrac{a}{190} (x-y)  & \quad \text{si } x<y\\
-    - \dfrac{b}{190} (x-y)  & \quad \text{si } x\geqslant y
-  \end{cases}\\
+\dfrac{a}{190} (x-y)  & \quad \text{si } x<y\\
+- \dfrac{b}{190} (x-y)  & \quad \text{si } x\geqslant y
+\end{cases}\\
 a &=& 0.5\\
 b &=& 0.8\\
 L_{categoria}^{1} (mat,solicitud) &=& -c(categoria - 1)\\
@@ -199,21 +200,21 @@ Primero se asignan materias a los profesores de tiempo completo y después a los
 Los profesores de asignatura pueden quedarse sin materias asignadas.
 
 Penalizaciones:
-
-\begin{enumerate}
+  
+  \begin{enumerate}
 \item Si algún profesor pidió alguna materia y no se la dieron.
 
 \item Si hay alumnos que necesitan una clase a alguna hora y no existe profesor que la imparta.
 
 \item Con $\alpha \times num\_alumnos\_faltantes$ por cada alumno que te faltó en cada hora-materia que tenías que dar. $\alpha > 0$
-
-\item Con $\beta \times num\_alumnos\_sobrantes$ por cada alumno que te pasaste en cada hora-materia que tenías que dar. $\beta > 0$
-
-\end{enumerate}
+  
+  \item Con $\beta \times num\_alumnos\_sobrantes$ por cada alumno que te pasaste en cada hora-materia que tenías que dar. $\beta > 0$
+  
+  \end{enumerate}
 
 %Queremos el esqueleto con el menor valor en $\alpha + \beta$
-
-Con esto se califica un esqueleto.
+  
+  Con esto se califica un esqueleto.
 
 
 \section{Generación de asignaciones}
@@ -223,8 +224,8 @@ Matriz de 3 columnas (Materia-Horario-Profesor), la cual tiene la información d
 %\subsection{Calificación de asignaciones de grupo}
 \subsection{Calificación de asignaciones}
 %Los valores del modelo se muestran a continuación:
-
-%\begin{lstlisting}[language=R, caption= \textit{Método Holt-Winters aditivo}]
+  
+  %\begin{lstlisting}[language=R, caption= \textit{Método Holt-Winters aditivo}]
 %Holt-Winters' additive method 
 %
 %Call:
@@ -248,7 +249,3 @@ Matriz de 3 columnas (Materia-Horario-Profesor), la cual tiene la información d
 %\includegraphics[scale = 0.8]{modelo_HW_total_alumnos_x_sem} %width=\textwidth
 %\caption{\textit{Modelo del método aditivo de Holt-Winters: Total de alumnos por semestre}}
 %\end{figure}
-
-
-
-

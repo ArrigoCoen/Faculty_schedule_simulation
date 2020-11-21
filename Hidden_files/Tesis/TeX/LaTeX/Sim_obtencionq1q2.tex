@@ -3,8 +3,8 @@
 En esta sección vamos a explicar cómo obtuvimos los valores de $q_{1}$ y $q_{2}$. Son parámetros que se introducen en la función \verb@hw()@ de \textit{R}. Representan los cuantiles utilizados al calcular los intervalos de confianza. Por ejemplo si $q_{1} = 80$ entonces se calcula el intervalo al $80\%$ de confianza. Si se introducen a la función los dos parámetros entonces se calculan dos intervalos, uno al $q_{1}\%$ de confianza y el otro al $q_{2}\%$ de confianza.
 
 Primero definimos los parámetros generales necesarios para las simulaciones:
-
-\begin{enumerate}
+  
+  \begin{enumerate}
 \item Fijamos la semilla con \verb@set.seed(8654)@.
 
 \item Elegimos 3 semestres para simular la demanda del número de alumnos. Los seleccionamos de los semestres que ya teníamos guardados con información real. Hicimos una comparación entre nuestros datos simulados y los reales de cada semestre. Los semestres que elegimos fueron: 2019-1, 2019-2 y 2020-1.
@@ -17,37 +17,37 @@ Primero definimos los parámetros generales necesarios para las simulaciones:
 
 Después fijamos 5 materias que consideramos representativas para hacer las pruebas iniciales: \textit{Cálculo Diferencial e Integral I}, \textit{Demografía I}, \textit{Modelos no Paramétricos y de Regresión}, \textit{Administración de Riesgos Financieros} y \textit{Seminario de Investigación de Operaciones}.
 
-Tomamos 12 posibles combinaciones de valores para $q_{1}$ y $q_{2}$, las cuales podemos ver en la \tablename{\ref{valoresQ1Q2}}. La letra \textit{L} indica que se tomó la cota inferior de $q_{1}$ y la letra \textit{U} indica que se tomó la cota superior de $q_{2}$. Con estas cotas formamos intervalos de los cuales obtuvimos las simulaciones para los 3 diferentes semestres previamente elegidos. %Con las cotas de tipo \textit{$Lq_{1}$,$Uq_{2}$} se forma un intervalo del que s
+Tomamos 12 posibles combinaciones de valores para $q_{1}$ y $q_{2}$, las cuales podemos ver en la \tablename{~\ref{valoresQ1Q2}}. La letra \textit{L} indica que se tomó la cota inferior de $q_{1}$ y la letra \textit{U} indica que se tomó la cota superior de $q_{2}$. Con estas cotas formamos intervalos de tipo $(Lq_{1}$,$Uq_{2})$. De éstos intervalos obtuvimos el número de alumnos simulados para los 3 diferentes semestres previamente definidos y para cada una de las 5 materias elegidas.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
-$q_{1} \backslash q_{2}$ & 80 & 85 & 90 & 99 \\ 
+$\textbf{q}_{\textbf{1}} \backslash \textbf{q}_{\textbf{2}}$ & \textbf{80} & \textbf{85} & \textbf{90} & \textbf{99} \\ 
 \hline 
-80 & - & L80,U85 & L80,U90 & L80,U99 \\ 
+\textbf{80} & - & L80,U85 & L80,U90 & L80,U99 \\ 
 \hline 
-85 & L85,U80 & - & L85,U90 & L85,U99 \\ 
+\textbf{85} & L85,U80 & - & L85,U90 & L85,U99 \\ 
 \hline 
-90 & L90,U80 & L90,U85 & - & L90,U99 \\ 
+\textbf{90} & L90,U80 & L90,U85 & - & L90,U99 \\ 
 \hline 
-99 & L99,U80 & L99,U85 & L99,U90 & - \\ 
+\textbf{99} & L99,U80 & L99,U85 & L99,U90 & - \\ 
 \hline 
 \end{tabular} 
 \caption[\textit{Posibles valores para $q_{1}$ y $q_{2}$}]{\textit{Posibles valores para $q_{1}$ y $q_{2}$: Tabla que muestra todas las combinaciones de los intervalos formados con las cotas inferiores y superiores de $q_{1}$ y $q_{2}$}}\label{valoresQ1Q2}
 \end{table}
 
 
-Una vez hecha la simulación obtuvimos una tabla con 7 columnas: materia, intervalo, mín, media, máx, sd y seg. Donde en el renglón i se tienen los datos de la matriz de diferencias relativas de la i-ésima materia para cada intervalo de $q_{1}$ y $q_{2}$. La matriz de diferencias relativas se genera al restar, para cada materia, los datos reales menos los simulados y después dividirlos entre los reales. Por ejemplo en el primer renglón de la \figurename{\ref{matMedDispersion}} vemos que se utilizó el intervalo $(L80,U85)$ para obtener el número de alumnos simulados para el siguiente semestre de la materia \textit{Cálculo Diferencial e Integral I}. Las columnas 2, 3, 4 y 5 corresponden a las medidas de la matriz de diferencias relativas para cada materia. La última columna indica el tiempo que se tardó el proceso.
+Una vez hecha la simulación obtuvimos una tabla con 6 columnas: \textit{materia, intervalo, mín, media, máx} y \textit{sd}. En el renglón $i$ se tienen los datos de la matriz de diferencias relativas de la i-ésima materia para el intervalo $(Lq_{1}$,$Uq_{2})$ correspondiente. La matriz de diferencias relativas se genera al restar, para cada materia, los datos reales menos los simulados y después dividirlos entre los reales. Por ejemplo en el primer renglón de la \figurename{~\ref{matMedDispersion}} vemos que se utilizó el intervalo $(L80,U85)$ para obtener el número de alumnos simulados para el siguiente semestre de la materia \textit{Cálculo Diferencial e Integral I}. Las columnas 2, 3, 4 y 5 corresponden a las medidas de la matriz de diferencias relativas para cada materia.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.9]{mat_med_dispersion} %width=\textwidth
-\caption[\textit{Matriz con información por materia}]{\textit{Matriz con información por materia: vemos los primeros 10 renglones de la tabla obtenida con información de la matriz de diferencias relativas.}}\label{matMedDispersion}
+\includegraphics[scale = 0.85]{mat_med_dispersion} %width=\textwidth
+\caption[\textit{Matriz con información por materia}]{\textit{Matriz con información por materia: Vemos los primeros 10 renglones de la tabla obtenida con información de la matriz de diferencias relativas.}}\label{matMedDispersion}
 \end{figure}
 
 
-Decidimos elegir $q_{1}$ y $q_{2}$ en base a la desviación estándar. Con la \figurename{\ref{matMedDispersion}} obtuvimos una matriz de dos columnas que contine en su primer columna el intervalo y en la segunda el promedio de la desviación estándar para cada intervalo de las 5 materias. Los datos de dicha matriz los podemos ver en la \figurename{\ref{promSD_5m_12p}}.
+Decidimos elegir $q_{1}$ y $q_{2}$ en base a la desviación estándar. Con la \figurename{~\ref{matMedDispersion}} obtuvimos una matriz de dos columnas que contine en su primer columna el intervalo y en la segunda el promedio de la desviación estándar para cada intervalo de las 5 materias. Los datos de dicha matriz los podemos ver en la \figurename{~\ref{promSD_5m_12p}}.
 
 \begin{figure}[H]
 \centering
@@ -56,7 +56,7 @@ Decidimos elegir $q_{1}$ y $q_{2}$ en base a la desviación estándar. Con la \f
 \end{figure}
 
 
-Los datos en la \figurename{\ref{promSD_5m_12p}} están ordenados de menor a mayor con respecto al promedio de la desviación estándar. Para la segunda prueba se eligieron los primeros 6 intervalos de dicha tabla. Se eligieron 10 materias: \textit{Álgebra Lineal I}, \textit{Álgebra Superior II}, \textit{Algoritmos Genéticos}, \textit{Análisis Matemático IV}, \textit{Análisis Numérico}, \textit{Teoría de la Medida I}, \textit{Cálculo Diferencial e Integral IV}, \textit{Graficas y Juegos}, \textit{Inglés I} y \textit{Matemáticas Actuariales para Seguro de Daños}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{\ref{promSD_10m_6p}}.
+Los datos en la \figurename{~\ref{promSD_5m_12p}} están ordenados de menor a mayor con respecto al promedio de la desviación estándar. Para la segunda prueba elegimos los primeros 6 intervalos de dicha tabla. Seleccionamos 10 materias: \textit{Álgebra Lineal I}, \textit{Álgebra Superior II}, \textit{Algoritmos Genéticos}, \textit{Análisis Matemático IV}, \textit{Análisis Numérico}, \textit{Teoría de la Medida I}, \textit{Cálculo Diferencial e Integral IV}, \textit{Graficas y Juegos}, \textit{Inglés I} y \textit{Matemáticas Actuariales para Seguro de Daños}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_6p}}.
 
 
 \begin{figure}[H]
@@ -66,7 +66,7 @@ Los datos en la \figurename{\ref{promSD_5m_12p}} están ordenados de menor a may
 \end{figure}
 
 
-Para la tercera prueba elegimos, de la \figurename{\ref{promSD_10m_6p}} los intervalos que tuvieran un promedio en la desviación estándar menor a $0.5$. Seleccionamos otras 10 materias: \textit{Estadística III}, \textit{Teoría del Seguro}, \textit{Programación Entera}, \textit{Investigación de Operaciones}, \textit{Geometría Moderna I}, \textit{Geometría Analítica II}, \textit{Lógica Matemática I}, \textit{Cálculo Diferencial e Integral III}, \textit{Estadística I} y \textit{Bases de Datos}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{\ref{promSD_10m_4p}}.
+Para la tercera prueba elegimos, de la \figurename{~\ref{promSD_10m_6p}} los intervalos que tuvieran un promedio en la desviación estándar menor a $0.5$. Seleccionamos otras 10 materias: \textit{Estadística III}, \textit{Teoría del Seguro}, \textit{Programación Entera}, \textit{Investigación de Operaciones}, \textit{Geometría Moderna I}, \textit{Geometría Analítica II}, \textit{Lógica Matemática I}, \textit{Cálculo Diferencial e Integral III}, \textit{Estadística I} y \textit{Bases de Datos}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_4p}}.
 
 
 \begin{figure}[H]
@@ -75,7 +75,7 @@ Para la tercera prueba elegimos, de la \figurename{\ref{promSD_10m_6p}} los inte
 \caption[\textit{Promedio de la desviación estándar: 10 materias, 4 pruebas}]{\textit{Promedio de la desviación estándar: 10 materias, 4 pruebas: Matriz con el promedio de la desviación estándar para 10 materias y 4 diferentes intervalos.}}\label{promSD_10m_4p}
 \end{figure}
 
-Podemos ver que los valores de la \figurename{\ref{promSD_10m_4p}} son muy parecidos. Hicimos una prueba con los mismos intervalos pero con 5 materias que se dan en todos los semestres y además tienen muchos alumnos. Hicimos la prueba para ver si había alguna diferencia en los datos y poder elegir un sólo intervalo. Las materias que elegimos para esta prueba fueron: \textit{Geometría Analítica I}, \textit{Cálculo Diferencial e Integral II}, \textit{Finanzas I}, \textit{Probabilidad II} y \textit{Procesos Estocásticos I}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{\ref{promSD_5m_4p}}.
+Podemos ver que los valores de la \figurename{~\ref{promSD_10m_4p}} son muy parecidos entre sí. Hicimos una prueba con los mismos intervalos pero con 5 materias obligatorias y además tienen muchos alumnos. Hicimos la prueba para ver si había alguna diferencia en los datos y poder elegir un solo intervalo. Las materias que elegimos para esta prueba fueron: \textit{Geometría Analítica I}, \textit{Cálculo Diferencial e Integral II}, \textit{Finanzas I}, \textit{Probabilidad II} y \textit{Procesos Estocásticos I}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{~\ref{promSD_5m_4p}}.
 
 
 \begin{figure}[H]
@@ -84,7 +84,7 @@ Podemos ver que los valores de la \figurename{\ref{promSD_10m_4p}} son muy parec
 \caption[\textit{Promedio de la desviación estándar: 5 materias, 4 pruebas}]{\textit{Promedio de la desviación estándar: 5 materias, 4 pruebas: Matriz con el promedio de la desviación estándar para 5 materias y 4 diferentes intervalos.}}\label{promSD_5m_4p}
 \end{figure}
 
-Analizando la información de las matrices de las Figuras \ref{promSD_10m_4p} y \ref{promSD_5m_4p}, decidimos elegir los valores de $q_{1} = 85$ y $q_{2} = 80$. Por lo que el intervalo que buscamos estará formado por la cota inferior del intervalo de confianza al $85\%$ y por la cota superior del intervalo de confianza al $80\%$. Para visualizar de una mejor manera cómo se encuentra el intervalo formado, podemos ver la \figurename{\ref{interConf}}. De ese intervalo vamos a obtener los valores para simular la demanda de alumnos.
+Analizando la información de las matrices de las Figuras \ref{promSD_10m_4p} y \ref{promSD_5m_4p}, decidimos elegir los valores de $q_{1} = 85$ y $q_{2} = 80$. Por lo que el intervalo que buscamos estará formado por la cota inferior del intervalo de confianza al $85\%$ y por la cota superior del intervalo de confianza al $80\%$. Para visualizar de una mejor manera cómo se encuentra el intervalo formado, podemos ver la \figurename{~\ref{interConf}}. De dicho intervalo vamos a obtener los valores para simular la demanda de alumnos para el siguiente semestre, para cada materia en cada hora.
 
 \begin{figure}[H]
 \centering
@@ -92,10 +92,10 @@ Analizando la información de las matrices de las Figuras \ref{promSD_10m_4p} y 
 \caption[\textit{Diagrama de los intervalos de confianza}]{\textit{Diagrama de los intervalos de confianza: Se muestra el intervalo del que se va a obtener el número de alumnos para la simulación de cada materia en cada hora.}}\label{interConf}
 \end{figure}
 
-Finalmente con los valores de $q_{1} = 85$ y $q_{2} = 80$ hicimos una prueba aleatoria (eliminando la semilla). Las materias que elegimos para dicha prueba son: \textit{Estadística III}, \textit{Teoría del Seguro}, \textit{Cálculo Diferencial e Integral I}, \textit{Investigación de Operaciones}, \textit{Geometría Moderna I}, \textit{Geometría Analítica II}, \textit{Lógica Matemática I}, \textit{Cálculo Diferencial e Integral III}, \textit{Estadística I}, \textit{Bases de Datos}, \textit{Matemáticas Financieras}, \textit{Cálculo Diferencial e Integral II}, \textit{Probabilidad I}, \textit{Probabilidad II} y \textit{Procesos Estocásticos I}. Los resultados de la prueba aleatoria los podemos ver en la \figurename{\ref{mat_med_dispersion_pruebaAl}}. El promedio de la desviación estándar de todas las materias es $0.48$.%$0.4814898$.
+Finalmente con los valores de $q_{1} = 85$ y $q_{2} = 80$ hicimos una prueba aleatoria (eliminando la semilla). Las materias que elegimos para dicha prueba fueron: \textit{Modelos de Supervivencia y de Series de Tiempo, Teoría del Seguro, Cálculo Diferencial e Integral I,II y III, Investigación de Operaciones, Geometría Moderna I, Geometría Analítica II, Lógica Matemática I, Probabilidad I y II, Inferencia Estadística, Bases de Datos, Matemáticas Financieras} y \textit{Procesos Estocásticos I}. Los resultados de la prueba aleatoria los podemos ver en la \figurename{~\ref{mat_med_dispersion_pruebaAl}}. El promedio de la desviación estándar de todas las materias es $0.48$.%$0.4814898$.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.9]{mat_med_dispersion_pruebaAleatoria} %width=\textwidth
+\includegraphics[scale = 1]{mat_med_dispersion_pruebaAleatoria} %width=\textwidth
 \caption[\textit{Matriz con medidas de dispersión de prueba aleatoria}]{\textit{Matriz con medidas de dispersión de prueba aleatoria: Se muestra en cada renglón la materia y el intervalo del que se tomaron los valores para la simulación.}}\label{mat_med_dispersion_pruebaAl}
 \end{figure}
