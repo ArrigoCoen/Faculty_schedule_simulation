@@ -69,12 +69,13 @@ pruebas_calificar_esqueletos <- function(lista_info_esqueleto,
   vec_x_gpo_mat_errores_relativos <- vec_x_gpo_mat_errores_relativos[
     vec_x_gpo_mat_errores_relativos>-Inf]
   
-  min(vec_x_gpo_mat_errores)#-78
-  max(vec_x_gpo_mat_errores)#321
-  min(vec_x_gpo_mat_errores_relativos)#-65
+  min(vec_x_gpo_mat_errores)#-151
+  max(vec_x_gpo_mat_errores)#361
+  min(vec_x_gpo_mat_errores_relativos)#-67
   max(vec_x_gpo_mat_errores_relativos)#1
   
-  hist(vec_x_gpo_mat_errores,col=param_graficas$col1_hist,breaks = seq(-80,330,by = 10),
+  hist(vec_x_gpo_mat_errores,col=param_graficas$col1_hist,
+       breaks = seq(-160,370,by = 10),
        ylab = "Frecuencia relativa",
        # xlab = "Diferencia entre el número de alumnos esperados menos el número de alumnos simulados",
        xlab = "Diferencia por grupo",
@@ -96,18 +97,19 @@ pruebas_calificar_esqueletos <- function(lista_info_esqueleto,
   vec_errores_relativos_x_materia <- vec_errores_relativos_x_materia[
     vec_errores_relativos_x_materia>-Inf]
   
-  min(vec_errores_x_materia)#-259
-  max(vec_errores_x_materia)#244
-  min(vec_errores_relativos_x_materia)#-84.46
-  max(vec_errores_relativos_x_materia)#8
+  min(vec_errores_x_materia)#-340
+  max(vec_errores_x_materia)#274
+  min(vec_errores_relativos_x_materia)#-94.87168
+  max(vec_errores_relativos_x_materia)#3.33
   
-  hist(vec_errores_x_materia,col=param_graficas$col1_hist,breaks = seq(-260,250,by = 10),
+  hist(vec_errores_x_materia,col=param_graficas$col1_hist,
+       breaks = seq(-340,280,by = 10),
        ylab = "Frecuencia relativa",
        xlab = "Diferencia por materia",
        freq = F,main="Histograma de D-E")
   
   hist(vec_errores_relativos_x_materia,col=param_graficas$col1_hist,
-       breaks = seq(-90,10,by = 10),
+       breaks = seq(-100,10,by = 10),
        ylab = "Frecuencia relativa",xlab = "Diferencia relativa por materia",freq = F,
        main="Histograma de (D-E)/D")
   

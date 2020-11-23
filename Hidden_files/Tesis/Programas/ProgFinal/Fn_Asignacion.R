@@ -109,6 +109,8 @@ param$m_grande_2015 = matrix(0,ncol = length(param$nom_cols_MG))
 param$vec_nom_materias_total = 0
 param$mat_nom_prof_total = 0
 param$num_max_asig = 2
+param$cota_TC = 1500
+param$cota_asig = 6500
 
 
 load(file = paste0("Matrices m_grande_total/m_grande_total_",
@@ -1040,9 +1042,34 @@ gen_mat_nom_materias_total <- function(param,param_sim){
   mat_nom_materias_total <- mat_nom_materias_SIN_X
   mat_nom_materias_total[,2] <- 1:dim(mat_nom_materias_SIN_X)[1]
   
+  
+  ##Cambios extra
   mat_nom_materias_total[43,6] <- "Investigación de Operaciones/Investigación de Operaciones/Investigación de Operaciones/Investigación de Operaciones/Investigación de Operaciones/Investigación de Operaciones/Investigación de Operaciones"
   mat_nom_materias_total[54,9] <- "Análisis Numérico/Análisis Numérico/Análisis Numérico/Análisis Numérico/Análisis Numérico/Análisis Numérico/Análisis Numérico"
   mat_nom_materias_total[144,6] <- "/Seminario de Aplicaciones Actuariales/Seminario de Aplicaciones Actuariales/Seminario de Estadística I"
+  
+  num_materia_202 <- dim(mat_nom_materias_total)[1]+1
+  nom_comp_distrib <- c("Computación Distribuida",num_materia_202,
+                        "Computación Distribuida",
+                        "Principios de Computación Distribuida",
+                        "/Principios de Computación Distribuida/Computación Concurrente",
+                        "Computación Concurrente",
+                        rep(0,16))
+  mat_nom_materias_total <- rbind(mat_nom_materias_total,
+                                  nom_comp_distrib)
+  mat_nom_materias_total[98,c(8,9,13)] <- c("/Seminario de Computación Teórica II/Seminario de Ciencias de la Computación A",
+                                             "/Seminario de Aplicaciones de Cómputo II/Seminario de Ciencias de la Computación A/Seminario de Ciencias de la Computación B",
+                                             "/Seminario de Aplicaciones de Cómputo/Sistemas de Información Geográfica")
+  mat_nom_materias_total[98,15] <- mat_nom_materias_total[98,22]
+  mat_nom_materias_total[98,22] <- 0
+  
+  num_materia_203 <- dim(mat_nom_materias_total)[1]+1
+  nom_anim_x_comp <- c("Animación por Computadora",num_materia_203,
+                       "Animación por Computadora",
+                       "/Seminario de Aplicaciones de Cómputo/Animación por Computadora",
+                       rep(0,18))
+  mat_nom_materias_total <- rbind(mat_nom_materias_total,
+                                  nom_anim_x_comp)
   
   save(mat_nom_materias_total, file = "mat_nom_materias_total.RData")
   vec_nom_materias_total <- mat_nom_materias_total[,1]
@@ -1071,17 +1098,7 @@ arroja_nom_correcto <- function(materia){
   
   #Se definen las variables que se van a utilizar
   vec_info_nombre <- c(0,0)
-  vec_sem_CdC <- c("/Principios de Computación Distribuida/Computación Concurrente",
-                   "/Seminario de Computación Teórica II/Seminario de Ciencias de la Computación A",
-                   "/Seminario de Aplicaciones de Cómputo/Animación por Computadora",
-                   "/Seminario de Aplicaciones de Cómputo/Sistemas de Información Geográfica",
-                   "/Seminario de Aplicaciones de Cómputo II/Seminario de Ciencias de la Computación A/Seminario de Ciencias de la Computación B")
   
-  if(any(materia == vec_sem_CdC)){
-    #' En caso de que materia coincida con alguno de los nombres
-    #' del vector (materia que tiene agrupadas múltiples materias)
-    materia <- "Seminario de Ciencias de la Computación A"
-  }
   for(d in 1:dim(mat_nom_materias_total)[1]){
     ind <- which(materia == mat_nom_materias_total[d,c(1,3:dim(mat_nom_materias_total)[2])])
     if(length(ind) > 0){
@@ -1116,8 +1133,8 @@ arroja_nom_correcto <- function(materia){
 #' 
 actualiza_col_num_materia <- function(param){
   #Se definen las variables que se van a utilizar
-  # semestres <- param$sem_totales
-  semestres <- param$sem_totales[20:length(param$sem_totales)]
+  semestres <- param$sem_totales
+  # semestres <- param$sem_totales[20:length(param$sem_totales)]
   num_col_Materia <- arroja_ind_col_MG("Materia")##1
   num_col_Profesor <- arroja_ind_col_MG("Profesor")##2
   num_col_Cambios <- arroja_ind_col_MG("Cambios")##12
@@ -1134,7 +1151,7 @@ actualiza_col_num_materia <- function(param){
       nom_materia <- m_grande[r,num_col_Materia]
       vec_info_nombre <- arroja_nom_correcto(nom_materia)
       if(vec_info_nombre[1] != 0){
-        #Cuando si se encuentra el nombre de
+        #Cuando si se encuentra el nombre de la materia
         m_grande[r,num_col_Materia] <- vec_info_nombre[1]
         
         if(m_grande[r,num_col_NumMateria] != vec_info_nombre[2]){
@@ -1146,7 +1163,66 @@ actualiza_col_num_materia <- function(param){
       m_grande[r,num_col_NumMateria] <- vec_info_nombre[2]
     }#Fin for(r)
     save(m_grande,file = nom_m_grande)
-  }#Fin for(d)
+  }#Fin for(s)
+}
+
+
+# corrige_sem_CdC --------------------------------------------------------
+#' Title corrige_sem_CdC: Función que corrige los renglones de cada 
+#' "m_grande" que tienen las materias: "Animación por Computadora" y
+#' "Computación Distribuida".
+#'
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
+#'
+#' @examples
+#' corrige_sem_CdC(param)
+#' 
+corrige_sem_CdC <- function(param){
+  #Se definen las variables que se van a utilizar
+  semestres <- param$sem_totales
+  num_col_Materia <- arroja_ind_col_MG("Materia")##1
+  num_col_Cambios <- arroja_ind_col_MG("Cambios")##12
+  num_col_NomMat_Act2000 <- arroja_ind_col_MG("NomMat_Act2000")##23
+  num_col_NomMat_MAp2017 <- arroja_ind_col_MG("NomMat_MAp2017")##29
+  num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
+  materia <- "Seminario de Ciencias de la Computación"
+  vec_info_anim_comp <- arroja_nom_correcto("Animación por Computadora")
+  vec_info_comp_distrib <- arroja_nom_correcto("Computación Distribuida")
+  vec_comp_distrib <- c("Principios de Computación Distribuida",
+                        "Computación Concurrente",
+                        vec_info_comp_distrib[1])
+  
+  for(s in 1:(length(semestres)-1)){
+    sem_info <- semestres[s]
+    nom_m_grande <- paste0("m_grande por semestre/m_grande_",sem_info,".RData")
+    load(nom_m_grande)
+    
+    indices <- checa_ind_materia(materia,m_grande)
+    
+    for(r in indices){#Recorre sólo los índices de los renglones que queremos cambiar
+      vec_m_grande <- m_grande[r,num_col_NomMat_Act2000:num_col_NomMat_MAp2017]
+      
+      #Verificamos para "Animación por Computadora"
+      if(any(vec_info_anim_comp[1] == vec_m_grande)){
+        m_grande[r,c(num_col_Materia,num_col_Cambios,
+                     num_col_NumMateria)] <- c(vec_info_anim_comp[1],
+                                               paste0(m_grande[r,num_col_Cambios],"/1"),
+                                               vec_info_anim_comp[2])
+      }
+      
+      #Verificamos para "Computación Distribuida"
+      if(any(vec_comp_distrib == vec_m_grande)){
+        m_grande[r,c(num_col_Materia,num_col_Cambios,
+                     num_col_NumMateria)] <- c(vec_info_comp_distrib[1],
+                                               paste0(m_grande[r,num_col_Cambios],"/1"),
+                                               vec_info_comp_distrib[2])
+      }
+    }#Fin for(r)
+    save(m_grande,file = nom_m_grande)
+  }#Fin for(s)
 }
 
 
@@ -2643,7 +2719,7 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   mat_solicitudes_TC <- mat_solicitudes_aux[mat_solicitudes_aux[,2]==1,]
   mat_prof_TC <- cbind(unique(mat_solicitudes_TC[,1]),
                        rep(0,length(unique(mat_solicitudes_TC[,1]))))
-  lista_ciclo_TC <- ciclo_esqueleto(1000,mat_solicitudes_TC,mat_prof_TC,
+  lista_ciclo_TC <- ciclo_esqueleto(param$cota_TC,mat_solicitudes_TC,mat_prof_TC,
                                     mat_demanda_aux,num_max_asig,mat_demanda_alumnos)
   mat_prof_TC <- lista_ciclo_TC[[2]]
   colnames(mat_prof_TC) <- c("Profesor","Materias_Asig")
@@ -2656,7 +2732,7 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   mat_prof_asig <- cbind(unique(mat_solicitudes_asignatura[,1]),
                          rep(0,length(unique(mat_solicitudes_asignatura[,1]))))
   
-  lista_ciclo_asig <- ciclo_esqueleto(6500,mat_solicitudes_asignatura,
+  lista_ciclo_asig <- ciclo_esqueleto(param$cota_asig,mat_solicitudes_asignatura,
                                       mat_prof_asig,lista_ciclo_TC[[3]],
                                       num_max_asig,mat_demanda_alumnos)
   mat_prof_asig <- lista_ciclo_asig[[2]]

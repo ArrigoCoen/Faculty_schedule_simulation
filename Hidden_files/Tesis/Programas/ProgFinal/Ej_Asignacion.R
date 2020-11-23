@@ -32,7 +32,17 @@ source("Fn_Asignacion.R")
 #' Title gen_m_grande_total: Función que genera la matriz "m_grande_total"
 #' para un intervalo dado.
 #'
-param$sem_ini = 20131##Inicio de información real
+# param$sem_ini = 20131##Inicio de información real
+# param$sem_fin = 20201##Fin de información real
+# param$sem_sig = 20202##Semestre de simulación
+# param$sem_totales <- (20081:param$sem_sig)[(20081:param$sem_sig)%% 10>0
+#                                            &(20081:param$sem_sig)%% 10<3]
+# param$Semestres = (param$sem_ini:param$sem_fin)[(param$sem_ini:param$sem_fin)
+#                                                 %% 10>0 &(param$sem_ini:param$sem_fin) %% 10<3]
+# param$nombre_sem = as.character(param$Semestres)
+# param$n_semestres_anteriores = length(param$Semestres)
+
+param$sem_ini = 20151##Inicio de información real
 param$sem_fin = 20201##Fin de información real
 param$sem_sig = 20202##Semestre de simulación
 param$sem_totales <- (20081:param$sem_sig)[(20081:param$sem_sig)%% 10>0

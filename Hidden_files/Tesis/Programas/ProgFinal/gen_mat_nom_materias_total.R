@@ -559,6 +559,7 @@ gen_mat_nom_materias_total <- function(param,param_sim){
   
   mat_nom_materias_total <- mat_nom_materias_SIN_X
   mat_nom_materias_total[,2] <- 1:dim(mat_nom_materias_SIN_X)[1]
+  
   save(mat_nom_materias_total, file = "mat_nom_materias_total.RData")
   
   return(mat_nom_materias_total)

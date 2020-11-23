@@ -47,6 +47,7 @@
 \contentsline {chapter}{\numberline {7}Comportamiento de la selección}{69}{chapter.7}%
 \contentsline {chapter}{\numberline {8}Conclusiones}{71}{chapter.8}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{75}{appendix.alph1.Alph1}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Resultados útiles}{87}{appendix.alph1.Alph2}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Abreviaturas}{89}{appendix.alph1.Alph3}%
-\contentsline {chapter}{Bibliografía}{91}{appendix*.78}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{85}{appendix.alph1.Alph2}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{89}{appendix.alph1.Alph3}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{91}{appendix.alph1.Alph4}%
+\contentsline {chapter}{Bibliografía}{93}{appendix*.78}%
