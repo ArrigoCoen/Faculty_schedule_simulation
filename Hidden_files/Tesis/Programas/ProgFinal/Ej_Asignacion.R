@@ -195,6 +195,16 @@ materia <- "Estadística I"
 (num_materia <- arroja_num_materia(materia))
 materia <- "Estadística IV"
 arroja_num_materia(materia)
+arroja_num_materia("Matemáticas para las Ciencias Aplicadas I")
+arroja_num_materia("Teoría de los Conjuntos I")
+arroja_num_materia("Demografía")
+arroja_num_materia("Historia de las Matemáticas I")
+arroja_num_materia("Procesos Estocásticos I")
+arroja_num_materia("Temas Selectos de Economía")
+arroja_num_materia("Seminario de Apoyo a la Titulación en Actuaría A")
+arroja_num_materia("Geometría Proyectiva")
+arroja_num_materia("Teoría de los Conjuntos II")
+arroja_num_materia("Topología III")
 
 
 # arroja_nom_correcto -----------------------------------------------------
@@ -210,6 +220,8 @@ nom_materia <- "Estadística I"
 vec_info_nombre <- arroja_nom_correcto(nom_materia)
 nom_materia <- "Inferencia Estadística"
 vec_info_nombre <- arroja_nom_correcto(nom_materia)
+
+arroja_nom_correcto("Matemáticas para las Ciencias Aplicadas")
 
 
 # agrega_nom_1_materia_en_vec ---------------------------------------------

@@ -109,8 +109,8 @@ param$m_grande_2015 = matrix(0,ncol = length(param$nom_cols_MG))
 param$vec_nom_materias_total = 0
 param$mat_nom_prof_total = 0
 param$num_max_asig = 2
-param$cota_TC = 1500
-param$cota_asig = 6500
+param$cota_TC = 1000
+param$cota_asig = 6000
 
 
 load(file = paste0("Matrices m_grande_total/m_grande_total_",

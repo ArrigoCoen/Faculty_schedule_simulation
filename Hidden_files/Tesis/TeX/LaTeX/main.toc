@@ -33,21 +33,21 @@
 \contentsline {section}{\numberline {4.7}Simulación de solicitudes de profesores}{54}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Simulación de esqueletos}{56}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Calificación de esqueletos}{57}{subsection.4.8.1}%
-\contentsline {section}{\numberline {4.9}Generación de asignaciones}{61}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Calificación de asignaciones}{61}{subsection.4.9.1}%
-\contentsline {chapter}{\numberline {5}Teoría del Algoritmo Genético aplicado a los horarios}{63}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Ciclo de la evolución natural}{64}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Selección}{65}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Cruce}{65}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Mutación}{65}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Reemplazamiento}{65}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}Algoritmo Genético aplicado a la generación de esqueletos de horario}{65}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Algoritmo Genético aplicado a la generación de asignaciones de grupos}{65}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{67}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Comportamiento de la selección}{69}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusiones}{71}{chapter.8}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{75}{appendix.alph1.Alph1}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{85}{appendix.alph1.Alph2}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{89}{appendix.alph1.Alph3}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{91}{appendix.alph1.Alph4}%
-\contentsline {chapter}{Bibliografía}{93}{appendix*.78}%
+\contentsline {section}{\numberline {4.9}Generación de asignaciones}{64}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Calificación de asignaciones}{64}{subsection.4.9.1}%
+\contentsline {chapter}{\numberline {5}Teoría del Algoritmo Genético aplicado a los horarios}{65}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Ciclo de la evolución natural}{66}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Selección}{67}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Cruce}{67}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Mutación}{67}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Reemplazamiento}{67}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}Algoritmo Genético aplicado a la generación de esqueletos de horario}{67}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Algoritmo Genético aplicado a la generación de asignaciones de grupos}{67}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{69}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Comportamiento de la selección}{71}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Conclusiones}{73}{chapter.8}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{77}{appendix.alph1.Alph1}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{87}{appendix.alph1.Alph2}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{91}{appendix.alph1.Alph3}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{93}{appendix.alph1.Alph4}%
+\contentsline {chapter}{Bibliografía}{95}{appendix*.80}%

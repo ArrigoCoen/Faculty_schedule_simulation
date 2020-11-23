@@ -30,12 +30,12 @@ gen_asignacion_completa <- function(param,param_sim){
   
   #' 5) Simulación de esqueletos
   # set.seed(8654)
-  set.seed(1806)
   # set.seed(9293)#5.76seg
   # set.seed(0802)#5.66seg
   # set.seed(236776)#4.82seg
   # set.seed(132934)#4.9seg
   # set.seed(0.1806)#5.39seg
+  set.seed(1806)
   lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,
                                         param)#16.73/10.27/13.34/9.25/8.65seg
   

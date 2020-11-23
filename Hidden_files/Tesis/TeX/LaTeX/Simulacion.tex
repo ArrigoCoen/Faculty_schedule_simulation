@@ -127,7 +127,7 @@ En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{m
 %\subsection{Calificación de esqueletos de horario}
 \subsection{Calificación de esqueletos}
 
-En la \figurename{~\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -78 y 321.
+En la \figurename{~\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -166 y 432.
 
 \begin{figure}[H]
 \centering
@@ -136,7 +136,19 @@ En la \figurename{~\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de la
 \end{figure}
 
 
-En la \figurename{~\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -65 y 1. Tenemos un valor de -61 correspondiente a la materia \textit{Historia de las Matemáticas I}, a las 13hrs, en la matriz D vale 1. En el mismo renglón (13hrs) de la matriz E vale 62 entonces el error relativo es -61
+En la \figurename{~\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -71 y 1.
+
+El valor de -71 corresponde a la materia \textit{Teoría de los Conjuntos I}. A las 14hrs, en la matriz D vale 1 y en la matriz E vale 72 entonces el error relativo es -71.
+
+El valor de -64 corresponde a la materia \textit{Inferencia Estadística}. A las 12hrs, en la matriz D vale 1 y en la matriz E vale 65 entonces el error relativo es -64.
+
+El valor de -61 corresponde a la materia \textit{Probabilidad II}. A las 11hrs, en la matriz D vale 1 y en la matriz E vale 62 entonces el error relativo es -61.
+
+El valor de -61 corresponde a la materia \textit{Historia de las Matemáticas I}. A las 13hrs, en la matriz D vale 1 y en la matriz E vale 62 entonces el error relativo es -61.
+
+El valor de -50 corresponde a la materia \textit{Demografía}. A las 17hrs, en la matriz D vale 1 y en la matriz E vale 51 entonces el error relativo es -50.
+
+El valor de 1 corresponde a 111 materias, veamos 5 casos: \textit{Álgebra Moderna I (8hrs), Álgebra Lineal II (8hrs), Análisis Matemático II (16hrs), Manejo de Datos (16hrs), Seminario sobre enseñanza de las Matemáticas I (17hrs)}. En la matriz D valen 6, 16, 21, 3 y 7 respectivamente. En la matriz E valen 0, entonces el error relativo es 1.
 
 \begin{figure}[H]
 \centering
@@ -145,16 +157,16 @@ En la \figurename{~\ref{difRel_D_E_gpo}} vemos el histograma de la diferencia re
 \end{figure}
 
 
-En la \figurename{~\ref{dif_D_E_materia}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
+%En la \figurename{~\ref{dif_D_E_materia}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por materia. Los valores se encuentran entre -259 y 244.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.4]{histograma_FR_D-E_x_materia} %width=\textwidth
+%\caption{\textit{Histograma de la diferencia de las matrices D - E por materia}}\label{dif_D_E_materia}
+%\end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.4]{histograma_FR_D-E_x_materia} %width=\textwidth
-\caption{\textit{Histograma de la diferencia de las matrices D - E por materia}}\label{dif_D_E_materia}
-\end{figure}
 
-
-En la \figurename{~\ref{difRel_D_E_materia}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -85 y 8.
+En la \figurename{~\ref{difRel_D_E_materia}} vemos el histograma de la diferencia relativa de las matrices D y E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados, entre el número de alumnos esperados, por grupo. Los valores se encuentran entre -97 y 6.
 
 \begin{figure}[H]
 \centering
@@ -162,12 +174,37 @@ En la \figurename{~\ref{difRel_D_E_materia}} vemos el histograma de la diferenci
 \caption{\textit{Histograma de la diferencia relativa de las matrices D y E por materia}}\label{difRel_D_E_materia}
 \end{figure}
 
-Tenemos el caso de la materia \textit{Matemáticas para las Ciencias Aplicadas I} con error relativo igual a -84.46642. En la \figurename{~\ref{difRel_mate_ciencias_app}} vemos en la primer columna los datos por hora de la matriz D, en la segunda columna los datos de la matriz E y en la última columna la diferencia relativa. Para obtener el -84.46 sumamos los valores de la última columna de la figura.
+En la siguiente figura vemos las 20 materias con error relativo más negativo:
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{error_rel_mate_para_ciencias_app} %width=\textwidth
-\caption{\textit{Ejemplo de error relativo: Matemáticas para las Ciencias Aplicadas I}}\label{difRel_mate_ciencias_app}
+\includegraphics[scale = 1]{error_relativo_20materias_negativo} %width=\textwidth
+\caption{\textit{error relativo 40materias}}
+\end{figure}
+
+En la siguiente figura se tienen los valores en D y E de los 5 casos más negativos:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.85]{D_E_5_negativos} %width=\textwidth
+\caption{\textit{Casos más negativos}}
+\end{figure}
+
+
+En la siguiente figura vemos las 20 materias con error relativo más positivo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{error_relativo_20materias_positivo} %width=\textwidth
+\caption{\textit{error relativo 40materias}}
+\end{figure}
+
+En la siguiente figura se tienen los valores en D y E de los 5 casos más positivos:
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.9]{D_E_5_positivos} %width=\textwidth
+\caption{\textit{Casos más positivos}}
 \end{figure}
 
 
