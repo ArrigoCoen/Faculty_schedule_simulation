@@ -69,10 +69,14 @@ Con este procedimiento simulamos el tamaño de los grupos con respecto a los pro
 
 \input{Sim_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
+\input{Sim_gmm} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
 \section{Simulación de esqueletos}
 
-En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, la cual tiene $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene el numero de grupos simulados para la hora $i$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores. El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
+En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, utilizando el Modelo de Mezcla Gaussiana visto en la sección \ref{sec_GMM}. La matriz tiene $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene el número de grupos simulados para la hora $i$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
+
+
+El proceso que seguimos para obtener la matriz \textit{mat\_esqueleto} es el siguiente:
   
   \begin{enumerate}
 \item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{SimDemandaAlumnos}).
@@ -126,6 +130,14 @@ En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{m
 
 %\subsection{Calificación de esqueletos de horario}
 \subsection{Calificación de esqueletos}
+
+\textbf{NOTAS:}
+
+\begin{itemize}
+\item[-] Sólo estamos haciendo operaciones cuando las entradas de \textit{bin\_DUE} haya un 1.\\
+
+\item[-] La diferencia relativa la definimos como $\dfrac{D - E}{D}$ porque la demanda es lo que esperamos que ocurra.
+\end{itemize}
 
 En la \figurename{~\ref{dif_D_E_gpo}} vemos el histograma de la diferencia de las matrices D - E. Diferencia entre el número de alumnos esperados menos el número de alumnos simulados por grupo. Los valores se encuentran entre -166 y 432.
 

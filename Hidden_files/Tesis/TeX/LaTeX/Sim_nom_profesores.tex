@@ -1,8 +1,12 @@
 \section{Obtención de nombres de profesores} \label{nomProfesores}
 
-Antes de iniciar la simulación de las solicitudes hechas (elección de materia y de horario), primero obtuvimos información de los profesores. Guardamos dicha información en la matriz \textit{mat\_nom\_prof\_total}, la cual tiene 2 columnas. En la primer columna se tienen los nombres de todos los profesores que han impartido clase desde el semestre 2015-1 hasta el 2020-1. Dichos nombres los obtuvimos de la matriz \textit{m\_grande\_2015}.
+Antes de iniciar la simulación de las solicitudes hechas (elección de materia y de horario), primero obtuvimos información de los profesores. Guardamos dicha información en la matriz \textit{mat\_nom\_prof\_total}, la cual tiene 2 columnas. En la primer columna se tienen los nombres de todos los profesores que han impartido clase desde el semestre 2015-1 hasta el 2020-1. Dichos nombres los obtuvimos de la matriz \textit{m\_grande\_2015}. En la segunda columna de la matriz, se tiene un $1$ si el profesor es de tiempo completo y un $0$ si es de asignatura.
 
-En la segunda columna de la matriz, se tiene un $1$ si el profesor es de tiempo completo y un $0$ si no. Para llenarla ingresamos a la página \url{http://www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo} del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos el vector con el nombre de los profesores de tiempo completo. En la \figurename{~\ref{profTC_SelectorGadget}} podemos ver el código CSS que utilizamos para obtener los datos en \textit{R}. También observamos que se seleccionaron 94 profesores.
+En las siguientes subsecciones veremos cómo llenamos la segunda columna de la matriz \textit{mat\_nom\_prof\_total} y cómo hicimos la limpieza de los nombres de los profesores.
+
+\subsection{Profesores de tiempo completo}
+
+Para llenar la segunda columna de la matriz \textit{mat\_nom\_prof\_total} ingresamos a la página \url{http://www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo} del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos el vector con el nombre de los profesores de tiempo completo. En la \figurename{~\ref{profTC_SelectorGadget}} podemos ver el código CSS que utilizamos para obtener los datos en \textit{R}. También observamos que se seleccionaron 94 profesores.
 
 \begin{figure}[H]
 \centering
@@ -58,7 +62,19 @@ Al limpiar los datos encontramos 11 nombres que analizamos de manera particular 
 \caption[\textit{Diferencias en nombres de profesores de tiempo completo}]{\textit{Diferencias en nombres de profesores de tiempo completo: Se muestran los 11 nombres de los profesores de tiempo completo que se analizaron de manera individual.}}\label{DifNomProfTC}
 \end{table}
 
-Finalmente en la matriz \textit{mat\_nom\_prof\_total} se tiene la información de 1387 profesores de los cuales 94 son profesores de tiempo completo.
+\subsection{Profesores de asignatura}
+
+Al llenar la matriz \textit{mat\_nom\_prof\_total} con los nombres de los profesores vimos que la dimensión de dicha matriz es $1387 \times 2$. Por lo que tenemos 1387 nombres de profesores de los cuales 94 son profesores de tiempo completo. En esta subsección explicaremos cómo hicimos la limpieza de los nombres de los profesores de asginatura. Es decir los 1293 nombres que nos falta por analizar.
+
+
+
+
+
+
+
+
+
+
 
 Algunas notas a considerar de esta matriz son:
   
