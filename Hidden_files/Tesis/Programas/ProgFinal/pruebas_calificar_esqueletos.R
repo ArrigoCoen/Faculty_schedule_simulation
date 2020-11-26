@@ -114,6 +114,16 @@ pruebas_calificar_esqueletos <- function(lista_info_esqueleto,
        main="Histograma de (D-E)/D")
   
   
+  # quantile(vec_errores_relativos_x_materia)
+  # range(vec_errores_relativos_x_materia)
+  # 
+  # quantile(vec_x_gpo_mat_errores_relativos)
+  # range(vec_x_gpo_mat_errores_relativos)
+  # 
+  # cuantiles <- seq(0,1,length.out = 12)
+  # quantile(vec_x_gpo_mat_errores_relativos,cuantiles)
+  
+  
   
   # vec_errores_x_materia <- D_x_materia-E_x_materia
   # vec_errores_x_materia <- vec_errores_x_materia[vec_errores_x_materia!=0]

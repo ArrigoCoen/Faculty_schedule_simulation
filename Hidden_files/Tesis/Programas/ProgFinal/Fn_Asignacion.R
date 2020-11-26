@@ -41,7 +41,10 @@
 # install.packages('randomcoloR')
 # install.packages('manipulate')
 # install.packages('fitdistrplus')
-
+# install.packages('stringdist')
+# install.packages('plotGMM')
+# install.packages('mixtools')
+# install.packages('ggplot2')
 
 #Loading packages
 library('zoo')
@@ -68,8 +71,10 @@ library(TTR)
 library(randomcoloR)
 library(manipulate)
 library(fitdistrplus)
-
-
+library(stringdist)
+library(plotGMM)
+library(mixtools)
+library(ggplot2)
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -2105,7 +2110,8 @@ guarda_num_alum_x_carrera <- function(param,param_sim){
 #' repetidos por cada hora. Hay ceros en los semestres y horas en
 #' donde no hay información.
 #'
-#' @examples gen_mat_alumnos_corregidos(c(20182,20191,20192,20201),param,param_sim)
+#' @examples
+#' gen_mat_alumnos_corregidos(c(20182,20191,20192,20201),param,param_sim)
 gen_mat_alumnos_corregidos <- function(vec_s_sem_k_info,param,param_sim){
   ##Se definen las variables que se van a utilizar:
   num_col_horario_num <- arroja_ind_col_MG("horario_num")##4
