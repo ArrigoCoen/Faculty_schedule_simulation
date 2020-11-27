@@ -205,6 +205,7 @@ arroja_num_materia("Seminario de Apoyo a la Titulación en Actuaría A")
 arroja_num_materia("Geometría Proyectiva")
 arroja_num_materia("Teoría de los Conjuntos II")
 arroja_num_materia("Topología III")
+arroja_num_materia("Álgebra Superior I")
 
 
 # arroja_nom_correcto -----------------------------------------------------
@@ -359,6 +360,39 @@ View(mat_solicitudes)
 renglon <- c("Gerardo Sánchez Licea",1,"Análisis Matemático I",
              30,12)
 (num_alum_x_profesor <- simula_alum_x_profesor(renglon,param))
+
+# gen_D_prima -------------------------------------------------------------
+#' Title gen_D_prima: Función que actualiza "D_prima". Matriz de 15x203. En
+#' la entrada (i,j) se tiene el número de alumnos simulados para la hora i,
+#' y la materia j.
+#'
+set.seed(1806)
+D <- gen_mat_demanda_alumnos(param,param_sim)#39.95 seg
+View(D)
+set.seed(8654)
+D_prima_inicial <- gen_mat_demanda_alumnos(param,param_sim)#39.95 seg
+View(D_prima_inicial)
+# param_sim$vec_sem_sig = 20202
+# param_sim$k_sem_ant = 5
+vec_s_sem_k_info <- gen_vec_s_sem_k_info(param_sim$vec_sem_sig,
+                                         param_sim$k_sem_ant,param)
+lista_mod_y_wait <- gen_normalmixEM_inicial(vec_s_sem_k_info,D_prima_inicial,
+                                            param,param_sim)
+cota <- 1000
+
+ptm <- proc.time()# Start the clock!
+D_prima <- gen_D_prima(D,D_prima_inicial,lista_mod_y_wait,cota)
+cat("\nLa función gen_D_prima tardó: ",(proc.time()-ptm)[3],
+    " segundos\n")##0.12
+View(D_prima)
+
+D_menosDprima <- D - D_prima
+colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+heatmap(D_menosDprima, Colv = NA, Rowv = NA, scale="none",col=colMain)
+
+D_prima_inicial_menos_Dprima <- D_prima_inicial - D_prima
+colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+heatmap(D_prima_inicial_menos_Dprima, Colv = NA, Rowv = NA, scale="none",col=colMain)
 
 
 # gen_esqueleto -----------------------------------------------------------

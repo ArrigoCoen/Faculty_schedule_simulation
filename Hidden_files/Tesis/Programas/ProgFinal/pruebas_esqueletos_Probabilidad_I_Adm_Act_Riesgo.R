@@ -37,21 +37,90 @@ wait_proba = c(as.vector(mat_al_corregidos_proba),d_prima_proba)
 mixmdl_proba = normalmixEM(wait_proba,mean = mean(wait_proba))#16 iteraciones
 mixmdl_proba$loglik#-511.6696
 
-hist(mixmdl_proba$x,freq = F)
-lines(density(rnorm(1000,mean = mixmdl_proba$mu,sd = mixmdl_proba$sigma)), lty=1,
-      lwd=2,col = "blue")
-lines(density(mixmdl_proba$x), lty=1,lwd=2,col = "green")
-legend(300,0.006,c("GMM","density()"),bty = "n",
-       col=c("blue","green"),lty=c(1,1),
-       cex=1.1,lwd=2)
+# hist(mixmdl_proba$x,freq = F)
+# lines(density(rnorm(1000,mean = mixmdl_proba$mu,sd = mixmdl_proba$sigma)), lty=1,
+#       lwd=2,col = "blue")
+# lines(density(mixmdl_proba$x), lty=1,lwd=2,col = "green")
+# legend(300,0.006,c("GMM","density()"),bty = "n",
+#        col=c("blue","green"),lty=c(1,1),
+#        cex=1.1,lwd=2)
 
 
+D <- cbind(d_proba,0)
+D_prima <- cbind(d_prima_proba,0)
 #' 1 si faltan alumnos con respecto a d
 #' -1 si sobran alumnos con respecto a d
 #' 0 e.o.c.
-# calif_A_proba <- s
-# calif_B_proba <- rep(0,length(d_prima_proba))
-# calif_proba <- s
+calif_A <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+calif_B <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+calif <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+
+c <- 1
+for(r in 1:dim(D)[1]){#Recorre renglones
+  if(D[r,c] > 0){
+    if(D_prima[r,c] != D[r,c]){
+      #La calificación es negativa si faltan alumnos
+      #La calificación es positiva si sobran alumnos
+      calif_B[r,c] <- (D[r,c] - D_prima[r,c])/D[r,c]
+    }
+  }else{
+    if(D_prima[r,c] < D[r,c]){#Si faltan alumnos
+      calif_B[r,c] <- 1
+    }else if(D_prima[r,c] > D[r,c]){#Si sobran alumnos
+      calif_B[r,c] <- -1
+    }
+  }
+}
+
+calif_x_gpo <- calif_A + calif_B
+
+# wait <- list()
+# wait[[1]] <- wait_proba
+# wait[[2]] <- wait_adm_riesgo
+mixmdl <- list()
+mixmdl[[1]] <- mixmdl_proba
+mixmdl[[2]] <- mixmdl_adm_riesgo
+cota <- 500
+cont_1 <- 1
+cont_2 <- 1
+
+calif_x_materia <- colSums(calif_x_gpo)
+
+#' Para este punto ya comparamos D y D_prima. Se redefine D_prima.
+if(sum(calif_x_materia[,c])>10 || 
+   sum(calif_x_materia[,c]) < -20){#Sólo modificamos si
+  #' la califición total de la materia está fuera de [-20,10]
+  for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
+    # cat("\n h = ",h)
+    (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+    if(calif_x_gpo[h,c] > 10){#Si faltan alumnos
+      while(rand_num <= D[h,c]){
+        (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+        cont_1 <- cont_1 + 1#Para no tener ciclo infinito
+        if(cont_1 >= cota){
+          break;
+        }
+      }
+      cont_1 <- 1#Reiniciamos el contador
+      D_prima[h,c] <- max(0,rand_num)
+    }
+    if(calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
+      #'La 2° cond. es para que no haya simulación si no hay alumnos en D
+      #'Aquí la calificación debe ser menor a -10 porque es por
+      #'grupo no por materia (ver gráficas de diferencias relativas
+      #'entre D y E)
+      while(rand_num > D[h,c]){
+        (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+        cont_2 <- cont_2 + 1#Para no tener ciclo infinito
+        if(cont_2 >= cota){
+          break;
+        }
+      }
+      cont_2 <- 1#Reiniciamos el contador
+      D_prima[h,c] <- max(0,rand_num)
+    }
+  }#fin for(h)
+}
 
 
 # Administración Actuarial del Riesgo -------------------------------------
@@ -145,7 +214,7 @@ for(c in 1:dim(D)[2]){#Recorre columnas
   }#fin for(h)
 }#Fin for(c)
 
-#Actualizamos laa calificaciones
+#Actualizamos las calificaciones
 calif_A <- calif
 for(c in 1:dim(D)[2]){#Recorre columnas
   for(r in 1:dim(D)[1]){#Recorre renglones
