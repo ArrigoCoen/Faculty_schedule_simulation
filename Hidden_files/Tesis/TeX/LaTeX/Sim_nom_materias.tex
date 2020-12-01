@@ -1,10 +1,25 @@
 \section{Obtención de nombres de materias}
 
-Antes de iniciar las simulaciones primero obtuvimos el vector \textit{vec\_nom\_materias\_total} con información de las materias encontradas en la matriz \textit{m\_grande\_total} del semestre 2008-1 al 2020-1. Dicho vector  no tiene nombres repetidos y contiene 201 materias.
+Antes de iniciar las simulaciones primero obtuvimos el vector \textit{vec\_nom\_materias\_total} con información de las materias encontradas en la matriz \textit{m\_grande\_total} del semestre 2008-1 al 2020-1. Dicho vector  no tiene nombres repetidos y contiene $m = 203$ materias.
 
-En esta sección vamos a explicar cómo obtuvimos los 201 nombres de las materias que vamos a utilizar. El motivo de obtener el vector \textit{vec\_nom\_materias\_total} antes de hacer las simulaciones es para evitar problemas como el que vimos en la \figurename{~\ref{MateriaNombresDistintos}}.
+En esta sección vamos a explicar cómo obtuvimos los $m$ nombres de las materias que vamos a utilizar. El motivo de obtener el vector \textit{vec\_nom\_materias\_total} antes de hacer las simulaciones es para evitar problemas como el que vimos en la \figurename{~\ref{MateriaNombresDistintos}}, de repetición de información.
+
+Primero obtuvimos un vector con todos los nombres de las materias en la matriz \textit{m\_grande\_total}. Aplicamos la función \verb+unique()+ de \textit{R} y obtuvimos un vector de 333 materias. En este vector pudimos encontrar todos los posibles nombres que correspondían a una sola materia por lo que hicimos una matriz llamada \textit{mat\_nom\_materias\_total}. Dicha matriz tiene 22 columnas:
+
+\begin{itemize}
+\item[-] La primer columna contiene el nombre que vamos a utilizar para las simulaciones y para las asignaciones. En la mayoría de los casos elegimos el nombre más reciente de la materia. Cabe aclarar que hubo algunos casos que elegimos el nombre que lleva la materia en la carrera de Actuaría en lugar del más reciente.
+
+\item[-] La segunda columna contiene el número de materia para cada materia en la primer columna.
+
+\item[-] Las columnas 3-22 contienen todos los posibles nombres asociados al nombre en la primer columna. Cabe aclarar que no se llenan todas estas columnas para los renglones.
+\end{itemize}
+
+Revisamos caso por caso para no tener nombres repetidos. En el caso de los seminarios, los agrupamos de acuerdo a los posibles nombres que han tenido. En los casos en que algún seminario ya no era impartido, entonces, lo agrupamos con seminarios con temas similares. Ésto último para conservar toda la información posible.
+
+Finalmente las dimensiones de la matriz \textit{mat\_nom\_materias\_total} fueron $203 \times 22$. Con la primer columna de dicha matriz, obtuvimos el vector \textit{vec\_nom\_materias\_total}. Los nombres del vector son los que utilizaremos en las siguientes secciones para realizar las simulaciones y las asignaciones.
+
+%\newpage %QUITAR: En la versión final
 
 
-***EXPLICAR LIMPIEZA DE NOMBRES DE MATERIAS***
 
 
