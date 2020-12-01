@@ -2558,8 +2558,8 @@ actualiza_calif_esqueleto <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
     for(r in 1:dim(D)[1]){#Recorre renglones
       if(D[r,c] > 0){
         if(D_prima[r,c] != D[r,c]){
-          #La calificación es negativa si faltan alumnos
-          #La calificación es positiva si sobran alumnos
+          #La calificación es negativa si sobran alumnos
+          #La calificación es positiva si faltan alumnos
           calif_B[r,c] <- (D[r,c] - D_prima[r,c])/D[r,c]
         }
       }else{#Para no tener -Inf
