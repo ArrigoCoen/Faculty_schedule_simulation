@@ -14,6 +14,18 @@ source("Fn_Asignacion.R")
 
 
 # califica_esqueleto ------------------------------------------------------
+#' Title califica_esqueleto: 
+#'
+#' @param mat_demanda_alumnos 
+#' @param lista_info_esqueleto 
+#' @param param 
+#'
+#' @return calif_esqueleto: 
+#'
+#' @examples
+#' calif_esqueleto <- califica_esqueleto(mat_demanda_alumnos,
+#' lista_info_esqueleto,param)
+#' 
 califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
                                param){
   #Se definen las variables que se van a utilizar
@@ -41,7 +53,7 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
       # cat("\n No fue impartida la materia: ",vec_nom_materias_total[c])
     }
   }
-  materias_no_impartidas#31
+  materias_no_impartidas#4
   #Quitamos el cero inicial
   nom_materias_no_impartidas <- nom_materias_no_impartidas[-1]
   nom_materias_no_impartidas
@@ -99,7 +111,7 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
       pena_x_materia <- pena_x_materia + 2
     }
   }
-  pena_x_materia##61
+  pena_x_materia##72
   
   
   #' Penalización por cada profesor que pueda impartir la materia j en
@@ -108,6 +120,7 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
   #' que si podía dar clase.
   # media_alum <- 34.18746
   mat_solicitudes <- rbind(mat_solicitudes_TC,mat_solicitudes_asignatura)
+  mat_solicitudes <- mat_solicitudes[mat_solicitudes[,4] > 0,]
   mat_i_j <- matrix(0,nrow = dim(mat_solicitudes)[1],ncol = 2)
   pena_gpos_sin_prof <- 0
   
@@ -119,7 +132,8 @@ califica_esqueleto <- function(mat_demanda_alumnos,lista_info_esqueleto,
   }
   colnames(mat_i_j) <- c("i","j")
   
-  for(r in 1:dim(mat_i_j)[1]){
+  for(r in 1:dim(mat_i_j)[1]){#Recorre renglones
+    # cat("\n r = ",r)
     i <- as.numeric(mat_i_j[r,1])
     j <- as.numeric(mat_i_j[r,2])
     if(mat_demanda_aux[i,j] > 0){

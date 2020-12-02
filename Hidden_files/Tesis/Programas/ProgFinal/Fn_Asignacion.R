@@ -2496,6 +2496,7 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
   mixmdl <- list()
   wait <- list()
   vec_nom_materias_total <- param$vec_nom_materias_total
+  Horas <- param$Horas
   
   for(c in 1:length(vec_nom_materias_total)){
     num_materia <- c
@@ -2504,13 +2505,31 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
     D_prima_1_materia <- D_prima_inicial[,c]
     
     param_sim$Materias = materia
-    param_sim$m_filtrada <- gen_mat_m_filtrada(param,param_sim)
+    param_sim$m_filtrada = gen_mat_m_filtrada(param,param_sim)
     mat_al_corregidos <- gen_mat_alumnos_corregidos(vec_s_sem_k_info,
                                                     param,param_sim)
-    wait_1_materia = c(as.vector(mat_al_corregidos),D_prima_1_materia)
+    ##Convertimos los datos para obtener la distribución por horas
+    wait_1_materia <- 0
+    mat_aux <- cbind(mat_al_corregidos,D_prima_1_materia)
     
-    if(mean(wait_1_materia) > 0){
-      mixmdl_1_materia = normalmixEM(wait_1_materia,mean=mean(wait_1_materia))
+    if(sum(mat_aux) > 0){
+      for(h in 1:length(Horas)){
+        suma_x_hra <- sum(mat_aux[h,])
+        if(suma_x_hra > 0){
+          wait_1_materia <- c(wait_1_materia,rep(Horas[h],suma_x_hra))
+        }
+      }
+      #Quitamos el cero inicial
+      wait_1_materia <- wait_1_materia[-1]
+    }
+    
+    if(mean(wait_1_materia)>0 && length(unique(wait_1_materia))>1){
+      #' La 2° condición evita que haya error si sólo se tienen datos
+      #' a una sola hora.
+      mixmdl_1_materia <- normalmixEM(wait_1_materia,mean=mean(wait_1_materia))
+      #' Con el siguiente comando se tiene un mejor ajsute inicial, pero
+      #' en algunas materias hay error por no encontrar un buen modelo
+      # mixmdl_1_materia = normalmixEM(wait_1_materia)
     }else{
       mixmdl_1_materia <- 0
     }
@@ -2525,8 +2544,8 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
 }
 
 
-# actualiza_calif_esqueleto -----------------------------------------------
-#' Title actualiza_calif_esqueleto: Función que actualiza las calificaciones
+# actualiza_calif_D -----------------------------------------------
+#' Title actualiza_calif_D: Función que actualiza las calificaciones
 #' del esqueleto por grupo y por materia. Las calificaciones dependen de la
 #' diferencia relativa entre D y D_prima.
 #'
@@ -2541,15 +2560,15 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
 #' @param ind_materias: Vector con los índices de las materias que deben
 #' de modificarse.
 #'
-#' @return calif_esq: Lista de 2 elementos: "mat_calif_x_gpo" y
+#' @return calif_D: Lista de 2 elementos: "mat_calif_x_gpo" y
 #' "vec_calif_x_materia". La matriz "mat_calif_x_gpo" (15*203) contiene las
 #' calificaciones por grupo. El vector "vec_calif_x_materia"
 #'
 #' @examples
-#' calif_esq <- actualiza_calif_esqueleto(D,D_prima,mat_calif_x_gpo,
+#' calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,
 #' ind_materias)
 #' 
-actualiza_calif_esqueleto <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
+actualiza_calif_D <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
   #Se definen las variables que se van a utilizar
   calif_A <- mat_calif_x_gpo
   calif_B <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
@@ -2579,10 +2598,10 @@ actualiza_calif_esqueleto <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
   mat_calif_x_gpo <- calif_A + calif_B
   vec_calif_x_materia <- colSums(mat_calif_x_gpo)
   
-  calif_esq <- list()
-  calif_esq[[1]] <- mat_calif_x_gpo
-  calif_esq[[2]] <- vec_calif_x_materia
-  return(calif_esq)
+  calif_D <- list()
+  calif_D[[1]] <- mat_calif_x_gpo
+  calif_D[[2]] <- vec_calif_x_materia
+  return(calif_D)
 }
 
 
@@ -2598,7 +2617,7 @@ actualiza_calif_esqueleto <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
 #' i, y la materia j. 
 #' @param mixmdl: Lista con "m" elementos. Cada elemento es el modelo de
 #' mezcla de Normales para una materia.
-#' @param calif_esq: Lista con 2 elementos: "mat_calif_x_gpo" y
+#' @param calif_D: Lista con 2 elementos: "mat_calif_x_gpo" y
 #' "vec_calif_x_materia". La matriz "mat_calif_x_gpo" (15*203) contiene las
 #' calificaciones por grupo. El vector "vec_calif_x_materia"
 #' @param ind_materias: Vector con los índices de las materias que deben
@@ -2608,16 +2627,16 @@ actualiza_calif_esqueleto <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
 #' tiene el nuevo número de alumnos simulados para la hora i, y la materia j.
 #'
 #' @examples
-#' actualiza_D_prima(500,D,D_prima,mixmdl,calif_esq,c(5,182))
-#' actualiza_D_prima(cota,D,D_prima,mixmdl,calif_esq,ind_materias)
+#' actualiza_D_prima(500,D,D_prima,mixmdl,calif_D,c(5,182))
+#' actualiza_D_prima(cota,D,D_prima,mixmdl,calif_D,ind_materias)
 #' 
-actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_esq,ind_materias){
+actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_D,ind_materias){
   #' Para este punto ya comparamos D y D_prima. Se redefine D_prima.
   #' Recibe a D_prima como parámetro para que en caso de que no haya
   #' modificaciones, se regrese la misma matriz y no una llena de ceros.
   
-  mat_calif_x_gpo <- calif_esq[[1]]
-  vec_calif_x_materia <- calif_esq[[2]]
+  mat_calif_x_gpo <- calif_D[[1]]
+  vec_calif_x_materia <- calif_D[[2]]
   for(c in ind_materias){#Recorre columnas
     cont_1 <- 1
     cont_2 <- 1
@@ -2775,10 +2794,10 @@ gen_D_prima <- function(D,D_prima_inicial,lista_mod_y_wait,cota){
   # wait <- lista_mod_y_wait[[2]]
   
   #Calificación inicial
-  calif_esq <- actualiza_calif_esqueleto(D,D_prima,mat_calif_x_gpo,
+  calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,
                                          1:dim(D)[2])
-  mat_calif_x_gpo <- calif_esq[[1]]
-  vec_calif_x_materia <- calif_esq[[2]]
+  mat_calif_x_gpo <- calif_D[[1]]
+  vec_calif_x_materia <- calif_D[[2]]
   
   #' Actualizo mientras se cumplan las siguientes condiciones:
   while(any(vec_calif_x_materia< -20) || any(vec_calif_x_materia> 10)){
@@ -2786,13 +2805,13 @@ gen_D_prima <- function(D,D_prima_inicial,lista_mod_y_wait,cota){
     ind_2 <- which(vec_calif_x_materia> 10)
     ind_materias <- union(ind_1,ind_2)
     if(length(ind_materias) > 0){
-      D_prima <- actualiza_D_prima(cota,D,D_prima,mixmdl,calif_esq,
+      D_prima <- actualiza_D_prima(cota,D,D_prima,mixmdl,calif_D,
                                    ind_materias)
       
-      calif_esq <- actualiza_calif_esqueleto(D,D_prima,mat_calif_x_gpo,
+      calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,
                                              ind_materias)
-      mat_calif_x_gpo <- calif_esq[[1]]
-      vec_calif_x_materia <- calif_esq[[2]]
+      mat_calif_x_gpo <- calif_D[[1]]
+      vec_calif_x_materia <- calif_D[[2]]
       
       lista_mod_y_wait <- actualiza_mixmdl(lista_mod_y_wait,D_prima,
                                            ind_materias,param,param_sim)
