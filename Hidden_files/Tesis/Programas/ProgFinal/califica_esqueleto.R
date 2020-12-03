@@ -14,10 +14,52 @@ source("Fn_Asignacion.R")
 
 
 # califica_esqueleto ------------------------------------------------------
-#' Title califica_esqueleto: 
+#' Title califica_esqueleto: Función que califica un esqueleto, se penaliza
+#' en los siguientes casos:
+#' - Penalización por no tener en el esqueleto una materia que necesitamos.
+#' Se resta 1 por cada materia no impartida.
+#' -Penalización por cada alumno faltante: Se suma el número de alumnos que
+#' quedaron en la matriz "mat_demanda_aux". Se multiplica alfa por el número
+#' de alumnos faltantes
+#' -Penalización por cada alumno sobrante: El número de alumnos sobrantes
+#' es el número de alumnos simulados menos el número de alumnos asignados
+#' (alumnos requeridos - alumnos faltantes). Se multiplica el número de
+#' alumnos sobrantes por beta.
+#' -Si algún profesor de tiempo completo pidió alguna materia y no se la
+#' dieron. Se penaliza con uno por cada materia.
+#' Notas:
+#' 1) Se cuenta por materia solicitada, no por materia con
+#' horario. Ej. Si se pidió Proba I a las 10hrs y a las 11hrs,
+#' sólo se cuenta una penalización.
+#' 2) Se penaliza por cada materia con tope a 2 asignaciones, i.e. si un
+#' profesor pidió 3 o más  materias y sólo le dieron una, entonces se penaliza
+#' con -1; si le dieron 2 entonces no hay penalización.
+#' - Penalización por cada profesor que pueda impartir la materia j en la
+#' hora i y esa entrada de la matriz "mat_demanda_aux" aún tenga alumnos. Se
+#' penaliza por cada grupo que no se le asignó un profesor que si podía dar
+#' clase.
 #'
-#' @param mat_demanda_alumnos 
-#' @param lista_info_esqueleto 
+#' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 201
+#' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
+#' simulados para la hora i, y la materia j.
+#' @param lista_info_esqueleto: Lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
+#' de asignatura y el número de materias asignadas.
+#' 4) lista_ciclo_asig: Lista 
+#' 5) mat_solicitudes_TC: Matriz de solicitudes de los profesores de tiempo
+#' completo.
+#' 6) mat_solicitudes_asignatura: Matriz de solicitudes de los profesores
+#' de asignatura.
+#' 7) num_alum_simulados: Variable tipo numeric, con el número de alumnos
+#' simulados totales.
+#' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
+#' En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
 #' @param param 
 #'
 #' @return calif_esqueleto: 

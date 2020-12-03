@@ -2252,7 +2252,7 @@ simula_alumnos <- function(mat_alumnos_corregidos,param){
 
 # gen_mat_demanda_alumnos -------------------------------------------------
 #' Title gen_mat_demanda_alumnos: Función que genera la matriz
-#' "mat_demanda_alumnos" con 15 renglones (horas) y 201 columnas (materias).
+#' "mat_demanda_alumnos" con 15 renglones (horas) y 203 columnas (materias).
 #' En la entrada (i,j) se tiene el número de alumnos simulados para la hora
 #' i, y la materia j.
 #'
@@ -2696,7 +2696,7 @@ gen_normalmixEM_1_materia <- function(wait_1_materia,mixmdl_1_materia){
   #Se definen las variables que se van a utilizar
   
   if(mean(wait_1_materia) > 0){
-    mixmdl_1_materia = normalmixEM(wait_1_materia,mean = mixmdl[[c]]$mu)
+    mixmdl_1_materia = normalmixEM(wait_1_materia,mean = mixmdl_1_materia$mu)
   }else{
     mixmdl_1_materia <- 0
   }
@@ -2967,7 +2967,7 @@ actualiza_mat_solicitudes <- function(mat_a_actualizar,renglon,prof_max_asig){
 #' profesores.
 #' @param mat_prof: Matriz de 2 columnas con el nombre de los profesores y
 #' el número de materias que se le han asignado.
-#' @param mat_demanda: Matriz de 15 renglones (horas) y 201 columnas
+#' @param mat_demanda: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de alumnos simulados
 #' para la hora i, y la materia j.
 #'
@@ -3061,7 +3061,7 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
 
 # gen_esqueleto -----------------------------------------------------------
 #' Title gen_esqueleto: Función que arroja una lista con las matrices:
-#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 201 columnas
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j.
 #' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
@@ -3083,14 +3083,23 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
 #' @return lista_info_esqueleto: Lista con las matrices:
-#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 201 columnas
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j.
 #' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
 #' tiempo completo y el número de materias asignadas.
 #' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
 #' de asignatura y el número de materias asignadas.
-#' 4) 
+#' 4) lista_ciclo_asig: Lista 
+#' 5) mat_solicitudes_TC: Matriz de solicitudes de los profesores de tiempo
+#' completo.
+#' 6) mat_solicitudes_asignatura: Matriz de solicitudes de los profesores
+#' de asignatura.
+#' 7) num_alum_simulados: Variable tipo numeric, con el número de alumnos
+#' simulados totales.
+#' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
+#' En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
 #'
 #' @examples
 #' lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,param)
@@ -3712,7 +3721,7 @@ gen_nom_heatmap <- function(tipo,num_materia,sem_sig){
 #'
 gen_mat_n_sim_n_sem <- function(vec_sem_sig,vec_k_sem_info,num_sim,param){
   #Se definen las variables que se van a utilizar
-  ## Se carga el vector que contiene 201 materias para que todas las listas
+  ## Se carga el vector que contiene 203 materias para que todas las listas
   ##de cada semestre tengan las mismas materias.
   # load("vec_nom_materias_total.RData")
   Materias <- param$vec_nom_materias_total
