@@ -60,9 +60,13 @@ source("Fn_Asignacion.R")
 #' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
 #' En la entrada (i,j) se tiene el número de alumnos simulados
 #' para la hora i, y la materia j.
-#' @param param 
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
-#' @return calif_esqueleto: 
+#' @return calif_esqueleto: Variable tipo numeric que indica la calificación
+#' del esqueleto.
 #'
 #' @examples
 #' calif_esqueleto <- califica_esqueleto(mat_demanda_alumnos,

@@ -2267,7 +2267,7 @@ simula_alumnos <- function(mat_alumnos_corregidos,param){
 #' materia = "Estadística III", num_sim = 10, m_filtrada = matrix(0),
 #' sub_m_filtrada = matrix(0,ncol = length(param$nom_cols_MG)))
 #'
-#' @return mat_demanda_alumnos: Matriz de 15 renglones (horas) y 201
+#' @return mat_demanda_alumnos: Matriz de 15 renglones (horas) y 203
 #' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
 #' simulados para la hora i, y la materia j.
 #'
@@ -2481,8 +2481,8 @@ gen_solicitudes <- function(param){
 #' sub_m_filtrada = matrix(0,ncol = length(param$nom_cols_MG)))
 #'
 #' @return lista_mod_y_wait: Lista de 2 elementos. Cada elemento es una
-#' matriz. La primera contiene todos los modelos de mezcla de Normales,
-#' uno para cada materia en "vec_nom_materias_total". La segunda matriz
+#' lista. La primera contiene todos los modelos de mezcla de Normales,
+#' uno para cada materia en "vec_nom_materias_total". La segunda lista
 #' contiene los datos que se le pasan como parámetro a la función "normalmixEM"
 #' como "wait".
 #'
@@ -2497,6 +2497,7 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
   wait <- list()
   vec_nom_materias_total <- param$vec_nom_materias_total
   Horas <- param$Horas
+  prom_alum_x_materia <- rep(0,length(vec_nom_materias_total))
   
   for(c in 1:length(vec_nom_materias_total)){
     num_materia <- c
@@ -2511,6 +2512,7 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
     ##Convertimos los datos para obtener la distribución por horas
     wait_1_materia <- 0
     mat_aux <- cbind(mat_al_corregidos,D_prima_1_materia)
+    prom_alum_x_materia[c] <- ceiling(mean(colMeans(mat_aux)))
     
     if(sum(mat_aux) > 0){
       for(h in 1:length(Horas)){
@@ -2526,7 +2528,12 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
     if(mean(wait_1_materia)>0 && length(unique(wait_1_materia))>1){
       #' La 2° condición evita que haya error si sólo se tienen datos
       #' a una sola hora.
-      mixmdl_1_materia <- normalmixEM(wait_1_materia,mean=mean(wait_1_materia))
+      # mixmdl_1_materia <- normalmixEM(wait_1_materia,mean=mean(wait_1_materia))
+      mixmdl_1_materia <- normalmixEM(wait_1_materia,
+                                      mean=mean(wait_1_materia),
+                                      k=3)
+      # mixmdl_1_materia <- normalmixEM(wait_1_materia,k = 3)
+      # mixmdl_1_materia <- normalmixEM(wait_1_materia,k = 2)
       #' Con el siguiente comando se tiene un mejor ajsute inicial, pero
       #' en algunas materias hay error por no encontrar un buen modelo
       # mixmdl_1_materia = normalmixEM(wait_1_materia)
@@ -2540,6 +2547,7 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
   lista_mod_y_wait <- list()
   lista_mod_y_wait[[1]] <- mixmdl
   lista_mod_y_wait[[2]] <- wait
+  lista_mod_y_wait[[3]] <- prom_alum_x_materia
   return(lista_mod_y_wait)
 }
 
@@ -2638,42 +2646,44 @@ actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_D,ind_materias){
   mat_calif_x_gpo <- calif_D[[1]]
   vec_calif_x_materia <- calif_D[[2]]
   for(c in ind_materias){#Recorre columnas
-    cont_1 <- 1
-    cont_2 <- 1
-    if(sum(vec_calif_x_materia[c])>10 || 
-       sum(vec_calif_x_materia[c]) < -20){#Sólo modificamos si
-      #' la califición total de la materia está fuera de [-20,10]
-      for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
-        # cat("\n h = ",h)
-        (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-        if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
-          while(rand_num <= D[h,c]){
-            (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-            cont_1 <- cont_1 + 1#Para no tener ciclo infinito
-            if(cont_1 >= cota){
-              break;
+    if(mixmdl[[c]] != 0){
+      cont_1 <- 1
+      cont_2 <- 1
+      if(sum(vec_calif_x_materia[c])>10 || 
+         sum(vec_calif_x_materia[c]) < -20){#Sólo modificamos si
+        #' la califición total de la materia está fuera de [-20,10]
+        for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
+          # cat("\n h = ",h)
+          (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+          if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
+            while(rand_num <= D[h,c]){
+              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+              cont_1 <- cont_1 + 1#Para no tener ciclo infinito
+              if(cont_1 >= cota){
+                break;
+              }
             }
+            cont_1 <- 1#Reiniciamos el contador
+            D_prima[h,c] <- max(0,rand_num)
           }
-          cont_1 <- 1#Reiniciamos el contador
-          D_prima[h,c] <- max(0,rand_num)
-        }
-        if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
-          #'La 2° cond. es para que no haya simulación si no hay alumnos en D
-          #'Aquí la calificación debe ser menor a -10 porque es por
-          #'grupo no por materia (ver gráficas de diferencias relativas
-          #'entre D y E)
-          while(rand_num > D[h,c]){
-            (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-            cont_2 <- cont_2 + 1#Para no tener ciclo infinito
-            if(cont_2 >= cota){
-              break;
+          if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
+            #'La 2° cond. es para que no haya simulación si no hay alumnos en D
+            #'Aquí la calificación debe ser menor a -10 porque es por
+            #'grupo no por materia (ver gráficas de diferencias relativas
+            #'entre D y E)
+            while(rand_num > D[h,c]){
+              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+              cont_2 <- cont_2 + 1#Para no tener ciclo infinito
+              if(cont_2 >= cota){
+                break;
+              }
             }
+            cont_2 <- 1#Reiniciamos el contador
+            D_prima[h,c] <- max(0,rand_num)
           }
-          cont_2 <- 1#Reiniciamos el contador
-          D_prima[h,c] <- max(0,rand_num)
-        }
-      }#Fin for(h)
-    }#Fin if()
+        }#Fin for(h)
+      }#Fin if(calificación)
+    }#Fin if(modelo)
   }#Fin for(c)
   return(D_prima)
 }
@@ -3174,6 +3184,142 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   return(lista_info_esqueleto)
 }
 
+
+# gen_lista_info_esqueleto ------------------------------------------------
+#' Title gen_lista_info_esqueleto: Función que arroja la lista
+#' "lista_info_esqueleto" con el esqueleto que será utilizado para la
+#' asignación de profesores y horarios.
+#' Primero se aplicael modelo de mezcla de normales al número de alumnos y
+#' utilizando la función gen_esqueleto se obtiene la lista.
+#'
+#' @param D_inicial: Matriz "mat_demanda_alumnos" de 15 renglones (horas)
+#' y 203 columnas (materias). En la entrada (i,j) se tiene el número de
+#' alumnos simulados para la hora i, y la materia j.
+#' @param n_rep: Número de veces que se va a generar la matriz D con la
+#' demanda de alumnos para el siguiente semestre.
+#' 
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
+#' m_grande_total)
+#'
+#' @return lista_info_esqueleto: Lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
+#' de asignatura y el número de materias asignadas.
+#' 4) lista_ciclo_asig: Lista 
+#' 5) mat_solicitudes_TC: Matriz de solicitudes de los profesores de tiempo
+#' completo.
+#' 6) mat_solicitudes_asignatura: Matriz de solicitudes de los profesores
+#' de asignatura.
+#' 7) num_alum_simulados: Variable tipo numeric, con el número de alumnos
+#' simulados totales.
+#' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
+#' En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
+#'
+#' @examples
+#' lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,n_rep,param)
+#' 
+gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
+  ptm <- proc.time()# Start the clock!
+  #' Definimos la lista en las que vamos a guardar el número de alumnos
+  #' por materia
+  num_alum_x_materia <- list()
+  num_alum_x_materia[[1]] <- colSums(D_inicial)
+  
+  ##Convertimos los datos para obtener la distribución por horas
+  wait_alumnos <- 0
+  Horas <- param$Horas
+  for(h in 1:length(Horas)){
+    suma_x_hra <- sum(D_inicial[h,])
+    if(suma_x_hra > 0){
+      wait_alumnos <- c(wait_alumnos,rep(Horas[h],suma_x_hra))
+    }
+  }
+  #Quitamos el cero inicial
+  wait_alumnos <- wait_alumnos[-1]
+  
+  #' Definimos el modelo inicial
+  mixmdl_1_D <- normalmixEM(wait_alumnos,k = 4)
+  
+  #' Obtenemos "n_rep" veces la información de la matriz con el número
+  #' de alumnos simulados (D). Vamos guardando le número de alumnos
+  #' por materia.
+  for(d in 2:n_rep){
+    cat("d = ",d)
+    ### Obtener D
+    D <- gen_mat_demanda_alumnos(param,param_sim)
+    num_alum_x_materia[[d]] <- colSums(D)
+    ##Convertimos los datos para obtener la distribución por horas
+    for(h in 1:length(Horas)){
+      suma_x_hra <- sum(D[h,])
+      if(suma_x_hra > 0){
+        wait_alumnos <- c(wait_alumnos,rep(Horas[h],suma_x_hra))
+      }
+    }#Fin for(h)
+  }#Fin for(d)
+  
+  #'Definimos las matrices finales para calificar el esqueleto final
+  ### Primero obtenemos el número promedio de grupos por materia
+  mat_alum_x_materia <- matrix(0,nrow = n_rep,
+                               ncol = length(param$vec_nom_materias_total))
+  
+  for(r in 1:n_rep){#Recorre las listas
+    mat_alum_x_materia[r,] <- num_alum_x_materia[[r]]
+  }
+  prom_alum_x_materia <- ceiling(colMeans(mat_alum_x_materia))
+  
+  #Generamos la matriz D final
+  D_final <- matrix(0,nrow = length(param$Horas),
+                    ncol = length(param$vec_nom_materias_total))
+  mixmdl_D <- normalmixEM(wait_alumnos,mixmdl_1_D$mu)#Modelo final
+  
+  for(c in 1:length(param$vec_nom_materias_total)){
+    num_alum_1_materia <- prom_alum_x_materia[c]
+    (rand_num <- sort(round(rnorm(num_alum_1_materia,mixmdl_D$mu,mixmdl_D$sigma))))
+    ind_7 <- which(rand_num < 8)
+    ind_22 <- which(rand_num >= 21)
+    
+    if(length(ind_7) > 0){
+      rand_num[ind_7] <- 7
+    }
+    if(length(ind_22) > 0){
+      rand_num[ind_22] <- 21
+    }
+    
+    for(r in 1:length(param$Horas)){
+      ind_hrs <- which(rand_num == param$Horas[r])
+      if(length(ind_hrs) > 0){
+        D_final[r,c] <- length(ind_hrs)
+      }
+    }
+  }#Fin for(c)
+  rownames(D_final) <- param$Horas
+  colnames(D_final) <- param$vec_nom_materias_total
+  
+  ##Calificamos D_final
+  mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+  ind_materias <- 1:dim(D)[2]
+  calif_D <- actualiza_calif_D(D_inicial,D_final,mat_calif_x_gpo,ind_materias)
+  mat_calif_x_gpo <- calif_D[[1]]
+  vec_calif_x_materia <- calif_D[[2]]
+  (calif_esqueleto_2 <- sum(vec_calif_x_materia))#-1980.377/-1832.852
+  cat("\n La suma de las calificaciones por materia es: ",calif_esqueleto_2)
+  
+  ##Generar esqueleto
+  mat_solicitudes <- gen_solicitudes(param)#7.97 seg
+  lista_info_esqueleto <- gen_esqueleto(D_final,mat_solicitudes,param)#10.76 seg
+  
+  cat("\n La función gen_lista_info_esqueleto tardó: ",(proc.time()-ptm)[3]/60,
+      " minutos\n")
+  return(lista_info_esqueleto)
+}
 
 ##### **AQUÍ** #####
 
