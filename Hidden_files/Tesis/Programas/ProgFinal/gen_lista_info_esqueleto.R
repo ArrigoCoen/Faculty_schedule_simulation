@@ -54,9 +54,10 @@ source("Fn_Asignacion.R")
 #' para la hora i, y la materia j.
 #'
 #' @examples
-#' lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,n_rep,param)
+#' lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,mat_solicitudes,
+#' n_rep,param)
 #' 
-gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
+gen_lista_info_esqueleto <- function(D_inicial,mat_solicitudes,n_rep,param){
   ptm <- proc.time()# Start the clock!
   #' Definimos la lista en las que vamos a guardar el número de alumnos
   #' por materia
@@ -85,6 +86,9 @@ gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
     cat("d = ",d)
     ### Obtener D
     D <- gen_mat_demanda_alumnos(param,param_sim)
+    
+    
+    
     num_alum_x_materia[[d]] <- colSums(D)
     ##Convertimos los datos para obtener la distribución por horas
     for(h in 1:length(Horas)){
@@ -147,7 +151,7 @@ gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
   cat("\n La suma de las calificaciones por materia es: ",calif_esqueleto_2)
   
   ##Generar esqueleto
-  mat_solicitudes <- gen_solicitudes(param)#7.97 seg
+  # mat_solicitudes <- gen_solicitudes(param)#7.97 seg
   lista_info_esqueleto <- gen_esqueleto(D_final,mat_solicitudes,param)#10.76 seg
   
   cat("\n La función gen_lista_info_esqueleto tardó: ",(proc.time()-ptm)[3]/60,
@@ -161,7 +165,8 @@ D_inicial <- gen_mat_demanda_alumnos(param,param_sim)#45.27 seg
 # View(D_inicial)
 n_rep <- 10
 
-lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,n_rep,param)#8.11 min
+lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,mat_solicitudes,
+                                                 n_rep,param)#8.11 min
 
 
 

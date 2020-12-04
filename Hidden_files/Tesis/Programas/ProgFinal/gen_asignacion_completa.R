@@ -25,7 +25,7 @@ gen_asignacion_completa <- function(param,param_sim){
   #' 4a) Simulación de solicitudes de profesores del siguiente semestre (oculta)
   # set.seed(8654)
   set.seed(1806)
-  mat_solicitudes <- gen_solicitudes(param)#8.14 seg
+  mat_solicitudes <- gen_solicitudes(param)#7.78 seg
   View(mat_solicitudes)
   
   #' 5) Simulación de esqueletos
@@ -35,9 +35,13 @@ gen_asignacion_completa <- function(param,param_sim){
   # set.seed(236776)#4.82seg
   # set.seed(132934)#4.9seg
   # set.seed(0.1806)#5.39seg
+  n_rep <- 10
   set.seed(1806)
-  lista_info_esqueleto <- gen_esqueleto(mat_demanda_alumnos,mat_solicitudes,
-                                        param)#16.73/10.27/13.34/9.25/8.65seg
+  lista_info_esqueleto <- gen_lista_info_esqueleto(mat_demanda_alumnos,
+                                                   mat_solicitudes,n_rep,
+                                                   param)#7.439667 min
+  mat_esqueleto <- lista_info_esqueleto[[1]]
+  View(mat_esqueleto)
   
   #' 6) Calificación de esqueletos
   califica_esqueleto()

@@ -2772,44 +2772,42 @@ actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_D,ind_materias){
   mat_calif_x_gpo <- calif_D[[1]]
   vec_calif_x_materia <- calif_D[[2]]
   for(c in ind_materias){#Recorre columnas
-    if(mixmdl[[c]] != 0){
-      cont_1 <- 1
-      cont_2 <- 1
-      if(sum(vec_calif_x_materia[c])>10 || 
-         sum(vec_calif_x_materia[c]) < -20){#Sólo modificamos si
-        #' la califición total de la materia está fuera de [-20,10]
-        for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
-          # cat("\n h = ",h)
-          (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-          if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
-            while(rand_num <= D[h,c]){
-              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-              cont_1 <- cont_1 + 1#Para no tener ciclo infinito
-              if(cont_1 >= cota){
-                break;
-              }
+    cont_1 <- 1
+    cont_2 <- 1
+    if(sum(vec_calif_x_materia[c])>10 || 
+       sum(vec_calif_x_materia[c]) < -20){#Sólo modificamos si
+      #' la califición total de la materia está fuera de [-20,10]
+      for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
+        # cat("\n h = ",h)
+        (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
+        if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
+          while(rand_num <= D[h,c]){
+            (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
+            cont_1 <- cont_1 + 1#Para no tener ciclo infinito
+            if(cont_1 >= cota){
+              break;
             }
-            cont_1 <- 1#Reiniciamos el contador
-            D_prima[h,c] <- max(0,rand_num)
           }
-          if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
-            #'La 2° cond. es para que no haya simulación si no hay alumnos en D
-            #'Aquí la calificación debe ser menor a -10 porque es por
-            #'grupo no por materia (ver gráficas de diferencias relativas
-            #'entre D y E)
-            while(rand_num > D[h,c]){
-              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
-              cont_2 <- cont_2 + 1#Para no tener ciclo infinito
-              if(cont_2 >= cota){
-                break;
-              }
+          cont_1 <- 1#Reiniciamos el contador
+          D_prima[h,c] <- max(0,rand_num)
+        }
+        if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
+          #'La 2° cond. es para que no haya simulación si no hay alumnos en D
+          #'Aquí la calificación debe ser menor a -10 porque es por
+          #'grupo no por materia (ver gráficas de diferencias relativas
+          #'entre D y E)
+          while(rand_num > D[h,c]){
+            (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
+            cont_2 <- cont_2 + 1#Para no tener ciclo infinito
+            if(cont_2 >= cota){
+              break;
             }
-            cont_2 <- 1#Reiniciamos el contador
-            D_prima[h,c] <- max(0,rand_num)
           }
-        }#Fin for(h)
-      }#Fin if(calificación)
-    }#Fin if(modelo)
+          cont_2 <- 1#Reiniciamos el contador
+          D_prima[h,c] <- max(0,rand_num)
+        }
+      }#Fin for(h)
+    }#Fin if(calificación)
   }#Fin for(c)
   return(D_prima)
 }
@@ -3321,9 +3319,15 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
 #' @param D_inicial: Matriz "mat_demanda_alumnos" de 15 renglones (horas)
 #' y 203 columnas (materias). En la entrada (i,j) se tiene el número de
 #' alumnos simulados para la hora i, y la materia j.
+#' @param mat_solicitudes: Matriz de 12 columnas que contiene la
+#' información de las solicitudes de materia y de horario de todos los
+#' profesores, en las primeras 6 columnas se tiene la información
+#' de la simulación de elección de materias y en las últimas 6 columnas
+#' se tiene la información de la simulación de elección de horarios,
+#' la matriz puede no estar completamente llena),tiene como renglones
+#' los nombres de los profesores.
 #' @param n_rep: Número de veces que se va a generar la matriz D con la
 #' demanda de alumnos para el siguiente semestre.
-#' 
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
 #' funciones que se mandan llamar.
 #' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
@@ -3350,10 +3354,13 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
 #' para la hora i, y la materia j.
 #'
 #' @examples
-#' lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,n_rep,param)
+#' lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,
+#' mat_solicitudes,n_rep,param)
 #' 
-gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
+gen_lista_info_esqueleto <- function(D_inicial,mat_solicitudes,
+                                     n_rep,param){
   ptm <- proc.time()# Start the clock!
+  cota <- 100*n_rep
   #' Definimos la lista en las que vamos a guardar el número de alumnos
   #' por materia
   num_alum_x_materia <- list()
@@ -3381,6 +3388,17 @@ gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
     cat("d = ",d)
     ### Obtener D
     D <- gen_mat_demanda_alumnos(param,param_sim)
+    mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+    ind_materias <- 1:dim(D)[2]
+    calif_D <- actualiza_calif_D(D_inicial,D,mat_calif_x_gpo,
+                                 ind_materias)
+    vec_calif_x_materia <- calif_D[[2]]
+    ind_1 <- which(vec_calif_x_materia< -20)
+    ind_2 <- which(vec_calif_x_materia> 10)
+    ind_materias <- union(ind_1,ind_2)
+    D <- actualiza_D_prima(cota,D_inicial,D,mixmdl_1_D,
+                           calif_D,ind_materias)
+      
     num_alum_x_materia[[d]] <- colSums(D)
     ##Convertimos los datos para obtener la distribución por horas
     for(h in 1:length(Horas)){
@@ -3439,7 +3457,7 @@ gen_lista_info_esqueleto <- function(D_inicial,n_rep,param){
   cat("\n La suma de las calificaciones por materia es: ",calif_esqueleto_2)
   
   ##Generar esqueleto
-  mat_solicitudes <- gen_solicitudes(param)#7.97 seg
+  # mat_solicitudes <- gen_solicitudes(param)#7.97 seg
   lista_info_esqueleto <- gen_esqueleto(D_final,mat_solicitudes,param)#10.76 seg
   
   cat("\n La función gen_lista_info_esqueleto tardó: ",(proc.time()-ptm)[3]/60,
