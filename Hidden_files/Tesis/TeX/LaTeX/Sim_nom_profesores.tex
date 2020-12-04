@@ -66,22 +66,58 @@ Al limpiar los datos encontramos 11 nombres que analizamos de manera particular 
 
 Al llenar la matriz \textit{mat\_nom\_prof\_total} con los nombres de los profesores vimos que la dimensión de dicha matriz es $1387 \times 2$. Por lo que tenemos 1387 nombres de profesores de los cuales 94 son profesores de tiempo completo. En esta subsección explicaremos cómo hicimos la limpieza de los nombres de los profesores de asginatura. Es decir los 1293 nombres que nos falta por analizar.
 
-*** EXPLICAR LIMPIEZA DE LOS NOMBRES DE PROFESORES DE ASIGNATURA CON FUNCIÓN stringsim***
+Lo primero que hicimos fue ordenar los nombres de los profesores de asginatura alfabéticamente. Con ellos definimos el vector \textit{vec\_prof\_asig}. Al ordenarlos, encontramos 9 nombres que tenían un ``/'' al inicio de su nombre. Quitamos ese caracter y los espacios que tenía antes y después. Ordenamos nuevamente los nombres alfabéticamente. Después buscamos los nombres que tenían añadidos los nombres de los ayudantes. Dejamos únicamente el primer nombre. Aplicamos, al vector, la función \verb+unique()+ en \textit{R}.
+
+Con el proceso descrito obtuvimos un vector con 1246 nombres. Para comparar cada uno de los nombres con todos los demás, utilizamos la función \verb+stringsim(nom_prof_1,nom_prof_2)+. Dicha función arroja el porcentaje de similitud entre los parámetros que recibe, en este caso dos nombres de profesores. Para observar las posibles repeticiones guardamos en una matriz los nombres del vector \textit{vec\_prof\_asig} y aquellos nombres con más del $60\%$ de coincidencia. Eliminamos 115 repeticiones de nombres. Hubo algunos casos en los que los nombres repetidos eran idénticos y en otras ocasiones diferían por acentos o por guiones. En la \tablename{~\ref{DifNomProfasig}} vemos los nombres de los profesores que eliminamos por diferencia de acentos o guiones o nombre incompleto.
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+  \begin{tabular}{|c|c|}
+  \hline 
+  \textbf{Nombre a utilizar} & \textbf{Nombre eliminado} \\ 
+  \hline 
+  Antonmaria Gerolamo Enrico Minzoni Alessio & Antonmaria Minzoni Alessio \\ 
+  \hline 
+  Araceli Arteaga Jiménez & Aracely Arteaga Jiménez \\ 
+  \hline 
+  José de Jesús Carlos Quintanar Sierra & José Jesús Carlos Quintanar Sierra \\ 
+  \hline 
+  Juan Manuel Eugenio Ramírez de Arellano Niño-Rincón & Juan Manuel Eugenio Ramírez de Arellano Niño Rincón \\ 
+  \hline 
+  Loiret Alejandría Dosal Trujillo & Loiret Alejandria Dosal Trujillo \\ 
+  \hline 
+  María Susana Barrera Ocampo & Ma. Susana Barrera Ocampo \\ 
+  \hline 
+  Manuel de Llano de la Garza & Manuel De Llano De la Garza \\ 
+  \hline 
+  Mónica Alicia Clapp Jiménez-Labora & Mónica Alicia Clapp Jiménez Labora \\ 
+  \hline 
+  Omar Antolín Camarena & Omar Antolin Camarena \\ 
+  \hline 
+  Roberto Carrillo Lárraga & Roberto Carrillo Larraga \\ 
+  \hline 
+  Rocío Jáuregui Renaud & Rocío Jauregui Renaud \\ 
+  \hline 
+  Rodrigo Domínguez López & Rodrígo Domínguez López \\ 
+  \hline 
+  Rosalío Fernando Rodríguez Zepeda & Rosalio Fernando Rodríguez Zepeda \\ 
+  \hline 
+  \end{tabular}
+} 
+\caption[\textit{Diferencias en nombres de profesores de asignatura}]{\textit{Diferencias en nombres de profesores de asignatura: Se muestran los nombres de los profesores de asignatura que se eliminaron por estar repetidos a causa de diferencias en el nombre como acentos, guiones o nombre incompleto.}}\label{DifNomProfasig}
+\end{table}
 
 
-
-
-
-
-
-
+Finalmente obtuvimos un vector con 1131 nombres de los profesores de asginatura. Guardamos los nombres en la matriz \textit{mat\_nom\_prof\_total}. Dicha matriz contiene la información de 1225 profesores.
 
 Algunas notas a considerar de esta matriz son:
   
-  \begin{itemize}
-\item[-] Hay profesores que se repiten por diferencia de acentos, como: \textit{César Alejandro Arellano Ruíz, Luis Eduardo García Hernández}.
-
-\item[-] Hay profesores que se repiten por tener a lado el nombre de los ayudantes, como: \textit{Fermín Alberto Viniegra Heberlein, Edgar Vázquez Luis}.
-
+\begin{itemize}
 \item[-] Puede haber profesores que ya no impartan clases en la FC.
+
+\item[-] Puede ocurrir que no se recopile toda la información de los profesores en la \tablename{~\ref{DifNomProfasig}} por no haber coincidencias en los nombres.
+
+\item[-] Encontramos los nombres \textit{Jonás Raffael Martínez Sánchez} y \textit{Rafael Martínez Sánchez} los cuales consideramos que son nombres de personas distintas.
+
 \end{itemize}
