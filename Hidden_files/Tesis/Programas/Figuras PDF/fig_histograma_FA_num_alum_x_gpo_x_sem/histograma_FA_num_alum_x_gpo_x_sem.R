@@ -23,7 +23,8 @@ for(d in 2:length(lista_num_al_x_gpo_x_sem)){
 min(vec_alumnos)#0
 max(vec_alumnos)#353
 
-hist(vec_alumnos,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
+hist(vec_alumnos,col=param_graficas$col1_hist,
+     breaks = seq(0,360,by = 10),xlim = c(0,200),
      ylab = "Frecuencia",xlab = "Número alumnos",freq = T,
      main="Histograma del número de alumnos")
 

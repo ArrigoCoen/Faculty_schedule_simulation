@@ -26,6 +26,7 @@ n <- length(X)#17246
 #' aleatorios con distribución  Normal(34.18745219,26.5768345).
 hist(X,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
      ylab = "Frecuencia relativa",freq = F,ylim = c(0,0.075),
+     xlim = c(0,200),
      main="Histograma del número de alumnos",xlab = "Número alumnos")
 lines(density(X),col=param_graficas$col1_linea,
       lwd=param_graficas$lwd_dens)
@@ -34,8 +35,7 @@ lines(density(rnorm(n,34.18745219,26.5768345)),col=param_graficas$col2_linea,
 lines(density(rpois(n,34.18745219)),col=param_graficas$col3_linea,
       lwd=param_graficas$lwd_dens)
 
-
-legend(100,0.035,c("Densidad ajustada a los datos",
+legend(50,0.035,c("Densidad ajustada por el método kernel gaussiano",
                    "Densidad de una Poisson(34.18)",
                    "Densidad de una Normal(34.18,26.57)"),
        bty = "n",col=c(param_graficas$col1_linea,param_graficas$col3_linea,

@@ -32,30 +32,28 @@ max(num_alum_mateAp)#353
 
 
 #### Gráfica con frecuencia = F
-hist(num_alum_mate,col=param_graficas$col3_hist,breaks = seq(0,360,by = 10),
-     freq = F,ylab = "Frecuencia",ylim=c(0,0.025),
-     main="Histograma semestres par e impar",xlab = "Número alumnos por grupo")
-hist(num_alum_CdC,col=param_graficas$col2_hist,breaks = seq(0,360,by = 10),
-     freq = F,add=TRUE)
-hist(num_alum_actuaria,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
-     freq = F,add=TRUE)
-hist(num_alum_mateAp,col=param_graficas$col4_hist,breaks = seq(0,360,by = 10),
-     freq = F,add=TRUE)
+# hist(num_alum_mate,col=param_graficas$col3_hist,breaks = seq(0,360,by = 10),
+#      freq = F,ylab = "Frecuencia",ylim=c(0,0.025),
+#      main="Histograma semestres par e impar",xlab = "Número alumnos por grupo")
+# hist(num_alum_CdC,col=param_graficas$col2_hist,breaks = seq(0,360,by = 10),
+#      freq = F,add=TRUE)
+# hist(num_alum_actuaria,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
+#      freq = F,add=TRUE)
+# hist(num_alum_mateAp,col=param_graficas$col4_hist,breaks = seq(0,360,by = 10),
+#      freq = F,add=TRUE)
 
 #Se crea la base de la gráfica
-plot(0:360,ylim=c(0,0.025),type="n",
+plot(0:200,ylim=c(0,0.021),type="n",
      main = "Densidades del número de alumnos por carrera",
      xlab="Número de alumnos",ylab="Densidad",
      col=param_graficas$col1_linea,pch="o")
 lwd_dens <- 2.5
 lines(density(num_alum_mate),col=param_graficas$col5_hist,lwd=lwd_dens)
 lines(density(num_alum_mateAp),col=param_graficas$col4_hist,lwd=lwd_dens)
-# lines(density(num_alum_actuaria),col=param_graficas$col1_linea,lwd=lwd_dens)
 lines(density(num_alum_actuaria),col=param_graficas$col1_hist,lwd=lwd_dens)
-# lines(density(num_alum_mateAp),col=param_graficas$col2_linea,lwd=lwd_dens)
 lines(density(num_alum_CdC),col=param_graficas$col3_hist,lwd=lwd_dens)
 
-legend(175,0.026,c("Actuaría","Ciencias de la Computación","Matemáticas",
+legend(110,0.01,c("Actuaría","Ciencias de la Computación","Matemáticas",
                  "Matemáticas Aplicadas"),bty = "n",
        col=c(param_graficas$col1_hist,param_graficas$col3_hist,
              param_graficas$col5_hist,param_graficas$col4_hist),

@@ -20,8 +20,8 @@ min(vec_prom_materias_x_hora)#8.36
 max(vec_prom_materias_x_hora)#50
 
 barplot(vec_prom_materias_x_hora,main = "Promedio de grupos por hora",
-        ylim = c(0,60),xlab="Horario",ylab="Número de grupos",
-        axis.lty=1,las=3,cex.axis=0.9,#cex.names = 1.1,
+        ylim = c(0,60),xlab="Horario",ylab="Número de grupos promedio",
+        axis.lty=1,las=2,cex.axis=1,cex.names = 0.85,
         col = param_graficas$col_barras,
         names.arg=c("7-8","8-9","9-10","10-11","11-12",
                     "12-13","13-14","14-15","15-16",

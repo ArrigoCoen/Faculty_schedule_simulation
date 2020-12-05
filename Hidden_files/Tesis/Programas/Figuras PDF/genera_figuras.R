@@ -91,7 +91,7 @@ source("Programas/Figuras PDF/fig_histograma_FR_prueba_KS/histograma_FR_prueba_K
 
 ##### Histograma del número de alumnos por carrera
 source("Programas/Figuras PDF/fig_histogramas_FA_num_alum_x_carrera/histogramas_FA_num_alum_x_carrera.R")
-dev.off()#Utliza función par()
+dev.off()#Para salir de la función par()
 
 ##### Densidades del número de alumnos por carrera
 source("Programas/Figuras PDF/fig_histogramas_FR_num_alum_x_carrera/histogramas_FR_num_alum_x_carrera.R")

@@ -22,15 +22,17 @@ max(vec_num_al_x_gpo_sem_impar)#203
 min(vec_num_al_x_gpo_sem_par)#0
 max(vec_num_al_x_gpo_sem_par)#353
 
-hist(vec_num_al_x_gpo_sem_impar, col=param_graficas$col1_hist,breaks = seq(0,360,by=10),
+hist(vec_num_al_x_gpo_sem_impar, col=param_graficas$col1_hist,
+     breaks = seq(0,360,by=10),
+     xlim = c(0,200),
      freq = F,ylab = "Frecuencia relativa",ylim=c(0,0.025),
-     main="Histograma semestres par e impar",xlab = "Número alumnos")
+     main="Histogramas de semestres par e impar",xlab = "Número alumnos")
 lines(density(vec_num_al_x_gpo_sem_impar),col=param_graficas$col1_linea,lwd=param_graficas$lwd_dens)
 hist(vec_num_al_x_gpo_sem_par,col=param_graficas$col2_hist,breaks = seq(0,360,by = 10),
      freq = F,add=TRUE)
 lines(density(vec_num_al_x_gpo_sem_par),col=param_graficas$col2_linea,lwd=param_graficas$lwd_dens)
 
-legend(180,0.01,c("Semestres impares","Semestres pares"),bty = "n",
+legend(120,0.01,c("Semestres impares","Semestres pares"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
        lty=c(1,1),cex=1.1,lwd=param_graficas$lwd_dens)
 

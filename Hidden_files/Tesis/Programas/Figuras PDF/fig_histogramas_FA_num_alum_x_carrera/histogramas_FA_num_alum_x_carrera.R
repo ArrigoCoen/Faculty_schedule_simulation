@@ -34,16 +34,20 @@ max(num_alum_mateAp)#353
 #### Gráfica con frecuencia = T
 par(mfrow=c(2,2),cex=1) # set the plotting area into a 2*2 array
 hist(num_alum_actuaria,col=param_graficas$col1_hist,breaks = seq(0,360,by = 10),
-     freq = T,ylab = "Frecuencia",#ylim=c(0,0.025),
+     freq = T,ylab = "Frecuencia absoluta",ylim=c(0,2500),
+     xlim = c(0,200),
      main="Histograma Actuaría",xlab = "Número alumnos por grupo")
 hist(num_alum_CdC,col=param_graficas$col3_hist,breaks = seq(0,360,by = 10),
-     freq = T,ylab = "Frecuencia",cex.main=0.98,# Tamaño de letra del título
+     freq = T,ylab = "Frecuencia absoluta",ylim=c(0,2500),
+     xlim = c(0,200),cex.main=0.98,# Tamaño de letra del título
      main="Histograma Ciencias de la Computación",xlab = "Número alumnos por grupo")
 hist(num_alum_mate,col=param_graficas$col5_hist,breaks = seq(0,360,by = 10),
-     freq = T,ylab = "Frecuencia",#ylim=c(0,0.025),
+     freq = T,ylab = "Frecuencia absoluta",ylim=c(0,2500),
+     xlim = c(0,200),
      main="Histograma Matemáticas",xlab = "Número alumnos por grupo")
 hist(num_alum_mateAp,col=param_graficas$col4_hist,breaks = seq(0,360,by = 10),
-     freq = T,ylab = "Frecuencia",#ylim=c(0,0.025),
+     freq = T,ylab = "Frecuencia absoluta",ylim=c(0,2500),
+     xlim = c(0,200),
      main="Histograma Matemáticas Aplicadas",xlab = "Número alumnos por grupo")
 
 

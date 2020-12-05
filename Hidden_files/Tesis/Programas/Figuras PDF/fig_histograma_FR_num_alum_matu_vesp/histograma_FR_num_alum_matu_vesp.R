@@ -22,7 +22,8 @@ max(c(vec_num_alum_x_sem_matutino,vec_num_alum_x_sem_vespertino))#4514
 hist(vec_num_alum_x_sem_matutino,col=param_graficas$col1_hist,
      breaks = seq(0,5000,by = 100),
      freq = F,ylab = "Frecuencia relativa",ylim=c(0,0.0015),
-     main="Histograma turnos matutino y vespertino",xlab = "Número alumnos")
+     main="Histogramas de turnos matutino y vespertino",
+     xlab = "Número alumnos")
 lines(density(vec_num_alum_x_sem_matutino),col=param_graficas$col1_linea,lwd=param_graficas$lwd_dens)
 hist(vec_num_alum_x_sem_vespertino, col=param_graficas$col2_hist,
      breaks = seq(0,4600,by = 100),freq = F,add=TRUE)

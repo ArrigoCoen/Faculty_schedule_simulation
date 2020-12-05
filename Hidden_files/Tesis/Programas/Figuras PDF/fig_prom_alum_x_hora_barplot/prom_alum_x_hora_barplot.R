@@ -20,9 +20,9 @@ min(vec_prom_alum_x_hora)#239.12
 max(vec_prom_alum_x_hora)#3586.24
 
 barplot(vec_prom_alum_x_hora,main = "Promedio de alumnos por hora",
-        ylim = c(0,3800),xlab="Horario",ylab="Número de alumnos",
+        ylim = c(0,3800),xlab="Horario",ylab="Número de alumnos promedio",
         col = param_graficas$col_barras,
-        axis.lty=1,las=2,cex.axis=0.9,#cex.names = 0.9,
+        axis.lty=1,las=2,cex.axis=0.9,cex.names = 0.85,
         names.arg=c("7-8","8-9","9-10","10-11","11-12",
                     "12-13","13-14","14-15","15-16",
                     "16-17","17-18","18-19","19-20",

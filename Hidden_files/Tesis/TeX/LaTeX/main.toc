@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.5}Matrices de datos}{21}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Análisis estadístico}{25}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Análisis estadístico básico}{26}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Análisis estadístico por grupo de datos}{30}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Análisis estadístico por grupo de datos}{29}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Análisis estadístico por carrera}{32}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Distribución del tamaño de los grupos}{34}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Comportamientos por hora}{37}{section.3.5}%

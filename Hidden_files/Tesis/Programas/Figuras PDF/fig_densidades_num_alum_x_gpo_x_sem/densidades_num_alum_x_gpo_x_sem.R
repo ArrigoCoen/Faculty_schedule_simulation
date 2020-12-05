@@ -33,7 +33,7 @@ for(d in 1:length(lista_num_al_x_gpo_x_sem)){
   lines(density(lista_num_al_x_gpo_x_sem[[d]]),col=line_color,lwd=lwd_dens)
 }
 
-legend(45,0.028,c("Semestres del 2008-1 al 2012-2",
+legend(45,0.025,c("Semestres del 2008-1 al 2012-2",
                    "Semestres del 2013-1 al 2017-2",
                    "Semestres del 2018-1 al 2020-1"),bty = "n",
        col=c("green2","deeppink2","deepskyblue1"),
