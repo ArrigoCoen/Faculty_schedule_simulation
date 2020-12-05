@@ -140,10 +140,10 @@
 \begin{tabular}{|c|l|p{7.5cm}|p{4.5cm}|}
 \hline
 \textbf{Col.}  & \textbf{Nombre}      & \textbf{Explicación}                & \textbf{Posibles valores}    \\ \hline
-1     & Semestre    & Semestre al que pertenece la materia (Año y semestre) & $1^{o}, 2^{o},..., 8^{o}$      \\ \hline
+1     & Semestre    & Semestre al que pertenece la materia (Año y semestre) & 20081, $\ldots$ , 20192, 20201\\ \hline
 2     & Plan        & Año en el que se implementó un nuevo plan de estudios & 1983, 1994, 2000, 2006, 2013, 2015, 2017\\ \hline
 3     & Materia     & Clave del curso impartido                             & $\mathbb{N}$                   \\ \hline
-4     & URL         & Nombres de las páginas de los horarios de FC          & Páginas web de la FC \\ \hline
+4     & URL         & Nombres de las páginas de los horarios de la Facultad & Páginas web de la Facultad	 \\ \hline
 5     & Num. Grupos & Número de grupos que hay en cada página de internet   & $\mathbb{N}$                   \\ \hline
 \end{tabular}}
 \caption[\textit{Descripción de las columnas de la matriz mat\_posibles\_url}]{\textit{Descripción de las columnas de la matriz mat\_posibles\_url: La matriz contiene información de cada URL existente.}}\label{matPosiblesURL}
@@ -172,7 +172,7 @@
 \endlastfoot %% Agregamos un texto al final de la tabla, también se podrían repetir los nombres de las columnas
 
 %\hline 
-1 & Materia & Nombre de algún curso impartido en la FC & ``Probabilidad I'' \\ 
+1 & Materia & Nombre de algún curso impartido en la Facultad & ``Probabilidad I'' \\ 
 \hline 
 2 & Profesor & Nombre de la persona que va a impartir alguna materia & ``Arrigo Coen Coria'' \\ 
 \hline 
@@ -190,7 +190,7 @@
 8 & Grupo & Clave con la que se identifica una asignación & 4489, 6114, $\ldots$ \\ 
 \hline 
 %8 & Carrera & Nombre de alguna carrera de FC & Actuaría, Ciencias de la Computación, Matemáticas, Matemáticas Aplicadas \\ 
-9 & Carrera & Nombre de alguna carrera de la FC & ``Actuaría'', ``Matemáticas'',... \\ 
+9 & Carrera & Nombre de alguna carrera de la Facultad & ``Actuaría'', ``Matemáticas'',... \\ 
 \hline 
 10 & Plan & Año en el que se implemento un nuevo plan de estudios & 1983, 1994, ..., 2017 \\ 
 \hline 
@@ -202,7 +202,7 @@
 \hline 
 14 & Semestre\_de\_materia & Semestre en el que el plan de estudios dicta que se lleva esa materia & ``Primer Semestre'', $\ldots$ , ``Optativas'' \\ 
 \hline 
-15 & url & Nombre de la página de los horarios de FC correspondiente al grupo & url's de FC \\ 
+15 & url & Nombre de la página de los horarios de la Facultad correspondiente al grupo & url's de la Facultad \\ 
 \hline 
 16 & Act2000 & Columna binaria, indica si el grupo pertenece a la carrera de Actuaría, plan 2000 & $0,1$\\
 \hline 
@@ -218,33 +218,33 @@
 \hline 
 22 & MatAp2017 & Columna binaria, indica si el grupo pertenece a la carrera de MatAp, plan 2017 & $0,1$ \\ 
 \hline 
-23 & NomMat\_Act2000 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2000 & Nombres de materias de FC \\ 
+23 & NomMat\_Act2000 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2000 & Nombres de materias de la Facultad \\ 
 \hline 
-24 & NomMat\_Act2006 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2006 & Nombres de materias de FC \\ 
+24 & NomMat\_Act2006 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2006 & Nombres de materias de la Facultad \\ 
 \hline 
-25 & NomMat\_Act2015 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2015 & Nombres de materias de FC \\ 
+25 & NomMat\_Act2015 & Indica el nombre de las materia correspondiente a la carrera de Actuaría plan 2015 & Nombres de materias de la Facultad \\ 
 \hline 
-26 & NomMat\_CdC1994 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 1994 & Nombres de materias de FC \\ 
+26 & NomMat\_CdC1994 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 1994 & Nombres de materias de la Facultad \\ 
 \hline 
-27 & NomMat\_CdC2013 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 2013 & Posibles valores \\ 
+27 & NomMat\_CdC2013 & Indica el nombre de las materia correspondiente a la carrera de CdC plan 2013 & Nombres de materias de la Facultad \\ 
 \hline 
-28 & NomMat\_Mat1983 & Indica el nombre de las materia correspondiente a la carrera de Matemáticas plan 1983 & Nombres de materias de FC \\ 
+28 & NomMat\_Mat1983 & Indica el nombre de las materia correspondiente a la carrera de Matemáticas plan 1983 & Nombres de materias de la Facultad \\ 
 \hline 
-29 & NomMat\_MAp2017 & Indica el nombre de las materia correspondiente a la carrera de MatAp plan 2017 & Nombres de materias de FC \\ 
+29 & NomMat\_MAp2017 & Indica el nombre de las materia correspondiente a la carrera de MatAp plan 2017 & Nombres de materias de la Facultad \\ 
 \hline 
-30 & URL\_Act2000 & Indica la URL correspondiente a la carrera de Actuaría plan 2000 & url de FC \\ 
+30 & URL\_Act2000 & Indica la URL correspondiente a la carrera de Actuaría plan 2000 & url de la Facultad \\ 
 \hline 
-31 & URL\_Act2006 & Indica la URL correspondiente a la carrera de Actuaría plan 2006 & url de FC \\ 
+31 & URL\_Act2006 & Indica la URL correspondiente a la carrera de Actuaría plan 2006 & url de la Facultad \\ 
 \hline 
-32 & URL\_Act2015 & Indica la URL correspondiente a la carrera de Actuaría plan 2015 & url de FC \\ 
+32 & URL\_Act2015 & Indica la URL correspondiente a la carrera de Actuaría plan 2015 & url de la Facultad \\ 
 \hline 
-33 & URL\_CdC1994 & Indica la URL correspondiente a la carrera de CdC plan 1994 & url de FC \\ 
+33 & URL\_CdC1994 & Indica la URL correspondiente a la carrera de CdC plan 1994 & url de la Facultad \\ 
 \hline 
-34 & URL\_CdC2013 & Indica la URL correspondiente a la carrera de CdC plan 2013 & url de FC \\ 
+34 & URL\_CdC2013 & Indica la URL correspondiente a la carrera de CdC plan 2013 & url de la Facultad \\ 
 \hline 
-35 & URL\_Mat1983 & Indica la URL correspondiente a la carrera de Matemáticas plan 1983 & url de FC \\ 
+35 & URL\_Mat1983 & Indica la URL correspondiente a la carrera de Matemáticas plan 1983 & url de la Facultad \\ 
 \hline 
-36 & URL\_MAp2017 & Indica la URL correspondiente a la carrera de MatAp plan 2017 & url de FC \\ 
+36 & URL\_MAp2017 & Indica la URL correspondiente a la carrera de MatAp plan 2017 & url de la Facultad \\ 
 \hline 
 37 & Num\_materia & Número de materia de acuerdo al vector \textit{vec\_nom\_materias} & $\mathbb{N}$ \\ 
 \hline 

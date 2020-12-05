@@ -46,15 +46,17 @@ sem_par <- mat_alum_sem_par_proba_I[,1]
 
 # plot --------------------------------------------------------------------
 plot(semestres,alum_sem_par_impar.ts,ylim=c(0,1000),main = "Probabilidad I",
-     type="n",xlab="Semestres",ylab="Número de alumnos")
-
+     type="n",xlab="Semestres",ylab="Número de alumnos",axes = FALSE)
 points(sem_impar, alum_sem_impar.ts, col=param_graficas$col1_linea,pch="o")
 lines(sem_impar, alum_sem_impar.ts, col=param_graficas$col1_linea)
 sem_par_aux <- c("20155","20165","20175","20185","20195")
 points(sem_par_aux, alum_sem_par.ts, col=param_graficas$col2_linea,pch="o")
 lines(sem_par_aux, alum_sem_par.ts, col=param_graficas$col2_linea)
-
-legend(20168,400,c("Número de alumnos de semestres impares",
+axis(side=1, at = c(20150,20160,20170,20180,20190,20200),
+     labels=c("2015-1","2016-1","2017-1","2018-1","2019-1","2020-1"))
+axis(2)
+box() #- To make it look like "usual" plot
+legend(20155,230,c("Número de alumnos de semestres impares",
                    "Número de alumnos de semestres pares"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
        pch=c("o","o"),lty=c(1,1),cex=1.1)

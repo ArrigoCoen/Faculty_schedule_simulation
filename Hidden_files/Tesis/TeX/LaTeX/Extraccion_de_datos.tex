@@ -1,6 +1,6 @@
 \chapter{Extracción de datos}
 
-La fuente de información de donde obtuvimos los datos utilizados son las páginas de los horarios de la FC. En la \figurename{~\ref{pagFC}} se muestra un ejemplo de dichas páginas. Cada página contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Cabe mencionar que sólo tomamos en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
+La fuente de información de donde obtuvimos los datos utilizados son las páginas de los horarios de la Facultad. En la \figurename{~\ref{pagFC}} se muestra un ejemplo de dichas páginas. Cada página contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Cabe mencionar que sólo tomamos en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
 
 \begin{figure}[H]
 \centering
@@ -14,7 +14,7 @@ La información que se puede extraer de las páginas mencionadas es: \textit{nom
 
 \section{Estructura de las URL's}
 
-Al iniciar la búsqueda de información notamos que las URL's de las páginas web de los horarios de la FC tenían una estructura similar. Ésto nos permitió poder realizar la búsqueda de la información de una manera automática y mucho más rápida. Observamos que la estructura que siguen las URL's mencionadas es la siguiente:
+Al iniciar la búsqueda de información notamos que las URL's de las páginas web de los horarios de la Facultad tenían una estructura similar. Ésto nos permitió poder realizar la búsqueda de la información de una manera automática y mucho más rápida. Observamos que la estructura que siguen las URL's mencionadas es la siguiente:
 
 \begin{center}
 \textit{\textbf{http://www.fciencias.unam.mx/docencia/horarios/a/b/c}}
@@ -63,14 +63,14 @@ Para este trabajo tomamos en cuenta sólo los planes de estudio vigentes hasta e
  2017 & 2055 \\ 
  \hline 
  \end{tabular}
-\caption[\textit{Planes de estudio por carrera con clave}]{\textit{Planes de estudio por carrera con clave: La clave de cada plan de estudios se sutituye en \textbf{b} en la estructura de las URL's de las páginas de la FC.}}\label{PlanesEstudio}
+\caption[\textit{Planes de estudio por carrera con clave}]{\textit{Planes de estudio por carrera con clave: La clave de cada plan de estudios se sutituye en \textbf{b} en la estructura de las URL's de las páginas de la Facultad.}}\label{PlanesEstudio}
 \end{table}
 
 Una vez identificada la estructura de las URL's pudimos realizar la búsqueda de información de manera automatizada. Originalmente decidimos que $c \in \{1,2,3, \ldots, 10 000\}$. Después hicimos una función que genera una matriz llamada \textit{mat\_posibles\_url}. La función sólo guarda las URL's que si existen. La descripción de lo que contiene cada columna de la matriz \textit{mat\_posibles\_url} la podemos ver en la \tablename{~\ref{matPosiblesURL}}. Finalmente al obtener dicha matriz, observamos que el valor máximo que toma $c$ es 991, por lo que redujimos su conjunto de posibles valores y definimos $c \in \{1, \ldots, 1 000\}$.
 
 \dfNmatrizChica %%Tabla con la información de la matriz chica
 
-Decidimos buscar información en 25 semestres, del 2008-1 al 2020-1. Al multiplicar el número de semestres por los posibles valores de \textbf{c} $(25 \times \textbf{c})$ obtuvimos un número cercano a $25,000$. Este valor es una aproximación del número de posibles URL's con información de los horarios de la FC. Notemos que no estamos contando los planes de estudio, de ser así el número supera las $170,000$ posibles URL's. Deseamos obtener información de cada una de esas páginas. Obtener dicha información ingresando a cada una de las páginas es complicado por lo que es necesario hacerlo de manera automatizada. Para extraer los datos de las páginas de la FC utilizamos una aplicación de \textit{Google Chrome} llamada \textit{SelectorGadget}. La cual explicamos en la siguiente sección.
+Decidimos buscar información en 25 semestres, del 2008-1 al 2020-1. Al multiplicar el número de semestres por los posibles valores de \textbf{c} $(25 \times \textbf{c})$ obtuvimos un número cercano a $25,000$. Este valor es una aproximación del número de posibles URL's con información de los horarios de la Facultad. Notemos que no estamos contando los planes de estudio, de ser así el número supera las $170,000$ posibles URL's. Deseamos obtener información de cada una de esas páginas. Obtener dicha información ingresando a cada una de las páginas es complicado por lo que es necesario hacerlo de manera automatizada. Para extraer los datos de las páginas de la Facultad utilizamos una aplicación de \textit{Google Chrome} llamada \textit{SelectorGadget}. La cual explicamos en la siguiente sección.
 
 \section{Extracción de datos con la aplicación SelectorGadget}
 
@@ -93,7 +93,7 @@ La aplicación \textit{SelectorGadget} permite seleccionar la información desea
 \centering
 \includegraphics[width=\textwidth]{SelectorGadget} %scale = 0.65
 %\url{http://www.fciencias.unam.mx/docencia/horarios/20181/2017/625} %%URL de la imagen
-\caption[\textit{Aplicación SelectorGadget}]{\textit{Aplicación SelectorGadget: Se muestra cómo se ve una página con los horarios de la FC al usar la aplicación mientras se selecciona la información que deseamos extraer.}}\label{appSelectorGadget}
+\caption[\textit{Aplicación SelectorGadget}]{\textit{Aplicación SelectorGadget: Se muestra cómo se ve una página con los horarios de la Facultad al usar la aplicación mientras se selecciona la información que deseamos extraer.}}\label{appSelectorGadget}
 \end{figure}
 
 En el ejemplo mostrado en la \figurename{~\ref{appSelectorGadget}},se seleccionaron 15 entradas correspondientes a los nombres de los profesores en una página con la información de la materia \textit{Probabilidad I}, en el plan 2015 de Actuaría. Los pasos a seguir son los mismos sin importar la información que se desea obtener, lo único que cambia es el código CSS que arroja la aplicación.
@@ -101,7 +101,7 @@ En el ejemplo mostrado en la \figurename{~\ref{appSelectorGadget}},se selecciona
 
 \section{Tipos de grupos de las páginas web de la Facultad de Ciencias} \label{TiposDeGpos}
 
-Al inicio encontramos tres tipos de grupos dentro de las páginas de horarios de la FC. Cada uno con información similar, pero hicimos la separación de acuerdo a sus diferencias. Cabe mencionar que en este trabajo consideramos como semestre actual al semestre $2020-1$. En todos los grupos se puede encontrar la información del nombre de profesor, nombre del o de los ayudantes, salón, horario y el número de alumnos inscritos en el grupo.
+Al inicio encontramos tres tipos de grupos dentro de las páginas de horarios de la Facultad. Cada uno con información similar, pero hicimos la separación de acuerdo a sus diferencias. Cabe mencionar que en este trabajo consideramos como semestre actual al semestre $2020-1$. En todos los grupos se puede encontrar la información del nombre de profesor, nombre del o de los ayudantes, salón, horario y el número de alumnos inscritos en el grupo.
 
 \begin{enumerate}
 \item[a)] En el grupo \textbf{A} se tienen las páginas correspondientes al semestre actual. Este grupo tiene la información del número de lugares diponibles por salón, pero no contiene la información de los exámenes finales, porque se considera que el semestres aún está en curso y aún no termina. En la \figurename{~\ref{GpoA}} podemos ver un ejemplo de este tipo de grupo.

@@ -1,11 +1,11 @@
 \chapter{Introducción}
 \pagenumbering{arabic} %Para empezar la numeración con números naturales
 
-En este trabajo se hará un análisis estadístico de los datos recabados de las páginas de horarios de la Facultad de Ciencias de la UNAM (FC). Se obtendrá un número estimado de alumnos, para cada materia y por cada hora, de las carreras del Departamento de Matemáticas. Se simularán esqueletos de horarios que se calificarán de acuerdo a ciertos criterios. Éstas simulaciones dependen de semestres anteriores, con respecto al que se quiere estimar. Se resolverá el problema de asignación de horarios por medio del algoritmo genético. Con esto se desea disminuir el tiempo que se toma actualmente el hacer tanto los esqueletos de horarios como las asignaciones de grupos en la FC.
+En este trabajo se hará un análisis estadístico de los datos recabados de las páginas de horarios de la Facultad de Ciencias de la UNAM (Facultad). Se obtendrá un número estimado de alumnos, para cada materia y por cada hora, de las carreras del Departamento de Matemáticas. Se simularán esqueletos de horarios que se calificarán de acuerdo a ciertos criterios. Éstas simulaciones dependen de semestres anteriores, con respecto al que se quiere estimar. Se resolverá el problema de asignación de horarios por medio del algoritmo genético. Con esto se desea disminuir el tiempo que se toma actualmente el hacer tanto los esqueletos de horarios como las asignaciones de grupos en la Facultad.
 
 \section{Motivación}
 
-Lo que motivó la realización de este trabajo es la aportación que se puede hacer a la FC, la cual nos parece de gran utilidad y para el beneficio de los alumnos. Podremos obtener una disminución del tiempo que toma realizar los esqueletos y la asignación de profesores en la FC.
+Lo que motivó la realización de este trabajo es la aportación que se puede hacer a la Facultad, la cual nos parece de gran utilidad y para el beneficio de los alumnos. Podremos obtener una disminución del tiempo que toma realizar los esqueletos y la asignación de profesores en la Facultad.
 
 Actualmente para hacer la asignación de horarios primero se reune el comité encargado de dicha tarea a realizar manualmente los esqueletos de los horarios. Éstos se dan a conocer a los profesores y ellos eligen diferentes opciones de materias y posibles horas en las cuales les gustaría impartir sus clases. Una vez que los profesores han hecho sus solicitudes, se vuelve a hacer una o varias juntas para la asignación final de los horarios que se hace de manera manual.
 
@@ -112,7 +112,7 @@ Con la función objetivo planteada en dicho modelo se desea maximizar la utilida
 
 \item[-] Función calificadora de esqueletos: Califica de acuerdo a qué tan bien o que tan mal se cubre la demanda de los alumnos esperados.
 
-\item[-] Conjunto de materias: Nombres de las materias impartidas en la FC.
+\item[-] Conjunto de materias: Nombres de las materias impartidas en la Facultad.
 
 \item[-] Conjunto de profesores: Nombres de profesores de tiempo completo y de asignatura.
 \end{itemize}
@@ -151,19 +151,20 @@ El conjunto de soluciones se presenta por medio de la matriz \textit{mat\_asigna
 
 \begin{table}[H]
 \centering
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{|c|c|c|c|}
 \hline 
 \textbf{Materia} & \textbf{Profesor} & \textbf{Horario} \\ 
 \hline 
 Inferencia Estadística & Margarita Elvira Chávez Cano & 9-10 \\ 
 \hline 
-Estadística II & Jaime Vázquez Alamilla & 10-11 \\ 
+Modelos no Paramétricos y de Regresión & Jaime Vázquez Alamilla & 10-11 \\ 
 \hline 
 Estadística Bayesiana  & Ruth Selene Fuentes García & 11-12 \\ 
 \hline 
-Estadística III  & Lizbeth Naranjo Albarrán & 13-14 \\ 
+Modelos de Supervivencia y de Series de Tiempo  & Lizbeth Naranjo Albarrán & 13-14 \\ 
 \hline 
-\end{tabular}  
+\end{tabular}}
 \caption[\textit{Ejemplo de asignación}]{\textit{Ejemplo de asignación: Esta tabla muestra un ejemplo de la matriz mat\_asignaciones que tiene 3 columnas (Materia, Profesor, Horario).}}\label{EjAsig}
 \end{table}
 
@@ -197,7 +198,7 @@ En la \figurename{~\ref{ParImparProbaI}} vemos que la línea azul representa el 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.55]{num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
-\caption[\textit{Número de alumnos totales por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos totales por semestres pares e impares de Probabilidad I: El número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}
+\caption[\textit{Número de alumnos totales por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos totales por semestres pares e impares de Probabilidad I: Esta figura muestra las series de tiempo del número de alumnos de semestres pares e impares. Se puede observar que el número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}
 \end{figure}
 
 Continuando con los datos de \textit{Probabilidad I}, obtuvimos la \figurename{~\ref{HistAlumParImparProbaI}} que contiene dos histogramas, las barras rojas representan el número de alumnos por grupo de semestres pares y las barras azules representan el número de alumnos por grupo de semestres impares.

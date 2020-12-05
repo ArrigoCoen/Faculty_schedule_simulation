@@ -413,5 +413,57 @@ View(lista_info_esqueleto[[1]])
 View(lista_info_esqueleto[[2]])
 View(lista_info_esqueleto[[3]])
 
+# gen_lista_info_esqueleto ------------------------------------------------
+#' Title gen_lista_info_esqueleto: Función que arroja la lista
+#' "lista_info_esqueleto" con el esqueleto que será utilizado para la
+#' asignación de profesores y horarios.
+#' Primero se aplicael modelo de mezcla de normales al número de alumnos y
+#' utilizando la función gen_esqueleto se obtiene la lista.
+#'
+#' @return lista_info_esqueleto: Lista con las matrices:
+#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
+#' tiempo completo y el número de materias asignadas.
+#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
+#' de asignatura y el número de materias asignadas.
+#' 4) lista_ciclo_asig: Lista 
+#' 5) mat_solicitudes_TC: Matriz de solicitudes de los profesores de tiempo
+#' completo.
+#' 6) mat_solicitudes_asignatura: Matriz de solicitudes de los profesores
+#' de asignatura.
+#' 7) num_alum_simulados: Variable tipo numeric, con el número de alumnos
+#' simulados totales.
+#' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
+#' En la entrada (i,j) se tiene el número de alumnos simulados
+#' para la hora i, y la materia j.
+#' 
+D_inicial <- gen_mat_demanda_alumnos(param,param_sim)#48.05 seg
+mat_solicitudes <- gen_solicitudes(param)#9.15 seg
+n_rep <- 10
+lista_info_esqueleto <- gen_lista_info_esqueleto(D_inicial,
+                                                 mat_solicitudes,
+                                                 n_rep,
+                                                 param)#7.98 min
+mat_esqueleto <- lista_info_esqueleto[[1]]
+View(mat_esqueleto)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

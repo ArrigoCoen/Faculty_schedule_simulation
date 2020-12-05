@@ -22,18 +22,18 @@ Al extraer la información en \textit{R} obtuvimos un vector con 94 entradas. En
 \caption[\textit{Vector de profesores de tiempo completo}]{\textit{Vector de profesores de tiempo completo: Se observan las primeras 20 entradas del vector obtenido con la aplicación SelectorGadget al dar click en un profesor de tiempo completo.}}\label{profTC_sinLimpiar}
 \end{figure}
 
-Limpiamos los datos para obtener un vector que sólo tuviera los nombres de los profesores, sin su título. Eliminamos el título porque en los horarios publicados en las páginas de la FC sus nombres no tienen título. También eliminamos los espacios finales que había en algunos nombres.
+Limpiamos los datos para obtener un vector que sólo tuviera los nombres de los profesores, sin su título. Eliminamos el título porque en los horarios publicados en las páginas de la Facultad sus nombres no tienen título. También eliminamos los espacios finales que había en algunos nombres.
 
 De esta manera obtuvimos el vector con el nombre de los profesores de tiempo completo del Departamento de Matemáticas. Dicho vector lo comparamos con la primer columna de la matriz \textit{mat\_nom\_prof\_total}, cuando los nombres coincidieron, pusimos un $1$ en el renglón correspondiente.
 
-Al limpiar los datos encontramos 11 nombres que analizamos de manera particular porque no aparecía el $1$ en su respectivo renglón. Encontramos que no aparecía la información necesaria en la matriz \textit{mat\_nom\_prof\_total} por diferencias en los nombres. Encontramos diferencias por acentos, por mayúsculas y por nombres incompletos. En la \tablename{~\ref{DifNomProfTC}} vemos los nombres que aparecen en las páginas de la FC comparados con los que aparecen en la página del Departamento de Matemáticas.
+Al limpiar los datos encontramos 11 nombres que analizamos de manera particular porque no aparecía el $1$ en su respectivo renglón. Encontramos que no aparecía la información necesaria en la matriz \textit{mat\_nom\_prof\_total} por diferencias en los nombres. Encontramos diferencias por acentos, por mayúsculas y por nombres incompletos. En la \tablename{~\ref{DifNomProfTC}} vemos los nombres que aparecen en las páginas de la Facultad comparados con los que aparecen en la página del Departamento de Matemáticas.
 
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
   \begin{tabular}{|c|c|}
   \hline 
-  \textbf{Nombre en páginas de la FC} & \textbf{Nombre en página del Depto. de Matemáticas} \\ 
+  \textbf{Nombre en páginas de la Facultad} & \textbf{Nombre en página del Depto. de Matemáticas} \\ 
   \hline 
   Alejandro Ricardo Garciadiego Dantan & Alejandro Ricardo Garciadiego Dantán \\ 
   \hline 
@@ -114,7 +114,7 @@ Finalmente obtuvimos un vector con 1131 nombres de los profesores de asginatura.
 Algunas notas a considerar de esta matriz son:
   
 \begin{itemize}
-\item[-] Puede haber profesores que ya no impartan clases en la FC.
+\item[-] Puede haber profesores que ya no impartan clases en la Facultad.
 
 \item[-] Puede ocurrir que no se recopile toda la información de los profesores en la \tablename{~\ref{DifNomProfasig}} por no haber coincidencias en los nombres.
 
