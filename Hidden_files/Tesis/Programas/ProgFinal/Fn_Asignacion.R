@@ -47,7 +47,10 @@
 # install.packages('ggplot2')
 # install.packages('randtests')
 # install.packages('stats')
-
+# install.packages('seastests')
+# install.packages('tseries')
+# install.packages('lmtest')
+# install.packages('het.test')
 
 #Loading packages
 library('zoo')
@@ -80,6 +83,10 @@ library(mixtools)
 library(ggplot2)
 library(randtests)
 library(stats)
+library(seastests)
+library(tseries)
+library(lmtest)
+library(het.test)
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -187,7 +194,7 @@ param_graficas$altura_pdf = 6 #Altura para guardar imagen
 param_graficas$dir_TeX = "TeX/LaTeX/Pictures/"
 
 # demo(graphics) # Ejecútela usted
-
+# dev.off()#Para salir de la función par()
 
 # mat_def_columnas_MG -----------------------------------------------------
 ## Se guarda la matriz mat_def_columnas_MG que tiene 3 columnas (Nombre,

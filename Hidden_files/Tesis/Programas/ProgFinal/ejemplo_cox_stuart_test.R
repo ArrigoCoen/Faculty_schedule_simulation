@@ -1,6 +1,7 @@
 ##########################################################################
 #' En este programa se encuentran ejemplos de la función cox.stuart.test()
 #' que prueba la aleatoriedad de los datos dados.
+#' https://www.rdocumentation.org/packages/randtests/versions/1.0/topics/cox.stuart.test
 ##########################################################################
 
 #Source ------------------------------------------------------------------

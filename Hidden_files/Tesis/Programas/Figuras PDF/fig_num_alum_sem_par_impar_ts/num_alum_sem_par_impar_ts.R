@@ -47,7 +47,7 @@ semestres <- (20081:20201)[(20081:20201)%% 10>0 &(20081:20201)%% 10<3]
 sem_impar <- semestres[ind_impar]
 sem_par <- semestres[ind_par]
 
-plot(semestres,alum_sem_par_impar.ts,ylim=c(15000,30000),
+plot(semestres,alum_sem_par_impar.ts,ylim=c(15000,30000),axes = F,
      main = "Número de alumnos de semestres pares e impares",
      type="n",xlab="Semestres",ylab="Número de alumnos")
 
@@ -58,10 +58,18 @@ sem_par_aux <- c("20085","20095","20105","20115","20125","20135","20145",
 points(sem_par_aux, alum_sem_par.ts, col=param_graficas$col2_linea,pch="o")
 lines(sem_par_aux, alum_sem_par.ts, col=param_graficas$col2_linea)
 
-legend(20150,23000,c("Semestres impares",
+axis(side=1, at = c(20080,20090,20100,20110,20120,20130,20140,
+                    20150,20160,20170,20180,20190,20200),
+     labels=c("2008-1","2009-1","2010-1","2011-1","2012-1","2013-1","2014-1",
+              "2015-1","2016-1","2017-1","2018-1","2019-1","2020-1"))
+axis(2)
+box() #- To make it look like "usual" plot
+
+legend(20150,22000,c("Semestres impares",
                    "Semestres pares"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
-       pch=c("o","o"),lty=c(1,1),cex=1.1)
+       pch=c("o","o"),lty=c(1,1),#cex=1.1
+       )
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "num_alum_sem_par_impar_ts.pdf"

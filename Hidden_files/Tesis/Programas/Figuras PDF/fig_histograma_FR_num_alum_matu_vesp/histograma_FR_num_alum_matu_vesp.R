@@ -29,7 +29,7 @@ hist(vec_num_alum_x_sem_vespertino, col=param_graficas$col2_hist,
      breaks = seq(0,4600,by = 100),freq = F,add=TRUE)
 lines(density(vec_num_alum_x_sem_vespertino),col=param_graficas$col2_linea,lwd=param_graficas$lwd_dens)
 
-legend(3500,0.0006,c("Turno matutino","Turno vespertino"),bty = "n",
+legend(3200,0.0008,c("Turno matutino","Turno vespertino"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),lty=c(1,1),
        cex=1.1,lwd=param_graficas$lwd_dens)
 

@@ -44,16 +44,25 @@ semestres_aux <- sem_par_aux <- c("20080","20085",
                                   "20190","20195","20200")
 # semestres_aux <- as.character((20081:20201)[(20081:20201)%% 10>0 &(20081:20201)%% 10<3])
 
-plot(semestres_aux,alum_matutino.ts,ylim=c(0,25000),main = "Número de alumnos por turno",
+plot(semestres_aux,alum_matutino.ts,ylim=c(0,25000),
+     main = "Número de alumnos por turno",axes = F,
      type="o",xlab="Semestres",ylab="Número de alumnos",
      col=param_graficas$col1_linea,pch="o")
 points(semestres_aux, alum_vespertino.ts, col=param_graficas$col2_linea,pch="o")
 lines(semestres_aux, alum_vespertino.ts, col=param_graficas$col2_linea)
 
-legend(20163,5000,c("Turno matutino",
+axis(side=1, at = c(20080,20090,20100,20110,20120,20130,20140,
+                    20150,20160,20170,20180,20190,20200),
+     labels=c("2008-1","2009-1","2010-1","2011-1","2012-1","2013-1","2014-1",
+              "2015-1","2016-1","2017-1","2018-1","2019-1","2020-1"))
+axis(2)
+box() #- To make it look like "usual" plot
+
+legend(20163,9000,c("Turno matutino",
                    "Turno vespertino"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
        pch=c("o","o"),lty=c(1,1))#,cex=1.1
+
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "num_alum_matu_vesp_ts.pdf"

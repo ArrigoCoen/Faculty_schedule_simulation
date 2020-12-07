@@ -118,6 +118,11 @@
 \usepackage{wrapfig} %% Sirve para poner figuras entre el texto
 \usepackage{subfigure} %% Necesitamos este paquete para poner las subfiguras horizontales
 %\usepackage{subfig} %% Subfiguras verticales %%%PRODUCE ERROR
+%\usepackage[skip=5pt]{caption} % example skip set to 5pt %%NO SE CAMBIÓ EL ESPACIO ENTRE LA IMAGEN Y LA FIGURA
+%\setlength{\belowcaptionskip}{5pt plus 5pt minus 5pt}
+%\setlength\abovecaptionskip{-5pt}
+%\setlength\abovecaptionskip{-3mm}
+\setlength\abovecaptionskip{0mm}
 
 %% Referencias %%
 \usepackage{hyperref} %%Sirve para hacer referencias dentro del texto, por ejemplo para un libro en la Bibliografía o un ecuación necesaria. %% También se debe compilar 2 veces con PDFLATEX, ya que en la 1° guarda la información de la numeración de las ecuaciones y en la 2° escribe esa información en el documento.
@@ -504,7 +509,7 @@ Inferencia estadística aplicada en la generación de una propuesta de horarios 
 \addcontentsline{toc}{chapter}{Bibliografía}
 %%%%%%%%%%%%%%%%%%% LIBROS %%%%%%%%%%%%%%%%%%%
 
-\bibitem{Casella} Casella G., (2006), \textit{Statistical Inference}, Thomson Press
+\bibitem{Casella} Casella G., (2006), \textit{Statistical Inference}, Thomson Press \label{Casella}
 
 \bibitem{ChatfieldXing} Chatfield C. y Xing H., (2019), \textit{The Analysis of Time Series An Introduction with R}, Chapman $\&$ Hall/CRC \label{ChatfieldXing}
 

@@ -25,7 +25,7 @@ num_total_alum.Comp <- decompose(num_total_alum.ts)
 num_total_alum.Comp
 
 #' Now lets plot the components.
-plot(num_total_alum.Comp)
+plot(num_total_alum.Comp)#Figura con 4 gráficas
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "descomposicion_ts_total_alumnos.pdf"

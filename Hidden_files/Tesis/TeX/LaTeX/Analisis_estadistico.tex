@@ -12,8 +12,8 @@ Denotamos a una serie de tiempo como:
   \begin{equation}
 X_{t} = m_{t} + s_{t} + y_{t},
 \end{equation}
-%Se dice que una serie de tiempo es estacionaria si a lo largo del tiempo su media y su varianza con constantes y es no estacionaria si su tendencia y variabilidad cambian en el tiempo. Sus componentes son:
-donde las componentes de la serie de tiempo $m_{t}, s_{t}, y_{t},$ tienen las siguientes propiedades:
+
+donde las componentes de la serie de tiempo $(m_{t}, s_{t}, y_{t})$ tienen las siguientes propiedades:
 
 \begin{itemize}
 \item[-] Tendencia $(m_{t})$: Se le llama tendencia al cambio, a largo plazo, del promedio de los datos. El cambio puede ser creciente o decreciente.
@@ -32,7 +32,9 @@ Chatfield y Xing, en su libro \textit{The Analysis of Time Series An Introductio
 \end{itemize}
 
 Con estos tipos de variaciones se forman 3 modelos de estacionalidad:
-  
+
+%Se dice que una serie de tiempo es estacionaria si a lo largo del tiempo su media y su varianza con constantes y es no estacionaria si su tendencia y variabilidad cambian en el tiempo. %%No nos sirve la serie de tiempo estacionaria porque la media de nuestros datos no se mantiene constante.
+
   \begin{enumerate}
 \item Aditivo: En este modelo se tiene variación estacional aditiva. Se utiliza cuando la varianza o la desviación estándar de la serie de tiempo se mantienen constantes a lo largo del tiempo. El modelo aditivo se denota como:
 \begin{equation}
@@ -63,13 +65,46 @@ Las áreas en las que se pueden aplicar las series de tiempo son por ejemplo en 
 
 \section{Análisis estadístico básico}
 
-En esta sección haremos un análisis básico de los datos correspondientes a las carreras del Departamento de Matemáticas. Para dicho análisis utilizaremos series de tiempo. Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo. El método que vamos a utilizar para mostrar dichos patrones de los datos es el método Holt-Winters aditivo.
+En esta sección haremos un análisis básico de los datos correspondientes a las carreras del Departamento de Matemáticas. Para dicho análisis utilizaremos series de tiempo. Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo.
 
-%El método Holt-Winters aditivo se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia aproximadamente lineal y de estacionalidad.
+Utilizamos la función \verb@ts()@ en \textit{R}, para convertir los datos en serie de tiempo. Con la función \verb@decompose()@ obtuvimos un objeto de la clase \textit{decomposed.ts} de \textit{R}. Graficamos este objeto para poder ver las componentes de la serie de tiempo (ver \figurename{~\ref{img_en_ing_2}}). En dicha figura se observan 4 diferentes gráficas, en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre. En la segunda se muestra la tendecia de los datos, la cual notamos que es creciente. En la tercera vemos la componente estacional que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve la componente aleatoria de los datos la cual ya no tiene estacionalidad ni tendencia.
 
-Éste método se utiliza para describir y predecir valores de series de tiempo que tienen componentes de tendencia y de estacionalidad. Existen pruebas, que hemos aplicado a los datos, para comprobar que cumplen con los supuestos del método. En particular, estas pruebas se muestran a lo largo de esta sección.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{descomposicion_ts_total_alumnos.pdf} %scale = 0.8
+\caption[\textit{Descomposición por el método aditivo de Holt-Winters}]{\textit{Descomposición por el método aditivo de Holt-Winters: Los datos considerados en esta descomposición es el número total de alumnos por semestre.}}\label{img_en_ing_2}
+\end{figure}
 
-Para analizar los datos, en esta sección presentamos varias gráficas. Específicamente, presentamos algunas gráficas de series de tiempo y otras de sus valores acumulados. Con ellas observaremos el comportamiento de los datos, veremos si tienen alguna tendencia o variación estacional.
+El método que vamos a utilizar para mostrar los patrones de los datos es el método Holt-Winters aditivo. Este método se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia aproximadamente lineal y de estacionalidad. Para probar éstos supuestos, existen diversas pruebas estadísticas. En las siguientes subsecciones veremos algunas de ellas. En cada una de las subsecciones presentaremos algunas gráficas de series de tiempo y otras de sus valores acumulados. Con ellas observaremos el comportamiento de los datos y probaremos lo que se ve en las gráficas con las respectivas pruebas. Con ésto comprobaremos que los datos cumplen con los supuestos del método.
+
+
+\subsection{Prueba de tendencia}
+
+Al inicio de este capítulo vimos que se le llama tendencia al cambio, a largo plazo, del promedio de los datos. En la \figurename{~\ref{prom_alum_x_sem_ts}} se muestra la gráfica de la media del número de alumnos que toman clases por semestre de todas las materias. Observamos que los valores tienen una tendencia creciente, ésto nos indica que cada semestre, en promedio, el número de alumnos incrementa en la Facultad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{prom_alum_total_x_sem_ts.pdf} %scale = 0.7
+\caption[\textit{Media de alumnos por semestre}]{\textit{Media de alumnos por semestre: Se observa una tendencia creciente en la media de alumnos por semestre. La información corresponde a los semestres del 2008-1 al 2020-1.}}\label{prom_alum_x_sem_ts}
+\end{figure}
+
+Para probar que los datos no son aleatorios y tienen una tendencia, utilizamos la función \verb@cox.stuart.test(X)@, de \textit{R}. Por [\ref{Casella}] sabemos que se rechaza $H_{0}$ si \textit{p-value} $ \leqslant \alpha$. Siendo $\alpha$ el nivel de significancia. Sea $\alpha = 0.01$.
+
+En la \figurename{~\ref{coxStuartTest_randomness}} se muestran los resultados de la prueba Cox-Stuart. Dicha prueba tiene como hipótesis nula $H_{0}:$ 
+
+Primero probamos con $H_{0}:$ Los datos provienen de una muestra aleatoria (se rechazó la hipótesis nula)
+
+Después con la alternativa = \textit{left.sided} probamos $H_{0}:$ Los datos tienen una tendencia creciente (no se rechazó la hipótesis nula)
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{cox_stuart_test_randomness} %width=\textwidth
+\caption[\textit{Prueba de tendencia}]{\textit{Prueba de tendencia:...}}\label{coxStuartTest_randomness}
+\end{figure}
+
+
+
+\subsection{Prueba de estacionalidad}
 
 En la \figurename{~\ref{TotalAlumBarras}} se muestra la gráfica de barras con el número total de alumnos que toman clases por semestre. A simple vista notamos que tiene una tendencia creciente y una estacionalidad semestral. Podemos ver también que, en general, el número de alumnos de los semestres impares es mayor al de su siguiente semestre par. Este fenómeno los vimos en la \figurename{~\ref{ParImparProbaI}} al hacer el análisis correspondiente a los datos de la materia \textit{Probabilidad I}.
 
@@ -79,31 +114,67 @@ En la \figurename{~\ref{TotalAlumBarras}} se muestra la gráfica de barras con e
 \caption[\textit{Número total de alumnos por semestre}]{\textit{Número total de alumnos por semestre: En esta figura se muestra la gráfica de barras del número total de alumnos inscritos por cada semestre. Se observa que año con año el número aumenta. En general, el número de alumnos de los semestres impares es mayor que el de su respectivo semestre par.}}\label{TotalAlumBarras}
 \end{figure}
 
-En la \figurename{~\ref{prom_alum_x_sem_ts}} se muestra la gráfica de la media del número de alumnos que toman clases por semestre de todas las materias. Observamos que los valores tienen una tendencia creciente, ésto nos indica que cada semestre, en promedio, el número de alumnos incrementa en la Facultad.
+
+Para la prueba tomamos los datos de la componente estacional
+
+
+En la \figurename{~\ref{WO_test_seasonality}} se muestran los resultados de la prueba Webel-Ollech para estacionalidad. Dicha prueba tiene como hipótesis nula $H_{0}:$ 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.6]{prom_alum_total_x_sem_ts.pdf} %width=\textwidth
-\caption[\textit{Media de alumnos por semestre}]{\textit{Media de alumnos por semestre: Se observa una tendencia creciente en la media de alumnos por semestre. La información corresponde a los semestres del 2008-1 al 2020-1.}}\label{prom_alum_x_sem_ts}
+\includegraphics[scale = 1]{wo_test_seasonality} %width=\textwidth
+\caption[\textit{Prueba de estacionalidad}]{\textit{Prueba de estacionalidad:...}}\label{WO_test_seasonality}
 \end{figure}
+
+
+
+
+\subsection{Prueba de homocedasticidad}
+
 
 En la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} se muestra la gráfica de la desviación estándar del número de alumnos por grupo y por semestre de todas las materias. Observamos que los valores se mantienen constantes a lo largo del tiempo, en un rango de entre 24 y 29 alumnos.
 
+
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.6]{sd_alum_x_gpo_x_sem_ts.pdf} %width=\textwidth
+\includegraphics[scale = 0.65]{sd_alum_x_gpo_x_sem_ts.pdf} %width=\textwidth
 \caption[\textit{Desviación estándar del número de alumnos por semestre}]{\textit{Desviación estándar del número de alumnos por semestre: Se muestra el comportamiento de los datos el cual es constante a lo largo del tiempo.}}\label{sd_alum_x_gpo_x_sem_ts}
 \end{figure}
 
-En la \figurename{~\ref{img_en_ing_2}} se observan 4 diferentes gráficas, en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre. En la segunda se muestra la tendecia de los datos, la cual notamos que es creciente. En la tercera vemos la componente estacional que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve la componente aleatoria de los datos la cual ya no tiene estacionalidad ni tendencia.
+
+
+Utilizamos la prueba Breusch-Pagan que tiene como supuesto que la componente aleatoria \textit{error terms} se ditribuyen normal. Para ello utilizamos la prueba Jarque-Bera para normalidad \verb@jarque.bera.test(X)@, de \textit{R}. Tiene como hipótesis nula $H_{0}:$ Los datos provienen de una distribución normal
+
+
+En la \figurename{~\ref{JarqueBeraTest_normality}} vemos
+
+\textit{p-value} $= 0.3297 > 0.01 = \alpha \Rightarrow NO se rechaza H_{0}:$ por lo tanto los residuales provienen de una distribución normal
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{descomposicion_ts_total_alumnos.pdf} %scale = 0.8
-\caption[\textit{Descomposición por el método aditivo de Holt-Winters}]{\textit{Descomposición por el método aditivo de Holt-Winters: Los datos considerados en esta descomposición es el número total de alumnos por semestre.}}\label{img_en_ing_2}
+\includegraphics[scale = 1]{jarque_bera_test_normality} %width=\textwidth
+\caption[\textit{Prueba de normalidad}]{\textit{Prueba de normalidad:...}}\label{JarqueBeraTest_normality}
 \end{figure}
 
-Viendo la \figurename{~\ref{img_en_ing_2}} notamos que los datos tienen estacionalidad semestral y una tendencia creciente, por lo tanto confirmamos que se puede utilizar el método Holt-Winters ya que se cumplen los supuestos que se requieren. Para verificar que el modelo de estacionalidad adecuado es el aditivo, vemos la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} y notamos que la desviación estándar permanece constante a lo largo del tiempo.
+
+
+
+En la \figurename{~\ref{bpTest_homocedasticidad}} vemos
+
+\textit{p-value} $= 0.2561 > 0.01 = \alpha \Rightarrow NO se rechaza H_{0}:$ por lo tanto la varianza de los residuales es constante. El ajuste del modelo lineal con la función \verb@lm(X~t)@ es con respecto al tiempo
+
+*** CHECAR SI ESTÁ BIEN LA PRUEBA ***
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{bp_test_homocedasticidad} %width=\textwidth
+\caption[\textit{Prueba de homocedasticidad}]{\textit{Prueba de homocedasticidad: ...}}\label{bpTest_homocedasticidad}
+\end{figure}
+
+
+
+
+Con las pruebas  confirmamos que se puede utilizar el método Holt-Winters ya que se cumplen los supuestos que se requieren. Para verificar que el modelo de estacionalidad adecuado es el aditivo, vemos la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} y notamos que la desviación estándar permanece constante a lo largo del tiempo.
 
 Con estas observaciones concluímos que el método Holt-Winters aditivo es el método adecuado para poder hacer predicciones con nuestros datos.
 
