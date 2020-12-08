@@ -65,9 +65,30 @@ Las áreas en las que se pueden aplicar las series de tiempo son por ejemplo en 
 
 \section{Análisis estadístico básico}
 
-En esta sección haremos un análisis básico de los datos correspondientes a las carreras del Departamento de Matemáticas. Para dicho análisis utilizaremos series de tiempo. Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo.
+En esta sección haremos un análisis básico de los datos correspondientes a las carreras del Departamento de Matemáticas. Para dicho análisis utilizamos series de tiempo. Con la función \verb@ts()@ de \textit{R}, convertimos los datos del número total de alumnos, en una serie de tiempo. En la serie hay un dato para cada semestre del 2008-1 al 2020-1. Aplicamos la función \verb@decompose()@ a la serie de tiempo creada. Esta función utiliza el método de promedios móviles para descomponer la serie. Con ésto, obtuvimos un objeto de la clase \textit{decomposed.ts} de \textit{R}. A este objeto lo llamamos \textit{num\_total\_alum.Comp}. Los elementos que tiene \textit{num\_total\_alum.Comp} son los siguientes:
 
-Utilizamos la función \verb@ts()@ en \textit{R}, para convertir los datos en serie de tiempo. Con la función \verb@decompose()@ obtuvimos un objeto de la clase \textit{decomposed.ts} de \textit{R}. Graficamos este objeto para poder ver las componentes de la serie de tiempo (ver \figurename{~\ref{img_en_ing_2}}). En dicha figura se observan 4 diferentes gráficas, en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre. En la segunda se muestra la tendecia de los datos, la cual notamos que es creciente. En la tercera vemos la componente estacional que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve la componente aleatoria de los datos la cual ya no tiene estacionalidad ni tendencia.
+\begin{itemize}
+\item[-] \textit{x:} Los valores observados de la serie de tiempo $(X_{t})$.
+
+\item[-] \textit{seasonal:} Valores estimados de la componente estacional de la serie de tiempo $(\hat{s}_{t})$.
+
+\item[-] \textit{figure:} Vector con los promedios del efecto estacional. La longitud del vector es igual a la frecuencia de los datos en la serie de tiempo. En este caso la longitud es $2$ porque los datos son semestrales.
+
+\item[-] \textit{trend:} Valores estimados de la componente de tendencia $(\hat{m}_{t})$.
+
+\item[-] \textit{random:} Valores estimados de la componente irregular $(\hat{y}_{t})$.
+
+\item[-] \textit{type:} Tipo de variación estacional \textit{(``additive'')}.
+\end{itemize}
+
+%se pueden ver en la \figurename{~\ref{componentes_ts_totalAlum}}.
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=\textwidth]{componentes_ts_total_alumnos} %scale = 0.8
+%\caption[\textit{Componentes de la serie de tiempo con el número total de alumnos}]{\textit{Componentes de la serie de tiempo con el número total de alumnos...}}\label{componentes_ts_totalAlum}
+%\end{figure}
+
+Graficamos \textit{num\_total\_alum.Comp} para poder ver las componentes de la serie de tiempo (ver \figurename{~\ref{img_en_ing_2}}). Se observan 4 diferentes gráficas , en la primera, de arriba hacia abajo, se observan los datos reales del número total de alumnos para cada semestre $(X_{t})$. En la segunda se muestra $\hat{m}_{t}$, la cual notamos que es creciente. En la tercera vemos $\hat{s}_{t}$ que nos indica que los datos tienen una estacionalidad semestral. En la cuarta se ve $\hat{y}_{t}$, la cual ya no tiene estacionalidad ni tendencia.
 
 \begin{figure}[H]
 \centering
@@ -75,12 +96,16 @@ Utilizamos la función \verb@ts()@ en \textit{R}, para convertir los datos en se
 \caption[\textit{Descomposición por el método aditivo de Holt-Winters}]{\textit{Descomposición por el método aditivo de Holt-Winters: Los datos considerados en esta descomposición es el número total de alumnos por semestre.}}\label{img_en_ing_2}
 \end{figure}
 
-El método que vamos a utilizar para mostrar los patrones de los datos es el método Holt-Winters aditivo. Este método se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia aproximadamente lineal y de estacionalidad. Para probar éstos supuestos, existen diversas pruebas estadísticas. En las siguientes subsecciones veremos algunas de ellas. En cada una de las subsecciones presentaremos algunas gráficas de series de tiempo y otras de sus valores acumulados. Con ellas observaremos el comportamiento de los datos y probaremos lo que se ve en las gráficas con las respectivas pruebas. Con ésto comprobaremos que los datos cumplen con los supuestos del método.
+Las técnicas de suavizamiento de series de tiempo son útiles para mostrar patrones subyacentes en los datos de las series de tiempo. El método que vamos a utilizar para mostrar dichos patrones de los datos es el método Holt-Winters aditivo. Este método se utiliza para describir y predecir valores con series de tiempo que tienen componentes de tendencia lineal y de estacionalidad.
+
+Para probar éstos supuestos, existen diversas pruebas estadísticas. En las siguientes subsecciones veremos algunas de ellas. En cada una de las subsecciones presentaremos algunas gráficas de series de tiempo y otras de sus valores acumulados. Con ellas observaremos el comportamiento de los datos. Con ésto comprobaremos que los datos cumplen con los supuestos del método.
 
 
 \subsection{Prueba de tendencia}
 
-Al inicio de este capítulo vimos que se le llama tendencia al cambio, a largo plazo, del promedio de los datos. En la \figurename{~\ref{prom_alum_x_sem_ts}} se muestra la gráfica de la media del número de alumnos que toman clases por semestre de todas las materias. Observamos que los valores tienen una tendencia creciente, ésto nos indica que cada semestre, en promedio, el número de alumnos incrementa en la Facultad.
+Al inicio de este capítulo vimos que se le llama tendencia al cambio, a largo plazo, del promedio de los datos. En la \figurename{~\ref{prom_alum_x_sem_ts}} se muestran las gráficas del promedio del número de alumnos que toman clases por semestre de todas las materias. En la subfigura izquierda los datos están graficados como serie de tiempo. En la subfigura derecha la línea roja representa el ajuste de la tendencia, con un modelo de regresión lineal.
+
+Observamos que los valores tienen una tendencia creciente, ésto nos indica que cada semestre, en promedio, el número de alumnos incrementa en la Facultad.
 
 \begin{figure}[H]
 \centering
@@ -88,20 +113,27 @@ Al inicio de este capítulo vimos que se le llama tendencia al cambio, a largo p
 \caption[\textit{Media de alumnos por semestre}]{\textit{Media de alumnos por semestre: Se observa una tendencia creciente en la media de alumnos por semestre. La información corresponde a los semestres del 2008-1 al 2020-1.}}\label{prom_alum_x_sem_ts}
 \end{figure}
 
-Para probar que los datos no son aleatorios y tienen una tendencia, utilizamos la función \verb@cox.stuart.test(X)@, de \textit{R}. Por [\ref{Casella}] sabemos que se rechaza $H_{0}$ si \textit{p-value} $ \leqslant \alpha$. Siendo $\alpha$ el nivel de significancia. Sea $\alpha = 0.01$.
-
-En la \figurename{~\ref{coxStuartTest_randomness}} se muestran los resultados de la prueba Cox-Stuart. Dicha prueba tiene como hipótesis nula $H_{0}:$ 
-
-Primero probamos con $H_{0}:$ Los datos provienen de una muestra aleatoria (se rechazó la hipótesis nula)
-
-Después con la alternativa = \textit{left.sided} probamos $H_{0}:$ Los datos tienen una tendencia creciente (no se rechazó la hipótesis nula)
+Para probar que los datos no son aleatorios utilizamos la función \verb@cox.stuart.test(X)@, de \textit{R}. Dicha función tiene como hipótesis nula $H_{0}:$ Los datos provienen de una muestra aleatoria. En la \figurename{~\ref{coxStuartTest_randomness}} se muestran los resultados de la prueba Cox-Stuart.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 1]{cox_stuart_test_randomness} %width=\textwidth
-\caption[\textit{Prueba de tendencia}]{\textit{Prueba de tendencia:...}}\label{coxStuartTest_randomness}
+\caption[\textit{Prueba Cox-Stuart para aleatoriedad}]{\textit{Prueba Cox-Stuart para aleatoriedad: En esta figura se muestran los resultados de la prueba Cox-Stuart. Esta prueba se utiliza para probar la aleatoriedad de los datos.}}\label{coxStuartTest_randomness}
 \end{figure}
 
+Por [\ref{Casella}] sabemos que se rechaza $H_{0}$ si \textit{p-value} $ \leqslant \alpha$, siendo $\alpha$ el nivel de significancia. Sea $\alpha = 0.01$. Como vemos en la \figurename{~\ref{coxStuartTest_randomness}},  \textit{p-value} $ = 0.0004 \leqslant 0.01 = \alpha$, por lo tanto se rechaza la hipótesis nula. Con ésto podemos concluir que los datos no provienen de una muestra aleatoria. Ésto nos indica que los datos pueden tener una tendencia creciente o decreciente.
+
+Para probar que los datos tienen una tendencia creciente utilizamos la misma prueba pero con otra alternativa. El comando en \textit{R} es: \verb@cox.stuart.test(X,alternative="left.sided")@. En la \figurename{~\ref{coxStuartTest_trend}} se muestran los resultados de la prueba. Dicha prueba tiene como hipótesis nula $H_{0}:$ Los datos tienen una tendencia creciente.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 1]{cox_stuart_test_increasing_trend} %width=\textwidth
+\caption[\textit{Prueba Cox-Stuart para tendencia}]{\textit{Prueba Cox-Stuart para tendencia: En esta figura se muestran los resultados de la prueba Cox-Stuart para tendencia. Con la alternativa elegida, esta prueba se utiliza para probar si los datos tienen una tendencia creciente.}}\label{coxStuartTest_trend}
+\end{figure}
+
+Podemos ver en la \figurename{~\ref{coxStuartTest_trend}} que \textit{p-value} $ = 1 > 0.01 = \alpha$ por lo tanto no se rechaza $H_{0}$. Con ello concluimos que los datos tienen una tendencia creciente.
+
+Finalmente la conclusión a la que llegamos con estas pruebas es que los datos tienen una tendencia lineal creciente.
 
 
 \subsection{Prueba de estacionalidad}
@@ -110,73 +142,62 @@ En la \figurename{~\ref{TotalAlumBarras}} se muestra la gráfica de barras con e
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{num_alum_total_x_sem_barplot} %width=\textwidth
+\includegraphics[width=\textwidth]{num_alum_total_x_sem_barplot} %scale = 0.8
 \caption[\textit{Número total de alumnos por semestre}]{\textit{Número total de alumnos por semestre: En esta figura se muestra la gráfica de barras del número total de alumnos inscritos por cada semestre. Se observa que año con año el número aumenta. En general, el número de alumnos de los semestres impares es mayor que el de su respectivo semestre par.}}\label{TotalAlumBarras}
 \end{figure}
 
 
-Para la prueba tomamos los datos de la componente estacional
-
-
-En la \figurename{~\ref{WO_test_seasonality}} se muestran los resultados de la prueba Webel-Ollech para estacionalidad. Dicha prueba tiene como hipótesis nula $H_{0}:$ 
+Para probar que los datos tienen variación estacional utilizamos la función \verb@qs(X)@, de \textit{R}. Dicha función tiene como hipótesis nula $H_{0}:$ No hay estacionalidad. En la \figurename{~\ref{QS_testSeasonality}} se muestran los resultados de la prueba QS. Podemos ver que \textit{p-value} $ = 1.473075 \times 10^{-06} \leqslant 0.01 = \alpha$ por lo tanto se rechaza $H_{0}$. Con ello concluimos que los datos tienen variación estacional.
+%https://www.rdocumentation.org/packages/seasonal/versions/1.7.1/topics/summary.seas
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 1]{wo_test_seasonality} %width=\textwidth
-\caption[\textit{Prueba de estacionalidad}]{\textit{Prueba de estacionalidad:...}}\label{WO_test_seasonality}
+\includegraphics[scale = 1]{qs_test_seasonality} %width=\textwidth
+\caption[\textit{Prueba QS para estacionalidad}]{\textit{Prueba QS para estacionalidad: En esta figura se muestran los resultados de la prueba QS. Esta prueba se utiliza para probar si los datos tienen estacionalidad.}}\label{QS_testSeasonality}
 \end{figure}
-
 
 
 
 \subsection{Prueba de homocedasticidad}
 
+El término homocedasticidad se utiliza cuando algo tiene varianza constante. En nuestro caso, nos interesa probar que los datos con el número de alumnos totales tiene varianza constante. Ésto para comprobar que el modelo de estacionalidad adecuado para nuestros datos es el aditivo.
 
 En la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} se muestra la gráfica de la desviación estándar del número de alumnos por grupo y por semestre de todas las materias. Observamos que los valores se mantienen constantes a lo largo del tiempo, en un rango de entre 24 y 29 alumnos.
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.65]{sd_alum_x_gpo_x_sem_ts.pdf} %width=\textwidth
+\includegraphics[scale = 0.7]{sd_alum_x_gpo_x_sem_ts.pdf} %width=\textwidth
 \caption[\textit{Desviación estándar del número de alumnos por semestre}]{\textit{Desviación estándar del número de alumnos por semestre: Se muestra el comportamiento de los datos el cual es constante a lo largo del tiempo.}}\label{sd_alum_x_gpo_x_sem_ts}
 \end{figure}
 
 
 
-Utilizamos la prueba Breusch-Pagan que tiene como supuesto que la componente aleatoria \textit{error terms} se ditribuyen normal. Para ello utilizamos la prueba Jarque-Bera para normalidad \verb@jarque.bera.test(X)@, de \textit{R}. Tiene como hipótesis nula $H_{0}:$ Los datos provienen de una distribución normal
+Utilizamos la prueba Breusch-Pagan que tiene como supuesto que los datos tienen una distribución normal. Para probar que los datos se distribuyen normal, utilizamos la prueba Jarque-Bera. El comando en \textit{R} es: \verb@jarque.bera.test(X)@. Dicha prueba tiene como hipótesis nula $H_{0}:$ Los datos provienen de una distribución normal.
 
-
-En la \figurename{~\ref{JarqueBeraTest_normality}} vemos
-
-\textit{p-value} $= 0.3297 > 0.01 = \alpha \Rightarrow NO se rechaza H_{0}:$ por lo tanto los residuales provienen de una distribución normal
+En la \figurename{~\ref{JarqueBeraTest_normality}} vemos el resultado de la prueba Jarque-Bera. Notamos que \textit{p-value} $ = 0.4084 > 0.01 = \alpha$ por lo tanto no se rechaza $H_{0}$, entonces la distribución de los datos es normal.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 1]{jarque_bera_test_normality} %width=\textwidth
-\caption[\textit{Prueba de normalidad}]{\textit{Prueba de normalidad:...}}\label{JarqueBeraTest_normality}
+\caption[\textit{Prueba Jarque-Bera para normalidad}]{\textit{Prueba Jarque-Bera para normalidad: En esta figura se muestran los resultados de la prueba Jarque-Bera. Esta prueba se utiliza para probar si los datos tienen una distribución normal.}}\label{JarqueBeraTest_normality}
 \end{figure}
 
 
+%Una vez que probamos el supuesto de normalidad en los datos, utilizamos la función \verb@bptest(lm(X~t))@.
+Para probar la homocedasticidad de los datos, utilizamos la función \verb@bptest(lm(X~t))@. Esta función corresponde a la prueba Breusch-Pagan. El ajuste del modelo lineal con la función \verb@lm(X~t)@ es con respecto al tiempo. La prueba mencionada tiene como hipótesis nula $H_{0}:$ La varianza es constante.
 
+En la \figurename{~\ref{bpTest_homocedasticidad}} Se muestra el resultado de la prueba. Vemos que \textit{p-value} $ = 0.8213 > 0.01 = \alpha$ por lo tanto no se rechaza $H_{0}$, entonces la varianza de los datos es constante.
 
-En la \figurename{~\ref{bpTest_homocedasticidad}} vemos
-
-\textit{p-value} $= 0.2561 > 0.01 = \alpha \Rightarrow NO se rechaza H_{0}:$ por lo tanto la varianza de los residuales es constante. El ajuste del modelo lineal con la función \verb@lm(X~t)@ es con respecto al tiempo
-
-*** CHECAR SI ESTÁ BIEN LA PRUEBA ***
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 1]{bp_test_homocedasticidad} %width=\textwidth
-\caption[\textit{Prueba de homocedasticidad}]{\textit{Prueba de homocedasticidad: ...}}\label{bpTest_homocedasticidad}
+\caption[\textit{Prueba Breusch-Pagan para homocedasticidad}]{\textit{Prueba Breusch-Pagan para homocedasticidad: En esta figura se muestran los resultados de la prueba Breusch-Pagan. Esta prueba se utiliza para probar si los datos tienen varianza constante.}}\label{bpTest_homocedasticidad}
 \end{figure}
 
 
-
-
-Con las pruebas  confirmamos que se puede utilizar el método Holt-Winters ya que se cumplen los supuestos que se requieren. Para verificar que el modelo de estacionalidad adecuado es el aditivo, vemos la \figurename{~\ref{sd_alum_x_gpo_x_sem_ts}} y notamos que la desviación estándar permanece constante a lo largo del tiempo.
-
-Con estas observaciones concluímos que el método Holt-Winters aditivo es el método adecuado para poder hacer predicciones con nuestros datos.
+Con las pruebas de tendencia y de estacionalidad confirmamos que se puede utilizar el método Holt-Winters. La prueba de homocedasticidad nos ayuda a verificar que el modelo de estacionalidad que debemos utilizar es el aditivo. Con estas observaciones concluímos que el método Holt-Winters aditivo es el método adecuado para poder hacer predicciones con nuestros datos.
 
 \section{Análisis estadístico por grupo de datos} \label{AE_x_GpoDeDatos}
 
@@ -184,33 +205,45 @@ En la \figurename{~\ref{NumAlTotal_ParImpar_ts}} vemos la gráfica del número d
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{num_alum_sem_par_impar_ts.pdf} %width=\textwidth
+\includegraphics[scale = 0.7]{num_alum_sem_par_impar_ts.pdf} %width=\textwidth
 \caption[\textit{Número de alumnos de semestres pares e impares}]{\textit{Número de alumnos de semestres pares e impares: Se observa una tendencia creciente y en general el número de alumnos de semestres impares (línea azul) es mayor al número de alumnos de semestres pares (línea roja).}}\label{NumAlTotal_ParImpar_ts}
 \end{figure}
 
 
 En la \figurename{~\ref{histNumAlTotal_ParImpar}} observamos los dos histogramas con el número total de alumnos de semestres pares e impares con sus respectivas densidades ajustadas. Notamos que hay una ligera diferencia entre el número de alumnos de los semestres pares con respecto al número de alumnos de los semestres impares. Existe una mayor cantidad de grupos en los semestres pares con un menor número de alumnos, que en los semestres impares. Hay una mayor cantidad de grupos en los semestres impares contra los semestres pares, que tienen entre 35 y 100 alumnos. Tanto para los semestres pares como para los impares, el comportamiento de las densidades ajustadas es muy parecido.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.6]{histograma_FR_num_alum_sem_par_impar.pdf} %width=\textwidth
-\caption[\textit{Histogramas del número de alumnos de semestres pares e impares}]{\textit{Histogramas del número de alumnos de semestres pares e impares: Las densidades ajustadas son muy parecidas, no importa si los datos son de semestres pares o impares.}}\label{histNumAlTotal_ParImpar}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.65]{histograma_FR_num_alum_sem_par_impar.pdf} %width=\textwidth
+%\caption[\textit{Histogramas del número de alumnos de semestres pares e impares}]{\textit{Histogramas del número de alumnos de semestres pares e impares: Las densidades ajustadas son muy parecidas, no importa si los datos son de semestres pares o impares.}}\label{histNumAlTotal_ParImpar}
+%\end{figure}
 
 
 En la \figurename{~\ref{NumAlTotal_MatuVesp_ts}} mostramos la gráfica del número de alumnos por turno: matutino y vespertino. Se puede observar que en todo momento el número de alumnos del turno matutino es mayor al número de alumnos del turno vespertino.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.6]{num_alum_matu_vesp_ts.pdf} %width=\textwidth
-\caption[\textit{Número de alumnos por turno de todos los semestres}]{\textit{Número de alumnos por turno de todos los semestres: Se observa que la línea azul (turno matutino) está en todo momento por encima de la línea roja (turno vespertino).}}\label{NumAlTotal_MatuVesp_ts}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.7]{num_alum_matu_vesp_ts.pdf} %width=\textwidth
+%\caption[\textit{Número de alumnos por turno de todos los semestres}]{\textit{Número de alumnos por turno de todos los semestres: Se observa que la línea azul (turno matutino) está en todo momento por encima de la línea roja (turno vespertino).}}\label{NumAlTotal_MatuVesp_ts}
+%\end{figure}
 
 Los datos que se graficaron en el histograma de la \figurename{~\ref{histNumAlTotal_MatuVesp}} son los alumnos totales por hora de cada semestre. En dicha figura se muestran los dos histogramas con los datos divididos en los turnos matutino y vespertino. Notamos que las densidades ajustadas de cada turno son completamente diferentes. Al ver la gráfica podemos concluir que hay más alumnos en el turno matutino que en el vespertino.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{histograma_FR_num_alum_matu_vesp.pdf} %scale = 0.8
+\includegraphics[scale = 0.65]{histograma_FR_num_alum_sem_par_impar.pdf} %width=\textwidth
+\caption[\textit{Histogramas del número de alumnos de semestres pares e impares}]{\textit{Histogramas del número de alumnos de semestres pares e impares: Las densidades ajustadas son muy parecidas, no importa si los datos son de semestres pares o impares.}}\label{histNumAlTotal_ParImpar}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.7]{num_alum_matu_vesp_ts.pdf} %width=\textwidth
+\caption[\textit{Número de alumnos por turno de todos los semestres}]{\textit{Número de alumnos por turno de todos los semestres: Se observa que la línea azul (turno matutino) está en todo momento por encima de la línea roja (turno vespertino).}}\label{NumAlTotal_MatuVesp_ts}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.65]{histograma_FR_num_alum_matu_vesp.pdf} %width=\textwidth
 \caption[\textit{Histogramas del número de alumnos de los turnos matutino y vespertino}]{\textit{Histogramas del número de alumnos de los turnos matutino y vespertino: Al observar esta figura podemos concluir que hay más alumnos en el turno matutino que en el vespertino. Sus densidades ajustadas son diferentes.}}\label{histNumAlTotal_MatuVesp}
 \end{figure}
 
@@ -223,7 +256,7 @@ En la \figurename{~\ref{histFAnumAl_x_carrera}} vemos cuatro histogramas con el 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{histogramas_FA_num_alum_x_carrera.pdf} %scale = 0.6
+\includegraphics[width=\textwidth]{histogramas_FA_num_alum_x_carrera.pdf} %scale = 0.8
 \caption[\textit{Histogramas del número de alumnos por carrera}]{\textit{Histogramas del número de alumnos por carrera: Se muestran los histogramas con el número de alumnos por grupo. Hay un histograma para cada carrera del Departamento de Matemáticas.}}\label{histFAnumAl_x_carrera}
 \end{figure}
 
@@ -232,7 +265,7 @@ En la \figurename{~\ref{histFRnumAl_x_carrera}} vemos una gráfica con las densi
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.55]{histogramas_FR_num_alum_x_carrera.pdf} %width=\textwidth
+\includegraphics[scale = 0.7]{histogramas_FR_num_alum_x_carrera.pdf} %width=\textwidth
 \caption[\textit{Densidades del número de alumnos por carrera}]{\textit{Densidades del número de alumnos por carrera: Se muestran las densidades ajustadas para cada carrera del Departamento de Matemáticas.}}\label{histFRnumAl_x_carrera}
 \end{figure}
 
@@ -242,11 +275,11 @@ En la \figurename{~\ref{histFRnumAl_x_carrera}} vemos una gráfica con las densi
 
 En la \figurename{~\ref{histNumAl_x_gpo_x_sem}} se muestra el histograma del número de alumnos por grupo de todos los semestres, desde el 2008-1 hasta el 2020-1. Observamos el mismo comportamiento que en las Figuras \ref{histNumAlTotal_ParImpar}, \ref{histFAnumAl_x_carrera} y \ref{histFRnumAl_x_carrera}. La mayor frecuencia se encuentra en los grupos que tienen entre 10 y 20 alumnos.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.5]{histograma_FA_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
-\caption[\textit{Histograma del número de alumnos por grupo de todos los semestres}]{\textit{Histograma del número de alumnos por grupo de todos los semestres: La información es de los semestres del 2008-1 al 2020-1. Vemos una mayor concentración en los grupos que tienen entre 10 y 40 alumnos.}}\label{histNumAl_x_gpo_x_sem}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.7]{histograma_FA_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
+%\caption[\textit{Histograma del número de alumnos por grupo de todos los semestres}]{\textit{Histograma del número de alumnos por grupo de todos los semestres: La información es de los semestres del 2008-1 al 2020-1. Vemos una mayor concentración en los grupos que tienen entre 10 y 40 alumnos.}}\label{histNumAl_x_gpo_x_sem}
+%\end{figure}
 
 
 En la \figurename{~\ref{densidadesNumAl_x_gpo_x_sem}} vemos diferentes líneas con las densidades ajustadas a los valores del número de alumnos por grupo de cada semestre. Cada línea corresponde a un semestre. Se tomaron los datos de 25 semestres, del 2008-1 al 2020-1. Notamos que el comportamiento va cambiando conforme pasa el tiempo.
@@ -255,13 +288,19 @@ En dicha figura, las líneas de color verde corresponden a las densidades ajusta
 
 Vemos que en los semestres más antiguos se tiene una concentración mayor en los grupos que tienen aproximadamente entre 10 y 30 alumnos. En los semestres más recientes la mayor concentración se tiene en los grupos con aproximadamente entre 25 y 50 alumnos. Esto lo podemos explicar con el hecho de que cada semestre incrementa el número de alumnos inscritos en la facultad, por lo tanto el tamaño de los grupos aumenta.
 
-También podemos observar que conforme pasa el tiempo la media y la varianza aumentan. Es decir, en semestres antiguos se tiene una menor media y varianza. Ésto comparado con los semestres más actuales, los cuales tienen una media y varianza mayor.
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.65]{histograma_FA_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
+\caption[\textit{Histograma del número de alumnos por grupo de todos los semestres}]{\textit{Histograma del número de alumnos por grupo de todos los semestres: La información es de los semestres del 2008-1 al 2020-1. Vemos una mayor concentración en los grupos que tienen entre 10 y 40 alumnos.}}\label{histNumAl_x_gpo_x_sem}
+\end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{densidades_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
+\includegraphics[scale = 0.7]{densidades_num_alum_x_gpo_x_sem.pdf} %width=\textwidth
 \caption[\textit{Densidades del número de alumnos por grupo de cada semestre}]{\textit{Densidades del número de alumnos por grupo de cada semestre: Cada línea corresponde a la densidad ajustada de los datos de un semestre entre el 2008-1 y el 2020-1}}\label{densidadesNumAl_x_gpo_x_sem}
 \end{figure}
+
+También podemos observar que conforme pasa el tiempo la media y la varianza aumentan. Es decir, en semestres antiguos se tiene una menor media y varianza. Ésto comparado con los semestres más actuales, los cuales tienen una media y varianza mayor.
 
 En los semestres del 2013-1 al 2017-2 se tuvieron grupos con más de 350 alumnos. En los semestres más recientes el número máximo de alumnos por grupo fue alrededor de 250. Esto lo podemos explicar por las medidas que se tomaron después del sismo del 19 de septiembre de 2017, con respecto al tamaño de los grupos. El número de alumnos inscritos no podía ser mayor al número de lugares disponibles por salón.
 

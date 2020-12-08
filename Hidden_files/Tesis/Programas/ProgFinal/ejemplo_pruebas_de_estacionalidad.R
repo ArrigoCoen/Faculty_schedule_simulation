@@ -51,3 +51,38 @@ isSeasonal(x2)#TRUE
 
 
 
+
+# Ej. ---------------------------------------------------------------------
+load("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/Figuras PDF/fig_descomposicion_ts_total_alumnos/vec_num_total_alum.RData")
+
+#' Se convierten los datos en serie de tiempo
+num_total_alum.ts <- ts(vec_num_total_alum,frequency = 2, start = c(2008, 1))
+num_total_alum.ts
+
+#' Se descompone la serie
+num_total_alum.Comp <- decompose(num_total_alum.ts)
+num_total_alum.Comp
+
+# Aditivo
+y1 <- num_total_alum.Comp$trend + num_total_alum.Comp$seasonal + 
+  num_total_alum.Comp$random
+
+# Multiplicativo
+y2 <- num_total_alum.Comp$trend * num_total_alum.Comp$seasonal *
+  num_total_alum.Comp$random
+
+
+plot(decompose(y1))
+plot(decompose(y2))
+
+
+
+
+
+
+
+
+
+
+
+

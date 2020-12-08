@@ -72,6 +72,76 @@ load("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation
 num_total_alum.ts <- ts(vec_num_total_alum,frequency = 2, start = c(2008, 1))
 num_total_alum.ts
 
+qs(num_total_alum.ts,freq = 2)
+#'https://www.rdocumentation.org/packages/seasonal/versions/1.7.1/topics/summary.seas
+#'H0: No seasonality
+
+frequency(num_total_alum.ts)#2
+
+# Homocedasticidad --------------------------------------------------------
+
+# Prueba de Normalidad
+jarque.bera.test(num_total_alum.ts)
+#' p-value = 0.4084 > 0.01 = alfa => NO se rechaza H0 por lo
+#' tanto los datos provienen de una distribución normal
+
+
+t <- 1:25#Tiempo
+bptest(lm(num_total_alum.ts~t))
+#p-value = 0.8213 > 0.01 = alfa => NO se rechaza H0
+#' por lo tanto la varianza de los datos es constante
+
+
+
+
+
+# Diferentes "ensayos" para probar homocedasticidad ---------------------
+
+
+# Prueba de Normalidad
+jarque.bera.test(num_total_alum.Comp$random[2:24])
+#' p-value = 0.3297 > 0.01 = alfa => NO se rechaza H0 por lo
+#' tanto los datos provienen de una distribución normal
+
+
+t <- 2:24#Tiempo
+bptest(lm(num_total_alum.Comp$random[2:24]~t))
+#p-value = 0.2561 > 0.01 = alfa => NO se rechaza H0
+#' por lo tanto la varianza de los datos es constante
+
+#' Se cargan los datos de la desviación estandar
+load("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/Figuras PDF/fig_sd_alum_x_gpo_x_sem_ts/vec_sd_total_alum.RData")
+
+#' Se convierten los datos en serie de tiempo
+sd_total_alum.ts <- ts(vec_sd_total_alum,frequency = 2, start = c(2008, 1))
+sd_total_alum.ts
+plot(sd_total_alum.ts)
+
+
+# Prueba de Normalidad
+jarque.bera.test(sd_total_alum.ts)
+#' p-value = 0.638 > 0.01 = alfa => NO se rechaza H0 por lo
+#' tanto lla desviación estandar de los datos provienen de
+#' una distribución normal
+
+
+t <- 1:25#Tiempo
+bptest(lm(sd_total_alum.ts~t))
+#p-value = 0.8266 > 0.01 = alfa => NO se rechaza H0
+#' por lo tanto la desviación estandar de los datos es constante
+
+
+
+# Diferentes "ensayos" para probar estacionalidad -------------------------
+
+isSeasonal(ts(num_total_alum.ts[1:20],frequency = 2,
+              start = c(2008, 1)))#FALSE
+isSeasonal(ts(num_total_alum.ts[1:11],frequency = 2,
+              start = c(2008, 1)))#FALSE
+isSeasonal(ts(num_total_alum.ts[16:25],frequency = 2,
+              start = c(2008, 1)))#FALSE
+
+
 alumnos.fit <- hw(num_total_alum.ts,seasonal = "additive")
 alumnos.fit$model
 alumnos.fit$fitted
@@ -84,6 +154,15 @@ alumnos.fit$level#Intervalos de confianza
 plot(alumnos.fit)
 
 
+wo(num_total_alum.ts,freq = 2)
+kw(num_total_alum.ts,freq = 2)
+qs(num_total_alum.ts,freq = 2)
+#'https://www.rdocumentation.org/packages/seasonal/versions/1.7.1/topics/summary.seas
+#'H0: No seasonality
+
+wo(num_total_alum.Comp$seasonal,freq = 2)
+kw(num_total_alum.Comp$seasonal,freq = 2)
+qs(num_total_alum.Comp$seasonal,freq = 2)
 
 summary(wo(num_total_alum.ts))#The WO-test does not identify  seasonality
 isSeasonal(num_total_alum.ts)#FALSE
@@ -92,18 +171,41 @@ isSeasonal(alumnos.fit$fitted)#FALSE
 summary(wo(alumnos.fit$residuals))#The WO-test does not identify  seasonality
 isSeasonal(alumnos.fit$residuals)#FALSE
 
+isSeasonal(num_total_alum.ts,test = "qs")#FALSE
+isSeasonal(num_total_alum.ts,test = "fried")#FALSE
+isSeasonal(num_total_alum.ts,test = "kw")#FALSE
+isSeasonal(num_total_alum.ts,test = "seasdum")#TRUE
+isSeasonal(num_total_alum.ts,test = "welch")#FALSE
+
+
+isSeasonal(ts(vec_prom_total_alum,frequency = 2, start = c(2008, 1)))#FALSE
+isSeasonal(ts(vec_prom_total_alum[1:20],frequency = 2, start = c(2008, 1)))#FALSE
+
 #' Se descompone la serie
 num_total_alum.Comp <- decompose(num_total_alum.ts)
 num_total_alum.Comp
 
-num_total_alum.Comp$seasonal
 num_total_alum.Comp$trend
+num_total_alum.Comp$seasonal
 num_total_alum.Comp$random
 num_total_alum.Comp$figure#The estimated seasonal figure only.
 summary(wo(num_total_alum.Comp$seasonal))#The WO-test identifies  seasonality
 isSeasonal(num_total_alum.Comp$seasonal)#TRUE
 isSeasonal(num_total_alum.Comp$trend)#FALSE
 isSeasonal(num_total_alum.Comp$random)#FALSE
+
+plot(num_total_alum.Comp$seasonal+num_total_alum.Comp$random)
+plot(num_total_alum.Comp$seasonal+num_total_alum.Comp$trend)
+plot(num_total_alum.Comp$seasonal+num_total_alum.Comp$x)
+isSeasonal(num_total_alum.Comp$seasonal+num_total_alum.Comp$random)#FALSE
+isSeasonal(num_total_alum.Comp$seasonal+num_total_alum.Comp$trend)#FALSE
+isSeasonal(num_total_alum.Comp$seasonal+num_total_alum.Comp$x)#FALSE
+
+a <- ts(num_total_alum.ts[16:25],frequency = 2,
+        start = c(2008, 1))
+b <- num_total_alum.Comp$seasonal[16:25]
+isSeasonal(a + b)#FALSE
+plot(a + b)
 
 de_trend <- num_total_alum.Comp$x - num_total_alum.Comp$trend
 plot(de_trend)
@@ -116,21 +218,4 @@ isSeasonal(ts(de_trend[2:20],frequency = 2,
               start = c(2008, 2)))#FALSE
 plot(de_trend[2:11],type = "l")
 plot(de_trend[2:20],type = "l")
-
-# Prueba de Normalidad ----------------------------------------------------
-num_total_alum.random <- num_total_alum.Comp$random[!is.na(num_total_alum.Comp$random)]
-jarque.bera.test(num_total_alum.random)
-#' p-value = 0.3297 > 0.01 = alfa => NO se rechaza H0 por lo
-#' tanto los residuales provienen de una distribución normal
-
-
-# Homocedasticidad --------------------------------------------------------
-t <- 2:24#"Tiempo" CHECAR SI ESTÁ BIEN LA PRUEBA
-bptest(lm(num_total_alum.random~t))
-
-#p-value = 0.2561 > 0.01 = alfa => NO se rechaza H0
-#' por lo tanto la varianza de los residuales es constante
-
-
-
 
