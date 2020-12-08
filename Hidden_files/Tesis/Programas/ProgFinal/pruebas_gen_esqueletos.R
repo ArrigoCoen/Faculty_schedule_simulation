@@ -1,5 +1,5 @@
 ##########################################################################
-#' En este programa se encuentran las funciones de las 3 metodologías
+#' En este programa se encuentran las funciones de las metodologías
 #' para generar un esqueleto.
 ##########################################################################
 
@@ -845,14 +845,15 @@ legend(15,0.2,c("GMM","density()"),bty = "n",
 
 ### Obtener D
 set.seed(1806)
-D <- gen_mat_demanda_alumnos(param,param_sim)#42.25 seg
-View(D)
+D0 <- gen_mat_demanda_alumnos(param,param_sim)#42.25 seg
+View(D0)
 Horas <- param$Horas
 
-metodo_A_gen_D_prima <- function(D,cota,param){
+metodo_A_gen_D_prima <- function(D0,cota,param){
   ### Obtener D'0 = E
   mat_solicitudes <- gen_solicitudes(param)#7.97 seg
-  lista_info_esqueleto <- gen_esqueleto(D,mat_solicitudes,param)#11.36 seg
+  lista_info_esqueleto <- gen_esqueleto(D0,
+                                        mat_solicitudes,param)#11.36 seg
   E <- lista_info_esqueleto[[8]]#Matriz con el número de alumnos simulados
   
   ### Aplicar mezcla de normales inicial
@@ -861,7 +862,7 @@ metodo_A_gen_D_prima <- function(D,cota,param){
   lista_mod_y_wait <- gen_normalmixEM_inicial(vec_s_sem_k_info,E,param,param_sim)
   
   ### Obtener D' para generar esqueleto
-  D_prima <-  gen_D_prima(D,E,lista_mod_y_wait,cota)
+  D_prima <-  gen_D_prima(D0,E,lista_mod_y_wait,cota)
   
   return(D_prima)
 }
