@@ -2661,10 +2661,11 @@ gen_normalmixEM_inicial <- function(vec_s_sem_k_info,D_prima_inicial,
     if(mean(wait_1_materia)>0 && length(unique(wait_1_materia))>1){
       #' La 2° condición evita que haya error si sólo se tienen datos
       #' a una sola hora.
-      # mixmdl_1_materia <- normalmixEM(wait_1_materia,mean=mean(wait_1_materia))
       mixmdl_1_materia <- normalmixEM(wait_1_materia,
-                                      mean=mean(wait_1_materia),
-                                      k=3)
+                                      mean=mean(wait_1_materia))
+      # mixmdl_1_materia <- normalmixEM(wait_1_materia,
+      #                                 mean=mean(wait_1_materia),
+      #                                 k=3)
       # mixmdl_1_materia <- normalmixEM(wait_1_materia,k = 3)
       # mixmdl_1_materia <- normalmixEM(wait_1_materia,k = 2)
       #' Con el siguiente comando se tiene un mejor ajsute inicial, pero
@@ -2758,7 +2759,7 @@ actualiza_calif_D <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
 #' i, y la materia j. 
 #' @param mixmdl: Lista con "m" elementos. Cada elemento es el modelo de
 #' mezcla de Normales para una materia.
-#' @param calif_D: Lista con 2 elementos: "mat_calif_x_gpo" y
+#' @param calif_esq: Lista con 2 elementos: "mat_calif_x_gpo" y
 #' "vec_calif_x_materia". La matriz "mat_calif_x_gpo" (15*203) contiene las
 #' calificaciones por grupo. El vector "vec_calif_x_materia"
 #' @param ind_materias: Vector con los índices de las materias que deben
@@ -2768,16 +2769,16 @@ actualiza_calif_D <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
 #' tiene el nuevo número de alumnos simulados para la hora i, y la materia j.
 #'
 #' @examples
-#' actualiza_D_prima(500,D,D_prima,mixmdl,calif_D,c(5,182))
-#' actualiza_D_prima(cota,D,D_prima,mixmdl,calif_D,ind_materias)
+#' actualiza_D_prima(500,D,D_prima,mixmdl,calif_esq,c(5,182))
+#' actualiza_D_prima(cota,D,D_prima,mixmdl,calif_esq,ind_materias)
 #' 
-actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_D,ind_materias){
+actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_esq,ind_materias){
   #' Para este punto ya comparamos D y D_prima. Se redefine D_prima.
   #' Recibe a D_prima como parámetro para que en caso de que no haya
   #' modificaciones, se regrese la misma matriz y no una llena de ceros.
   
-  mat_calif_x_gpo <- calif_D[[1]]
-  vec_calif_x_materia <- calif_D[[2]]
+  mat_calif_x_gpo <- calif_esq[[1]]
+  vec_calif_x_materia <- calif_esq[[2]]
   for(c in ind_materias){#Recorre columnas
     cont_1 <- 1
     cont_2 <- 1
@@ -2786,38 +2787,41 @@ actualiza_D_prima <- function(cota,D,D_prima,mixmdl,calif_D,ind_materias){
       #' la califición total de la materia está fuera de [-20,10]
       for(h in 1:length(param$Horas)){#Recorre las horas (renglones)
         # cat("\n h = ",h)
-        (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
-        if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
-          while(rand_num <= D[h,c]){
-            (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
-            cont_1 <- cont_1 + 1#Para no tener ciclo infinito
-            if(cont_1 >= cota){
-              break;
+        if(length(mixmdl) > 0){
+          (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+          if(mat_calif_x_gpo[h,c] > 10){#Si faltan alumnos
+            while(rand_num <= D[h,c]){
+              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+              cont_1 <- cont_1 + 1#Para no tener ciclo infinito
+              if(cont_1 >= cota){
+                break;
+              }
             }
+            cont_1 <- 1#Reiniciamos el contador
+            D_prima[h,c] <- max(0,rand_num)
           }
-          cont_1 <- 1#Reiniciamos el contador
-          D_prima[h,c] <- max(0,rand_num)
-        }
-        if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
-          #'La 2° cond. es para que no haya simulación si no hay alumnos en D
-          #'Aquí la calificación debe ser menor a -10 porque es por
-          #'grupo no por materia (ver gráficas de diferencias relativas
-          #'entre D y E)
-          while(rand_num > D[h,c]){
-            (rand_num <- ceiling(rnorm(1,mixmdl$mu,mixmdl$sigma)))
-            cont_2 <- cont_2 + 1#Para no tener ciclo infinito
-            if(cont_2 >= cota){
-              break;
+          if(mat_calif_x_gpo[h,c] < -10 && D[h,c]>0){#Si sobran alumnos
+            #'La 2° cond. es para que no haya simulación si no hay alumnos en D
+            #'Aquí la calificación debe ser menor a -10 porque es por
+            #'grupo no por materia (ver gráficas de diferencias relativas
+            #'entre D y E)
+            while(rand_num > D[h,c]){
+              (rand_num <- ceiling(rnorm(1,mixmdl[[c]]$mu,mixmdl[[c]]$sigma)))
+              cont_2 <- cont_2 + 1#Para no tener ciclo infinito
+              if(cont_2 >= cota){
+                break;
+              }
             }
+            cont_2 <- 1#Reiniciamos el contador
+            D_prima[h,c] <- max(0,rand_num)
           }
-          cont_2 <- 1#Reiniciamos el contador
-          D_prima[h,c] <- max(0,rand_num)
         }
       }#Fin for(h)
-    }#Fin if(calificación)
+    }#Fin if()
   }#Fin for(c)
   return(D_prima)
 }
+
 
 
 # gen_normalmixEM_1_materia -----------------------------------------------

@@ -123,7 +123,8 @@ wait_mat_esqueleto <- wait_mat_esqueleto[-1]
 num_gpos_x_materia <- list()
 modelos_x_esqueleto <- list()
 num_gpos_x_materia[[1]] <- colSums(mat_esqueleto)
-mixmdl_1_esqueleto <- normalmixEM(wait_mat_esqueleto,mean=mean(wait_mat_esqueleto))
+mixmdl_1_esqueleto <- normalmixEM(wait_mat_esqueleto,
+                                  mean=mean(wait_mat_esqueleto))
 modelos_x_esqueleto[[1]] <- mixmdl_1_esqueleto
 
 # hist(wait_mat_esqueleto,freq = F,breaks = seq(7,22,by = 1),)
