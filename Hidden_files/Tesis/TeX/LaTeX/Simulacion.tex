@@ -1,48 +1,23 @@
 \chapter{Simulación}
 
-La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo y difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. La simulación nos permite experimentar con diversos supuestos que podrían ser muy costosos de realizar físicamente. Las áreas en las que se utiliza la simulación como herramienta diaria son por ejemplo en biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería o en las ciencias sociales.
+La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo y difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. También nos permite experimentar con diversos supuestos que podrían ser muy costosos o riesgosos de realizar físicamente, como enseñar a los pilotos a volar un avión.
 
-Algunos ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas. Se utiliza para todo tipo de propósitos, por ejemplo para poder realizar predicciones en base a datos históricos o enseñar a los pilotos a volar un avión sin poner en riesgo a la población al volar el avión real.
+Algunas áreas de aplicación son: biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería y ciencias sociales. Los ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas.
 
-Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica. Ésto para obtener un mejor resultado al momento de simular sistemas que se hacen cada vez más complejos como las redes neuronales.
+Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica. Ésto para obtener un mejor resultado al momento de simular sistemas que son cada vez más complejos como las redes neuronales.
 
-A lo largo de este capítulo explicaremos el proceso que seguimos para obtener la asignación de los horarios para cada materia con su respectivo profesor.
+En este trabajo utilizamos la simulación para poder realizar predicciones en base a datos históricos. Tomamos la información de los horarios de la Facultad y con ellos simulamos la demanda del número de alumnos para el siguiente semestre. Con esta demanda hicimos los esqueletos necesarios para realizar la asignación de horarios.
 
-\input{Sim_nom_materias} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
-
-\section{Funciones hechas en R}
-
-El diagrama de flujo de la función \textbf{gen\_asignacion} se puede ver en la \figurename{~\ref{DF_genAsig}}.
-
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=\textwidth]{diagrama_flujo} %scale = 0.7
-%\caption[\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}]{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}: Muestra el proceso que se sigue para la obtención de la matriz de asignación de horario.}}\label{DF_genAsig}
-%\end{figure}
-
-\begin{itemize}
-\item \textit{posibles\_url}
-
-\item \textit{gen\_m\_grande}
-
-\item \textit{gen\_m\_grande\_total}
-
-\item \textit{gen\_esqueleto: } Función que genera esqueletos la cual carga la función \textit{simula\_grupos} y ésta a su vez carga la función \textit{estima\_grupos}.
-
-\item \textit{gen\_solicitudes}
-
-\item \textit{gen\_asignacion}
-
-\item \textit{gen\_simula\_alumnos}
-
-\item \textit{gen\_simula\_tamano\_grupo}
-\end{itemize}
+En \textit{R} realizamos la función \textit{gen\_asignacion} encargada de generar la asignación de horarios, materias y profesores. En la \figurename{~\ref{DF_genAsig}} se muestra el diagrama de flujo que sigue dicha función. A lo largo de este capítulo explicaremos los pasos (3)-(9) mostrados en el diagrama. Cabe aclarar que los pasos (1) y (2) corresponden a las Secciones \ref{sec_ED_SelectorGadget} y \ref{sec_ED_LimpiezaDatos}, respectivamente.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrama_flujo} %scale = 0.7
 \caption[\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}]{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}: Muestra el proceso que se sigue para la obtención de la matriz de asignación de horario.}}\label{DF_genAsig}
 \end{figure}
+
+
+\input{Sim_nom_materias} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 
 \input{Sim_obtencionq1q2} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 

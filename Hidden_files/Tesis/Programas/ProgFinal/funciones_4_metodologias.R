@@ -749,6 +749,7 @@ metodo_C2 <- function(n_rep,param,param_sim){
   #Hacemos "n_rep" veces el proceso
   for(d in 2:n_rep){
     cat("d = ",d)
+    cont <- 1
     ### Obtener D
     D <- gen_mat_demanda_alumnos(param,param_sim)
     ### Obtener D' para generar esqueleto
@@ -907,7 +908,7 @@ matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
         ylab = "Calificación")
 matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
         ylab = "Calificación",ylim = c(-200,10))
-
+  
 
 
 

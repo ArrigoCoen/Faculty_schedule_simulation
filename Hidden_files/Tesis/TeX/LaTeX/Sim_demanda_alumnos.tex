@@ -11,7 +11,7 @@ La demanda del número de alumnos para el siguiente semestre la hicimos por mate
 
 \item Para cada semestre dentro de la ventana de información se suma el número de alumnos en cada hora.
 
-\item Se obtiene una matriz de $t \times k$ como la que se puede ver en la \figurename{~\ref{matAl_corregidos}}. Recordemos que $t = 15$ y equivale al número de horas en las que se imparten clases.
+\item Se obtiene una matriz de $t \times k$ como la que se puede ver en la \figurename{~\ref{matAl_corregidos}}. Recordemos que $t = 15$ y representa el número de horas en las que se imparten clases.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -29,7 +29,7 @@ Notamos que el valor de la demanda de alumnos es cero cuando en todos los semest
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 1]{mat_alumnos_corregidos_con_Sim_EstadisticaIII} %width=\textwidth
-\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo'': Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''.}}\label{matAl_corregidos_y_sim}
+\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{En esta figura se señala en rojo el vector con la demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''.}}\label{matAl_corregidos_y_sim}
 \end{figure}
 
 %\begin{figure}[H]
@@ -38,7 +38,7 @@ Notamos que el valor de la demanda de alumnos es cero cuando en todos los semest
 %\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo'': Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''}}\label{vec_alum_sim}
 %\end{figure}
 
-Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$. Recordemos que $t$ es el número de horas del día y $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
+Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$. Recordemos que $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
 
 Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (4). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande. Para \textit{Álgebra Superior II} hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares y una de semestres impares.
 
@@ -48,5 +48,5 @@ Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \texti
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 1]{mat_demanda_alumnos} %width=\textwidth
-\caption[\textit{Ejemplo de matriz con demanda simulada para el 2020-2}]{\textit{Ejemplo de matriz con demanda simulada para el 2020-2: La matriz muestra los vectores con el número de alumnos simulados para el semestre 2020-2 para cada hora de algunas materias.}}\label{matDemandaAlum}
+\caption[\textit{Ejemplo de matriz con demanda simulada para el 2020-2}]{\textit{La matriz muestra los vectores con el número de alumnos simulados para el semestre 2020-2 para cada hora de algunas materias.}}\label{matDemandaAlum}
 \end{figure}
