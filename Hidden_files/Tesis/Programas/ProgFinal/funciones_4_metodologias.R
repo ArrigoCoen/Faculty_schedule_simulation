@@ -116,50 +116,38 @@ View(vec_calif_x_materia)
 cota <- 1000
 n_calif <- 10
 mat_calif_A <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
-D <- gen_mat_demanda_alumnos(param,param_sim)#57.92 seg
+# D0 <- gen_mat_demanda_alumnos(param,param_sim)#57.92 seg
 # View(D)
-ind_materias <- 1:dim(D)[2]
+ind_materias <- 1:dim(D0)[2]
 ptm <- proc.time()# Start the clock!
-for(d in 1:n_calif){
+for(d in 10:n_calif){
   cat("\n***RENGLÓN ",d," ***")
   lista_esq_D_prima <- metodo_A(cota,param,param_sim)#2.136833
   D_prima <- lista_esq_D_prima[[2]]
   mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
-  calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,ind_materias)
+  calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
   vec_calif_x_materia <- calif_D[[2]]
   
   mat_calif_A[d,] <- vec_calif_x_materia
 }
 cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
-## 5.593833 min ERROR d = 1:3
-## 7.628167 min ERROR d = 1:4
-## 1.411167 min ERROR d = 1
-## 3.335667 min ERROR d = 1:2
-## 1.515167 min ERROR d = 3
-## 1.282667 min ERROR d = 3
-## 1.515333 min ERROR d = 3
-## 1.5015 min ERROR d = 3
-## 1.201333 min ERROR d = 3
-## 3.234833 min ERROR d = 3:4
-## 1.271 min ERROR d = 4
-## 1.530333 min ERROR d = 4
-## 4.865333 min ERROR d = 4:6
-## 3.162833 min ERROR d = 6:7
-## 1.003167 min ERROR d = 7
-## 1.402833 min ERROR d = 7
-## 4.9455 min ERROR d = 7:9
-## 1.183167 min ERROR d = 9
-## 1.177333 min ERROR d = 9:
-## 1.441 min ERROR d = 9
-## 3.656 min ERROR d = 9:10
+## 7.41 min ERROR d = 1:4
+## 7.11 min ERROR d = 4:7
+## 2.92 min ERROR d = 7:8
+## 5.57 min ERROR d = 8:10
+
+## 11.26 min ERROR d = 1:6
+## 3.13 min ERROR d = 6:7
+## 4.69 min ERROR d = 7:9
+## 2.95 min ERROR d = 9
+## 1.78 min ERROR d = 10
 
 colnames(mat_calif_A) <- param$vec_nom_materias_total
 View(mat_calif_A)
 matplot(mat_calif_A, type = "l",main = "Metodología A",xlab = "Iteraciones",
         ylab = "Calificación")
-matplot(mat_calif_A, type = "l",main = "Metodología A",xlab = "Iteraciones",
-        ylab = "Calificación",ylim = c(-200,10))
 
+save(mat_calif_A,file = "mat_calif_A.RData")
 
 
 # Metodología B -----------------------------------------------------------
@@ -296,30 +284,29 @@ lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#10.71983
 n_rep <- 5
 n_calif <- 10
 mat_calif_B <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
-D <- gen_mat_demanda_alumnos(param,param_sim)#39.72 seg
+# D <- gen_mat_demanda_alumnos(param,param_sim)#39.72 seg
 # View(D)
-ind_materias <- 1:dim(D)[2]
+ind_materias <- 1:dim(D0)[2]
 ptm <- proc.time()# Start the clock!
 for(d in 1:n_calif){
   cat("\n***RENGLÓN ",d," ***")
   lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)
   D_prima <- lista_esq_D_prima[[2]]
   mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
-  calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,ind_materias)
+  calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
   vec_calif_x_materia <- calif_D[[2]]
   
   mat_calif_B[d,] <- vec_calif_x_materia
 }
 cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 ## 52.31567 min d = 1:10
+## 51.88 min d = 1:10
 colnames(mat_calif_B) <- param$vec_nom_materias_total
 View(mat_calif_B)
 matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
         ylab = "Calificación")
-matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
-        ylab = "Calificación",ylim = c(-200,10))
 
-
+save(mat_calif_B,file = "mat_calif_B.RData")
 
 
 # Metodología C -----------------------------------------------------------
@@ -383,11 +370,12 @@ metodo_B2 <- function(n_rep,D_prima_inicial,param,param_sim){
   for(d in 2:n_rep){
     cat("d = ",d)
     ### Obtener D
-    D <- gen_mat_demanda_alumnos(param,param_sim)
-    prom_D <- prom_D + D
+    # D <- gen_mat_demanda_alumnos(param,param_sim)
+    # prom_D <- prom_D + D
     ##Generar esqueleto
     mat_solicitudes <- gen_solicitudes(param)
-    lista_info_esqueleto <- gen_esqueleto(D,mat_solicitudes,param)
+    lista_info_esqueleto <- gen_esqueleto(D_prima_inicial,
+                                          mat_solicitudes,param)
     mat_esqueleto <- lista_info_esqueleto[[1]]
     mat_gpos_x_materia[d,] <- colSums(mat_esqueleto)
     
@@ -434,8 +422,8 @@ metodo_B2 <- function(n_rep,D_prima_inicial,param,param_sim){
   
   lista_esq_D_prima <- list()
   lista_esq_D_prima[[1]] <- mat_esqueleto_final
-  # lista_esq_D_prima[[2]] <- D_prima_inicial
-  lista_esq_D_prima[[2]] <- ceiling(prom_D/n_rep)
+  lista_esq_D_prima[[2]] <- D_prima_inicial
+  # lista_esq_D_prima[[2]] <- ceiling(prom_D/n_rep)
   cat("\nLa función metodo_B2 tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
   return(lista_esq_D_prima)
 }
@@ -579,16 +567,16 @@ lista_esq_D_prima <- metodo_C(n_rep,param,param_sim)
 n_rep <- 5
 n_calif <- 10
 mat_calif_C <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
-D <- gen_mat_demanda_alumnos(param,param_sim)#48.03/45.6 seg
+# D <- gen_mat_demanda_alumnos(param,param_sim)#48.03/45.6 seg
 # View(D)
-ind_materias <- 1:dim(D)[2]
+ind_materias <- 1:dim(D0)[2]
 ptm <- proc.time()# Start the clock!
 for(d in 1:n_calif){
   cat("\n***RENGLÓN ",d," ***")
   lista_esq_D_prima <- metodo_C(n_rep,param,param_sim)
   D_prima <- lista_esq_D_prima[[2]]
   mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
-  calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,ind_materias)
+  calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
   vec_calif_x_materia <- calif_D[[2]]
   
   mat_calif_C[d,] <- vec_calif_x_materia
@@ -597,17 +585,16 @@ cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 ## 81.89567 min d = 1:10
 ## 51.45683 min d = 1:10
 ## 27.91067 min d = 1:4
+## 54.64 min d = 1:10
+## 58.26 min d = 1:10
 
 colnames(mat_calif_C) <- param$vec_nom_materias_total
 View(mat_calif_C)
 
 matplot(mat_calif_C, type = "l",main = "Metodología C",xlab = "Iteraciones",
         ylab = "Calificación")
-matplot(mat_calif_C, type = "l",main = "Metodología C",xlab = "Iteraciones",
-        ylab = "Calificación",ylim = c(-200,10))
 
-
-
+save(mat_calif_C,file = "mat_calif_C.RData")
 
 
 
@@ -689,9 +676,9 @@ actualiza_D_prima_metodo_D <- function(cota,D,D_prima,mixmdl,calif_D,ind_materia
   return(D_prima)
 }
 
-#' Title metodo_C2: Función que genera un esqueleto con la metodología C, la
-#' cual implementa la mezcla de normales por número de alumnos y por
-#' esqueleto. Para el número de alumnos se genera un modelo inicial con k = 4.
+#' Title metodo_C2: Función que arroja la matriz "D_final" a la cual se le
+#' aplicó la mezcla de normales por número de alumnos. Para el número de 
+#' alumnos se genera un modelo inicial con k = 4.
 #' Valor elegido al ver el histograma de los datos del número de alumnos. Para
 #' el esqueleto se aplica la metodología B.
 #'
@@ -882,16 +869,16 @@ lista_esq_D_prima <- metodo_D(n_rep,param,param_sim)
 n_rep <- 5
 n_calif <- 10
 mat_calif_D <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
-D <- gen_mat_demanda_alumnos(param,param_sim)#41.03 seg
+# D <- gen_mat_demanda_alumnos(param,param_sim)#41.03 seg
 # View(D)
-ind_materias <- 1:dim(D)[2]
+ind_materias <- 1:dim(D0)[2]
 ptm <- proc.time()# Start the clock!
 for(d in 1:n_calif){
   cat("\n***RENGLÓN ",d," ***")
   lista_esq_D_prima <- metodo_D(n_rep,param,param_sim)
   D_prima <- lista_esq_D_prima[[2]]
   mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
-  calif_D <- actualiza_calif_D(D,D_prima,mat_calif_x_gpo,ind_materias)
+  calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
   vec_calif_x_materia <- calif_D[[2]]
   
   mat_calif_D[d,] <- vec_calif_x_materia
@@ -899,20 +886,139 @@ for(d in 1:n_calif){
 cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 # 7.831 min d = 1
 # 41.90367 min d = 2:10
-# M min d = 1:10
+# 49.19217 min d = 1:10
 
 colnames(mat_calif_D) <- param$vec_nom_materias_total
 View(mat_calif_D)
 
-matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
+matplot(mat_calif_D, type = "l",main = "Metodología D",
+        xlab = "Iteraciones",
         ylab = "Calificación")
-matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
-        ylab = "Calificación",ylim = c(-200,10))
+
+save(mat_calif_D,file = "mat_calif_D.RData")
+
+
+
+
+
+
+
+
+# Generamos D0 para calificar los métodos ---------------------------------
+n_rep <- 5
+D <- gen_mat_demanda_alumnos(param,param_sim)#41.03 seg
+D_prima <- metodo_C2(n_rep,param,param_sim)
+Y <- cbind(D,D_prima)
+Y <- array(Y, dim=c(dim(D), 2))#2 = son 2 matrices (a y b)
+
+D0 <- ceiling(apply(Y, c(1, 2), mean, na.rm = TRUE))
+
+# a <- matrix(3,3,3)
+# b <- matrix(c(1,2,3,4,5,6,7,8,9),nrow = 3,ncol = 3,byrow = T)
+# Y <- cbind(a,b)
+# Y <- array(Y, dim=c(dim(a), 2))#2 = son 2 matrices (a y b)
+# promedio <- ceiling(apply(Y, c(1, 2), mean, na.rm = TRUE))
+
+
+
+
+# grafica_calificaciones --------------------------------------------------
+grafica_calificaciones <- function(D0,n_rep,n_calif,lista_mat_calif){
+  ind_materias <- 1:dim(D0)[2]
+  for(m in 2:4){
+    ptm <- proc.time()# Start the clock!
+    cat("\n*** METODOLOGÍA ",m," ***")
+    mat_calif <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
+    for(d in 1:n_calif){
+      cat("\n***RENGLÓN ",d," ***")
+      switch(m,
+             '2' = {lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)},
+             '3' = {lista_esq_D_prima <- metodo_C(n_rep,param,param_sim)},
+             '4' = {lista_esq_D_prima <- metodo_D(n_rep,param,param_sim)}
+      )
+      D_prima <- lista_esq_D_prima[[2]]
+      mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+      calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
+      vec_calif_x_materia <- calif_D[[2]]
+      mat_calif[d,] <- vec_calif_x_materia
+    }
+    colnames(mat_calif) <- param$vec_nom_materias_total
+    lista_mat_calif[[m]] <- mat_calif
+    cat("\nEl ciclo para el método ",m,
+        " tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
+  }#Fin for(m)
   
+  return(lista_mat_calif)
+}
+
+mat_calif_A <- lista_mat_calif[[1]]
+mat_calif_B <- lista_mat_calif[[2]]
+mat_calif_C <- lista_mat_calif[[3]]
+mat_calif_D <- lista_mat_calif[[4]]
+
+save(mat_calif_A,file = "mat_calif_A.RData")
+save(mat_calif_B,file = "mat_calif_B.RData")
+save(mat_calif_C,file = "mat_calif_C.RData")
+save(mat_calif_D,file = "mat_calif_D.RData")
+
+
+# Ej. ---------------------------------------------------------------------
+n_rep <- 5
+n_calif <- 10
+
+matplot(mat_calif, type = "l",main = "Metodología D",xlab = "Iteraciones",
+        ylab = "Calificación")
+
+lista_mat_calif <- list()
+lista_mat_calif[[1]] <- mat_calif_A
+
+# Gráficas a escala -------------------------------------------------------
+# matplot(mat_calif_A, type = "l",main = "Metodología A",xlab = "Iteraciones",
+#         ylab = "Calificación")
+# 
+# matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
+#         ylab = "Calificación")
+# 
+# matplot(mat_calif_C, type = "l",main = "Metodología C",xlab = "Iteraciones",
+#         ylab = "Calificación")
+# 
+# matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
+#         ylab = "Calificación")
 
 
 
+matplot(mat_calif_A, type = "l",main = "Metodología A",xlab = "Iteraciones",
+        ylab = "Calificación",ylim = c(-5,1))
+
+matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
+        ylab = "Calificación",ylim = c(-5,1))
+
+matplot(mat_calif_C, type = "l",main = "Metodología C",xlab = "Iteraciones",
+        ylab = "Calificación",ylim = c(-5,1))
+
+matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
+        ylab = "Calificación",ylim = c(-5,1))
 
 
 
+# heatmaps ----------------------------------------------------------------
+colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+heatmap(mat_calif_A, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Métodología A")
+legend(x="bottomright", legend=c("min", "media", "max"), 
+       fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
 
+heatmap(mat_calif_B, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Métodología B")
+legend(x="bottomright", legend=c("min", "media", "max"), 
+       fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
+
+heatmap(mat_calif_C, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Métodología C")
+legend(x="bottomright", legend=c("min", "media", "max"), 
+       fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
+
+heatmap(mat_calif_D, Colv = NA, Rowv = NA, scale="none",col=colMain,
+        main = "Métodología D")
+legend(x="bottomright", legend=c("min", "media", "max"), 
+       fill=colorRampPalette(brewer.pal(8, "Blues"))(3))

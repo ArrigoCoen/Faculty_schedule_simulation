@@ -2738,7 +2738,8 @@ actualiza_calif_D <- function(D,D_prima,mat_calif_x_gpo,ind_materias){
     }#Fin for(r)
   }#Fin for(c)
   mat_calif_x_gpo <- calif_A + calif_B
-  vec_calif_x_materia <- colSums(mat_calif_x_gpo)
+  # vec_calif_x_materia <- colSums(mat_calif_x_gpo)
+  vec_calif_x_materia <- colMeans(mat_calif_x_gpo)
   
   calif_D <- list()
   calif_D[[1]] <- mat_calif_x_gpo
