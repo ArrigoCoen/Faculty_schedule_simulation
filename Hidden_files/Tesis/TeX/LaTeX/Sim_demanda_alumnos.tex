@@ -38,7 +38,7 @@ Notamos que el valor de la demanda de alumnos es cero cuando en todos los semest
 %\caption[\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo'': Vemos el vector con el número de alumnos simulados para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''}}\label{vec_alum_sim}
 %\end{figure}
 
-Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$. Recordemos que $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
+Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$, llamada \textit{mat\_demanda\_alumnos}. Recordemos que $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
 
 Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (4). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande. Para \textit{Álgebra Superior II} hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares y una de semestres impares.
 
@@ -50,3 +50,162 @@ Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \texti
 \includegraphics[scale = 1]{mat_demanda_alumnos} %width=\textwidth
 \caption[\textit{Ejemplo de matriz con demanda simulada para el 2020-2}]{\textit{La matriz muestra los vectores con el número de alumnos simulados para el semestre 2020-2 para cada hora de algunas materias.}}\label{matDemandaAlum}
 \end{figure}
+
+
+\section{Modelo de Mezcla Gaussiana} \label{sec_GMM}
+
+Do Chuong y Batzoglou nos indican, en su artículo \textit{What is the expectation maximization algorithm?} [\ref{ChuongBatzoglou}], que el algoritmo de maximización de la esperanza (EM) es una generalización natural de la estimación por máxima verosimilitud. Ésto para el caso en donde se tiene información incompleta.
+
+Los parámetros iniciales se toman de los datos con ello se obtienen unos parámetros finales que se convierten en los parámetros de la siguiente iteración. Así sucesivamente.
+
+\url{https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko}
+
+\url{https://www.youtube.com/watch?v=iQoXFmbXRJA&ab_channel=VictorLavrenko}
+
+\url{https://www.youtube.com/watch?v=pYxNSUDSFH4&ab_channel=StatQuestwithJoshStarmer}
+
+
+ The goal of the maximum likelihood is to find the optimal way to fit a distribution to the data:
+ 
+\url{https://www.youtube.com/watch?v=XepXtl9YKwc&ab_channel=StatQuestwithJoshStarmer}
+
+
+
+En la \figurename{~\ref{GMM_inicial_final}} se muestran dos histogramas con los datos iniciales y finales, respectivamente. Las líneas verdes corresponden al ajuste con la función \verb@density()@ en \textit{R} y las azules al modelo de mezcla de normales.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{histograma_y_GMM} %scale = 1
+\caption{\textit{Mezcla de normales inicial y final}}\label{GMM_inicial_final}
+\end{figure}
+
+
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_1} %width=\textwidth
+%\caption{\textit{GMM 1}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_2} %width=\textwidth
+%\caption{\textit{GMM 2}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_3} %width=\textwidth
+%\caption{\textit{GMM 3}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_4} %width=\textwidth
+%\caption{\textit{GMM 4}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_5} %width=\textwidth
+%\caption{\textit{GMM 5}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_6} %width=\textwidth
+%\caption{\textit{GMM 6}}
+%\end{figure}
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.5]{GMM_7} %width=\textwidth
+%\caption{\textit{GMM 7}}
+%\end{figure}
+
+
+\section{Obtención de $D'$ y $D_{0}$} \label{GMM_D}
+
+Los esqueletos que vamos a simular dependen de la demanda de alumnos. En esta sección vamos a mostrar 4 diferentes metodologías que probamos para poder simular adecuadamente los esqueletos. Ésto basándonos en el número de alumnos simulados para el siguiente semestre. %Al final de esta sección, vamos a describir el método con el que generamos la matriz \textit{mat\_esqueleto}.
+
+
+Definimos las siguientes matrices:
+
+\begin{itemize}
+\item[-] $D': $ Matriz de $t \times m$, con la demanda simulada por alguna de las 4 metodologías.
+
+\item[-] $D^{0}: $ Matriz de $t \times m$, con la cual se va a comparar $D'$ para calificarla. Esta matriz se obtiene haciendo el promedio entre una matriz \textit{mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}) y una matriz de demanda de alumnos, obtenida con el modelo de mezcla de normales (ver Sección \ref{sec_GMM}).
+\end{itemize}
+
+La calificación de las metodologías depende de la diferencia relativa entre $D^{0}$ y $D'$. Los pasos que seguimos para obtener las calificiones son:
+
+\begin{enumerate}
+\item Definir la matriz $C$, de $t \times m$. Esta matriz va a guardar las calificaciones por grupo de $D'$.
+
+\item Para cada $C_{h,j}$ guardar el valor de $\dfrac{D_{h,j}^{0} - D'_{h,j}}{D_{h,j}^{0}}$. 
+
+\item Si $D_{h,j}^{0} = 0$ entonces $C_{h,j} = 1$ si faltan alumnos y $C_{h,j} = -1$ si sobran alumnos, es decir: $C_{h,j} = \left \{ \begin{matrix} 1 & \mbox{si }D_{h,j}^{0} > D'_{h,j}\\ 
+-1 & \mbox{si }D_{h,j}^{0} < D'_{h,j}\\ 0 & \mbox{e.o.c. }\end{matrix}\right.$
+
+
+
+\item Definir el vector \textit{vec\_calif\_x\_materia} con el promedio por columna de $C$. Este vector guarda las calificaciones por materia de $D'$.
+\end{enumerate}
+
+Para cada metodología, realizamos 10 simulaciones y calificamos las matrices $D'$ generadas. Con este procedimiento obtuvimos 4 matrices de 10 renglones y $m$ columnas. Graficamos cada matriz con la función \verb@matplot()@ en \textit{R}. Cada gráfica contiene $m$ líneas con 10 puntos cada línea. A continuación mostramos las 4 gráficas.
+
+En la \figurename{~\ref{fig_metodo_A}} vemos las calificaciones por materia de la metodología A. Notamos que se encuentran entre -5 y 1. Ésto quiere decir que en promedio con este método sobra hasta un 500\% de alumnos y falta casi un 100\% al hacer la simulación.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{calif3_escala_metodo_A} %scale = 0.7
+\caption[\textit{Metodología A}]{\textit{Se muestran las calificaciones por materia de la metodología A.}}\label{fig_metodo_A}
+\end{figure} 
+
+
+En la \figurename{~\ref{fig_metodo_B}} vemos las calificaciones por materia de la metodología B. Notamos que se encuentran entre -0.5 y 0.8. Ésto quiere decir que en promedio con este método sobra hasta un 50\% de alumnos y falta casi un 80\% al hacer la simulación.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{calif3_metodo_B} %scale = 0.7
+\caption[\textit{Metodología B}]{\textit{Se muestran las calificaciones por materia de la metodología B.}}\label{fig_metodo_B}
+\end{figure} 
+
+
+En la \figurename{~\ref{fig_metodo_C}} vemos las calificaciones por materia de la metodología C. Notamos que, al igual que en la metodología B, las calificaciones se encuentran entre -0.5 y 0.8. En este caso observamos que hay una mayor concentración de materias (líneas) entre 0.5 y 0.8. Ésto comparado con el método B que tiene una mayor concentración entre 0.4 y 0.6.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{calif3_metodo_C} %scale = 0.7
+\caption[\textit{Metodología C}]{\textit{Se muestran las calificaciones por materia de la metodología C.}}\label{fig_metodo_C}
+\end{figure}
+
+
+En la \figurename{~\ref{fig_metodo_D}} vemos las calificaciones por materia de la metodología D. Notamos que se encuentran entre -6 y 0.4. Ésto quiere decir que en promedio con este método sobra hasta un 600\% de alumnos y falta casi un 40\% al hacer la simulación. Podemos observar que sólo una materia tiene calificaciones por debajo de -3. En general todas se concentran entre 2.5 y 0.4.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{calif3_metodo_D} %scale = 0.7
+\caption[\textit{Metodología D}]{\textit{Se muestran las calificaciones por materia de la metodología D.}}\label{fig_metodo_D}
+\end{figure} 
+
+
+Decidimos analizar las metodologías $B$ y $C$ ya que son las que muestran las mejores calificaciones. Para ello graficamos las matrices de calificaciones con la función \verb@heatmap()@ en \textit{R}. En la \figurename{~\ref{fig_heatmap_B}} vemos el correspondiente a la metodología $B$. En la \figurename{~\ref{fig_heatmap_C}} vemos el \textit{heatmap} referente a la metodología $C$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.6]{calif3_heatmap_metodo_B} %width=\textwidth
+\caption[\textit{Heatmap metodología B}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología B.}}\label{fig_heatmap_B}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.6]{calif3_heatmap_metodo_C} %width=\textwidth
+\caption[\textit{Heatmap metodología C}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología C.}}\label{fig_heatmap_C}
+\end{figure}
+
+
+Para elegir entre las dos metodologías, tomamos en cuenta que el error relativo estuviera más cercano a cero. Al ver ambos \textit{heatmaps} observamos que el correspondiente al método $B$ es más claro que el del método $C$. Por lo que elegimos la metodología $B$ para simular los esqueletos. %En la siguiente sección explicaremos el procedimiento que seguimos para ésta metodología.
+
+
+

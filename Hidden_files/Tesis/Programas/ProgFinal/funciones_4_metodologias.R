@@ -16,11 +16,12 @@ source("Fn_Asignacion.R")
 # Metodología A -----------------------------------------------------------
 #' Title metodo_A: Función que genera un esqueleto con la metodología A, la
 #' cual implementa la mezcla de normales por materia y modifica el número de
-#' alumnos en D si la calicifación por materia está fuera de [-20,10] y 
+#' alumnos en D si la calificación por materia está fuera de [-20,10] y 
 #' si la calificación por grupo está fuera de [-10,10].
 #' En esta metodología en la función "gen_normalmixEM_inicial" el modelo
 #' se genera con el promedio de los datos, no se utiliza el parámatro k
-#' que es el número de normales que tiene el modelo.
+#' que es el número de normales que tiene el modelo. El esqueleto se simula
+#' con la función "gen_esqueleto" utilizando la matriz D' actualizada.
 #'
 #' @param cota: Cota para que el ciclo no sea infinito.
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
@@ -145,7 +146,7 @@ cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 colnames(mat_calif_A) <- param$vec_nom_materias_total
 View(mat_calif_A)
 matplot(mat_calif_A, type = "l",main = "Metodología A",xlab = "Iteraciones",
-        ylab = "Calificación")
+        ylab = "Calificación",ylim = c(-5,1))
 
 save(mat_calif_A,file = "mat_calif_A.RData")
 
@@ -304,14 +305,14 @@ cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 colnames(mat_calif_B) <- param$vec_nom_materias_total
 View(mat_calif_B)
 matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
-        ylab = "Calificación")
+        ylab = "Calificación",ylim = c(-0.5,1))
 
 save(mat_calif_B,file = "mat_calif_B.RData")
 
 
 # Metodología C -----------------------------------------------------------
 
-#' Title metodo_B2: Función que genera un esqueleto con la metodología B, la
+#' Title metodo_B2: Función que genera un esqueleto con la metodología B2, la
 #' cual implementa la mezcla de normales por esqueleto. Se genera un modelo
 #' inicial con k = 3. Valor elegido al ver el histograma de los datos
 #' en un esqueleto. En el modelo final se utiliza la media del modelo inical
@@ -592,7 +593,7 @@ colnames(mat_calif_C) <- param$vec_nom_materias_total
 View(mat_calif_C)
 
 matplot(mat_calif_C, type = "l",main = "Metodología C",xlab = "Iteraciones",
-        ylab = "Calificación")
+        ylab = "Calificación",ylim = c(-0.5,1))
 
 save(mat_calif_C,file = "mat_calif_C.RData")
 
@@ -887,6 +888,7 @@ cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
 # 7.831 min d = 1
 # 41.90367 min d = 2:10
 # 49.19217 min d = 1:10
+# 49.35 min d = 1:10
 
 colnames(mat_calif_D) <- param$vec_nom_materias_total
 View(mat_calif_D)
@@ -923,43 +925,43 @@ D0 <- ceiling(apply(Y, c(1, 2), mean, na.rm = TRUE))
 
 
 # grafica_calificaciones --------------------------------------------------
-grafica_calificaciones <- function(D0,n_rep,n_calif,lista_mat_calif){
-  ind_materias <- 1:dim(D0)[2]
-  for(m in 2:4){
-    ptm <- proc.time()# Start the clock!
-    cat("\n*** METODOLOGÍA ",m," ***")
-    mat_calif <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
-    for(d in 1:n_calif){
-      cat("\n***RENGLÓN ",d," ***")
-      switch(m,
-             '2' = {lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)},
-             '3' = {lista_esq_D_prima <- metodo_C(n_rep,param,param_sim)},
-             '4' = {lista_esq_D_prima <- metodo_D(n_rep,param,param_sim)}
-      )
-      D_prima <- lista_esq_D_prima[[2]]
-      mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
-      calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
-      vec_calif_x_materia <- calif_D[[2]]
-      mat_calif[d,] <- vec_calif_x_materia
-    }
-    colnames(mat_calif) <- param$vec_nom_materias_total
-    lista_mat_calif[[m]] <- mat_calif
-    cat("\nEl ciclo para el método ",m,
-        " tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
-  }#Fin for(m)
-  
-  return(lista_mat_calif)
-}
-
-mat_calif_A <- lista_mat_calif[[1]]
-mat_calif_B <- lista_mat_calif[[2]]
-mat_calif_C <- lista_mat_calif[[3]]
-mat_calif_D <- lista_mat_calif[[4]]
-
-save(mat_calif_A,file = "mat_calif_A.RData")
-save(mat_calif_B,file = "mat_calif_B.RData")
-save(mat_calif_C,file = "mat_calif_C.RData")
-save(mat_calif_D,file = "mat_calif_D.RData")
+# grafica_calificaciones <- function(D0,n_rep,n_calif,lista_mat_calif){
+#   ind_materias <- 1:dim(D0)[2]
+#   for(m in 2:4){
+#     ptm <- proc.time()# Start the clock!
+#     cat("\n*** METODOLOGÍA ",m," ***")
+#     mat_calif <- matrix(0,nrow = n_calif,ncol = dim(D)[2])
+#     for(d in 1:n_calif){
+#       cat("\n***RENGLÓN ",d," ***")
+#       switch(m,
+#              '2' = {lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)},
+#              '3' = {lista_esq_D_prima <- metodo_C(n_rep,param,param_sim)},
+#              '4' = {lista_esq_D_prima <- metodo_D(n_rep,param,param_sim)}
+#       )
+#       D_prima <- lista_esq_D_prima[[2]]
+#       mat_calif_x_gpo <- matrix(0, nrow = dim(D)[1], ncol = dim(D)[2])
+#       calif_D <- actualiza_calif_D(D0,D_prima,mat_calif_x_gpo,ind_materias)
+#       vec_calif_x_materia <- calif_D[[2]]
+#       mat_calif[d,] <- vec_calif_x_materia
+#     }
+#     colnames(mat_calif) <- param$vec_nom_materias_total
+#     lista_mat_calif[[m]] <- mat_calif
+#     cat("\nEl ciclo para el método ",m,
+#         " tardó: ",(proc.time()-ptm)[3]/60," minutos\n")
+#   }#Fin for(m)
+#   
+#   return(lista_mat_calif)
+# }
+# 
+# mat_calif_A <- lista_mat_calif[[1]]
+# mat_calif_B <- lista_mat_calif[[2]]
+# mat_calif_C <- lista_mat_calif[[3]]
+# mat_calif_D <- lista_mat_calif[[4]]
+# 
+# save(mat_calif_A,file = "mat_calif_A.RData")
+# save(mat_calif_B,file = "mat_calif_B.RData")
+# save(mat_calif_C,file = "mat_calif_C.RData")
+# save(mat_calif_D,file = "mat_calif_D.RData")
 
 
 # Ej. ---------------------------------------------------------------------
@@ -1003,22 +1005,73 @@ matplot(mat_calif_D, type = "l",main = "Metodología D",xlab = "Iteraciones",
 
 # heatmaps ----------------------------------------------------------------
 colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+# par(mfrow=c(2,2),cex=1) # set the plotting area into a 2*2 array
 heatmap(mat_calif_A, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Métodología A")
-legend(x="bottomright", legend=c("min", "media", "max"), 
+legend(x="bottomright", legend=c(paste0("mín = ",round(min(mat_calif_A),2)),
+                                 paste0("media = ",round(mean(mat_calif_A),2)),
+                                 paste0("máx = ",round(max(mat_calif_A),2))), 
        fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
 
 heatmap(mat_calif_B, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Métodología B")
-legend(x="bottomright", legend=c("min", "media", "max"), 
+legend(x="bottomright", legend=c(paste0("mín = ",round(min(mat_calif_B),2)),
+                                 paste0("media = ",round(mean(mat_calif_B),2)),
+                                 paste0("máx = ",round(max(mat_calif_B),2))),
        fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
 
 heatmap(mat_calif_C, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Métodología C")
-legend(x="bottomright", legend=c("min", "media", "max"), 
+legend(x="bottomright", legend=c(paste0("mín = ",round(min(mat_calif_C),2)),
+                                 paste0("media = ",round(mean(mat_calif_C),2)),
+                                 paste0("máx = ",round(max(mat_calif_C),2))), 
        fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
 
 heatmap(mat_calif_D, Colv = NA, Rowv = NA, scale="none",col=colMain,
         main = "Métodología D")
-legend(x="bottomright", legend=c("min", "media", "max"), 
+legend(x="bottomright", legend=c(paste0("mín = ",round(min(mat_calif_D),2)),
+                                 paste0("media = ",round(mean(mat_calif_D),2)),
+                                 paste0("máx = ",round(max(mat_calif_D),2))), 
        fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
+
+# dev.off()#Para salir de la función par()
+
+# Esqueletos --------------------------------------------------------------
+cota <- 1000
+lista_esq_D_prima_A <- metodo_A(cota,param,param_sim)#1.9 min
+mat_esqueleto_A <- lista_esq_D_prima_A[[1]]
+D_prima_A <- lista_esq_D_prima_A[[2]]
+View(mat_esqueleto_A)
+View(D_prima_A)
+
+
+n_rep <- 5
+lista_esq_D_prima_B <- metodo_B(n_rep,param,param_sim)#5.32/5.13 min
+mat_esqueleto_B <- lista_esq_D_prima_B[[1]]
+D_prima_B <- lista_esq_D_prima_B[[2]]
+View(mat_esqueleto_B)
+View(D_prima_B)
+
+
+n_rep <- 5
+lista_esq_D_prima_C <- metodo_C(n_rep,param,param_sim)#5.73 min
+mat_esqueleto_C <- lista_esq_D_prima_C[[1]]
+D_prima_C <- lista_esq_D_prima_C[[2]]
+View(mat_esqueleto_C)
+View(D_prima_C)
+
+
+n_rep <- 5
+lista_esq_D_prima_D <- metodo_D(n_rep,param,param_sim)#4.74 min
+mat_esqueleto_D <- lista_esq_D_prima_D[[1]]
+D_prima_D <- lista_esq_D_prima_D[[2]]
+View(mat_esqueleto_D)
+View(D_prima_D)
+
+
+
+
+
+
+
+
