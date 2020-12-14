@@ -18,15 +18,15 @@ gen_asignacion_completa <- function(param,param_sim){
 
   #' 1-3) Extracción de datos y simulación de alumnos de t+1
   # set.seed(8654)
-  set.seed(1806)
-  mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#39.95 seg
-  View(mat_demanda_alumnos)
+  # set.seed(1806)
+  # mat_demanda_alumnos <- gen_mat_demanda_alumnos(param,param_sim)#39.95 seg
+  # View(mat_demanda_alumnos)
   
   #' 4a) Simulación de solicitudes de profesores del siguiente semestre (oculta)
   # set.seed(8654)
-  set.seed(1806)
-  mat_solicitudes <- gen_solicitudes(param)#7.78 seg
-  View(mat_solicitudes)
+  # set.seed(1806)
+  # mat_solicitudes <- gen_solicitudes(param)#7.78 seg
+  # View(mat_solicitudes)
   
   #' 5) Simulación de esqueletos
   # set.seed(8654)
@@ -37,20 +37,22 @@ gen_asignacion_completa <- function(param,param_sim){
   # set.seed(0.1806)#5.39seg
   n_rep <- 10
   set.seed(1806)
-  lista_info_esqueleto <- gen_lista_info_esqueleto(mat_demanda_alumnos,
-                                                   mat_solicitudes,n_rep,
-                                                   param)#7.439667 min
-  mat_esqueleto <- lista_info_esqueleto[[1]]
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#12.45 min
+  mat_esqueleto <- lista_esq_D_prima[[1]]
   View(mat_esqueleto)
   
   #' 6) Calificación de esqueletos
-  califica_esqueleto()
+  # califica_esqueleto()
   
   #' 7) AG aplicado a esqueletos: Aquí ya va a salir un buen esqueleto
-  AG_esqueleto()
+  # AG_esqueleto()
   
   #' 4b) Simulación de solicitudes de profesores (pseudo-real)
-  mat_solicitudes <- gen_solicitudes(param)#8.56 seg
+  set.seed(1806)
+  mat_solicitudes <- gen_solicitudes(param)#7.86 seg
+  #' Quitamos las materias = 0
+  mat_solicitudes <- mat_solicitudes %>% filter(Materia != 0)
+  View(mat_solicitudes)
   
   #' 8) Asignación
   gen_asignacion(mat_esqueleto,mat_solicitudes,param)
