@@ -208,6 +208,7 @@ arroja_num_materia("Teoría de los Conjuntos II")
 arroja_num_materia("Topología III")
 arroja_num_materia("Álgebra Superior I")
 arroja_num_materia("Probabilidad I")
+arroja_num_materia("Cálculo Diferencial e Integral II")#48
 
 
 # arroja_nom_correcto -----------------------------------------------------

@@ -13,187 +13,181 @@ source("Fn_Asignacion.R")
 
 
 
-
 # califica_asignacion ------------------------------------------------------
-#' Title califica_asignacion: Función que califica un asignacion, se penaliza
-#' en los siguientes casos:
-#' - Penalización por no tener en el asignacion una materia que necesitamos.
-#' Se resta 1 por cada materia no impartida.
-#' -Penalización por cada alumno faltante: Se suma el número de alumnos que
-#' quedaron en la matriz "mat_demanda_aux". Se multiplica alfa por el número
-#' de alumnos faltantes
-#' -Penalización por cada alumno sobrante: El número de alumnos sobrantes
-#' es el número de alumnos simulados menos el número de alumnos asignados
-#' (alumnos requeridos - alumnos faltantes). Se multiplica el número de
-#' alumnos sobrantes por beta.
-#' -Si algún profesor de tiempo completo pidió alguna materia y no se la
-#' dieron. Se penaliza con uno por cada materia.
-#' Notas:
-#' 1) Se cuenta por materia solicitada, no por materia con
-#' horario. Ej. Si se pidió Proba I a las 10hrs y a las 11hrs,
-#' sólo se cuenta una penalización.
-#' 2) Se penaliza por cada materia con tope a 2 asignaciones, i.e. si un
-#' profesor pidió 3 o más  materias y sólo le dieron una, entonces se penaliza
-#' con -1; si le dieron 2 entonces no hay penalización.
-#' - Penalización por cada profesor que pueda impartir la materia j en la
-#' hora i y esa entrada de la matriz "mat_demanda_aux" aún tenga alumnos. Se
-#' penaliza por cada grupo que no se le asignó un profesor que si podía dar
-#' clase.
+#' Title califica_asignacion: Función que califica un asignacion, por grupo
+#' y de manera global. Las penalizaciones globales son:
+#' - Penalización por grupo en esqueleto sin profesor: Se resta 1 por cada
+#' grupo sin profesor.
+#' - Si algún profesor de tiempo completo pidió alguna materia y
+#' no se la dieron. Se penaliza con 10 por cada solicitud.
+#' Nota:
+#' Se penaliza por cada materia con tope a "num_max_asig",
+#' Ej. si num_max_asig = 2 y un profesor pidió 3 o más  materias
+#' pero sólo le dieron 1, entonces se penaliza 1; si le dieron 2
+#' no hay penalización.
+#' 
+#' Las penalizaciones por grupo son:
+#' - Se pone un +5 si el profesor asignado es de TC.
+#' - Se pone un -1 por cada asignación que pudo haber tenido un
+#' profesor de TC y tiene un profesor de asignatura.
+#' - Para tener una calificación diferente para cada grupo, sumamos
+#' a cada renglón una épsilon entre 0 y 0.1.
 #'
-#' @param mat_demanda_alumnos: Matriz de 15 renglones (horas) y 201
-#' columnas (materias). En la entrada (i,j) se tiene el número de alumnos
-#' simulados para la hora i, y la materia j.
-#' @param lista_info_esqueleto: Lista con las matrices:
-#' 1) mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
-#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
-#' para la hora i, y la materia j.
-#' 2) mat_prof_TC: Matriz de 2 columnas con el nombre de los profesores de
-#' tiempo completo y el número de materias asignadas.
-#' 3) mat_prof_asig: Matriz de 2 columnas con el nombre de los profesores
-#' de asignatura y el número de materias asignadas.
-#' 4) lista_ciclo_asig: Lista 
-#' 5) mat_solicitudes_TC: Matriz de solicitudes de los profesores de tiempo
-#' completo.
-#' 6) mat_solicitudes_asignatura: Matriz de solicitudes de los profesores
-#' de asignatura.
-#' 7) num_alum_simulados: Variable tipo numeric, con el número de alumnos
-#' simulados totales.
-#' 8) mat_E: Matriz de  15 renglones (horas) y 203 columnas (materias).
-#' En la entrada (i,j) se tiene el número de alumnos simulados
-#' para la hora i, y la materia j.
+#' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) que tiene la información de la solicitud de los
+#' profesores. Se hace una "intersección" con los grupos simulados en la
+#' matriz "mat_esqueleto" y así se obtienen las solicitudes pseudo-reales
+#' de los profesores.
+#' @param lista_asignacion: Lista de 3 elementos:
+#' 1) mat_asignacion: Matriz de cuatro columnas (Materia, Profesor,
+#' TC,Horario) la cual contiene en el i-ésimo renglón la asignación
+#' por materia, profesor y horario. La columna TC indica si el profesor
+#' es o no de tiempo completo.
+#' 2) m_esq_aux: Matriz con el número de grupos que quedaron sin asignación.
+#' 3) m_sol_aux: Matriz de solicitudes reales con el número de materias
+#' asignadas por profesor. (NO SE UTILIZA, SE PUEDE BORRAR DE LA LISTA)
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
 #' funciones que se mandan llamar.
 #' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
 #'
-#' @return calif_asignacion: Variable tipo numeric que indica la calificación
-#' del asignacion.
+#' @return lista_calif_asignacion: Lista con 2 elementos:
+#' 1) mat_calif_asig_x_gpo: Matriz de 6 columnas (Materia,Profesor,TC,
+#' Horario, calif, Prob_Ac), que contiene la información por grupo asignado.
+#' 2) calif_asignacion: Variable tipo numeric que indica la calificación
+#' global de la asignación.
 #'
 #' @examples
-#' calif_asignacion <- califica_asignacion(mat_demanda_alumnos,
-#' lista_info_esqueleto,param)
+#' lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
+#' lista_asignacion,param)
 #' 
-califica_asignacion <- function(mat_demanda_alumnos,lista_info_esqueleto,
-                               param){
+califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
+  ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
-  vec_nom_materias_total <- param$vec_nom_materias_total
-  mat_esqueleto <- lista_info_esqueleto[[1]]
-  mat_prof_TC <- lista_info_esqueleto[[2]]
-  # mat_prof_asig <- lista_info_esqueleto[[3]]
-  mat_demanda_aux <- lista_info_esqueleto[[4]]
-  mat_solicitudes_TC <- lista_info_esqueleto[[5]]
-  mat_solicitudes_asignatura <- lista_info_esqueleto[[6]]
-  (num_alum_simulados <- lista_info_esqueleto[[7]])#34750
-  calif_esqueleto <- 0
+  mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
+  mat_asignacion <- lista_asignacion[[1]]
+  mat_esqueleto_aux <- lista_asignacion[[2]]
   
-  #' Penalización por no tener en el esqueleto una materia que necesitamos.
-  #' Se resta 1 por cada materia no impartida.
-  materias_no_impartidas <- 0
-  nom_materias_no_impartidas <- 0
-  
-  for(c in 1:dim(mat_esqueleto)[2]){#Se recorren las columnas
-    suma_col <- sum(mat_demanda_alumnos[,c])
-    if(suma_col!=0 && sum(mat_demanda_aux[,c])>=suma_col){
-      materias_no_impartidas <- materias_no_impartidas + 1
-      nom_materias_no_impartidas <- c(nom_materias_no_impartidas,
-                                      vec_nom_materias_total[c])
-      # cat("\n No fue impartida la materia: ",vec_nom_materias_total[c])
-    }
-  }
-  materias_no_impartidas#4
-  #Quitamos el cero inicial
-  nom_materias_no_impartidas <- nom_materias_no_impartidas[-1]
-  nom_materias_no_impartidas
-  
-  
-  #' Penalización por cada alumno faltante: Se suma el número de alumnos
-  #' que quedaron en la matriz "mat_demanda_aux". Se multiplica alfa
-  #' por el número de alumnos faltantes
-  alfa <- 0.5
-  (num_alum_faltantes <- sum(mat_demanda_aux[mat_demanda_aux>0]))#10,930
-  (pena_faltantes <- alfa*num_alum_faltantes)#5465
-  
-  
-  #' Penalización por cada alumno sobrante: El número de alumnos
-  #' sobrantes es el número de alumnos simulados menos el número de
-  #' alumnos asignados (alumnos requeridos - alumnos faltantes)
-  #' Se multiplica el número de alumnos sobrantes por beta.
-  beta <- 0.8
-  # (num_alum_requeridos <- sum(mat_demanda_alumnos))#34,955
-  # (num_alum_asignados <- num_alum_requeridos-num_alum_faltantes)#13,000
-  # (num_alum_sobrantes <- max(0,num_alum_simulados-num_alum_asignados))#10,354
-  (num_alum_sobrantes <- -sum(mat_demanda_aux[mat_demanda_aux<0]))#10187
-  (pena_sobrantes <- beta*num_alum_sobrantes)#8149.6
-  
+  #' Penalización por grupo en esqueleto sin profesor:
+  #' Se resta 1 por cada grupo sin profesor.
+  (gpos_sin_prof <- sum(mat_esqueleto_aux))
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
-  #' no se la dieron. Se penaliza con uno por cada materia.
-  #' 
-  #' Notas:
-  #' 1) Se cuenta por materia solicitada, no por materia con
-  #' horario. Ej. Si se pidió Proba I a las 10hrs y a las 11hrs,
-  #' sólo se cuenta una penalización.
-  #' 2) Se penaliza por cada materia con tope a 2 asignaciones,
-  #' i.e. si un profesor pidió 3 o más  materias y sólo le dieron 1,
-  #' entonces se penaliza 1; si le dieron 2 entonces no hay
-  #' penalización.
-  # mat_prof_TC_menor_2 <- mat_prof_TC[mat_prof_TC[,2]<=1,]
-  # mat_solicitudes_TC_aux <- unique(mat_solicitudes_TC[,c(1,3,4)])
-  pena_x_materia <- 0
-  mat_prof_TC_igual_1 <- mat_prof_TC[mat_prof_TC[,2]==1,]
-  mat_prof_TC_igual_0 <- mat_prof_TC[mat_prof_TC[,2]==0,]
+  #' no se la dieron. Se penaliza con 10 por cada materia.
+  mat_info_prof <- data.frame(Profesor = param$mat_nom_prof_total[,1],
+                              TC = param$mat_nom_prof_total[,2],
+                              Materias_solicitadas = 0,
+                              Materias_asignadas = 0)
   
-  ## Una materia
-  for(r in 1:dim(mat_prof_TC_igual_1)[1]){#Recorre los renglones
-    nom_prof <- mat_prof_TC_igual_1[r,1]
-    if(any(nom_prof == mat_solicitudes_TC[,1])){
-      pena_x_materia <- pena_x_materia + 1
+  for(p in 1:length(param$mat_nom_prof_total[,1])){
+    (prof <- mat_info_prof[p,1])
+    solicitudes <- mat_solicitudes_real %>% filter(Profesor == prof)
+    mat_info_prof[p,3] <- dim(solicitudes)[1]
+    
+    asignaciones <- mat_asignacion %>% filter(Profesor == prof)
+    mat_info_prof[p,4] <- dim(asignaciones)[1]
+  }
+  
+  #' Nota:
+  #' Se penaliza por cada materia con tope a "num_max_asig",
+  #' Ej. si num_max_asig = 2 y un profesor pidió 3 o más  materias
+  #' pero sólo le dieron 1, entonces se penaliza 1; si le dieron 2
+  #' no hay penalización.
+  pena_x_solicitud_negada <- 0
+  mat_prof_TC <- mat_info_prof %>% filter(TC == 1)
+  
+  for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
+    if(mat_prof_TC[r,3]>0 && mat_prof_TC[r,4]<2){
+      num_sols <- min(mat_prof_TC[r,3],param$num_max_asig)
+      num_neg <- num_sols - mat_prof_TC[r,4]
+      pena_x_solicitud_negada <- pena_x_solicitud_negada + (10*num_neg)
     }
   }
+  pena_x_solicitud_negada##680
   
-  ## Dos materias
-  for(r in 1:dim(mat_prof_TC_igual_0)[1]){#Recorre los renglones
-    nom_prof <- mat_prof_TC_igual_0[r,1]
-    if(any(nom_prof == mat_solicitudes_TC[,1])){
-      pena_x_materia <- pena_x_materia + 2
+
+  ##### CALIFICACIÓN POR GRUPO #####
+  
+  #' Se pone un +5 si el profesor asignado es de TC
+  ind_TC <- which(mat_calif_asig_x_gpo[,3] == 1)
+  mat_calif_asig_x_gpo[ind_TC,5] <- 5
+  
+  #' Se pone un -1 por cada asignación que pudo haber tenido un
+  #' profesor de TC y tiene un profesor de asignatura.
+  mat_prof_TC <- data.frame(mat_prof_TC,Materias_negadas = 0)
+  
+  for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
+    (num_sols <- min(mat_prof_TC[r,3],param$num_max_asig))
+    mat_prof_TC[r,5] <- num_sols - mat_prof_TC[r,4]
+  }
+  TC_falta_asig <- mat_prof_TC %>% filter(Materias_negadas > 0)
+  materias_no_asignadas <- data.frame(Profesor = 0,TC = 0, Materia = 0,
+                                      Num_Materia = 0,Horario = 0)
+  
+  for(r in 1:dim(TC_falta_asig)[1]){#Recorre renglones de "TC_falta_asig"
+    indices <- which(mat_solicitudes_real[,1] == TC_falta_asig[r,1])
+    materias_no_asignadas <- rbind(materias_no_asignadas,
+                                   mat_solicitudes_real[indices,])
+  }
+  materias_no_asignadas <- materias_no_asignadas %>% filter(Profesor != 0)
+  
+  for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+    materia <- mat_calif_asig_x_gpo[r,1]
+    hora <- mat_calif_asig_x_gpo[r,4]
+    mat_aux <- materias_no_asignadas %>% filter(Materia == materia) %>% filter(
+      Horario == hora)
+    
+    mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - dim(mat_aux)[1]
+  }
+  
+  #' Para tener una calificación diferente para cada grupo, sumamos
+  #' a cada renglón una épsilon:
+  for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+    (num_al <- round(runif(1,0,0.1),4))
+    if(mat_calif_asig_x_gpo[r,5] >= 0){
+      mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] + num_al
+    }else{
+      mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - num_al
     }
   }
-  pena_x_materia##72
+  mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(-mat_calif_asig_x_gpo$calif),]
   
-  
-  #' Penalización por cada profesor que pueda impartir la materia j en
-  #' la hora i y esa entrada de la matriz "mat_demanda_aux" aún tenga
-  #' alumnos. Se penaliza por cada grupo que no se le asignó un profesor
-  #' que si podía dar clase.
-  # media_alum <- 34.18746
-  mat_solicitudes <- rbind(mat_solicitudes_TC,mat_solicitudes_asignatura)
-  mat_solicitudes <- mat_solicitudes[mat_solicitudes[,4] > 0,]
-  mat_i_j <- matrix(0,nrow = dim(mat_solicitudes)[1],ncol = 2)
-  pena_gpos_sin_prof <- 0
-  
-  for(r in 1:dim(mat_solicitudes)[1]){#Recorre los renglones
-    #' Se llenan los índices en los que un profesor puede dar
-    #' la materia j en la hora i
-    ind_hora <- which(7:21 == mat_solicitudes[r,5])
-    mat_i_j[r,] <- c(ind_hora,mat_solicitudes[r,4])
+  #' Agregamos una columna con la probabilidad acumulada de elegir cada
+  #' grupo.
+  (n_gpos <- dim(mat_calif_asig_x_gpo)[1])
+  mat_calif_asig_x_gpo[1,6] <- (2*1)/(n_gpos*(n_gpos+1))
+  for(r in 2:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+    prob <- (2*r)/(n_gpos*(n_gpos+1))
+    mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
   }
-  colnames(mat_i_j) <- c("i","j")
   
-  for(r in 1:dim(mat_i_j)[1]){#Recorre renglones
-    # cat("\n r = ",r)
-    i <- as.numeric(mat_i_j[r,1])
-    j <- as.numeric(mat_i_j[r,2])
-    if(mat_demanda_aux[i,j] > 0){
-      pena_gpos_sin_prof <- pena_gpos_sin_prof + 1
-    }
-  }
-  pena_gpos_sin_prof#148
+  (calif_asignacion <- -sum(gpos_sin_prof,pena_x_solicitud_negada,
+                            -mean(mat_calif_asig_x_gpo[,5])))#-1624
   
-  #' Si hay alumnos que necesitan una clase a alguna hora y no
-  #' existe profesor que la imparta.
+  lista_calif_asignacion <- list()
+  lista_calif_asignacion[[1]] <- mat_calif_asig_x_gpo
+  lista_calif_asignacion[[2]] <- calif_asignacion
   
-  
-  calif_asignacion <- -sum(materias_no_impartidas,pena_faltantes,pena_sobrantes,
-                          pena_x_materia,pena_gpos_sin_prof)#-13854.6
-  return(calif_asignacion)
+  cat("\nLa función califica_asignacion tardó: ",(proc.time()-ptm)[3],
+      " segundos\n")
+  return(lista_calif_asignacion)
 }
+
+
+
+# Ej. ---------------------------------------------------------------------
+
+lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
+                                              lista_asignacion,
+                                              param)#6.2/5.58/5.45 seg
+
+mat_calif_asig_x_gpo <- lista_calif_asignacion[[1]]
+(calif_asignacion <- lista_calif_asignacion[[2]])#-1083.836
+View(mat_calif_asig_x_gpo)
+
+
+
+
+
+
+

@@ -35,9 +35,10 @@ gen_asignacion_completa <- function(param,param_sim){
   # set.seed(236776)#4.82seg
   # set.seed(132934)#4.9seg
   # set.seed(0.1806)#5.39seg
-  n_rep <- 10
+  # n_rep <- 10 #12.45 min
+  n_rep <- 5 #5.97 min
   set.seed(1806)
-  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#12.45 min
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)
   mat_esqueleto <- lista_esq_D_prima[[1]]
   View(mat_esqueleto)
   
@@ -49,16 +50,28 @@ gen_asignacion_completa <- function(param,param_sim){
   
   #' 4b) Simulación de solicitudes de profesores (pseudo-real)
   set.seed(1806)
-  mat_solicitudes <- gen_solicitudes(param)#7.86 seg
-  #' Quitamos las materias = 0
-  mat_solicitudes <- mat_solicitudes %>% filter(Materia != 0)
-  View(mat_solicitudes)
+  mat_solicitudes_real <- gen_solicitudes_real(mat_esqueleto,param)#10.12 seg
+  View(mat_solicitudes_real)
   
   #' 8) Asignación
-  gen_asignacion(mat_esqueleto,mat_solicitudes,param)
-    
+  # set.seed(1806)
+  # lista_asignacion <- gen_asignacion(mat_esqueleto,mat_solicitudes_real,
+  #                                    param)#22.66 seg
+  # mat_asignacion <- lista_asignacion[[1]]
+  # mat_esqueleto_aux <- lista_asignacion[[2]]
+  # # mat_solicitud_aux <- lista_asignacion[[3]]
+  # View(mat_asignacion)
+  # View(mat_esqueleto_aux)
+  # View(mat_solicitud_aux)
+  
   #' 9) Calificación de asignación
-  califica_asignaciones()
+  # set.seed(1806)
+  # lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
+  #                                               lista_asignacion,
+  #                                               param)#5.48 seg
+  # mat_calif_asig_x_gpo <- lista_calif_asignacion[[1]]
+  # (calif_asignacion <- lista_calif_asignacion[[2]])#-1083.836
+  # View(mat_calif_asig_x_gpo)
   
   #' 10) AG aplicado a asignaciones: Aquí ya va a salir una buena asignación
   AG_asignaciones()
