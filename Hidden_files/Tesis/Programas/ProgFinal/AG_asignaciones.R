@@ -49,7 +49,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   matrices_calif_x_generacion <- list()
   mejores_asig <- list()
   
-  ptm <- proc.time()# Start the clock!
+  # ptm <- proc.time()# Start the clock!
   for(g in 1:num_generaciones){
     cat("\n *** GENERACIÓN ",g," ***")
     
@@ -97,8 +97,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       padre_2 <- poblacion[[ind_padres[2]]]
       while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
         # Repetir hasta que uno de los padres se quede sin genes.
-        cat("\n dim(padre_1)",dim(padre_1)[1])
-        cat("\n dim(padre_2)",dim(padre_2)[1])
+        # cat("\n dim(padre_1)",dim(padre_1)[1])
+        # cat("\n dim(padre_2)",dim(padre_2)[1])
         
         ### 5) Con prob = 0.5 se elige un padre
         (r_num_elige_padre <- runif(1))
@@ -142,8 +142,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
     }#Fin for(n)
     
   }#Fin for(g)
-  cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
-      " minutos. Para ",num_generaciones," generaciones \n")
+  # cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
+  #     " minutos. Para ",num_generaciones," generaciones \n")
   ##126.403  min = 2hrs 6.4min - 5 generaciones
   
   # View(matrices_calif_x_generacion)
@@ -162,7 +162,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
             scale="none",col=colMain)
   }
   
-  ### 14) Se define la asignacion final
+  ### 14) Se define la asignación final
   mejor_asig <- mejores_asig[[num_generaciones]][[2]]
   mat_asignacion_final <- cbind(mejor_asig$Materia,
                                 mejor_asig$Profesor,

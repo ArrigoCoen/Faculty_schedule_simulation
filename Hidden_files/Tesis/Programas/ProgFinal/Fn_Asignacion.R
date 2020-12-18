@@ -129,8 +129,8 @@ param$num_max_asig = 2
 param$cota_TC = 1000
 param$cota_asig = 6000
 param$tam_poblacion = 10
-param$num_generaciones = 5
-param$prob_mutacion = 1/24
+param$num_generaciones = 4
+param$prob_mutacion = 1/(6+18)
 param$n_cols_mat_calif = 2000
 param$elige_TC = 0.7
 # param$ = 
@@ -4473,7 +4473,7 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
   (gpos_sin_prof <- sum(mat_esqueleto_aux))
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
-  #' no se la dieron. Se penaliza con 10 por cada materia.
+  #' no se la dieron. Se penaliza con -10 por cada materia.
   mat_info_prof <- data.frame(Profesor = param$mat_nom_prof_total[,1],
                               TC = param$mat_nom_prof_total[,2],
                               Materias_solicitadas = 0,
@@ -4512,8 +4512,8 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
   ind_TC <- which(mat_calif_asig_x_gpo[,3] == 1)
   mat_calif_asig_x_gpo[ind_TC,5] <- 5
   
-  #' Se pone un -1 por cada asignación que pudo haber tenido un
-  #' profesor de TC y tiene un profesor de asignatura.
+  #' Se penaliza con -1 por cada asignación que pudo haber tenido
+  #' un profesor de TC y tiene un profesor de asignatura.
   mat_prof_TC <- data.frame(mat_prof_TC,Materias_negadas = 0)
   
   for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
@@ -4550,7 +4550,7 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
       mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - num_al
     }
   }
-  mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(-mat_calif_asig_x_gpo$calif),]
+  mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(mat_calif_asig_x_gpo$calif),]
   
   #' Agregamos una columna con la probabilidad acumulada de elegir cada
   #' grupo.

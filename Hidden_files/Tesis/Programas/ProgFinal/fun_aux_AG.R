@@ -152,7 +152,7 @@ elige_padres <- function(mat_calif_asig){
 #' seleccionado. Un gen es un vector de 4 entradas (Materia,Profesor,TC,
 #' Horario)
 #'
-#' @param padre_elegido: Asignación elegida para elegir un gen para el hijo.
+#' @param padre_elegido: Asignación seleccionada para elegir un gen para el hijo.
 #'
 #' @return gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
 #' con la información del gen del padre elegido.
