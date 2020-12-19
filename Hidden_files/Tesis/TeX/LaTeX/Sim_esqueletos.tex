@@ -3,22 +3,23 @@
 En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, utilizando la metodología $B$ seleccionada en la sección anterior. La matriz tiene $t$ renglones y $m$ columnas. En la entrada $(h,j)$ tiene el número de grupos simulados para la hora $h$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
 
 
-Los pasos que seguimos para obtener la matriz \textit{mat\_esqueleto} con la metodología $B$ son:
+%Los pasos que seguimos para obtener la matriz \textit{mat\_esqueleto} con la metodología $B$ son:
+Los pasos que seguimos son:
 
 \begin{enumerate}
 \item Definir \textit{n\_rep}, el número de veces que se va a generar la matriz $D'_{n}$ con la demanda de alumnos para el siguiente semestre.
 
 \item Simular $D'_{1}$ con la función \textit{gen\_mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}).
 
-\item Definir la matriz \textit{prom\_D} igual a $D'_{1}$. La matriz \textit{prom\_D} guardará el número de alumnos simulados promedio.
+\item Definir la matriz \textit{prom\_D} igual a $D'_{1}$. La matriz \textit{prom\_D} guardará el promedio del número de alumnos simulados.
 
 \item Simular \textit{mat\_solicitudes} con la función \textit{gen\_solicitudes} (ver Sección \ref{SimSolicitudesProfesores}).
 
-\item Simular un esqueleto inicial con la función \textit{gen\_esqueleto} (ver Subsseción \ref{subsec_gen_esqueleto}).
+\item Simular un esqueleto inicial con la función \textit{gen\_esqueleto}. Los pasos de esta función se pueden ver en la Subsección \ref{subsec_gen_esqueleto}.
 
 \item Guardar el número de grupos por materia.
 
-\item Convertir y guardar los datos del esqueleto inicial para obtener la distribución por horas (\textit{wait\_mat\_esqueleto}).
+\item Convertir y guardar los datos del esqueleto inicial para obtener la distribución por horas. Los datos se guardan en el vector \textit{wait\_mat\_esqueleto}.
 
 \item Graficar los datos del esqueleto inicial para ver su distribución. Con esta gráfica encontrar el número de medias inicial, en nuestro caso $k = 4$ (ver \figurename{~\ref{hist_wait_esq_ini}}).
 
@@ -55,9 +56,11 @@ Pasos finales:
 \begin{enumerate}
 \item Calcular el promedio de grupos por materia. Para ello, aplicar las siguientes funciones de \textit{R}, a la matriz \textit{prom\_D}: \verb@ceiling(colMeans((prom_D))@ 
 
-\item Definir el modelo final \textit{mixmdl\_esqueleto} con la función en \textit{R} (ver \figurename{~\ref{hist_wait_esq_fin}}):
+\item Definir el modelo final \textit{mixmdl\_esqueleto} con la función en \textit{R}:
 
 \verb@normalmixEM(wait_mat_esqueleto,k = 4,mean=mixmdl_1_esqueleto$mu)@.
+
+En la \figurename{~\ref{hist_wait_esq_fin}}) se puede ver el histograma con todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final \textit{mixmdl\_esqueleto}.
 
 \item Generar la matriz \textit{mat\_esqueleto} en base al promedio obtenido y a la distribución del modelo final. Por ejemplo, si se tiene una materia con 5 grupos simulados, entonces se simulan 5 números aleatorios con distribución Normal. El comando en \textit{R} es: \verb@round(rnorm(5,mixmdl_esqueleto$mu,mixmdl_esqueleto$sigma))@
 \end{enumerate}
@@ -65,7 +68,7 @@ Pasos finales:
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{hist_wait_esqueleto_final} %scale = 0.7
-\caption[\textit{Histograma con los datos del esqueleto final}]{\textit{Se muestra el histograma con los datos del esqueleto final. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
+\caption[\textit{Histograma con  todos los datos de los esqueletos simulados}]{\textit{Se muestra el histograma con  todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
 \end{figure}
 
 
