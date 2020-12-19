@@ -36,7 +36,7 @@ gen_asignacion_completa <- function(param,param_sim){
   # set.seed(132934)#4.9seg
   # set.seed(0.1806)#5.39seg
   # n_rep <- 10 #12.45 min
-  n_rep <- 5 #5.97 min
+  n_rep <- 5 #5.97/5.59 min
   set.seed(1806)
   lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)
   mat_esqueleto <- lista_esq_D_prima[[1]]
@@ -50,7 +50,7 @@ gen_asignacion_completa <- function(param,param_sim){
   
   #' 4b) Simulación de solicitudes de profesores (pseudo-real)
   set.seed(1806)
-  mat_solicitudes_real <- gen_solicitudes_real(mat_esqueleto,param)#10.12 seg
+  mat_solicitudes_real <- gen_solicitudes_real(mat_esqueleto,param)#8.3 seg
   View(mat_solicitudes_real)
   
   #' 8) Asignación
