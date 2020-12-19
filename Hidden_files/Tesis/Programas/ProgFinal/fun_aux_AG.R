@@ -75,13 +75,7 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
   calif_asignacion_inicial <- calif_asignacion_inicial[,order(
     calif_asignacion_inicial[2,])]
   mat_calif_asig_ini <- data.frame(ind_Asig = calif_asignacion_inicial[1,],
-                                   Calif = calif_asignacion_inicial[2,],
-                                   Prob_Ac = 0)
-  mat_calif_asig_ini[1,3] <- (2*1)/(tam_poblacion*(tam_poblacion+1))
-  for(r in 2:tam_poblacion){
-    prob <- (2*r)/(tam_poblacion*(tam_poblacion+1))
-    mat_calif_asig_ini[r,3] <- mat_calif_asig_ini[(r-1),3] + prob
-  }
+                                   Calif = calif_asignacion_inicial[2,])
   
   lista_info_inicial <- list()
   lista_info_inicial[[1]] <- mat_calif_asig_ini#Matriz con las calificaciones de las asignaciones
@@ -95,84 +89,6 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
 }
 
 
-
-
-# elige_padres ------------------------------------------------------------
-#' Title elige_padres: Función encargada de elegir 2 padres diferentes. Con
-#' probabilidad de elección de 2i/(n*(n+1)), donde i = posición en la tabla
-#' con respecto a la calificación. Entre mejor calificación, más probabilidad
-#' de ser elegido.
-#'
-#' @param mat_calif_asig: Matriz de 3 columnas (ind_Asig,Calif,Prob_Ac)
-#'
-#' @return ind_padres: Vector de 2 entradas con los índices de las
-#' asignaciones que se toman como padres.
-#'
-#' @examples
-#' ind_padres <- elige_padres(mat_calif_asig)
-#' 
-elige_padres <- function(mat_calif_asig){
-  #Se definen las variables que se van a utilizar
-  (r_num_padre1 <- runif(1))
-  (r_num_padre2 <- runif(1))
-  ind_padres <- c(0,0)
-  vec_prob_ac <- c(0,mat_calif_asig$Prob_Ac)
-  padres_iguales <- 1
-  
-  while(padres_iguales == 1){
-    #' Las asignaciones están ordenadas por calificación, pero no se ordenó
-    #' la lista en la que están guardadas, por lo que se toma el índide
-    #' de la asignación de acuerdo a la matriz "mat_calif_asig" que
-    #' contiene esa información.
-    for(r in 1:dim(mat_calif_asig)[1]){
-      if(r_num_padre1>=vec_prob_ac[r] && 
-         r_num_padre1<vec_prob_ac[(r+1)]){
-        ind_padres[1] <- mat_calif_asig[r,1]
-      }
-      if(r_num_padre2>=vec_prob_ac[r] && 
-         r_num_padre2<vec_prob_ac[(r+1)]){
-        ind_padres[2] <- mat_calif_asig[r,1]
-      }
-    }#Fin for(r)
-    if(ind_padres[1] == ind_padres[2]){
-      (r_num_padre1 <- runif(1))
-      (r_num_padre2 <- runif(1))
-    }else{
-      padres_iguales <- 0
-    }
-  }#Fin while()
-  return(ind_padres)
-}
-
-
-
-
-# elige_gen ---------------------------------------------------------------
-#' Title elige_gen: Función que elige un gen de un padre previamente
-#' seleccionado. Un gen es un vector de 4 entradas (Materia,Profesor,TC,
-#' Horario)
-#'
-#' @param padre_elegido: Asignación seleccionada para elegir un gen para el hijo.
-#'
-#' @return gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
-#' con la información del gen del padre elegido.
-#'
-#' @examples
-#' gen_elegido <- elige_gen(padre_elegido)
-#' 
-elige_gen <- function(padre_elegido){
-  #Se definen las variables que se van a utilizar
-  (r_num_gen <- runif(1))
-  vec_prob_ac <- c(0,padre_elegido$Prob_Ac)
-  
-  for(r in 1:dim(padre_elegido)[1]){
-    if(r_num_gen>=vec_prob_ac[r] && 
-       r_num_gen<vec_prob_ac[(r+1)]){
-      gen_elegido <- padre_elegido[r,1:4]
-    }
-  }#Fin for(r)
-  return(gen_elegido)
-}
 
 
 
@@ -257,6 +173,10 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
   #' Se quita la información de ese profesor a esa hora y
   #' ese profesor con esa materia.
+  
+  ### HACER PRUEBAS CON PROFESOR "Antonio Carrillo Ledesma"
+  ### PARA EL CASO 3) DE a) DE vii) de T46
+  
   
   #' Padre 1
   (ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
@@ -377,13 +297,7 @@ califica_ordena_asig <- function(poblacion_nueva,param){
   calif_asignacion <- calif_asignacion[,order(
     calif_asignacion[2,])]
   mat_calif_asig <- data.frame(ind_Asig = calif_asignacion[1,],
-                                   Calif = calif_asignacion[2,],
-                                   Prob_Ac = 0)
-  mat_calif_asig[1,3] <- (2*1)/(tam_poblacion*(tam_poblacion+1))
-  for(r in 2:tam_poblacion){
-    prob <- (2*r)/(tam_poblacion*(tam_poblacion+1))
-    mat_calif_asig[r,3] <- mat_calif_asig[(r-1),3] + prob
-  }
+                                   Calif = calif_asignacion[2,])
   
   lista_info <- list()
   lista_info[[1]] <- mat_calif_asig#Matriz con las calificaciones de las asignaciones

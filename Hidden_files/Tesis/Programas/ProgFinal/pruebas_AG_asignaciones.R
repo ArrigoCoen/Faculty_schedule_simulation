@@ -1,6 +1,7 @@
 ##########################################################################
-#' En este programa se encuentra la función que aplica el algoritmo
-#' genético a las asignaciones para encontrar una buena asignación.
+#' En este programa se encuentra las pruebas de la función que aplica el
+#' algoritmo genético a las asignaciones para encontrar una buena
+#' asignación.
 ##########################################################################
 
 #Source ------------------------------------------------------------------
@@ -13,33 +14,83 @@ setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulatio
 source("Fn_Asignacion.R")
 
 
-# AG_asignaciones ---------------------------------------------------------
-#' Title AG_asignaciones: Función que aplica el algoritmo genético a las
-#' asignaciones para encontrar una buena asignación.
+# elige_padres ------------------------------------------------------------
+#' Title elige_padres: Función encargada de elegir 2 padres diferentes. Con
+#' probabilidad de elección de 2i/(n*(n+1)), donde i = posición en la tabla
+#' con respecto a la calificación. Entre mejor calificación, más probabilidad
+#' de ser elegido.
 #'
-#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
-#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
-#' para la hora i, y la materia j.
-#' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
-#' Num_Materia,Horario) y 6 renglones que tiene la información de la
-#' solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
-#' horarios. Se quitan los renglones repetidos. Se hace una "intersección"
-#' con los grupos simulados en la matriz "mat_esqueleto" y así se obtienen
-#' las solicitudes pseudo-reales de los profesores.
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
-#' m_grande_total)
+#' @param mat_calif_asig: Matriz de 3 columnas (ind_Asig,Calif,Prob_Ac)
 #'
-#' @return mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
-#' Horario). Contiene la asignación final encontrada con el algoritmo
-#' genético.
+#' @return ind_padres: Vector de 2 entradas con los índices de las
+#' asignaciones que se toman como padres.
 #'
 #' @examples
-#' mat_asignacion_final <- AG_asignaciones(mat_esqueleto,
-#' mat_solicitudes_real,param)
+#' ind_padres <- elige_padres(mat_calif_asig)
 #' 
+elige_padres <- function(mat_calif_asig){
+  #Se definen las variables que se van a utilizar
+  (r_num_padre1 <- runif(1))
+  (r_num_padre2 <- runif(1))
+  ind_padres <- c(0,0)
+  vec_prob_ac <- c(0,mat_calif_asig$Prob_Ac)
+  padres_iguales <- 1
+  
+  while(padres_iguales == 1){
+    #' Las asignaciones están ordenadas por calificación, pero no se ordenó
+    #' la lista en la que están guardadas, por lo que se toma el índide
+    #' de la asignación de acuerdo a la matriz "mat_calif_asig" que
+    #' contiene esa información.
+    for(r in 1:dim(mat_calif_asig)[1]){
+      if(r_num_padre1>=vec_prob_ac[r] && 
+         r_num_padre1<vec_prob_ac[(r+1)]){
+        ind_padres[1] <- mat_calif_asig[r,1]
+      }
+      if(r_num_padre2>=vec_prob_ac[r] && 
+         r_num_padre2<vec_prob_ac[(r+1)]){
+        ind_padres[2] <- mat_calif_asig[r,1]
+      }
+    }#Fin for(r)
+    if(ind_padres[1] == ind_padres[2]){
+      (r_num_padre1 <- runif(1))
+      (r_num_padre2 <- runif(1))
+    }else{
+      padres_iguales <- 0
+    }
+  }#Fin while()
+  return(ind_padres)
+}
+
+
+# elige_gen ---------------------------------------------------------------
+#' Title elige_gen: Función que elige un gen de un padre previamente
+#' seleccionado. Un gen es un vector de 4 entradas (Materia,Profesor,TC,
+#' Horario)
+#'
+#' @param padre_elegido: Asignación seleccionada para elegir un gen para el hijo.
+#'
+#' @return gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
+#' con la información del gen del padre elegido.
+#'
+#' @examples
+#' gen_elegido <- elige_gen(padre_elegido)
+#' 
+elige_gen <- function(padre_elegido){
+  #Se definen las variables que se van a utilizar
+  (r_num_gen <- runif(1))
+  vec_prob_ac <- c(0,padre_elegido$Prob_Ac)
+  
+  for(r in 1:dim(padre_elegido)[1]){
+    if(r_num_gen>=vec_prob_ac[r] && 
+       r_num_gen<vec_prob_ac[(r+1)]){
+      gen_elegido <- padre_elegido[r,1:4]
+    }
+  }#Fin for(r)
+  return(gen_elegido)
+}
+
+
+# AG_asignaciones ---------------------------------------------------------
 AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
@@ -49,7 +100,6 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   n_cols_mat_calif <- param$n_cols_mat_calif
   matrices_calif_x_generacion <- list()
   mejores_asig <- list()
-  vec_prob_asig <- (2*(1:tam_poblacion))/(tam_poblacion*(tam_poblacion+1))
   
   # ptm <- proc.time()# Start the clock!
   for(g in 1:num_generaciones){
@@ -60,7 +110,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       ### 1) Generar población inicial y 2) Calificar
       lista_info_inicial <- poblacion_calif_iniciales(mat_esqueleto,
                                                       mat_solicitudes_real,
-                                                      param)#5.22/4.82 min
+                                                      param)#5.22 min
       mat_calif_asig <- lista_info_inicial[[1]]
       poblacion <- lista_info_inicial[[2]]
       
@@ -83,7 +133,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       matrices_calif_x_generacion[[g]] <- lista_info[[3]]
       
       ### 11) Guardar la mejor asignación de la generación
-        ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+      ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
       mejores_asig[[g]] <- list(mat_calif_asig,
                                 poblacion[[ind_mejor_asig]])
     }
@@ -94,9 +144,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       hijo <- data.frame(Materia = 0, Profesor = 0,TC = 0,
                          Horario = 0)
       ### 4) Elegir 2 padres con prob = 2i/(n*(n+1))
-      (ind_padres <- sample(x = mat_calif_asig[,1],
-                               size = 2,
-                               prob = vec_prob_asig))
+      (ind_padres <- elige_padres(mat_calif_asig))
+      
       padre_1 <- poblacion[[ind_padres[1]]]
       padre_2 <- poblacion[[ind_padres[2]]]
       while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
@@ -105,28 +154,26 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         # cat("\n dim(padre_2)",dim(padre_2)[1])
         
         ### 5) Con prob = 0.5 se elige un padre
-        padre_elegido <- poblacion[[ind_padres[sample(x=1:2,size = 1)]]]
+        (r_num_elige_padre <- runif(1))
+        if(r_num_elige_padre < 0.5){
+          padre_elegido <- padre_1
+        }else{
+          padre_elegido <- padre_2
+        }
         
         ### 6) Elegir un gen (grupo) del padre seleccionado con prob = 2i/(n*(n+1))
-        (num_genes <- dim(padre_elegido)[1])
-        vec_prob_genes <- (2*(1:num_genes))/(num_genes*(num_genes+1))
-        (ind_gen <- sample(x = 1:num_genes,
-                              size = 1,
-                              prob = vec_prob_genes))
-        (gen_elegido <- padre_elegido[ind_gen,1:4])
+        (gen_elegido <- elige_gen(padre_elegido))
         
         ### 7) Mutación
         (r_num_muta <- runif(1))
         if(r_num_muta < prob_mutacion){
           cat("\n Entra a mutación")
-          (gen_elegido <- elige_gen_de_solicitud(mat_solicitudes_real,
-                                                 hijo,param))
+          (gen_elegido <- elige_gen_de_solicitud(mat_solicitudes_real,hijo,param))
         }
         hijo <- rbind(hijo,gen_elegido)
         hijo <- unique(hijo)#Para evitar repeticiones en los grupos
         
-        ### 8) Ajustar información de los padres con respecto al nuevo
-        ###gen del hijo
+        ### 8) Ajustar información de los padres con respecto al nuevo gen del hijo
         lista_padres <- ajusta_genes_padres(padre_1,padre_2,gen_elegido)
         padre_1 <- lista_padres[[1]]
         padre_2 <- lista_padres[[2]]
@@ -135,7 +182,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       hijo <- unique(hijo)#Para evitar repeticiones en los grupos
       hijo <- hijo %>% filter(Profesor != 0)
       
-      ### 9) Añadir los genes restantes del otro padre al hijo
+      ### 9) "Pegar" los genes restantes del otro padre al hijo
       if(dim(padre_1)[1] > 0){hijo <- rbind(hijo,padre_1)}
       if(dim(padre_2)[1] > 0){hijo <- rbind(hijo,padre_2)}
       
