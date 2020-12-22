@@ -231,3 +231,116 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   return(mat_asignacion_final)
 }
 
+
+
+
+
+# ajusta_genes_padres -----------------------------------------------------
+padre_1 <- as.data.frame(rbind(c("Análisis Numérico","Antonio Carrillo Ledesma",0,7),
+                               c("Administración Actuarial del Riesgo",
+                                 "Oscar Lucio Cano Vaca",0,20),
+                               c("Análisis Numérico","Antonio Carrillo Ledesma",0,8),
+                               c("Seminario de Geometría A","Efraín Vega Landa",0,13),
+                               c("Variable Compleja I","Alejandro Gaona Ordoñez",0,18)))
+padre_2 <- as.data.frame(rbind(c("Análisis Numérico","Antonio Carrillo Ledesma",0,7),
+                               c("Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro",
+                                 "Oscar Lucio Cano Vaca",0,20),
+                               c("Variable Compleja I","Alejandro Gaona Ordoñez",0,18)))
+
+
+### Ambos padres tienen el mismo gen
+gen_elegido <- c("Análisis Numérico","Antonio Carrillo Ledesma",0,7)
+
+#' Padre 1
+(ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
+(ind_hora_1 <- which(padre_1[,4] == as.character(gen_elegido[4])))
+(ind_materia_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
+(ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
+if(length(ind_1) > 0){
+  padre_1 <- padre_1[-ind_1,]
+}
+
+#' Padre 2
+(ind_prof_2 <- which(padre_2[,2] == as.character(gen_elegido[2])))
+(ind_hora_2 <- which(padre_2[,4] == as.character(gen_elegido[4])))
+(ind_materia_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
+(ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
+if(length(ind_2) > 0){
+  padre_2 <- padre_2[-ind_2,]
+}
+
+
+### Ambos padres tienen mismo profesor, misma hora pero diferente materia
+gen_elegido <- c("Administración Actuarial del Riesgo",
+                 "Oscar Lucio Cano Vaca",0,20)
+
+#' Padre 1
+(ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
+(ind_hora_1 <- which(padre_1[,4] == as.character(gen_elegido[4])))
+(ind_materia_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
+(ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
+if(length(ind_1) > 0){
+  padre_1 <- padre_1[-ind_1,]
+}
+
+#' Padre 2
+(ind_prof_2 <- which(padre_2[,2] == as.character(gen_elegido[2])))
+(ind_hora_2 <- which(padre_2[,4] == as.character(gen_elegido[4])))
+(ind_materia_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
+(ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
+if(length(ind_2) > 0){
+  padre_2 <- padre_2[-ind_2,]
+}
+
+
+### Un padre tiene el gen_elegido y el otro no
+gen_elegido <- c("Seminario de Geometría A","Efraín Vega Landa",0,13)
+
+#' Padre 1
+(ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
+(ind_hora_1 <- which(padre_1[,4] == as.character(gen_elegido[4])))
+(ind_materia_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
+(ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
+if(length(ind_1) > 0){
+  padre_1 <- padre_1[-ind_1,]
+}
+
+#' Padre 2
+(ind_prof_2 <- which(padre_2[,2] == as.character(gen_elegido[2])))
+(ind_hora_2 <- which(padre_2[,4] == as.character(gen_elegido[4])))
+(ind_materia_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
+(ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
+if(length(ind_2) > 0){
+  padre_2 <- padre_2[-ind_2,]
+}
+
+### Ningún padre tiene el gen_elegido
+gen_elegido <- c("Ecuaciones Diferenciales I","Alejandro Gaona Ordoñez",0,15)
+
+#' Padre 1
+(ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
+(ind_hora_1 <- which(padre_1[,4] == as.character(gen_elegido[4])))
+(ind_materia_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
+(ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
+if(length(ind_1) > 0){
+  padre_1 <- padre_1[-ind_1,]
+}
+
+#' Padre 2
+(ind_prof_2 <- which(padre_2[,2] == as.character(gen_elegido[2])))
+(ind_hora_2 <- which(padre_2[,4] == as.character(gen_elegido[4])))
+(ind_materia_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
+(ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
+if(length(ind_2) > 0){
+  padre_2 <- padre_2[-ind_2,]
+}
+
+
+
+
+
+
+
+
+
+

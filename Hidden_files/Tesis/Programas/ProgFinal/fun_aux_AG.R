@@ -34,7 +34,6 @@ source("Fn_Asignacion.R")
 #' 1) mat_calif_asig_ini: Matriz con las calificaciones de las asignaciones
 #' 2) poblacion_inicial: Lista de matrices con asignación y calificaciones
 #' 3) mat_calif_x_generacion: Matriz con calificaciones 1 generación
-#' 4) lista_esq_aux: Lista de matrices esq_aux
 #'
 #' @examples
 #' lista_info_inicial <- poblacion_calif_iniciales(mat_esqueleto,
@@ -48,8 +47,8 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
   n_cols_mat_calif <- param$n_cols_mat_calif
   mat_calif_x_generacion <- matrix(NaN,nrow = tam_poblacion,
                                    ncol = n_cols_mat_calif)
+  mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   poblacion_inicial <- list()
-  lista_esq_aux <- list()
   calif_asignacion_inicial <- rbind(1:tam_poblacion,rep(0,tam_poblacion))
   nombres_mat_calif <- rep(0,tam_poblacion)
   
@@ -58,17 +57,110 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
     lista_asignacion <- gen_asignacion(mat_esqueleto,mat_solicitudes_real,
                                        param)#22.66 seg
     mat_asignacion <- lista_asignacion[[1]]
-    lista_esq_aux[[n]] <- lista_asignacion[[2]]
     #Calificamos
-    lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
-                                                  lista_asignacion,
-                                                  param)
-    mat_calif_asig_x_gpo <- lista_calif_asignacion[[1]]
+    #' Penalización por grupo en esqueleto sin profesor:
+    #' Se resta de acuerdo a la diferencia relativa por grupo sin profesor.
+    #' lista_asignacion[[2]] tiene los grupos que no tienen profesor,
+    #' se divide esa matriz entre mat_esqueleto y se suman los valores
+    #' ditintos de "NaN".
+    (gpos_sin_prof <- sum(!is.nan(lista_asignacion[[2]]/mat_esqueleto)))
+      
+    #' Si algún profesor de tiempo completo pidió alguna materia y
+    #' no se la dieron. Se penaliza con -10 por cada materia.
+    mat_info_prof <- data.frame(Profesor = param$mat_nom_prof_total[,1],
+                                TC = param$mat_nom_prof_total[,2],
+                                Materias_solicitadas = 0,
+                                Materias_asignadas = 0)
+    
+    for(p in 1:length(param$mat_nom_prof_total[,1])){
+      (prof <- mat_info_prof[p,1])
+      solicitudes <- mat_solicitudes_real %>% filter(Profesor == prof)
+      mat_info_prof[p,3] <- dim(solicitudes)[1]
+      
+      asignaciones <- mat_asignacion %>% filter(Profesor == prof)
+      mat_info_prof[p,4] <- dim(asignaciones)[1]
+    }
+    
+    #' Nota:
+    #' Se penaliza por cada materia con tope a "num_max_asig",
+    #' Ej. si num_max_asig = 2 y un profesor pidió 3 o más  materias
+    #' pero sólo le dieron 1, entonces se penaliza 1; si le dieron 2
+    #' no hay penalización.
+    pena_x_solicitud_negada <- 0
+    mat_prof_TC <- mat_info_prof %>% filter(TC == 1)
+    
+    for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
+      if(mat_prof_TC[r,3]>0 && mat_prof_TC[r,4]<2){
+        num_sols <- min(mat_prof_TC[r,3],param$num_max_asig)
+        num_neg <- num_sols - mat_prof_TC[r,4]
+        pena_x_solicitud_negada <- pena_x_solicitud_negada + (10*num_neg)
+      }
+    }
+    pena_x_solicitud_negada##680
+    
+    
+    ### CALIFICACIÓN POR GRUPO ###
+    
+    #' Se pone un +5 si el profesor asignado es de TC
+    ind_TC <- which(mat_calif_asig_x_gpo[,3] == 1)
+    mat_calif_asig_x_gpo[ind_TC,5] <- 5
+    
+    #' Se penaliza con -1 por cada asignación que pudo haber tenido
+    #' un profesor de TC y tiene un profesor de asignatura.
+    mat_prof_TC <- data.frame(mat_prof_TC,Materias_negadas = 0)
+    
+    for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
+      (num_sols <- min(mat_prof_TC[r,3],param$num_max_asig))
+      mat_prof_TC[r,5] <- num_sols - mat_prof_TC[r,4]
+    }
+    TC_falta_asig <- mat_prof_TC %>% filter(Materias_negadas > 0)
+    materias_no_asignadas <- data.frame(Profesor = 0,TC = 0, Materia = 0,
+                                        Num_Materia = 0,Horario = 0)
+    
+    for(r in 1:dim(TC_falta_asig)[1]){#Recorre renglones de "TC_falta_asig"
+      indices <- which(mat_solicitudes_real[,1] == TC_falta_asig[r,1])
+      materias_no_asignadas <- rbind(materias_no_asignadas,
+                                     mat_solicitudes_real[indices,])
+    }
+    materias_no_asignadas <- materias_no_asignadas %>% filter(Profesor != 0)
+    
+    for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+      materia <- mat_calif_asig_x_gpo[r,1]
+      hora <- mat_calif_asig_x_gpo[r,4]
+      mat_aux <- materias_no_asignadas %>% filter(Materia == materia) %>% filter(
+        Horario == hora)
+      
+      mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - dim(mat_aux)[1]
+    }
+    
+    #' Para tener una calificación diferente para cada grupo, sumamos
+    #' a cada renglón una épsilon:
+    for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+      (num_al <- round(runif(1,0,0.1),4))
+      if(mat_calif_asig_x_gpo[r,5] >= 0){
+        mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] + num_al
+      }else{
+        mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - num_al
+      }
+    }
+    mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(mat_calif_asig_x_gpo$calif),]
+    
+    #' Agregamos una columna con la probabilidad acumulada de elegir cada
+    #' grupo.
+    (n_gpos <- dim(mat_calif_asig_x_gpo)[1])
+    mat_calif_asig_x_gpo[1,6] <- (2*1)/(n_gpos*(n_gpos+1))
+    for(r in 2:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
+      prob <- (2*r)/(n_gpos*(n_gpos+1))
+      mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
+    }
+    
+    (calif_asignacion <- -sum(gpos_sin_prof,pena_x_solicitud_negada,
+                              -mean(mat_calif_asig_x_gpo[,5])))#-1624
+    
     poblacion_inicial[[n]] <- mat_calif_asig_x_gpo
-    calif_asignacion_inicial[2,n] <- lista_calif_asignacion[[2]]
+    calif_asignacion_inicial[2,n] <- calif_asignacion
     mat_calif_x_generacion[n,1:length(
       mat_calif_asig_x_gpo[,5])] <- mat_calif_asig_x_gpo[,5]
-    # nombres_mat_calif[n] <- paste0("Asignación ",n)
   }
   
   ## 3) Ordenar de menor a mayor y definir la probabilidad acumulada
@@ -81,7 +173,6 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
   lista_info_inicial[[1]] <- mat_calif_asig_ini#Matriz con las calificaciones de las asignaciones
   lista_info_inicial[[2]] <- poblacion_inicial#Lista de matrices con asignación y calificaciones
   lista_info_inicial[[3]] <- mat_calif_x_generacion#Matriz con calificaciones 1 generación
-  lista_info_inicial[[4]] <- lista_esq_aux#Lista de matrices esq_aux
   
   cat("\nLa función poblacion_calif_iniciales tardó: ",
       (proc.time()-ptm)[3]/60," minutos\n")
@@ -171,12 +262,9 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 #' lista_padres <- ajusta_genes_padres(padre_1,padre_2,gen_elegido)
 #' 
 ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
-  #' Se quita la información de ese profesor a esa hora y
-  #' ese profesor con esa materia.
-  
-  ### HACER PRUEBAS CON PROFESOR "Antonio Carrillo Ledesma"
-  ### PARA EL CASO 3) DE a) DE vii) de T46
-  
+  cat("\n Se eligió el gen: \n",as.character(gen_elegido))
+  cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
+      dim(padre_2)[1]," genes")
   
   #' Padre 1
   (ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
@@ -185,6 +273,7 @@ ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
   (ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
   if(length(ind_1) > 0){
     padre_1 <- padre_1[-ind_1,]
+    cat("\n Se eliminaron del padre 1: ",length(ind_1)," entradas")
   }
   
   #' Padre 2
@@ -194,7 +283,11 @@ ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
   (ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
   if(length(ind_2) > 0){
     padre_2 <- padre_2[-ind_2,]
+    cat("\n Se eliminaron del padre 2: ",length(ind_2)," entradas")
   }
+  
+  cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
+      dim(padre_2)[1]," genes\n\n")
   
   lista_padres <- list()
   lista_padres[[1]] <- padre_1

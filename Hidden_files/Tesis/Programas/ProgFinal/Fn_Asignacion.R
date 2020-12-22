@@ -510,8 +510,26 @@ checa_ind_materia <- function(materia,matriz){
 #' @example num_materia <- 42
 #'
 arroja_num_materia <- function(materia){
-  vec_info_nombre <- arroja_nom_correcto(materia)
-  num_materia <- as.numeric(vec_info_nombre[2])
+  #Se carga la matriz con los nombres de las materias
+  load("mat_nom_materias_total.RData")
+  
+  #Se definen las variables que se van a utilizar
+  vec_info_nombre <- c(0,0)
+  
+  for(d in 1:dim(mat_nom_materias_total)[1]){
+    ind <- which(materia == mat_nom_materias_total[
+      d,c(1,3:dim(mat_nom_materias_total)[2])])
+    if(length(ind) > 0){
+      vec_info_nombre <- c(mat_nom_materias_total[d,1],d)
+    }
+  }#Fin for(d)
+  
+  if(vec_info_nombre[1] == 0){
+    cat("\n La materia ",materia," no se encontró.")
+    num_materia <- 0
+  }else{
+    num_materia <- as.numeric(vec_info_nombre[2])
+  }
   
   return(num_materia)
 }
@@ -3615,8 +3633,8 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 # califica_asignacion ------------------------------------------------------
 #' Title califica_asignacion: Función que califica un asignacion, por grupo
 #' y de manera global. Las penalizaciones globales son:
-#' - Penalización por grupo en esqueleto sin profesor: Se resta 1 por cada
-#' grupo sin profesor.
+#' - Penalización por grupos sobrantes o faltantes:
+#' Se resta de acuerdo a la diferencia relativa por grupo.
 #' - Si algún profesor de tiempo completo pidió alguna materia y
 #' no se la dieron. Se penaliza con 10 por cada solicitud.
 #' Nota:
@@ -3632,6 +3650,7 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 #' - Para tener una calificación diferente para cada grupo, sumamos
 #' a cada renglón una épsilon entre 0 y 0.1.
 #'
+#' @param mat_esqueleto: Matriz con el número de grupos en cada hijo.
 #' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
 #' Num_Materia,Horario) que tiene la información de la solicitud de los
 #' profesores. Se hace una "intersección" con los grupos simulados en la
@@ -3660,16 +3679,22 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 #' lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
 #' lista_asignacion,param)
 #' 
-califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
+califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
+                                lista_asignacion,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
   mat_asignacion <- lista_asignacion[[1]]
   mat_esqueleto_aux <- lista_asignacion[[2]]
   mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   
-  #' Penalización por grupo en esqueleto sin profesor:
-  #' Se resta 1 por cada grupo sin profesor.
-  (gpos_sin_prof <- sum(mat_esqueleto_aux))
+  #' Penalización por grupos sobrantes o faltantes:
+  #' Se resta de acuerdo a la diferencia relativa por grupo.
+  mat_diferencia <- mat_esqueleto - mat_esqueleto_aux
+  # (gpos_sin_prof <- sum(!is.nan()))
+  dif_relativas <- mat_diferencia/mat_esqueleto
+  vec_dif_rel <- dif_relativas[!is.nan(dif_relativas)]
+  (gpos_sobrantes <- sum(vec_dif_rel[vec_dif_rel<0]))
+  (gpos_faltantes <- sum(vec_dif_rel[vec_dif_rel>0]))
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
   #' no se la dieron. Se penaliza con -10 por cada materia.
@@ -3760,8 +3785,10 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
     mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
   }
   
-  (calif_asignacion <- -sum(gpos_sin_prof,pena_x_solicitud_negada,
-                            -mean(mat_calif_asig_x_gpo[,5])))#-1624
+  (calif_asignacion <- gpos_sobrantes -sum(gpos_sin_prof,
+                                           pena_x_solicitud_negada,
+                                           -mean(mat_calif_asig_x_gpo[,5]),
+                                           gpos_faltantes))#-1624
   
   lista_calif_asignacion <- list()
   lista_calif_asignacion[[1]] <- mat_calif_asig_x_gpo

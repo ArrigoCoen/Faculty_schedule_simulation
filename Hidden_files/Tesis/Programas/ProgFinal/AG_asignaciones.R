@@ -50,9 +50,11 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   matrices_calif_x_generacion <- list()
   mejores_asig <- list()
   vec_prob_asig <- (2*(1:tam_poblacion))/(tam_poblacion*(tam_poblacion+1))
+  calif_mejor_elem <- rep(0,tam_poblacion)
   
-  # ptm <- proc.time()# Start the clock!
-  for(g in 1:num_generaciones){
+  ptm <- proc.time()# Start the clock!
+  # for(g in 1:num_generaciones){
+  for(g in 2:num_generaciones){
     cat("\n *** GENERACIÓN ",g," ***")
     
     # ptm <- proc.time()# Start the clock!
@@ -67,12 +69,6 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       ### 12) Guardar una matriz con la calificación x gpo. de las
       #' asignaciones (como xiii de T45)
       matrices_calif_x_generacion[[g]] <- lista_info_inicial[[3]]
-      
-      ### 11) Guardar la mejor asignación de la generación
-      ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
-      mejores_asig[[g]] <- list(mat_calif_asig,
-                                poblacion[[ind_mejor_asig]])
-      
     }else{
       lista_info <- califica_ordena_asig(poblacion_nueva,param)
       mat_calif_asig <- lista_info[[1]]
@@ -81,22 +77,48 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       ### 12) Guardar una matriz con la calificación x gpo. de las
       #' asignaciones (como xiii de T45)
       matrices_calif_x_generacion[[g]] <- lista_info[[3]]
-      
-      ### 11) Guardar la mejor asignación de la generación
-        ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
-      mejores_asig[[g]] <- list(mat_calif_asig,
-                                poblacion[[ind_mejor_asig]])
     }
     
+    ### 11) Guardar la mejor asignación de la generación
+    ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+    mejores_asig[[g]] <- list(mat_calif_asig,
+                              poblacion[[ind_mejor_asig]])
+    
+    calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
+    plot(calif_mejor_elem,main = "Calificaciones del mejor elemento",
+         xlab = "Generación",ylab = "Calificación")
+    
+    
+    # ptm <- proc.time()# Start the clock!
     for(n in 1:tam_poblacion){
       cat("\n *** HIJO ",n," ***")
       if(n == 1){poblacion_nueva <- list()}
       hijo <- data.frame(Materia = 0, Profesor = 0,TC = 0,
                          Horario = 0)
       ### 4) Elegir 2 padres con prob = 2i/(n*(n+1))
-      (ind_padres <- sample(x = mat_calif_asig[,1],
-                               size = 2,
-                               prob = vec_prob_asig))
+      #' La selección es por "Rank Selection":
+      #' 1) Elegir 2 individuos aleatoriamente
+      #' 2) La asignación con la calificación más alta es el padre 1
+      #' 3) Repetir 1) y 2) para el padre 2
+      (ind_mat_1 <- sample(x = 1:tam_poblacion,
+                         size = 2,
+                         prob = vec_prob_asig))
+      if(ind_mat_1[1] > ind_mat_1[2]){
+        ind_padres[1] <- mat_calif_asig[ind_mat_1[1],1]
+      }else{
+        ind_padres[1] <- mat_calif_asig[ind_mat_1[2],1]
+      }
+      (ind_mat_2 <- sample(x = 1:tam_poblacion,
+                         size = 2,
+                         prob = vec_prob_asig))
+      if(ind_mat_2[1] > ind_mat_2[2]){
+        ind_padres[2] <- mat_calif_asig[ind_mat_2[1],1]
+      }else{
+        ind_padres[2] <- mat_calif_asig[ind_mat_2[2],1]
+      }
+      # (ind_padres <- sample(x = mat_calif_asig[,1],
+      #                          size = 2,
+      #                          prob = vec_prob_asig))
       padre_1 <- poblacion[[ind_padres[1]]]
       padre_2 <- poblacion[[ind_padres[2]]]
       while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
@@ -105,7 +127,13 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         # cat("\n dim(padre_2)",dim(padre_2)[1])
         
         ### 5) Con prob = 0.5 se elige un padre
-        padre_elegido <- poblacion[[ind_padres[sample(x=1:2,size = 1)]]]
+        (ind_padre_elegido <- sample(x=1:2,size = 1))
+        cat("\n Se eligió al padre ",ind_padre_elegido)
+        if(ind_padre_elegido == 1){
+          padre_elegido <- padre_1
+        }else{
+          padre_elegido <- padre_2
+        }
         
         ### 6) Elegir un gen (grupo) del padre seleccionado con prob = 2i/(n*(n+1))
         (num_genes <- dim(padre_elegido)[1])
@@ -136,23 +164,25 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       hijo <- hijo %>% filter(Profesor != 0)
       
       ### 9) Añadir los genes restantes del otro padre al hijo
-      if(dim(padre_1)[1] > 0){hijo <- rbind(hijo,padre_1)}
-      if(dim(padre_2)[1] > 0){hijo <- rbind(hijo,padre_2)}
+      if(dim(padre_1)[1] > 0){hijo <- rbind(hijo,padre_1[,1:4])}
+      if(dim(padre_2)[1] > 0){hijo <- rbind(hijo,padre_2[,1:4])}
       
       ### 2) Calificar y 3) Ordenar las calificaciones del hijo
-      esq_hijo <- gen_esq_hijo(hijo,param)
+      esq_hijo <- gen_esq_hijo(hijo,param)#Grupos con profesor en el hijo
       lista_hijo <- list(hijo,esq_hijo)
-      lista_calif_hijo <- califica_asignacion(mat_solicitudes_real,
+      lista_calif_hijo <- califica_asignacion(mat_esqueleto,
+                                              mat_solicitudes_real,
                                               lista_hijo,param)
       poblacion_nueva[[n]] <- lista_calif_hijo
     }#Fin for(n)
     # cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
-    #     " minutos. Para 1 generación \n")
+    #     " minutos. Para 1 generación \n")#15min
     
   }#Fin for(g)
-  # cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
-  #     " minutos. Para ",num_generaciones," generaciones \n")
-  ##126.403  min = 2hrs 6.4min - 5 generaciones
+  cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
+      " minutos. Para ",num_generaciones," generaciones \n")
+  ##126.403 min = 2hrs 6.4min - 5 generaciones
+  ##47.87 min - 3 generaciones
   
   # View(matrices_calif_x_generacion)
   # View(mejores_asig)
@@ -160,7 +190,10 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   # View(mejores_asig[[num_generaciones]][[1]])
   # View(mejores_asig[[num_generaciones]][[2]])
   # View(mejores_asig[[1]][[1]])
-  # mejores_asig[[1]][[1]]
+  mejores_asig[[1]][[1]]
+  mejores_asig[[2]][[1]]
+  mejores_asig[[3]][[1]]
+  mejores_asig[[4]][[1]]
   
   ### 13) Hacer heatmap de la matriz en 12)
   
