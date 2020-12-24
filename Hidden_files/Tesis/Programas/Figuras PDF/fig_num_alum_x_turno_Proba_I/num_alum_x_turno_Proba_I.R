@@ -45,10 +45,11 @@ axis(side=1, at = c(20150,20160,20170,20180,20190,20200),
      labels=c("2015-1","2016-1","2017-1","2018-1","2019-1","2020-1"))
 axis(2)
 box() #- To make it look like "usual" plot
-legend(20155,110,c("Número de alumnos en el turno matutino",
+legend(20155,120,c("Número de alumnos en el turno matutino",
                    "Número de alumnos en el turno vespertino"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),
-       pch=c("o","o"),lty=c(1,1),cex=1.1)
+       pch=c("o","o"),lty=c(1,1),#cex=1.1
+       )
 
 
 # Se guarda la imagen -----------------------------------------------------

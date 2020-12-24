@@ -191,62 +191,46 @@ Para explicar la elección de los criterios tomamos la información de la materi
 
 En la \figurename{~\ref{ParImparProbaI}} vemos que la línea azul representa el número de alumnos de los semestres impares y la línea roja representa el número de alumnos de los semestres pares. Observamos que en todo momento el número de alumnos de los semestres impares es mayor al número de alumnos de los semestres pares. Ésto nos interesa porque al momento de simular debemos tomar en cuenta que el número de alumnos totales de semestres impares debe de ser siempre mayor al número total de alumnos de los semestres pares.
 
-%\begin{figure}[h]
-%\centering
-%\includegraphics[scale = 0.7]{num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
-%\caption[\textit{Número de alumnos por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos por semestres pares e impares de Probabilidad I: Se puede ver que el número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}%\caption[\textit{Número de alumnos totales por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos totales por semestres pares e impares de Probabilidad I: Esta figura muestra las series de tiempo del número de alumnos de semestres pares e impares. Se puede observar que el número de alumnos de semestres impares es siempre mayor al de semestres pares para Probabilidad I.}}
-%\end{figure}
-
-Continuando con los datos de \textit{Probabilidad I}, obtuvimos la \figurename{~\ref{HistAlumParImparProbaI}}. Dicha figura contiene dos histogramas, las barras rojas representan el número de alumnos por grupo de semestres pares y las barras azules representan el número de alumnos por grupo de semestres impares.
-
-%\begin{figure}[h]
-%\centering
-%\includegraphics[scale = 0.6]{histograma_FR_num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
-%\caption[\textit{Histograma del número de alumnos por semestre: Probabilidad I}]{\textit{Histograma del número de alumnos por semestre  de Probabilidad I: Los datos se dividen en semestres pares e impares. Las densidades ajustadas son muy parecidas.}}\label{HistAlumParImparProbaI}
-%\end{figure}
-
-Las líneas que se encuentran sobre los histogramas son densidades estimadas que se ajustan a los datos. Para estas aproximaciones se ajustó un kernel gaussiano con la función \verb+density(X)+ de \textit{R}. Dicha función recibe como parámetro el vector $X$, con valores numéricos. Algunos datos que se pueden obtener de las densidades vistas en la \figurename{~\ref{HistAlumParImparProbaI}} son por ejemplo que alrededor del $20\%$ de los grupos de los semestres pares tienen aproximadamente de $60$ a $70$ alumnos y que alrededor del $3\%$ de los grupos de los semestres impares tienen entre 150 y 180 alumnos. %\url{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/density} %%Página con información de la función density de R
-
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.7]{num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
-\caption[\textit{Número de alumnos por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos por semestres pares e impares de Probabilidad I: Se puede ver que el número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}%\caption[\textit{Número de alumnos totales por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos totales por semestres pares e impares de Probabilidad I: Esta figura muestra las series de tiempo del número de alumnos de semestres pares e impares. Se puede observar que el número de alumnos de semestres impares es siempre mayor al de semestres pares para Probabilidad I.}}
+\caption[\textit{Número de alumnos por semestres pares e impares: Probabilidad I}]{\textit{Se muestran las series de tiempo del número de alumnos por semestres (pares e impares) de ``Probabilidad I''. Se puede observar que el número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}
 \end{figure}
+
+Continuando con los datos de \textit{Probabilidad I}, obtuvimos la \figurename{~\ref{HistAlumParImparProbaI}}. Dicha figura contiene dos histogramas, las barras rojas representan el número de alumnos por grupo de semestres pares y las barras azules representan el número de alumnos por grupo de semestres impares.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.65]{histograma_FR_num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
-\caption[\textit{Histograma del número de alumnos por semestre: Probabilidad I}]{\textit{Histograma del número de alumnos por semestre  de Probabilidad I: Los datos se dividen en semestres pares e impares. Las densidades ajustadas son muy parecidas.}}\label{HistAlumParImparProbaI}
+\includegraphics[scale = 0.7]{histograma_FR_num_alum_sem_par_impar_Proba_I.pdf} %width=\textwidth
+\caption[\textit{Histogramas del número de alumnos por semestre: Probabilidad I}]{\textit{Se muestran los histogramas del número de alumnos por semestres (pares e impares) de ``Probabilidad I''. Se puede observar que las densidades ajustadas son muy parecidas.}}\label{HistAlumParImparProbaI}
 \end{figure}
 
-\pagebreak %The paragraphs on the cut page will spread out over the page, so you will not have empty space at the bottom
+Las líneas que se encuentran sobre los histogramas son densidades estimadas que se ajustan a los datos. Para estas aproximaciones se ajustó un kernel gaussiano con la función \verb+density(X)+ de \textit{R}. Dicha función recibe como parámetro el vector $X$, con valores numéricos.
+
+Algunos datos que se pueden obtener de las densidades vistas en la \figurename{~\ref{HistAlumParImparProbaI}} son por ejemplo que alrededor del $20\%$ de los grupos de los semestres pares tienen aproximadamente de $60$ a $70$ alumnos y que alrededor del $3\%$ de los grupos de los semestres impares tienen entre 150 y 180 alumnos. %\url{https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/density} %%Página con información de la función density de R
 
 \subsection{Análisis por turno: matutino y vespertino}
 
-En la \figurename{~\ref{num_alum_x_turno_Proba_I}} la línea azul representa el número de alumnos del turno matutino y la línea roja representa el número de alumnos del turno vespertino. Se puede observar que en todo momento el número de alumnos del turno matutino es mayor al número de alumnos del turno vespertino. Ésto impacta en el hecho de que por semestres la varianza en el turno matutino es mucho mayor que en el turno vespertino. Lo cual indica que en el turno vespertino se tiene prácticamente el mismo número de alumnos sin importar si la materia pertenece a un semestre par o impar, a diferencia de lo que ocurre en el turno matutino en donde si influye el hecho de que la materia corresponda a un semestre par o impar.
+En la \figurename{~\ref{num_alum_x_turno_Proba_I}} la línea azul representa el número de alumnos del turno matutino y la línea roja representa el número de alumnos del turno vespertino. Se puede observar que en todo momento el número de alumnos del turno matutino es mayor al número de alumnos del turno vespertino. Ésto impacta en el hecho de que por semestres la varianza en el turno matutino es mucho mayor que en el turno vespertino. Lo cual indica que en el turno vespertino se tiene prácticamente el mismo número de alumnos sin importar si la materia pertenece a un semestre par o impar. Por el contrario, en el turno matutino si influye el hecho de que la materia corresponda a un semestre par o impar.
 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale = 0.7]{num_alum_x_turno_Proba_I.pdf} %width=\textwidth
-\caption[\textit{Número de alumnos por turno: Probabilidad I}]{\textit{Número de alumnos por turno de Probabilidad I: Los datos se dividen por turno matutino y vespertino. El número de alumnos del turno matutino es siempre mayor al número de alumnos del turno vespertino.}}\label{num_alum_x_turno_Proba_I}
+\caption[\textit{Número de alumnos por turno: Probabilidad I}]{\textit{Se muestran las series de tiempo del número de alumnos por turno (matutino y vespertino) de ``Probabilidad I''. Se puede ver que el número de alumnos del turno matutino es siempre mayor al número de alumnos del turno vespertino.}}\label{num_alum_x_turno_Proba_I}
 \end{figure}
 
-En la \figurename{~\ref{HistAlumTurnoProbaI}} podemos ver dos histogramas, sobre los cuales se tienen 2 líneas con  densidades estimadas que se ajustan a los datos. Las barras rojas representan el número de alumnos del turno vespertino y las barras azules representan el número de alumnos del turno matutino.
+En la \figurename{~\ref{HistAlumTurnoProbaI}} podemos ver dos histogramas, con las densidades ajustadas correspondientes. Las barras rojas representan el número de alumnos del turno vespertino y las barras azules representan el número de alumnos del turno matutino. Notamos que en este caso las densidades ajustadas son completamente diferentes. Podemos ver que en el turno vespertino hay dos grandes concentraciones en los grupos que tienen entre 10 y 30 alumnos, así como entre 40 y 50 alumnos.
 
-%Notamos que en este caso las densidades son completamente diferentes. Algunos datos que se pueden obtener de dichas densidades son por ejemplo que alrededor del $20\%$ de los grupos del turno vespertino tienen aproximadamente entre 10 y 20 alumnos y un poco más del $10\%$ de los grupos del turno matutino tienen entre 80 y 90 alumnos.
+Algunos datos que se pueden obtener de las densidades ajustadas son por ejemplo que alrededor del $20\%$ de los grupos del turno vespertino tienen aproximadamente entre 10 y 20 alumnos y un poco más del $10\%$ de los grupos del turno matutino tienen entre 80 y 90 alumnos.
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale = 0.7]{histograma_FR_num_alum_x_turno_Proba_I.pdf} %width=\textwidth
-\caption[\textit{Histograma del número de alumnos por turno: Probabilidad I}]{\textit{Histograma del número de alumnos por turno de Probabilidad I: Los datos se dividen por turno matutino y vespertino. Las densidades ajustadas son muy diferentes.}}\label{HistAlumTurnoProbaI}
-\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[scale = 0.7]{histograma_FR_num_alum_x_turno_Proba_I.pdf} %width=\textwidth
+%\caption[\textit{Histogramas del número de alumnos por turno: Probabilidad I}]{\textit{Se muestran los histogramas del número de alumnos por turno (matutino y vespertino) de ``Probabilidad I''. Se puede observar que las densidades ajustadas son muy diferentes.}}\label{HistAlumTurnoProbaI}
+%\end{figure}
 
-Notamos que en este caso las densidades son completamente diferentes. Algunos datos que se pueden obtener de dichas densidades son por ejemplo que alrededor del $20\%$ de los grupos del turno vespertino tienen aproximadamente entre 10 y 20 alumnos y un poco más del $10\%$ de los grupos del turno matutino tienen entre 80 y 90 alumnos.
-
-\pagebreak %The paragraphs on the cut page will spread out over the page, so you will not have empty space at the bottom
-
-Con los resultados observados se obtuvieron los grupos de datos $G_{1}, G_{2}, G_{3}, G_{4}$, para hacer los análisis estadísticos, los cuales se definen en la \tablename{~\ref{GposDatos}}.
+Con los resultados obtenidos definimos los grupos de datos $G_{1}, G_{2}, G_{3}, G_{4}$, para hacer los análisis estadísticos, los cuales se muestran en la \tablename{~\ref{GposDatos}}.
 
 \begin{table}[H]
 \centering
@@ -259,5 +243,11 @@ Impar & $G_{1}$ & $G_{2}$ \\
 Par & $G_{3}$ & $G_{4}$ \\ 
 \hline 
 \end{tabular}
-\caption[\textit{Grupos de datos}]{\textit{Grupos de datos: Obtuvimos 4 grupos al combinar los turnos (matutino y vespertino) con los tipos de semestres (pares e impares).}}\label{GposDatos}
+\caption[\textit{Grupos de datos}]{\textit{Se muestran los 4 grupos obtenidos al combinar los turnos (matutino y vespertino) con los tipos de semestres (pares e impares).}}\label{GposDatos}
 \end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.7]{histograma_FR_num_alum_x_turno_Proba_I.pdf} %width=\textwidth
+\caption[\textit{Histogramas del número de alumnos por turno: Probabilidad I}]{\textit{Se muestran los histogramas del número de alumnos por turno (matutino y vespertino) de ``Probabilidad I''. Se puede observar que las densidades ajustadas son muy diferentes.}}\label{HistAlumTurnoProbaI}
+\end{figure}
