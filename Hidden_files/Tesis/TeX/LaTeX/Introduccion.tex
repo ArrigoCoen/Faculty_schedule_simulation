@@ -21,7 +21,7 @@ La principal razón por la cual los profesores no firman las tiras de materias e
 
 Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
   
-  \textbf{Materia:} Curso impartido en la Facultad de Ciencias por algún profesor.
+  \textbf{Materia:} Curso impartido en la Facultad por algún profesor.
 
 \textbf{Horario:} Hora en la que se imparte alguna materia.
 
@@ -38,9 +38,9 @@ Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
 
 \section{Nomenclatura}
 
-$m:$ Número de materias que se van a impartir, $m = 201$
+$m:$ Número de materias que se van a impartir, $m = 203$
   
-  $p:$ Número de profesores que van impartir alguna materia, $p = 1387$
+  $p:$ Número de profesores que van impartir alguna materia, $p = 1224$
   
   $t:$ Número de horas del día, $t = 15$
   
@@ -48,9 +48,9 @@ $m:$ Número de materias que se van a impartir, $m = 201$
   
   $j:$ Índice para materias, $j \in \{ 1, 2, 3, \ldots, m \}$
   
-  $h:$ Índice para las horas del día, $t \in \{ 1, 2, 3 \ldots, t\}$
+  $h:$ Índice para las horas del día, $h \in \{ 1, 2, 3 \ldots, t\}$
   
-  $U_{j,i,h}:$ Utilidad de que el profesor $i$ imparta la materia $j$ a la hora $h$
+  $U_{j,i,h}:$ Utilidad de que la materia $j$ sea impartida por  el profesor $i$ a la hora $h$
   
   $x_{j,i,h}:$ Variable binaria que vale $1$ si la materia $j$ es impartida por el profesor $i$ a la hora $h$ y cero en otro caso
 
@@ -65,10 +65,6 @@ $k:$ Número de semestres que se tienen como ventana de información
 $r:$ Matriz \textit{m\_filtrada}, submatriz de \textit{m\_grande}
 
 \textit{vec\_sem\_sig:} Vector con los semestres que se van a simular
-
-$X_{4}:$ Analizar presentación: Hacer varias pruebas con distintas combinaciones y elegir el mejor estilo/presentación
-
-$X_{14}:$ Revisar/Investigar al respecto del problema y resolverlo
 
 $num\_sim:$ Número de simulaciones de la demanda de alumnos para $s$
   
@@ -95,10 +91,10 @@ $bin\_DUE:$ Matriz binaria de $t$ renglones y $m$ columnas. Tiene un 1 en la ent
 
 En el problema de asignación de horarios se quiere asociar un profesor con una materia, un salón y un horario. Existen trabajos que han aborado este problema desde otro punto de vista, por ejemplo Yazdani, Naeri y Zeinali, en su artículo \textit{Algorithms for university course scheduling problems} [\ref{Yazdani}], proponen un modelo en el cual se toman 2 decisiones: la asignación de profesor por materia y el salón en el cual se va a impartir cada materia.
 
-Con la función objetivo planteada en dicho modelo se desea maximizar la utilidad de que el profesor $i$ imparta la materia $j$, más la utilidad de que el profesor $i$ dé clases el día $t$, más la utilidad de la materia $j$ por ser impartida en el día $t$. Como punto de comparación, a continuación veremos las dos diferencias principales entre su modelo y el que proponemos en este trabajo.
+Con la función objetivo planteada en dicho modelo se desea maximizar la utilidad de que el profesor $i$ imparta la materia $j$, más la utilidad de que el profesor $i$ dé clases el día $t$, más la utilidad de que la materia $j$ sea impartida en el día $t$. Como punto de comparación, a continuación veremos las dos diferencias principales entre su modelo y el que proponemos en este trabajo.
 
 \begin{enumerate}
-\item[1)] No tomamos en cuenta el día en el que se imparte la materia porque suponemos que todas las materias se imparten de lunes a viernes, a la misma hora, en el mismo salón.
+\item[1)] No tomamos en cuenta el día en el que se imparte la materia. Ésto porque suponemos que todas las materias se imparten de lunes a viernes, a la misma hora, en el mismo salón.
 
 \item[2)] Deseamos maximizar la utilidad de que el profesor $i$ imparta la materia $j$ a la hora $h$.
 \end{enumerate}
@@ -145,7 +141,7 @@ x_{j,i,h}, \,\, V_{j,i} &\in& \{0,1\} \,\,\,\,\,\,\, \forall \,\, j,i,h \label{V
 
 Con las restricciones del tipo (\ref{DarTodasMaterias}) aseguramos que todas las materias sean dadas. Con las del tipo (\ref{UnCursoXhora}) aseguramos que cada profesor no tenga más de un curso por hora. Con las del tipo (\ref{ProfesorPuedeImpartir}) aseguramos que los profesores tengan asignadas materias que puedan impartir. Finalmente con las restricciones del tipo (\ref{VarBinarias}) se especifica que las variables utilizadas son binarias.
 
-En el planteamiento se tienen dos tipos de restricciones: duras y suaves. Las restricciones duras son las que nos permiten tener soluciones factibles al cumplirlas en su totalidad y las restricciones suaves nos permiten evaluar la calidad de las diferentes soluciones. Usualmente las restricciones suaves están asociadas a preferencias y se cumplen en la medida de lo posible, pero no afectan la factibilidad de las soluciones.
+%En el planteamiento se tienen dos tipos de restricciones: duras y suaves. Las restricciones duras son las que nos permiten tener soluciones factibles al cumplirlas en su totalidad y las restricciones suaves nos permiten evaluar la calidad de las diferentes soluciones. Usualmente las restricciones suaves están asociadas a preferencias y se cumplen en la medida de lo posible, pero no afectan la factibilidad de las soluciones.
 
 El conjunto de soluciones se presenta por medio de la matriz \textit{mat\_asignaciones} la cual es una matriz de tres columnas y tantos renglones como grupos se hayan simulado. En el i-ésimo renglón se tiene la información de la i-ésima materia con su respectivo profesor y horario asignados. En la \tablename{~\ref{EjAsig}} se muestra un ejemplo del resultado de la asignación.
 
@@ -165,7 +161,7 @@ Estadística Bayesiana  & Ruth Selene Fuentes García & 11-12 \\
 Modelos de Supervivencia y de Series de Tiempo  & Lizbeth Naranjo Albarrán & 13-14 \\ 
 \hline 
 \end{tabular}}
-\caption[\textit{Ejemplo de asignación}]{\textit{Ejemplo de asignación: Esta tabla muestra un ejemplo de la matriz mat\_asignaciones que tiene 3 columnas (Materia, Profesor, Horario).}}\label{EjAsig}
+\caption[\textit{Ejemplo de asignación}]{\textit{Se muestra un ejemplo de la matriz mat\_asignaciones que tiene 3 columnas (Materia, Profesor, Horario).}}\label{EjAsig}
 \end{table}
 
 
@@ -176,11 +172,11 @@ El primer objetivo del trabajo es hacer dos funciones que generen:
   \begin{enumerate}
 \item[i)] Esqueletos de horarios
 
-\item[ii)] Una asignación de profesores por materia y por horario. La asignación debe cubrir la demanda de alumnos estimada para el semestre siguiente.
+\item[ii)] Una asignación de profesores por materia y por horario.
 \end{enumerate}
 
 
-Los esqueletos de horarios son utilizados para simular una posible elección de materias y horarios de los profesores para finalmente hacer la asignación correspondiente a la hora, materia y profesor de cada grupo.
+Los esqueletos de horarios son utilizados para simular una posible elección de materias y horarios de los profesores. La asignación debe cubrir la demanda de alumnos estimada para el semestre siguiente. Para generar los esqueletos de horarios se simula una posible solicitud de materias y horarios de los profesores.
 
 El segundo objetivo es disminuir el tiempo utilizado actualmente para la realización de la asignación de horarios.
 
@@ -201,7 +197,7 @@ En la \figurename{~\ref{ParImparProbaI}} vemos que la línea azul representa el 
 %\caption[\textit{Número de alumnos por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos por semestres pares e impares de Probabilidad I: Se puede ver que el número de alumnos de semestres impares es siempre mayor al de semestres pares.}}\label{ParImparProbaI}%\caption[\textit{Número de alumnos totales por semestres pares e impares: Probabilidad I}]{\textit{Número de alumnos totales por semestres pares e impares de Probabilidad I: Esta figura muestra las series de tiempo del número de alumnos de semestres pares e impares. Se puede observar que el número de alumnos de semestres impares es siempre mayor al de semestres pares para Probabilidad I.}}
 %\end{figure}
 
-Continuando con los datos de \textit{Probabilidad I}, obtuvimos la \figurename{~\ref{HistAlumParImparProbaI}} que contiene dos histogramas, las barras rojas representan el número de alumnos por grupo de semestres pares y las barras azules representan el número de alumnos por grupo de semestres impares.
+Continuando con los datos de \textit{Probabilidad I}, obtuvimos la \figurename{~\ref{HistAlumParImparProbaI}}. Dicha figura contiene dos histogramas, las barras rojas representan el número de alumnos por grupo de semestres pares y las barras azules representan el número de alumnos por grupo de semestres impares.
 
 %\begin{figure}[h]
 %\centering
