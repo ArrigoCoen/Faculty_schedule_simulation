@@ -344,3 +344,46 @@ if(length(ind_2) > 0){
 
 
 
+# gen_esq_hijo ------------------------------------------------------------
+#' Title gen_esq_hijo: Función que genera el esqueleto de horarios del
+#' hijo. Se define a partir de las asignaciones hechas en el hijo.
+#'
+#' @param hijo: Asignación que se crea a partir de 2 padres.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
+#'
+#' @return esq_hijo: Matriz con el esqueleto de horarios del hijo.
+#'
+#' @examples
+#' esq_hijo <- gen_esq_hijo(hijo,param)
+#' 
+gen_esq_hijo <- function(hijo,param){
+  ptm <- proc.time()# Start the clock!
+  #Se definen las variables que se van a utilizar
+  esq_hijo <- matrix(0,nrow = length(param$Horas),
+                     ncol = length(param$vec_nom_materias_total))
+  rownames(esq_hijo) <- param$nombre_hrs
+  colnames(esq_hijo) <- param$vec_nom_materias_total
+  hijo <- data.frame(hijo,Num_Materia = 0)
+  
+  for(r in 1:dim(hijo)[1]){
+    materia <- hijo$Materia[r]
+    hijo$Num_Materia[r] <- arroja_num_materia(materia)
+  }
+  
+  for(m in 1:length(param$vec_nom_materias_total)){
+    materia <- param$vec_nom_materias_total[m]
+    cat("\n Materia ",m,": ",materia)
+    mat_materia <- hijo %>% filter(Materia == materia)
+    for(h in 1:length(param$Horas)){
+      hora <- param$Horas[h]
+      mat_hora <- mat_materia %>% filter(Horario == hora)
+      esq_hijo[h,m] <- dim(mat_hora)[1]
+    }
+  }
+  cat("\nLa función gen_esq_hijo tardó: ",
+      (proc.time()-ptm)[3]/60," minutos\n")
+  return(esq_hijo)
+}

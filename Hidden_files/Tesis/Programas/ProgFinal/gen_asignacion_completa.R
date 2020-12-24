@@ -38,7 +38,7 @@ gen_asignacion_completa <- function(param,param_sim){
   # n_rep <- 10 #12.45 min
   n_rep <- 5 #5.97/5.59 min
   set.seed(1806)
-  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#5.79 min
   mat_esqueleto <- lista_esq_D_prima[[1]]
   View(mat_esqueleto)
   

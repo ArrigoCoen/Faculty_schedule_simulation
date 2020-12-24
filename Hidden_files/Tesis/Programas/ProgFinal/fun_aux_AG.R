@@ -47,7 +47,6 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
   n_cols_mat_calif <- param$n_cols_mat_calif
   mat_calif_x_generacion <- matrix(NaN,nrow = tam_poblacion,
                                    ncol = n_cols_mat_calif)
-  mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   poblacion_inicial <- list()
   calif_asignacion_inicial <- rbind(1:tam_poblacion,rep(0,tam_poblacion))
   nombres_mat_calif <- rep(0,tam_poblacion)
@@ -64,7 +63,7 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
     #' se divide esa matriz entre mat_esqueleto y se suman los valores
     #' ditintos de "NaN".
     (gpos_sin_prof <- sum(!is.nan(lista_asignacion[[2]]/mat_esqueleto)))
-      
+    
     #' Si algún profesor de tiempo completo pidió alguna materia y
     #' no se la dieron. Se penaliza con -10 por cada materia.
     mat_info_prof <- data.frame(Profesor = param$mat_nom_prof_total[,1],
@@ -100,7 +99,7 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
     
     
     ### CALIFICACIÓN POR GRUPO ###
-    
+    mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
     #' Se pone un +5 si el profesor asignado es de TC
     ind_TC <- which(mat_calif_asig_x_gpo[,3] == 1)
     mat_calif_asig_x_gpo[ind_TC,5] <- 5
@@ -249,28 +248,51 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 # ajusta_genes_padres -----------------------------------------------------
 #' Title ajusta_genes_padres: Función que se encarga de quitar la
 #' información en los padres, del profesor en "gen_elegido" a esa hora y
-#' con esa materia.
+#' con esa materia. Se tiene una cota para que el número de grupos del hijo
+#' no supere el número de grupos de mat_esqueleto.
 #'
+#' @param esq_hijo: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos del hijo
+#' para la hora i, y la materia j.
 #' @param padre_1: Asignación elegida para crear un hijo.
 #' @param padre_2: Asignación elegida para crear un hijo.
 #' @param gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
 #' con la información del gen del padre elegido.
+#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
 #'
 #' @return lista_padres: Lista con los 2 padres actualizados.
 #'
 #' @examples
-#' lista_padres <- ajusta_genes_padres(padre_1,padre_2,gen_elegido)
+#' lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
+#' gen_elegido,mat_esqueleto)
 #' 
-ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
+ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
+                                mat_esqueleto){
   cat("\n Se eligió el gen: \n",as.character(gen_elegido))
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes")
+  
+  (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+  (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
+  if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto[ind_hora_gen,
+                                                             num_materia_gen]){
+    cat("\nEl hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
+        " grupos. \nEl esqueleto tiene ",
+        mat_esqueleto[ind_hora_gen,num_materia_gen],"grupos.")
+    (ind_elim_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
+    (ind_elim_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
+  }
   
   #' Padre 1
   (ind_prof_1 <- which(padre_1[,2] == as.character(gen_elegido[2])))
   (ind_hora_1 <- which(padre_1[,4] == as.character(gen_elegido[4])))
   (ind_materia_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
   (ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
+  #' Se intersecta los índices de ind_elim_1 con los de la hora
+  #' porque sólo se eliminan esos grupos.
+  (ind_1 <- union(ind_1,intersect(ind_elim_1,ind_hora_1)))
   if(length(ind_1) > 0){
     padre_1 <- padre_1[-ind_1,]
     cat("\n Se eliminaron del padre 1: ",length(ind_1)," entradas")
@@ -281,6 +303,9 @@ ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
   (ind_hora_2 <- which(padre_2[,4] == as.character(gen_elegido[4])))
   (ind_materia_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
   (ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
+  #' Se intersecta los índices de ind_elim_2 con los de la hora
+  #' porque sólo se eliminan esos grupos.
+  (ind_2 <- union(ind_2,intersect(ind_elim_2,ind_hora_2)))
   if(length(ind_2) > 0){
     padre_2 <- padre_2[-ind_2,]
     cat("\n Se eliminaron del padre 2: ",length(ind_2)," entradas")
@@ -295,52 +320,6 @@ ajusta_genes_padres <- function(padre_1,padre_2,gen_elegido){
   return(lista_padres)
 }
 
-
-
-
-# gen_esq_hijo ------------------------------------------------------------
-#' Title gen_esq_hijo: Función que genera el esqueleto de horarios del
-#' hijo. Se define a partir de las asignaciones hechas en el hijo.
-#'
-#' @param hijo: Asignación que se crea a partir de 2 padres.
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
-#'
-#' @return esq_hijo: Matriz con el esqueleto de horarios del hijo.
-#'
-#' @examples
-#' esq_hijo <- gen_esq_hijo(hijo,param)
-#' 
-gen_esq_hijo <- function(hijo,param){
-  ptm <- proc.time()# Start the clock!
-  #Se definen las variables que se van a utilizar
-  esq_hijo <- matrix(0,nrow = length(param$Horas),
-                     ncol = length(param$vec_nom_materias_total))
-  rownames(esq_hijo) <- param$nombre_hrs
-  colnames(esq_hijo) <- param$vec_nom_materias_total
-  hijo <- data.frame(hijo,Num_Materia = 0)
-  
-  for(r in 1:dim(hijo)[1]){
-    materia <- hijo$Materia[r]
-    hijo$Num_Materia[r] <- arroja_num_materia(materia)
-  }
-  
-  for(m in 1:length(param$vec_nom_materias_total)){
-    materia <- param$vec_nom_materias_total[m]
-    cat("\n Materia ",m,": ",materia)
-    mat_materia <- hijo %>% filter(Materia == materia)
-    for(h in 1:length(param$Horas)){
-      hora <- param$Horas[h]
-      mat_hora <- mat_materia %>% filter(Horario == hora)
-      esq_hijo[h,m] <- dim(mat_hora)[1]
-    }
-  }
-  cat("\nLa función gen_esq_hijo tardó: ",
-      (proc.time()-ptm)[3]/60," minutos\n")
-  return(esq_hijo)
-}
 
 
 

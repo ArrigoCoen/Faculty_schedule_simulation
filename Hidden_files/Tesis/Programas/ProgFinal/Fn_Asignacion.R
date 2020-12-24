@@ -51,6 +51,8 @@
 # install.packages('tseries')
 # install.packages('lmtest')
 # install.packages('het.test')
+# install.packages('magrittr')
+# install.packages('dplyr')
 
 #Loading packages
 library('zoo')
@@ -87,6 +89,9 @@ library(seastests)
 library(tseries)
 library(lmtest)
 library(het.test)
+library(magrittr)
+library(dplyr)
+
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -129,7 +134,7 @@ param$num_max_asig = 2
 param$cota_TC = 1000
 param$cota_asig = 6000
 param$tam_poblacion = 10
-param$num_generaciones = 4
+param$num_generaciones = 5
 param$prob_mutacion = 1/(6+18)
 param$n_cols_mat_calif = 2000
 param$elige_TC = 0.7
@@ -512,13 +517,13 @@ checa_ind_materia <- function(materia,matriz){
 arroja_num_materia <- function(materia){
   #Se carga la matriz con los nombres de las materias
   load("mat_nom_materias_total.RData")
+  dim_mat_nom <- dim(mat_nom_materias_total)
   
   #Se definen las variables que se van a utilizar
   vec_info_nombre <- c(0,0)
   
-  for(d in 1:dim(mat_nom_materias_total)[1]){
-    ind <- which(materia == mat_nom_materias_total[
-      d,c(1,3:dim(mat_nom_materias_total)[2])])
+  for(d in 1:dim_mat_nom[1]){
+    ind <- which(mat_nom_materias_total[d,c(1,3:dim_mat_nom[2])] == materia)
     if(length(ind) > 0){
       vec_info_nombre <- c(mat_nom_materias_total[d,1],d)
     }
@@ -1303,11 +1308,9 @@ corrige_sem_CdC <- function(param){
 gen_m_grande_total <- function(vec_excepciones,param){
   ##Se definen las variables que se van a utilizar:
   semestres <- param$Semestres
-  
   m_grande_total <- matrix(0,ncol = length(param$nom_cols_MG))
   colnames(m_grande_total) <- param$nom_cols_MG
-  num_col_Materia <- arroja_ind_col_MG("Materia")##1
-  num_col_sem <- arroja_ind_col_MG("Semestre")##11
+  m_grande_total <- data.frame(m_grande_total)
   
   for(d in 1:length(semestres)){
     sem_info <- semestres[d]
@@ -1320,13 +1323,10 @@ gen_m_grande_total <- function(vec_excepciones,param){
     m_grande_total <- rbind(m_grande_total,m_grande)
   }
   ## Se quita el renglón de ceros inicial
-  m_grande_total <- m_grande_total[m_grande_total[,num_col_Materia]!=0,]
+  m_grande_total <- m_grande_total %>% filter(m_grande_total$Materia != 0)
   save(m_grande_total, file = paste0("Matrices m_grande_total/m_grande_total_",
-                                     param$sem_ini,"_",param$sem_fin,".RData"))
-  # save(m_grande_total, file = paste0("Matrices m_grande_total/m_grande_total_PRUEBA_",
-  #                                    semestres[1],"_",sem_fin,".RData"))
-  param$m_grande_total = m_grande_total
-  
+                                     param$sem_ini,"_",param$sem_fin,
+                                     ".RData"))
   return(m_grande_total)
 }
 
@@ -2578,7 +2578,7 @@ gen_solicitudes <- function(param){
   ptm <- proc.time()
   
   #Se definen las variables que se van a utilizar
-  num_col_Profesor <- arroja_ind_col_MG("Profesor")
+  # num_col_Profesor <- arroja_ind_col_MG("Profesor")
   mat_nom_prof_total <- param$mat_nom_prof_total#1387 2
   m_grande_2015 <- param$m_grande_2015#8409 37
   mat_solicitudes <- data.frame(Profesor = 0,TC = 0, Materia = 0,
@@ -2586,10 +2586,9 @@ gen_solicitudes <- function(param){
   
   #' Se quitan los renglones de ceros, con NA o vaciós en la
   #' columna de "Profesor"
-  m_grande_2015 <- m_grande_2015[m_grande_2015[,num_col_Profesor]!="",]
-  m_grande_2015 <- m_grande_2015[m_grande_2015[,num_col_Profesor]!=0,]
-  m_grande_2015 <- m_grande_2015[!is.na(m_grande_2015[,num_col_Profesor]),]
-  # dim(m_grande_2015)#8393 37
+  m_grande_2015 <- m_grande_2015 %>% filter(Profesor != "" & Profesor != 0 &
+                                              !is.na(Profesor))
+  # dim(m_grande_2015)#8395 37
   param$m_grande_2015 = m_grande_2015#8395 37
   
   #Recorre el nombre de los profesores de la matriz "mat_nom_prof_total"
@@ -3313,7 +3312,11 @@ gen_esqueleto <- function(mat_demanda_alumnos,mat_solicitudes,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
   num_max_asig <- param$num_max_asig
-  mat_solicitudes_aux <- mat_solicitudes[as.numeric(mat_solicitudes[,5])>0,]
+  mat_solicitudes <- data.frame(mat_solicitudes)
+  mat_solicitudes_aux <- mat_solicitudes %>% filter(mat_solicitudes$Horario > 0)
+  # mat_solicitudes_aux <- mat_solicitudes[as.numeric(mat_solicitudes[,5])>0,]
+  # colnames(mat_solicitudes_aux) <- c("Profesor","TC","Materia",
+  #                                    "Num_Materia","Horario")
   
   ##### Profesores de tiempo completo
   mat_solicitudes_TC <- mat_solicitudes_aux %>% filter(TC == 1)
@@ -3650,7 +3653,9 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 #' - Para tener una calificación diferente para cada grupo, sumamos
 #' a cada renglón una épsilon entre 0 y 0.1.
 #'
-#' @param mat_esqueleto: Matriz con el número de grupos en cada hijo.
+#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
 #' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
 #' Num_Materia,Horario) que tiene la información de la solicitud de los
 #' profesores. Se hace una "intersección" con los grupos simulados en la
@@ -3661,7 +3666,7 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 #' TC,Horario) la cual contiene en el i-ésimo renglón la asignación
 #' por materia, profesor y horario. La columna TC indica si el profesor
 #' es o no de tiempo completo.
-#' 2) m_esq_aux: Matriz con el número de grupos que quedaron sin asignación.
+#' 2) m_esq_aux: Matriz con el número de grupos en cada hijo.
 #' 3) m_sol_aux: Matriz de solicitudes reales con el número de materias
 #' asignadas por profesor. (NO SE UTILIZA, SE PUEDE BORRAR DE LA LISTA)
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
@@ -3676,8 +3681,8 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 #' global de la asignación.
 #'
 #' @examples
-#' lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
-#' lista_asignacion,param)
+#' lista_calif_asignacion <- califica_asignacion(mat_esqueleto,
+#' mat_solicitudes_real,lista_asignacion,param)
 #' 
 califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
                                 lista_asignacion,param){
@@ -3687,14 +3692,10 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
   mat_esqueleto_aux <- lista_asignacion[[2]]
   mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   
-  #' Penalización por grupos sobrantes o faltantes:
-  #' Se resta de acuerdo a la diferencia relativa por grupo.
+  #' Penalización por grupo en esqueleto sin profesor:
+  #' Se resta de acuerdo a la diferencia relativa por grupo sin profesor.
   mat_diferencia <- mat_esqueleto - mat_esqueleto_aux
-  # (gpos_sin_prof <- sum(!is.nan()))
-  dif_relativas <- mat_diferencia/mat_esqueleto
-  vec_dif_rel <- dif_relativas[!is.nan(dif_relativas)]
-  (gpos_sobrantes <- sum(vec_dif_rel[vec_dif_rel<0]))
-  (gpos_faltantes <- sum(vec_dif_rel[vec_dif_rel>0]))
+  (gpos_sin_prof <- sum(!is.nan(mat_diferencia/mat_esqueleto)))
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
   #' no se la dieron. Se penaliza con -10 por cada materia.
@@ -3785,10 +3786,9 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
     mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
   }
   
-  (calif_asignacion <- gpos_sobrantes -sum(gpos_sin_prof,
-                                           pena_x_solicitud_negada,
-                                           -mean(mat_calif_asig_x_gpo[,5]),
-                                           gpos_faltantes))#-1624
+  (calif_asignacion <- -sum(gpos_sin_prof,gpos_sin_prof,
+                            pena_x_solicitud_negada,
+                            -mean(mat_calif_asig_x_gpo[,5])))
   
   lista_calif_asignacion <- list()
   lista_calif_asignacion[[1]] <- mat_calif_asig_x_gpo

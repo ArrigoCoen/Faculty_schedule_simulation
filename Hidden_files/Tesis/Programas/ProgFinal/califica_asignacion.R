@@ -14,66 +14,25 @@ source("Fn_Asignacion.R")
 
 
 # califica_asignacion ------------------------------------------------------
-#' Title califica_asignacion: Función que califica un asignacion, por grupo
-#' y de manera global. Las penalizaciones globales son:
-#' - Penalización por grupo en esqueleto sin profesor: Se resta 1 por cada
-#' grupo sin profesor.
-#' - Si algún profesor de tiempo completo pidió alguna materia y
-#' no se la dieron. Se penaliza con 10 por cada solicitud.
-#' Nota:
-#' Se penaliza por cada materia con tope a "num_max_asig",
-#' Ej. si num_max_asig = 2 y un profesor pidió 3 o más  materias
-#' pero sólo le dieron 1, entonces se penaliza 1; si le dieron 2
-#' no hay penalización.
-#' 
-#' Las penalizaciones por grupo son:
-#' - Se pone un +5 si el profesor asignado es de TC.
-#' - Se pone un -1 por cada asignación que pudo haber tenido un
-#' profesor de TC y tiene un profesor de asignatura.
-#' - Para tener una calificación diferente para cada grupo, sumamos
-#' a cada renglón una épsilon entre 0 y 0.1.
-#'
-#' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
-#' Num_Materia,Horario) que tiene la información de la solicitud de los
-#' profesores. Se hace una "intersección" con los grupos simulados en la
-#' matriz "mat_esqueleto" y así se obtienen las solicitudes pseudo-reales
-#' de los profesores.
-#' @param lista_asignacion: Lista de 3 elementos:
-#' 1) mat_asignacion: Matriz de cuatro columnas (Materia, Profesor,
-#' TC,Horario) la cual contiene en el i-ésimo renglón la asignación
-#' por materia, profesor y horario. La columna TC indica si el profesor
-#' es o no de tiempo completo.
-#' 2) m_esq_aux: Matriz con el número de grupos que quedaron sin asignación.
-#' 3) m_sol_aux: Matriz de solicitudes reales con el número de materias
-#' asignadas por profesor. (NO SE UTILIZA, SE PUEDE BORRAR DE LA LISTA)
-#' @param param: Lista con los diferentes parámetros que se utilizan en las
-#' funciones que se mandan llamar.
-#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
-#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90)
-#'
-#' @return lista_calif_asignacion: Lista con 2 elementos:
-#' 1) mat_calif_asig_x_gpo: Matriz de 6 columnas (Materia,Profesor,TC,
-#' Horario, calif, Prob_Ac), que contiene la información por grupo asignado.
-#' 2) calif_asignacion: Variable tipo numeric que indica la calificación
-#' global de la asignación.
-#'
-#' @examples
-#' lista_calif_asignacion <- califica_asignacion(mat_solicitudes_real,
-#' lista_asignacion,param)
-#' 
-califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
+califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
+                                lista_asignacion,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
-  mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   mat_asignacion <- lista_asignacion[[1]]
   mat_esqueleto_aux <- lista_asignacion[[2]]
+  mat_calif_asig_x_gpo <- data.frame(mat_asignacion,calif = 0, Prob_Ac = 0)
   
-  #' Penalización por grupo en esqueleto sin profesor:
-  #' Se resta 1 por cada grupo sin profesor.
-  (gpos_sin_prof <- sum(mat_esqueleto_aux))
+  #' Penalización por grupos sobrantes o faltantes:
+  #' Se resta de acuerdo a la diferencia relativa por grupo.
+  mat_diferencia <- mat_esqueleto - mat_esqueleto_aux
+  # (gpos_sin_prof <- sum(!is.nan()))
+  dif_relativas <- mat_diferencia/mat_esqueleto
+  vec_dif_rel <- dif_relativas[!is.nan(dif_relativas)]
+  (gpos_sobrantes <- sum(vec_dif_rel[vec_dif_rel<0]))
+  (gpos_faltantes <- sum(vec_dif_rel[vec_dif_rel>0]))
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
-  #' no se la dieron. Se penaliza con 10 por cada materia.
+  #' no se la dieron. Se penaliza con -10 por cada materia.
   mat_info_prof <- data.frame(Profesor = param$mat_nom_prof_total[,1],
                               TC = param$mat_nom_prof_total[,2],
                               Materias_solicitadas = 0,
@@ -105,15 +64,15 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
   }
   pena_x_solicitud_negada##680
   
-
-  ##### CALIFICACIÓN POR GRUPO #####
+  
+  ### CALIFICACIÓN POR GRUPO ###
   
   #' Se pone un +5 si el profesor asignado es de TC
   ind_TC <- which(mat_calif_asig_x_gpo[,3] == 1)
   mat_calif_asig_x_gpo[ind_TC,5] <- 5
   
-  #' Se pone un -1 por cada asignación que pudo haber tenido un
-  #' profesor de TC y tiene un profesor de asignatura.
+  #' Se penaliza con -1 por cada asignación que pudo haber tenido
+  #' un profesor de TC y tiene un profesor de asignatura.
   mat_prof_TC <- data.frame(mat_prof_TC,Materias_negadas = 0)
   
   for(r in 1:dim(mat_prof_TC)[1]){#Recorre los renglones
@@ -150,7 +109,7 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
       mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] - num_al
     }
   }
-  mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(-mat_calif_asig_x_gpo$calif),]
+  mat_calif_asig_x_gpo <- mat_calif_asig_x_gpo[order(mat_calif_asig_x_gpo$calif),]
   
   #' Agregamos una columna con la probabilidad acumulada de elegir cada
   #' grupo.
@@ -161,8 +120,10 @@ califica_asignacion <- function(mat_solicitudes_real,lista_asignacion,param){
     mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
   }
   
-  (calif_asignacion <- -sum(gpos_sin_prof,pena_x_solicitud_negada,
-                            -mean(mat_calif_asig_x_gpo[,5])))#-1624
+  (calif_asignacion <- gpos_sobrantes -sum(gpos_sin_prof,
+                                           pena_x_solicitud_negada,
+                                           -mean(mat_calif_asig_x_gpo[,5]),
+                                           gpos_faltantes))#-1624
   
   lista_calif_asignacion <- list()
   lista_calif_asignacion[[1]] <- mat_calif_asig_x_gpo
