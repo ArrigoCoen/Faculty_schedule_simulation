@@ -3636,8 +3636,8 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
 # califica_asignacion ------------------------------------------------------
 #' Title califica_asignacion: Función que califica un asignacion, por grupo
 #' y de manera global. Las penalizaciones globales son:
-#' - Penalización por grupos sobrantes o faltantes:
-#' Se resta de acuerdo a la diferencia relativa por grupo.
+#' - Penalización por grupos faltantes: Se resta de acuerdo a la diferencia
+#' relativa por grupo.
 #' - Si algún profesor de tiempo completo pidió alguna materia y
 #' no se la dieron. Se penaliza con 10 por cada solicitud.
 #' Nota:
@@ -3694,8 +3694,17 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
   
   #' Penalización por grupo en esqueleto sin profesor:
   #' Se resta de acuerdo a la diferencia relativa por grupo sin profesor.
+  # mat_diferencia <- mat_esqueleto - mat_esqueleto_aux
+  # (gpos_sin_prof <- sum(!is.nan(mat_diferencia/mat_esqueleto)))
+  
+  #' Penalización por grupos sobrantes o faltantes:
+  #' Se resta de acuerdo a la diferencia relativa por grupo.
   mat_diferencia <- mat_esqueleto - mat_esqueleto_aux
-  (gpos_sin_prof <- sum(!is.nan(mat_diferencia/mat_esqueleto)))
+  dif_relativas <- mat_diferencia/mat_esqueleto
+  vec_dif_rel <- dif_relativas[!is.nan(dif_relativas)]
+  (gpos_sobrantes <- sum(vec_dif_rel[vec_dif_rel<0]))
+  (gpos_faltantes <- sum(vec_dif_rel[vec_dif_rel>0]))
+  
   
   #' Si algún profesor de tiempo completo pidió alguna materia y
   #' no se la dieron. Se penaliza con -10 por cada materia.
@@ -3728,7 +3737,7 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
       pena_x_solicitud_negada <- pena_x_solicitud_negada + (10*num_neg)
     }
   }
-  pena_x_solicitud_negada##680
+  pena_x_solicitud_negada
   
   
   ### CALIFICACIÓN POR GRUPO ###
@@ -3786,9 +3795,8 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
     mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
   }
   
-  (calif_asignacion <- -sum(gpos_sin_prof,gpos_sin_prof,
-                            pena_x_solicitud_negada,
-                            -mean(mat_calif_asig_x_gpo[,5])))
+  (calif_asignacion <- gpos_sobrantes + mean(mat_calif_asig_x_gpo[,5])
+    -sum(gpos_faltantes,pena_x_solicitud_negada))
   
   lista_calif_asignacion <- list()
   lista_calif_asignacion[[1]] <- mat_calif_asig_x_gpo

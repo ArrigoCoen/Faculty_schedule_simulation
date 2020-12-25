@@ -56,6 +56,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
                                    ncol = num_generaciones)
   
   ptm <- proc.time()# Start the clock!
+  # g <- 1
+  # g <- 2
   for(g in 1:num_generaciones){
     cat("\n *** GENERACIÓN ",g," ***")
     
@@ -102,7 +104,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
             xlab = "Asignaciones",ylab = "Calificaciones")
     
     
-    # ptm <- proc.time()# Start the clock!
+    # ptm_pob <- proc.time()# Start the clock!
     for(n in 1:tam_poblacion){
       cat("\n *** HIJO ",n," ***")
       if(n == 1){poblacion_nueva <- list()}
@@ -185,15 +187,16 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
                                               lista_hijo,param)
       poblacion_nueva[[n]] <- lista_calif_hijo
     }#Fin for(n)
-    # cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
-    #     " minutos. Para 1 generación \n")#15min
+    # cat("\nEl ciclo tardó: ",(proc.time()-ptm_pob)[3]/60,
+    #     " minutos. Para 1 generación \n")#15/37.83min
     
   }#Fin for(g)
   cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
       " minutos. Para ",num_generaciones," generaciones \n")
   ##126.403 min = 2hrs 6.4min - 5 generaciones
   ##47.87 min - 3 generaciones
-  ## min - 5 generaciones
+  ##159.75 min - 5 generaciones
+  ##171.17 min = 2hrs 51.17min - 5 generaciones
   
   # View(matrices_calif_x_generacion)
   # View(mejores_asig)
@@ -205,6 +208,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   mejores_asig[[2]][[1]]
   mejores_asig[[3]][[1]]
   mejores_asig[[4]][[1]]
+  mejores_asig[[5]][[1]]
   
   ### 14) Se define la asignación final
   mejor_asig <- mejores_asig[[num_generaciones]][[2]]
@@ -212,7 +216,9 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
                                 mejor_asig$Profesor,
                                 mejor_asig$Horario)
   colnames(mat_asignacion_final) <- c("Materia","Profesor","Horario")
-  # View(mat_asignacion_final)
+  View(mat_asignacion_final)
+  
+  save(mat_asignacion_final,file = "mat_asignacion_final.RData")
   
   cat("\nLa función AG_asignaciones tardó: ",(proc.time()-ptm)[3]/60,
       " minutos\n")

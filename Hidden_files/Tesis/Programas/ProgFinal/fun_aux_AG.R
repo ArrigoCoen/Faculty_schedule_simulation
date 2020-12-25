@@ -153,8 +153,8 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
       mat_calif_asig_x_gpo[r,6] <- mat_calif_asig_x_gpo[(r-1),6] + prob
     }
     
-    (calif_asignacion <- -sum(gpos_sin_prof,pena_x_solicitud_negada,
-                              -mean(mat_calif_asig_x_gpo[,5])))#-1624
+    (calif_asignacion <- mean(mat_calif_asig_x_gpo[,5])-
+        sum(gpos_sin_prof,pena_x_solicitud_negada))
     
     poblacion_inicial[[n]] <- mat_calif_asig_x_gpo
     calif_asignacion_inicial[2,n] <- calif_asignacion
@@ -276,6 +276,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   
   (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
   (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
+  ind_elim_1 <- numeric(0)
+  ind_elim_2 <- numeric(0)
   if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto[ind_hora_gen,
                                                              num_materia_gen]){
     cat("\nEl hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
@@ -292,7 +294,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   (ind_1 <- intersect(ind_prof_1,union(ind_hora_1,ind_materia_1)))
   #' Se intersecta los índices de ind_elim_1 con los de la hora
   #' porque sólo se eliminan esos grupos.
-  (ind_1 <- union(ind_1,intersect(ind_elim_1,ind_hora_1)))
+  (ind_elim_1 <-intersect(ind_elim_1,ind_hora_1))
+  (ind_1 <- union(ind_1,ind_elim_1))
   if(length(ind_1) > 0){
     padre_1 <- padre_1[-ind_1,]
     cat("\n Se eliminaron del padre 1: ",length(ind_1)," entradas")
@@ -305,7 +308,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   (ind_2 <- intersect(ind_prof_2,union(ind_hora_2,ind_materia_2)))
   #' Se intersecta los índices de ind_elim_2 con los de la hora
   #' porque sólo se eliminan esos grupos.
-  (ind_2 <- union(ind_2,intersect(ind_elim_2,ind_hora_2)))
+  (ind_elim_2 <- intersect(ind_elim_2,ind_hora_2))
+  (ind_2 <- union(ind_2,ind_elim_2))
   if(length(ind_2) > 0){
     padre_2 <- padre_2[-ind_2,]
     cat("\n Se eliminaron del padre 2: ",length(ind_2)," entradas")
