@@ -74,7 +74,21 @@ gen_asignacion_completa <- function(param,param_sim){
   # View(mat_calif_asig_x_gpo)
   
   #' 10) AG aplicado a asignaciones: Aquí ya va a salir una buena asignación
-  AG_asignaciones()
+  n_rep <- 5 #5.97/5.59 min
+  set.seed(8654)
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#5.79 min
+  mat_esqueleto_cotas <- lista_esq_D_prima[[1]]
+  
+  list_asignacion_final <- AG_asignaciones(mat_esqueleto,mat_solicitudes_real,
+                                           mat_esqueleto_cotas,
+                                           param)#186.64 min
+  mat_asignacion_final <- list_asignacion_final[[1]]
+  calif_mejor_elem <- list_asignacion_final[[2]]
+  mat_calif_generaciones <- list_asignacion_final[[3]]
+  matrices_calif_x_generacion <- list_asignacion_final[[4]]
+  mejores_asig <- list_asignacion_final[[5]]
+  
+  View(mat_asignacion_final)
   
   return(mat_asignaciones)
 }

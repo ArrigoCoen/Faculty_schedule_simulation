@@ -38,10 +38,11 @@ source("Fn_Asignacion.R")
 #'
 #' @examples
 #' mat_asignacion_final <- AG_asignaciones(mat_esqueleto,
-#' mat_solicitudes_real,param)
+#' mat_solicitudes_real,mat_esqueleto_cotas,param)
 #' 
-AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
-  # ptm <- proc.time()# Start the clock!
+AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
+                            mat_esqueleto_cotas,param){
+  ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
   tam_poblacion <- param$tam_poblacion
   num_generaciones <- param$num_generaciones
@@ -50,11 +51,10 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   matrices_calif_x_generacion <- list()
   mejores_asig <- list()
   vec_prob_asig <- (2*(1:tam_poblacion))/(tam_poblacion*(tam_poblacion+1))
-  calif_mejor_elem <- rep(0,num_generaciones)
+  calif_mejor_elem <- rep(0,(num_generaciones+1))
   colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
   mat_calif_generaciones <- matrix(0,nrow = tam_poblacion,
-                                   ncol = num_generaciones)
-  
+                                   ncol = (num_generaciones+1))
   ptm <- proc.time()# Start the clock!
   # g <- 1
   # g <- 2
@@ -73,37 +73,51 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       ### 12) Guardar una matriz con la calificación x gpo. de las
       #' asignaciones (como xiii de T45)
       matrices_calif_x_generacion[[g]] <- lista_info_inicial[[3]]
-    }else{
-      lista_info <- califica_ordena_asig(poblacion_nueva,param)
-      mat_calif_asig <- lista_info[[1]]
-      poblacion <- lista_info[[2]]
       
-      ### 12) Guardar una matriz con la calificación x gpo. de las
-      #' asignaciones (como xiii de T45)
-      matrices_calif_x_generacion[[g]] <- lista_info[[3]]
+      ### 13) Hacer heatmap de la matriz en 12)
+      heatmap(matrices_calif_x_generacion[[g]][,1:650],
+              Colv = NA, Rowv = NA,
+              main = paste0("Calificaciones ordenadas de generación ",g),
+              scale="none",col=colMain)
+      
+      ### 11) Guardar la mejor asignación de la generación
+      ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+      mejores_asig[[g]] <- list(mat_calif_asig,
+                                poblacion[[ind_mejor_asig]])
+      
+      #Graficar datos
+      calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
+      plot(calif_mejor_elem[1:g],main = "Calificaciones del mejor elemento",
+           xlab = "Generación",ylab = "Calificación")
+      mat_calif_generaciones[,g] <- mat_calif_asig[,2]
+      matplot(mat_calif_generaciones[,1:g],type = "l",
+              main = "Calificaciones de las asignaciones por generación",
+              xlab = "Asignaciones",ylab = "Calificaciones")
+      
     }
     
-    ### 13) Hacer heatmap de la matriz en 12)
-    heatmap(matrices_calif_x_generacion[[g]][,1:650],
-            Colv = NA, Rowv = NA,
-            main = paste0("Calificaciones ordenadas de generación ",g),
-            scale="none",col=colMain)
+    # ### 13) Hacer heatmap de la matriz en 12)
+    # heatmap(matrices_calif_x_generacion[[g]][,1:650],
+    #         Colv = NA, Rowv = NA,
+    #         main = paste0("Calificaciones ordenadas de generación ",g),
+    #         scale="none",col=colMain)
+    # 
+    # ### 11) Guardar la mejor asignación de la generación
+    # ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+    # mejores_asig[[g]] <- list(mat_calif_asig,
+    #                           poblacion[[ind_mejor_asig]])
+    # 
+    # #Graficar datos
+    # calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
+    # plot(calif_mejor_elem[1:g],main = "Calificaciones del mejor elemento",
+    #      xlab = "Generación",ylab = "Calificación")
+    # mat_calif_generaciones[,g] <- mat_calif_asig[,2]
+    # matplot(mat_calif_generaciones[,1:g],type = "l",
+    #         main = "Calificaciones de las asignaciones por generación",
+    #         xlab = "Asignaciones",ylab = "Calificaciones")
     
-    ### 11) Guardar la mejor asignación de la generación
-    ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
-    mejores_asig[[g]] <- list(mat_calif_asig,
-                              poblacion[[ind_mejor_asig]])
-    
-    #Graficar datos
-    calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
-    plot(calif_mejor_elem[1:g],main = "Calificaciones del mejor elemento",
-         xlab = "Generación",ylab = "Calificación")
-    mat_calif_generaciones[,g] <- mat_calif_asig[,2]
-    matplot(mat_calif_generaciones[,1:g],type = "l",
-            main = "Calificaciones de las asignaciones por generación",
-            xlab = "Asignaciones",ylab = "Calificaciones")
-    
-    
+    # save(calif_mejor_elem,file = "calif_mejor_elem.RData")
+    # save(mat_calif_generaciones,file = "mat_calif_generaciones.RData")
     # ptm_pob <- proc.time()# Start the clock!
     for(n in 1:tam_poblacion){
       cat("\n *** HIJO ",n," ***")
@@ -167,7 +181,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         # (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
         # num_max_gpos[2,num_materia_gen] <- num_max_gpos[2,num_materia_gen] + 1
         lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
-                                            gen_elegido,mat_esqueleto)
+                                            gen_elegido,mat_esqueleto_cotas)
         padre_1 <- lista_padres[[1]]
         padre_2 <- lista_padres[[2]]
       }#Fin while()
@@ -190,13 +204,43 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
     # cat("\nEl ciclo tardó: ",(proc.time()-ptm_pob)[3]/60,
     #     " minutos. Para 1 generación \n")#15/37.83min
     
+    lista_info <- califica_ordena_asig(poblacion_nueva,param)
+    mat_calif_asig <- lista_info[[1]]
+    poblacion <- lista_info[[2]]
+    
+    ### 12) Guardar una matriz con la calificación x gpo. de las
+    #' asignaciones (como xiii de T45)
+    matrices_calif_x_generacion[[(g+1)]] <- lista_info[[3]]
+    
+    ### 13) Hacer heatmap de la matriz en 12)
+    heatmap(matrices_calif_x_generacion[[(g+1)]][,1:650],
+            Colv = NA, Rowv = NA,
+            main = paste0("Calificaciones ordenadas de generación ",g+1),
+            scale="none",col=colMain)
+    
+    ### 11) Guardar la mejor asignación de la generación
+    ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+    mejores_asig[[(g+1)]] <- list(mat_calif_asig,
+                              poblacion[[ind_mejor_asig]])
+    
+    #Graficar datos
+    calif_mejor_elem[(g+1)] <- mat_calif_asig[tam_poblacion,2]
+    plot(calif_mejor_elem[1:(g+1)],
+         main = "Calificaciones del mejor elemento",
+         xlab = "Generación",ylab = "Calificación")
+    mat_calif_generaciones[,(g+1)] <- mat_calif_asig[,2]
+    matplot(mat_calif_generaciones[,1:(g+1)],type = "l",
+            main = "Calificaciones de las asignaciones por generación",
+            xlab = "Asignaciones",ylab = "Calificaciones")
+    
   }#Fin for(g)
   cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
       " minutos. Para ",num_generaciones," generaciones \n")
   ##126.403 min = 2hrs 6.4min - 5 generaciones
   ##47.87 min - 3 generaciones
-  ##159.75 min - 5 generaciones
-  ##171.17 min = 2hrs 51.17min - 5 generaciones
+  ##159.75 min - 6 generaciones
+  ##171.17 min = 2hrs 51.17min - 6 generaciones
+  ##147.55 min = 2hrs 51.17min - 6 generaciones
   
   # View(matrices_calif_x_generacion)
   # View(mejores_asig)
@@ -204,24 +248,68 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   # View(mejores_asig[[num_generaciones]][[1]])
   # View(mejores_asig[[num_generaciones]][[2]])
   # View(mejores_asig[[1]][[1]])
-  mejores_asig[[1]][[1]]
-  mejores_asig[[2]][[1]]
-  mejores_asig[[3]][[1]]
-  mejores_asig[[4]][[1]]
-  mejores_asig[[5]][[1]]
+  # mejores_asig[[1]][[1]]
+  # mejores_asig[[2]][[1]]
+  # mejores_asig[[3]][[1]]
+  # mejores_asig[[4]][[1]]
+  # mejores_asig[[5]][[1]]
+  # mejores_asig[[6]][[1]]
   
   ### 14) Se define la asignación final
-  mejor_asig <- mejores_asig[[num_generaciones]][[2]]
+  mejor_asig <- mejores_asig[[(num_generaciones+1)]][[2]]
   mat_asignacion_final <- cbind(mejor_asig$Materia,
                                 mejor_asig$Profesor,
                                 mejor_asig$Horario)
   colnames(mat_asignacion_final) <- c("Materia","Profesor","Horario")
-  View(mat_asignacion_final)
+  # View(mat_asignacion_final)
+  # save(mat_asignacion_final,file = "mat_asignacion_final.RData")
   
-  save(mat_asignacion_final,file = "mat_asignacion_final.RData")
-  
+  list_asignacion_final <- list()
+  list_asignacion_final[[1]] <- mat_asignacion_final
+  list_asignacion_final[[2]] <- calif_mejor_elem #Vector con calificaciones
+  #de los mejores elementos por generación
+  list_asignacion_final[[3]] <- mat_calif_generaciones #Matriz con
+  #calificaciones de todos los elementos de todas las generaciones
+  list_asignacion_final[[4]] <- matrices_calif_x_generacion #Lista de
+  #' tamaño num_generaciones+1 con las matrices de calificaciones ordenadas
+  #' por generación .
+  list_asignacion_final[[5]] <- mejores_asig #Lista de tamaño
+  #' num_generaciones+1 con la información de los mejores hijos de
+  #' cada generación.
+  names(list_asignacion_final) <- c("mat_asignacion_final",
+                                    "calif_mejor_elem",
+                                    "mat_calif_generaciones",
+                                    "matrices_calif_x_generacion",
+                                    "mejores_asig")
   cat("\nLa función AG_asignaciones tardó: ",(proc.time()-ptm)[3]/60,
       " minutos\n")
-  return(mat_asignacion_final)
+  return(list_asignacion_final)
 }
+
+
+# Ej. ---------------------------------------------------------------------
+
+list_asignacion_final <- AG_asignaciones(mat_esqueleto,mat_solicitudes_real,
+                                         mat_esqueleto_cotas,
+                                         param)#186.64 min
+mat_asignacion_final <- list_asignacion_final[[1]]
+calif_mejor_elem <- list_asignacion_final[[2]]
+mat_calif_generaciones <- list_asignacion_final[[3]]
+matrices_calif_x_generacion <- list_asignacion_final[[4]]
+mejores_asig <- list_asignacion_final[[5]]
+
+
+View(mat_asignacion_final)
+
+
+
+
+
+
+
+
+
+
+
+
 
