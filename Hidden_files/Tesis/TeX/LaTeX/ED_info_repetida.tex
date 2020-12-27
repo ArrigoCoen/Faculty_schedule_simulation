@@ -1,31 +1,43 @@
 \subsection{Problemas de información repetida}
 
-Dentro de los problemas de información repetida, para guardar la información, juntamos aquellos grupos que provenían del mismo grupo. A continuación presentamos los casos que encontramos con el problema de tener información repetida.
+Dentro de los problemas de información repetida, para guardar la información, juntamos aquellas clases que provenían del mismo grupo. A continuación presentamos los casos que encontramos con el problema de tener información repetida.
 
 \begin{itemize}
-\item[-] El número del plan de estudios corresponde al año en que entró en vigencia el plan. Por ejemplo, si se tiene un plan 2015 en Actuaría, entonces dicho plan comenzó a tener vigencia en el año 2015. Debido a ésto no debería de existir un horario con un plan posterior al año del semestre.
+\item[-] El número del plan de estudios corresponde al año en que entró en vigencia el plan. Por ejemplo, si se tiene un plan 2015 en Actuaría, entonces dicho plan comenzó a tener vigencia a partir del año 2015. Debido a ésto no debería de existir un horario con un plan posterior al año del semestre.
 
-En la subfigura $(a)$ de la \figurename{~\ref{planRepetido}} podemos ver una materia de la carrera de Ciencias de la Computación del semestre 2008-2, con el plan 2013, lo cual no es cronológicamente correcto: \url{http://www.fciencias.unam.mx/docencia/horarios/20082/1556/803}. En la subfigura $(b)$ de la misma figura, vemos la información de la misma materia y del mismo grupo pero con el plan 1994: \url{http://www.fciencias.unam.mx/docencia/horarios/20082/218/803}.
+En la subfigura $(a)$ de la \figurename{~\ref{planRepetido}} podemos ver una materia de la carrera de Ciencias de la Computación del semestre 2008-2, con el plan 2013, lo cual no es cronológicamente correcto: \url{http://www.fciencias.unam.mx/docencia/horarios/20082/1556/803}.
+
+En la subfigura $(b)$ de la misma figura, vemos la información de la misma materia y del mismo grupo pero con el plan 1994: \url{http://www.fciencias.unam.mx/docencia/horarios/20082/218/803}.
 
 \begin{figure}[H]
 \centering
-\subfigure[\textit{Plan de estudios posterior}]{\includegraphics[width=10cm]{InfoRepetida_A_1}} %%Ping\"uino %%[angle=30]
-	\subfigure[\textit{Plan de estudios correspondiente}]{\includegraphics[width=10cm]{InfoRepetida_A_2}}
-	\caption[\textit{Ejemplo de información repetida: Planes de estudio}]{\textit{Ejemplo de información repetida (Planes de estudio): No deberían de existir grupos con planes posteriores al año del semestre en el que se busca información.}}\label{planRepetido}
+\subfigure[\textit{Plan de estudios posterior}]{\includegraphics[width=11cm]{InfoRepetida_A_1}} %%Ping\"uino %%[angle=30]
+	\subfigure[\textit{Plan de estudios correspondiente}]{\includegraphics[width=11cm]{InfoRepetida_A_2}}
+	\caption[\textit{Ejemplo de información repetida: Planes de estudio}]{\textit{Se muestra un ejemplo de información repetida por los planes de estudio. No deberían de existir grupos con planes posteriores al año del semestre en el que se busca información.}}\label{planRepetido}
 \end{figure}
 
-\item[-] En la \figurename{~\ref{MateriaNombresDistintos}} vemos un ejemplo en donde se tiene una misma materia con nombres distintos para las diferentes carreras: \url{http://www.fciencias.unam.mx/docencia/horarios/20201/217/1712} para Matemáicas, plan 1983 y \url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/1739} para Actuaría, plan 2015. Notamos que la información en ambas páginas es la misma, sólo cambian las claves de los grupos.
+\item[-] Encontramos grupos correspondientes a una misma materia con nombres distintos para diferentes carreras.
+
+En la subfigura $(a)$ de la \figurename{~\ref{MateriaNombresDistintos}} vemos un ejemplo con la información de la materia \textit{Estadística III}, para la carrera de Matemáticas plan 1983: \url{http://www.fciencias.unam.mx/docencia/horarios/20201/217/1712}.
+
+En la subfigura $(b)$ de la figura mencionada se muestra la información de la materia \textit{Modelos de Superviciencia y de Series de Tiempo}, para la carrera de Actuaría plan 2015: \url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/1739}.
+
+Notamos que la información en ambos ejemplos es la misma. Sólo cambian las claves de los grupos y el nombre de las materias.
 
 \begin{figure}[H]
 	\centering
-	\subfigure[\textit{Matemáticas: 1983}]{\includegraphics[width=10cm]{InfoRepetida_B_1}} %%Ping\"uino %%[angle=30]
-	\subfigure[\textit{Actuaría: 2015}]{\includegraphics[width=10cm]{InfoRepetida_B_2}}
-	\caption[\textit{Ejemplo de información repetida: Materia con nombres distintos}]{\textit{Ejemplo de información repetida: Materia con nombres distintos: En estos casos se tienen materias que tienen nombres diferentes de acuerdo a la carrera o plan de estudios.}}\label{MateriaNombresDistintos}
+	\subfigure[\textit{Matemáticas plan 1983}]{\includegraphics[width=11cm]{InfoRepetida_B_1}} %%Ping\"uino %%[angle=30]
+	\subfigure[\textit{Actuaría plan 2015}]{\includegraphics[width=14cm]{InfoRepetida_B_2}}
+	\caption[\textit{Ejemplo de información repetida: Materia con nombres distintos}]{\textit{Se muestra un ejemplo de información repetida por materia con nombres distintos. En estos casos se tienen materias que tienen nombres diferentes de acuerdo a la carrera o plan de estudios.}}\label{MateriaNombresDistintos}
 \end{figure}
 
-\item[-] En la \figurename{~\ref{UnProfMuchasMaterias}} tenemos un ejemplo de profesores que imparten dos o más clases distintas en el mismo horario y diferente salón: \url{http://www.fciencias.unam.mx/docencia/horarios/20111/2017/162} para \textit{Ecuaciones Diferenciales I} y \url{http://www.fciencias.unam.mx/docencia/horarios/20111/2017/91} para \textit{Cálculo Diferencial e Integral I}.
-  
-Las materias mencionadas son diferentes, pero las clases comienzan a la misma hora, \textit{Ecuaciones Diferenciales I} de 18-19hrs y \textit{Cálculo Diferencial e Integral I} de 18-20hrs, dado que se tiene la misma ayudante pudiera ser que se intercambien las horas, pero no se puede asignar más de una clase a la misma hora al mismo profesor.
+\item[-] Encontramos grupos con profesores que imparten dos o más clases distintas en el mismo horario y diferente salón.
+
+En la subfigura $(a)$ de la \figurename{~\ref{UnProfMuchasMaterias}} se observa un ejemplo con la información de la materia \textit{Ecuaciones Diferenciales I}: \url{http://www.fciencias.unam.mx/docencia/horarios/20111/2017/162}.
+
+En la subfigura $(b)$ de la figura mencionada se muestra la información de la materia \textit{Cálculo Diferencial e Integral I}: \url{http://www.fciencias.unam.mx/docencia/horarios/20111/2017/91}.
+
+Las materias mencionadas son diferentes, pero las clases comienzan a la misma hora, \textit{Ecuaciones Diferenciales I} de 18-19hrs y \textit{Cálculo Diferencial e Integral I} de 18-20hrs. Dado que se tiene la misma ayudante pudiera ser que se intercambien las horas, pero no se puede asignar más de una clase a la misma hora al mismo profesor.
 
 %EJEMPLO CON PROFESOR: Bartolo Guzmán Guevara
 %Ecuaciones Diferenciales Parciales II
@@ -120,14 +132,12 @@ Las materias mencionadas son diferentes, pero las clases comienzan a la misma ho
 %http://www.fciencias.unam.mx/docencia/horarios/20172/217/764
 %http://www.fciencias.unam.mx/docencia/horarios/20172/217/777
 
-%EJEMPLO CON PROFESOR: 
-%EJEMPLO CON PROFESORA: 
 
 \begin{figure}[H]
 	\centering
 	\subfigure[\textit{Ecuaciones Diferenciales I}]{\includegraphics[width=10cm]{Ej_gpo_repetido_1}} %%Ping\"uino %%[angle=30]
 	\subfigure[\textit{Cálculo Diferencial e Integral I}]{\includegraphics[width=15cm]{Ej_gpo_repetido_2}}
-	\caption[\textit{Ejemplo de información repetida: Mismo profesor, materias distintas}]{\textit{Ejemplo de información repetida (mismo profesor, materias distintas): En este caso se tiene más de una clase impartida por el mismo profesor a la misma hora en diferente salón lo cual no debería de ocurrir.}}\label{UnProfMuchasMaterias}
+	\caption[\textit{Ejemplo de información repetida: Mismo profesor, misma hora, materias distintas}]{\textit{Se muestra un ejemplo de información repetida por tener un mismo profesor impartiendo materias distintas, en distinto salón, a la misma hora.}}\label{UnProfMuchasMaterias}
 \end{figure}	
 
 \end{itemize}

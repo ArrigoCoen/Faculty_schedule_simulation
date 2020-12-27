@@ -5,23 +5,23 @@
 \contentsline {figure}{\numberline {1.3}{\ignorespaces \textit {Número de alumnos por turno: Probabilidad I}}}{7}{figure.caption.8}%
 \contentsline {figure}{\numberline {1.4}{\ignorespaces \textit {Histogramas del número de alumnos por turno: Probabilidad I}}}{8}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Página de horarios de la Facultad de Ciencias}}}{9}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Aplicación SelectorGadget}}}{12}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \textit {Página de horarios de la Facultad}}}{9}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \textit {Uso de la aplicación SelectorGadget}}}{12}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces \textit {Tipo de grupo A}}}{13}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces \textit {Tipo de grupo B}}}{13}{figure.caption.16}%
 \contentsline {figure}{\numberline {2.5}{\ignorespaces \textit {Tipo de grupo C}}}{13}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces \textit {Ejemplo de página web en blanco}}}{14}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Ejemplo de grupo sin información de salón}}}{14}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces \textit {Ejemplo de grupo sin información de salón}}}{15}{figure.caption.19}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces \textit {Ejemplo de grupo sin información de alumnos}}}{15}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Ejemplo de grupo sólo con horario}}}{15}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{16}{figure.caption.22}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces \textit {Ejemplo de información repetida: Materia con nombres distintos}}}{17}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces \textit {Ejemplo de información repetida: Mismo profesor, materias distintas}}}{18}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces \textit {Ejemplo de grupo con un alumno}}}{18}{figure.caption.25}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces \textit {Ejemplo de grupo con medias horas}}}{19}{figure.caption.26}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces \textit {Ejemplo de grupo con horarios múltiples}}}{19}{figure.caption.27}%
-\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{20}{figure.caption.28}%
-\contentsline {figure}{\numberline {2.17}{\ignorespaces \textit {Ejemplo de grupo con estructura diferente}}}{20}{figure.caption.29}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces \textit {Ejemplo de grupo sólo con horario}}}{16}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces \textit {Ejemplo de información repetida: Planes de estudio}}}{17}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces \textit {Ejemplo de información repetida: Materia con nombres distintos}}}{18}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces \textit {Ejemplo de información repetida: Mismo profesor, misma hora, materias distintas}}}{19}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces \textit {Ejemplo de grupo con un alumno}}}{20}{figure.caption.25}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces \textit {Ejemplo de grupo con medias horas}}}{20}{figure.caption.26}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces \textit {Ejemplo de grupo con horarios múltiples}}}{20}{figure.caption.27}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces \textit {Ejemplo de grupo de inglés}}}{21}{figure.caption.28}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces \textit {Ejemplo de grupo con estructura diferente}}}{21}{figure.caption.29}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces \textit {Descomposición por el método aditivo de Holt-Winters}}}{27}{figure.caption.30}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {Media de alumnos por semestre}}}{28}{figure.caption.31}%
@@ -69,22 +69,22 @@
 \contentsline {figure}{\numberline {4.23}{\ignorespaces \textit {Histograma con todos los datos de los esqueletos simulados}}}{64}{figure.caption.75}%
 \contentsline {figure}{\numberline {4.24}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{65}{figure.caption.76}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Algoritmo Genético}\relax }}{68}{figure.caption.77}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Ejemplo con calificaciones de asignaciones}\relax }}{71}{figure.caption.78}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Diagrama del Algoritmo Genético}}}{68}{figure.caption.77}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces \textit {Ejemplo con calificaciones de mejores asignaciones.}\relax }}{71}{figure.caption.78}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces \textit {Ejemplo con calificaciones de asignaciones por generación.}\relax }}{72}{figure.caption.79}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces \textit {ITAM Probabilidad I}\relax }}{95}{figure.caption.80}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces \textit {ITAM Probabilidad I}\relax }}{99}{figure.caption.79}%
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}\relax }}{102}{figure.caption.80}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}\relax }}{104}{figure.caption.81}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}\relax }}{105}{figure.caption.82}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}\relax }}{105}{figure.caption.83}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}\relax }}{106}{figure.caption.84}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}\relax }}{107}{figure.caption.85}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces \textit {Nombres planes de estudio}\relax }}{108}{figure.caption.86}%
-\contentsline {figure}{\numberline {A.8}{\ignorespaces \textit {which in plot}\relax }}{109}{figure.caption.87}%
-\contentsline {figure}{\numberline {A.9}{\ignorespaces \textit {Skill vs challenge level}\relax }}{110}{figure.caption.88}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces \textit {Resumen de clases de ingles antes de modificación}\relax }}{98}{figure.caption.81}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces \textit {Ejemplo de horarios de semestre 2021-1}\relax }}{100}{figure.caption.82}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces \textit {Notas de T26}\relax }}{101}{figure.caption.83}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces \textit {Ejemplo de Roxygen}\relax }}{101}{figure.caption.84}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces \textit {Ejemplo de varianza}\relax }}{102}{figure.caption.85}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces \textit {Cláusula 99 CCTPA: Ayuda para la impresión de la tesis}\relax }}{103}{figure.caption.86}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces \textit {Nombres planes de estudio}\relax }}{104}{figure.caption.87}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces \textit {which in plot}\relax }}{105}{figure.caption.88}%
+\contentsline {figure}{\numberline {A.9}{\ignorespaces \textit {Skill vs challenge level}\relax }}{106}{figure.caption.89}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

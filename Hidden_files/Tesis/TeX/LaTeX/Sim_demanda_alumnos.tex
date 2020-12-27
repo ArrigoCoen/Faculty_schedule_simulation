@@ -54,22 +54,46 @@ Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \texti
 
 \section{Modelo de Mezcla Gaussiana} \label{sec_GMM}
 
-Do Chuong y Batzoglou nos indican, en su artículo \textit{What is the expectation maximization algorithm?} [\ref{ChuongBatzoglou}], que el algoritmo de maximización de la esperanza (EM) es una generalización natural de la estimación por máxima verosimilitud. Ésto para el caso en donde se tiene información incompleta.
+El modelo de Mezcla Gaussiana también es llamado modelo de mezcla de normales. En él se tienen dos o más distribuciones normales. Se hace una combinación lineal de ellas y se obtiene una nueva distribución de probabilidad.
 
-Los parámetros iniciales se toman de los datos con ello se obtienen unos parámetros finales que se convierten en los parámetros de la siguiente iteración. Así sucesivamente.
+En \textit{R} se puede obtener dicha distribución con la función \verb@normalmixEM()@. La función regresa un objeto de tipo \textit{mixEM} el cual contiene el modelo de una mezcla de distribuicones normales obtenidas por el algoritmo de maximización de la esperanza (EM - \textit{expectation maximization algorithm}).
 
-\url{https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko}
+Do Chuong y Batzoglou nos indican, en su artículo \textit{What is the expectation maximization algorithm?} [\ref{ChuongBatzoglou}], que el algoritmo EM es una generalización natural de la estimación por máxima verosimilitud. Ésto para el caso en donde se tiene información incompleta. Recordemos que la máxima verosimilitud se utiliza para encontrar la mejor manera de ajustar una distribución a los datos.
 
-\url{https://www.youtube.com/watch?v=iQoXFmbXRJA&ab_channel=VictorLavrenko}
+En el algoritmo EM, los parámetros iniciales se toman de los datos reales. Con ellos se obtienen unos parámetros finales que se convierten en los parámetros para la siguiente iteración. Así sucesivamente.
 
-\url{https://www.youtube.com/watch?v=pYxNSUDSFH4&ab_channel=StatQuestwithJoshStarmer}
+A continuación vamos a explicar los principales parámetros que recibe la función \verb@normalmixEM()@.
+
+\begin{itemize}
+\item[-] \textit{x: } Vector con los datos a los que se quiere aplicar el modelo.
+
+\item[-] \textit{mu: } Vector con las medias iniciales para el algoritmo EM.
+
+\item[-] \textit{k: } Número de normales que se ajustan a los datos.
+\end{itemize}
 
 
- The goal of the maximum likelihood is to find the optimal way to fit a distribution to the data:
- 
-\url{https://www.youtube.com/watch?v=XepXtl9YKwc&ab_channel=StatQuestwithJoshStarmer}
+A continuación vamos a explicar los elementos del objeto de tipo \textit{mixEM} que utilizamos para poder simular la demanda de alumnos en la siguiente sección.
 
+\begin{itemize}
+\item[-] \textit{mu: } Vector con las medias finales del modelo.
 
+\item[-] \textit{sigma: } Vector con las desviaciones estándar finales del modelo.
+\end{itemize}
+
+%\url{https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko}
+%
+%\url{https://www.youtube.com/watch?v=iQoXFmbXRJA&ab_channel=VictorLavrenko}
+%
+%\url{https://www.youtube.com/watch?v=pYxNSUDSFH4&ab_channel=StatQuestwithJoshStarmer}
+%
+%\url{https://www.youtube.com/watch?v=XepXtl9YKwc&ab_channel=StatQuestwithJoshStarmer} %%  The goal of the maximum likelihood is to find the optimal way to fit a distribution to the data.
+%
+%\url{https://www.youtube.com/watch?v=s3sTSA_GXV8&ab_channel=InstitutodeInformaticaUACh}
+%
+%\url{https://www.youtube.com/watch?v=_igVkRP9TFE&ab_channel=InstitutodeInformaticaUACh}
+%
+%\url{https://natureofcode.com/book/chapter-9-the-evolution-of-code/}
 
 En la \figurename{~\ref{GMM_inicial_final}} se muestran dos histogramas con los datos iniciales y finales, respectivamente. Las líneas verdes corresponden al ajuste con la función \verb@density()@ en \textit{R} y las azules al modelo de mezcla de normales.
 

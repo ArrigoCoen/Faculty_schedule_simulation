@@ -1,6 +1,11 @@
 ##########################################################################
 #' En este programa se encuentra un ejemplo para utilizar la función
 #' apply para una lista de matrices.
+#' 
+#' Algunos videos de su uso:
+#' https://www.youtube.com/watch?v=f0U74ZvLfQo&ab_channel=RichardWebster
+#' https://www.youtube.com/watch?v=ejVWRKidi9M&ab_channel=RichardWebster
+#' https://www.youtube.com/watch?v=HmBPDTtb6Bg&ab_channel=RichardWebster
 ##########################################################################
 # Ej. 1 -------------------------------------------------------------------
 A <- matrix(c(2,4,3,5), 2)

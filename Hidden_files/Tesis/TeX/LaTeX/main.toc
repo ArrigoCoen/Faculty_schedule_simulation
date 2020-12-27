@@ -11,12 +11,12 @@
 \contentsline {chapter}{\numberline {2}Extracción de datos}{9}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Estructura de las URL's}{10}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Extracción de datos con la aplicación SelectorGadget}{11}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Tipos de grupos de las páginas web de la Facultad de Ciencias}{12}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Limpieza de base de datos}{13}{section.2.4}%
+\contentsline {section}{\numberline {2.3}Tipos de grupos en las páginas web de la Facultad de Ciencias}{12}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Limpieza de base de datos}{14}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Problemas de falta de información}{14}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Problemas de información repetida}{16}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Otros problemas al extraer información}{18}{subsection.2.4.3}%
-\contentsline {section}{\numberline {2.5}Matrices de datos}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {2.4.3}Otros problemas al extraer información}{19}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Matrices de datos}{21}{section.2.5}%
 \contentsline {chapter}{\numberline {3}Análisis estadístico}{25}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Análisis estadístico básico}{26}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Prueba de tendencia}{28}{subsection.3.1.1}%
@@ -41,11 +41,10 @@
 \contentsline {subsection}{\numberline {4.9.1}Función gen\_esqueleto}{65}{subsection.4.9.1}%
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{67}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{68}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{73}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Comportamiento de la selección}{95}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Conclusiones}{97}{chapter.8}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{101}{appendix.alph1.Alph1}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{113}{appendix.alph1.Alph2}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{117}{appendix.alph1.Alph3}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{119}{appendix.alph1.Alph4}%
-\contentsline {chapter}{Bibliografía}{121}{appendix*.90}%
+\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{71}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{93}{chapter.7}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{97}{appendix.alph1.Alph1}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{109}{appendix.alph1.Alph2}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{113}{appendix.alph1.Alph3}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{115}{appendix.alph1.Alph4}%
+\contentsline {chapter}{Bibliografía}{117}{appendix*.91}%

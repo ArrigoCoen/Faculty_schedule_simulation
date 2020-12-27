@@ -53,6 +53,7 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
   
   for(n in 1:tam_poblacion){
     cat("\n n = ", n)
+    #Generamos la población inicial
     lista_asignacion <- gen_asignacion(mat_esqueleto,mat_solicitudes_real,
                                        param)#22.66 seg
     mat_asignacion <- lista_asignacion[[1]]
@@ -249,27 +250,29 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 #' Title ajusta_genes_padres: Función que se encarga de quitar la
 #' información en los padres, del profesor en "gen_elegido" a esa hora y
 #' con esa materia. Se tiene una cota para que el número de grupos del hijo
-#' no supere el número de grupos de mat_esqueleto.
+#' no supere el número de grupos de mat_esqueleto_cotas.
 #'
 #' @param esq_hijo: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos del hijo
-#' para la hora i, y la materia j.
+#' para la hora i, y la materia j. Esqueleto del hijo.
 #' @param padre_1: Asignación elegida para crear un hijo.
 #' @param padre_2: Asignación elegida para crear un hijo.
 #' @param gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
 #' con la información del gen del padre elegido.
-#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' @param mat_esqueleto_cotas: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
-#' para la hora i, y la materia j.
+#' para la hora i, y la materia j. Es diferente a "mat_esqueleto" porque
+#' no se puede tener información privilegiada para la creación antes de la
+#' calificación.
 #'
 #' @return lista_padres: Lista con los 2 padres actualizados.
 #'
 #' @examples
 #' lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
-#' gen_elegido,mat_esqueleto)
+#' gen_elegido,mat_esqueleto_cotas)
 #' 
 ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
-                                mat_esqueleto){
+                                mat_esqueleto_cotas){
   cat("\n Se eligió el gen: \n",as.character(gen_elegido))
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes")
@@ -278,11 +281,11 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
   ind_elim_1 <- numeric(0)
   ind_elim_2 <- numeric(0)
-  if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto[ind_hora_gen,
+  if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto_cotas[ind_hora_gen,
                                                              num_materia_gen]){
     cat("\nEl hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
         " grupos. \nEl esqueleto tiene ",
-        mat_esqueleto[ind_hora_gen,num_materia_gen],"grupos.")
+        mat_esqueleto_cotas[ind_hora_gen,num_materia_gen],"grupos.")
     (ind_elim_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
     (ind_elim_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
   }
@@ -385,21 +388,4 @@ califica_ordena_asig <- function(poblacion_nueva,param){
 
   return(lista_info)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

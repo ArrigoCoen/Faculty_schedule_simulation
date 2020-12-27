@@ -103,7 +103,7 @@ source("Programas/Figuras PDF/fig_histogramas_FR_num_alum_x_carrera/histogramas_
 # source("Programas/Figuras PDF/fig_heatmap_metodo_C/heatmap_metodo_C.R")
 
 #####
-# source("Programas/Figuras PDF//.R")
+source("Programas/Figuras PDF/fig_calif_mejores_hijos/.R")
 
 #####
 # source("Programas/Figuras PDF//.R")
