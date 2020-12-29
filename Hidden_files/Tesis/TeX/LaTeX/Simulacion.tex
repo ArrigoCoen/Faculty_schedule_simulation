@@ -2,18 +2,18 @@
 
 La simulación es un proceso que nos permite estudiar el comportamiento de un sistema complejo y difícil de examinar de manera analítica. Nos ayuda a determinar de manera empírica las probabilidades de ciertos eventos. También nos permite experimentar con diversos supuestos que podrían ser muy costosos o riesgosos de realizar físicamente, como enseñar a los pilotos a volar un avión.
 
-Algunas áreas de aplicación son: biología, estadística, medicina, química, matemáticas, investigación de operaciones, física, ingeniería y ciencias sociales. Los ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas.
+Algunas áreas de aplicación son: biología, estadística, medicina, química, matemáticas, investigación de operaciones, física y ciencias sociales. Los ejemplos de su aplicación van desde simular el lanzamiento de una moneda justa, hasta la simulación de colisiones de átomos en un acelerador de partículas.
 
 Actualmente se combinan diferentes metodologías de simulación con el software disponible, el análisis de sensibilidad y la optimización estocástica. Ésto para obtener un mejor resultado al momento de simular sistemas que son cada vez más complejos como las redes neuronales.
 
 En este trabajo utilizamos la simulación para poder realizar predicciones en base a datos históricos. Tomamos la información de los horarios de la Facultad y con ellos simulamos la demanda del número de alumnos para el siguiente semestre. Con esta demanda hicimos los esqueletos necesarios para realizar la asignación de horarios.
 
-En \textit{R} realizamos la función \textit{gen\_asignacion} encargada de generar la asignación de horarios, materias y profesores. En la \figurename{~\ref{DF_genAsig}} se muestra el diagrama de flujo que sigue dicha función. A lo largo de este capítulo explicaremos los pasos (3)-(9) mostrados en el diagrama. Cabe aclarar que los pasos (1) y (2) corresponden a las Secciones \ref{sec_ED_SelectorGadget} y \ref{sec_ED_LimpiezaDatos}, respectivamente.
+En \textit{R} realizamos la función \verb@gen_asignacion()@ encargada de generar la asignación de horarios, materias y profesores. En la \figurename{~\ref{DF_genAsig}} se muestra el diagrama de flujo que sigue dicha función. A lo largo de este capítulo explicaremos los pasos (3)-(9) mostrados en el diagrama. Cabe aclarar que los pasos (1) y (2) corresponden a las Secciones \ref{sec_ED_SelectorGadget} y \ref{sec_ED_LimpiezaDatos}, respectivamente.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrama_flujo} %scale = 0.7
-\caption[\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}}]{\textit{Diagrama de flujo de la función \textbf{gen\_asignacion}: Muestra el proceso que se sigue para la obtención de la matriz de asignación de horario.}}\label{DF_genAsig}
+\caption[\textit{Diagrama de flujo de la función ``gen\_asignacion()''}]{\textit{Se muestra el diagrama de flujo de la función ``gen\_asignacion()''. Se pueden ver los pasos para obtener la matriz de asignaciones.}}\label{DF_genAsig}
 \end{figure}
 
 
@@ -30,7 +30,7 @@ En esta sección vamos a explicar cómo hicimos la simulación del tamaño de gr
 Hicimos una función en \textit{R} que realiza los siguientes pasos:
   
   \begin{enumerate}
-\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
+%\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
 
 \item Obtener, de \textit{m\_grande\_2015}, la información del número de alumnos que ha tenido un profesor.
 

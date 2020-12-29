@@ -30,19 +30,19 @@
 \contentsline {section}{\numberline {4.1}Obtención de nombres de materias}{44}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Obtención de los parámetros $q_{1}$ y $q_{2}$}{45}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Obtención de nombres de profesores}{49}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Profesores de tiempo completo}{49}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Profesores de asignatura}{51}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{52}{section.4.4}%
+\contentsline {subsection}{\numberline {4.3.1}Profesores de tiempo completo}{50}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Profesores de asignatura}{52}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{53}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Simulación de solicitudes de profesores}{53}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Simulación de la demanda de alumnos}{55}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{57}{section.4.7}%
+\contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{58}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Obtención de $D'$ y $D_{0}$}{60}{section.4.8}%
 \contentsline {section}{\numberline {4.9}Simulación de esqueletos}{64}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Función gen\_esqueleto}{67}{subsection.4.9.1}%
+\contentsline {section}{\numberline {4.10}Obtención de mat\_esqueletos}{64}{section.4.10}%
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{73}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusiones}{95}{chapter.7}%
+\contentsline {section}{\numberline {5.2}Resultados del Algoritmo Genético}{73}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{95}{chapter.6}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{99}{appendix.alph1.Alph1}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{111}{appendix.alph1.Alph2}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{115}{appendix.alph1.Alph3}%

@@ -1,6 +1,53 @@
-\section{Simulación de esqueletos} \label{sec_esqueletos}
+\section{Simulación de esqueletos} \label{sec_gen_esqueleto}
+
+Considerando que ya se generaron las matrices $D'$ (ver Sección \ref{SimDemandaAlumnos}) y \textit{mat\_solicitudes} (ver Sección \ref{SimSolicitudesProfesores}), el proceso que seguimos para obtener un esqueleto es el siguiente:
+  
+  \begin{enumerate}
+%\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{GMM_D}).
+%
+%\item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver Sección \ref{SimSolicitudesProfesores}).
+
+\item Elegir un profesor de tiempo completo al azar.
+
+\item Elegir al azar un horario y una materia que haya solicitado el profesor elegido en el paso anterior. Con estos datos obtenemos las coordenadas $(h,j)$ para las matrices $D'$ y \textit{mat\_esqueleto}.
+
+\item Verificar que a esa materia en esa hora aún le sobran alumnos, en la entrada $(h,j)$ de $D'$.
+
+\item Simular el número de alumnos para ese grupo (ver Sección \ref{SimTamGpos}).
+
+\item Restar el número de alumnos simulados en el paso anterior, de la materia y hora elegidas, en la entrada $(h,j)$ de $D'$.
+
+\item Ese profesor ya no puede impartir clases a esa hora. Retirar renglones correspondientes de \textit{mat\_solicitudes}.
+
+\item Repetir los pasos de 1 a 6 hasta que se terminen los profesores.
+
+\item Una vez que se terminen los profesores de tiempo completo, hacer los pasos de 1 a 7 con los profesores de asignatura.
+\end{enumerate}
+
+Algunas notas a considerar del procedimiento son:
+  
+  \begin{itemize}
+%\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
+
+\item[-] Los profesores de tiempo completo deben cumplir con sus horas, por contrato.
+
+\item[-] Los profesores sólo pueden tener asignadas a lo más 2 materias.
+
+\item[-] Las condiciones de paro del proceso son:
+  
+  \begin{itemize}
+\item[a)] Ya se cubrió toda la demanda
+
+\item[b)] Ya no hay más profesores
+
+\item[c)] Llegar a una cota predefinida para que el ciclo no se haga infinito o tarde mucho en cumplir las condiciones anteriores.
+\end{itemize}
+\end{itemize}
+
+
+\section{Obtención de mat\_esqueletos} \label{sec_esqueletos}
 %el Modelo de Mezcla Gaussiana visto en la sección \ref{sec_GMM}.
-En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, utilizando la metodología $B$ seleccionada en la sección anterior. La matriz tiene $t$ renglones y $m$ columnas. En la entrada $(h,j)$ tiene el número de grupos simulados para la hora $h$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
+En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, utilizando la metodología $B$ seleccionada en la Sección \ref{GMM_D}. La matriz tiene $t$ renglones y $m$ columnas. En la entrada $(h,j)$ tiene el número de grupos simulados para la hora $h$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
 
 
 %Los pasos que seguimos para obtener la matriz \textit{mat\_esqueleto} con la metodología $B$ son:
@@ -9,13 +56,13 @@ Los pasos que seguimos son:
 \begin{enumerate}
 \item Definir \textit{n\_rep}, el número de veces que se va a generar la matriz $D'_{n}$ con la demanda de alumnos para el siguiente semestre.
 
-\item Simular $D'_{1}$ con la función \textit{gen\_mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}).
+\item Simular $D'_{1}$ con la función \textit{gen\_mat\_demanda\_alumnos}. Los pasos de esta función se describen en la Sección \ref{SimDemandaAlumnos}.
 
 \item Definir la matriz \textit{prom\_D} igual a $D'_{1}$. La matriz \textit{prom\_D} guardará el promedio del número de alumnos simulados.
 
-\item Simular \textit{mat\_solicitudes} con la función \textit{gen\_solicitudes} (ver Sección \ref{SimSolicitudesProfesores}).
+\item Simular \textit{mat\_solicitudes} con la función \textit{gen\_solicitudes}. El procedimiento de esta función está descrito en la Sección \ref{SimSolicitudesProfesores}.
 
-\item Simular un esqueleto inicial con la función \textit{gen\_esqueleto}. Los pasos de esta función se pueden ver en la Subsección \ref{subsec_gen_esqueleto}.
+\item Simular un esqueleto inicial con la función \textit{gen\_esqueleto}. Los pasos de esta función se pueden ver en la Sección \ref{sec_gen_esqueleto}.
 
 \item Guardar el número de grupos por materia.
 
@@ -23,7 +70,7 @@ Los pasos que seguimos son:
 
 \item Graficar los datos del esqueleto inicial para ver su distribución. Con esta gráfica encontrar el número de medias inicial, en nuestro caso $k = 4$ (ver \figurename{~\ref{hist_wait_esq_ini}}).
 
-\item Definir el modelo inicial \textit{mixmdl\_1\_esqueleto} con la función de \textit{R}:
+\item Definir el modelo inicial \textit{mixmdl\_1\_esqueleto} con el siguiente comando en \textit{R}:
 
 \verb@normalmixEM(wait_mat_esqueleto,k = 4)@.
 \end{enumerate}
@@ -31,7 +78,7 @@ Los pasos que seguimos son:
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{hist_wait_esqueleto_inicial} %scale = 0.7
-\caption[\textit{Histograma con los datos del esqueleto inicial}]{\textit{Se muestra el histograma con los datos del esqueleto inicial.}}\label{hist_wait_esq_ini}
+\caption[\textit{Histograma con los datos del esqueleto inicial}]{\textit{Se muestra el histograma con el número de grupos por hora en el esqueleto inicial.}}\label{hist_wait_esq_ini}
 \end{figure}
 
 
@@ -56,11 +103,11 @@ Pasos finales:
 \begin{enumerate}
 \item Calcular el promedio de grupos por materia. Para ello, aplicar las siguientes funciones de \textit{R}, a la matriz \textit{prom\_D}: \verb@ceiling(colMeans((prom_D))@ 
 
-\item Definir el modelo final \textit{mixmdl\_esqueleto} con la función en \textit{R}:
+\item Definir el modelo final \textit{mixmdl\_esqueleto}  con el siguiente comando en \textit{R}:
 
 \verb@normalmixEM(wait_mat_esqueleto,k = 4,mean=mixmdl_1_esqueleto$mu)@.
 
-En la \figurename{~\ref{hist_wait_esq_fin}}) se puede ver el histograma con todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final \textit{mixmdl\_esqueleto}.
+En la \figurename{~\ref{hist_wait_esq_fin}}, se puede ver el histograma con todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final \textit{mixmdl\_esqueleto}.
 
 \item Generar la matriz \textit{mat\_esqueleto} en base al promedio obtenido y a la distribución del modelo final. Por ejemplo, si se tiene una materia con 5 grupos simulados, entonces se simulan 5 números aleatorios con distribución Normal. El comando en \textit{R} es: \verb@round(rnorm(5,mixmdl_esqueleto$mu,mixmdl_esqueleto$sigma))@
 \end{enumerate}
@@ -68,16 +115,16 @@ En la \figurename{~\ref{hist_wait_esq_fin}}) se puede ver el histograma con todo
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{hist_wait_esqueleto_final} %scale = 0.7
-\caption[\textit{Histograma con  todos los datos de los esqueletos simulados}]{\textit{Se muestra el histograma con  todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
+\caption[\textit{Histograma con  todos los datos de los esqueletos simulados}]{\textit{Se muestra el histograma con el número de grupos por hora de todos los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
 \end{figure}
 
 
-En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de \textit{Cálculo Diferencial e Integral I, II, III} y \textit{IV}. Notamos que el número de grupos simulados para \textit{Cálculo Diferencial e Integral II} es mayor a al número de grupos de \textit{Cálculo Diferencial e Integral I}.Esto se debe al comportamiento descrito en la Sección \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par. Para \textit{Cálculo Diferencial e Integral III} y \textit{IV} el número de grupos simulados es prácticamente igual.
+En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de una submatriz de \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de \textit{Cálculo Diferencial e Integral I, II, III} y \textit{IV}. Notamos que el número de grupos simulados para \textit{Cálculo Diferencial e Integral II} es mayor a al número de grupos de \textit{Cálculo Diferencial e Integral I}. Ésto se debe al comportamiento descrito en la Sección \ref{AE_x_GpoDeDatos} y el semestre 2020-2 es par. Para \textit{Cálculo Diferencial e Integral III} y \textit{IV} el número de grupos simulados es prácticamente igual.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{Ej_esqueleto_20202} %scale = 0.7
-\caption[\textit{Ejemplo de esqueleto para el semestre 2020-2}]{\textit{Ejemplo de esqueleto para el semestre 2020-2: En la entrada (i,j) podemos observar el número de alumnos simulados para la hora i y la materia j.}}\label{esqueleto20202}
+\caption[\textit{Ejemplo de esqueleto para el semestre 2020-2}]{\textit{Se muestra una submatriz de ``mat\_esqueleto'' para el semestre 2020-2. En la entrada (h,j) se observa el número de alumnos simulados para la hora h y la materia j.}}\label{esqueleto20202}
 \end{figure}
 
 
@@ -215,48 +262,3 @@ En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de la matriz \textit{m
 %  
 %  Con esto se califica un esqueleto.
 
-\subsection{Función gen\_esqueleto} \label{subsec_gen_esqueleto}
-
-Considerando que ya se generaron las matrices $D'$ y \textit{mat\_solicitudes}, el proceso que seguimos para obtener un esqueleto con la función \textit{gen\_esqueleto} es el siguiente:
-  
-  \begin{enumerate}
-%\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{GMM_D}).
-%
-%\item Obtener la matriz \textit{mat\_solicitudes} con las solicitudes simuladas de los profesores (ver Sección \ref{SimSolicitudesProfesores}).
-
-\item Elegir un profesor de tiempo completo al azar.
-
-\item Elegir al azar un horario y una materia que haya solicitado el profesor elegido en el paso anterior. Con estos datos obtenemos las coordenadas $(i,j)$ para las matrices $D'$ y \textit{mat\_esqueleto}.
-
-\item Verificar que a esa materia en esa hora aún le sobran alumnos, en la entrada $(i,j)$ de $D'$.
-
-\item Simular el número de alumnos para ese grupo (ver Sección \ref{SimTamGpos}).
-
-\item Restar el número de alumnos simulados en el paso anterior, de la materia y hora elegidas, en la entrada $(i,j)$ de $D'$.
-
-\item Ese profesor ya no puede impartir clases a esa hora. Retirar renglones correspondientes de \textit{mat\_solicitudes}.
-
-\item Repetir los pasos de 1 a 6 hasta que se terminen los profesores.
-
-\item Una vez que se terminen los profesores de tiempo completo, hacer los pasos de 1 a 7 con los profesores de asignatura.
-\end{enumerate}
-
-Algunas notas a considerar del procedimiento son:
-  
-  \begin{itemize}
-%\item[-] Se le da prioridad de asignación a los profesores de tiempo completo.
-
-\item[-] Los profesores de tiempo completo deben cumplir con sus horas, por contrato.
-
-\item[-] Los profesores sólo pueden tener asignadas a lo más 2 materias.
-
-\item[-] Las condiciones de paro del proceso son:
-  
-  \begin{itemize}
-\item[a)] Ya se cubrió toda la demanda
-
-\item[b)] Ya no hay más profesores
-
-\item[c)] Llegar a una cota predefinida para que el ciclo no se haga infinito o tarde mucho en cumplir las condiciones anteriores.
-\end{itemize}
-\end{itemize}

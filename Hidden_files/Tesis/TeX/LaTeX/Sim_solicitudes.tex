@@ -10,7 +10,7 @@ Como vimos en la \figurename{~\ref{DF_genAsig}} simulamos dos veces las solicitu
 \item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real. Nos ayuda directamente a realizar la asignación final.
 \end{itemize}
 
-El procedimiento para ambos casos es prácticamente el mismo. Al finalizar el proceso obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}, la cual tiene la información de la solicitud de un profesor. La matriz tiene 5 columnas \textit{(Profesor, TC, Materia, Num\_Materia, Horario)} y 6 renglones. Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
+El procedimiento para ambos casos es prácticamente el mismo. Primero obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}, la cual tiene la información de la solicitud de un profesor. La matriz tiene 5 columnas \textit{(Profesor, TC, Materia, Num\_Materia, Horario)} y 6 renglones. Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
 
   \begin{enumerate}
 %\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
@@ -34,11 +34,11 @@ El procedimiento para ambos casos es prácticamente el mismo. Al finalizar el pr
 \item Obtener, de \textit{m\_grande\_2015}, la información de las horas en las que ha dado clases el profesor elegido. Guardar la información en el vector \textit{horas\_profesor}. Se tienen 4 casos con respecto al número de horas que se encuentran en el vector:
 
 \begin{enumerate}
-\item El número de horas es 3: Llenar los renglones 1 y 4, de la columna \textit{Horario}, con la información de la hora 1; los renglones 2 y 5 con la información de la hora 2 y los renglones 3 y 6 con la información de la hora 3.
+\item El número de horas es 3: Llenar los renglones 1 y 4, de la columna \textit{Horario}, con la información de la hora 1. Llenar los renglones 2 y 5 con la información de la hora 2. Llenar los renglones 3 y 6 con la información de la hora 3.
 
 \item El número de horas es mayor o igual a 4: Se toma una muestra de 3 horas, con la función \verb@sample(horas_profesor, size = 3)@ en \textit{R}. Se llena la columna \textit{Horario} como el caso anterior.
 
-\item El número de horas es 2: Llenar los renglones 1,2,4 y 5, de la columna \textit{Horario}, con la información de la hora 1 y los renglones 3 y 6 con la información de la hora 2.
+\item El número de horas es 2: Llenar los renglones 1,2,4 y 5, de la columna \textit{Horario}, con la información de la hora 1. Llenar los renglones 3 y 6 con la información de la hora 2.
 
 \item El número de horas es 1: Llenar la columna \textit{Horario} con esa hora.
 \end{enumerate}
@@ -48,8 +48,8 @@ En la \figurename{~\ref{mat_1_solicitud_Margarita}} vemos un ejemplo de la matri
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{mat_1_solicitud_Margarita} %scale = 0.8
-\caption[\textit{Ejemplo de matriz de solicitudes de un profesor}]{\textit{Ejemplo de matriz de solicitudes de un profesor: Se observa un ejemplo de la matriz mat\_1\_solicitud para un profesor de tiempo completo.}}\label{mat_1_solicitud_Margarita}
+\includegraphics[width=\textwidth]{mat_1_solicitud_Margarita} %scale = 0.8  ,keepaspectratio width=16cm,height=4cm
+\caption[\textit{Ejemplo de matriz de solicitudes de un profesor}]{\textit{Se observa un ejemplo de la matriz mat\_1\_solicitud para un profesor de tiempo completo.}}\label{mat_1_solicitud_Margarita}
 \end{figure}
 
 El proceso se repite para cada uno de los profesores en la matriz \textit{mat\_nom\_prof\_total} obtenida en la Sección \ref{nomProfesores}. La matriz formada con las solicitudes de todos los profesores la llamamos \textit{mat\_solicitudes}. A ella le quitamos los renglones repetidos. Con estos pasos realizamos la \textit{Solicitud oculta}. Ésta nos sirve para poder simular adecuadamente los esqueletos.

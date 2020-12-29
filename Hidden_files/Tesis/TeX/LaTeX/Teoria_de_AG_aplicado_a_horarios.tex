@@ -20,7 +20,7 @@ Con este proceso se obtiene una generación. El número de generaciones así com
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.8]{diagrama_flujo_AG} %width=\textwidth
+\includegraphics[width=\textwidth]{diagrama_flujo_AG} %scale = 0.8
 \caption[\textit{Diagrama del Algoritmo Genético}]{\textit{Se muestra el diagrama de flujo que se sigue en el Algoritmo Genético.}}\label{fig_AG}
 \end{figure}
 
@@ -92,7 +92,17 @@ Una vez definido el gen, éste se agrega al hijo.
 
 \item \textbf{Ajustar información}
 
-Se quita la información en los padres, del profesor en el gen elegido, a esa hora y con esa materia. Ésto para evitar que se elijan genes repetidos para el hijo.
+Se quita la información a los padres, del profesor en el gen elegido:
+
+\begin{itemize}
+\item[-] A esa hora y con esa materia para evitar que se elijan genes repetidos para el hijo. Esto puede ocurrir por ejemplo cuando ambos padres tienen el mismo gen.
+
+\item[-] A esa hora porque los profesores no pueden impartir más de una clase a la misma hora.
+
+\item[-] Con esa materia porque no se les puede asignar la misma materia en diferentes horarios.
+
+\item[-] Cualquier materia a cualquier hora cuando el profesor ya tiene el número máximo de materias asignadas.
+\end{itemize}
 
 \item \textbf{Repetir 5 - 8}
 
@@ -128,6 +138,7 @@ Algunas notas que se deben de considerar en la asignación final:
 \item[-] Hay profesores que ya no imparten clases en la Facultad (nota en la sección de los profesores)
 
 \item[-] No se asignaron todos los grupos simulados en el esqueleto.
-
-\item[-] 
 \end{itemize}
+
+
+\input{TeoAG_Resultados_de_AG}
