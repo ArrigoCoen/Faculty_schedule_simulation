@@ -23,8 +23,8 @@
 \contentsline {subsection}{\numberline {3.1.2}Prueba de estacionalidad}{29}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Prueba de homocedasticidad}{30}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Análisis estadístico por grupo de datos}{32}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Análisis estadístico por carrera}{35}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Distribución del tamaño de los grupos}{37}{section.3.4}%
+\contentsline {section}{\numberline {3.3}Análisis estadístico por carrera}{34}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Distribución del tamaño de los grupos}{36}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Comportamientos por hora}{40}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Simulación}{43}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Obtención de nombres de materias}{44}{section.4.1}%
@@ -36,15 +36,15 @@
 \contentsline {section}{\numberline {4.5}Simulación de solicitudes de profesores}{53}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Simulación de la demanda de alumnos}{55}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{57}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Obtención de $D'$ y $D_{0}$}{58}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Simulación de esqueletos}{62}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Función gen\_esqueleto}{65}{subsection.4.9.1}%
-\contentsline {chapter}{\numberline {5}Algoritmo Genético}{67}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{68}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{71}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Conclusiones}{93}{chapter.7}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{97}{appendix.alph1.Alph1}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{109}{appendix.alph1.Alph2}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{113}{appendix.alph1.Alph3}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{115}{appendix.alph1.Alph4}%
-\contentsline {chapter}{Bibliografía}{117}{appendix*.91}%
+\contentsline {section}{\numberline {4.8}Obtención de $D'$ y $D_{0}$}{60}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Simulación de esqueletos}{64}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Función gen\_esqueleto}{67}{subsection.4.9.1}%
+\contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Resultados del Algoritmo Genético}{73}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{95}{chapter.7}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Observaciones / Notas}{99}{appendix.alph1.Alph1}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Materias agrupadas}{111}{appendix.alph1.Alph2}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Resultados útiles}{115}{appendix.alph1.Alph3}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Abreviaturas}{117}{appendix.alph1.Alph4}%
+\contentsline {chapter}{Bibliografía}{119}{appendix*.92}%
