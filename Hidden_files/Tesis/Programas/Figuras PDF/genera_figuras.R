@@ -106,6 +106,30 @@ source("Programas/Figuras PDF/fig_histogramas_FR_num_alum_x_carrera/histogramas_
 source("Programas/Figuras PDF/fig_calif_mejores_hijos/.R")
 
 #####
+source("Programas/Figuras PDF/fig_gmm_alum_ini/gmm_alum_ini.R")
+
+#####
+source("Programas/Figuras PDF/fig_gmm_alum_fin/gmm_alum_fin.R")
+
+#####
+source("Programas/Figuras PDF//.R")
+
+#####
+source("Programas/Figuras PDF//.R")
+
+#####
+# source("Programas/Figuras PDF//.R")
+
+#####
+# source("Programas/Figuras PDF//.R")
+
+#####
+# source("Programas/Figuras PDF//.R")
+
+#####
+# source("Programas/Figuras PDF//.R")
+
+#####
 # source("Programas/Figuras PDF//.R")
 
 #####

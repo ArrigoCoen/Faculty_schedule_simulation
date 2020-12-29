@@ -465,7 +465,7 @@ metodo_C <- function(n_rep,param,param_sim){
   #' por materia
   num_alum_x_materia <- list()
   num_alum_x_materia[[1]] <- colSums(D_inicial)
-  
+  D <- D_inicial
   ##Convertimos los datos para obtener la distribución por horas
   wait_alumnos <- 0
   Horas <- param$Horas
@@ -477,6 +477,7 @@ metodo_C <- function(n_rep,param,param_sim){
   }
   #Quitamos el cero inicial
   wait_alumnos <- wait_alumnos[-1]
+  # save(wait_alumnos,file = "wait_alumnos.RData")
   
   #' Definimos la lista en las que vamos a guardar el número de alumnos
   #' por materia
@@ -522,6 +523,7 @@ metodo_C <- function(n_rep,param,param_sim){
   mixmdl_D <- normalmixEM(wait_alumnos,mixmdl_1_D$mu)#Modelo final
   
   # wait_alumnos_final <- wait_alumnos
+  # save(wait_alumnos_final,file = "wait_alumnos_final.RData")
   # hist(wait_alumnos_final,freq = F,breaks = seq(6,22,by = 1),)
   # lines(density(rnorm(1000,mean = mixmdl_D$mu,sd = mixmdl_D$sigma)),
   #       lty=1,lwd=2,col = "blue")

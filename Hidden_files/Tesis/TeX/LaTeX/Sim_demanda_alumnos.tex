@@ -56,30 +56,61 @@ Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \texti
 
 El modelo de Mezcla Gaussiana también es llamado modelo de mezcla de normales. En él se tienen dos o más distribuciones normales. Se hace una combinación lineal de ellas y se obtiene una nueva distribución de probabilidad.
 
-En \textit{R} se puede obtener dicha distribución con la función \verb@normalmixEM()@. La función regresa un objeto de tipo \textit{mixEM} el cual contiene el modelo de una mezcla de distribuicones normales obtenidas por el algoritmo de maximización de la esperanza (EM - \textit{expectation maximization algorithm}).
+En \textit{R} se puede obtener dicha distribución con la función \verb@normalmixEM()@. La función regresa un objeto de tipo \textit{mixEM} el cual contiene el modelo de una mezcla de distribuciones normales obtenidas por el algoritmo de maximización de la esperanza (EM - \textit{expectation maximization algorithm}).
 
 Do Chuong y Batzoglou nos indican, en su artículo \textit{What is the expectation maximization algorithm?} [\ref{ChuongBatzoglou}], que el algoritmo EM es una generalización natural de la estimación por máxima verosimilitud. Ésto para el caso en donde se tiene información incompleta. Recordemos que la máxima verosimilitud se utiliza para encontrar la mejor manera de ajustar una distribución a los datos.
 
 En el algoritmo EM, los parámetros iniciales se toman de los datos reales. Con ellos se obtienen unos parámetros finales que se convierten en los parámetros para la siguiente iteración. Así sucesivamente.
 
-A continuación vamos a explicar los principales parámetros que recibe la función \verb@normalmixEM()@.
+A continuación vamos a explicar los principales parámetros que recibe la función \verb@normalmixEM()@. Cabe aclarar que el objeto de tipo \textit{mixEM} contiene los valores de $\mu$ y $\sigma$ finales. Éstos nos sirven para simular números aleatorios con una distribución normal. Dicha distribución tiene $k$ medias, así como desviaciones estándar.
 
 \begin{itemize}
-\item[-] \textit{x: } Vector con los datos a los que se quiere aplicar el modelo.
+\item[-] \textit{x: } Vector con los datos a los que se les quiere aplicar el modelo.
 
 \item[-] \textit{mu: } Vector con las medias iniciales para el algoritmo EM.
 
-\item[-] \textit{k: } Número de normales que se ajustan a los datos.
-\end{itemize}
-
-
-A continuación vamos a explicar los elementos del objeto de tipo \textit{mixEM} que utilizamos para poder simular la demanda de alumnos en la siguiente sección.
-
-\begin{itemize}
-\item[-] \textit{mu: } Vector con las medias finales del modelo.
-
 \item[-] \textit{sigma: } Vector con las desviaciones estándar finales del modelo.
+
+\item[-] \textit{k: } Número de distribuciones normales que se ajustan a los datos.
 \end{itemize}
+
+En la \figurename{~\ref{GMM_alum_ini}} se puede ver el histograma con el número de alumnos esperados por hora. Los datos corresponden a una matriz \textit{mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}). Con el comando \verb@mixmdl_1_D <- normalmixEM(wait_alumnos,k = 4)@ guardamos el modelo inicial. La línea azul de dicha figura corresponde a la densidad ajustada de 1000 números aleatorios con una distribución normal con 4 medias. El comando para obtener la densidad es: \verb@density(rnorm(1000,mean = mixmdl_1_D$mu,sd = mixmdl_1_D$sigma)@. Se tomaron los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_1\_D}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.7]{gmm_alum_ini.pdf} %width=\textwidth
+\caption[\textit{Histograma del número de alumnos esperados por hora: Modelo inicial de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos esperados por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo inicial de mezcla de normales.}}\label{GMM_alum_ini}
+\end{figure}
+
+En la \figurename{~\ref{GMM_alum_fin}} se puede observar el histograma con el número de alumnos esperados por hora. Los datos corresponden a 5 matrices \textit{mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}). Con el comando \verb@mixmdl_D <- normalmixEM(wait_alumnos_final,mixmdl_1_D$mu)@ guardamos el modelo final. En este caso la función recibió los datos del modelo inicial. Los valores de $\mu$ son: $7.49, 10.30, 13.78, 17.23$. Para obtener la densidad ajustada, mostrada en la figura (línea azul), utilizamos los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_D}.
+
+Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tienen mejores valores iniciales. Se puede ver el pico de las 10hrs. También se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.7]{gmm_alum_fin.pdf} %width=\textwidth
+\caption[\textit{Histograma del número de alumnos esperados por hora: Modelo final de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo final de mezcla de normales.}}\label{GMM_alum_fin}
+\end{figure}
+
+
+
+
+%En la \figurename{~\ref{GMM_ini_fin}} se pueden ver dos histogramas con el número de alumnos esperados por hora.
+%\begin{figure}[H]
+%\centering
+%\subfigure[\textit{Modelo inicial}]{\includegraphics[width=12cm]{gmm_alum_ini.pdf}} %%Ping\"uino %%[angle=30]
+%	\subfigure[\textit{Modelo final}]{\includegraphics[width=12cm]{gmm_alum_fin.pdf}}
+%	\caption[\textit{Histogramas con el número de alumnos esperados por hora}]{\textit{Se muestran dos histogramas con el número de alumnos esperados por hora. Cada uno tiene la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo de mezcla de normales.}}\label{GMM_ini_fin}
+%\end{figure}
+
+
+%En la \figurename{~\ref{GMM_inicial_final}} se muestran dos histogramas con los datos iniciales y finales, respectivamente. Las líneas verdes corresponden al ajuste con la función \verb@density()@ en \textit{R} y las azules al modelo de mezcla de normales.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=\textwidth]{histograma_y_GMM} %scale = 1
+%\caption{\textit{Mezcla de normales inicial y final}}\label{GMM_inicial_final}
+%\end{figure}
 
 %\url{https://www.youtube.com/watch?v=REypj2sy_5U&ab_channel=VictorLavrenko}
 %
@@ -94,14 +125,6 @@ A continuación vamos a explicar los elementos del objeto de tipo \textit{mixEM}
 %\url{https://www.youtube.com/watch?v=_igVkRP9TFE&ab_channel=InstitutodeInformaticaUACh}
 %
 %\url{https://natureofcode.com/book/chapter-9-the-evolution-of-code/}
-
-En la \figurename{~\ref{GMM_inicial_final}} se muestran dos histogramas con los datos iniciales y finales, respectivamente. Las líneas verdes corresponden al ajuste con la función \verb@density()@ en \textit{R} y las azules al modelo de mezcla de normales.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{histograma_y_GMM} %scale = 1
-\caption{\textit{Mezcla de normales inicial y final}}\label{GMM_inicial_final}
-\end{figure}
 
 
 
@@ -146,6 +169,8 @@ En la \figurename{~\ref{GMM_inicial_final}} se muestran dos histogramas con los 
 %\includegraphics[scale = 0.5]{GMM_7} %width=\textwidth
 %\caption{\textit{GMM 7}}
 %\end{figure}
+
+El modelo de mezcla de normales lo utilizamos para simular los esqueletos de los horarios. En las siguientes secciones veremos cómo aplicamos la función \verb@normalmixEM()@ para obtener la matriz \textit{mat\_esqueleto}.
 
 
 \section{Obtención de $D'$ y $D_{0}$} \label{GMM_D}
