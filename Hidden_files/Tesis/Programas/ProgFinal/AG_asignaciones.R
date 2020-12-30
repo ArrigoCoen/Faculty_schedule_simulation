@@ -302,7 +302,7 @@ mejores_asig <- list_asignacion_final[[5]]
 View(mat_asignacion_final)
 
 
-
+View(mejores_asig)#Lista con la info de los mejores hijos x generación
 
 
 
