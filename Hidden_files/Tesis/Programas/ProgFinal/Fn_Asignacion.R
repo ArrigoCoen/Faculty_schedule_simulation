@@ -53,6 +53,9 @@
 # install.packages('het.test')
 # install.packages('magrittr')
 # install.packages('dplyr')
+# install.packages('resample')
+# install.packages('ggpubr')
+
 
 #Loading packages
 library('zoo')
@@ -91,7 +94,8 @@ library(lmtest)
 library(het.test)
 library(magrittr)
 library(dplyr)
-
+library(resample)
+library(ggpubr)
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -1119,6 +1123,15 @@ gen_mat_nom_materias_total <- function(param,param_sim){
   mat_nom_materias_total <- rbind(mat_nom_materias_total,
                                   nom_anim_x_comp)
   
+  
+  ##41 "Series de Tiempo"
+  ##123 "Estadística III"
+  # vec_series <- mat_nom_materias_total[41,]
+  # mat_nom_materias_total[41,] <- mat_nom_materias_total[123,]
+  # mat_nom_materias_total[41,7:8] <- vec_series[3:4]
+  # mat_nom_materias_total <- mat_nom_materias_total[-123,]
+  # mat_nom_materias_total[,2] <- 1:202
+  
   save(mat_nom_materias_total, file = "mat_nom_materias_total.RData")
   vec_nom_materias_total <- mat_nom_materias_total[,1]
   save(vec_nom_materias_total,file = "vec_nom_materias_total.RData")
@@ -1170,7 +1183,6 @@ arroja_nom_correcto <- function(materia){
 #' "m_grande" con el nombre correcto para las materias y también actualiza
 #' el número de materia en caso de ser necesario.
 #'
-#' se deben de tomar en cuenta al crear "m_grande".
 #' @param param: Lista con los diferentes parámetros que se utilizan en las
 #' funciones que se mandan llamar.
 #' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
@@ -2497,13 +2509,13 @@ gen_solicitudes_1_profesor <- function(nom_prof,tipo_prof,param){
   num_col_Profesor <- arroja_ind_col_MG("Profesor")
   num_col_horario_num <- arroja_ind_col_MG("horario_num")##4
   num_col_NumMateria <- arroja_ind_col_MG("Num_materia")##37
-  vec_nom_materias_total <- param$vec_nom_materias_total#201
-  m_grande_2015 <- param$m_grande_2015#8393 37
+  vec_nom_materias_total <- param$vec_nom_materias_total#202
+  m_grande_2015 <- param$m_grande_2015#8409 37
   mat_1_solicitud <- data.frame(Profesor = 0,TC = 0, Materia = rep(0,6),
                                 Num_Materia = 0,Horario = 0)
   
   #Se definen las variables con la información de "nom_prof"
-  mat_1_prof <- m_grande_2015[m_grande_2015[,num_col_Profesor]==nom_prof,]
+  mat_1_prof <- m_grande_2015 %>% filter(Profesor == nom_prof)
   materias_num_prof <- as.numeric(unique(mat_1_prof[,num_col_NumMateria]))
   materias_num_prof <- materias_num_prof[materias_num_prof!=0]
   horas_prof <- unique(mat_1_prof[,num_col_horario_num])
@@ -2579,7 +2591,7 @@ gen_solicitudes <- function(param){
   
   #Se definen las variables que se van a utilizar
   # num_col_Profesor <- arroja_ind_col_MG("Profesor")
-  mat_nom_prof_total <- param$mat_nom_prof_total#1387 2
+  mat_nom_prof_total <- param$mat_nom_prof_total#1224 2
   m_grande_2015 <- param$m_grande_2015#8409 37
   mat_solicitudes <- data.frame(Profesor = 0,TC = 0, Materia = 0,
                                 Num_Materia = 0,Horario = 0)
@@ -3225,7 +3237,8 @@ ciclo_esqueleto <- function(cota,mat_solicitudes,mat_prof,mat_demanda,
       #Número aleatorio para elegir profesor
       (num_al <- sample(x = 1:dim(mat_prof)[1], size = 1))
       (profesor <- mat_prof[num_al,1])
-      mat_aux <- mat_solicitudes %>% filter(Profesor == profesor)
+      mat_aux <- mat_solicitudes %>% filter(Profesor == profesor) %>% filter(
+        !is.na(Materia))
       
       if(dim(mat_aux)[1]>0){#Si hay información de "profesor"
         #Número aleatorio para elegir materia
@@ -3389,8 +3402,10 @@ metodo_B <- function(n_rep,param,param_sim){
   prom_D <- D_prima_inicial
   
   ##Generar esqueleto inicial
+  #' Solicitudes "ocultas"
   mat_solicitudes <- gen_solicitudes(param)#8.07 seg
-  mat_esqueleto <- gen_esqueleto(D_prima_inicial,mat_solicitudes,param)#13.35 seg
+  mat_esqueleto <- gen_esqueleto(D_prima_inicial,mat_solicitudes,
+                                 param)#13.35 seg
   
   ##Convertimos los datos para obtener la distribución por horas
   wait_mat_esqueleto <- 0
@@ -3588,7 +3603,7 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
                                Horario = 0)
   Materias <- param$vec_nom_materias_total
   Num_Asig <- rep(0,dim(mat_solicitudes_real)[1])
-  m_sol_aux <- cbind(mat_solicitudes_real,Num_Asig)
+  m_sol_aux <- cbind(mat_solicitudes_real,Num_Asig)#Con el # de asig. de cada prof.
   m_esq_aux <- mat_esqueleto
   
   for(m in 1:length(Materias)){
@@ -3599,11 +3614,15 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
       mat_aux_solicitud <- m_sol_aux %>% filter(Materia == materia)
       (num_gpos <- vec_aux_esq[h])
       if(num_gpos > 0){#Si el # de gpos. simulados > 0
+        #' La matriz "m_aux" tiene las solicitudes de los profesores
+        #' que aún no pasan el número máximo de asignaciones.
         m_aux <- mat_aux_solicitud%>% filter(
           as.numeric(Num_Asig)<param$num_max_asig) %>% filter(
             Horario==param$Horas[h])
         
-        if(dim(m_aux)[1] >= num_gpos){
+        if(dim(m_aux)[1] > num_gpos){
+          #'En caso de que se tengan más grupos de los simulados en
+          #'el esqueleto
           mat_asig <- m_aux[sample(1:dim(m_aux)[1],size = num_gpos),
                             c(3,1,2,5)]
           mat_asignacion <- rbind(mat_asignacion,mat_asig)
@@ -3613,8 +3632,8 @@ gen_asignacion <- function(mat_esqueleto,mat_solicitudes_real,param){
           mat_asignacion <- rbind(mat_asignacion,mat_asig)
           m_esq_aux[h,m] <- m_esq_aux[h,m] - dim(m_aux)[1]
         }
+        m_sol_aux <- cuenta_asignaciones(m_sol_aux,mat_asig)
       }#Fin if(num_gpos>0)
-      m_sol_aux <- cuenta_asignaciones(m_sol_aux,mat_asig)
     }#Fin for(h)
   }
   mat_asignacion <- mat_asignacion %>% filter(Materia != 0)
@@ -4006,7 +4025,7 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
   
   #Se elige con mayor probabilidad a los profesores de TC
   (r_num_TC <- runif(1))
-  if(r_num_TC < param$elige_TC){
+  if(r_num_TC <= param$elige_TC){
     mat_solicitudes <- mat_prof_TC
   }else{
     mat_solicitudes <- mat_prof_asig
@@ -4014,7 +4033,7 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
   
   (r_num_gen <- sample(1:dim(mat_solicitudes)[1],size = 1))
   (gen_elegido <- mat_solicitudes[r_num_gen,c(3,1,2,5)])
-  prof <- as.character(gen_elegido[2])
+  (prof <- as.character(gen_elegido[2]))
   mat_aux <- hijo %>% filter(Profesor == prof)
   
   if(dim(mat_aux)[1] >= param$num_max_asig){
@@ -4044,7 +4063,7 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 #' Title ajusta_genes_padres: Función que se encarga de quitar la
 #' información en los padres, del profesor en "gen_elegido" a esa hora y
 #' con esa materia. Se tiene una cota para que el número de grupos del hijo
-#' no supere el número de grupos de mat_esqueleto_cotas.
+#' no supere el número de grupos de mat_esqueleto.
 #'
 #' @param esq_hijo: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos del hijo
@@ -4053,7 +4072,7 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 #' @param padre_2: Asignación elegida para crear un hijo.
 #' @param gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
 #' con la información del gen del padre elegido.
-#' @param mat_esqueleto_cotas: Matriz de 15 renglones (horas) y 203 columnas
+#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
 #' (materias). En la entrada (i,j) se tiene el número de grupos simulados
 #' para la hora i, y la materia j. Es diferente a "mat_esqueleto" porque
 #' no se puede tener información privilegiada para la creación antes de la
@@ -4063,23 +4082,36 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 #'
 #' @examples
 #' lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
-#' gen_elegido,mat_esqueleto_cotas)
+#' gen_elegido,mat_esqueleto)
 #' 
 ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
-                                mat_esqueleto_cotas){
+                                mat_esqueleto){
   cat("\n Se eligió el gen: \n",as.character(gen_elegido))
+  cat(paste("Se eligió el gen:",as.character(gen_elegido[1]),as.character(gen_elegido[2]),
+            as.character(gen_elegido[3]),as.character(gen_elegido[4])),
+      file="outfile.txt",sep="\n",append=TRUE)
+  
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes")
+  cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
+      file="outfile.txt",sep="\n",append=TRUE)
+  cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
+      file="outfile.txt",sep="\n",append=TRUE)
   
   (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
   (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
   ind_elim_1 <- numeric(0)
   ind_elim_2 <- numeric(0)
-  if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto_cotas[ind_hora_gen,
+  if(esq_hijo[ind_hora_gen,num_materia_gen] >= mat_esqueleto[ind_hora_gen,
                                                                    num_materia_gen]){
     cat("\nEl hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
         " grupos. \nEl esqueleto tiene ",
-        mat_esqueleto_cotas[ind_hora_gen,num_materia_gen],"grupos.")
+        mat_esqueleto[ind_hora_gen,num_materia_gen],"grupos.")
+    cat(paste("El hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
+              " grupos."),file="outfile.txt",sep="\n",append=TRUE)
+    cat(paste("El esqueleto tiene ",mat_esqueleto[ind_hora_gen,num_materia_gen],
+              " grupos."),file="outfile.txt",sep="\n",append=TRUE)
+    #' Índices de cada padre con la materia del gen elegido
     (ind_elim_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
     (ind_elim_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
   }
@@ -4096,6 +4128,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   if(length(ind_1) > 0){
     padre_1 <- padre_1[-ind_1,]
     cat("\n Se eliminaron del padre 1: ",length(ind_1)," entradas")
+    cat(paste("Se eliminaron del padre 1: ",length(ind_1)," entradas"),
+        file="outfile.txt",sep="\n",append=TRUE)
   }
   
   #' Padre 2
@@ -4110,10 +4144,16 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   if(length(ind_2) > 0){
     padre_2 <- padre_2[-ind_2,]
     cat("\n Se eliminaron del padre 2: ",length(ind_2)," entradas")
+    cat(paste("Se eliminaron del padre 2: ",length(ind_2)," entradas"),
+        file="outfile.txt",sep="\n",append=TRUE)
   }
   
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes\n\n")
+  cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
+      file="outfile.txt",sep="\n",append=TRUE)
+  cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
+      file="outfile.txt",sep="\n",append=TRUE)
   
   lista_padres <- list()
   lista_padres[[1]] <- padre_1
