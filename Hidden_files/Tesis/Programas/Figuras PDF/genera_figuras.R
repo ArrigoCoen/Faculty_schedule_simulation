@@ -112,7 +112,7 @@ source("Programas/Figuras PDF/fig_gmm_alum_ini/gmm_alum_ini.R")
 source("Programas/Figuras PDF/fig_gmm_alum_fin/gmm_alum_fin.R")
 
 #####
-source("Programas/Figuras PDF//.R")
+source("Programas/Figuras PDF/fig_media_calif_x_generacion/media_calif_x_generacion.R")
 
 #####
 source("Programas/Figuras PDF//.R")
