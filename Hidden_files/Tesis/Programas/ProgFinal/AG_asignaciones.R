@@ -44,8 +44,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
                             mat_esqueleto_cotas,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
-  tam_poblacion <- param$tam_poblacion
-  num_generaciones <- param$num_generaciones
+  (tam_poblacion <- param$tam_poblacion)
+  (num_generaciones <- param$num_generaciones)
   prob_mutacion <- param$prob_mutacion
   n_cols_mat_calif <- param$n_cols_mat_calif
   matrices_calif_x_generacion <- list()
@@ -55,6 +55,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
   colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
   mat_calif_generaciones <- matrix(0,nrow = tam_poblacion,
                                    ncol = (num_generaciones+1))
+  mat_num_genes <- matrix(0,nrow = tam_poblacion,
+                          ncol = (num_generaciones+1))
   ptm <- proc.time()# Start the clock!
   # g <- 1
   # g <- 2
@@ -68,7 +70,12 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
                                                       mat_solicitudes_real,
                                                       param)#5.22/4.82 min
       mat_calif_asig <- lista_info_inicial[[1]]
+      # pob_ini <- lista_info_inicial[[2]]
       poblacion <- lista_info_inicial[[2]]
+      for (p in 1:tam_poblacion) {
+        mat_num_genes[p,g] <- dim(poblacion[[p]])[1]
+      }
+      
       
       ### 12) Guardar una matriz con la calificación x gpo. de las
       #' asignaciones (como xiii de T45)
@@ -94,7 +101,11 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
               main = "Calificaciones de las asignaciones por generación",
               xlab = "Asignaciones",ylab = "Calificaciones")
       
-    }
+      
+      matplot(mat_num_genes[,1:g],type = "l",
+              main = "Número de genes por generación",
+              xlab = "Asignaciones",ylab = "Número de genes")
+    }#Termina población inicial
     
     # ### 13) Hacer heatmap de la matriz en 12)
     # heatmap(matrices_calif_x_generacion[[g]][,1:650],
@@ -137,18 +148,34 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
       ind_padres <- c(0,0)
       (ind_mat_1 <- sample(x = 1:tam_poblacion,size = 2,
                          prob = vec_prob_asig))
-      ind_padres[1] <- max(ind_mat_1)
+      (ind_padres[1] <- max(ind_mat_1))
       (ind_mat_2 <- sample(x = 1:tam_poblacion,size = 2,
-                         prob = vec_prob_asig))
-      ind_padres[2] <- max(ind_mat_2)
+                           prob = vec_prob_asig))
+      
+      while(max(ind_mat_2) == max(ind_mat_1)){
+        #' Para no tener al mismo padre dos veces
+        (ind_mat_2 <- sample(x = 1:tam_poblacion,size = 2,
+                             prob = vec_prob_asig))
+        # cat("\n max(ind_mat_1) = ",max(ind_mat_1))
+        # cat("\n max(ind_mat_2) = ",max(ind_mat_2))
+      }
+      (ind_padres[2] <- max(ind_mat_2))
+      
       padre_1 <- poblacion[[ind_padres[1]]]
       padre_2 <- poblacion[[ind_padres[2]]]
+      
+      # write.csv(poblacion[[ind_padres[1]]], file = "padre_1.csv")
+      # write.csv(poblacion[[ind_padres[2]]], file = "padre_2.csv")
+      
       while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
         # Repetir hasta que uno de los padres se quede sin genes.
         
         ### 5) Con prob = 0.5 se elige un padre
         (ind_padre_elegido <- sample(x=1:2,size = 1))
         cat("\n Se eligió al padre ",ind_padre_elegido)
+        cat(paste("Se eligió al padre ",ind_padre_elegido),
+            file="outfile.txt",sep="\n",append=TRUE)
+        
         if(ind_padre_elegido == 1){
           padre_elegido <- padre_1
         }else{
@@ -167,6 +194,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
         (r_num_muta <- runif(1))
         if(r_num_muta < prob_mutacion){
           cat("\n Entra a mutación")
+          cat("Entra a mutación",file="outfile.txt",sep="\n",append=TRUE)
+          
           (gen_elegido <- elige_gen_de_solicitud(mat_solicitudes_real,
                                                  hijo,param))
         }
@@ -181,7 +210,9 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
         # (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
         # num_max_gpos[2,num_materia_gen] <- num_max_gpos[2,num_materia_gen] + 1
         lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
-                                            gen_elegido,mat_esqueleto_cotas)
+                                            gen_elegido,mat_esqueleto)
+        # lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
+        #                                     gen_elegido,mat_esqueleto_cotas)
         padre_1 <- lista_padres[[1]]
         padre_2 <- lista_padres[[2]]
       }#Fin while()
@@ -207,7 +238,9 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
     lista_info <- califica_ordena_asig(poblacion_nueva,param)
     mat_calif_asig <- lista_info[[1]]
     poblacion <- lista_info[[2]]
-    
+    for (p in 1:tam_poblacion) {
+      mat_num_genes[p,(g+1)] <- dim(poblacion[[p]])[1]
+    }
     ### 12) Guardar una matriz con la calificación x gpo. de las
     #' asignaciones (como xiii de T45)
     matrices_calif_x_generacion[[(g+1)]] <- lista_info[[3]]
@@ -233,6 +266,9 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
             main = "Calificaciones de las asignaciones por generación",
             xlab = "Asignaciones",ylab = "Calificaciones")
     
+    matplot(mat_num_genes[,1:(g+1)],type = "l",
+            main = "Número de genes por generación",
+            xlab = "Asignaciones",ylab = "Número de genes")
   }#Fin for(g)
   cat("\nEl ciclo tardó: ",(proc.time()-ptm)[3]/60,
       " minutos. Para ",num_generaciones," generaciones \n")
@@ -241,6 +277,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
   ##159.75 min - 6 generaciones
   ##171.17 min = 2hrs 51.17min - 6 generaciones
   ##147.55 min = 2hrs 51.17min - 6 generaciones
+  ##71.68 min = 1hr 11.68min - 3 generaciones
+  ## min = hr min - 3 generaciones
   
   # View(matrices_calif_x_generacion)
   # View(mejores_asig)
@@ -307,6 +345,13 @@ View(mejores_asig)#Lista con la info de los mejores hijos x generación
 
 
 
+
+# Tabla con info de AG ----------------------------------------------------
+mat_info_AG <- data.frame(Num_generaciones = c(3,3,5,6),
+                          Tam_pob = c(5,15,10,14), Tiempo = 0,
+                          Mejor_calif = 0, Num_genes_asig_fin = 0,
+                          Calif_asig_fin = 0, Prom_genes_gen1 = 0,
+                          Prom_genes_generaciones = 0)
 
 
 
