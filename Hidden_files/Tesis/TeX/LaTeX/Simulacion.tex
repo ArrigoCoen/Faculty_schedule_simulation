@@ -27,6 +27,8 @@ En \textit{R} realizamos la función \verb@gen_asignacion()@ encargada de genera
 
 En esta sección vamos a explicar cómo hicimos la simulación del tamaño de grupos. Vamos a definir al tamaño de un grupo como el número de alumnos que va a tener cada grupo.
 
+Con el siguiente procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora.
+
 Hicimos una función en \textit{R} que realiza los siguientes pasos:
   
   \begin{enumerate}
@@ -43,7 +45,7 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 \item Regresar el número redondeado.
 \end{enumerate}
 
-Con este procedimiento simulamos el tamaño de los grupos con respecto a los profesores. En la vida real cuando un alumno decide inscribirse a una materia a cierta hora, la decisión que toma para elegir el grupo al que se quiere inscribir es el profesor con el que le gustaría tomar esa materia a esa hora. Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver Sección \ref{DitribTamGpos}).
+Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver Sección \ref{DitribTamGpos}).
 
 \input{Sim_solicitudes} %%Sección %%To include subfiles in to a subfiles use \input{name_of_file}
 

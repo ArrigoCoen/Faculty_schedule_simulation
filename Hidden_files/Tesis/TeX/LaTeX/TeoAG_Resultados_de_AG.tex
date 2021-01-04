@@ -19,16 +19,63 @@ En la \figurename{~\ref{EjcalifMejoresHijos}} vemos las calificaciones de la mej
 %\caption{\textit{Ejemplo con calificaciones de asignaciones.}}\label{EjcalifAsig}
 %\end{figure}
 
-En la \figurename{~\ref{EjcalifAsig_x_generacion}} vemos las calificaciones de las asignaciones por generación. Cada línea representa una generación. De abajo hacia arriba se tiene de la primer población a la sexta. Podemos ver que las calificaciones de las poblaciones 4 y 5 son muy parecidas. Al igual que en la \figurename{~\ref{EjcalifMejoresHijos}}, se puede observar una mejora considerable en las calificaciones de las asignaciones de la generación 1 a la 2.
+%En la \figurename{~\ref{EjcalifAsig_x_generacion}} vemos las calificaciones de las asignaciones por generación. Cada línea representa una generación. De abajo hacia arriba se tiene de la primer población a la sexta. Podemos ver que las calificaciones de las poblaciones 4 y 5 son muy parecidas. Al igual que en la \figurename{~\ref{EjcalifMejoresHijos}}, se puede observar una mejora considerable en las calificaciones de las asignaciones de la generación 1 a la 2.
+%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=\textwidth]{calif_asig_x_generacion.pdf} %scale = 0.7
+%\caption[\textit{Calificaciones de asignaciones por generación}]{\textit{Se muestran las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifAsig_x_generacion}
+%\end{figure}
+
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{calif_asig_x_generacion.pdf} %scale = 0.7
-\caption[\textit{Calificaciones de asignaciones por generación}]{\textit{Se muestran las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifAsig_x_generacion}
+\includegraphics[width=\textwidth]{media_calif_x_generacion.pdf} %scale = 0.7
+\caption[\textit{Media de calificaciones de asignaciones por generación}]{\textit{Se muestra el promedio de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{media_calif_x_generacion}
 \end{figure}
 
 
-Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de la asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver el el Apéndice \ref{Ej_AsigFinal}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{varianza_calif_x_generacion.pdf} %scale = 0.7
+\caption[\textit{Varianza de calificaciones de asignaciones por generación}]{\textit{Se muestra la varianza de las calificaciones de las asignaciones por generación. Se observa una disminución considerable de la generación 3 a la 4.}}\label{vaar_calif_x_generacion}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{boxplot_calif_x_generacion.pdf} %scale = 0.7
+\caption[\textit{Gráfica de caja de calificaciones de asignaciones por generación}]{\textit{Se muestra la gráfica de caja de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2. Los puntos respresentan las calificaciones de cada asignación por generación.}}\label{boxplot_calif_x_generacion}
+\end{figure}
+
+
+
+En un esqueleto simulado para el 2020-2 se tuvieron 1018 grupos. De éstos se asignaron 612. Encontramos que 262 grupos sin asignación correspondían a materias optativas. Prácticamente $\dfrac{1}{4}$ de los grupos no asignados son de materias optativas. Ésto se debe a que se pueden asignar \textit{num\_max\_asig} materias obligatorias a los profesores por lo que ya no se les asignan las optativas. En la matriz de solicitudes puede haber grupos que no están en la asignación final. Ésto por el cruce de los padres.
+
+\begin{eqnarray*}
+\dfrac{612}{1018} &=& 60.11\% \text{grupos asignados}\\
+\dfrac{262}{1018} &=& 25.73\% \text{grupos de optativas sin asignación}\\
+\dfrac{1018 - (612 + 262)}{1018} &=& \dfrac{144}{1018} = 14.14\% \text{grupos de obligatorias sin asignación}
+\end{eqnarray*}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{dif_rel_optativas_sin_gpo} %scale = 0.7
+\caption[\textit{Optativas sin grupos asignados}]{\textit{Optativas sin grupos asignados}}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{num_genes_generaciones_1_2} %scale = 0.7
+\caption[\textit{Número de genes en generaciones 1 y 2}]{\textit{Número de genes en generaciones 1 y 2}}
+\end{figure}
+
+
+
+Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de la asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver el el Apéndice \ref{Ej_AsigFinal}. Dicha matriz tiene 606 grupos asignados, cada uno con materia, profesor y horario correspondiente. En el semestre 2020-1 se tuvieron 747 grupos reales.
+
 
 \begin{table}[H]
 \centering
@@ -36,7 +83,6 @@ Sabemos que la asignación final es el mejor elemento de la última generación.
 \hline
 \textbf{ } & \textbf{Materia} & \textbf{Profesor} & \textbf{Horario} \\ \hline
 1 & Administración Actuarial del Riesgo & Ricardo Villegas Azcorra & 7 \\ \hline
-108 & Análisis Numérico & Ursula Xiomara Iturrarán Viveros & 10 \\ \hline
 109 & Análisis Numérico & Úrsula Xiomara Iturrarán Viveros & 10 \\ \hline
 118 & Cálculo Diferencial e Integral I & Javier Fernández García & 7 \\ \hline
 153 & Cálculo Diferencial e Integral III & Javier Fernández García & 11 \\ \hline
@@ -53,3 +99,7 @@ Sabemos que la asignación final es el mejor elemento de la última generación.
 \end{tabular}
 \caption[\textit{Submatriz con asignación final}]{\textit{Se muestra una submatriz de la asignación final. Cada renglón tiene la información de un grupo con una materia, profesor y horario asignado.}}\label{submatAsigFinal}
 \end{table}
+
+
+
+

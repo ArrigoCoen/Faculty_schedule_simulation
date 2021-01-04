@@ -8,7 +8,7 @@ En la segunda columna de \textit{mat\_nom\_prof\_total} se tiene un $1$ si el pr
 
 \subsection{Profesores de tiempo completo}
 
-Para llenar la segunda columna de la matriz \textit{mat\_nom\_prof\_total} ingresamos a la página \url{www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo} del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos el vector con el nombre de los profesores de tiempo completo. En la \figurename{~\ref{profTC_SelectorGadget}} podemos ver el código CSS que utilizamos para obtener los datos en \textit{R}. También observamos que se seleccionaron 94 profesores.
+Para llenar la segunda columna de la matriz \textit{mat\_nom\_prof\_total} ingresamos a la página \url{www.matematicas.unam.mx/index.php/nosotros/profesores-de-tiempo-completo}, del Departamento de Matemáticas. Con la aplicación \textit{SelectorGadget} seleccionamos uno de los nombres de los profesores de tiempo completo. En la \figurename{~\ref{profTC_SelectorGadget}} podemos ver el código CSS que utilizamos para obtener los datos en \textit{R}. También observamos que se seleccionaron 94 profesores.
 
 \begin{figure}[H]
 \centering
@@ -21,7 +21,7 @@ Al extraer la información en \textit{R} obtuvimos un vector con 94 entradas. En
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.7]{profesores_TC_sinLimpiar} %width=\textwidth
-\caption[\textit{Vector de profesores de tiempo completo}]{\textit{Se observan las primeras 20 entradas del vector obtenido con la aplicación SelectorGadget al dar click en un profesor de tiempo completo.}}\label{profTC_sinLimpiar}
+\caption[\textit{Vector de profesores de tiempo completo}]{\textit{Se observan las primeras 20 entradas del vector obtenido con la aplicación SelectorGadget al dar click en el nombre de un profesor de tiempo completo.}}\label{profTC_sinLimpiar}
 \end{figure}
 
 Limpiamos los datos para obtener un vector que sólo tuviera los nombres de los profesores, sin su título. Eliminamos el título porque en los horarios publicados en las páginas de la Facultad sus nombres no tienen título. También eliminamos los espacios finales que había en algunos nombres.
@@ -72,7 +72,7 @@ Lo primero que hicimos fue ordenar los nombres de los profesores de asignatura a
 
 Con el proceso descrito obtuvimos un vector con 1246 nombres. Para comparar los nombres de los profesores, utilizamos la función \verb+stringsim(nom_prof_1,nom_prof_2)+. Dicha función arroja el porcentaje de similitud entre los parámetros que recibe, en este caso dos nombres de profesores.
 
-Para observar las posibles repeticiones guardamos en una matriz los nombres del vector \textit{vec\_prof\_asig} y aquellos nombres con más del $60\%$ de coincidencia. Eliminamos 115 repeticiones de nombres. Hubo algunos casos en los que los nombres repetidos eran idénticos y en otras ocasiones diferían por acentos o por guiones. En la \tablename{~\ref{DifNomProfasig}} vemos los nombres de los profesores que eliminamos por diferencia de acentos o guiones o nombre incompleto.
+Para observar las posibles repeticiones guardamos en una matriz los nombres del vector \textit{vec\_prof\_asig} y aquellos nombres con más del $60\%$ de coincidencia. Eliminamos 117 repeticiones de nombres. Hubo algunos casos en los que los nombres repetidos eran idénticos y en otras ocasiones diferían por acentos o por guiones. En la \tablename{~\ref{DifNomProfasig}} vemos los nombres de los profesores que eliminamos por diferencia de acentos o guiones o nombre incompleto.
 
 \begin{table}[h]
 \centering
@@ -113,7 +113,7 @@ Para observar las posibles repeticiones guardamos en una matriz los nombres del 
 \end{table}
 
 
-Finalmente obtuvimos un vector con 1131 nombres de los profesores de asignatura. Guardamos los nombres en la matriz \textit{mat\_nom\_prof\_total}. Dicha matriz contiene la información de 1224 profesores.
+Finalmente obtuvimos un vector con 1129 nombres de los profesores de asignatura. Guardamos los nombres en la matriz \textit{mat\_nom\_prof\_total}. Dicha matriz contiene la información de 1223 profesores.
 
 Algunas notas a considerar de esta matriz son:
   

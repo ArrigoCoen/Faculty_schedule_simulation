@@ -7,7 +7,7 @@ Los valores de $q_{1}$ y $q_{2}$ representan los cuantiles utilizados al calcula
 Primero definimos los parámetros generales necesarios para las simulaciones:
   
   \begin{enumerate}
-\item Fijamos la semilla con \verb@set.seed(8654)@.
+\item Fijamos la semilla con el comando \verb@set.seed(8654)@, en \textit{R}.
 
 \item Elegimos 3 semestres para simular la demanda del número de alumnos. Los seleccionamos de los semestres que ya teníamos guardados con información real. Hicimos una comparación entre nuestros datos simulados y los reales de cada semestre. Los semestres que elegimos fueron: 2019-1, 2019-2 y 2020-1.
 
@@ -66,7 +66,7 @@ Decidimos elegir $q_{1}$ y $q_{2}$ en base a la desviación estándar. A partir 
 \end{figure}
 
 
-Los datos en la \figurename{~\ref{promSD_5m_12p}} están ordenados de menor a mayor con respecto al promedio de la desviación estándar. Para la segunda prueba elegimos los primeros 6 intervalos de dicha tabla y seleccionamos otras 10 materias: \textit{Álgebra Lineal I}, \textit{Álgebra Superior II}, \textit{Cómputo Evolutivo}, \textit{Análisis Matemático IV}, \textit{Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro}, \textit{Análisis Numérico}, \textit{Teoría de la Medida I}, \textit{Introducción a las Matemáticas Discretas}, \textit{Inglés I} y \textit{Cálculo Diferencial e Integral IV}. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_6p}}.
+Los datos en la \figurename{~\ref{promSD_5m_12p}} están ordenados de menor a mayor con respecto al promedio de la desviación estándar. Para la segunda prueba elegimos los primeros 6 intervalos de dicha tabla y seleccionamos otras 10 materias: \textit{Álgebra Lineal I}, \textit{Álgebra Superior II}, \textit{Cómputo Evolutivo}, \textit{Análisis Matemático IV}, \textit{Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro}, \textit{Análisis Numérico}, \textit{Teoría de la Medida I}, \textit{Introducción a las Matemáticas Discretas}, \textit{Inglés I} y \textit{Cálculo Diferencial e Integral IV}. La tabla con el promedio de la desviación estándar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_6p}}.
 
 
 \begin{figure}[H]
@@ -76,7 +76,7 @@ Los datos en la \figurename{~\ref{promSD_5m_12p}} están ordenados de menor a ma
 \end{figure}
 
 
-Para la tercera prueba elegimos, de la \figurename{~\ref{promSD_10m_6p}} los intervalos que tuvieran un promedio en la desviación estándar menor a $0.5$. Seleccionamos otras 10 materias: \textit{Modelos de Supervivencia y de Series de Tiempo}, \textit{Teoría del Seguro}, \textit{Programación Entera}, \textit{Investigación de Operaciones}, \textit{Geometría Moderna I}, \textit{Geometría Analítica II}, \textit{Lógica Matemática I}, \textit{Cálculo Diferencial e Integral III}, \textit{Inferencia Estadística} y \textit{Manejo de Datos}. La tabla con el promedio de la desviación estándar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_4p}}.
+Para la tercera prueba elegimos, de la \figurename{~\ref{promSD_10m_6p}}, los intervalos que tuvieran un promedio en la desviación estándar menor a $0.5$. Seleccionamos otras 10 materias: \textit{Modelos de Supervivencia y de Series de Tiempo}, \textit{Teoría del Seguro}, \textit{Programación Entera}, \textit{Investigación de Operaciones}, \textit{Geometría Moderna I}, \textit{Geometría Analítica II}, \textit{Lógica Matemática I}, \textit{Cálculo Diferencial e Integral III}, \textit{Inferencia Estadística} y \textit{Manejo de Datos}. La tabla con el promedio de la desviación estándar de sus datos se puede ver en la \figurename{~\ref{promSD_10m_4p}}.
 
 
 \begin{figure}[H]
@@ -85,7 +85,7 @@ Para la tercera prueba elegimos, de la \figurename{~\ref{promSD_10m_6p}} los int
 \caption[\textit{Promedio de la desviación estándar: 10 materias, 4 intervalos}]{\textit{Se muestra la tabla con el promedio de la desviación estándar para 10 materias y 4 diferentes intervalos.}}\label{promSD_10m_4p}
 \end{figure}
 
-Podemos ver que los valores de la \figurename{~\ref{promSD_10m_4p}} son muy parecidos entre sí. Debido a ésto, hicimos otra prueba con los mismos intervalos pero con 5 materias obligatorias y con muchos alumnos. Las materias que elegimos fueron: \textit{Geometría Analítica I}, \textit{Cálculo Diferencial e Integral II}, \textit{Mercados Financieros y Valuación de Instrumentos}, \textit{Probabilidad II} y \textit{Procesos Estocásticos I}. Hicimos la prueba para ver si había alguna diferencia en los datos y poder elegir un solo intervalo. La tabla con el promedio de la desviación estandar de sus datos se puede ver en la \figurename{~\ref{promSD_5m_4p}}.
+Podemos ver que los valores de la \figurename{~\ref{promSD_10m_4p}} son muy parecidos entre sí. Debido a ésto, hicimos otra prueba con los mismos intervalos pero con 5 materias obligatorias y con muchos alumnos. Las materias que elegimos fueron: \textit{Geometría Analítica I}, \textit{Cálculo Diferencial e Integral II}, \textit{Mercados Financieros y Valuación de Instrumentos}, \textit{Probabilidad II} y \textit{Procesos Estocásticos I}. Hicimos la prueba para ver si había alguna diferencia en los datos y poder elegir un solo intervalo. La tabla con el promedio de la desviación estándar de sus datos se puede ver en la \figurename{~\ref{promSD_5m_4p}}.
 
 
 \begin{figure}[H]
@@ -94,7 +94,7 @@ Podemos ver que los valores de la \figurename{~\ref{promSD_10m_4p}} son muy pare
 \caption[\textit{Promedio de la desviación estándar: 5 materias, 4 intervalos}]{\textit{Se muestra la tabla con el promedio de la desviación estándar para 5 materias y 4 diferentes intervalos.}}\label{promSD_5m_4p}
 \end{figure}
 
-Analizando la información de las Figuras \ref{promSD_10m_4p} y \ref{promSD_5m_4p}, decidimos elegir los valores de $q_{1} = 85$ y $q_{2} = 80$. En la \figurename{~\ref{interConf}} se muestra el intervalo formado. De dicho intervalo vamos a obtener los valores para simular la demanda de alumnos para el siguiente semestre, para cada materia en cada hora.
+Analizando la información de las Figuras \ref{promSD_10m_4p} y \ref{promSD_5m_4p}, decidimos elegir los valores de $q_{1} = 85$ y $q_{2} = 80$. En la \figurename{~\ref{interConf}} se muestra el intervalo formado. De dicho intervalo vamos a obtener los valores para simular la demanda de alumnos del siguiente semestre, para cada materia en cada hora.
 
 \begin{figure}[H]
 \centering
@@ -102,7 +102,7 @@ Analizando la información de las Figuras \ref{promSD_10m_4p} y \ref{promSD_5m_4
 \caption[\textit{Diagrama de los intervalos de confianza}]{\textit{Se muestra un diagrama con el intervalo del que se va a obtener el número de alumnos para la simulación de cada materia en cada hora.}}\label{interConf}
 \end{figure}
 
-Finalmente, con los valores de $q_{1} = 85$ y $q_{2} = 80$ hicimos una prueba aleatoria (eliminando la semilla). Las materias que elegimos para dicha prueba fueron: \textit{Modelos de Supervivencia y de Series de Tiempo, Teoría del Seguro, Cálculo Diferencial e Integral I,II y III, Investigación de Operaciones, Geometría Moderna I, Geometría Analítica II, Lógica Matemática I, Probabilidad I y II, Inferencia Estadística, Manejo de Datos, Matemáticas Financieras} y \textit{Procesos Estocásticos I}. En la \figurename{~\ref{mat_med_dispersion_pruebaAl}} podemos ver los resultados de la prueba aleatoria mencionada. El promedio de la desviación estándar de todas las materias es $0.48$.%$0.4814898$.
+Finalmente, con los valores de $q_{1} = 85$ y $q_{2} = 80$ hicimos una prueba aleatoria (eliminando la semilla). Las materias que elegimos para dicha prueba fueron: \textit{Modelos de Supervivencia y de Series de Tiempo, Teoría del Seguro, Cálculo Diferencial e Integral I,II y III, Investigación de Operaciones, Geometría Moderna I, Geometría Analítica II, Lógica Matemática I, Probabilidad I y II, Inferencia Estadística, Manejo de Datos, Matemáticas Financieras} y \textit{Procesos Estocásticos I}. En la \figurename{~\ref{mat_med_dispersion_pruebaAl}} podemos ver los resultados de la prueba aleatoria mencionada. El promedio de la desviación estándar del error relativo para todas las materias es $0.48$.%$0.4814898$.
 
 \begin{figure}[H]
 \centering
