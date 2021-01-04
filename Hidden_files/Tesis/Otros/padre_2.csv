@@ -1,0 +1,657 @@
+"","Materia","Profesor","TC","Horario","calif","Prob_Ac"
+"610","Cálculo Diferencial e Integral II","Leticia Contreras Sandoval","0","13",-3.0647,4.64045736347774e-06
+"76","Cálculo Diferencial e Integral I","Kenya Verónica Espinosa Hurtado","0","7",-3.0589,1.39213720904332e-05
+"88","Seminario de Ciencias de la Computación","Yevgeniy Kolokoltsev","0","10",-3.0265,2.78427441808665e-05
+"59","Geometría Analítica II","José Guerrero Grajeda","0","12",-3.0236,4.64045736347774e-05
+"96","Cálculo Diferencial e Integral I","Nahiely Canseco Rodríguez","0","7",-3.0156,6.96068604521662e-05
+"69","Cálculo Diferencial e Integral II","Miguel Lara Aparicio","0","10",-2.0993,9.74496046330326e-05
+"517","Cálculo Diferencial e Integral I","María del Carmen Arrillaga Arjona","0","10",-2.0952,0.000129932806177377
+"444","Cálculo Diferencial e Integral II","Esteban Rubén Hurtado Cruz","0","10",-2.0946,0.000167056465085199
+"78","Cálculo Diferencial e Integral II","Oscar Alberto Garrido Jiménez","0","10",-2.0944,0.000208820581356499
+"442","Cálculo Diferencial e Integral I","Julio Martín Espinosa Casares","0","10",-2.0939,0.000255225154991276
+"362","Modelos no Paramétricos y de Regresión","Claudia Lara Pérez Soto","0","9",-2.0939,0.000306270185989531
+"350","Cálculo Diferencial e Integral II","Carlos García Azpeitia","0","10",-2.0934,0.000361955674351264
+"86","Cálculo Diferencial e Integral II","Roberto García Medina","0","15",-2.0873,0.000422281620076475
+"422","Seminario de Álgebra A","Sergio Lugo Gutiérrez","0","10",-2.087,0.000487248023165163
+"519","Cálculo Diferencial e Integral II","Gustavo Cruz Pacheco","0","10",-2.0866,0.000556854883617329
+"329","Seminario de Álgebra A","Christof Geiss Hahn","0","11",-2.0814,0.000631102201432973
+"375","Modelado y Programación","Pilar Selene Linares Arévalo","0","13",-2.0807,0.000709989976612095
+"527","Modelos no Paramétricos y de Regresión","Martha Angélica Montes Fonseca","0","9",-2.0761,0.000793518209154694
+"423","Análisis Matemático I","Ivan Naumkin","0","12",-2.0603,0.000881686899060771
+"424","Análisis Matemático I","Julián Fernando Chagoya Saldaña","0","13",-2.0517,0.000974496046330326
+"445","Cálculo Diferencial e Integral III","Carlos Islas Moreno","0","7",-2.0335,0.00107194565096336
+"73","Geometría Analítica I","Javier Bracho Carpizo","0","10",-2.0315,0.00117403571295987
+"94","Geometría Analítica I","Pablo Suárez Serrato","0","10",-2.0262,0.00128076623231986
+"273","Análisis Matemático II","Angel Manuel Carrillo Hoyo","0","10",-2.021,0.00139213720904332
+"226","Álgebra Moderna I","María del Carmen Heréndira Gómez Laveaga","0","12",-2.02,0.00150814864313027
+"255","Análisis Matemático I","Manuel Eduardo Chacón Ochoa","0","16",-2.0199,0.00162880053458069
+"344","Análisis Matemático II","Miguel Arturo Ballesteros Montero","0","10",-2.0154,0.00175409288339459
+"6","Probabilidad I","Daniel Alejandro Zurita Gutiérrez","0","9",-2.0067,0.00188402568957196
+"520","Cálculo Diferencial e Integral II","Héctor de Jesús Argueta Villamar","0","15",-2.006,0.00201859895311282
+"2123","Introducción a Ciencias de la Computación","Luis Alberto Ramírez Bermudez","0","15",-1.0999,0.00215781267401715
+"323","Álgebra Lineal II","Jorge Luis Arocha Pérez","0","13",-1.0982,0.00230166685228496
+"330","Análisis Matemático I","Agustín Ontiveros Pineda","0","9",-1.0981,0.00245016148791625
+"1108","Geometría Moderna I","Saúl Arce Rocha","0","12",-1.097,0.00260329658091101
+"1137","Cálculo Diferencial e Integral IV","Pablo Alberto Lara Martínez","0","10",-1.0961,0.00276107213126926
+"416","Álgebra Lineal I","María del Carmen Heréndira Gómez Laveaga","0","13",-1.0952,0.00292348813899098
+"152","Álgebra Lineal I","Adriana Léon Montes","0","13",-1.0948,0.00309054460407618
+"292","Ecuaciones Diferenciales I","Renato Carlos Calleja Castillo","0","9",-1.0943,0.00326224152652485
+"430","Álgebra Superior II","José Pozo Martínez","0","14",-1.0936,0.00343857890633701
+"341","Probabilidad II","Alberto Contreras Cristán","0","10",-1.0931,0.00361955674351264
+"421","Geometría Analítica II","Herminio Suárez Quiroz","0","16",-1.0922,0.00380517503805175
+"75","Probabilidad II","Isaac Gónzalez García","0","9",-1.0919,0.00399543378995434
+"246","Geometría Analítica II","Carlos Hernández Garciadiego","0","11",-1.0902,0.0041903329992204
+"2138","Temas Selectos de Investigación de Operaciones","Adrián Girard Islas","0","9",-1.0899,0.00438987266584995
+"2130","Modelado y Programación","Alejandro Hernández Mora","0","16",-1.0887,0.00459405278984297
+"245","Geometría Analítica II","Alejandra García García","0","10",-1.0871,0.00480287337119947
+"518","Cálculo Diferencial e Integral II","María del Carmen Arrillaga Arjona","0","7",-1.0854,0.00501633440991944
+"2106","Procesos Estocásticos I","Arrigo Coen Coria","0","19",-1.0841,0.0052344359060029
+"61","Probabilidad I","Freddy Palma Mancilla","0","10",-1.0822,0.00545717785944983
+"97","Programación","Mario González Ruiz","0","8",-1.0822,0.00568456027026024
+"521","Cálculo Diferencial e Integral II","Gerardo Camacho de la Rosa","0","16",-1.0799,0.00591658313843412
+"294","Ecuaciones Diferenciales I","Arturo Olvera Chávez","0","11",-1.0796,0.00615324646397149
+"95","Cálculo Diferencial e Integral IV","Luis Manuel Hernández Gallardo","0","10",-1.0795,0.00639455024687233
+"361","Análisis Numérico","Javier de Jesús Cortés Aguirre","0","9",-1.0779,0.00664049448713665
+"1162","Análisis Numérico","Guilmer Ferdinand González Flores","0","12",-1.0768,0.00689107918476445
+"2129","Modelado y Programación","Odín Miguel Escorza Soria","0","10",-1.0766,0.00714630433975573
+"233","Álgebra Lineal I","Clotilde García Villa","0","11",-1.074,0.00740616995211048
+"339","Geometría Analítica I","Jaqueline Rafaela Dolores Cañetas Ortega","0","11",-1.0734,0.00767067602182871
+"264","Geometría Analítica I","Francisco Páez Pérez","0","14",-1.0703,0.00793982254891042
+"322","Álgebra Lineal II","Alejandro Javier Díaz-Barriga Casales","0","11",-1.0661,0.00821360953335561
+"366","Programación","Armando Orozco Cortés","0","8",-1.0644,0.00849203697516427
+"293","Ecuaciones Diferenciales I","Catalina Apolinar García","0","10",-1.0639,0.00877510487433641
+"367","Programación","Ricardo Castañeda Martínez","0","14",-1.0635,0.00906281323087203
+"5","Probabilidad I","Francisco Pérez Carbajal","0","10",-1.062,0.00935516204477113
+"1112","Probabilidad II","Fernando Díaz López","0","13",-1.0613,0.00965215131603371
+"83","Geometría Analítica II","Sergio Palafox Delgado","0","10",-1.0609,0.00995378104465976
+"2122","Introducción a Ciencias de la Computación","Pedro Ulises Cervantes González","0","10",-1.0566,0.0102600512306493
+"249","Variable Compleja I","Federico Juan Sabina Císcar","0","12",-1.0549,0.0105709618740023
+"333","Álgebra Superior II","Melisa Gutiérrez Vivanco","0","12",-1.0526,0.0108865129747188
+"433","Geometría Analítica I","Patricia Cortés Flores","0","11",-1.052,0.0112067045327988
+"413","Álgebra Superior I","Araceli Guzmán Tristán","0","9",-1.0489,0.0115315365482422
+"358","Ecuaciones Diferenciales I","Rocío del Pilar Aguilar Benítez","0","10",-1.0476,0.0118610090210491
+"2107","Redes de Computadoras","Paulo Santiago de Jesús Contreras Flores","0","10",-1.0475,0.0121951219512195
+"436","Probabilidad II","David Josafat Santana Cobian","0","10",-1.0455,0.0125338753387534
+"320","Álgebra Lineal I","Hugo Arizmendi Peimbert","0","11",-1.0449,0.0128772691836507
+"2140","Taller de Herramientas Computacionales","Elisa Viso Gurovich","0","10",-1.0434,0.0132253034859116
+"2101","Programación","Alejandro Carrillo Nolazco","0","8",-1.0431,0.0135779782455359
+"269","Geometría Moderna I","Francisco de Jesús Struck Chávez","0","10",-1.0421,0.0139352934625237
+"92","Álgebra Superior I","Mauricio Enrique Elizalde Mejía","0","18",-1.0413,0.0142972491368749
+"2121","Introducción a Ciencias de la Computación","Araceli Eugenia Mercado Fernández","0","8",-1.04,0.0146638452685897
+"91","Álgebra Superior I","Gerardo Miguel Tecpa Galván","0","9",-1.0399,0.0150350818576679
+"189","Topología I","Jorge Moreno Montes","0","19",-1.0388,0.0154109589041096
+"438","Modelos de Supervivencia y de Series de Tiempo","Edgar Díaz Ordóñez","0","9",-1.0375,0.0157914764079148
+"274","Análisis Matemático II","Raybel Andrés García Ancona","0","14",-1.0353,0.0161766343690834
+"515","Modelos de Supervivencia y de Series de Tiempo","Rubén Ugalde Franco","0","18",-1.0342,0.0165664327876155
+"514","Modelos de Supervivencia y de Series de Tiempo","Sofía Villers Gómez","0","10",-1.0325,0.0169608716635112
+"2102","Programación","Jaime Ayala Pérez","0","9",-1.0288,0.0173599509967702
+"365","Estructuras Discretas","Laura Freidberg Gojman","0","10",-1.0263,0.0177636707873928
+"2131","Programación Lineal","María del Carmen Fernández García","0","11",-1.0263,0.0181720310353788
+"1155","Ecuaciones Diferenciales I","Araceli León Estrada","0","10",-1.026,0.0185850317407284
+"232","Álgebra Lineal I","Francisco Marmolejo Rivas","0","9",-1.0245,0.0190026729034414
+"326","Geometría Analítica II","Ernesto Rosales González","0","11",-1.0212,0.0194249545235178
+"352","Cálculo Diferencial e Integral II","David Guerrero Sánchez","0","17",-1.0199,0.0198518766009578
+"1172","Modelos no Paramétricos y de Regresión","Carlos Erwin Rodríguez Hernández-Vela","0","10",-1.0197,0.0202834391357612
+"1163","Análisis Numérico","Iván Germán Contreras Trejo","0","13",-1.0183,0.0207196421279281
+"1195","Seminario de Geometría A","José Collins Castro","0","16",-1.0172,0.0211604855774585
+"85","Cálculo Diferencial e Integral IV","Joel García León","0","10",-1.0165,0.0216059694843524
+"449","Programación","Benjamín Figueroa Solano","0","8",-1.0155,0.0220560938486097
+"159","Álgebra Moderna II","Daniel Labardini Fragoso","0","13",-1.013,0.0225108586702305
+"334","Álgebra Superior II","José Patricio Sánchez Hernández","0","14",-1.0109,0.0229702639492148
+"611","Ecuaciones Diferenciales I","Gustavo Cruz Pacheco","0","11",-1.0095,0.0234343096855626
+"510","Variable Compleja I","Mico Djurdjevic","0","17",-1.007,0.0239029958792739
+"84","Probabilidad II","Ismael Rivero Guzman","0","9",-1.0045,0.0243763225303486
+"363","Modelos no Paramétricos y de Regresión","Jose Salvador Zamora Muñoz","0","10",-1.0038,0.0248542896387868
+"347","Cálculo Diferencial e Integral IV","Verónica Martínez de la Vega y Mansilla","0","9",3e-04,0.0253368972045885
+"1215","Economía","Monserrat Esquivel López","0","10",4e-04,0.0258241452277536
+"1183","Programación","Luis Enrique Serrano Gutiérrez","0","10",5e-04,0.0263160337082823
+"1226","Productos Financieros Derivados","Jesús Agustín Cano Garcés","0","12",5e-04,0.0268125626461744
+"242","Álgebra Lineal II","José Miguel Salazar Montiel","0","18",6e-04,0.02731373204143
+"1247","Modelado y Programación","Ana Libia Eslava Cervantes","0","8",8e-04,0.0278195418940491
+"1131","Investigación de Operaciones","Jesús Agustín Cano Garcés","0","8",9e-04,0.0283299922040316
+"117","Electromagnetismo I","Antonio Castellanos Ramírez","0","18",0.0012,0.0288450829713777
+"222","Mecánica Cuántica","Eugenio Ley Koo","0","10",0.0015,0.0293648141960872
+"614","Métodos Cuantitativos en Finanzas","Jorge Luis Silva Haro","0","8",0.002,0.0298891858781602
+"43","Probabilidad I","Laura Nayeli Liljehult León","0","8",0.0025,0.0304181980175966
+"28","Electromagnetismo I","Andrea Luisa Aburto Espina","0","10",0.0028,0.0309518506143966
+"1175","Pensiones Privadas","Ernesto Rosas Garcia","0","18",0.0028,0.03149014366856
+"143","Física Estadística","Francisco Javier Sevilla Pérez","0","12",0.003,0.0320330771800869
+"1148","Manejo de Datos","Miguel Ehécatl Morales Trujillo","0","10",0.0032,0.0325806511489772
+"1212","Mercados Financieros y Valuación de Instrumentos","Alma Rosa Bustamante García","0","8",0.0033,0.0331328655752311
+"1197","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","Juan Carlos Vargas Aguilar","0","14",0.0037,0.0336897204588484
+"1227","Productos Financieros Derivados","Jorge Humberto Del Castillo Spíndola","0","16",0.0037,0.0342512157998292
+"1199","Administración de Riesgos Financieros","María Araceli Bernabe Rocha","0","7",0.0038,0.0348173515981735
+"710","Matemáticas Actuariales del Seguro de Personas II","Omar Said López Tronco","0","7",0.0042,0.0353881278538813
+"123","Electromagnetismo II","Ángel Prieto Ruiz","0","10",0.0046,0.0359635445669525
+"417","Álgebra Lineal I","Sebastián Pardo Guerra","0","15",0.0047,0.0365436017373872
+"441","Cálculo Diferencial e Integral IV","Kenya Verónica Espinosa Hurtado","0","13",0.0047,0.0371282993651854
+"1192","Teoría de los Números I","Elhoim Llorente Sumano y Ramírez","0","18",0.005,0.0377176374503471
+"268","Geometría Moderna I","Narda Cordero Michel","0","8",0.0055,0.0383116159928722
+"299","Pensiones Privadas","Carlos Llanas Vázquez","0","7",0.0057,0.0389102349927609
+"98","Matemáticas Actuariales del Seguro de Personas II","Viviana Díaz Magallanes","0","7",0.0058,0.039513494450013
+"39","Óptica","Víctor Hugo Meza Laguna","0","10",0.0059,0.0401213943646286
+"1150","Manejo de Datos","José Alfredo Cobián Campos","0","15",0.0066,0.0407339347366076
+"55","Álgebra Lineal I","Juan Carlos García Altamirano","0","10",0.0067,0.0413511155659502
+"2104","Procesos Estocásticos I","Guadalupe Carrasco Licea","0","9",0.0069,0.0419729368526562
+"1144","Cálculo Diferencial e Integral II","Emilio Cabrera Castro","0","20",0.007,0.0425993985967257
+"1189","Procesos Estocásticos I","Freddy Palma Mancilla","0","17",0.007,0.0432305007981587
+"256","Análisis Matemático I","Roberto Méndez Rosas","0","20",0.0071,0.0438662434569551
+"373","Economía","Leslie Alejandra Jiménez Rosas","0","16",0.0071,0.044506626573115
+"250","Variable Compleja I","Pavel Ramos Martínez","0","14",0.0073,0.0451516501466384
+"1105","Geometría Moderna I","Lilia Montserrat Vite Escobedo","0","8",0.0073,0.0458013141775253
+"1125","Inferencia Estadística","Jimmy Hernández Morales","0","7",0.0075,0.0464556186657757
+"282","Investigación de Operaciones","Daniela Hérnandez Salcido","0","11",0.0076,0.0471145636113895
+"1259","Seminario Matemáticas Aplicadas I","María de la Luz Jimena de Teresa de Oteyza","0","9",0.0077,0.0477781490143669
+"415","Álgebra Lineal I","Jorge Luis Arocha Pérez","0","10",0.008,0.0484463748747076
+"376","Matemáticas para las Ciencias Aplicadas I","Jonathan Galván Colín","0","18",0.008,0.0491192411924119
+"56","Álgebra Lineal I","Iván Fernando Vilchis Montalvo","0","17",0.0081,0.0497967479674797
+"1246","Seminario de Ciencias de la Computación","Josafat Isai Guerrero Iñiguez","0","18",0.0085,0.0504788951999109
+"1282","Matemáticas para las Ciencias Aplicadas IV","Jesús Enrique Hernández Zavaleta","0","17",0.0085,0.0511656828897056
+"197","Seminario de Topología A","Alejandro Illanes Mejía","0","10",0.0087,0.0518571110368638
+"612","Pensiones Privadas","Oscar Aranda Martínez","0","8",0.0087,0.0525531796413855
+"7","Contabilidad","Paulo César Castro Bejar","0","7",0.0088,0.0532538887032706
+"1267","Teoría de la Medida I","María Emilia Caballero Acosta","0","10",0.0092,0.0539592382225192
+"2136","Seminario Matemáticas Aplicadas I","Pedro José Sobrevilla Moreno","0","18",0.0093,0.0546692281991313
+"187","Topología I","Carlos Prieto de Castro","0","12",0.0096,0.0553838586331069
+"262","Seminario de Topología A","Ernesto Alejandro Vázquez Navarro","0","18",0.0096,0.0561031295244459
+"1184","Programación","Antonio Carrillo Ledesma","0","12",0.01,0.0568270408731485
+"529","Procesos Estocásticos I","Rodrigo Quijón Hipólito","0","10",0.0104,0.0575555926792145
+"452","Economía","Luis Alberto Quezada Téllez","0","8",0.0104,0.0582887849426439
+"1262","Teoría de los Números II","Ernesto Cruz Guerrero","0","8",0.0107,0.0590266176634369
+"115","Electromagnetismo I","Alejandro Reyes Coronado","0","10",0.0111,0.0597690908415933
+"1217","Matemáticas Actuariales del Seguro de Personas I","Elisa Sugey Hérnandez Castañeda","0","8",0.0113,0.0605162044771133
+"8","Mecánica Vectorial","Manuel Gerardo Quintana García","0","8",0.0114,0.0612679585699967
+"199","Geometría Analítica I","Carlos Hernández Garciadiego","0","8",0.0115,0.0620243531202435
+"1185","Programación","Gerardo Avilés Rosas","0","13",0.0115,0.0627853881278539
+"428","Álgebra Superior II","Francisco Manuel Barrios Paniagua","0","10",0.0116,0.0635510635928277
+"450","Métodos Cuantitativos en Finanzas","Fernando Herrera Contreras","0","8",0.0116,0.064321379515165
+"57","Geometría Analítica II","Rolando Gómez Macedo","0","7",0.012,0.0650963358948658
+"34","Fenómenos Colectivos","Julieta Rut Salazar Contreras","0","10",0.0121,0.0658759327319301
+"18","Mecánica Vectorial","David García Gudiño","0","18",0.0122,0.0666601700263578
+"44","Probabilidad I","Manuel Domínguez de la Iglesia","0","11",0.0123,0.067449047778149
+"278","Modelos de Supervivencia y de Series de Tiempo","Claudia González González","0","13",0.0124,0.0682425659873037
+"53","Fenómenos Colectivos","Francisco Ramos Gómez","0","8",0.0125,0.0690407246538219
+"1101","Geometría Analítica I","Fidencio Galicia Rodríguez","0","21",0.0125,0.0698435237777035
+"1286","Seminario de Apoyo a la Titulación en Actuaría A","María Clara Fittipaldi","0","10",0.0126,0.0706509633589487
+"1205","Matemáticas Financieras","Alejandro Carrillo Nolazco","0","17",0.0127,0.0714630433975573
+"531","Métodos Cuantitativos en Finanzas","Irma Rocío Zavala Sierra","0","8",0.0128,0.0722797638935294
+"1268","Conjuntos y Lógica","César Hernández Cruz","0","7",0.0128,0.0731011248468649
+"4","Administración Actuarial del Riesgo","José Enrique Pérez Salvador","0","7",0.013,0.073927126257564
+"1120","Modelos de Supervivencia y de Series de Tiempo","David Chaffrey Moreno Fernández","0","8",0.0131,0.0747577681256265
+"32","Mecánica Vectorial","Aurore Marie Pascale Nicole Courtoy","0","12",0.0134,0.0755930504510525
+"314","Termodinámica","Víctor Manuel Romero Rochín","0","10",0.0134,0.0764329732338419
+"1151","Manejo de Datos","Javier García García","0","16",0.0135,0.0772775364739949
+"176","Seminario de Álgebra A","Juan José Alba González","0","13",0.0138,0.0781267401715113
+"338","Geometría Analítica I","Iván Axell Gómez Ramos","0","9",0.0138,0.0789805843263912
+"195","Álgebra Superior II","Juan Gabriel Ochoa Petatan","0","21",0.0139,0.0798390689386346
+"1260","Seminario Matemáticas Aplicadas I","Adrián González Casanova Soberon","0","11",0.0142,0.0807021940082415
+"1102","Introducción a las Matemáticas Discretas","Karina García Buendía","0","7",0.0144,0.0815699595352118
+"346","Investigación de Operaciones","David Chaffrey Moreno Fernández","0","11",0.0144,0.0824423655195456
+"1221","Teoría del Riesgo","Abraham Ramírez Hernández","0","12",0.0146,0.0833194119612429
+"451","Seminario de Aplicaciones Actuariales","Omar de la Riva Torres","0","19",0.0148,0.0842010988603037
+"2103","Procesos Estocásticos I","Fernando Guerrero Poblete","0","8",0.015,0.0850874262167279
+"1263","Análisis Multivariado","Guadalupe Eunice Campiran García","0","13",0.0151,0.0859783940305156
+"317","Álgebra Superior I","Lilia Guadalupe Sánchez Terán","0","14",0.0153,0.0868740023016669
+"167","Álgebra Moderna III","Fernando Cornejo Montaño","0","17",0.0153,0.0877742510301815
+"247","Geometría Analítica II","María de Lourdes Hernández Campos","0","17",0.0156,0.0886791402160597
+"522","Cálculo Diferencial e Integral III","Efraín Vega Landa","0","18",0.0158,0.0895886698593013
+"177","Seminario de Álgebra A","Juan Orendain Almada","0","15",0.0161,0.0905028399599064
+"137","Relatividad","Alejandro Valderrama Zaldívar","0","10",0.0163,0.091421650517875
+"139","Dinámica de Medios Deformables","Catalina Elizabeth Stern Forgach","0","8",0.0164,0.0923451015332071
+"38","Electromagnetismo I","Jorge Alfonso García Macedo","0","10",0.0165,0.0932731930059027
+"164","Álgebra Lineal II","Lorena Morales Callejas","0","15",0.017,0.0942059249359617
+"1122","Modelos de Supervivencia y de Series de Tiempo","Alberto Contreras Cristán","0","12",0.017,0.0951432973233842
+"1196","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","Irma Rocío Villa Valles","0","10",0.017,0.0960853101681702
+"2108","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","Felipe Zamora Ramos","0","8",0.0171,0.0970319634703196
+"265","Introducción a las Matemáticas Discretas","Carlos Alberto Serrato Hernández","0","8",0.0173,0.0979832572298326
+"1202","Métodos Cuantitativos en Finanzas","Jorge Humberto Del Castillo Spíndola","0","15",0.0173,0.098939191446709
+"259","Álgebra Superior II","Araceli Guzmán Tristán","0","10",0.0174,0.0998997661209489
+"1223","Teoría del Riesgo","Edgar Gerardo Alarcón González","0","18",0.0174,0.100864981252552
+"340","Geometría Analítica I","Alberto Alcalá Álvarez","0","17",0.0176,0.101834836841519
+"77","Cálculo Diferencial e Integral I","Marco Antonio Montes de Oca Balderas","0","14",0.0176,0.102809332887849
+"194","Álgebra Superior II","Alejandro Dorantes Aldama","0","19",0.0179,0.103788469391543
+"315","Álgebra Superior I","Itzel Jeanne Riquelme Cherrier","0","7",0.0181,0.104772246352601
+"198","Geometría Analítica I","Juan Flores Torres","0","7",0.0181,0.105760663771021
+"2134","Seminario Matemáticas Aplicadas I","Alexandra Guzmán Velázquez","0","13",0.0184,0.106753721646806
+"36","Electromagnetismo I","Roberto Alejandro Ruelas Mayorga","0","7",0.0192,0.107751419979953
+"1190","Redes de Computadoras","María Teresa Canseco Rodríguez","0","9",0.0192,0.108753758770464
+"37","Electromagnetismo I","Héctor Gerardo Riveros Rotgé","0","8",0.0193,0.109760738018339
+"82","Álgebra Lineal I","Rodrígo Edmundo Cepeda Morales","0","8",0.0193,0.110772357723577
+"312","Mecánica Analítica","Rosa María Méndez Vargas","0","10",0.0199,0.111788617886179
+"261","Teoría de Gráficas","Ilan Abraham Goldfeder Ortiz","0","9",0.0204,0.112809518506144
+"149","Álgebra Lineal I","Angel Vázquez Badillo","0","7",0.0205,0.113835059583473
+"1275","Inglés I","Paulina Torres Carranza","0","17",0.0206,0.114865241118165
+"1211","Seminario de Aplicaciones Actuariales","Emilio Gutiérrez Calderón","0","19",0.0211,0.11590006311022
+"1273","Seminario de Topología B","José Carlos Gómez Larrañaga","0","8",0.0211,0.116939525559639
+"135","Mecánica Cuántica","Carlos Ramírez Ramos","0","15",0.0213,0.117983628466422
+"160","Álgebra Moderna II","Alberto Alcalá Álvarez","0","18",0.0213,0.119032371830568
+"251","Análisis Matemático I","Rodrigo Jesús Hernández Gutiérrez","0","7",0.0218,0.120085755652077
+"1274","Taller de Herramientas Computacionales","María Fernanda Sánchez Puig","0","8",0.0219,0.12114377993095
+"25","Probabilidad I","Claudia Cristina Reyes Montes de Oca","0","20",0.022,0.122206444667186
+"237","Álgebra Lineal II","León Felipe Villalobos Sánchez","0","8",0.0223,0.123273749860786
+"1240","Lenguajes de Programación y sus Paradigmas","Noé Salomón Hernández Sánchez","0","9",0.0225,0.12434569551175
+"313","Termodinámica","René Carrillo Moreno","0","8",0.0226,0.125422281620076
+"1285","Inglés VI","Benito Peter Nava Kopp","0","14",0.0226,0.126503508185767
+"71","Mecánica Vectorial","Juan Manuel Eugenio Ramírez de Arellano Niño-Rincón","0","10",0.0228,0.127589375208821
+"1136","Cálculo Diferencial e Integral IV","Emily Sánchez García","0","9",0.0228,0.128679882689238
+"184","Análisis Matemático I","Grissel Santiago González","0","15",0.0229,0.129775030627019
+"161","Álgebra Lineal II","Daniela Mariyet Terán Guerrero","0","8",0.0231,0.130874819022163
+"523","Manejo de Datos","Jessica Santizo Galicia","0","8",0.0231,0.131979247874671
+"1200","Métodos Cuantitativos en Finanzas","Daniela Alejandra González Ramírez","0","8",0.0236,0.133088317184542
+"1216","Economía","Alejandro Mina Valdés","0","18",0.0237,0.134202026951776
+"1218","Teoría del Riesgo","Luis Alberto Olvera García","0","7",0.0237,0.135320377176375
+"378","Inglés V","Natalia Dan","0","7",0.0238,0.136443367858336
+"1237","Introducción a Ciencias de la Computación","Alejandro Hernández Mora","0","12",0.024,0.137570998997661
+"1265","Estadística Bayesiana","María de los Dolores Sánchez Castañeda","0","11",0.024,0.13870327059435
+"2116","Teoría del Riesgo","José Luis Ángel Pérez Garmendia","0","8",0.0245,0.139840182648402
+"437","Probabilidad II","Miguel Ángel García Álvarez","0","18",0.0246,0.140981735159817
+"1283","Inglés VI","Alejandro Pérez Meléndez","0","7",0.025,0.142127928128596
+"11","Contabilidad","Antonio Lara Gutiérrez","0","8",0.0251,0.143278761554739
+"335","Álgebra Superior II","Rodrigo Domínguez López","0","17",0.0253,0.144434235438245
+"156","Álgebra Moderna II","José Gabriel Ocampo Márquez","0","7",0.0256,0.145594349779114
+"66","Álgebra Superior I","Marcelino Perello Valls","0","16",0.0263,0.146759104577347
+"1118","Análisis Matemático III","Magali Louise Marie Folch Gabayet","0","13",0.0263,0.147928499832944
+"1169","Seminario sobre Enseñanza de las Matemáticas I","Adriana Léon Montes","0","14",0.0264,0.149102535545903
+"285","Cálculo Diferencial e Integral II","Leonel Rito Rodriguez","0","20",0.0266,0.150281211716227
+"12","Contabilidad","Arely Palos Zepeda","0","17",0.0269,0.151464528343914
+"1180","Teoría de los Conjuntos I","Jorge Alan Morales Morillón","0","13",0.0269,0.152652485428964
+"357","Ecuaciones Diferenciales I","Luisa Márquez Rentería","0","8",0.027,0.153845082971378
+"349","Cálculo Diferencial e Integral IV","Emilio Cabrera Castro","0","14",0.0273,0.155042320971155
+"26","Mecánica Vectorial","Eric Vázquez Jauregui","0","8",0.028,0.156244199428296
+"171","Geometría Analítica II","Edgar Guzmán González","0","14",0.028,0.1574507183428
+"1231","Temas Selectos de Economía","Edgar Arturo Durán Loera","0","18",0.0283,0.158661877714668
+"2128","Seminario de Ciencias de la Computación","Jonathan Banfi Vázquez","0","8",0.0283,0.159877677543899
+"1130","Investigación de Operaciones","Leonardo López Monroy","0","7",0.0284,0.161098117830493
+"281","Investigación de Operaciones","Nilse Pamela Romero Basurto","0","8",0.0288,0.162323198574452
+"535","Matemáticas para las Ciencias Aplicadas II","Omar Recillas Ayala","0","10",0.0288,0.163552919775773
+"1222","Teoría del Riesgo","Gabriela Stephania Revueltas Hernández","0","17",0.0289,0.164787281434458
+"248","Variable Compleja I","Carisa Cano Figueroa","0","10",0.0291,0.166026283550507
+"275","Análisis Matemático II","Manuel Hernández Hernández","0","16",0.0291,0.167269926123919
+"311","Mecánica Analítica","Luis Abraham García Hernández","0","8",0.0294,0.168518209154694
+"136","Relatividad","Juan Carlos Degollado Daza","0","8",0.0298,0.169771132642833
+"1187","Procesos Estocásticos I","Adrián González Casanova Soberon","0","8",0.0299,0.171028696588336
+"124","Electromagnetismo II","Alvaro Patricio Díaz Ruelas","0","18",0.0307,0.172290900991202
+"93","Álgebra Lineal I","Karina García Buendía","0","18",0.0311,0.173557745851431
+"2125","Seguridad Social","Manuel Roberto Reyes Álvarez","0","20",0.0311,0.174829231169024
+"217","Funciones Especiales y Transformadas Integrales","Osvaldo Alfonso Téllez Nieto","0","14",0.0313,0.17610535694398
+"325","Geometría Analítica II","Rebeca Trejo Luna","0","9",0.0313,0.1773861231763
+"2124","Seguridad Social","César Ponzanelli Velázquez","0","8",0.0314,0.178671529865984
+"1269","Conjuntos y Lógica","Fernando Javier Nuñez Rosales","0","16",0.0314,0.17996157701303
+"2111","Seminario de Aplicaciones Actuariales","Ricardo Ramírez Aldana","0","10",0.0315,0.181256264617441
+"1255","Ecuaciones Diferenciales Parciales I","Víctor Alberto Cruz Barriguete","0","19",0.0315,0.182555592679214
+"359","Ecuaciones Diferenciales I","Sergio Antonio Alcalá Corona","0","19",0.0317,0.183859561198352
+"17","Mecánica Vectorial","José Alfredo Heras Gómez","0","13",0.032,0.185168170174852
+"2142","Matemáticas para las Ciencias Aplicadas I","Juan Carlos Balleza García","0","17",0.0321,0.186481419608717
+"454","Demografía","Luisa María Benítez Loveman","0","18",0.0325,0.187799309499944
+"111","Mecánica Vectorial","Susana Orozco Segovia","0","8",0.0328,0.189121839848536
+"429","Álgebra Superior II","Martha Lizbeth Shaid Sandoval Miranda","0","13",0.0328,0.19044901065449
+"431","Álgebra Superior II","Sebastián Pardo Guerra","0","17",0.0329,0.191780821917808
+"132","Termodinámica","Manuel Gerardo Quintana García","0","10",0.0337,0.19311727363849
+"1128","Inferencia Estadística","Alan Riva Palacio Cohen","0","12",0.0337,0.194458365816535
+"512","Introducción a las Matemáticas Discretas","José Luis Miranda Olvera","0","8",0.0338,0.195804098451943
+"1153","Manejo de Datos","Miguel Manterola Obregón","0","18",0.0344,0.197154471544715
+"2127","Planeación Estratégica","Mónica Iliana Sánchez Zaragoza","0","21",0.0345,0.198509485094851
+"511","Álgebra Superior II","Gerardo Camacho de la Rosa","0","10",0.0346,0.19986913910235
+"1204","Métodos Cuantitativos en Finanzas","Fernando Díaz López","0","19",0.0348,0.201233433567212
+"1164","Análisis Numérico","César Carreón Otañez","0","16",0.0349,0.202602368489438
+"1232","Demografía","José Rubén Fernández Román","0","7",0.0354,0.203975943869028
+"534","Mercados Financieros y Valuación de Instrumentos","Yurguen Hugo Camargo Serafin","0","19",0.036,0.205354159705981
+"1213","Análisis del México Contemporáneo","Luis Alberto Galván Contreras","0","8",0.0361,0.206737016000297
+"79","Manejo de Datos","Pablo Alberto Tintor Jiménez","0","7",0.0366,0.208124512751977
+"343","Probabilidad II","Juan González Hernández","0","18",0.0371,0.20951664996102
+"360","Ecuaciones Diferenciales I","Jorge Luis Arroyo Leonor","0","21",0.0373,0.210913427627427
+"1133","Investigación de Operaciones","Ana Lilia Anaya Muñoz","0","10",0.0376,0.212314845751197
+"190","Álgebra Superior II","Mindy Yaneli Huerta Pérez","0","7",0.0377,0.213720904332331
+"2135","Seminario Matemáticas Aplicadas I","Karla Genoveva Bassols Bello","0","14",0.0381,0.215131603370828
+"228","Álgebra Superior I","Daniela Mariyet Terán Guerrero","0","7",0.0383,0.216546942866689
+"241","Álgebra Lineal II","Leobardo Fernández Román","0","16",0.0394,0.217966922819913
+"2105","Procesos Estocásticos I","Gabriela Stephania Revueltas Hernández","0","12",0.0394,0.219391543230501
+"1191","Teoría de los Números I","Alejandro De Las Peñas Castaño","0","8",0.0395,0.220820804098452
+"1119","Análisis Matemático III","David Jacob Ramírez Herrera","0","20",0.0396,0.222254705423767
+"68","Cálculo Diferencial e Integral IV","Sandra María Chimal Garma","0","7",0.0397,0.223693247206445
+"267","Introducción a las Matemáticas Discretas","María del Pilar Valencia Saravia","0","14",0.0399,0.225136429446486
+"1214","Análisis del México Contemporáneo","Evelina Hernández Hernández","0","21",0.0401,0.226584252143891
+"530","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","José Luis López Escorcia","0","7",0.0404,0.22803671529866
+"1241","Seminario de Ciencias de la Computación","German Ernesto Zapata Ledesma","0","8",0.0404,0.229493818910792
+"354","Cálculo Diferencial e Integral III","Eduardo Tomás Arellano Arjona","0","14",0.0406,0.230955562980287
+"298","Seminario sobre Enseñanza de las Matemáticas I","Carmen Martínez-Adame Isaís","0","10",0.0406,0.232421947507146
+"116","Electromagnetismo I","Nikolay Kryukov","0","14",0.0407,0.233892972491369
+"1280","Inglés III","Gabriel Iturralde Villalobos","0","11",0.0407,0.235368637932955
+"81","Relatividad","Saúl Noé Ramos Sánchez","0","12",0.0409,0.236848943831904
+"276","Análisis Matemático III","María de la Luz Jimena de Teresa de Oteyza","0","10",0.041,0.238333890188217
+"280","Inferencia Estadística","Carlos Erwin Rodríguez Hernández-Vela","0","9",0.0411,0.239823477001893
+"1126","Inferencia Estadística","Edna Gabriela López Estrada","0","10",0.0411,0.241317704272933
+"72","Geometría Analítica II","Pablo Rosell González","0","8",0.0413,0.242816572001336
+"1276","Inglés II","Lidia Fabiola Quevedo Rojas","0","8",0.0413,0.244320080187103
+"332","Álgebra Superior II","Francisco Larrión Riveroll","0","10",0.0418,0.245828228830234
+"2113","Economía","Marco Antonio García Fernández","0","7",0.0419,0.247341017930727
+"377","Matemáticas para las Ciencias Aplicadas II","Manuel Velasco Juan","0","16",0.0419,0.248858447488584
+"1209","Seminario de Aplicaciones Actuariales","Carlos Díaz Ávalos","0","10",0.0429,0.250380517503805
+"244","Geometría Analítica II","Lorena Armas Sanabria","0","9",0.0432,0.251907227976389
+"418","Álgebra Lineal I","Jonathan Giovanni Gil Juárez","0","18",0.0433,0.253438578906337
+"1257","Geometría Moderna II","María Guadalupe Lucio Gómez-Maqueo","0","15",0.0434,0.254974570293648
+"74","Geometría Analítica I","Miguel Manterola Obregón","0","17",0.0435,0.256515202138323
+"175","Seminario de Álgebra A","Martha Takane Imay","0","8",0.0437,0.258060474440361
+"2110","Seminario de Aplicaciones Actuariales","Eduardo Torres Luna","0","7",0.0438,0.259610387199762
+"439","Investigación de Operaciones","María del Carmen Fernández García","0","17",0.0448,0.261164940416528
+"448","Ecuaciones Diferenciales I","Mirella Ramírez Ramírez","0","8",0.0449,0.262724134090656
+"1129","Inferencia Estadística","Miguel Arturo Ballesteros Montero","0","13",0.045,0.264287968222148
+"283","Cálculo Diferencial e Integral IV","Enrique Vega Ramírez","0","17",0.0451,0.265856442811004
+"1158","Ecuaciones Diferenciales I","María del Carmen Jorge y Jorge","0","14",0.0453,0.267429557857222
+"145","Álgebra Superior I","Alejandra Osiris Romero Juárez","0","7",0.0454,0.269007313360805
+"270","Probabilidad II","Daniel Cervantes Filoteo","0","8",0.0454,0.270589709321751
+"342","Probabilidad II","Ricardo Hoyos Argüelles","0","11",0.0459,0.27217674574006
+"243","Geometría Analítica II","Ernesto Mayorga Saucedo","0","8",0.046,0.273768422615733
+"524","Ecuaciones Diferenciales I","Sara Jacqueline Herrera Domínguez","0","7",0.0461,0.275364739948769
+"162","Álgebra Lineal II","Gustavo Amilcar Saldaña Moncada","0","9",0.0462,0.276965697739169
+"42","Contabilidad","Pedro Luis Soto Tejeda","0","8",0.0463,0.278571295986932
+"1234","Demografía","Nina Castro Méndez","0","9",0.047,0.280181534692059
+"48","Electromagnetismo I","Miguel Ángel Monroy Rodríguez","0","8",0.0471,0.28179641385455
+"2109","Matemáticas Actuariales del Seguro de Personas II","José Fernando Soriano Flores","0","21",0.0471,0.283415933474403
+"141","Física Estadística","Isaías Rodríguez Aguirre","0","7",0.0472,0.28504009355162
+"2112","Seminario de Aplicaciones Actuariales","Nina Castro Méndez","0","11",0.0473,0.286668894086201
+"1173","Modelos no Paramétricos y de Regresión","Fernando Daniel Pérez Arriaga","0","18",0.0476,0.288302335078145
+"122","Electromagnetismo II","Antonio Ortiz Velásquez","0","8",0.0477,0.289940416527453
+"1284","Inglés VI","Natalia Dan","0","11",0.0477,0.291583138434124
+"368","Programación","José Carlos León Pérez","0","19",0.0486,0.293230500798159
+"134","Mecánica Cuántica","Enriqueta Hernández Saldaña","0","10",0.0488,0.294882503619557
+"1156","Ecuaciones Diferenciales I","Carlos Arturo Vargas Guadarrama","0","12",0.0488,0.296539146898318
+"52","Mecánica Vectorial","Roberto de Jesús León Montiel","0","14",0.0493,0.298200430634443
+"446","Cálculo Diferencial e Integral III","José Santos","0","15",0.0497,0.299866354827932
+"35","Fenómenos Colectivos","Marcos Ley Koo","0","16",0.0505,0.301536919478784
+"24","Probabilidad I","Federico Lasa Gonsebatt","0","16",0.0507,0.303212124586999
+"64","Física Computacional","Ricardo Méndez Fragoso","0","7",0.0507,0.304891970152578
+"1109","Geometría Moderna I","Héctor Eduardo Martínez Moreno","0","18",0.0511,0.306576456175521
+"1229","Econometría I","Luis Alejandro Aguilar Luna","0","8",0.0513,0.308265582655827
+"337","Geometría Analítica I","Max Neumann Coto","0","8",0.0517,0.309959349593496
+"364","Modelos no Paramétricos y de Regresión","Rosa Daniela Chávez Aguilar","0","18",0.0518,0.311657756988529
+"128","Mecánica Analítica","Jerónimo Alonso Cortez Quezada","0","8",0.0519,0.313360804840925
+"29","Electromagnetismo I","Salvador Víctor Godoy Salas","0","12",0.052,0.315068493150685
+"127","Funciones Especiales y Transformadas Integrales","Edward Daniel Reyes Ramírez","0","18",0.0521,0.316780821917808
+"21","Administración Actuarial del Riesgo","Miguel Ángel Torres Ramírez","0","19",0.0525,0.318497791142295
+"1170","Seminario sobre Enseñanza de las Matemáticas I","Antonio García Flores","0","16",0.0527,0.320219400824145
+"328","Geometría Analítica II","Juan Manuel Martínez Nuño","0","20",0.0532,0.321945650963359
+"238","Álgebra Lineal II","Juan Carlos García Altamirano","0","9",0.0535,0.323676541559936
+"425","Análisis Matemático I","Manuel Hernández Hernández","0","18",0.0535,0.325412072613877
+"212","Introducción a la Física Cuántica","Manuel de Llano de la Garza","0","12",0.054,0.327152244125181
+"1139","Cálculo Diferencial e Integral IV","Adrián Zenteno Gutiérrez","0","20",0.0542,0.328897056093849
+"295","Ecuaciones Diferenciales I","Octavio Eduardo Vizcaya Xilotl","0","19",0.0548,0.33064650851988
+"1124","Modelos de Supervivencia y de Series de Tiempo","Fernando Daniel Pérez Arriaga","0","17",0.0549,0.332400601403274
+"279","Modelos de Supervivencia y de Series de Tiempo","Graciela Martínez Sánchez","0","17",0.0553,0.334159334744032
+"112","Fenómenos Colectivos","Alan Joel Miralrio Pineda","0","10",0.0554,0.335922708542154
+"231","Álgebra Lineal I","Andres Barei Bueno","0","8",0.0554,0.337690722797639
+"210","Electromagnetismo I","Mirna Villavicencio Torres","0","18",0.0563,0.339463377510487
+"168","Geometría Analítica II","Álvaro Reyes García","0","7",0.0563,0.341240672680699
+"369","Procesos Estocásticos I","María Fernanda Gil Leyva Villa","0","11",0.0563,0.343022608308275
+"1135","Cálculo Diferencial e Integral IV","Abelardo Vela Ponce de León","0","7",0.0569,0.344809184393214
+"182","Análisis Matemático I","Roxana Wendoline Ruiz Aguilar","0","8",0.0571,0.346600400935516
+"173","Geometría Analítica II","Leonardo Faustinos Morales","0","18",0.0579,0.348396257935182
+"2146","Inglés VI","Manuel Enrique Camargo Coronel","0","13",0.0583,0.350196755392211
+"324","Álgebra Lineal II","William José Gallardo","0","15",0.0584,0.352001893306604
+"254","Análisis Matemático I","Mario Eudave Muñoz","0","14",0.0584,0.353811671678361
+"27","Mecánica Vectorial","Consuelo García Alcántara","0","10",0.0585,0.35562609050748
+"371","Seminario de Aplicaciones Actuariales","Mónica Iliana Sánchez Zaragoza","0","7",0.0585,0.357445149793964
+"2119","Productos Financieros Derivados","Juan Diego Amaya Figueroa","0","8",0.0591,0.359268849537811
+"440","Cálculo Diferencial e Integral IV","Eric Fabián Hernández Martínez","0","7",0.0592,0.361097189739021
+"47","Fenómenos Colectivos","Luis Felipe del Castillo Dávila","0","10",0.0595,0.362930170397595
+"1154","Ecuaciones Diferenciales I","Gerardo Mejía Rodríguez","0","8",0.0595,0.364767791513532
+"1258","Lógica Matemática II","José Gabriel Ocampo Márquez","0","9",0.0598,0.366610053086832
+"2144","Matemáticas para las Ciencias Aplicadas III","Jorge Clouthier López","0","8",0.0601,0.368456955117496
+"219","Termodinámica","Ignacio Campos Flores","0","16",0.0605,0.370308497605524
+"120","Óptica","Andrea Luisa Aburto Espina","0","8",0.0607,0.372164680550915
+"1230","Temas Selectos de Economía","Monserrat Esquivel López","0","11",0.0609,0.37402550395367
+"140","Dinámica de Medios Deformables","Carlos Málaga Iguiñiz","0","10",0.061,0.375890967813788
+"336","Álgebra Superior II","Francisco Páez Pérez","0","19",0.0611,0.377761072131269
+"1174","Modelos no Paramétricos y de Regresión","Alejandro Martínez López","0","19",0.0611,0.379635816906114
+"457","Matemáticas para las Ciencias Aplicadas III","José Luis Gutiérrez Sánchez","0","10",0.0613,0.381515202138323
+"125","Funciones Especiales y Transformadas Integrales","Eduardo Peinado Rodríguez","0","8",0.0615,0.383399227827895
+"2126","Planeación Estratégica","Víctor Manuel Solís Nájera","0","8",0.0624,0.38528789397483
+"2141","Inglés II","Manuel Enrique Camargo Coronel","0","14",0.0626,0.387181200579129
+"215","Electromagnetismo II","José Manuel Hernández Alcántara","0","18",0.0631,0.389079147640791
+"126","Funciones Especiales y Transformadas Integrales","Lucía Medina Gómez","0","10",0.0631,0.390981735159817
+"130","Mecánica Analítica","Lorea Chaos Cador","0","18",0.0634,0.392888963136207
+"513","Probabilidad II","Sandra Palau Calderón","0","8",0.0634,0.39480083156996
+"351","Cálculo Diferencial e Integral II","María Lourdes Velasco Arreguí","1","11",0.0634,0.396717340461076
+"1116","Análisis Matemático II","Esteban Librado Hernández Escamilla","0","7",0.0636,0.398638489809556
+"236","Álgebra Lineal II","Carlos Alberto Serrato Hernández","0","7",0.0637,0.400564279615399
+"121","Óptica","Manuel Campos García","0","14",0.064,0.402494709878606
+"1167","Geometría Diferencial I","Jorge Hernández Hernández","0","21",0.064,0.404429780599176
+"419","Geometría Analítica II","Gilberto Bruno Pérez","0","8",0.0653,0.40636949177711
+"414","Álgebra Lineal I","Juan Orendain Almada","0","8",0.0654,0.408313843412407
+"1149","Manejo de Datos","Manuel Alcántara Juárez","0","11",0.0654,0.410262835505067
+"227","Álgebra Moderna I","José Collins Castro","0","19",0.0657,0.412216468055091
+"1176","Lógica Matemática I","Luis Jesús Turcio Cuevas","0","9",0.0657,0.414174741062479
+"455","Matemáticas para las Ciencias Aplicadas I","Juan Carlos Díaz Patiño","0","11",0.0661,0.41613765452723
+"2143","Inglés III","Martha del Carmen Riveroll Alvarez","0","7",0.0667,0.418105208449345
+"1157","Ecuaciones Diferenciales I","Roxana Wendoline Ruiz Aguilar","0","13",0.0668,0.420077402828823
+"1165","Análisis Numérico","Roberto Rosas Espinosa","0","20",0.0676,0.422054237665664
+"370","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","Jorge Luis Reyes García","0","8",0.0678,0.424035712959869
+"1115","Probabilidad II","América Andrea Sandoval Zárate","0","18",0.0682,0.426021828711438
+"711","Matemáticas para las Ciencias Aplicadas II","Ricardo Zavaleta Madrid","0","10",0.0683,0.42801258492037
+"1188","Procesos Estocásticos I","Francisco Daniel Ramírez Calixto","0","13",0.0684,0.430007981586665
+"1242","Seminario de Ciencias de la Computación","Adriana Ramírez Vigueras","0","9",0.0684,0.432008018710324
+"447","Cálculo Diferencial e Integral III","Juan Jiménez Krassel","0","20",0.0685,0.434012696291347
+"235","Álgebra Moderna II","Eugenia O'Reilly Regueiro","0","18",0.0697,0.436022014329732
+"129","Mecánica Analítica","Graciela Velasco Herrera","0","17",0.0703,0.438035972825482
+"1239","Seguridad Social","Alejandra Concepción Aguirre Zavaleta","0","11",0.0703,0.440054571778595
+"1208","Seminario de Aplicaciones Actuariales","Abigail Vanessa Rojas Huerta","0","9",0.0704,0.442077811189071
+"196","Teoría de Gráficas","María del Pilar Valencia Saravia","0","7",0.0705,0.444105691056911
+"319","Álgebra Lineal I","César Alejandro Rincón Orta","0","8",0.0709,0.446138211382114
+"67","Investigación de Operaciones","Zaida Estefania Alarcon Bernal","0","17",0.0709,0.448175372164681
+"174","Geometría Analítica II","Camilo Camhaji García","0","20",0.0711,0.450217173404611
+"443","Cálculo Diferencial e Integral I","Eratóstenes Flores Torres","0","18",0.0713,0.452263615101904
+"223","Dinámica de Medios Deformables","Guillermo Monsivais Galindo","0","10",0.0714,0.454314697256562
+"63","Fenómenos Colectivos","Margarita Sánchez y Sánchez","0","8",0.0717,0.456370419868582
+"1206","Seminario de Aplicaciones Actuariales","Carlos Contreras Cruz","0","7",0.0718,0.458430782937966
+"1256","Geometría Moderna II","Isabel Alicia Hubard Escalera","0","10",0.0718,0.460495786464714
+"516","Inferencia Estadística","Yolanda Martínez Guerrero","0","16",0.0719,0.462565430448825
+"1147","Cálculo Diferencial e Integral III","Noé Francisco Verde Martínez","0","19",0.0721,0.4646397148903
+"2114","Economía","Carlos Alberto Reyes Martínez","0","8",0.0721,0.466718639789138
+"1145","Cálculo Diferencial e Integral III","Alejandro Darío Rojas Sánchez","0","9",0.0723,0.468802205145339
+"2120","Demografía","René Alejandro Jiménez Ornelas","0","9",0.0723,0.470890410958904
+"147","Álgebra Superior I","Alejandro Javier Díaz-Barriga Casales","0","12",0.0726,0.472983257229833
+"1245","Seminario de Ciencias de la Computación","Luis Alberto Ramírez Bermudez","0","17",0.0726,0.475080743958125
+"1142","Cálculo Diferencial e Integral I","Erick García Ramírez","0","19",0.0728,0.47718287114378
+"291","Ecuaciones Diferenciales I","Laura Ortiz Bobadilla","0","8",0.0728,0.479289638786799
+"142","Física Estadística","Guillermo Ramírez Santiago","0","10",0.0732,0.481401046887181
+"435","Introducción a las Matemáticas Discretas","Jesús Alva Samos","0","8",0.0734,0.483517095444927
+"287","Cálculo Diferencial e Integral III","Adriana Vargas Quintero","0","10",0.0734,0.485637784460036
+"1110","Geometría Moderna I","Jorge Alonso Santos Mellado","0","19",0.0735,0.487763113932509
+"114","Electromagnetismo I","Eugenio Ley Koo","0","7",0.0736,0.489893083862345
+"458","Matemáticas para las Ciencias Aplicadas III","Luciano Martínez Balbuena","0","12",0.0736,0.492027694249545
+"19","Fenómenos Colectivos","Antonio Castellanos Ramírez","0","8",0.0739,0.494166945094108
+"1225","Productos Financieros Derivados","Alejandro Santoyo Cano","0","9",0.0741,0.496310836396035
+"1224","Productos Financieros Derivados","Guillermo Rolando Rosas Figueroa","0","8",0.0742,0.498459368155325
+"288","Manejo de Datos","Alejandro Felipe Zarate Pérez","0","7",0.0743,0.500612540371979
+"138","Relatividad","Gustavo Enrique García de Jesús","0","17",0.0744,0.502770353045996
+"49","Electromagnetismo I","José Alberto Flandes Mendoza","0","10",0.0745,0.504932806177377
+"1207","Seminario de Aplicaciones Actuariales","Alonso Baranda Lozada","0","8",0.075,0.507099899766121
+"459","Matemáticas para las Ciencias Aplicadas IV","Zeus Alberto Valtierra Quintal","0","17",0.075,0.509271633812229
+"2","Administración Actuarial del Riesgo","María Patricia Luna Díaz","0","8",0.0753,0.5114480083157
+"216","Funciones Especiales y Transformadas Integrales","Guillermo Monsivais Galindo","0","8",0.0754,0.513629023276534
+"1252","Ecuaciones Diferenciales II","Enrique Álvarez del Castillo de Pina","0","15",0.0754,0.515814678694732
+"1266","Teoría de la Medida I","Carlos Nathanael Chávez Saab","0","9",0.0758,0.518004974570294
+"1159","Ecuaciones Diferenciales I","Blanca Angélica Gónzalez Morales","0","21",0.0761,0.520199910903219
+"1235","Demografía","Rosalba Jasso Vargas","0","12",0.0761,0.522399487693507
+"456","Matemáticas para las Ciencias Aplicadas III","Luis Enrique Quintanar Cortés","0","8",0.0763,0.524603704941159
+"1198","Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro","Arturo Roldán López","0","20",0.0767,0.526812562646175
+"211","Introducción a la Física Cuántica","Enriqueta Hernández Saldaña","0","8",0.0768,0.529026060808554
+"532","Matemáticas Financieras","Mauricio Gabriel Arredondo Fernández Cano","0","8",0.0769,0.531244199428296
+"221","Física Computacional","Roxana Mitzayé Del Castillo Vázquez","0","18",0.0771,0.533466978505402
+"2100","Teoría de los Conjuntos I","Mario Francisco Rosales González","0","11",0.0771,0.535694398039871
+"321","Álgebra Lineal I","Julio César Guevara Bravo","0","14",0.0781,0.537926458031704
+"1127","Inferencia Estadística","Oscar Fontanelli Espinosa","0","11",0.0781,0.5401631584809
+"185","Análisis Matemático I","Alfredo Reyes Vázquez","0","19",0.0785,0.54240449938746
+"169","Geometría Analítica II","Francisco Manuel Barrios Paniagua","0","9",0.0788,0.544650480751383
+"327","Geometría Analítica II","Ingrid Chantal Torres Ramos","0","15",0.0788,0.54690110257267
+"113","Fenómenos Colectivos","Soledad Ruiz Matus","0","18",0.0791,0.54915636485132
+"1219","Teoría del Riesgo","Alejandro Santoyo Cano","0","8",0.0792,0.551416267587334
+"1178","Lógica Matemática I","Cecilia Chávez Aguilera","0","15",0.0793,0.553680810780711
+"131","Termodinámica","Carlos Enrique Román Velázquez","0","8",0.0796,0.555949994431451
+"372","Análisis del México Contemporáneo","Silvia Alonso Reyes","0","8",0.0797,0.558223818539555
+"148","Álgebra Superior I","Gerardo Rubén López Hernández","0","19",0.0798,0.560502283105023
+"22","Contabilidad","Elvia Sánchez Montes","0","19",0.0799,0.562785388127854
+"1277","Matemáticas para las Ciencias Aplicadas I","Andrea Inés Borgazzi","0","8",0.0799,0.565073133608048
+"1244","Seminario de Ciencias de la Computación","Sergio Rajsbaum Gorodezky","0","15",0.0803,0.567365519545606
+"410","Introducción a la Física Cuántica","Rocío Jáuregui Renaud","0","8",0.0805,0.569662545940528
+"434","Geometría Analítica I","Julio César Cedillo Sánchez","0","19",0.0806,0.571964212792813
+"2137","Análisis Multivariado","Sofía Villers Gómez","0","9",0.0808,0.574270520102461
+"1182","Estructuras Discretas","Pilar Selene Linares Arévalo","0","11",0.081,0.576581467869473
+"214","Electromagnetismo II","Luis Fernando Urrutia Rios","0","10",0.0812,0.578897056093849
+"62","Mecánica Vectorial","Luciano Martínez Balbuena","0","8",0.0814,0.581217284775587
+"1160","Análisis Numérico","Antonio Carrillo Ledesma","0","7",0.0815,0.58354215391469
+"533","Mercados Financieros y Valuación de Instrumentos","Jorge Luis Saviñon Basurto","0","8",0.0817,0.585871663511156
+"453","Economía","Luis Alejandro Aguilar Luna","0","9",0.0819,0.588205813564985
+"230","Álgebra Superior I","Pavel Ramos Martínez","0","17",0.0821,0.590544604076178
+"2117","Teoría del Riesgo","Roberto Méndez Rosas","0","10",0.0823,0.592888035044734
+"420","Geometría Analítica II","Ricardo Strausz Santiago","0","9",0.0833,0.595236106470654
+"154","Álgebra Lineal I","Francisco de Jesús Rivera Torres","0","21",0.0837,0.597588818353937
+"1140","Cálculo Diferencial e Integral I","Mónica De Nova Vázquez","0","9",0.084,0.599946170694584
+"1281","Matemáticas para las Ciencias Aplicadas IV","Daniel Castillo Rodríguez Arana","0","8",0.084,0.602308163492594
+"290","Ecuaciones Diferenciales I","Javier de Jesús Cortés Aguirre","0","7",0.0846,0.604674796747968
+"316","Álgebra Superior I","Juan Morales Jr Rodríguez","0","12",0.0847,0.607046070460705
+"615","Matemáticas Financieras","Sebastián Granados Vizcaya","0","8",0.0849,0.609421984630805
+"58","Geometría Analítica II","Jaqueline Rafaela Dolores Cañetas Ortega","0","8",0.085,0.611802539258269
+"224","Física Estadística","Rosalío Fernando Rodríguez Zepeda","0","10",0.0855,0.614187734343097
+"188","Topología I","Claudia Solís Said","0","15",0.0855,0.616577569885288
+"616","Matemáticas para las Ciencias Aplicadas II","Oscar Olicón Hernández","0","10",0.0857,0.618972045884843
+"331","Álgebra Superior II","Luis Jesús Turcio Cuevas","0","8",0.0858,0.621371162341761
+"1203","Métodos Cuantitativos en Finanzas","Alberto Cadena Martínez","0","16",0.0858,0.623774919256042
+"318","Álgebra Superior I","Juan Manuel Martínez Nuño","0","19",0.086,0.626183316627687
+"432","Geometría Analítica I","Rebeca Trejo Luna","0","8",0.086,0.628596354456696
+"348","Cálculo Diferencial e Integral IV","Carlos Gerardo Paniagua Ramírez","0","13",0.0866,0.631014032743068
+"427","Álgebra Superior II","Juan Morales Jr Rodríguez","0","9",0.0869,0.633436351486803
+"1210","Álgebra Lineal I","Víctor Manuel Ávila Baez","0","18",0.087,0.635863310687902
+"1152","Manejo de Datos","Miguel Ángel Pérez León","0","17",0.087,0.638294910346364
+"45","Mecánica Vectorial","Héctor Hernández Coronado","0","10",0.0871,0.64073115046219
+"220","Física Computacional","Edgar Vázquez Luis","0","7",0.0871,0.643172031035379
+"144","Álgebra Moderna I","Edgar Migueles Pérez","0","20",0.0871,0.645617552065932
+"257","Topología I","Sergio Macías Álvarez","0","10",0.0874,0.648067713553848
+"266","Introducción a las Matemáticas Discretas","María del Rocío Sánchez López","0","12",0.0875,0.650522515499128
+"46","Fenómenos Colectivos","Francisco Javier Reyes Mora","0","8",0.0876,0.652981957901771
+"41","Administración Actuarial del Riesgo","Samadhi Cervantes Torres","0","8",0.0877,0.655446040761777
+"110","Fenómenos Colectivos","Edgar Alvarez Zauco","0","9",0.0879,0.657914764079148
+"133","Física Computacional","Ramón Gustavo Contreras Mayen","0","14",0.088,0.660388127853881
+"284","Cálculo Diferencial e Integral I","Francisco Javier Hernández Moreno","0","20",0.0883,0.662866132085978
+"374","Seguridad Social","Mariana Velasco Rodriguez","0","8",0.0887,0.665348776775439
+"51","Probabilidad I","Hugo Villaseñor Hernández","0","19",0.0895,0.667836061922263
+"13","Probabilidad I","Jesús Alberto Rodríguez Sánchez","0","7",0.0897,0.670327987526451
+"353","Cálculo Diferencial e Integral III","Felipe de Jesús Méndez Varela","0","13",0.0902,0.672824553588002
+"54","Electromagnetismo I","Julio Javier Martinell Benito","0","10",0.0905,0.675325760106916
+"1233","Demografía","María Teresa Velázquez Uribe","0","8",0.0905,0.677831607083194
+"3","Probabilidad I","Guadalupe Carrasco Licea","0","8",0.0906,0.680342094516835
+"119","Introducción a la Física Cuántica","Héctor Jesús Díaz Jiménez","0","10",0.0907,0.68285722240784
+"310","Funciones Especiales y Transformadas Integrales","Mauricio García Vergara","0","10",0.0907,0.685376990756209
+"9","Mecánica Vectorial","Renela María Valladares Mc Nelis","0","8",0.0908,0.687901399561941
+"289","Manejo de Datos","Gildardo Bautista García Cano","0","13",0.091,0.690430448825036
+"260","Álgebra Superior II","Emiliano Geneyro Squarzon","0","17",0.0911,0.692964138545495
+"1186","Programación","Alejandro Felipe Zarate Pérez","0","17",0.0912,0.695502468723317
+"1201","Métodos Cuantitativos en Finanzas","Eduardo Selim Martínez Mayorga","0","9",0.0913,0.698045439358503
+"193","Álgebra Superior II","Ana Patricia Kuri González","0","17",0.0915,0.700593050451052
+"426","Álgebra Superior II","Rolando Gómez Macedo","0","8",0.0916,0.703145302000965
+"153","Álgebra Lineal I","César Bardomiano Martínez","0","15",0.0918,0.705702194008242
+"150","Álgebra Lineal I","Alma Violeta García López","0","8",0.0922,0.708263726472881
+"87","Manejo de Datos","Sonia Josefina Valery Lobo","0","7",0.0922,0.710829899394885
+"528","Pensiones Privadas","José Antonio Valencia Trujillo","0","7",0.0925,0.713400712774251
+"411","Mecánica Analítica","Vivianne Marquina Fábrega","0","10",0.0926,0.715976166610981
+"118","Introducción a la Física Cuántica","Augusto Cabrera Manuel","0","8",0.0929,0.718556260905075
+"2133","Geometría Moderna II","Luis Manuel Venegas Grajales","0","19",0.0933,0.721140995656532
+"2118","Teoría del Riesgo","Iván Ixcoatl Juárez López","0","17",0.0935,0.723730370865353
+"1181","Autómatas y Lenguajes Formales","Elisa Viso Gurovich","0","13",0.0939,0.726324386531537
+"1250","Ecuaciones Diferenciales II","Catherine García Reimbert","0","10",0.0943,0.728923042655084
+"2132","Ecuaciones Diferenciales II","Jorge Chávez Carlos","0","8",0.0944,0.731526339235995
+"1249","Topología III","Mario Eudave Muñoz","0","11",0.0947,0.73413427627427
+"412","Álgebra Superior I","Gerardo Acosta García","0","8",0.0948,0.736746853769908
+"355","Cálculo Diferencial e Integral III","Israel Ramos García","0","17",0.0951,0.739364071722909
+"33","Mecánica Vectorial","Enrique Salvador Buzo Córdova","0","16",0.0952,0.741985930133274
+"2145","Matemáticas para las Ciencias Aplicadas III","Daniel Castillo Rodríguez Arana","0","18",0.0954,0.744612429001002
+"65","Álgebra Superior I","Lorena Morales Callejas","0","8",0.0961,0.747243568326094
+"31","Mecánica Vectorial","Darío Núñez Zúñiga","0","10",0.0962,0.74987934810855
+"345","Análisis Matemático II","Moises Soto Bajo","0","19",0.0962,0.752519768348368
+"1253","Ecuaciones Diferenciales Parciales I","Antonio Capella Kort","0","9",0.0966,0.755164829045551
+"213","Electromagnetismo II","Enrique Moreno Méndez","0","8",0.0967,0.757814530200096
+"2115","Matemáticas Actuariales del Seguro de Personas I","José Luis López Escorcia","0","8",0.0967,0.760468871812006
+"356","Manejo de Datos","Cristina Gónzalez Quintero","0","8",0.0968,0.763127853881278
+"1228","Productos Financieros Derivados","Christian Gabriel Miranda Ruíz","0","19",0.0969,0.765791476407915
+"16","Mecánica Vectorial","Alejandro Valderrama Zaldívar","0","8",0.0971,0.768459739391914
+"165","Álgebra Moderna III","Frank Patrick Murphy Hernández","0","7",0.0971,0.771132642833278
+"526","Ecuaciones Diferenciales I","Raúl Bartolo Martínez","0","20",0.0971,0.773810186732004
+"1279","Matemáticas para las Ciencias Aplicadas II","Héctor Jesús Díaz Jiménez","0","18",0.0976,0.776492371088094
+"258","Álgebra Superior II","Tania Eréndira Rivera Torres","0","7",0.0981,0.779179195901548
+"525","Ecuaciones Diferenciales I","Nicolás González Boileau","0","8",0.0984,0.781870661172365
+"218","Termodinámica","María Michel Duque Vega","0","8",0.0985,0.784566766900546
+"613","Teoría del Seguro","Karina Vargas Cruz","0","8",0.0985,0.78726751308609
+"1113","Probabilidad II","Iván Ixcoatl Juárez López","0","14",0.0996,0.789972899728997
+"297","Geometría Diferencial I","Federico Sánchez Bringas","1","10",2.0625,0.792682926829268
+"253","Análisis Matemático I","Vinicio Antonio Gómez Gutiérrez","1","10",3.0219,0.795397594386903
+"1117","Análisis Matemático II","Manuel Jesús Falconi Magaña","1","10",3.0261,0.798116902401901
+"286","Cálculo Diferencial e Integral III","Javier Fernández García","1","7",3.0336,0.800840850874262
+"1161","Análisis Numérico","Pablo Barrera Sánchez","1","10",3.0475,0.803569439803987
+"1287","Seminario de Apoyo a la Titulación en Matemáticas","Natalia Bárbara Mantilla Beniers","1","11",3.0535,0.806302669191076
+"1243","Seminario de Ciencias de la Computación","José David Flores Peñaloza","1","13",3.0622,0.809040539035527
+"157","Álgebra Moderna II","Diana Avella Alaminos","1","9",3.0722,0.811783049337343
+"225","Álgebra Moderna I","Edith Corina Sáenz Valadez","1","9",3.0784,0.814530200096522
+"272","Análisis Matemático II","Ana Meda Guardiola","1","9",3.0793,0.817281991313064
+"234","Álgebra Moderna II","Alejandro Alvarado García","1","12",3.0804,0.82003842298697
+"296","Análisis Numérico","Úrsula Xiomara Iturrarán Viveros","1","10",3.0942,0.822799495118239
+"170","Geometría Analítica II","Fernando Brambila Paz","1","11",4.001,0.825565207706872
+"2139","Seminario de Estadística I","Inocencio Rafael Madrid Ríos","1","9",4.0018,0.828335560752868
+"158","Álgebra Moderna II","Bertha María Tomé Arreola","1","10",4.0032,0.831110554256228
+"1114","Probabilidad II","Sergio Iván López Ortega","1","15",4.0062,0.833890188216951
+"1107","Geometría Moderna I","José Antonio Gómez Ortega","1","11",4.0081,0.836674462635038
+"240","Álgebra Lineal II","Guillermo Javier Francisco Sienra Loera","1","11",4.0108,0.839463377510488
+"1111","Probabilidad II","Luis Antonio Rincón Solís","1","10",4.0128,0.842256932843301
+"1121","Modelos de Supervivencia y de Series de Tiempo","Margarita Elvira Chávez Cano","1","10",4.0136,0.845055128633478
+"1271","Seminario de Estadística I","Ruth Selene Fuentes García","1","9",4.0136,0.847857964881019
+"1248","Modelado y Programación","José de Jesús Galaviz Casas","1","10",4.0298,0.850665441585923
+"271","Probabilidad II","Marco Arieli Herrera Valdez","1","10",4.0356,0.85347755874819
+"239","Álgebra Lineal II","Juan Morales Rodríguez","1","10",4.0479,0.856294316367821
+"163","Álgebra Lineal II","Bertha María Tomé Arreola","1","11",4.0615,0.859115714444816
+"1194","Seminario de Geometría A","Antonio Lascurain Orive","1","14",4.0631,0.861941752979174
+"181","Variable Compleja I","Jesús Manuel Mayorquín García","1","19",4.0676,0.864772431970895
+"277","Modelos de Supervivencia y de Series de Tiempo","Luis Antonio Rincón Solís","1","9",4.0731,0.86760775141998
+"1251","Ecuaciones Diferenciales II","Humberto Andrés Carrillo Calvet","1","13",4.0739,0.870447711326428
+"180","Variable Compleja I","Roberto Pichardo Mendoza","1","16",4.076,0.87329231169024
+"183","Análisis Matemático I","Alberto León Kushner Schnur","1","9",4.0763,0.876141552511415
+"1166","Geometría Diferencial I","Pierre Michel Bayard","1","7",4.0765,0.878995433789954
+"172","Geometría Analítica II","Eugenio Garnica Vigil","1","16",4.0789,0.881853955525857
+"252","Análisis Matemático I","Carmen Martínez Adame Isais","1","9",4.0797,0.884717117719122
+"263","Geometría Analítica I","Oscar Alfredo Palmas Velasco","1","11",4.0804,0.887584920369752
+"1134","Teoría de Redes","Claudia Orquídea López Soto","1","15",4.0822,0.890457363477744
+"1236","Introducción a Ciencias de la Computación","Amparo López Gaona","1","8",4.0837,0.8933344470431
+"1143","Cálculo Diferencial e Integral II","David Meza Alcántara","1","8",4.0863,0.89621617106582
+"1254","Ecuaciones Diferenciales Parciales I","María de los Ángeles Sandoval Romero","1","11",4.0863,0.899102535545903
+"151","Álgebra Lineal I","Gabriela Campero Arena","1","11",4.0881,0.90199354048335
+"1132","Investigación de Operaciones","María del Carmen Hernández Ayuso","1","9",5,0.90488918587816
+"1220","Teoría del Riesgo","Yuri Salazar Flores","1","10",5.0006,0.907789471730334
+"229","Álgebra Superior I","Alejandro Bravo Mojica","1","10",5.007,0.910694398039871
+"1106","Geometría Moderna I","Alejandro Bravo Mojica","1","9",5.0093,0.913603964806771
+"1171","Modelos no Paramétricos y de Regresión","Jaime Vázquez Alamilla","1","8",5.0145,0.916518172031035
+"1264","Estadística Bayesiana","Ruth Selene Fuentes García","1","10",5.0146,0.919437019712663
+"1193","Seminario de Geometría A","Valente Santiago Vargas","1","9",5.018,0.922360507851654
+"1123","Modelos de Supervivencia y de Series de Tiempo","Guillermina Eslava Gómez","1","13",5.0181,0.925288636448009
+"191","Álgebra Superior II","Carmen Martínez Adame Isais","1","10",5.0217,0.928221405501726
+"155","Topología II","Patricia Pellicer Covarrubias","1","18",5.0225,0.931158815012808
+"1238","Seguridad Social","María del Pilar Alonso Reyes","1","10",5.0264,0.934100864981253
+"1100","Geometría Analítica I","Mucuy-Kak del Carmen Guevara Aguirre","1","16",5.0287,0.937047555407061
+"14","Probabilidad I","Jaime Vázquez Alamilla","1","11",5.0408,0.939998886290233
+"179","Variable Compleja I","Jefferson Edwin King Dávalos","1","15",5.0438,0.942954857630768
+"1146","Cálculo Diferencial e Integral III","Javier Páez Cárdenas","1","10",5.0439,0.945915469428667
+"1141","Cálculo Diferencial e Integral I","María de Lourdes Esteva Peralta","1","14",5.0446,0.948880721683929
+"15","Probabilidad I","Yuri Salazar Flores","1","19",5.0475,0.951850614396555
+"1272","Seminario de Estadística I","Guillermina Eslava Gómez","1","16",5.0555,0.954825147566544
+"1103","Introducción a las Matemáticas Discretas","Rita Esther Zuazua Vega","1","9",5.0569,0.957804321193897
+"178","Variable Compleja I","Oscar Alfredo Palmas Velasco","1","10",5.0614,0.960788135278613
+"1179","Teoría de los Conjuntos I","Ángel Tamariz Mascarúa","1","11",5.0695,0.963776589820693
+"1270","Geometría Proyectiva","Carlos Álvarez Jiménez","1","10",5.0714,0.966769684820136
+"23","Probabilidad I","María del Pilar Alonso Reyes","1","11",5.0722,0.969767420276943
+"1278","Matemáticas para las Ciencias Aplicadas II","Pedro Eduardo Miramontes Vidal","1","13",5.0725,0.972769796191113
+"166","Álgebra Moderna III","Valente Santiago Vargas","1","15",5.0833,0.975776812562646
+"1261","Seminario Sobre Enseñanza Matemáticas III","Alejandro Ricardo Garciadiego Dantan","1","8",5.0838,0.978788469391543
+"1104","Introducción a las Matemáticas Discretas","Mucuy-Kak del Carmen Guevara Aguirre","1","11",5.0858,0.981804766677804
+"186","Topología I","Ángel Tamariz Mascarúa","1","10",5.0872,0.984825704421428
+"1168","Seminario sobre Enseñanza de las Matemáticas I","José Rafael Martínez Enríquez","1","10",5.0881,0.987851282622415
+"1138","Cálculo Diferencial e Integral IV","Javier Páez Cárdenas","1","14",5.0943,0.990881501280766
+"146","Álgebra Superior I","Rita Esther Zuazua Vega","1","10",5.0951,0.993916360396481
+"192","Álgebra Superior II","Juan Morales Rodríguez","1","13",5.0952,0.996955859969558
+"1177","Lógica Matemática I","Carlos Torres Alcaraz","1","12",5.0955,1
