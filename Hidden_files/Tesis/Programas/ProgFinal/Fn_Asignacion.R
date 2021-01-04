@@ -55,6 +55,7 @@
 # install.packages('dplyr')
 # install.packages('resample')
 # install.packages('ggpubr')
+# install.packages('xtable')
 
 
 #Loading packages
@@ -96,6 +97,8 @@ library(magrittr)
 library(dplyr)
 library(resample)
 library(ggpubr)
+library('xtable')
+
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -137,8 +140,8 @@ param$mat_nom_prof_total = 0
 param$num_max_asig = 2
 param$cota_TC = 1000
 param$cota_asig = 6000
-param$tam_poblacion = 10
-param$num_generaciones = 5
+param$tam_poblacion = 5
+param$num_generaciones = 2
 param$prob_mutacion = 1/(6+18)
 param$n_cols_mat_calif = 2000
 param$elige_TC = 0.7
@@ -4087,16 +4090,16 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
 ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
                                 mat_esqueleto){
   cat("\n Se eligió el gen: \n",as.character(gen_elegido))
-  cat(paste("Se eligió el gen:",as.character(gen_elegido[1]),as.character(gen_elegido[2]),
-            as.character(gen_elegido[3]),as.character(gen_elegido[4])),
-      file="outfile.txt",sep="\n",append=TRUE)
+  # cat(paste("Se eligió el gen:",as.character(gen_elegido[1]),as.character(gen_elegido[2]),
+  #           as.character(gen_elegido[3]),as.character(gen_elegido[4])),
+  #     file="outfile.txt",sep="\n",append=TRUE)
   
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes")
-  cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
-      file="outfile.txt",sep="\n",append=TRUE)
-  cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
-      file="outfile.txt",sep="\n",append=TRUE)
+  # cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
+  #     file="outfile.txt",sep="\n",append=TRUE)
+  # cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
+  #     file="outfile.txt",sep="\n",append=TRUE)
   
   (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
   (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
@@ -4107,10 +4110,10 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
     cat("\nEl hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
         " grupos. \nEl esqueleto tiene ",
         mat_esqueleto[ind_hora_gen,num_materia_gen],"grupos.")
-    cat(paste("El hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
-              " grupos."),file="outfile.txt",sep="\n",append=TRUE)
-    cat(paste("El esqueleto tiene ",mat_esqueleto[ind_hora_gen,num_materia_gen],
-              " grupos."),file="outfile.txt",sep="\n",append=TRUE)
+    # cat(paste("El hijo tiene ",esq_hijo[ind_hora_gen,num_materia_gen],
+    #           " grupos."),file="outfile.txt",sep="\n",append=TRUE)
+    # cat(paste("El esqueleto tiene ",mat_esqueleto[ind_hora_gen,num_materia_gen],
+    #           " grupos."),file="outfile.txt",sep="\n",append=TRUE)
     #' Índices de cada padre con la materia del gen elegido
     (ind_elim_1 <- which(padre_1[,1] == as.character(gen_elegido[1])))
     (ind_elim_2 <- which(padre_2[,1] == as.character(gen_elegido[1])))
@@ -4128,8 +4131,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   if(length(ind_1) > 0){
     padre_1 <- padre_1[-ind_1,]
     cat("\n Se eliminaron del padre 1: ",length(ind_1)," entradas")
-    cat(paste("Se eliminaron del padre 1: ",length(ind_1)," entradas"),
-        file="outfile.txt",sep="\n",append=TRUE)
+    # cat(paste("Se eliminaron del padre 1: ",length(ind_1)," entradas"),
+    #     file="outfile.txt",sep="\n",append=TRUE)
   }
   
   #' Padre 2
@@ -4144,16 +4147,16 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   if(length(ind_2) > 0){
     padre_2 <- padre_2[-ind_2,]
     cat("\n Se eliminaron del padre 2: ",length(ind_2)," entradas")
-    cat(paste("Se eliminaron del padre 2: ",length(ind_2)," entradas"),
-        file="outfile.txt",sep="\n",append=TRUE)
+    # cat(paste("Se eliminaron del padre 2: ",length(ind_2)," entradas"),
+    #     file="outfile.txt",sep="\n",append=TRUE)
   }
   
   cat("\n El padre 1 tiene ",dim(padre_1)[1]," genes. \n El padre 2 tiene ",
       dim(padre_2)[1]," genes\n\n")
-  cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
-      file="outfile.txt",sep="\n",append=TRUE)
-  cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
-      file="outfile.txt",sep="\n",append=TRUE)
+  # cat(paste("El padre 1 tiene ",dim(padre_1)[1]," genes."),
+  #     file="outfile.txt",sep="\n",append=TRUE)
+  # cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
+  #     file="outfile.txt",sep="\n",append=TRUE)
   
   lista_padres <- list()
   lista_padres[[1]] <- padre_1

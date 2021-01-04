@@ -13,6 +13,7 @@ setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulatio
 
 #' Se cargan los datos
 load("Programas/Figuras PDF/fig_media_calif_x_generacion/mat_calif_generaciones.RData")
+load("Programas/Figuras PDF/fig_media_calif_x_generacion/mat_num_genes.RData")
 
 
 # Figura: Media calificaciones --------------------------------------------
@@ -55,11 +56,38 @@ for(k in 1:dim(mat_calif_generaciones)[2]){
 }
 
 # Create basic boxplot
-ggboxplot(df_calif_gen, x = "Generaciones",
-          y = "Calificaciones",
+ggboxplot(df_calif_gen, x = "Generaciones",xlab = "Generación",
+          main = "                            Calificación de asignaciones por generación",
+          y = "Calificaciones",ylab = "Calificación",
           add = "jitter")
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "boxplot_calif_x_generacion.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
+
+
+
+# Figura: Boxplot número de genes -----------------------------------------
+#Definimos el data.frame que necesitamos para graficar los boxplots
+df_num_gen <- data.frame(Num_genes = 0,
+                         Generaciones = sort(rep(c(1:dim(mat_num_genes)[2]),
+                                                 dim(mat_num_genes)[1])))
+for(k in 1:dim(mat_num_genes)[2]){
+  vec <- (10*(k-1))+1:10
+  # cat("\nk = ", k,"\n\n vec = ",vec)
+  df_num_gen[vec,1] <- mat_num_genes[,k]
+}
+
+# Create basic boxplot
+ggboxplot(df_num_gen, x = "Generaciones",xlab = "Generación",
+          main = "                  Número de genes en asignaciones por generación",
+          y = "Num_genes",ylab = "Número de genes",
+          add = "jitter")
+
+# Se guarda la imagen -----------------------------------------------------
+nom_plot <- "boxplot_num_genes_x_generacion.pdf"
+dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
+                    width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
+
+

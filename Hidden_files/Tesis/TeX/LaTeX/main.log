@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  4 JAN 2021 01:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  4 JAN 2021 11:14
 entering extended mode
 **./main.tex
 (main.tex
@@ -641,30 +641,30 @@ LaTeX Info: Redefining \% on input line 21.
 (Teoria_de_AG_aplicado_a_horarios.aux) (Conclusiones.aux) (Apendices.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 923.
-LaTeX Font Info:    ... okay on input line 923.
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 92
-3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 947.
+LaTeX Font Info:    ... okay on input line 947.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 94
+7.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Info: Redefining \. on input line 923.
-LaTeX Info: Redefining \% on input line 923.
+LaTeX Info: Redefining \. on input line 947.
+LaTeX Info: Redefining \% on input line 947.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -724,7 +724,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
 \AtBeginShipoutBox=\box59
-Package hyperref Info: Link coloring OFF on input line 923.
+Package hyperref Info: Link coloring OFF on input line 947.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.s
 ty"
@@ -740,9 +740,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count319
 )
-LaTeX Info: Redefining \ref on input line 923.
-LaTeX Info: Redefining \pageref on input line 923.
-LaTeX Info: Redefining \nameref on input line 923.
+LaTeX Info: Redefining \ref on input line 947.
+LaTeX Info: Redefining \pageref on input line 947.
+LaTeX Info: Redefining \nameref on input line 947.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -758,63 +758,63 @@ Package caption Info: End \AtBeginDocument code.
 <Pictures/unam.pdf, id=203, 822.27202pt x 924.25299pt>
 File: Pictures/unam.pdf Graphic file (type pdf)
 <use Pictures/unam.pdf>
-Package pdftex.def Info: Pictures/unam.pdf  used on input line 940.
+Package pdftex.def Info: Pictures/unam.pdf  used on input line 964.
 (pdftex.def)             Requested size: 74.00128pt x 83.17917pt.
 <Pictures/ciencias.pdf, id=204, 359.74399pt x 411.136pt>
 File: Pictures/ciencias.pdf Graphic file (type pdf)
 <use Pictures/ciencias.pdf>
-Package pdftex.def Info: Pictures/ciencias.pdf  used on input line 952.
+Package pdftex.def Info: Pictures/ciencias.pdf  used on input line 976.
 (pdftex.def)             Requested size: 79.14392pt x 90.4502pt.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 953.
+ 977.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ztmcm.fd
 "
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 953.
+ 977.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omlztmcm.fd
 "
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 953.
+ 977.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omsztmcm.fd
 "
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 953.
+ 977.
 
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\omxztmcm.fd
 "
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 95
-3.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 97
+7.
  ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 9
-53.
+77.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 953.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 977.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 953.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 977.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 953.
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95
-3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 977.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 97
+7.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/jknappen\ursfs.fd"
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (2.28001pt too wide) in paragraph at lines 938--1001
+Overfull \hbox (2.28001pt too wide) in paragraph at lines 962--1025
 []$[]$ $[]$ 
  []
 
@@ -830,29 +830,29 @@ e pdfs with page group included in a single page
 <Pictures/DGB.png, id=214, 712.91344pt x 78.2925pt>
 File: Pictures/DGB.png Graphic file (type png)
 <use Pictures/DGB.png>
-Package pdftex.def Info: Pictures/DGB.png  used on input line 1009.
+Package pdftex.def Info: Pictures/DGB.png  used on input line 1033.
 (pdftex.def)             Requested size: 443.57848pt x 48.71407pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1040
 
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-017.
+041.
 ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 1019--1020
+Underfull \hbox (badness 10000) in paragraph at lines 1043--1044
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1021--1022
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
 
  []
 
 [2 <./Pictures/DGB.png>] [3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1134--1137
 
  []
 
@@ -870,13 +870,13 @@ l.36 ...olicitudes de profesores}{53}{section.4.5}
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 1122.
-LaTeX Info: Redefining \% on input line 1122.
+LaTeX Info: Redefining \. on input line 1146.
+LaTeX Info: Redefining \% on input line 1146.
 pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1122 \listoffigures
+l.1146 \listoffigures
                       %%Todo lo que se encuentra en los entornos "figure" y ...
 [2] (main.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -895,22 +895,22 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.96 ...varianza}\relax }}{114}{figure.caption.91}
+l.96 ...varianza}\relax }}{118}{figure.caption.91}
                                                   % [4])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
-LaTeX Info: Redefining \. on input line 1123.
-LaTeX Info: Redefining \% on input line 1123.
+LaTeX Info: Redefining \. on input line 1147.
+LaTeX Info: Redefining \% on input line 1147.
 pdfTeX warning (ext4): destination with the same identifier (name{page.V}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1123 \listoftables
+l.1147 \listoftables
                      %%Todo lo que se encuentra en los entornos "table" y ti...
 [5]
-LaTeX Info: Redefining \. on input line 1123.
-LaTeX Info: Redefining \% on input line 1123.
+LaTeX Info: Redefining \. on input line 1147.
+LaTeX Info: Redefining \% on input line 1147.
  [6
 
 ] (main.lot
@@ -921,8 +921,8 @@ LaTeX Info: Redefining \% on input line 1.
 \openout6 = `main.lot'.
 
  [7]
-LaTeX Info: Redefining \. on input line 1124.
-LaTeX Info: Redefining \% on input line 1124.
+LaTeX Info: Redefining \. on input line 1148.
+LaTeX Info: Redefining \% on input line 1148.
  [8
 
 ] (main.lol)
@@ -930,8 +930,8 @@ LaTeX Info: Redefining \% on input line 1124.
 \openout7 = `main.lol'.
 
  [9]
-LaTeX Info: Redefining \. on input line 1135.
-LaTeX Info: Redefining \% on input line 1135.
+LaTeX Info: Redefining \. on input line 1159.
+LaTeX Info: Redefining \% on input line 1159.
  [10
 
 ]
@@ -994,11 +994,11 @@ Package pdftex.def Info: Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf  u
 sed on input line 253.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
 )
-LaTeX Info: Redefining \. on input line 1143.
-LaTeX Info: Redefining \% on input line 1143.
+LaTeX Info: Redefining \. on input line 1167.
+LaTeX Info: Redefining \% on input line 1167.
  [7 <./Pictures/num_alum_x_turno_Proba_I.pdf>]
-LaTeX Info: Redefining \. on input line 1143.
-LaTeX Info: Redefining \% on input line 1143.
+LaTeX Info: Redefining \. on input line 1167.
+LaTeX Info: Redefining \% on input line 1167.
  [8 <./Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf>]
 \openout2 = `Extraccion_de_datos.aux'.
 
@@ -1320,8 +1320,8 @@ LaTeX Info: Redefining \% on input line 156.
 LaTeX Info: Redefining \. on input line 161.
 LaTeX Info: Redefining \% on input line 161.
  [23])
-LaTeX Info: Redefining \. on input line 1145.
-LaTeX Info: Redefining \% on input line 1145.
+LaTeX Info: Redefining \. on input line 1169.
+LaTeX Info: Redefining \% on input line 1169.
  [24]
 \openout2 = `Analisis_estadistico.aux'.
 
@@ -1523,12 +1523,12 @@ LaTeX Info: Redefining \% on input line 373.
  [40])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 1147.
-LaTeX Info: Redefining \% on input line 1147.
+LaTeX Info: Redefining \. on input line 1171.
+LaTeX Info: Redefining \% on input line 1171.
  [41 <./Pictures/num_prom_gpos_x_hora_barplot.pdf> <./Pictures/prom_alum_x_hora
 _barplot.pdf>]
-LaTeX Info: Redefining \. on input line 1147.
-LaTeX Info: Redefining \% on input line 1147.
+LaTeX Info: Redefining \. on input line 1171.
+LaTeX Info: Redefining \% on input line 1171.
  [42]
 \openout2 = `Simulacion.aux'.
 
@@ -1844,8 +1844,8 @@ Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 12
 LaTeX Info: Redefining \. on input line 129.
 LaTeX Info: Redefining \% on input line 129.
  [66 <./Pictures/hist_wait_esqueleto_final.png>]))
-LaTeX Info: Redefining \. on input line 1149.
-LaTeX Info: Redefining \% on input line 1149.
+LaTeX Info: Redefining \. on input line 1173.
+LaTeX Info: Redefining \% on input line 1173.
  [67 <./Pictures/Ej_esqueleto_20202.png>]
 \openout2 = `Teoria_de_AG_aplicado_a_horarios.aux'.
 
@@ -1891,11 +1891,11 @@ File: Pictures/calif_mejores_hijos.pdf Graphic file (type pdf)
 Package pdftex.def Info: Pictures/calif_mejores_hijos.pdf  used on input line 1
 0.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<Pictures/media_calif_x_generacion.pdf, id=1326, 578.16pt x 433.62pt>
-File: Pictures/media_calif_x_generacion.pdf Graphic file (type pdf)
-<use Pictures/media_calif_x_generacion.pdf>
-Package pdftex.def Info: Pictures/media_calif_x_generacion.pdf  used on input l
-ine 33.
+<Pictures/boxplot_calif_x_generacion.pdf, id=1326, 578.16pt x 433.62pt>
+File: Pictures/boxplot_calif_x_generacion.pdf Graphic file (type pdf)
+<use Pictures/boxplot_calif_x_generacion.pdf>
+Package pdftex.def Info: Pictures/boxplot_calif_x_generacion.pdf  used on input
+ line 33.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1903,73 +1903,89 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
  [73 <./Pictures/calif_mejores_hijos.pdf>]
-<Pictures/varianza_calif_x_generacion.pdf, id=1337, 578.16pt x 433.62pt>
+<Pictures/media_calif_x_generacion.pdf, id=1337, 578.16pt x 433.62pt>
+File: Pictures/media_calif_x_generacion.pdf Graphic file (type pdf)
+<use Pictures/media_calif_x_generacion.pdf>
+Package pdftex.def Info: Pictures/media_calif_x_generacion.pdf  used on input l
+ine 39.
+(pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+ [74 <./Pictures/boxplot_calif_x_generacion.pdf>]
+<Pictures/varianza_calif_x_generacion.pdf, id=1347, 578.16pt x 433.62pt>
 File: Pictures/varianza_calif_x_generacion.pdf Graphic file (type pdf)
 <use Pictures/varianza_calif_x_generacion.pdf>
 Package pdftex.def Info: Pictures/varianza_calif_x_generacion.pdf  used on inpu
-t line 40.
+t line 46.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
- [74 <./Pictures/media_calif_x_generacion.pdf>]
-<Pictures/boxplot_calif_x_generacion.pdf, id=1348, 578.16pt x 433.62pt>
-File: Pictures/boxplot_calif_x_generacion.pdf Graphic file (type pdf)
-<use Pictures/boxplot_calif_x_generacion.pdf>
-Package pdftex.def Info: Pictures/boxplot_calif_x_generacion.pdf  used on input
- line 47.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+ [75 <./Pictures/media_calif_x_generacion.pdf>]
+<Pictures/boxplot_num_genes_x_generacion.pdf, id=1358, 578.16pt x 433.62pt>
+File: Pictures/boxplot_num_genes_x_generacion.pdf Graphic file (type pdf)
+<use Pictures/boxplot_num_genes_x_generacion.pdf>
+Package pdftex.def Info: Pictures/boxplot_num_genes_x_generacion.pdf  used on i
+nput line 53.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
- [75 <./Pictures/varianza_calif_x_generacion.pdf>]
-<Pictures/dif_rel_optativas_sin_gpo.png, id=1359, 432.86719pt x 402.00188pt>
+LaTeX Info: Redefining \. on input line 56.
+LaTeX Info: Redefining \% on input line 56.
+ [76 <./Pictures/varianza_calif_x_generacion.pdf>]
+<Pictures/dif_rel_optativas_sin_gpo.png, id=1372, 435.87843pt x 398.23781pt>
 File: Pictures/dif_rel_optativas_sin_gpo.png Graphic file (type png)
 <use Pictures/dif_rel_optativas_sin_gpo.png>
 Package pdftex.def Info: Pictures/dif_rel_optativas_sin_gpo.png  used on input 
-line 63.
-(pdftex.def)             Requested size: 443.57848pt x 411.9687pt.
+line 86.
+(pdftex.def)             Requested size: 443.57848pt x 405.27354pt.
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
+ [77 <./Pictures/boxplot_num_genes_x_generacion.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 104--104
+[]\T1/ptm/m/n/12 David Chaf-frey Mo-reno
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 105--105
+[]\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+[]\T1/ptm/m/n/12 María Asun-ción Be-go-ña
+ []
+
+
+Underfull \hbox (badness 2600) in paragraph at lines 113--113
+[]\T1/ptm/m/n/12 Jorge Her-nán-dez Her-nán-
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
- [76 <./Pictures/boxplot_calif_x_generacion.pdf>]
-<Pictures/num_genes_generaciones_1_2.png, id=1370, 403.5075pt x 119.69719pt>
-File: Pictures/num_genes_generaciones_1_2.png Graphic file (type png)
-<use Pictures/num_genes_generaciones_1_2.png>
-Package pdftex.def Info: Pictures/num_genes_generaciones_1_2.png  used on input
- line 71.
-(pdftex.def)             Requested size: 443.57848pt x 131.58511pt.
-LaTeX Info: Redefining \. on input line 78.
-LaTeX Info: Redefining \% on input line 78.
- [77 <./Pictures/dif_rel_optativas_sin_gpo.png> <./Pictures/num_genes_generacio
-nes_1_2.png>]
-Underfull \hbox (badness 3492) in paragraph at lines 86--86
-[]\T1/ptm/m/n/12 Úrsula Xio-ma-ra Itu-rra-rán
- []
-
-
-Underfull \hbox (badness 8056) in paragraph at lines 90--90
-[]\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
- []
-
-
-Underfull \hbox (badness 8056) in paragraph at lines 92--92
-[]\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
- []
-
-))
-LaTeX Info: Redefining \. on input line 1151.
-LaTeX Info: Redefining \% on input line 1151.
- [78]
+LaTeX Info: Redefining \. on input line 117.
+LaTeX Info: Redefining \% on input line 117.
+ [78 <./Pictures/dif_rel_optativas_sin_gpo.png>]))
+LaTeX Info: Redefining \. on input line 1175.
+LaTeX Info: Redefining \% on input line 1175.
+ [79]
 \openout2 = `Conclusiones.aux'.
 
  (Conclusiones.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [80
+
+
+
+]
 Cap\'{\i }tulo 6.
 
 Overfull \hbox (25.11418pt too wide) in paragraph at lines 94--95
@@ -1977,11 +1993,7 @@ Overfull \hbox (25.11418pt too wide) in paragraph at lines 94--95
  / uploads / 2020 / 08 / QFB-[]291 .
  []
 
-[79
-
-
-
-]
+[81]
 Overfull \hbox (25.11418pt too wide) in paragraph at lines 96--97
 [][]$\T1/cmtt/m/n/12 https : / / cienciasquimicas . lasalle . mx / wp-[]content
  / uploads / 2020 / 08 / QFB-[]391 .
@@ -1994,21 +2006,21 @@ Overfull \hbox (25.11418pt too wide) in paragraph at lines 98--99
  []
 
 )
-LaTeX Info: Redefining \. on input line 1153.
-LaTeX Info: Redefining \% on input line 1153.
- [80]
+LaTeX Info: Redefining \. on input line 1177.
+LaTeX Info: Redefining \% on input line 1177.
+ [82]
 \openout2 = `Apendices.aux'.
 
  (Apendices.tex
 Ap\'{e}ndice A.
-[81
+[83
 
 
 
 ]
 LaTeX Info: Redefining \. on input line 76.
 LaTeX Info: Redefining \% on input line 76.
- [82] [83]
+ [84] [85]
 Overfull \hbox (8.09502pt too wide) in paragraph at lines 111--112
 \T1/ptm/b/n/12 tacio-na-les \T1/ptm/m/n/12 (312) -> Sis-te-mas Di-ná-mi-cos Com
 pu-tacio-na-les I (276) -> Lin-güís-ti-ca Compu-
@@ -2016,25 +2028,25 @@ pu-tacio-na-les I (276) -> Lin-güís-ti-ca Compu-
 
 LaTeX Info: Redefining \. on input line 131.
 LaTeX Info: Redefining \% on input line 131.
-[84]
+[86]
 Ap\'{e}ndice B.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [85
+ [87
 
 ]
 LaTeX Info: Redefining \. on input line 166.
 LaTeX Info: Redefining \% on input line 166.
 
-[86]
+[88]
 Ap\'{e}ndice C.
-[87
+[89
 
 ]
 LaTeX Info: Redefining \. on input line 202.
 LaTeX Info: Redefining \% on input line 202.
- [88
+ [90
 
 ]
 Ap\'{e}ndice D.
@@ -2044,13 +2056,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
  []
 
 
-Underfull \hbox (badness 1635) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 José Pa-tri-cio Sán-chez Her-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Gustavo Amil-car Sal-da-ña
+Underfull \hbox (badness 6220) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Rodrígo Ed-mun-do Ce-pe-da
  []
 
 
@@ -2065,39 +2072,39 @@ Underfull \hbox (badness 1152) in paragraph at lines 207--207
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Carmen Martínez-Adame
- []
-
-[89]
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Carmen Mar-tí-nez Ada-me
+[]|\T1/ptm/m/n/12 Mauricio Ga-briel Me-di-na
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Carmen Mar-tí-nez Ada-me
+[]|\T1/ptm/m/n/12 Alejandro Ja-vier Díaz-
  []
 
-
+[91]
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Mauricio Ga-briel Me-di-na
  []
 
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
-[90]
+[92]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Gustavo Es-te-ban An-dra-de
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Roxana Wen-do-li-ne Ruiz
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Julián Fer-nan-do Cha-go-ya
+[]|\T1/ptm/m/n/12 Carmen Mar-tí-nez Ada-me
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Manuel Eduar-do Cha-cón
+Underfull \hbox (badness 1231) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Manuel Her-nán-dez Her-nán-
  []
 
 
@@ -2105,51 +2112,57 @@ Underfull \hbox (badness 1226) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Esteban Li-bra-do Her-nán-dez
  []
 
-[91]
+[93]
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+ [94]
 Underfull \hbox (badness 8151) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Humberto An-drés Ca-rri-llo
  []
 
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
-[92]
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Claudio Fran-cis-co Neb-bia
+
+Underfull \hbox (badness 2261) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Marco An-to-nio Mon-tes de
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Mario Fran-cis-co Ro-sa-les
- []
-
-
+[95]
 Underfull \hbox (badness 1484) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 José Ru-bén Fer-nán-dez Ro-
  []
 
-[93]
+
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Roxana Wen-do-li-ne Ruiz
  []
 
 
-Underfull \hbox (badness 6268) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Blanca An-gé-li-ca Gón-za-lez
+Underfull \hbox (badness 1354) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 María del Car-men Jor-ge y
  []
 
 
-Underfull \hbox (badness 8151) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Humberto An-drés Ca-rri-llo
+Underfull \hbox (badness 5403) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 José Fer-nan-do Bus-ta-man-te
  []
 
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
-[94]
-Underfull \hbox (badness 7851) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Ramón Gus-ta-vo Con-tre-ras
+[96]
+Underfull \hbox (badness 1221) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Gustavo En-ri-que Gar-cía de
  []
 
-[95]
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Roberto Ale-jan-dro Rue-las
+ []
+
+[97]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Ramsés Hum-ber-to Me-na
+ []
+
+
 Underfull \hbox (badness 7851) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Ramón Gus-ta-vo Con-tre-ras
  []
@@ -2161,14 +2174,24 @@ Underfull \hbox (badness 3568) in paragraph at lines 207--207
 
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
-[96]
-Underfull \hbox (badness 1226) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Esteban Li-bra-do Her-nán-dez
+[98]
+Underfull \hbox (badness 1721) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Víctor Al-ber-to Cruz Ba-rri-
+ []
+
+[99]
+Underfull \hbox (badness 1077) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Elhoim Llo-ren-te Su-mano y
+ []
+
+
+Underfull \hbox (badness 4084) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Francisco de Je-sús Struck
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 María Gua-da-lu-pe Lu-cio
+[]|\T1/ptm/m/n/12 Héctor Eduar-do Mar-tí-nez
  []
 
 
@@ -2181,19 +2204,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Miguel Ar-tu-ro Ba-lles-te-ros
  []
 
-[97]
-Underfull \hbox (badness 1152) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 José Ga-briel Ocam-po Már-
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Manuel En-ri-que Ca-mar-go
  []
 
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
-[98]
+[100]
+Underfull \hbox (badness 1152) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 José Ga-briel Ocam-po Már-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Araceli Eu-ge-nia Mer-ca-do
  []
 
-[99]
+
+Underfull \hbox (badness 1360) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Daniel Ale-jan-dro Cer-van-tes
+ []
+
+[101]
 Underfull \hbox (badness 1902) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Pedro Eduar-do Mi-ra-mon-tes
  []
@@ -2203,75 +2236,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Daniel Cas-ti-llo Ro-drí-guez
  []
 
-
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+[102]
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Mariana So-le-dad Cen-teno
  []
 
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
-[100]
+
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Roberto Ale-jan-dro Rue-las
+[]|\T1/ptm/m/n/12 Daniel Cas-ti-llo Ro-drí-guez
  []
 
 
+Underfull \hbox (badness 7595) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Mariano Cher-ni-coff Mins-
+ []
+
+[103]
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Manuel Ge-rar-do Quin-ta-na
- []
-
-[101]
-Underfull \hbox (badness 1540) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Leticia Gua-da-lu-pe Cien-fue-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
- []
-
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
-[102] [103]
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Francisco Da-niel Ra-mí-rez
- []
-
-
-Underfull \hbox (badness 3209) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Adrián Gon-zá-lez Ca-sa-no-va
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Daniel An-to-nio Már-quez
  []
 
 LaTeX Info: Redefining \. on input line 207.
 LaTeX Info: Redefining \% on input line 207.
 [104]
-Underfull \hbox (badness 7595) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Mariano Cher-ni-coff Mins-
- []
-
-
-Underfull \hbox (badness 1221) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Gustavo En-ri-que Gar-cía de
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Inocencio Ra-fael Ma-drid
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Mónica Ali-cia Clapp
+[]|\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
  []
 
 [105]
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+ [106]
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Enrique Gui-ller-mo Ba-zúa
+[]|\T1/ptm/m/n/12 Francisco Da-niel Ra-mí-rez
+ []
+
+
+Underfull \hbox (badness 7888) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 América An-drea San-do-val
  []
 
 
@@ -2280,8 +2289,40 @@ Underfull \hbox (badness 3209) in paragraph at lines 207--207
  []
 
 
+Underfull \hbox (badness 2189) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 María Fer-nan-da Gil Ley-va
+ []
+
+
+Underfull \hbox (badness 7595) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Mariano Cher-ni-coff Mins-
+ []
+
+[107]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Enrique Ja-vier Eli-zon-do
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Adrián Gon-zá-lez Ca-sa-no-va
+ []
+
+
+Underfull \hbox (badness 7451) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Alexandra Guz-mán Ve-láz-
+ []
+
+
 Underfull \hbox (badness 2103) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Pedro Jo-sé So-bre-vi-lla Mo-
+ []
+
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+[108]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 José Gua-da-lu-pe Váz-quez
  []
 
 
@@ -2290,18 +2331,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Francisco de Je-sús Struck
- []
-
-
 Underfull \hbox (badness 1533) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 José Ra-fael Mar-tí-nez En-rí-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
-[]|\T1/ptm/m/n/12 Mario Fran-cis-co Ro-sa-les
+Underfull \hbox (badness 6220) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Rodrígo Ed-mun-do Ce-pe-da
  []
 
 
@@ -2309,9 +2345,12 @@ Underfull \hbox (badness 1077) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Elhoim Llo-ren-te Su-mano y
  []
 
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
-[106]
+[109]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Manuel Ge-rar-do Quin-ta-na
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
  []
@@ -2321,21 +2360,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 207--207
 []|\T1/ptm/m/n/12 Héctor Fi-den-cio Sán-chez
  []
 
-[107]
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+[]|\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
+ []
+
+LaTeX Info: Redefining \. on input line 207.
+LaTeX Info: Redefining \% on input line 207.
+[110] [111]
 LaTeX Info: Redefining \. on input line 211.
 LaTeX Info: Redefining \% on input line 211.
- [108]
-Ap\'{e}ndice E.
-[109
+ [112
 
 ]
+Ap\'{e}ndice E.
+[113]
 Overfull \hbox (20.09703pt too wide) in paragraph at lines 253--254
 \T1/ptm/m/n/12 ma-tri-ces ti-po \T1/ptm/m/it/12 m_definición \T1/ptm/m/n/12 pa-
 ra po-der sa-car in-for-ma-ción de \T1/ptm/m/it/12 m_grande \T1/ptm/m/n/12 o de
  \T1/ptm/m/it/12 m_grande_total\T1/ptm/m/n/12 . 
  []
 
-<Pictures/clases_de_ingles.png, id=1541, 423.83344pt x 268.00125pt>
+<Pictures/clases_de_ingles.png, id=1563, 423.83344pt x 268.00125pt>
 File: Pictures/clases_de_ingles.png Graphic file (type png)
 <use Pictures/clases_de_ingles.png>
 Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 297.
@@ -2343,7 +2389,7 @@ Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 297.
 (pdftex.def)             Requested size: 275.48845pt x 174.19873pt.
 LaTeX Info: Redefining \. on input line 304.
 LaTeX Info: Redefining \% on input line 304.
-[110 <./Pictures/clases_de_ingles.png>]
+[114 <./Pictures/clases_de_ingles.png>]
 Overfull \hbox (1.92279pt too wide) in paragraph at lines 319--320
 []$[] [] [] []$ 
  []
@@ -2353,14 +2399,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
-[111]
-<Pictures/Ej_horarios_20211.png, id=1580, 569.12625pt x 402.75468pt>
+[115]
+<Pictures/Ej_horarios_20211.png, id=1602, 569.12625pt x 402.75468pt>
 File: Pictures/Ej_horarios_20211.png Graphic file (type png)
 <use Pictures/Ej_horarios_20211.png>
 Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 360
 .
 (pdftex.def)             Requested size: 256.10445pt x 181.23793pt.
-<Pictures/Notas_T26.jpeg, id=1581, 867.24pt x 510.40688pt>
+<Pictures/Notas_T26.jpeg, id=1603, 867.24pt x 510.40688pt>
 File: Pictures/Notas_T26.jpeg Graphic file (type jpg)
 <use Pictures/Notas_T26.jpeg>
 Package pdftex.def Info: Pictures/Notas_T26.jpeg  used on input line 368.
@@ -2370,14 +2416,14 @@ Underfull \vbox (badness 6842) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 371.
 LaTeX Info: Redefining \% on input line 371.
- [112 <./Pictures/Ej_horarios_20211.png>]
-<Pictures/Ej_Roxygen.png, id=1602, 222.8325pt x 153.57375pt>
+ [116 <./Pictures/Ej_horarios_20211.png>]
+<Pictures/Ej_Roxygen.png, id=1623, 222.8325pt x 153.57375pt>
 File: Pictures/Ej_Roxygen.png Graphic file (type png)
 <use Pictures/Ej_Roxygen.png>
 Package pdftex.def Info: Pictures/Ej_Roxygen.png  used on input line 385.
 (pdftex.def)             Requested size: 222.83195pt x 153.57336pt.
- [113 <./Pictures/Notas_T26.jpeg> <./Pictures/Ej_Roxygen.png>]
-<Pictures/Ej_varianza.jpeg, id=1616, 1284.8pt x 722.7pt>
+ [117 <./Pictures/Notas_T26.jpeg> <./Pictures/Ej_Roxygen.png>]
+<Pictures/Ej_varianza.jpeg, id=1637, 1284.8pt x 722.7pt>
 File: Pictures/Ej_varianza.jpeg Graphic file (type jpg)
 <use Pictures/Ej_varianza.jpeg>
 Package pdftex.def Info: Pictures/Ej_varianza.jpeg  used on input line 414.
@@ -2391,14 +2437,14 @@ Overfull \hbox (159.53743pt too wide) in paragraph at lines 420--421
 
 LaTeX Info: Redefining \. on input line 424.
 LaTeX Info: Redefining \% on input line 424.
-[114 <./Pictures/Ej_varianza.jpeg>]
-<Pictures/clausula99_CCTPA.png, id=1631, 379.4175pt x 124.21407pt>
+[118 <./Pictures/Ej_varianza.jpeg>]
+<Pictures/clausula99_CCTPA.png, id=1653, 379.4175pt x 124.21407pt>
 File: Pictures/clausula99_CCTPA.png Graphic file (type png)
 <use Pictures/clausula99_CCTPA.png>
 Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 432.
 
 (pdftex.def)             Requested size: 303.53441pt x 99.37137pt.
- [115 <./Pictures/clausula99_CCTPA.png>]
+ [119 <./Pictures/clausula99_CCTPA.png>]
 Overfull \hbox (41.87955pt too wide) in paragraph at lines 467--468
 []\T1/ptm/m/n/12 Los co-man-dos [][]\T1/cmtt/m/n/12 \subsecname{\ref{nom_subsec
 cion}}[]\T1/ptm/m/n/12 , [] []\T1/cmtt/m/n/12 \secname{\ref{nom_seccion}}[]\T1/
@@ -2411,7 +2457,7 @@ Overfull \hbox (40.84773pt too wide) in paragraph at lines 467--468
 ][]\T1/cmtt/m/n/12 \subsectionname{\ref{nom_seccion}}
  []
 
-<Pictures/planes_de_estudio.png, id=1658, 268.75406pt x 198.7425pt>
+<Pictures/planes_de_estudio.png, id=1680, 268.75406pt x 198.7425pt>
 File: Pictures/planes_de_estudio.png Graphic file (type png)
 <use Pictures/planes_de_estudio.png>
 Package pdftex.def Info: Pictures/planes_de_estudio.png  used on input line 479
@@ -2429,7 +2475,7 @@ Overfull \hbox (8.0937pt too wide) in paragraph at lines 485--486
 ameter-[]where-[]in-[]r$[] 
  []
 
-<Pictures/which_in_plot.png, id=1660, 338.76563pt x 222.07968pt>
+<Pictures/which_in_plot.png, id=1682, 338.76563pt x 222.07968pt>
 File: Pictures/which_in_plot.png Graphic file (type png)
 <use Pictures/which_in_plot.png>
 Package pdftex.def Info: Pictures/which_in_plot.png  used on input line 489.
@@ -2439,13 +2485,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 492.
 LaTeX Info: Redefining \% on input line 492.
- [116 <./Pictures/planes_de_estudio.png>]
+ [120 <./Pictures/planes_de_estudio.png>]
 Overfull \hbox (40.53677pt too wide) in paragraph at lines 497--498
 []\T1/ptm/m/n/12 Otro: []$\T1/cmtt/m/n/12 http : / / iesbinef . educa . aragon 
 . es / lengua / ortografia / reglas / reglama .
  []
 
-<Pictures/skill_vs_challenge_level.png, id=1680, 471.26062pt x 469.00218pt>
+<Pictures/skill_vs_challenge_level.png, id=1702, 471.26062pt x 469.00218pt>
 File: Pictures/skill_vs_challenge_level.png Graphic file (type png)
 <use Pictures/skill_vs_challenge_level.png>
 Package pdftex.def Info: Pictures/skill_vs_challenge_level.png  used on input l
@@ -2454,39 +2500,39 @@ ine 517.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [117 <./Pictures/which_in_plot.png>]
+ [121 <./Pictures/which_in_plot.png>]
 LaTeX Info: Redefining \. on input line 551.
 LaTeX Info: Redefining \% on input line 551.
- [118 <./Pictures/skill_vs_challenge_level.png>])
-[119]
-LaTeX Info: Redefining \. on input line 1163.
-LaTeX Info: Redefining \% on input line 1163.
- [120
+ [122 <./Pictures/skill_vs_challenge_level.png>])
+[123]
+LaTeX Info: Redefining \. on input line 1187.
+LaTeX Info: Redefining \% on input line 1187.
+ [124
 
 
-] [121]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1262.
-LaTeX Info: Redefining \. on input line 1262.
-LaTeX Info: Redefining \% on input line 1262.
- [122]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1262.
+] [125]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1286.
+LaTeX Info: Redefining \. on input line 1286.
+LaTeX Info: Redefining \% on input line 1286.
+ [126]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1286.
  (main.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
  (Introduccion.aux) (Extraccion_de_datos.aux)
 (Analisis_estadistico.aux) (Simulacion.aux)
 (Teoria_de_AG_aplicado_a_horarios.aux) (Conclusiones.aux) (Apendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1262.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1262.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1286.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1286.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C0D35BDD2E0B77E22997DEF1DAFBEECD;3841.
  ) 
 Here is how much of TeX's memory you used:
- 15064 strings out of 481556
- 238970 string characters out of 2913870
- 626169 words of memory out of 3000000
- 29347 multiletter control sequences out of 15000+200000
+ 15068 strings out of 481556
+ 239051 string characters out of 2913870
+ 626697 words of memory out of 3000000
+ 29346 multiletter control sequences out of 15000+200000
  616772 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,13n,45p,1007b,2082s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2508,9 +2554,9 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (137 pages, 4263866 bytes).
+Output written on main.pdf (141 pages, 4271415 bytes).
 PDF statistics:
- 1996 PDF objects out of 2073 (max. 8388607)
- 535 named destinations out of 1000 (max. 500000)
+ 2018 PDF objects out of 2073 (max. 8388607)
+ 539 named destinations out of 1000 (max. 500000)
  841 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -23,7 +23,7 @@ max(sd_total_alum.ts)#28.87565
 
 #' Se grafica la serie de tiempo
 plot.ts(sd_total_alum.ts,type = "l",axes = F,
-        main = "Desviación estandar de alumnos por semestre",
+        main = "Desviación estándar de alumnos por semestre",
         ylim = c(19,35),xlab="Semestres",ylab="Número de alumnos")
 axis(side=1, at = c(2008,2010,2012,2014,2016,2018,2020),
      labels=c("2018-1","2010-1","2012-1","2014-1","2016-1","2018-1","2020-1"))
