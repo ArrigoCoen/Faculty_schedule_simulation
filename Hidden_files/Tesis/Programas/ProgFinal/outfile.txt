@@ -104790,3 +104790,275 @@ Se eliminaron del padre 1:  1  entradas
 Se eliminaron del padre 2:  1  entradas
 El padre 1 tiene  71  genes.
 El padre 2 tiene  68  genes.
+Se eligió al padre  2
+Se eligió el gen: Modelado y Programación Odín Miguel Escorza Soria 0 10
+El padre 1 tiene  71  genes.
+El padre 2 tiene  68  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  70  genes.
+El padre 2 tiene  67  genes.
+Se eligió al padre  1
+Se eligió el gen: Programación Mario González Ruiz 0 9
+El padre 1 tiene  70  genes.
+El padre 2 tiene  67  genes.
+Se eliminaron del padre 1:  1  entradas
+El padre 1 tiene  69  genes.
+El padre 2 tiene  67  genes.
+Se eligió al padre  2
+Se eligió el gen: Álgebra Lineal II León Felipe Villalobos Sánchez 0 8
+El padre 1 tiene  69  genes.
+El padre 2 tiene  67  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  69  genes.
+El padre 2 tiene  66  genes.
+Se eligió al padre  1
+Se eligió el gen: Álgebra Superior I Rodrigo Domínguez López 0 17
+El padre 1 tiene  69  genes.
+El padre 2 tiene  66  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 1:  1  entradas
+El padre 1 tiene  68  genes.
+El padre 2 tiene  66  genes.
+Se eligió al padre  1
+Se eligió el gen: Álgebra Superior I Francisco Larrión Riveroll 0 10
+El padre 1 tiene  68  genes.
+El padre 2 tiene  66  genes.
+Se eliminaron del padre 1:  1  entradas
+El padre 1 tiene  67  genes.
+El padre 2 tiene  66  genes.
+Se eligió al padre  2
+Entra a mutación
+Se eligió el gen: Geometría Analítica II Eugenio Garnica Vigil 1 12
+El padre 1 tiene  67  genes.
+El padre 2 tiene  66  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  67  genes.
+El padre 2 tiene  65  genes.
+Se eligió al padre  2
+Se eligió el gen: Contabilidad Guillermo Vega García 0 8
+El padre 1 tiene  67  genes.
+El padre 2 tiene  65  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  67  genes.
+El padre 2 tiene  64  genes.
+Se eligió al padre  2
+Se eligió el gen: Variable Compleja I María del Carmen Jorge y Jorge 0 14
+El padre 1 tiene  67  genes.
+El padre 2 tiene  64  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  66  genes.
+El padre 2 tiene  63  genes.
+Se eligió al padre  2
+Se eligió el gen: Geometría Analítica I Max Neumann Coto 0 8
+El padre 1 tiene  66  genes.
+El padre 2 tiene  63  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 1:  2  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  64  genes.
+El padre 2 tiene  62  genes.
+Se eligió al padre  1
+Se eligió el gen: Modelos de Supervivencia y de Series de Tiempo Jose Salvador Zamora Muñoz 0 10
+El padre 1 tiene  64  genes.
+El padre 2 tiene  62  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  63  genes.
+El padre 2 tiene  61  genes.
+Se eligió al padre  2
+Se eligió el gen: Probabilidad I Francisco Pérez Carbajal 0 10
+El padre 1 tiene  63  genes.
+El padre 2 tiene  61  genes.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  63  genes.
+El padre 2 tiene  60  genes.
+Se eligió al padre  1
+Entra a mutación
+Se eligió el gen: Topología I María Isabel Puga Espinosa 1 16
+El padre 1 tiene  63  genes.
+El padre 2 tiene  60  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+El padre 1 tiene  63  genes.
+El padre 2 tiene  60  genes.
+Se eligió al padre  2
+Se eligió el gen: Análisis Numérico Úrsula Xiomara Iturrarán Viveros 1 10
+El padre 1 tiene  63  genes.
+El padre 2 tiene  60  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  62  genes.
+El padre 2 tiene  59  genes.
+Se eligió al padre  2
+Se eligió el gen: Probabilidad I Juan González Hernández 0 19
+El padre 1 tiene  62  genes.
+El padre 2 tiene  59  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  61  genes.
+El padre 2 tiene  58  genes.
+Se eligió al padre  1
+Se eligió el gen: Electromagnetismo I Alejandro Reyes Coronado 0 10
+El padre 1 tiene  61  genes.
+El padre 2 tiene  58  genes.
+El hijo tiene  3  grupos.
+El esqueleto tiene  3  grupos.
+Se eliminaron del padre 1:  1  entradas
+El padre 1 tiene  60  genes.
+El padre 2 tiene  58  genes.
+Se eligió al padre  2
+Se eligió el gen: Geometría Analítica I Jesús Ángel Núñez Zimbrón 0 10
+El padre 1 tiene  60  genes.
+El padre 2 tiene  58  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  59  genes.
+El padre 2 tiene  57  genes.
+Se eligió al padre  2
+Se eligió el gen: Geometría Analítica II Ernesto Mayorga Saucedo 0 9
+El padre 1 tiene  59  genes.
+El padre 2 tiene  57  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 2:  2  entradas
+El padre 1 tiene  59  genes.
+El padre 2 tiene  55  genes.
+Se eligió al padre  2
+Se eligió el gen: Cálculo Diferencial e Integral IV Javier Páez Cárdenas 1 14
+El padre 1 tiene  59  genes.
+El padre 2 tiene  55  genes.
+El hijo tiene  3  grupos.
+El esqueleto tiene  3  grupos.
+Se eliminaron del padre 1:  2  entradas
+Se eliminaron del padre 2:  2  entradas
+El padre 1 tiene  57  genes.
+El padre 2 tiene  53  genes.
+Se eligió al padre  1
+Se eligió el gen: Variable Compleja I Emigdio Martínez Ojeda 0 10
+El padre 1 tiene  57  genes.
+El padre 2 tiene  53  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  56  genes.
+El padre 2 tiene  52  genes.
+Se eligió al padre  1
+Se eligió el gen: Geometría Analítica II Pablo Rosell González 0 7
+El padre 1 tiene  56  genes.
+El padre 2 tiene  52  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  55  genes.
+El padre 2 tiene  51  genes.
+Se eligió al padre  1
+Entra a mutación
+Se eligió el gen: Seminario sobre Enseñanza de las Matemáticas I Carlos Torres Alcaraz 1 12
+El padre 1 tiene  55  genes.
+El padre 2 tiene  51  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  1  grupos.
+El padre 1 tiene  55  genes.
+El padre 2 tiene  51  genes.
+Se eligió al padre  1
+Se eligió el gen: Termodinámica Víctor Manuel Romero Rochín 0 10
+El padre 1 tiene  55  genes.
+El padre 2 tiene  51  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  54  genes.
+El padre 2 tiene  50  genes.
+Se eligió al padre  2
+Se eligió el gen: Álgebra Superior I Ernesto Mayorga Saucedo 0 8
+El padre 1 tiene  54  genes.
+El padre 2 tiene  50  genes.
+El hijo tiene  3  grupos.
+El esqueleto tiene  3  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  54  genes.
+El padre 2 tiene  49  genes.
+Se eligió al padre  1
+Se eligió el gen: Investigación de Operaciones Minerva Elizabeth Soto Patiño 0 20
+El padre 1 tiene  54  genes.
+El padre 2 tiene  49  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  53  genes.
+El padre 2 tiene  48  genes.
+Se eligió al padre  2
+Se eligió el gen: Ecuaciones Diferenciales I Adrián Ulises Soto Bañuelos 0 15
+El padre 1 tiene  53  genes.
+El padre 2 tiene  48  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  53  genes.
+El padre 2 tiene  47  genes.
+Se eligió al padre  1
+Se eligió el gen: Probabilidad I Perla Marysol Ruiz Arias 0 10
+El padre 1 tiene  53  genes.
+El padre 2 tiene  47  genes.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  52  genes.
+El padre 2 tiene  46  genes.
+Se eligió al padre  1
+Se eligió el gen: Administración de Riesgos José Antonio Reyes León 0 8
+El padre 1 tiene  52  genes.
+El padre 2 tiene  46  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  51  genes.
+El padre 2 tiene  45  genes.
+Se eligió al padre  2
+Se eligió el gen: Administración Financiera Pedro Luis Soto Tejeda 0 8
+El padre 1 tiene  51  genes.
+El padre 2 tiene  45  genes.
+El hijo tiene  1  grupos.
+El esqueleto tiene  1  grupos.
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  51  genes.
+El padre 2 tiene  44  genes.
+Se eligió al padre  2
+Se eligió el gen: Inferencia Estadística César Almenara Martínez 0 19
+El padre 1 tiene  51  genes.
+El padre 2 tiene  44  genes.
+El hijo tiene  2  grupos.
+El esqueleto tiene  2  grupos.
+Se eliminaron del padre 1:  1  entradas
+Se eliminaron del padre 2:  1  entradas
+El padre 1 tiene  50  genes.
+El padre 2 tiene  43  genes.
+Se eligió al padre  2
+Entra a mutación
+Se eligió el gen: Manejo de Datos Natalia Sarabia Vásquez 0 7
+El padre 1 tiene  50  genes.
+El padre 2 tiene  43  genes.
+El hijo tiene  3  grupos.
+El esqueleto tiene  2  grupos.
+El padre 1 tiene  50  genes.
+El padre 2 tiene  43  genes.
+Se eligió al padre  2
+Se eligió el gen: Geometría Diferencial I María de los Ángeles Sandoval Romero 1 11
+El padre 1 tiene  50  genes.
+El padre 2 tiene  43  genes.
