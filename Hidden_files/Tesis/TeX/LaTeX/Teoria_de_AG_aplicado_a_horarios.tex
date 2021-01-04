@@ -70,9 +70,9 @@ Si el número máximo de asignaciones es 2 y un profesor pidió 3 o más  materi
 
 \item \textbf{Ordenar de acuerdo a la calificación}
 
-Los genes de cada asignación se ordenan de menor a mayor calificación. Porque se quiere elegir con mayor probabilidad los genes con mejor calificación.
+Los genes de cada asignación se ordenan de menor a mayor calificación. Se quiere elegir con mayor probabilidad los genes con mejor calificación.
 
-Las asignaciones se ordenan de menor a mayor calificación. Porque se quiere elegir con mayor probabilidad las asignaciones con mejor calificación.
+Las asignaciones se ordenan de menor a mayor calificación. Se desea elegir con mayor probabilidad las asignaciones con mejor calificación.
 
 \item \textbf{Elegir 2 padres}
 
@@ -80,15 +80,15 @@ Los padres se eligen con probabilidad: $\mathbb{P}(\text{elegir la asignación }
 
 \item \textbf{Elegir un gen}
 
-Primero de elige al azar un padre (ambos tienen probabilidad $0.5)$. Una vez que se eligió un padre, seleccionar un gen: $\mathbb{P}(\text{elegir el gen } i \text{ ya ordenado}) = \dfrac{2i}{g(g+1)}$, donde $i$ es la posición del gen en la asignación con respecto a su calificación y $g$ es el número de genes que tiene la asignación.
+Primero se elige al azar un padre (ambos tienen probabilidad $0.5)$. Una vez que se eligió un padre, seleccionar un gen: $\mathbb{P}(\text{elegir el gen } i \text{ ya ordenado}) = \dfrac{2i}{g(g+1)}$, donde $i$ es la posición del gen en la asignación con respecto a su calificación y $g$ es el número de genes que tiene la asignación.
 
 \item \textbf{Mutación}
 
-Se simula un número aleatorio, si ese número es menor a \textit{prob\_mutacion}, entonces el gen tiene una mutación. Si un gen muta, entonces se elige un gen de las solicitudes pseudo-reales y se intercambia por el gen previamente seleccionado.
+Se simula un número aleatorio, si ese número es menor a la probabilidad de mutación, entonces el gen tiene una mutación. Si un gen muta, se elige un gen de las solicitudes pseudo-reales y se intercambia por el gen previamente seleccionado.
 
 \item \textbf{Agregar gen}
 
-Una vez definido el gen, éste se agrega al hijo.
+Una vez seleccionado el gen, éste se agrega al hijo.
 
 \item \textbf{Ajustar información}
 
@@ -138,6 +138,8 @@ Algunas notas que se deben de considerar en la asignación final:
 \item[-] Hay profesores que ya no imparten clases en la Facultad (nota en la sección de los profesores)
 
 \item[-] No se asignaron todos los grupos simulados en el esqueleto.
+
+\item[-] Es posible que la asignación final no sea la mejor calificada de todas las generaciones.
 \end{itemize}
 
 
