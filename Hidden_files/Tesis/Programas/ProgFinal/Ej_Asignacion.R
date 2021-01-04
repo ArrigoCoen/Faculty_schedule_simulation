@@ -196,6 +196,7 @@ materia <- "Estadística I"
 materia <- "Estadística IV"
 arroja_num_materia(materia)
 arroja_num_materia("Matemáticas para las Ciencias Aplicadas I")
+arroja_num_materia("Matemáticas Actuariales del Seguro de Personas II")#80
 arroja_num_materia("Teoría de los Conjuntos I")
 arroja_num_materia("Demografía")
 arroja_num_materia("Demografía I")
@@ -209,6 +210,8 @@ arroja_num_materia("Topología III")
 arroja_num_materia("Álgebra Superior I")
 arroja_num_materia("Probabilidad I")
 arroja_num_materia("Cálculo Diferencial e Integral II")#48
+arroja_num_materia("Economía")#84
+arroja_num_materia("Inglés III")#174
 
 
 # arroja_nom_correcto -----------------------------------------------------
@@ -249,6 +252,15 @@ agrega_nom_1_materia_en_vec(materia,vec_nom_materias_total)
 load(file = "vec_nom_materias_total.RData")
 param$vec_nom_materias_total = vec_nom_materias_total
 vec_nom_materias_total <- param$vec_nom_materias_total
+
+
+# actualiza_col_num_materia -----------------------------------------------
+#' Title actualiza_col_num_materia: Función que actualiza las matrices
+#' "m_grande" con el nombre correcto para las materias y también actualiza
+#' el número de materia en caso de ser necesario.
+#'
+actualiza_col_num_materia(param)
+
 
 
 # carga_info_prof_tiempo_completo -----------------------------------------
