@@ -1,0 +1,43 @@
+Buenos días Dr./Dra./...
+
+Mi nombre es Miriam Colín y finalicé la escritura de mi tesis de Actuaría con el Dr. Arrigo Coen.
+
+El motivo de mi correo es para solicitarle que sea mi sinodal.
+
+La tesis consiste en un estudio estadístico de la demanda de grupos de la Facultad de Ciencias
+utilizando la información de semestres anteriores para hacer una estimación de la demanda futura.
+En particular, diseñamos un modelo de mezcla de normales para encontrar un esqueleto "óptimo" y
+un algoritmo genético para hacer una propuesta de asignaciones "óptimas".
+
+El propósito de este estudio es agilizar los procesos de generación de esqueletos y asignaciones,
+ya que en cuestión de minutos se tiene una propuesta de esqueletos y asignaciones la cual puede
+ser utilizada como base para las asignaciones finales. Además, el modelo puede ser aplicado para
+resolver problemas generales de asignación de recursos.
+
+Le deseo un buen inicio de semestre.
+ 
+Atentamente,
+Miriam Colín
+
+
+Mat. Margarita Chávez
+margarita.chavez@ciencias.unam.mx
+
+Dra. Lizbeth Naranjo
+lizbethna@ciencias.unam.mx
+
+Dra. Ana Meda
+ana.meda@ciencias.unam.mx
+
+Dra. Ruth Fuentes
+rfuentes@ciencias.unam.mx
+
+Dr. Sergio López
+silo@ciencias.unam.mx
+
+M. en C. Jaime Vázquez
+jaime.vazquez@ciencias.unam.mx
+
+
+Solicitud para ser sinodal
+
