@@ -38,11 +38,9 @@ Hicimos una función en \textit{R} que realiza los siguientes pasos:
 
 \item Tomar el mínimo $(a)$ y el máximo $(b)$ de esos datos.
 
-\item Generar un número aleatorio con distribución uniforme en ese intervalo con la función \verb@runif(1,min = a, max = b)@ en \textit{R}.
+\item Obtener un número con la función \verb@sample(a:b, size=1)@.
 
-\item Redondear el número aleatorio con la función \verb@ceiling()@ en \textit{R}.
-
-\item Regresar el número redondeado.
+\item Regresar dicho número.
 \end{enumerate}
 
 Decidimos realizar de esta manera la simulación porque queremos que el número de alumnos de cada grupo dependa de los profesores y no de la distribución general que tiene el tamaño de los grupos (ver Sección \ref{DitribTamGpos}).
