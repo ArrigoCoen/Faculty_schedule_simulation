@@ -50,7 +50,7 @@ df_calif_gen <- data.frame(Calificaciones = 0,
                            Generaciones = sort(rep(c(1:dim(mat_calif_generaciones)[2]),
                                                    dim(mat_calif_generaciones)[1])))
 for(k in 1:dim(mat_calif_generaciones)[2]){
-  vec <- (10*(k-1))+1:10
+  vec <- (dim(mat_calif_generaciones)[1]*(k-1))+1:dim(mat_calif_generaciones)[1]
   # cat("\nk = ", k,"\n\n vec = ",vec)
   df_calif_gen[vec,1] <- mat_calif_generaciones[,k]
 }
@@ -74,7 +74,7 @@ df_num_gen <- data.frame(Num_genes = 0,
                          Generaciones = sort(rep(c(1:dim(mat_num_genes)[2]),
                                                  dim(mat_num_genes)[1])))
 for(k in 1:dim(mat_num_genes)[2]){
-  vec <- (10*(k-1))+1:10
+  vec <- (dim(mat_num_genes)[1]*(k-1))+1:dim(mat_num_genes)[1]
   # cat("\nk = ", k,"\n\n vec = ",vec)
   df_num_gen[vec,1] <- mat_num_genes[,k]
 }

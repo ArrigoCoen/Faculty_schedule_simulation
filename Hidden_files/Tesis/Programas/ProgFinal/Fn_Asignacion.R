@@ -141,7 +141,7 @@ param$num_max_asig = 2
 param$cota_TC = 1000
 param$cota_asig = 6000
 param$tam_poblacion = 5
-param$num_generaciones = 2
+param$num_generaciones = 9
 param$prob_mutacion = 1/(6+18)
 param$n_cols_mat_calif = 2000
 param$elige_TC = 0.7
@@ -380,7 +380,7 @@ arroja_ind_col_SG <- function(nombre_col){
       num_col <- mat_def_grupos_simulados[d,2]
     }
   }
-  num_col <- as.numeric(num_col)
+  (num_col <- as.numeric(num_col))
   
   return(num_col)
 }
@@ -1275,7 +1275,6 @@ corrige_sem_CdC <- function(param){
                                                paste0(m_grande[r,num_col_Cambios],"/1"),
                                                vec_info_anim_comp[2])
       }
-      
       #Verificamos para "Computación Distribuida"
       if(any(vec_comp_distrib == vec_m_grande)){
         m_grande[r,c(num_col_Materia,num_col_Cambios,
@@ -3107,8 +3106,9 @@ simula_alum_x_profesor <- function(renglon,param){
     Profesor == nom_prof)%>% filter(Num_materia == num_materia)
   
   num_Alumnos <- as.numeric(sub_mat$Alumnos)
-  num_alum_x_profesor <- ceiling(runif(1,min = min(num_Alumnos),
-                                       max = max(num_Alumnos)))
+  num_alum_x_profesor <- sample(min(num_Alumnos):max(num_Alumnos), size=1)
+  # num_alum_x_profesor <- ceiling(runif(1,min = min(num_Alumnos),
+  #                                      max = max(num_Alumnos)))
   return(num_alum_x_profesor)
 }
 
@@ -3799,7 +3799,7 @@ califica_asignacion <- function(mat_esqueleto,mat_solicitudes_real,
   #' Para tener una calificación diferente para cada grupo, sumamos
   #' a cada renglón una épsilon:
   for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
-    (num_al <- round(runif(1,0,0.1),4))
+    (num_al <- round(runif(1,0,0.1),4))#Se redondea a 4 decimales
     if(mat_calif_asig_x_gpo[r,5] >= 0){
       mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] + num_al
     }else{
@@ -3952,7 +3952,7 @@ poblacion_calif_iniciales <- function(mat_esqueleto,mat_solicitudes_real,
     #' Para tener una calificación diferente para cada grupo, sumamos
     #' a cada renglón una épsilon:
     for(r in 1:dim(mat_calif_asig_x_gpo)[1]){#Recorre renglones de "mat_calif_asig_x_gpo"
-      (num_al <- round(runif(1,0,0.1),4))
+      (num_al <- round(runif(1,0,0.1),4))#Se redondea a 4 decimales
       if(mat_calif_asig_x_gpo[r,5] >= 0){
         mat_calif_asig_x_gpo[r,5] <- mat_calif_asig_x_gpo[r,5] + num_al
       }else{
@@ -4028,7 +4028,9 @@ elige_gen_de_solicitud <- function(mat_solicitudes_real,hijo,param){
   
   #Se elige con mayor probabilidad a los profesores de TC
   (r_num_TC <- runif(1))
-  if(r_num_TC <= param$elige_TC){
+  if(r_num_TC <= param$elige_TC && dim(mat_prof_TC)[1] > 0){
+    #' La 2° condición sirve porque se van eliminando los grupos
+    #' de la matriz de solicitudes.
     mat_solicitudes <- mat_prof_TC
   }else{
     mat_solicitudes <- mat_prof_asig
@@ -4226,6 +4228,42 @@ califica_ordena_asig <- function(poblacion_nueva,param){
   return(lista_info)
 }
 
+
+# ajusta_mat_solicitudes --------------------------------------------------
+#' Title ajusta_mat_solicitudes: Función que elimina la información del
+#' profesor del gen elegido en la matriz de solicitudes. Se quitan los grupos
+#' con la misma hora y materia del profesor del gen elegido.
+#'
+#' @param mat_solicitudes_restantes: Matriz de 5 columnas (Profesor,TC,
+#' Materia,Num_Materia,Horario) que tiene la información de las solicitudes
+#' pseudo-reales de los profesores. Es una submatriz de "mat_solicitudes_real".
+#' @param gen_elegido: Vector de 4 entradas (Materia,Profesor,TC,Horario)
+#' con la información del gen del padre elegido.
+#'
+#' @return mat_solicitudes_restantes: Submatriz de "mat_solicitudes_real".
+#' Matriz de 5 columnas (Profesor,TC,Materia,Num_Materia,Horario) que tiene
+#' la información de las solicitudes pseudo-reales de los profesores.
+#'
+#' @examples
+#' mat_solicitudes_restantes <- ajusta_mat_solicitudes(
+#' mat_solicitudes_restantes,gen_elegido)
+#' 
+ajusta_mat_solicitudes <- function(mat_solicitudes_restantes,gen_elegido){
+  #Se definen las variables que se van a utilizar
+  (prof <- as.character(gen_elegido[2]))
+  (hora <- as.character(gen_elegido[4]))
+  (materia <- as.character(gen_elegido[1]))
+  (ind_prof <- which(mat_solicitudes_restantes[,1] == prof))
+  (ind_hora <- which(mat_solicitudes_restantes[,5] == hora))
+  (ind_materia <- which(mat_solicitudes_restantes[,3] == materia))
+  (elim_hora_prof <- intersect(ind_prof,ind_hora))
+  (elim_materia_prof <- intersect(ind_prof,ind_materia))
+  (ind_elim <- union(elim_hora_prof,elim_materia_prof))
+  
+  mat_solicitudes_restantes <- mat_solicitudes_restantes[-ind_elim,]
+  
+  return(mat_solicitudes_restantes)
+}
 
 
 ##### **AQUÍ** #####

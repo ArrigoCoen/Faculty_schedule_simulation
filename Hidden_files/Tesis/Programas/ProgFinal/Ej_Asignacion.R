@@ -196,22 +196,39 @@ materia <- "Estadística I"
 materia <- "Estadística IV"
 arroja_num_materia(materia)
 arroja_num_materia("Matemáticas para las Ciencias Aplicadas I")
+arroja_num_materia("Matemáticas Actuariales del Seguro de Personas I")#85
 arroja_num_materia("Matemáticas Actuariales del Seguro de Personas II")#80
+arroja_num_materia("Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro")#80
 arroja_num_materia("Teoría de los Conjuntos I")
+arroja_num_materia("Teoría del Seguro")#59
 arroja_num_materia("Demografía")
 arroja_num_materia("Demografía I")
 arroja_num_materia("Historia de las Matemáticas I")
 arroja_num_materia("Procesos Estocásticos I")
+arroja_num_materia("Procesos Estocásticos II")#123
 arroja_num_materia("Temas Selectos de Economía")
 arroja_num_materia("Seminario de Apoyo a la Titulación en Actuaría A")
 arroja_num_materia("Geometría Proyectiva")
 arroja_num_materia("Teoría de los Conjuntos II")
 arroja_num_materia("Topología III")
 arroja_num_materia("Álgebra Superior I")
+arroja_num_materia("Álgebra Moderna I")#20
 arroja_num_materia("Probabilidad I")
+arroja_num_materia("Seminario de Estadística I")#143
 arroja_num_materia("Cálculo Diferencial e Integral II")#48
+arroja_num_materia("Cálculo Diferencial e Integral III")#49
 arroja_num_materia("Economía")#84
 arroja_num_materia("Inglés III")#174
+arroja_num_materia("Inglés VI")#181
+arroja_num_materia("Topología III")#102
+arroja_num_materia("Lógica Matemática I")#61
+arroja_num_materia("Administración Actuarial del Riesgo")#1
+arroja_num_materia("Seminario de Apoyo a la Titulación en Matemáticas")#187
+arroja_num_materia("Mecánica Analítica")#13
+arroja_num_materia("Seminario de Geometría A")#70
+arroja_num_materia("Seminario de Topología A")#34
+arroja_num_materia("Análisis Matemático III")#40
+arroja_num_materia("Estructuras Discretas")#65
 
 
 # arroja_nom_correcto -----------------------------------------------------
