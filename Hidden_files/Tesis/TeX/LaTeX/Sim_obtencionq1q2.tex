@@ -1,10 +1,8 @@
 \section{Obtención de los parámetros $q_{1}$ y $q_{2}$}
 
-En esta sección vamos a explicar cómo obtuvimos los valores de $q_{1}$ y $q_{2}$. Éstos son parámetros que se introducen en la función \verb@hw()@ de \textit{R}. Dicha función corresponde al método Holt-Winters aditivo.
+Los valores de $q_{1}$ y $q_{2}$ representan los cuantiles utilizados al calcular los intervalos de confianza. Éstos son parámetros que se introducen en la función \verb@hw()@ de \textit{R}. Si $q_{1} = 80$ entonces se calcula el intervalo al $80\%$ de confianza. Si se introducen a la función los dos parámetros entonces se calculan dos intervalos, uno al $q_{1}\%$ de confianza y el otro al $q_{2}\%$ de confianza. Dicha función corresponde al método Holt-Winters aditivo.
 
-Los valores de $q_{1}$ y $q_{2}$ representan los cuantiles utilizados al calcular los intervalos de confianza. Por ejemplo, si $q_{1} = 80$ entonces se calcula el intervalo al $80\%$ de confianza. Si se introducen a la función los dos parámetros entonces se calculan dos intervalos, uno al $q_{1}\%$ de confianza y el otro al $q_{2}\%$ de confianza.
-
-Primero definimos los parámetros generales necesarios para las simulaciones:
+Para seleccionar $q_{1}$ y $q_{2}$, primero definimos los parámetros generales necesarios para las simulaciones:
   
   \begin{enumerate}
 \item Fijamos la semilla con el comando \verb@set.seed(8654)@, en \textit{R}.

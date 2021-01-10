@@ -11,6 +11,7 @@
 # cat("\014") # Borra consola
 #Se establece el directorio en el que se va a trabajar
 setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
+library(mixtools)
 
 #' Se cargan los datos
 load("Programas/Figuras PDF/fig_gmm_alum_ini/wait_alumnos.RData")

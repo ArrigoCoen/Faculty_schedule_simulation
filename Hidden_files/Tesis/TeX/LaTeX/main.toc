@@ -35,10 +35,10 @@
 \contentsline {section}{\numberline {4.4}Simulación de tamaño de grupos}{53}{section.4.4}%
 \contentsline {section}{\numberline {4.5}Simulación de solicitudes de profesores}{53}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Simulación de la demanda de alumnos}{55}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{58}{section.4.7}%
+\contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{57}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Obtención de $D'$ y $D_{0}$}{60}{section.4.8}%
 \contentsline {section}{\numberline {4.9}Simulación de esqueletos}{64}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Obtención de mat\_esqueletos}{64}{section.4.10}%
+\contentsline {section}{\numberline {4.10}Obtención de mat\_esqueleto}{64}{section.4.10}%
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Resultados del Algoritmo Genético}{73}{section.5.2}%

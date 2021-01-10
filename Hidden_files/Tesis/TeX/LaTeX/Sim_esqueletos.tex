@@ -1,6 +1,6 @@
 \section{Simulación de esqueletos} \label{sec_gen_esqueleto}
 
-Considerando que ya se generaron las matrices $D'$ (ver Sección \ref{SimDemandaAlumnos}) y \textit{mat\_solicitudes} (ver Sección \ref{SimSolicitudesProfesores}), el proceso que seguimos para obtener un esqueleto es el siguiente:
+Para simular la matriz \textit{mat\_esqueleto}, con el modelo de mezcla de normales, necesitamos simular la información de varios esqueletos. Para ello vamos a considerar que ya se generaron las matrices $D'$ (ver Sección \ref{SimDemandaAlumnos}) y \textit{mat\_solicitudes} (ver Sección \ref{SimSolicitudesProfesores}). El proceso que seguimos para obtener un esqueleto es el siguiente:
   
   \begin{enumerate}
 %\item Obtener la matriz \textit{mat\_demanda\_alumnos} con la demanda simulada del número de alumnos para el siguiente semestre (ver Sección \ref{GMM_D}).
@@ -45,13 +45,14 @@ Algunas notas a considerar del procedimiento son:
 \end{itemize}
 
 
-\section{Obtención de mat\_esqueletos} \label{sec_esqueletos}
+\section{Obtención de mat\_esqueleto} \label{sec_esqueletos}
 %el Modelo de Mezcla Gaussiana visto en la sección \ref{sec_GMM}.
-En esta sección vamos a explicar cómo generamos la matriz \textit{mat\_esqueleto}, utilizando la metodología $B$ seleccionada en la Sección \ref{GMM_D}. La matriz tiene $t$ renglones y $m$ columnas. En la entrada $(h,j)$ tiene el número de grupos simulados para la hora $h$ y la materia $j$. La matriz \textit{mat\_esqueleto} depende de la demanda de alumnos y de las solicitudes de los profesores.
+
+La matriz \textit{mat\_esqueleto} tiene $t$ renglones y $m$ columnas. En la entrada $(h,j)$ tiene el número de grupos simulados para la hora $h$ y la materia $j$. Dicha matriz depende de la demanda de alumnos y de las solicitudes de los profesores.
 
 
 %Los pasos que seguimos para obtener la matriz \textit{mat\_esqueleto} con la metodología $B$ son:
-Los pasos que seguimos son:
+Los pasos que seguimos para obtener la matriz son:
 
 \begin{enumerate}
 \item Definir \textit{n\_rep}, el número de veces que se va a generar la matriz $D'_{n}$ con la demanda de alumnos para el siguiente semestre.
@@ -77,7 +78,7 @@ Los pasos que seguimos son:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{hist_wait_esqueleto_inicial} %scale = 0.7
+\includegraphics[scale = 0.7]{gmm_esqueleto_ini.pdf} %width=\textwidth
 \caption[\textit{Histograma con los datos del esqueleto inicial}]{\textit{Se muestra el histograma con el número de grupos por hora en el esqueleto inicial.}}\label{hist_wait_esq_ini}
 \end{figure}
 
@@ -114,7 +115,7 @@ En la \figurename{~\ref{hist_wait_esq_fin}}, se puede ver el histograma con todo
  
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{hist_wait_esqueleto_final} %scale = 0.7
+\includegraphics[scale = 0.7]{gmm_esqueleto_fin.pdf} %width=\textwidth
 \caption[\textit{Histograma con  todos los datos de los esqueletos simulados}]{\textit{Se muestra el histograma con el número de grupos por hora de todos los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
 \end{figure}
 

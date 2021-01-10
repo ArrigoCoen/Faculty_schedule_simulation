@@ -1,11 +1,11 @@
 \section{Simulación de solicitudes de profesores} \label{SimSolicitudesProfesores}
 
-En esta sección vamos a explicar cómo hicimos la simulación de la solicitud de los profesores. En la vida real los profesores pueden elegir libremente las materias que quieren impartir y seleccionan las horas a las que desean impartir sus clases. Dado que no contamos con esa información decidimos simular la elección de materias y horarios en base a la información que tenemos de semestres anteriores.
+La asignación de horarios depende de los grupos que soliciten los profesores. A partir de un esqueleto de horarios, los profesores eligen las materias y horas en las que quieren dar clase. Dado que no contamos con esa información decidimos simular la elección de materias y horarios basados en información de semestres anteriores.
 
 Como vimos en la \figurename{~\ref{DF_genAsig}} simulamos dos veces las solicitudes de los profesores, en el proceso de asignación. A la primera vez que simulamos las solicitudes la llamaremos \textit{Solicitud oculta} y a la segunda la llamaremos \textit{Solicitud pseudo-real}. La explicación de su uso lo vemos a continuación.
 
 \begin{itemize}
-\item[-] Solicitud oculta: La llamamos oculta porque nos ayuda para la generación de los esqueletos. No influye directamente en la asignación final.
+\item[-] Solicitud oculta: Nos ayuda para la generación de los esqueletos pero no influye directamente en la asignación final.
 
 \item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían en la vida real. Nos ayuda directamente a realizar la asignación final.
 \end{itemize}
@@ -19,7 +19,7 @@ El procedimiento para ambos casos es prácticamente el mismo. Primero obtuvimos 
 
 \item Llenar la columna \textit{TC} dependiendo del tipo de profesor que se haya elegido en el paso anterior. Esta columna tiene un 1 en cada renglón si el profesor es de tiempo completo y un 0 si el profesor es de asignatura.
 
-\item Obtener, de \textit{m\_grande\_2015}, la información de las materias que ha impartido el profesor elegido. Guardar la información en el vector \textit{materias\_profesor}. Se tienen 3 casos con respecto al número de materias que tiene el vector:
+\item Obtener, de \textit{m\_grande\_2015}, la información de las materias que ha impartido el profesor elegido. Guardar la información en el vector \textit{materias\_profesor}. Se tienen 3 casos con respecto al número de materias que tiene dicho vector:
 
 \begin{enumerate}
 \item El número de materias es 2: Llenar los primeros 3 renglones, de la columna \textit{Materia}, con la información de la materia 1 y los últimos 3 renglones con la información de la materia 2.

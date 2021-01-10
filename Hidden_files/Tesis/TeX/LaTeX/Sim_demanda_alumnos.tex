@@ -1,6 +1,6 @@
 \section{Simulación de la demanda de alumnos} \label{SimDemandaAlumnos}
 
-La demanda del número de alumnos para el siguiente semestre la hicimos por materia y por hora. Para poder realizar la simulación lo primero que hicimos fue acomodar la información que teníamos por semestres y por hora. El procedimiento que seguimos fue el siguiente:
+La demanda del número de alumnos para el siguiente semestre la hicimos por materia y por hora. Para poder realizar la simulación lo primero que hicimos fue acomodar la información por semestres y por hora. El procedimiento que seguimos es el siguiente:
   
   \begin{enumerate}
 \item Definir el semestre del cual se quiere obtener la simulación (\textit{sem\_sig}).
@@ -60,13 +60,13 @@ Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \texti
 
 El modelo de Mezcla Gaussiana también es llamado modelo de mezcla de normales. En él se tienen dos o más distribuciones normales. Se hace una combinación lineal de ellas y se obtiene una nueva distribución de probabilidad.
 
-En \textit{R} se puede obtener dicha distribución con la función \verb@normalmixEM()@. La función regresa un objeto de tipo \textit{mixEM} el cual contiene el modelo de una mezcla de distribuciones normales obtenidas por el algoritmo de maximización de la esperanza (EM - \textit{expectation maximization algorithm}).
+En \textit{R} se puede generar dicha distribución con la función \verb@normalmixEM()@. La función regresa un objeto de tipo \textit{mixEM} el cual contiene un modelo de una mezcla de distribuciones normales obtenidas por el algoritmo de maximización de la esperanza (EM - \textit{expectation maximization algorithm}).
 
 Do Chuong y Batzoglou nos indican, en su artículo \textit{What is the expectation maximization algorithm?} [\ref{ChuongBatzoglou}], que el algoritmo EM es una generalización natural de la estimación por máxima verosimilitud. Ésto para el caso en donde se tiene información incompleta. Recordemos que la máxima verosimilitud se utiliza para encontrar la mejor manera de ajustar una distribución a los datos.
 
-En el algoritmo EM, los parámetros iniciales se toman de los datos reales. Con ellos se obtienen unos parámetros finales que se convierten en los parámetros para la siguiente iteración. Así sucesivamente.
+En el algoritmo EM, los parámetros iniciales se toman de los datos reales y se define una distribución \textit{a priori}. Con ellos se obtienen los parámetros de una distribución \textit{a posteriori}. Éstos se convierten en los parámetros iniciales para la siguiente iteración. Este proceso lo realiza la función \verb@normalmixEM()@ hasta encontrar el modelo de mezcla de normales.
 
-Cabe mencionar que el objeto de tipo \textit{mixEM} contiene los valores de $\mu$ y $\sigma$ finales. Éstos nos sirven para simular números aleatorios con una distribución normal. Dicha distribución tiene $k$ medias, así como $k$ desviaciones estándar. Los principales parámetros que recibe la función \verb@normalmixEM()@ son: 
+Los principales parámetros que recibe la función \verb@normalmixEM()@ son: 
 
 \begin{itemize}
 \item[-] \textit{x: } Vector con los datos a los que se les quiere aplicar el modelo.
@@ -78,6 +78,8 @@ Cabe mencionar que el objeto de tipo \textit{mixEM} contiene los valores de $\mu
 \item[-] \textit{k: } Número de distribuciones normales que se ajustan a los datos.
 \end{itemize}
 
+Cabe mencionar que el objeto de tipo \textit{mixEM} contiene los valores de $\mu$ y $\sigma$ finales. Éstos nos sirven para simular números aleatorios con una distribución normal. Dicha distribución tiene $k$ medias, así como $k$ desviaciones estándar.
+
 En la \figurename{~\ref{GMM_alum_ini}} se puede ver el histograma con el número de alumnos esperados por hora. Los datos corresponden a una matriz \textit{mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}). Con el comando \verb@mixmdl_1_D <- normalmixEM(wait_alumnos,k = 4)@ guardamos el modelo inicial. La línea azul de dicha figura corresponde a la densidad ajustada de 1000 números aleatorios con una distribución normal con 4 medias. El comando para obtener la densidad es: \verb@density(rnorm(1000,mean = mixmdl_1_D$mu,sd = mixmdl_1_D$sigma)@. Se tomaron los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_1\_D}.
 
 \begin{figure}[h]
@@ -86,9 +88,9 @@ En la \figurename{~\ref{GMM_alum_ini}} se puede ver el histograma con el número
 \caption[\textit{Histograma del número de alumnos esperados por hora: Modelo inicial de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos esperados por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo inicial de mezcla de normales.}}\label{GMM_alum_ini}
 \end{figure}
 
-En la \figurename{~\ref{GMM_alum_fin}} se puede observar el histograma con el número de alumnos esperados por hora. Los datos corresponden a 5 matrices \textit{mat\_demanda\_alumnos} (ver Sección \ref{SimDemandaAlumnos}). Con el comando \verb@mixmdl_D <- normalmixEM(wait_alumnos_final,mixmdl_1_D$mu)@ guardamos el modelo final. En este caso la función recibió los datos del modelo inicial. Los valores de $\mu$ son: $7.49, 10.30, 13.78, 17.23$. Para obtener la densidad ajustada, mostrada en la figura (línea azul), utilizamos los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_D}.
+En la \figurename{~\ref{GMM_alum_fin}} se puede observar el histograma con el número de alumnos esperados por hora. Los datos corresponden a 5 matrices \textit{mat\_demanda\_alumnos}. Con el comando \verb@mixmdl_D <- normalmixEM(wait_alumnos_final,mixmdl_1_D$mu)@ guardamos el modelo final. En este caso la función recibió los datos del modelo inicial. Los valores de $\mu$ son: $7.49, 10.30, 13.78$ y $17.23$. Para obtener la densidad ajustada, mostrada en la figura (línea azul), utilizamos los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_D}.
 
-Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tienen mejores valores iniciales. Se puede ver el pico de las 10hrs, también se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
+Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tiene más información y los valores iniciales son mejores. Se puede ver el pico de las 10hrs, también se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
 
 \begin{figure}[H]
 \centering
@@ -203,7 +205,7 @@ La calificación de las metodologías depende de la diferencia relativa entre $D
 \item Definir el vector \textit{vec\_calif\_x\_materia} con el promedio por columna de $C$. Este vector guarda las calificaciones por materia de $D'$.
 \end{enumerate}
 
-Para cada metodología, realizamos 10 simulaciones y calificamos las matrices $D'$ generadas. Con este procedimiento obtuvimos 4 matrices de 10 renglones y $m$ columnas. Graficamos cada matriz con la función \verb@matplot()@ en \textit{R}. Cada gráfica contiene $m$ líneas con 10 puntos cada línea. A continuación mostramos las 4 gráficas.
+Para cada metodología, realizamos 10 simulaciones y calificamos las matrices $D'$ generadas. Con este procedimiento obtuvimos 4 matrices de 10 renglones y $m$ columnas. Graficamos cada matriz con la función \verb@matplot()@ en \textit{R}. Cada gráfica contiene $m$ líneas con 10 puntos cada una. A continuación mostramos las 4 gráficas.
 
 En la \figurename{~\ref{fig_metodo_A}} vemos las calificaciones por materia de la metodología A. Notamos que se encuentran entre -5 y 1. Ésto quiere decir que en promedio con este método sobra hasta un 500\% de alumnos y falta casi un 100\% al hacer la simulación.
 

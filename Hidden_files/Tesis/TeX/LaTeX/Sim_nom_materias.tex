@@ -1,8 +1,6 @@
 \section{Obtención de nombres de materias}
 
-Antes de iniciar las simulaciones primero obtuvimos el vector \textit{vec\_nom\_materias\_total}. Éste contiene el nombre de las materias encontradas en la matriz \textit{m\_grande\_total} de los semestres 2008-1 al 2020-1. Dicho vector  no tiene nombres repetidos y contiene $m = 202$ materias.
-
-En esta sección vamos a explicar cómo obtuvimos los $m$ nombres de las materias que vamos a utilizar. El motivo de obtener el vector \textit{vec\_nom\_materias\_total} antes de hacer las simulaciones es para evitar problemas como el que vimos en la \figurename{~\ref{MateriaNombresDistintos}}, de repetición de información.
+Antes de iniciar las simulaciones definimos el vector \textit{vec\_nom\_materias\_total}. Éste contiene el nombre de las $m = 202$ materias encontradas en la matriz \textit{m\_grande\_total} de los semestres 2008-1 al 2020-1. Dicho vector  no tiene nombres repetidos. De esta manera evitamos problemas como el que vimos en la \figurename{~\ref{MateriaNombresDistintos}}, de repetición de información.
 
 Primero obtuvimos un vector con los nombres de las materias en la matriz \textit{m\_grande\_total}. Aplicamos la función \verb+unique()+ de \textit{R} y obtuvimos un vector de 333 materias. En este vector se pueden encontrar nombres repetidos y nombres de materias que ya no se imparten. Definimos la matriz \textit{mat\_nom\_materias\_total} la cual tiene 22 columnas:
 
@@ -16,4 +14,4 @@ Primero obtuvimos un vector con los nombres de las materias en la matriz \textit
 
 Revisamos caso por caso para no tener nombres repetidos. En el caso de los seminarios, los agrupamos de acuerdo a los posibles nombres que han tenido. Las materias optativas que ya no son impartidas las agrupamos en temas similares. Ésto último para conservar toda la información posible. %Los seminarios que ya no son impartidos los agrupamos en temas similares.
 
-Finalmente las dimensiones de la matriz \textit{mat\_nom\_materias\_total} son $202 \times 22$. Con la primer columna de dicha matriz, obtuvimos el vector \textit{vec\_nom\_materias\_total}. Los nombres del vector son los que utilizaremos en las siguientes secciones para realizar las simulaciones y las asignaciones.
+Finalmente las dimensiones de la matriz \textit{mat\_nom\_materias\_total} son $202 \times 22$. Con la primer columna de dicha matriz, obtuvimos el vector \textit{vec\_nom\_materias\_total}. Los nombres del vector son los que utilizaremos para realizar las simulaciones de esqueletos y las asignaciones de horarios.
