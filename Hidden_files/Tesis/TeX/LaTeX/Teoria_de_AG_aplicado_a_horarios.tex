@@ -45,7 +45,7 @@ El objetivo principal de este proyecto es obtener una matriz con la asignación 
 
 \item[-] Probabilidad de mutación: Debe de ser un valor pequeño. %Definimos \textit{prob\_mutacion} $ = \dfrac{1}{24} \approx 0.04$
 
-\item[-] Generación: Se dice que se tiene una generación cuando se ha repetido $n$ veces el proceso para crear un hijo y se puede reemplazar la población.
+\item[-] Generación: Se tiene una generación cuando se han creado $n$  hijos y se puede reemplazar la población.
 \end{itemize}
 
 Los pasos que seguimos para obtener la asignación son:
@@ -54,6 +54,8 @@ Los pasos que seguimos para obtener la asignación son:
 \item \textbf{Generar una población inicial}
 
 Se generan $n$ asignaciones a partir del esqueleto simulado (ver Sección \ref{sec_esqueletos}) y de las solicitudes pseudo-reales simuladas (ver Sección \ref{SimSolicitudesProfesores}).
+
+*** EXPLICAR CON MÁS DETALLE ESTE PASO ***
 
 \item \textbf{Calificar cada asignación de la población}
 
@@ -111,6 +113,8 @@ Repetir los pasos 5 al 8 hasta que uno de los padres se quede sin genes.
 \item \textbf{Añadir genes}
 
 Agregar al hijo los genes del padre que aún tiene información.
+
+Con el algoritmo utilizado en la generación de la población inicial, agregar los grupos que falta por asignar de \textit{mat\_esqueleto}.
 
 \item \textbf{Repetir 4 - 10}
 
