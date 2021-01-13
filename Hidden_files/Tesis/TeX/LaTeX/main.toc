@@ -47,5 +47,5 @@
 \contentsline {chapter}{Ap\'{e}ndice \numberline {B}Resultados útiles}{87}{appendix.alph1.Alph2}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {C}Abreviaturas}{89}{appendix.alph1.Alph3}%
 \contentsline {chapter}{Ap\'{e}ndice \numberline {D}Ejemplo de asignación final}{91}{appendix.alph1.Alph4}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {E}Observaciones / Notas}{113}{appendix.alph1.Alph5}%
-\contentsline {chapter}{Bibliografía}{125}{appendix*.96}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {E}Observaciones / Notas}{115}{appendix.alph1.Alph5}%
+\contentsline {chapter}{Bibliografía}{127}{appendix*.97}%

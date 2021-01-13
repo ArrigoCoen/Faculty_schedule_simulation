@@ -48,14 +48,30 @@ El objetivo principal de este proyecto es obtener una matriz con la asignación 
 \item[-] Generación: Se tiene una generación cuando se han creado $n$  hijos y se puede reemplazar la población.
 \end{itemize}
 
-Los pasos que seguimos para obtener la asignación son:
+Los pasos que seguimos para obtener la asignación final son:
 
 \begin{enumerate}
 \item \textbf{Generar una población inicial}
 
 Se generan $n$ asignaciones a partir del esqueleto simulado (ver Sección \ref{sec_esqueletos}) y de las solicitudes pseudo-reales simuladas (ver Sección \ref{SimSolicitudesProfesores}).
 
-*** EXPLICAR CON MÁS DETALLE ESTE PASO ***
+Para cada asignación, comparamos el número de solicitudes con el número de grupos simulados en el esqueleto. Ésto por materia y por hora. Se tienen dos casos:
+
+\begin{enumerate}
+\item[a)] El número de solicitudes es mayor al número de grupos simulados. En este caso se asignan los grupos tomados de una muestra aleatoria de las solicitudes. El tamaño de la muestra es igual al número de grupos simulados para la materia y hora correspondientes.
+
+\item[b)] El número de solicitudes es menor o igual al número de grupos simulados. Se asignan todos los grupos en la solicitud, para la materia y hora correspondientes.
+\end{enumerate}
+
+De esta manera se asignan todos los posibles grupos que se hayan solicitado. Se debe de considerar lo siguiente:
+
+\begin{itemize}
+\item[-] Un profesor no puede impartir diferentes materias a la misma hora.
+
+\item[-] Un profesor no puede impartir la misma materia en diferentes horarios.
+
+\item[-] Un profesor no puede tener más de \textit{num\_max\_asig} materias asignadas.
+\end{itemize}
 
 \item \textbf{Calificar cada asignación de la población}
 
@@ -141,7 +157,13 @@ Algunas notas que se deben de considerar en la asignación final:
 
 \item[-] Hay profesores que ya no imparten clases en la Facultad (nota en la sección de los profesores)
 
-\item[-] No se asignaron todos los grupos simulados en el esqueleto.
+\item[-] No se asignaron todos los grupos simulados en el esqueleto. Ésto porque:
+
+\begin{itemize}
+\item[a)] No hay solicitudes de esas materias a esas horas.
+
+\item[b)] Se asignaron otras materias a los profesores en esas horas.
+\end{itemize}
 
 \item[-] Es posible que la asignación final no sea la mejor calificada de todas las generaciones.
 \end{itemize}

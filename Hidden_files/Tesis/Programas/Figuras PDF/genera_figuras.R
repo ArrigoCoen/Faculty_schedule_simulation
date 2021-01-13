@@ -112,22 +112,19 @@ source("Programas/Figuras PDF/fig_gmm_alum_ini/gmm_alum_ini.R")
 source("Programas/Figuras PDF/fig_gmm_alum_fin/gmm_alum_fin.R")
 
 #####
-source("Programas/Figuras PDF/fig_media_calif_x_generacion/media_calif_x_generacion.R")
-
-#####
 source("Programas/Figuras PDF/fig_gmm_esqueleto_ini/gmm_esqueleto_ini.R")
 
 #####
 source("Programas/Figuras PDF/fig_gmm_esqueleto_fin/gmm_esqueleto_fin.R")
 
 #####
-# source("Programas/Figuras PDF//.R")
+source("Programas/Figuras PDF/fig_calificaciones_g08_n08_m004_U510/calificaciones_g08_n08_m004_U510.R")
 
 #####
-# source("Programas/Figuras PDF//.R")
+source("Programas/Figuras PDF/fig_num_genes_g08_n08_m004_U510/num_genes_g08_n08_m004_U510.R")
 
 #####
-# source("Programas/Figuras PDF//.R")
+source("Programas/Figuras PDF/fig_calif_mejores_hijos_g08_n08_m004_U510/calif_mejores_hijos_g08_n08_m004_U510.R")
 
 #####
 # source("Programas/Figuras PDF//.R")
@@ -150,3 +147,15 @@ source("Programas/Figuras PDF/fig_gmm_esqueleto_fin/gmm_esqueleto_fin.R")
 
 ##### Densidad ajustada del tamaño de grupo
 # source("Programas/Figuras PDF/fig_histograma_FR_num_alum_x_gpo_x_sem/histograma_FR_num_alum_x_gpo_x_sem.R")
+
+##### Gráficas con las calificaciones x generación de las pruebas del AG
+# source("Programas/Figuras PDF/fig_media_calif_x_generacion/media_calif_x_generacion.R")
+
+#####
+# source("Programas/Figuras PDF/fig_calificaciones_g10_n10_m004_U514/calificaciones_g10_n10_m004_U514.R")
+
+#####
+# source("Programas/Figuras PDF/fig_num_genes_g10_n10_m004_U514/num_genes_g10_n10_m004_U514.R")
+
+#####
+# source("Programas/Figuras PDF/fig_calif_mejores_hijos_g10_n10_m004_U514/calif_mejores_hijos_g10_n10_m004_U514.R")

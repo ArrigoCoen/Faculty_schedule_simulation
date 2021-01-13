@@ -15,17 +15,23 @@
 %\chaptername{~\ref{nom_capitulo}}
 
 %%%% Ejemplo de entorno "enumerate"
+%The default numbering scheme is:
+%Arabic number (1, 2, 3, ...) for Level 1
+%Lowercase letter (a, b, c, ...) for Level 2
+%Lowercase Roman numeral (i, ii, iii, ...) for Level 3
+%Uppercase letter (A, B, C, ...) for Level 4.
+
 %\begin{enumerate}
-%   \item First level item
+%   \item First level item %%Números 1.
 %   \item First level item
 %   \begin{enumerate}
-%     \item Second level item
+%     \item Second level item %%Incisos (a)
 %     \item Second level item
 %     \begin{enumerate}
-%       \item Third level item
+%       \item Third level item %%Numeración romana i.
 %       \item Third level item
 %       \begin{enumerate}
-%         \item Fourth level item
+%         \item Fourth level item %%Mayúsculas A.
 %         \item Fourth level item
 %       \end{enumerate}
 %     \end{enumerate}
@@ -306,636 +312,688 @@
 \endlastfoot %% Agregamos un texto al final de la tabla, también se podrían repetir los nombres de las columnas
 
 %\hline 
-1 & Administración Actuarial del Riesgo & Eduardo Bello Castañeda & 7 \\ \hline
-2 & Administración Actuarial del Riesgo & María Patricia Luna Díaz & 8 \\ \hline
-3 & Administración de Riesgos & José Antonio Reyes León & 8 \\ \hline
-4 & Administración de Riesgos Financieros & María Araceli Bernabe Rocha & 8 \\ \hline
-5 & Álgebra Lineal I & Angel Vázquez Badillo & 7 \\ \hline
-6 & Álgebra Lineal I & Irvin Arellano Rosas & 7 \\ \hline
-7 & Álgebra Lineal I & Andres Barei Bueno & 8 \\ \hline
-8 & Álgebra Lineal I & Ramón Gabriel Plaza Villegas & 8 \\ \hline
-9 & Álgebra Lineal I & Juan Orendain Almada & 8 \\ \hline
-10 & Álgebra Lineal I & Francisco Marmolejo Rivas & 9 \\ \hline
-11 & Álgebra Lineal I & Gabriela Campero Arena & 9 \\ \hline
-12 & Álgebra Lineal I & Adolfo Guillot Santiago & 10 \\ \hline
-13 & Álgebra Lineal I & Jorge Luis Arocha Pérez & 10 \\ \hline
-14 & Álgebra Lineal I & Juan Carlos García Altamirano & 10 \\ \hline
-15 & Álgebra Lineal I & Hugo Arizmendi Peimbert & 10 \\ \hline
-16 & Álgebra Lineal I & Gustavo Amilcar Saldaña Moncada & 10 \\ \hline
-17 & Álgebra Lineal I & María del Carmen Heréndira Gómez Laveaga & 12 \\ \hline
-18 & Álgebra Lineal I & Adriana Léon Montes & 14 \\ \hline
-19 & Álgebra Lineal I & José Cruz García Zagal & 15 \\ \hline
-20 & Álgebra Lineal I & José Miguel Salazar Montiel & 16 \\ \hline
-21 & Álgebra Lineal I & Francisco de Jesús Rivera Torres & 18 \\ \hline
-22 & Álgebra Lineal I & Raúl González Silva & 18 \\ \hline
-23 & Álgebra Lineal I & Juan Gabriel Ochoa Petatan & 18 \\ \hline
-24 & Álgebra Lineal I & José Pozo Martínez & 19 \\ \hline
-25 & Álgebra Lineal I & Rodrígo Edmundo Cepeda Morales & 20 \\ \hline
-26 & Álgebra Lineal II & Carlos Alberto Serrato Hernández & 7 \\ \hline
-27 & Álgebra Lineal II & Benjamín Iván Juárez Santos & 7 \\ \hline
-28 & Álgebra Lineal II & León Felipe Villalobos Sánchez & 8 \\ \hline
-29 & Álgebra Lineal II & Lorena Morales Callejas & 8 \\ \hline
-30 & Álgebra Lineal II & Rocío del Pilar Aguilar Benítez & 10 \\ \hline
-31 & Álgebra Lineal II & Guillermo Javier Francisco Sienra Loera & 10 \\ \hline
-32 & Álgebra Lineal II & Juan Morales Rodríguez & 12 \\ \hline
-33 & Álgebra Lineal II & Alejandro Alvarado García & 13 \\ \hline
-34 & Álgebra Lineal II & William José Gallardo & 17 \\ \hline
-35 & Álgebra Moderna I & Mindy Yaneli Huerta Pérez & 7 \\ \hline
-36 & Álgebra Moderna I & Edith Corina Sáenz Valadez & 9 \\ \hline
-37 & Álgebra Moderna I & Eugenia O'Reilly Regueiro & 17 \\ \hline
-  38 & Álgebra Moderna I & Edgar Migueles Pérez & 20 \\ \hline
-  39 & Álgebra Moderna II & José Gabriel Ocampo Márquez & 7 \\ \hline
-  40 & Álgebra Moderna II & Diana Avella Alaminos & 10 \\ \hline
-  41 & Álgebra Moderna II & Bertha María Tomé Arreola & 10 \\ \hline
-  42 & Álgebra Moderna II & Alejandro Alvarado García & 14 \\ \hline
-  43 & Álgebra Moderna II & Mauricio Gabriel Medina Bárcenas & 15 \\ \hline
-  44 & Álgebra Moderna II & Alma Violeta García López & 17 \\ \hline
-  45 & Álgebra Moderna II & Alberto Alcalá Álvarez & 18 \\ \hline
-  46 & Álgebra Moderna III & Frank Patrick Murphy Hernández & 8 \\ \hline
-  47 & Álgebra Moderna III & Luis Ángel Zaldívar Corichi & 12 \\ \hline
-  48 & Álgebra Moderna III & Fernando Cornejo Montaño & 16 \\ \hline
-  49 & Álgebra Superior I & Tania Eréndira Rivera Torres & 7 \\ \hline
-  50 & Álgebra Superior I & Alejandra Osiris Romero Juárez & 7 \\ \hline
-  51 & Álgebra Superior I & Gerardo Acosta García & 8 \\ \hline
-  52 & Álgebra Superior I & Lilia Guadalupe Sánchez Terán & 8 \\ \hline
-  53 & Álgebra Superior I & Rita Esther Zuazua Vega & 8 \\ \hline
-  54 & Álgebra Superior I & Araceli Guzmán Tristán & 10 \\ \hline
-  55 & Álgebra Superior I & Sergio Macías Álvarez & 10 \\ \hline
-  56 & Álgebra Superior I & Martha Takane Imay & 10 \\ \hline
-  57 & Álgebra Superior I & Elsa Puente Vázquez & 10 \\ \hline
-  58 & Álgebra Superior I & Francisco Larrión Riveroll & 10 \\ \hline
-  59 & Álgebra Superior I & Alejandro Bravo Mojica & 10 \\ \hline
-  60 & Álgebra Superior I & Alejandro Javier Díaz-Barriga Casales & 12 \\ \hline
-  61 & Álgebra Superior I & Daniel Labardini Fragoso & 14 \\ \hline
-  62 & Álgebra Superior I & Marcelino Perello Valls & 15 \\ \hline
-  63 & Álgebra Superior I & Paloma Hernández Zapata & 17 \\ \hline
-  64 & Álgebra Superior I & Rodrigo Domínguez López & 17 \\ \hline
-  65 & Álgebra Superior I & Juan Manuel Martínez Nuño & 19 \\ \hline
-  66 & Álgebra Superior I & Eugenia Marmolejo Rivas & 20 \\ \hline
-  67 & Álgebra Superior II & Rolando Gómez Macedo & 7 \\ \hline
-  68 & Álgebra Superior II & Luis Jesús Turcio Cuevas & 8 \\ \hline
-  69 & Álgebra Superior II & César Alejandro Rincón Orta & 8 \\ \hline
-  70 & Álgebra Superior II & Gabriela Cervantes Piza & 8 \\ \hline
-  71 & Álgebra Superior II & Gerardo Camacho de la Rosa & 10 \\ \hline
-  72 & Álgebra Superior II & José Pozo Martínez & 13 \\ \hline
-  73 & Álgebra Superior II & Mauricio Gabriel Medina Bárcenas & 13 \\ \hline
-  74 & Álgebra Superior II & Juan Morales Rodríguez & 13 \\ \hline
-  75 & Álgebra Superior II & Martha Lizbeth Shaid Sandoval Miranda & 15 \\ \hline
-  76 & Álgebra Superior II & Jorge Enrique Vega Acevedo & 15 \\ \hline
-  77 & Álgebra Superior II & Mindy Yaneli Huerta Pérez & 15 \\ \hline
-  78 & Álgebra Superior II & Emiliano Geneyro Squarzon & 17 \\ \hline
-  79 & Álgebra Superior II & Melisa Gutiérrez Vivanco & 17 \\ \hline
-  80 & Álgebra Superior II & Sebastián Pardo Guerra & 17 \\ \hline
-  81 & Álgebra Superior II & Ana Patricia Kuri González & 17 \\ \hline
-  82 & Álgebra Superior II & Esther Anahi Domínguez Jiménez & 18 \\ \hline
-  83 & Análisis del México Contemporáneo & Reyna Pineda González & 7 \\ \hline
-  84 & Análisis del México Contemporáneo & Silvia Alonso Reyes & 10 \\ \hline
-  85 & Análisis del México Contemporáneo & Gustavo Esteban Andrade Díaz & 17 \\ \hline
-  86 & Análisis Matemático I & Ricardo Alberto Weder Zaninovich & 7 \\ \hline
-  87 & Análisis Matemático I & Rodrigo Jesús Hernández Gutiérrez & 7 \\ \hline
-  88 & Análisis Matemático I & Roxana Wendoline Ruiz Aguilar & 8 \\ \hline
-  89 & Análisis Matemático I & Agustín Ontiveros Pineda & 10 \\ \hline
-  90 & Análisis Matemático I & Carmen Martínez Adame Isais & 10 \\ \hline
-  91 & Análisis Matemático I & Sergey Antonyan & 11 \\ \hline
-  92 & Análisis Matemático I & Alberto León Kushner Schnur & 12 \\ \hline
-  93 & Análisis Matemático I & Roberto Pichardo Mendoza & 12 \\ \hline
-  94 & Análisis Matemático I & Edgar Guzmán González & 14 \\ \hline
-  95 & Análisis Matemático I & Mario Eudave Muñoz & 14 \\ \hline
-  96 & Análisis Matemático I & Manuel Hernández Hernández & 16 \\ \hline
-  97 & Análisis Matemático I & César Eduardo Sousa Mondragón & 16 \\ \hline
-  98 & Análisis Matemático I & Vinicio Antonio Gómez Gutiérrez & 16 \\ \hline
-  99 & Análisis Matemático I & Alfredo Reyes Vázquez & 18 \\ \hline
-  100 & Análisis Matemático I & Juan Manuel de la Huerta Jiménez & 20 \\ \hline
-  101 & Análisis Matemático II & Esteban Librado Hernández Escamilla & 7 \\ \hline
-  102 & Análisis Matemático II & Ana Meda Guardiola & 10 \\ \hline
-  103 & Análisis Matemático II & Manuel Jesús Falconi Magaña & 10 \\ \hline
-  104 & Análisis Matemático II & Raybel Andrés García Ancona & 14 \\ \hline
-  105 & Análisis Matemático II & Gerardo Sánchez Licea & 14 \\ \hline
-  106 & Análisis Matemático II & José Juan Ley Mandujano & 15 \\ \hline
-  107 & Análisis Matemático II & Juan Rico Arvizu & 20 \\ \hline
-  108 & Análisis Matemático III & Magali Louise Marie Folch Gabayet & 10 \\ \hline
-  109 & Análisis Matemático III & David Jacob Ramírez Herrera & 20 \\ \hline
-  110 & Análisis Multivariado & Sofía Villers Gómez & 10 \\ \hline
-  111 & Análisis Numérico & Antonio Carrillo Ledesma & 7 \\ \hline
-  112 & Análisis Numérico & José Guerrero Grajeda & 10 \\ \hline
-  113 & Análisis Numérico & Úrsula Xiomara Iturrarán Viveros & 10 \\ \hline
-  114 & Análisis Numérico & Pablo Barrera Sánchez & 10 \\ \hline
-  115 & Análisis Numérico & Jaime Ayala Pérez & 13 \\ \hline
-  116 & Análisis Numérico & Miriam Sosa Díaz & 14 \\ \hline
-  117 & Análisis Numérico & Agustín Alberto Rosas Medina & 19 \\ \hline
-  118 & Análisis Numérico & Miguel Ángel Pérez León & 19 \\ \hline
-  119 & Autómatas y Lenguajes Formales & Elisa Viso Gurovich & 10 \\ \hline
-  120 & Autómatas y Lenguajes Formales & Lourdes del Carmen González Huesca & 12 \\ \hline
-  121 & Autómatas y Lenguajes Formales & Araceli Liliana Reyes Cabello & 14 \\ \hline
-  122 & Cálculo de las Variaciones & Manuel Tejada Wriedt & 10 \\ \hline
-  123 & Cálculo Diferencial e Integral I & Emma Lam Osnaya & 7 \\ \hline
-  124 & Cálculo Diferencial e Integral I & Emily Sánchez García & 9 \\ \hline
-  125 & Cálculo Diferencial e Integral I & Miguel Lara Aparicio & 10 \\ \hline
-  126 & Cálculo Diferencial e Integral I & Alessio Franci & 10 \\ \hline
-  127 & Cálculo Diferencial e Integral I & María Lourdes Velasco Arreguí & 10 \\ \hline
-  128 & Cálculo Diferencial e Integral I & José Antonio Gómez Ortega & 11 \\ \hline
-  129 & Cálculo Diferencial e Integral I & Javier Fernández García & 11 \\ \hline
-  130 & Cálculo Diferencial e Integral I & Javier Fernández García & 12 \\ \hline
-  131 & Cálculo Diferencial e Integral I & Paloma Hernández Zapata & 14 \\ \hline
-  132 & Cálculo Diferencial e Integral I & María de Lourdes Esteva Peralta & 14 \\ \hline
-  133 & Cálculo Diferencial e Integral I & Sergio César Alejandro Gutiérrez Guzmán & 17 \\ \hline
-  134 & Cálculo Diferencial e Integral I & María de Lourdes Esteva Peralta & 17 \\ \hline
-  135 & Cálculo Diferencial e Integral I & David Guerrero Sánchez & 18 \\ \hline
-  136 & Cálculo Diferencial e Integral II & Carlos Islas Moreno & 7 \\ \hline
-  137 & Cálculo Diferencial e Integral II & Elena de Oteyza de Oteyza & 7 \\ \hline
-  138 & Cálculo Diferencial e Integral II & Oscar Alberto Garrido Jiménez & 10 \\ \hline
-  139 & Cálculo Diferencial e Integral II & María del Carmen Arrillaga Arjona & 10 \\ \hline
-  140 & Cálculo Diferencial e Integral II & Carlos García Azpeitia & 10 \\ \hline
-  141 & Cálculo Diferencial e Integral II & Gustavo Cruz Pacheco & 10 \\ \hline
-  142 & Cálculo Diferencial e Integral II & Luis Manuel Hernández Gallardo & 10 \\ \hline
-  143 & Cálculo Diferencial e Integral II & María Lourdes Velasco Arreguí & 11 \\ \hline
-  144 & Cálculo Diferencial e Integral II & David Meza Alcántara & 12 \\ \hline
-  145 & Cálculo Diferencial e Integral II & Fernando Brambila Paz & 12 \\ \hline
-  146 & Cálculo Diferencial e Integral II & Jesús López Estrada & 13 \\ \hline
-  147 & Cálculo Diferencial e Integral II & Humberto Andrés Carrillo Calvet & 13 \\ \hline
-  148 & Cálculo Diferencial e Integral II & Javier Daniel Miranda Culin & 16 \\ \hline
-  149 & Cálculo Diferencial e Integral II & David Meza Alcántara & 16 \\ \hline
-  150 & Cálculo Diferencial e Integral II & Francisco Javier Torres Ayala & 17 \\ \hline
-  151 & Cálculo Diferencial e Integral II & Juan Gabriel Herrera Alva & 18 \\ \hline
-  152 & Cálculo Diferencial e Integral III & Pablo Alberto Lara Martínez & 10 \\ \hline
-  153 & Cálculo Diferencial e Integral III & Alejandro Darío Rojas Sánchez & 10 \\ \hline
-  154 & Cálculo Diferencial e Integral III & Adriana Vargas Quintero & 10 \\ \hline
-  155 & Cálculo Diferencial e Integral III & Julio Martín Espinosa Casares & 10 \\ \hline
-  156 & Cálculo Diferencial e Integral III & Javier Páez Cárdenas & 11 \\ \hline
-  157 & Cálculo Diferencial e Integral III & Abelardo Vela Ponce de León & 18 \\ \hline
-  158 & Cálculo Diferencial e Integral III & Carlos Polanco González & 18 \\ \hline
-  159 & Cálculo Diferencial e Integral III & Noé Francisco Verde Martínez & 19 \\ \hline
-  160 & Cálculo Diferencial e Integral III & José Paredes López & 20 \\ \hline
-  161 & Cálculo Diferencial e Integral IV & Alberto Manuel Aldama Garisoain & 7 \\ \hline
-  162 & Cálculo Diferencial e Integral IV & Sandra María Chimal Garma & 7 \\ \hline
-  163 & Cálculo Diferencial e Integral IV & Adrián Zenteno Gutiérrez & 7 \\ \hline
-  164 & Cálculo Diferencial e Integral IV & Francisco Marmolejo Rivas & 10 \\ \hline
-  165 & Cálculo Diferencial e Integral IV & Carlos Prieto López & 10 \\ \hline
-  166 & Cálculo Diferencial e Integral IV & Javier Páez Cárdenas & 10 \\ \hline
-  167 & Cálculo Diferencial e Integral IV & Héctor Méndez Lango & 10 \\ \hline
-  168 & Cálculo Diferencial e Integral IV & Carlos Arturo Vargas Guadarrama & 12 \\ \hline
-  169 & Cálculo Diferencial e Integral IV & Juan Carlos Zepeda García & 14 \\ \hline
-  170 & Cálculo Diferencial e Integral IV & Emilio Cabrera Castro & 14 \\ \hline
-  171 & Cálculo Diferencial e Integral IV & Marco Antonio Montes de Oca Balderas & 14 \\ \hline
-  172 & Cálculo Diferencial e Integral IV & Héctor Jiménez Sánchez & 17 \\ \hline
-  173 & Cálculo Diferencial e Integral IV & Gabriel Gutiérrez García & 19 \\ \hline
-  174 & Cálculo Diferencial e Integral IV & Oscar Alberto Garrido Jiménez & 19 \\ \hline
-  175 & Compiladores & Adrián Ulises Mercado Martínez & 8 \\ \hline
-  176 & Complejidad Computacional & Francisco Hernández Quiroz & 10 \\ \hline
-  177 & Conjuntos y Lógica & César Hernández Cruz & 7 \\ \hline
-  178 & Contabilidad & Paulo César Castro Bejar & 7 \\ \hline
-  179 & Contabilidad & Guillermo Vega García & 7 \\ \hline
-  180 & Contabilidad & Pedro Luis Soto Tejeda & 8 \\ \hline
-  181 & Contabilidad & Antonio Lara Gutiérrez & 8 \\ \hline
-  182 & Contabilidad & Arely Palos Zepeda & 17 \\ \hline
-  183 & Contabilidad & Elvia Sánchez Montes & 19 \\ \hline
-  184 & Demografía & Rodrigo Jiménez Uribe & 7 \\ \hline
-  185 & Demografía & José Rubén Fernández Román & 7 \\ \hline
-  186 & Demografía & María Teresa Velázquez Uribe & 9 \\ \hline
-  187 & Demografía & Rosalba Jasso Vargas & 10 \\ \hline
-  188 & Demografía & Nina Castro Méndez & 12 \\ \hline
-  189 & Demografía & Mauricio Rodríguez Abreu & 16 \\ \hline
-  190 & Demografía & Alejandro Mina Valdés & 16 \\ \hline
-  191 & Dinámica de Medios Deformables & Consuelo García Alcántara & 10 \\ \hline
-  192 & Dinámica de Medios Deformables & Guillermo Monsivais Galindo & 10 \\ \hline
-  193 & Dinámica de Medios Deformables & Francisco Javier Mandujano Sánchez & 12 \\ \hline
-  194 & Econometría I & Gerardo Franco Parrillat & 7 \\ \hline
-  195 & Economía & José Antonio Reyes León & 7 \\ \hline
-  196 & Economía & Marco Antonio García Fernández & 7 \\ \hline
-  197 & Economía & Carlos Alberto Reyes Martínez & 8 \\ \hline
-  198 & Economía & Bulmaro Álvarez Estrada & 8 \\ \hline
-  199 & Economía & Monserrat Esquivel López & 10 \\ \hline
-  200 & Economía & Alejandro Mina Valdés & 17 \\ \hline
-  201 & Economía & Julio Bernabe Franco Moreno & 17 \\ \hline
-  202 & Ecuaciones Diferenciales I & Javier de Jesús Cortés Aguirre & 7 \\ \hline
-  203 & Ecuaciones Diferenciales I & Gerardo Mejía Rodríguez & 8 \\ \hline
-  204 & Ecuaciones Diferenciales I & Mirella Ramírez Ramírez & 8 \\ \hline
-  205 & Ecuaciones Diferenciales I & Nicolás González Boileau & 8 \\ \hline
-  206 & Ecuaciones Diferenciales I & Renato Carlos Calleja Castillo & 9 \\ \hline
-  207 & Ecuaciones Diferenciales I & Manuel Jesús Falconi Magaña & 9 \\ \hline
-  208 & Ecuaciones Diferenciales I & Araceli León Estrada & 10 \\ \hline
-  209 & Ecuaciones Diferenciales I & Catalina Apolinar García & 10 \\ \hline
-  210 & Ecuaciones Diferenciales I & Roxana Wendoline Ruiz Aguilar & 13 \\ \hline
-  211 & Ecuaciones Diferenciales I & Arturo Olvera Chávez & 13 \\ \hline
-  212 & Ecuaciones Diferenciales I & Gustavo Cruz Pacheco & 13 \\ \hline
-  213 & Ecuaciones Diferenciales I & Carlos Arturo Vargas Guadarrama & 13 \\ \hline
-  214 & Ecuaciones Diferenciales I & Sara Jacqueline Herrera Domínguez & 15 \\ \hline
-  215 & Ecuaciones Diferenciales I & Rocío del Pilar Aguilar Benítez & 16 \\ \hline
-  216 & Ecuaciones Diferenciales I & Gladys Bañuelos Rodríguez & 17 \\ \hline
-  217 & Ecuaciones Diferenciales I & María del Carmen Jorge y Jorge & 17 \\ \hline
-  218 & Ecuaciones Diferenciales I & Fidencio Galicia Rodríguez & 18 \\ \hline
-  219 & Ecuaciones Diferenciales I & Sergio Antonio Alcalá Corona & 19 \\ \hline
-  220 & Ecuaciones Diferenciales I & José Fernando Bustamante Castañeda & 19 \\ \hline
-  221 & Ecuaciones Diferenciales II & Jorge Chávez Carlos & 8 \\ \hline
-  222 & Ecuaciones Diferenciales II & Catherine García Reimbert & 10 \\ \hline
-  223 & Ecuaciones Diferenciales II & Guillermo Olicon Méndez & 14 \\ \hline
-  224 & Ecuaciones Diferenciales II & Gustavo Enrique García de Jesús & 19 \\ \hline
-  225 & Ecuaciones Diferenciales Parciales I & María de los Ángeles Sandoval Romero & 10 \\ \hline
-  226 & Electromagnetismo I & Roberto Alejandro Ruelas Mayorga & 7 \\ \hline
-  227 & Electromagnetismo I & Ricardo Méndez Fragoso & 7 \\ \hline
-  228 & Electromagnetismo I & Alicia María Oliver y Gutiérrez & 8 \\ \hline
-  229 & Electromagnetismo I & Mirna Villavicencio Torres & 8 \\ \hline
-  230 & Electromagnetismo I & Julio Javier Martinell Benito & 10 \\ \hline
-  231 & Electromagnetismo I & Andrea Luisa Aburto Espina & 10 \\ \hline
-  232 & Electromagnetismo I & Alejandro Reyes Coronado & 10 \\ \hline
-  233 & Electromagnetismo I & Nikolay Kryukov & 14 \\ \hline
-  234 & Electromagnetismo I & José Alberto Flandes Mendoza & 18 \\ \hline
-  235 & Electromagnetismo II & Luis Fernando Urrutia Rios & 10 \\ \hline
-  236 & Electromagnetismo II & Ángel Prieto Ruiz & 10 \\ \hline
-  237 & Electromagnetismo II & Enrique Moreno Méndez & 10 \\ \hline
-  238 & Electromagnetismo II & Julio Javier Martinell Benito & 14 \\ \hline
-  239 & Electromagnetismo II & José Manuel Hernández Alcántara & 18 \\ \hline
-  240 & Electromagnetismo II & Alvaro Patricio Díaz Ruelas & 18 \\ \hline
-  241 & Estadística Bayesiana & Ruth Selene Fuentes García & 9 \\ \hline
-  242 & Estadística Bayesiana & Ramsés Humberto Mena Chávez & 10 \\ \hline
-  243 & Estructuras Discretas & Favio Ezequiel Miranda Perea & 10 \\ \hline
-  244 & Estructuras Discretas & Alma Rosario Arévalo Loyola & 14 \\ \hline
-  245 & Fenómenos Colectivos & Catalina Elizabeth Stern Forgach & 8 \\ \hline
-  246 & Fenómenos Colectivos & Edgar Alvarez Zauco & 10 \\ \hline
-  247 & Fenómenos Colectivos & Luis Felipe del Castillo Dávila & 10 \\ \hline
-  248 & Fenómenos Colectivos & María Michel Duque Vega & 10 \\ \hline
-  249 & Fenómenos Colectivos & Claude Thions Chaudy & 12 \\ \hline
-  250 & Fenómenos Colectivos & Gabriel Oscar Ibáñez García & 16 \\ \hline
-  251 & Fenómenos Colectivos & Soledad Ruiz Matus & 17 \\ \hline
-  252 & Fenómenos Colectivos & Antonio Castellanos Ramírez & 18 \\ \hline
-  253 & Física Computacional & Jorge Ramón Soto Mercado & 10 \\ \hline
-  254 & Física Computacional & Enrique Cabrera Bravo & 10 \\ \hline
-  255 & Física Computacional & David Philip Sanders & 11 \\ \hline
-  256 & Física Computacional & Federico Jesús Cázarez Bush & 18 \\ \hline
-  257 & Física Estadística & Gerardo Carmona Ruiz & 8 \\ \hline
-  258 & Física Estadística & Angela Camacho de la Rosa & 8 \\ \hline
-  259 & Física Estadística & Guillermo Ramírez Santiago & 10 \\ \hline
-  260 & Física Estadística & Rosalío Fernando Rodríguez Zepeda & 10 \\ \hline
-  261 & Funciones Especiales y Transformadas Integrales & Mariana Martínez González & 8 \\ \hline
-  262 & Funciones Especiales y Transformadas Integrales & Eduardo Peinado Rodríguez & 8 \\ \hline
-  263 & Funciones Especiales y Transformadas Integrales & Mauricio García Vergara & 10 \\ \hline
-  264 & Funciones Especiales y Transformadas Integrales & Lucía Medina Gómez & 10 \\ \hline
-  265 & Funciones Especiales y Transformadas Integrales & Luis Antonio Dávalos Orozco & 10 \\ \hline
-  266 & Funciones Especiales y Transformadas Integrales & Rosario Paredes Gutiérrez & 10 \\ \hline
-  267 & Funciones Especiales y Transformadas Integrales & Ramón Gustavo Contreras Mayen & 14 \\ \hline
-  268 & Funciones Especiales y Transformadas Integrales & Francisco Javier Martínez Farias & 16 \\ \hline
-  269 & Funciones Especiales y Transformadas Integrales & Erick Javier López Sánchez & 16 \\ \hline
-  270 & Geometría Analítica I & Juan Flores Torres & 7 \\ \hline
-  271 & Geometría Analítica I & Jorge Chávez Carlos & 8 \\ \hline
-  272 & Geometría Analítica I & Max Neumann Coto & 8 \\ \hline
-  273 & Geometría Analítica I & Edgar Alvarez Zauco & 9 \\ \hline
-  274 & Geometría Analítica I & Guillermo Ruiz Galván & 10 \\ \hline
-  275 & Geometría Analítica I & Pablo Suárez Serrato & 10 \\ \hline
-  276 & Geometría Analítica I & Jesús Ángel Núñez Zimbrón & 10 \\ \hline
-  277 & Geometría Analítica I & Oscar Alfredo Palmas Velasco & 10 \\ \hline
-  278 & Geometría Analítica I & Javier Bracho Carpizo & 12 \\ \hline
-  279 & Geometría Analítica I & Guillermo Javier Francisco Sienra Loera & 12 \\ \hline
-  280 & Geometría Analítica I & Federico Sánchez Bringas & 14 \\ \hline
-  281 & Geometría Analítica I & Mucuy-Kak del Carmen Guevara Aguirre & 15 \\ \hline
-  282 & Geometría Analítica I & Adrián Ulises Soto Bañuelos & 18 \\ \hline
-  283 & Geometría Analítica I & Víctor Manuel Ávila Baez & 18 \\ \hline
-  284 & Geometría Analítica I & Fidencio Galicia Rodríguez & 20 \\ \hline
-  285 & Geometría Analítica I & Víctor Alberto Cruz Barriguete & 20 \\ \hline
-  286 & Geometría Analítica II & Rolando Gómez Macedo & 8 \\ \hline
-  287 & Geometría Analítica II & Gilberto Bruno Pérez & 8 \\ \hline
-  288 & Geometría Analítica II & Ernesto Mayorga Saucedo & 8 \\ \hline
-  289 & Geometría Analítica II & Lorena Armas Sanabria & 9 \\ \hline
-  290 & Geometría Analítica II & Javier Bracho Carpizo & 10 \\ \hline
-  291 & Geometría Analítica II & Carlos Hernández Garciadiego & 10 \\ \hline
-  292 & Geometría Analítica II & Alejandra García García & 10 \\ \hline
-  293 & Geometría Analítica II & Sergio Palafox Delgado & 10 \\ \hline
-  294 & Geometría Analítica II & Gabriel Gutiérrez García & 10 \\ \hline
-  295 & Geometría Analítica II & Francisco Manuel Barrios Paniagua & 10 \\ \hline
-  296 & Geometría Analítica II & Ricardo Strausz Santiago & 11 \\ \hline
-  297 & Geometría Analítica II & Pablo Barrera Sánchez & 12 \\ \hline
-  298 & Geometría Analítica II & Eugenio Garnica Vigil & 12 \\ \hline
-  299 & Geometría Analítica II & Fernando Brambila Paz & 13 \\ \hline
-  300 & Geometría Analítica II & Ingrid Chantal Torres Ramos & 17 \\ \hline
-  301 & Geometría Analítica II & Álvaro Reyes García & 18 \\ \hline
-  302 & Geometría Analítica II & Herminio Suárez Quiroz & 18 \\ \hline
-  303 & Geometría Analítica II & Gerardo Rubén López Hernández & 20 \\ \hline
-  304 & Geometría Analítica II & Camilo Camhaji García & 21 \\ \hline
-  305 & Geometría Diferencial I & Pierre Michel Bayard & 7 \\ \hline
-  306 & Geometría Diferencial I & Federico Sánchez Bringas & 10 \\ \hline
-  307 & Geometría Diferencial I & María de los Ángeles Sandoval Romero & 11 \\ \hline
-  308 & Geometría Diferencial I & Elhoim Llorente Sumano y Ramírez & 18 \\ \hline
-  309 & Geometría Moderna I & Narda Cordero Michel & 8 \\ \hline
-  310 & Geometría Moderna I & Lilia Montserrat Vite Escobedo & 8 \\ \hline
-  311 & Geometría Moderna I & Esteban Rubén Hurtado Cruz & 10 \\ \hline
-  312 & Geometría Moderna I & Francisco de Jesús Struck Chávez & 10 \\ \hline
-  313 & Geometría Moderna I & Vinicio Antonio Gómez Gutiérrez & 10 \\ \hline
-  314 & Geometría Moderna I & José Antonio Gómez Ortega & 11 \\ \hline
-  315 & Geometría Moderna I & Juan Salvador Garza Ledesma & 15 \\ \hline
-  316 & Geometría Moderna I & Héctor Eduardo Martínez Moreno & 18 \\ \hline
-  317 & Geometría Moderna I & Jorge Alonso Santos Mellado & 19 \\ \hline
-  318 & Geometría Moderna II & Isabel Alicia Hubard Escalera & 10 \\ \hline
-  319 & Inferencia Estadística & Jimmy Hernández Morales & 7 \\ \hline
-  320 & Inferencia Estadística & Carlos Erwin Rodríguez Hernández-Vela & 10 \\ \hline
-  321 & Inferencia Estadística & Edna Gabriela López Estrada & 10 \\ \hline
-  322 & Inferencia Estadística & Miguel Arturo Ballesteros Montero & 10 \\ \hline
-  323 & Inferencia Estadística & Lizbeth Román Padilla & 16 \\ \hline
-  324 & Inferencia Estadística & Antonio Soriano Flores & 17 \\ \hline
-  325 & Inferencia Estadística & César Almenara Martínez & 19 \\ \hline
-  326 & Inferencia Estadística & Hugo Villaseñor Hernández & 19 \\ \hline
-  327 & Inglés I & Paulina Torres Carranza & 7 \\ \hline
-  328 & Inglés I & Lilian Moreno Roldán & 11 \\ \hline
-  329 & Inglés I & María Teresa Pozos Delgado & 14 \\ \hline
-  330 & Inglés II & Lidia Fabiola Quevedo Rojas & 8 \\ \hline
-  331 & Inglés II & Maria Teresa Saavedra Sordo & 13 \\ \hline
-  332 & Inglés III & Arturo García Miranda & 7 \\ \hline
-  333 & Inglés VI & Alejandro Pérez Meléndez & 10 \\ \hline
-  334 & Inglés VI & Cesar Martinez Salazar & 13 \\ \hline
-  335 & Inglés VI & Manuel Enrique Camargo Coronel & 14 \\ \hline
-  336 & Introducción a Ciencias de la Computación & Amparo López Gaona & 8 \\ \hline
-  337 & Introducción a Ciencias de la Computación & Pedro Ulises Cervantes González & 10 \\ \hline
-  338 & Introducción a Ciencias de la Computación & Francisco Valdés Souto & 10 \\ \hline
-  339 & Introducción a Ciencias de la Computación & Alejandro Hernández Mora & 12 \\ \hline
-  340 & Introducción a Ciencias de la Computación & Manuel Alcántara Juárez & 20 \\ \hline
-  341 & Introducción a la Física Cuántica & Sergio Alfonso Pelayo Escalera & 8 \\ \hline
-  342 & Introducción a la Física Cuántica & Héctor Jesús Díaz Jiménez & 8 \\ \hline
-  343 & Introducción a la Física Cuántica & Enriqueta Hernández Saldaña & 8 \\ \hline
-  344 & Introducción a la Física Cuántica & José Alberto Flandes Mendoza & 10 \\ \hline
-  345 & Introducción a la Física Cuántica & Raúl Wayne Gómez González & 10 \\ \hline
-  346 & Introducción a las Matemáticas Discretas & María del Pilar Valencia Saravia & 7 \\ \hline
-  347 & Introducción a las Matemáticas Discretas & Carlos Alberto Serrato Hernández & 8 \\ \hline
-  348 & Introducción a las Matemáticas Discretas & Carmen Astrid Lara Ortega & 8 \\ \hline
-  349 & Introducción a las Matemáticas Discretas & Rita Esther Zuazua Vega & 10 \\ \hline
-  350 & Introducción a las Matemáticas Discretas & Loiret Alejandría Dosal Trujillo & 12 \\ \hline
-  351 & Introducción a las Matemáticas Discretas & Ilan Abraham Goldfeder Ortiz & 13 \\ \hline
-  352 & Introducción a las Matemáticas Discretas & Jesús Alva Samos & 17 \\ \hline
-  353 & Introducción a las Matemáticas Discretas & Karina García Buendía & 18 \\ \hline
-  354 & Introducción a las Matemáticas Discretas & José Luis Miranda Olvera & 19 \\ \hline
-  355 & Investigación de Operaciones & Jesús Agustín Cano Garcés & 8 \\ \hline
-  356 & Investigación de Operaciones & Nilse Pamela Romero Basurto & 8 \\ \hline
-  357 & Investigación de Operaciones & Ana Lilia Anaya Muñoz & 10 \\ \hline
-  358 & Investigación de Operaciones & María del Carmen Hernández Ayuso & 12 \\ \hline
-  359 & Investigación de Operaciones & Edgar Gil Hernández Díaz & 16 \\ \hline
-  360 & Investigación de Operaciones & Minerva Elizabeth Soto Patiño & 20 \\ \hline
-  361 & Lógica Matemática I & Luis Jesús Turcio Cuevas & 11 \\ \hline
-  362 & Lógica Matemática II & José Gabriel Ocampo Márquez & 10 \\ \hline
-  363 & Manejo de Datos & Jessica Santizo Galicia & 7 \\ \hline
-  364 & Manejo de Datos & Miguel Murguía Romero & 7 \\ \hline
-  365 & Manejo de Datos & Mario González Ruiz & 9 \\ \hline
-  366 & Manejo de Datos & Araceli Eugenia Mercado Fernández & 9 \\ \hline
-  367 & Manejo de Datos & Miguel Ehécatl Morales Trujillo & 10 \\ \hline
-  368 & Manejo de Datos & Gerardo Avilés Rosas & 12 \\ \hline
-  369 & Manejo de Datos & Miriam Sosa Díaz & 13 \\ \hline
-  370 & Manejo de Datos & José Alfredo Cobián Campos & 13 \\ \hline
-  371 & Manejo de Datos & Javier García García & 16 \\ \hline
-  372 & Manejo de Datos & Silvestre Ruíz Salinas & 20 \\ \hline
-  373 & Manejo de Datos & Daniel Alejandro Cervantes Cabrera & 20 \\ \hline
-  374 & Matemáticas Actuariales del Seguro de Personas I & María Fernanda López Hernández & 7 \\ \hline
-  375 & Matemáticas Actuariales del Seguro de Personas I & Karina Vargas Cruz & 8 \\ \hline
-  376 & Matemáticas Actuariales del Seguro de Personas II & Jorge Luis Reyes García & 7 \\ \hline
-  377 & Matemáticas Actuariales del Seguro de Personas II & Ángel Manuel Godoy Aguilar & 7 \\ \hline
-  378 & Matemáticas Actuariales del Seguro de Personas II & Alfonso Parrao Guzman & 19 \\ \hline
-  379 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & José Luis López Escorcia & 7 \\ \hline
-  380 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Jorge Luis Reyes García & 8 \\ \hline
-  381 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Irma Rocío Villa Valles & 10 \\ \hline
-  382 & Matemáticas Financieras & Erik Alexander Castro Loyo & 7 \\ \hline
-  383 & Matemáticas Financieras & Viviana Díaz Magallanes & 8 \\ \hline
-  384 & Matemáticas Financieras & Alejandro Carrillo Nolazco & 19 \\ \hline
-  385 & Matemáticas para las Ciencias Aplicadas I & Alejandro Villarreal López & 10 \\ \hline
-  386 & Matemáticas para las Ciencias Aplicadas I & Luis Enrique Quintanar Cortés & 10 \\ \hline
-  387 & Matemáticas para las Ciencias Aplicadas I & Pedro Porras Flores & 10 \\ \hline
-  388 & Matemáticas para las Ciencias Aplicadas I & Jonathan Galván Colín & 14 \\ \hline
-  389 & Matemáticas para las Ciencias Aplicadas II & Jonathan Galván Colín & 8 \\ \hline
-  390 & Matemáticas para las Ciencias Aplicadas II & Jorge Clouthier López & 8 \\ \hline
-  391 & Matemáticas para las Ciencias Aplicadas II & Omar Recillas Ayala & 10 \\ \hline
-  392 & Matemáticas para las Ciencias Aplicadas II & Oscar Olicón Hernández & 10 \\ \hline
-  393 & Matemáticas para las Ciencias Aplicadas II & Juan Carlos Balleza García & 10 \\ \hline
-  394 & Matemáticas para las Ciencias Aplicadas II & Víctor Hugo Alvarado Becerril & 10 \\ \hline
-  395 & Matemáticas para las Ciencias Aplicadas II & Pedro Eduardo Miramontes Vidal & 13 \\ \hline
-  396 & Matemáticas para las Ciencias Aplicadas II & Raúl Jaime Torres Rojas & 16 \\ \hline
-  397 & Matemáticas para las Ciencias Aplicadas III & Daniel Castillo Rodríguez Arana & 8 \\ \hline
-  398 & Matemáticas para las Ciencias Aplicadas III & Pedro Porras Flores & 8 \\ \hline
-  399 & Matemáticas para las Ciencias Aplicadas III & Jorge Clouthier López & 10 \\ \hline
-  400 & Matemáticas para las Ciencias Aplicadas III & Luciano Martínez Balbuena & 10 \\ \hline
-  401 & Matemáticas para las Ciencias Aplicadas III & Alejandro Villarreal López & 12 \\ \hline
-  402 & Matemáticas para las Ciencias Aplicadas III & Juan Guillermo Munguía Fernández & 18 \\ \hline
-  403 & Matemáticas para las Ciencias Aplicadas IV & Oscar García Zarco & 10 \\ \hline
-  404 & Matemáticas para las Ciencias Aplicadas IV & Temilotzin Ibarra Delgadillo & 10 \\ \hline
-  405 & Matemáticas para las Ciencias Aplicadas IV & Isaac Arelio Ríos & 10 \\ \hline
-  406 & Matemáticas para las Ciencias Aplicadas IV & Mariana Soledad Centeno Sierra & 10 \\ \hline
-  407 & Matemáticas para las Ciencias Aplicadas IV & Daniel Castillo Rodríguez Arana & 18 \\ \hline
-  408 & Mecánica Analítica & María Luisa Marquina Fábrega & 10 \\ \hline
-  409 & Mecánica Analítica & Jerónimo Alonso Cortez Quezada & 10 \\ \hline
-  410 & Mecánica Analítica & Mariano Chernicoff Minsberg & 14 \\ \hline
-  411 & Mecánica Cuántica & Vicenta Sánchez Morales & 8 \\ \hline
-  412 & Mecánica Cuántica & Eugenio Ley Koo & 10 \\ \hline
-  413 & Mecánica Cuántica & Fernando Matías Moreno Yntriago & 10 \\ \hline
-  414 & Mecánica Cuántica & Enriqueta Hernández Saldaña & 10 \\ \hline
-  415 & Mecánica Cuántica & Gabriela Murguía Romero & 16 \\ \hline
-  416 & Mecánica Vectorial & Jorge Ramón Soto Mercado & 7 \\ \hline
-  417 & Mecánica Vectorial & Eric Vázquez Jauregui & 8 \\ \hline
-  418 & Mecánica Vectorial & Luciano Martínez Balbuena & 8 \\ \hline
-  419 & Mecánica Vectorial & José Antonio Fragoso Uroza & 8 \\ \hline
-  420 & Mecánica Vectorial & Fernando Sánchez Rueda & 8 \\ \hline
-  421 & Mecánica Vectorial & Jerónimo Alonso Cortez Quezada & 8 \\ \hline
-  422 & Mecánica Vectorial & Héctor Hernández Coronado & 10 \\ \hline
-  423 & Mecánica Vectorial & Darío Núñez Zúñiga & 10 \\ \hline
-  424 & Mecánica Vectorial & Víctor Hugo Meza Laguna & 10 \\ \hline
-  425 & Mecánica Vectorial & Carlos Málaga Iguiñiz & 10 \\ \hline
-  426 & Mecánica Vectorial & Alejandro Valderrama Zaldívar & 10 \\ \hline
-  427 & Mecánica Vectorial & Manuel Gerardo Quintana García & 10 \\ \hline
-  428 & Mecánica Vectorial & Consuelo García Alcántara & 11 \\ \hline
-  429 & Mecánica Vectorial & Aurore Marie Pascale Nicole Courtoy & 12 \\ \hline
-  430 & Mecánica Vectorial & Héctor Miguel Mejía Díaz & 14 \\ \hline
-  431 & Mecánica Vectorial & Eleazar Neri Medina & 14 \\ \hline
-  432 & Mecánica Vectorial & Roberto de Jesús León Montiel & 14 \\ \hline
-  433 & Mecánica Vectorial & Isaías Rodríguez Aguirre & 15 \\ \hline
-  434 & Mecánica Vectorial & Francisco Nettel Rueda & 16 \\ \hline
-  435 & Mecánica Vectorial & José Alfredo Heras Gómez & 17 \\ \hline
-  436 & Mecánica Vectorial & David García Gudiño & 18 \\ \hline
-  437 & Mercados Financieros y Valuación de Instrumentos & Emmanuel Rodríguez Balleza & 7 \\ \hline
-  438 & Mercados Financieros y Valuación de Instrumentos & Jorge Luis Saviñon Basurto & 8 \\ \hline
-  439 & Mercados Financieros y Valuación de Instrumentos & Eduardo Selim Martínez Mayorga & 9 \\ \hline
-  440 & Mercados Financieros y Valuación de Instrumentos & José Roberto Trigueros Cortés & 18 \\ \hline
-  441 & Mercados Financieros y Valuación de Instrumentos & Yurguen Hugo Camargo Serafin & 20 \\ \hline
-  442 & Métodos Cuantitativos en Finanzas & Eduardo Selim Martínez Mayorga & 7 \\ \hline
-  443 & Métodos Cuantitativos en Finanzas & Ramiro Alberto Domínguez Ameneyro & 7 \\ \hline
-  444 & Métodos Cuantitativos en Finanzas & Jorge Luis Silva Haro & 8 \\ \hline
-  445 & Métodos Cuantitativos en Finanzas & Irma Rocío Zavala Sierra & 8 \\ \hline
-  446 & Métodos Cuantitativos en Finanzas & Jorge Humberto Del Castillo Spíndola & 15 \\ \hline
-  447 & Métodos Cuantitativos en Finanzas & Alberto Cadena Martínez & 16 \\ \hline
-  448 & Métodos Cuantitativos en Finanzas & Daniela Alejandra González Ramírez & 18 \\ \hline
-  449 & Métodos Cuantitativos en Finanzas & Fernando Díaz López & 19 \\ \hline
-  450 & Métodos Cuantitativos en Finanzas & Juan Diego Nieves Ledesma & 20 \\ \hline
-  451 & Modelado y Programación & Odín Miguel Escorza Soria & 10 \\ \hline
-  452 & Modelado y Programación & José de Jesús Galaviz Casas & 10 \\ \hline
-  453 & Modelado y Programación & Gustavo Arturo Márquez Flores & 12 \\ \hline
-  454 & Modelos de Supervivencia y de Series de Tiempo & Gerardo Sisniega Lira & 7 \\ \hline
-  455 & Modelos de Supervivencia y de Series de Tiempo & David Chaffrey Moreno Fernández & 8 \\ \hline
-  456 & Modelos de Supervivencia y de Series de Tiempo & Luis Antonio Rincón Solís & 9 \\ \hline
-  457 & Modelos de Supervivencia y de Series de Tiempo & Jose Salvador Zamora Muñoz & 10 \\ \hline
-  458 & Modelos de Supervivencia y de Series de Tiempo & Claudia González González & 10 \\ \hline
-  459 & Modelos de Supervivencia y de Series de Tiempo & Ricardo Ramírez Aldana & 12 \\ \hline
-  460 & Modelos de Supervivencia y de Series de Tiempo & Guillermina Eslava Gómez & 13 \\ \hline
-  461 & Modelos de Supervivencia y de Series de Tiempo & César Almenara Martínez & 16 \\ \hline
-  462 & Modelos de Supervivencia y de Series de Tiempo & Francisco Sánchez Villarreal & 18 \\ \hline
-  463 & Modelos no Paramétricos y de Regresión & Inocencio Rafael Madrid Ríos & 9 \\ \hline
-  464 & Modelos no Paramétricos y de Regresión & Javier Santibañez Cortés & 10 \\ \hline
-  465 & Modelos no Paramétricos y de Regresión & Margarita Elvira Chávez Cano & 10 \\ \hline
-  466 & Modelos no Paramétricos y de Regresión & Jaime Vázquez Alamilla & 12 \\ \hline
-  467 & Modelos no Paramétricos y de Regresión & Lizbeth Naranjo Albarrán & 13 \\ \hline
-  468 & Modelos no Paramétricos y de Regresión & Miguel Ángel Chong Rodríguez & 16 \\ \hline
-  469 & Modelos no Paramétricos y de Regresión & Rosa Daniela Chávez Aguilar & 20 \\ \hline
-  470 & Óptica & Andrea Luisa Aburto Espina & 8 \\ \hline
-  471 & Óptica & José Ignacio Jiménez Mier y Terán & 8 \\ \hline
-  472 & Óptica & Víctor Hugo Meza Laguna & 8 \\ \hline
-  473 & Óptica & José Luis Pérez Mazariego & 8 \\ \hline
-  474 & Óptica & Nadia Ramírez Cruz & 10 \\ \hline
-  475 & Óptica & Manuel Campos García & 18 \\ \hline
-  476 & Pensiones Privadas & Carlos Fernando Lozano Nathal & 7 \\ \hline
-  477 & Pensiones Privadas & Ernesto Rosas Garcia & 7 \\ \hline
-  478 & Pensiones Privadas & José Antonio Valencia Trujillo & 9 \\ \hline
-  479 & Pensiones Privadas & Francisco Fernando Morales Castro & 19 \\ \hline
-  480 & Planeación Estratégica & Carlos Orozco Rocha & 7 \\ \hline
-  481 & Planeación Estratégica & Víctor Manuel Solís Nájera & 7 \\ \hline
-  482 & Planeación Estratégica & Mauricio Aguilar González & 20 \\ \hline
-  483 & Probabilidad I & Guadalupe Carrasco Licea & 8 \\ \hline
-  484 & Probabilidad I & Daniel Alejandro Zurita Gutiérrez & 8 \\ \hline
-  485 & Probabilidad I & Laura Nayeli Liljehult León & 8 \\ \hline
-  486 & Probabilidad I & Jaime Vázquez Alamilla & 8 \\ \hline
-  487 & Probabilidad I & Perla Marysol Ruiz Arias & 10 \\ \hline
-  488 & Probabilidad I & Arrigo Coen Coria & 10 \\ \hline
-  489 & Probabilidad I & Francisco Pérez Carbajal & 10 \\ \hline
-  490 & Probabilidad I & María del Pilar Alonso Reyes & 10 \\ \hline
-  491 & Probabilidad I & Bibiana Obregón Quintana & 14 \\ \hline
-  492 & Probabilidad I & Federico Lasa Gonsebatt & 16 \\ \hline
-  493 & Probabilidad I & Claudia Cristina Reyes Montes de Oca & 18 \\ \hline
-  494 & Probabilidad I & Yuri Salazar Flores & 19 \\ \hline
-  495 & Probabilidad II & Sandra Palau Calderón & 8 \\ \hline
-  496 & Probabilidad II & Ernesto Cruz Guerrero & 8 \\ \hline
-  497 & Probabilidad II & Daniel Cervantes Filoteo & 8 \\ \hline
-  498 & Probabilidad II & Fernando Guerrero Poblete & 10 \\ \hline
-  499 & Probabilidad II & David Josafat Santana Cobian & 10 \\ \hline
-  500 & Probabilidad II & Marco Arieli Herrera Valdez & 10 \\ \hline
-  501 & Probabilidad II & Luis Antonio Rincón Solís & 10 \\ \hline
-  502 & Probabilidad II & Alberto Contreras Cristán & 11 \\ \hline
-  503 & Probabilidad II & Fernando Díaz López & 13 \\ \hline
-  504 & Probabilidad II & Francisco Daniel Ramírez Calixto & 13 \\ \hline
-  505 & Probabilidad II & Iván Ixcoatl Juárez López & 14 \\ \hline
-  506 & Probabilidad II & Miguel Ángel García Álvarez & 17 \\ \hline
-  507 & Probabilidad II & Juan González Hernández & 18 \\ \hline
-  508 & Probabilidad II & Federico Lasa Gonsebatt & 18 \\ \hline
-  509 & Probabilidad II & América Andrea Sandoval Zárate & 20 \\ \hline
-  510 & Procesos Estocásticos I & Fernando Guerrero Poblete & 8 \\ \hline
-  511 & Procesos Estocásticos I & Adrián González Casanova Soberon & 8 \\ \hline
-  512 & Procesos Estocásticos I & Jose Rodrigo Iniesta Miranda & 9 \\ \hline
-  513 & Procesos Estocásticos I & Rodrigo Quijón Hipólito & 10 \\ \hline
-  514 & Procesos Estocásticos I & Jorge Ignacio González Cázares & 10 \\ \hline
-  515 & Procesos Estocásticos I & Ricardo Hoyos Argüelles & 10 \\ \hline
-  516 & Procesos Estocásticos I & María Clara Fittipaldi & 10 \\ \hline
-  517 & Procesos Estocásticos I & María Fernanda Gil Leyva Villa & 12 \\ \hline
-  518 & Procesos Estocásticos I & Carlos Fidel Selva Ochoa & 18 \\ \hline
-  519 & Procesos Estocásticos II & María Asunción Begoña Fernández Fernández & 10 \\ \hline
-  520 & Productos Financieros Derivados & Guillermo Rolando Rosas Figueroa & 7 \\ \hline
-  521 & Productos Financieros Derivados & Juan Diego Amaya Figueroa & 8 \\ \hline
-  522 & Productos Financieros Derivados & Jesús Agustín Cano Garcés & 10 \\ \hline
-  523 & Productos Financieros Derivados & Germán Valle Trujillo & 18 \\ \hline
-  524 & Programación & José Carlos León Pérez & 7 \\ \hline
-  525 & Programación & Adriana Bermúdez Salguero & 7 \\ \hline
-  526 & Programación & Víctor Manuel Carreón Calderón & 7 \\ \hline
-  527 & Programación & Mario González Ruiz & 8 \\ \hline
-  528 & Programación & Sonia Josefina Valery Lobo & 9 \\ \hline
-  529 & Programación & Amparo López Gaona & 9 \\ \hline
-  530 & Programación & Luis Enrique Serrano Gutiérrez & 10 \\ \hline
-  531 & Programación & Gerardo Avilés Rosas & 13 \\ \hline
-  532 & Programación & María Fernanda Sánchez Puig & 13 \\ \hline
-  533 & Programación & José Alfredo Cobián Campos & 15 \\ \hline
-  534 & Programación & Alejandro Carrillo Nolazco & 17 \\ \hline
-  535 & Programación & Pablo Alberto Tintor Jiménez & 18 \\ \hline
-  536 & Redes de Computadoras & José David Flores Peñaloza & 10 \\ \hline
-  537 & Relatividad & Juan Carlos Degollado Daza & 8 \\ \hline
-  538 & Relatividad & Juan Manuel García Islas & 10 \\ \hline
-  539 & Relatividad & Ismael Oviedo De Julian & 10 \\ \hline
-  540 & Relatividad & Mariano Chernicoff Minsberg & 10 \\ \hline
-  541 & Relatividad & Yuri Bonder Grimberg & 12 \\ \hline
-  542 & Relatividad & Sebastián Nájera Valencia & 16 \\ \hline
-  543 & Relatividad & Alejandro Cruz Osorio & 18 \\ \hline
-  544 & Seguridad Social & Daniela Alejandra González Ramírez & 8 \\ \hline
-  545 & Seguridad Social & César Ponzanelli Velázquez & 8 \\ \hline
-  546 & Seminario de Álgebra A & Martha Takane Imay & 8 \\ \hline
-  547 & Seminario de Álgebra A & Enrique Javier Elizondo Huerta & 10 \\ \hline
-  548 & Seminario de Álgebra A & Emilio Esteban Lluis Puebla & 10 \\ \hline
-  549 & Seminario de Álgebra A & Juan José Alba González & 14 \\ \hline
-  550 & Seminario de Álgebra A & Javier Valdez Quijada & 20 \\ \hline
-  551 & Seminario de Aplicaciones Actuariales & Christian Uriel Carmona Pérez & 8 \\ \hline
-  552 & Seminario de Aplicaciones Actuariales & Víctor Manuel Solís Nájera & 8 \\ \hline
-  553 & Seminario de Aplicaciones Actuariales & Alonso Baranda Lozada & 8 \\ \hline
-  554 & Seminario de Aplicaciones Actuariales & Mónica Iliana Sánchez Zaragoza & 8 \\ \hline
-  555 & Seminario de Aplicaciones Actuariales & Ricardo Ramírez Aldana & 10 \\ \hline
-  556 & Seminario de Aplicaciones Actuariales & Carlos Díaz Ávalos & 10 \\ \hline
-  557 & Seminario de Aplicaciones Actuariales & Emilio Gutiérrez Calderón & 19 \\ \hline
-  558 & Seminario de Aplicaciones Actuariales & José Fernando Soriano Flores & 20 \\ \hline
-  559 & Seminario de Apoyo a la Titulación en Matemáticas & Francisco Javier Torres Ayala & 15 \\ \hline
-  560 & Seminario de Ciencias de la Computación & German Ernesto Zapata Ledesma & 8 \\ \hline
-  561 & Seminario de Ciencias de la Computación & Jonathan Banfi Vázquez & 8 \\ \hline
-  562 & Seminario de Ciencias de la Computación & Sergio Rajsbaum Gorodezky & 10 \\ \hline
-  563 & Seminario de Ciencias de la Computación & Jorge Luis Ortega Arjona & 10 \\ \hline
-  564 & Seminario de Ciencias de la Computación & Salvador López Mendoza & 10 \\ \hline
-  565 & Seminario de Ciencias de la Computación & José David Flores Peñaloza & 12 \\ \hline
-  566 & Seminario de Ciencias de la Computación & Jorge Luis Ortega Arjona & 16 \\ \hline
-  567 & Seminario de Ciencias de la Computación & Salvador López Mendoza & 16 \\ \hline
-  568 & Seminario de Ciencias de la Computación & Josafat Isai Guerrero Iñiguez & 18 \\ \hline
-  569 & Seminario de Estadística I & Rafael Miranda Cordero & 10 \\ \hline
-  570 & Seminario de Estadística I & Ruth Selene Fuentes García & 10 \\ \hline
-  571 & Seminario de Geometría A & Pablo Rosell González & 7 \\ \hline
-  572 & Seminario de Geometría A & Antonio Lascurain Orive & 12 \\ \hline
-  573 & Seminario de Topología A & Alejandro Illanes Mejía & 10 \\ \hline
-  574 & Seminario de Topología A & Saúl Arce Rocha & 19 \\ \hline
-  575 & Seminario Matemáticas Aplicadas I & María de la Luz Jimena de Teresa de Oteyza & 9 \\ \hline
-  576 & Seminario Matemáticas Aplicadas I & Hortensia Galeana Sánchez & 10 \\ \hline
-  577 & Seminario Matemáticas Aplicadas I & Adrián González Casanova Soberon & 10 \\ \hline
-  578 & Seminario Matemáticas Aplicadas I & Adonis Germinal Cocho Gil & 13 \\ \hline
-  579 & Seminario Matemáticas Aplicadas I & Alexandra Guzmán Velázquez & 13 \\ \hline
-  580 & Seminario Matemáticas Aplicadas I & Pedro José Sobrevilla Moreno & 17 \\ \hline
-  581 & Seminario Matemáticas Aplicadas I & José Guadalupe Vázquez Vázquez & 19 \\ \hline
-  582 & Seminario sobre Enseñanza de las Matemáticas I & Carmen Martínez-Adame Isaís & 9 \\ \hline
-  583 & Seminario sobre Enseñanza de las Matemáticas I & José Rafael Martínez Enríquez & 10 \\ \hline
-  584 & Seminario sobre Enseñanza de las Matemáticas I & Carlos Torres Alcaraz & 12 \\ \hline
-  585 & Seminario sobre Enseñanza de las Matemáticas I & Carlos Torres Alcaraz & 13 \\ \hline
-  586 & Seminario Sobre Enseñanza Matemáticas III & Alejandro Ricardo Garciadiego Dantan & 8 \\ \hline
-  587 & Taller de Herramientas Computacionales & Armando Orozco Cortés & 8 \\ \hline
-  588 & Taller de Herramientas Computacionales & Yuriria Cortés Poza & 10 \\ \hline
-  589 & Temas Selectos de Economía & Luis Alberto Quezada Téllez & 8 \\ \hline
-  590 & Teoría de Gráficas & Jesús Alva Samos & 8 \\ \hline
-  591 & Teoría de Gráficas & Christian Rubio Montiel & 9 \\ \hline
-  592 & Teoría de los Conjuntos I & Rodrígo Edmundo Cepeda Morales & 8 \\ \hline
-  593 & Teoría de los Conjuntos I & Ángel Tamariz Mascarúa & 13 \\ \hline
-  594 & Teoría de los Conjuntos I & Mauricio Salinas Rodríguez & 15 \\ \hline
-  595 & Teoría de los Conjuntos II & Manuel Alejandro Lara Mary & 9 \\ \hline
-  596 & Teoría de los Números I & Elhoim Llorente Sumano y Ramírez & 17 \\ \hline
-  597 & Teoría de los Números II & Alejandro De Las Peñas Castaño & 8 \\ \hline
-  598 & Teoría de Redes & Leonardo López Monroy & 7 \\ \hline
-  599 & Teoría del Riesgo & Luis Alberto Olvera García & 7 \\ \hline
-  600 & Teoría del Riesgo & Karen Lanzguerrero Obeid & 8 \\ \hline
-  601 & Teoría del Riesgo & Roberto Méndez Rosas & 10 \\ \hline
-  602 & Teoría del Riesgo & Yuri Salazar Flores & 10 \\ \hline
-  603 & Teoría del Riesgo & Gabriela Stephania Revueltas Hernández & 11 \\ \hline
-  604 & Teoría del Riesgo & Edgar Gerardo Alarcón González & 18 \\ \hline
-  605 & Teoría del Seguro & Jorge Yslas Altamirano & 7 \\ \hline
-  606 & Termodinámica & Carlos Enrique Román Velázquez & 8 \\ \hline
-  607 & Termodinámica & Manuel Gerardo Quintana García & 8 \\ \hline
-  608 & Termodinámica & René Carrillo Moreno & 8 \\ \hline
-  609 & Termodinámica & Víctor Manuel Romero Rochín & 10 \\ \hline
-  610 & Termodinámica & Rodolfo Patricio Martínez y Romero & 10 \\ \hline
-  611 & Termodinámica & Luis Felipe del Castillo Dávila & 12 \\ \hline
-  612 & Topología I & Gerardo Acosta García & 8 \\ \hline
-  613 & Topología I & Sergio Macías Álvarez & 9 \\ \hline
-  614 & Topología I & Ángel Tamariz Mascarúa & 10 \\ \hline
-  615 & Topología I & María Isabel Puga Espinosa & 13 \\ \hline
-  616 & Topología I & Patricia Pellicer Covarrubias & 18 \\ \hline
-  617 & Topología I & Jesús Manuel Mayorquín García & 19 \\ \hline
-  618 & Topología II & Patricia Pellicer Covarrubias & 14 \\ \hline
-  619 & Variable Compleja I & Ricardo Gómez Aiza & 10 \\ \hline
-  620 & Variable Compleja I & Emigdio Martínez Ojeda & 10 \\ \hline
-  621 & Variable Compleja I & Héctor Fidencio Sánchez Morgado & 10 \\ \hline
-  622 & Variable Compleja I & Santiago López de Medrano Sánchez & 10 \\ \hline
-  623 & Variable Compleja I & Carisa Cano Figueroa & 10 \\ \hline
-  624 & Variable Compleja I & Oscar Alfredo Palmas Velasco & 11 \\ \hline
-  625 & Variable Compleja I & Pavel Ramos Martínez & 14 \\ \hline
-  626 & Variable Compleja I & Jefferson Edwin King Dávalos & 15 \\ \hline
-  627 & Variable Compleja I & Roberto Pichardo Mendoza & 16 \\ \hline
-  628 & Variable Compleja I & Jesús Manuel Mayorquín García & 17 \\ \hline
-  629 & Variable Compleja I & Alejandro Gaona Ordoñez & 18 \\ \hline
-  630 & Variable Compleja I & Jorge Hernández Hernández & 19 \\ \hline
+1 & Administración Actuarial del Riesgo & Fernando Pérez Márquez & 7 \\ \hline
+2 & Administración Actuarial del Riesgo & Samadhi Cervantes Torres & 8 \\ \hline
+3 & Administración de Riesgos Financieros & María Araceli Bernabe Rocha & 8 \\ \hline
+4 & Administración Financiera & Pedro Luis Soto Tejeda & 8 \\ \hline
+5 & Álgebra Lineal I & Irvin Arellano Rosas & 7 \\ \hline
+6 & Álgebra Lineal I & León Felipe Villalobos Sánchez & 8 \\ \hline
+7 & Álgebra Lineal I & Rodrígo Edmundo Cepeda Morales & 8 \\ \hline
+8 & Álgebra Lineal I & Andres Barei Bueno & 8 \\ \hline
+9 & Álgebra Lineal I & César Alejandro Rincón Orta & 8 \\ \hline
+10 & Álgebra Lineal I & Karina García Buendía & 8 \\ \hline
+11 & Álgebra Lineal I & Alma Violeta García López & 8 \\ \hline
+12 & Álgebra Lineal I & Francisco Marmolejo Rivas & 9 \\ \hline
+13 & Álgebra Lineal I & Gabriela Campero Arena & 9 \\ \hline
+14 & Álgebra Lineal I & Hugo Arizmendi Peimbert & 10 \\ \hline
+15 & Álgebra Lineal I & Jorge Luis Arocha Pérez & 10 \\ \hline
+16 & Álgebra Lineal I & Adolfo Guillot Santiago & 10 \\ \hline
+17 & Álgebra Lineal I & Gustavo Amilcar Saldaña Moncada & 10 \\ \hline
+18 & Álgebra Lineal I & María del Carmen Heréndira Gómez Laveaga & 12 \\ \hline
+19 & Álgebra Lineal I & Adriana Léon Montes & 13 \\ \hline
+20 & Álgebra Lineal I & José Pozo Martínez & 14 \\ \hline
+21 & Álgebra Lineal I & Juan Orendain Almada & 15 \\ \hline
+22 & Álgebra Lineal I & Iván Fernando Vilchis Montalvo & 17 \\ \hline
+23 & Álgebra Lineal I & José Cruz García Zagal & 18 \\ \hline
+24 & Álgebra Lineal I & Jorge Andrés Rosas Ávila & 18 \\ \hline
+25 & Álgebra Lineal I & Víctor Manuel Ávila Baez & 18 \\ \hline
+26 & Álgebra Lineal I & Israel Zamorano Romero & 18 \\ \hline
+27 & Álgebra Lineal I & José Miguel Salazar Montiel & 19 \\ \hline
+28 & Álgebra Lineal I & Raúl Bartolo Martínez & 20 \\ \hline
+29 & Álgebra Lineal II & Daniela Mariyet Terán Guerrero & 7 \\ \hline
+30 & Álgebra Lineal II & Benjamín Iván Juárez Santos & 7 \\ \hline
+31 & Álgebra Lineal II & Carlos Alberto Serrato Hernández & 8 \\ \hline
+32 & Álgebra Lineal II & Gustavo Amilcar Saldaña Moncada & 9 \\ \hline
+33 & Álgebra Lineal II & Juan Carlos García Altamirano & 10 \\ \hline
+34 & Álgebra Lineal II & Rocío del Pilar Aguilar Benítez & 10 \\ \hline
+35 & Álgebra Lineal II & Guillermo Javier Francisco Sienra Loera & 10 \\ \hline
+36 & Álgebra Lineal II & Juan Morales Rodríguez & 10 \\ \hline
+37 & Álgebra Lineal II & Jorge Luis Arocha Pérez & 13 \\ \hline
+38 & Álgebra Lineal II & Alejandro Alvarado García & 14 \\ \hline
+39 & Álgebra Lineal II & Lorena Morales Callejas & 16 \\ \hline
+40 & Álgebra Lineal II & William José Gallardo & 17 \\ \hline
+41 & Álgebra Lineal II & José Miguel Salazar Montiel & 18 \\ \hline
+42 & Álgebra Moderna I & Mindy Yaneli Huerta Pérez & 7 \\ \hline
+43 & Álgebra Moderna I & José Cruz García Zagal & 15 \\ \hline
+44 & Álgebra Moderna I & Sergio Hiroki Koike Quintanar & 15 \\ \hline
+45 & Álgebra Moderna I & José Collins Castro & 16 \\ \hline
+46 & Álgebra Moderna I & Christopher Román Silva Sarabia & 18 \\ \hline
+47 & Álgebra Moderna I & Edgar Migueles Pérez & 19 \\ \hline
+48 & Álgebra Moderna II & José Gabriel Ocampo Márquez & 7 \\ \hline
+49 & Álgebra Moderna II & Diana Avella Alaminos & 10 \\ \hline
+50 & Álgebra Moderna II & Bertha María Tomé Arreola & 10 \\ \hline
+51 & Álgebra Moderna II & Mauricio Gabriel Medina Bárcenas & 14 \\ \hline
+52 & Álgebra Moderna II & Eugenia O'Reilly Regueiro & 18 \\ \hline
+  53 & Álgebra Moderna III & Frank Patrick Murphy Hernández & 7 \\ \hline
+  54 & Álgebra Moderna III & Valente Santiago Vargas & 9 \\ \hline
+  55 & Álgebra Moderna III & Marco Federico Larrea Schiavon & 17 \\ \hline
+  56 & Álgebra Superior I & Alejandra Osiris Romero Juárez & 7 \\ \hline
+  57 & Álgebra Superior I & Lorena Morales Callejas & 8 \\ \hline
+  58 & Álgebra Superior I & Daniela Mariyet Terán Guerrero & 8 \\ \hline
+  59 & Álgebra Superior I & Ernesto Mayorga Saucedo & 8 \\ \hline
+  60 & Álgebra Superior I & Lilia Guadalupe Sánchez Terán & 8 \\ \hline
+  61 & Álgebra Superior I & Martha Takane Imay & 10 \\ \hline
+  62 & Álgebra Superior I & Francisco Larrión Riveroll & 10 \\ \hline
+  63 & Álgebra Superior I & Rita Esther Zuazua Vega & 10 \\ \hline
+  64 & Álgebra Superior I & Alejandro Bravo Mojica & 10 \\ \hline
+  65 & Álgebra Superior I & Daniel Labardini Fragoso & 14 \\ \hline
+  66 & Álgebra Superior I & Paloma Hernández Zapata & 14 \\ \hline
+  67 & Álgebra Superior I & Marcelino Perello Valls & 16 \\ \hline
+  68 & Álgebra Superior I & Pavel Ramos Martínez & 17 \\ \hline
+  69 & Álgebra Superior I & Rodrigo Domínguez López & 17 \\ \hline
+  70 & Álgebra Superior I & Marco Antonio Acevedo Cardona & 18 \\ \hline
+  71 & Álgebra Superior I & Jaime Castro Pérez & 18 \\ \hline
+  72 & Álgebra Superior I & Natalia Bárbara Mantilla Beniers & 18 \\ \hline
+  73 & Álgebra Superior I & Hugo Rincón Galeana & 19 \\ \hline
+  74 & Álgebra Superior II & Tania Eréndira Rivera Torres & 7 \\ \hline
+  75 & Álgebra Superior II & Rolando Gómez Macedo & 7 \\ \hline
+  76 & Álgebra Superior II & Gabriela Cervantes Piza & 8 \\ \hline
+  77 & Álgebra Superior II & César Alejandro Rincón Orta & 9 \\ \hline
+  78 & Álgebra Superior II & Carmen Martínez Adame Isais & 9 \\ \hline
+  79 & Álgebra Superior II & Gerardo Camacho de la Rosa & 10 \\ \hline
+  80 & Álgebra Superior II & Araceli Guzmán Tristán & 10 \\ \hline
+  81 & Álgebra Superior II & Juan Morales Jr Rodríguez & 11 \\ \hline
+  82 & Álgebra Superior II & Juan Morales Rodríguez & 12 \\ \hline
+  83 & Álgebra Superior II & Antonio Lascurain Orive & 12 \\ \hline
+  84 & Álgebra Superior II & José Patricio Sánchez Hernández & 14 \\ \hline
+  85 & Álgebra Superior II & Alejandro Dorantes Aldama & 15 \\ \hline
+  86 & Álgebra Superior II & Jorge Enrique Vega Acevedo & 15 \\ \hline
+  87 & Álgebra Superior II & Emiliano Geneyro Squarzon & 16 \\ \hline
+  88 & Álgebra Superior II & Ana Patricia Kuri González & 16 \\ \hline
+  89 & Álgebra Superior II & Sebastián Pardo Guerra & 17 \\ \hline
+  90 & Álgebra Superior II & Leonardo Faustinos Morales & 18 \\ \hline
+  91 & Álgebra Superior II & Joseph Christian Sierra Gutiérrez & 20 \\ \hline
+  92 & Análisis del México Contemporáneo & Luis Alberto Galván Contreras & 8 \\ \hline
+  93 & Análisis del México Contemporáneo & Silvia Alonso Reyes & 10 \\ \hline
+  94 & Análisis del México Contemporáneo & Gustavo Esteban Andrade Díaz & 17 \\ \hline
+  95 & Análisis Matemático I & Ricardo Alberto Weder Zaninovich & 7 \\ \hline
+  96 & Análisis Matemático I & Rodrigo Jesús Hernández Gutiérrez & 7 \\ \hline
+  97 & Análisis Matemático I & Roxana Wendoline Ruiz Aguilar & 8 \\ \hline
+  98 & Análisis Matemático I & Roberto Méndez Rosas & 10 \\ \hline
+  99 & Análisis Matemático I & Agustín Ontiveros Pineda & 10 \\ \hline
+  100 & Análisis Matemático I & Carmen Martínez Adame Isais & 10 \\ \hline
+  101 & Análisis Matemático I & Sergey Antonyan & 10 \\ \hline
+  102 & Análisis Matemático I & José Lino Samaniego Mendoza & 11 \\ \hline
+  103 & Análisis Matemático I & Alberto León Kushner Schnur & 13 \\ \hline
+  104 & Análisis Matemático I & Mario Eudave Muñoz & 14 \\ \hline
+  105 & Análisis Matemático I & César Eduardo Sousa Mondragón & 14 \\ \hline
+  106 & Análisis Matemático I & Grissel Santiago González & 15 \\ \hline
+  107 & Análisis Matemático I & Vinicio Antonio Gómez Gutiérrez & 16 \\ \hline
+  108 & Análisis Matemático I & Roberto Pichardo Mendoza & 16 \\ \hline
+  109 & Análisis Matemático I & Manuel Hernández Hernández & 17 \\ \hline
+  110 & Análisis Matemático I & Alfredo Reyes Vázquez & 18 \\ \hline
+  111 & Análisis Matemático II & Esteban Librado Hernández Escamilla & 7 \\ \hline
+  112 & Análisis Matemático II & Mónica Alicia Clapp Jiménez-Labora & 10 \\ \hline
+  113 & Análisis Matemático II & Angel Manuel Carrillo Hoyo & 10 \\ \hline
+  114 & Análisis Matemático II & Manuel Jesús Falconi Magaña & 10 \\ \hline
+  115 & Análisis Matemático II & Ana Meda Guardiola & 10 \\ \hline
+  116 & Análisis Matemático II & Gerardo Sánchez Licea & 13 \\ \hline
+  117 & Análisis Matemático II & Raybel Andrés García Ancona & 14 \\ \hline
+  118 & Análisis Matemático II & Nils Heye Ackermann & 18 \\ \hline
+  119 & Análisis Matemático II & Manuel Hernández Hernández & 18 \\ \hline
+  120 & Análisis Matemático II & Juan Manuel de la Huerta Jiménez & 19 \\ \hline
+  121 & Análisis Matemático III & Magali Louise Marie Folch Gabayet & 10 \\ \hline
+  122 & Análisis Matemático III & Bernardo Vargas Cárdenas & 12 \\ \hline
+  123 & Análisis Matemático III & Guillermo Grabinsky Steider & 16 \\ \hline
+  124 & Análisis Multivariado & Guadalupe Eunice Campiran García & 13 \\ \hline
+  125 & Análisis Numérico & Antonio Carrillo Ledesma & 7 \\ \hline
+  126 & Análisis Numérico & Pablo Barrera Sánchez & 10 \\ \hline
+  127 & Análisis Numérico & Úrsula Xiomara Iturrarán Viveros & 10 \\ \hline
+  128 & Análisis Numérico & Miriam Sosa Díaz & 14 \\ \hline
+  129 & Análisis Numérico & Mario Medina Torres & 17 \\ \hline
+  130 & Análisis Numérico & Miguel Ángel Pérez León & 19 \\ \hline
+  131 & Análisis Numérico & Agustín Alberto Rosas Medina & 19 \\ \hline
+  132 & Autómatas y Lenguajes Formales & Elisa Viso Gurovich & 10 \\ \hline
+  133 & Cálculo Diferencial e Integral I & Elena de Oteyza de Oteyza & 7 \\ \hline
+  134 & Cálculo Diferencial e Integral I & Joel García León & 10 \\ \hline
+  135 & Cálculo Diferencial e Integral I & Antonmaria Gerolamo Enrico Minzoni Alessio & 10 \\ \hline
+  136 & Cálculo Diferencial e Integral I & Alessio Franci & 10 \\ \hline
+  137 & Cálculo Diferencial e Integral I & Javier Fernández García & 12 \\ \hline
+  138 & Cálculo Diferencial e Integral I & María de Lourdes Esteva Peralta & 12 \\ \hline
+  139 & Cálculo Diferencial e Integral I & José Antonio Gómez Ortega & 12 \\ \hline
+  140 & Cálculo Diferencial e Integral I & Wilfrido Martínez Torres & 15 \\ \hline
+  141 & Cálculo Diferencial e Integral I & María Lourdes Velasco Arreguí & 15 \\ \hline
+  142 & Cálculo Diferencial e Integral I & Mónica De Nova Vázquez & 16 \\ \hline
+  143 & Cálculo Diferencial e Integral I & Julio Martín Espinosa Casares & 18 \\ \hline
+  144 & Cálculo Diferencial e Integral I & Edgar René Hernández Martínez & 20 \\ \hline
+  145 & Cálculo Diferencial e Integral I & Mario Delgadillo Torres & 20 \\ \hline
+  146 & Cálculo Diferencial e Integral II & Esteban Rubén Hurtado Cruz & 10 \\ \hline
+  147 & Cálculo Diferencial e Integral II & Oscar Alberto Garrido Jiménez & 10 \\ \hline
+  148 & Cálculo Diferencial e Integral II & Carlos García Azpeitia & 10 \\ \hline
+  149 & Cálculo Diferencial e Integral II & María del Carmen Arrillaga Arjona & 10 \\ \hline
+  150 & Cálculo Diferencial e Integral II & Miguel Lara Aparicio & 10 \\ \hline
+  151 & Cálculo Diferencial e Integral II & Gustavo Cruz Pacheco & 10 \\ \hline
+  152 & Cálculo Diferencial e Integral II & Luis Manuel Hernández Gallardo & 10 \\ \hline
+  153 & Cálculo Diferencial e Integral II & María Lourdes Velasco Arreguí & 10 \\ \hline
+  154 & Cálculo Diferencial e Integral II & Fernando Brambila Paz & 11 \\ \hline
+  155 & Cálculo Diferencial e Integral II & Humberto Andrés Carrillo Calvet & 11 \\ \hline
+  156 & Cálculo Diferencial e Integral II & Héctor Méndez Lango & 11 \\ \hline
+  157 & Cálculo Diferencial e Integral II & Leticia Contreras Sandoval & 13 \\ \hline
+  158 & Cálculo Diferencial e Integral II & César Eduardo Sousa Mondragón & 13 \\ \hline
+  159 & Cálculo Diferencial e Integral II & Jesús López Estrada & 13 \\ \hline
+  160 & Cálculo Diferencial e Integral II & Héctor Bustos Castro & 14 \\ \hline
+  161 & Cálculo Diferencial e Integral II & Roberto García Medina & 15 \\ \hline
+  162 & Cálculo Diferencial e Integral II & David Meza Alcántara & 16 \\ \hline
+  163 & Cálculo Diferencial e Integral II & José Santos & 17 \\ \hline
+  164 & Cálculo Diferencial e Integral II & Francisco Javier Torres Ayala & 17 \\ \hline
+  165 & Cálculo Diferencial e Integral II & Julio César Cedillo Sánchez & 19 \\ \hline
+  166 & Cálculo Diferencial e Integral II & Leonel Rito Rodriguez & 20 \\ \hline
+  167 & Cálculo Diferencial e Integral III & Felipe de Jesús Méndez Varela & 7 \\ \hline
+  168 & Cálculo Diferencial e Integral III & Javier Fernández García & 7 \\ \hline
+  169 & Cálculo Diferencial e Integral III & Emma Lam Osnaya & 7 \\ \hline
+  170 & Cálculo Diferencial e Integral III & Alejandro Darío Rojas Sánchez & 9 \\ \hline
+  171 & Cálculo Diferencial e Integral III & Adriana Vargas Quintero & 10 \\ \hline
+  172 & Cálculo Diferencial e Integral III & Julio Martín Espinosa Casares & 10 \\ \hline
+  173 & Cálculo Diferencial e Integral III & Pablo Alberto Lara Martínez & 10 \\ \hline
+  174 & Cálculo Diferencial e Integral III & Omar Vigueras Herrera & 11 \\ \hline
+  175 & Cálculo Diferencial e Integral III & Javier Páez Cárdenas & 11 \\ \hline
+  176 & Cálculo Diferencial e Integral III & Carlos Gerardo Paniagua Ramírez & 13 \\ \hline
+  177 & Cálculo Diferencial e Integral III & Enrique Vega Ramírez & 15 \\ \hline
+  178 & Cálculo Diferencial e Integral III & Israel Ramos García & 16 \\ \hline
+  179 & Cálculo Diferencial e Integral III & Álvaro Reyes García & 18 \\ \hline
+  180 & Cálculo Diferencial e Integral III & Noé Francisco Verde Martínez & 19 \\ \hline
+  181 & Cálculo Diferencial e Integral III & Alfredo Reyes Vázquez & 19 \\ \hline
+  182 & Cálculo Diferencial e Integral IV & Sandra María Chimal Garma & 7 \\ \hline
+  183 & Cálculo Diferencial e Integral IV & Adrián Zenteno Gutiérrez & 7 \\ \hline
+  184 & Cálculo Diferencial e Integral IV & Abelardo Vela Ponce de León & 7 \\ \hline
+  185 & Cálculo Diferencial e Integral IV & Alberto Manuel Aldama Garisoain & 7 \\ \hline
+  186 & Cálculo Diferencial e Integral IV & Carlos Prieto López & 10 \\ \hline
+  187 & Cálculo Diferencial e Integral IV & Francisco Marmolejo Rivas & 10 \\ \hline
+  188 & Cálculo Diferencial e Integral IV & Javier Páez Cárdenas & 10 \\ \hline
+  189 & Cálculo Diferencial e Integral IV & Héctor Méndez Lango & 10 \\ \hline
+  190 & Cálculo Diferencial e Integral IV & Marco Antonio Montes de Oca Balderas & 14 \\ \hline
+  191 & Cálculo Diferencial e Integral IV & Emilio Cabrera Castro & 14 \\ \hline
+  192 & Cálculo Diferencial e Integral IV & Jefferson Edwin King Dávalos & 15 \\ \hline
+  193 & Cálculo Diferencial e Integral IV & Héctor Jiménez Sánchez & 17 \\ \hline
+  194 & Cálculo Diferencial e Integral IV & Oscar Alberto Garrido Jiménez & 19 \\ \hline
+  195 & Cálculo Diferencial e Integral IV & Gabriel Gutiérrez García & 19 \\ \hline
+  196 & Conjuntos y Lógica & César Hernández Cruz & 8 \\ \hline
+  197 & Conjuntos y Lógica & Fernando Javier Nuñez Rosales & 18 \\ \hline
+  198 & Contabilidad & Emelia Lorenzana Quintero & 7 \\ \hline
+  199 & Contabilidad & María de los Ángeles Garduño Crespo & 8 \\ \hline
+  200 & Contabilidad & Arely Palos Zepeda & 17 \\ \hline
+  201 & Contabilidad & Elvia Sánchez Montes & 21 \\ \hline
+  202 & Demografía & Juan Diego Terán Páez & 7 \\ \hline
+  203 & Demografía & José Rubén Fernández Román & 7 \\ \hline
+  204 & Demografía & Rodrigo Jiménez Uribe & 7 \\ \hline
+  205 & Demografía & Rosalba Jasso Vargas & 10 \\ \hline
+  206 & Demografía & Nina Castro Méndez & 11 \\ \hline
+  207 & Demografía & Mauricio Rodríguez Abreu & 17 \\ \hline
+  208 & Dinámica de Medios Deformables & Catalina Elizabeth Stern Forgach & 8 \\ \hline
+  209 & Dinámica de Medios Deformables & Guillermo Monsivais Galindo & 10 \\ \hline
+  210 & Dinámica de Medios Deformables & Consuelo García Alcántara & 12 \\ \hline
+  211 & Dinámica de Medios Deformables & Roberto Velasco Segura & 16 \\ \hline
+  212 & Economía & José Antonio Reyes León & 7 \\ \hline
+  213 & Economía & Marco Antonio García Fernández & 7 \\ \hline
+  214 & Economía & Luis Alejandro Aguilar Luna & 8 \\ \hline
+  215 & Economía & Monserrat Esquivel López & 10 \\ \hline
+  216 & Economía & Jessika Dilhery Lucas Flores & 16 \\ \hline
+  217 & Ecuaciones Diferenciales I & Catalina Apolinar García & 7 \\ \hline
+  218 & Ecuaciones Diferenciales I & Javier de Jesús Cortés Aguirre & 7 \\ \hline
+  219 & Ecuaciones Diferenciales I & Maya Lol Sosa Salas & 7 \\ \hline
+  220 & Ecuaciones Diferenciales I & Raziel Zavaleta Rodríguez & 7 \\ \hline
+  221 & Ecuaciones Diferenciales I & Laura Ortiz Bobadilla & 8 \\ \hline
+  222 & Ecuaciones Diferenciales I & Nicolás González Boileau & 8 \\ \hline
+  223 & Ecuaciones Diferenciales I & Gerardo Mejía Rodríguez & 10 \\ \hline
+  224 & Ecuaciones Diferenciales I & Luisa Márquez Rentería & 10 \\ \hline
+  225 & Ecuaciones Diferenciales I & Araceli León Estrada & 10 \\ \hline
+  226 & Ecuaciones Diferenciales I & Carlos Arturo Vargas Guadarrama & 11 \\ \hline
+  227 & Ecuaciones Diferenciales I & Manuel Jesús Falconi Magaña & 11 \\ \hline
+  228 & Ecuaciones Diferenciales I & Carlos García Azpeitia & 12 \\ \hline
+  229 & Ecuaciones Diferenciales I & Gustavo Cruz Pacheco & 13 \\ \hline
+  230 & Ecuaciones Diferenciales I & María del Carmen Jorge y Jorge & 14 \\ \hline
+  231 & Ecuaciones Diferenciales I & Adrián Ulises Soto Bañuelos & 17 \\ \hline
+  232 & Ecuaciones Diferenciales I & Karen Susana Villa Aguirre & 18 \\ \hline
+  233 & Ecuaciones Diferenciales I & Fidencio Galicia Rodríguez & 18 \\ \hline
+  234 & Ecuaciones Diferenciales I & Herminio Suárez Quiroz & 18 \\ \hline
+  235 & Ecuaciones Diferenciales I & Octavio Eduardo Vizcaya Xilotl & 19 \\ \hline
+  236 & Ecuaciones Diferenciales I & Jorge Luis Arroyo Leonor & 21 \\ \hline
+  237 & Ecuaciones Diferenciales II & Ernesto Rosales González & 8 \\ \hline
+  238 & Ecuaciones Diferenciales II & Catherine García Reimbert & 10 \\ \hline
+  239 & Ecuaciones Diferenciales II & Humberto Andrés Carrillo Calvet & 13 \\ \hline
+  240 & Ecuaciones Diferenciales II & José Luis Navarro Urrutia & 16 \\ \hline
+  241 & Ecuaciones Diferenciales Parciales I & María de los Ángeles Sandoval Romero & 11 \\ \hline
+  242 & Electromagnetismo I & Eugenio Ley Koo & 7 \\ \hline
+  243 & Electromagnetismo I & Roberto Alejandro Ruelas Mayorga & 7 \\ \hline
+  244 & Electromagnetismo I & Mirna Villavicencio Torres & 8 \\ \hline
+  245 & Electromagnetismo I & Andrea Luisa Aburto Espina & 10 \\ \hline
+  246 & Electromagnetismo I & Jorge Alfonso García Macedo & 10 \\ \hline
+  247 & Electromagnetismo I & Julio Javier Martinell Benito & 10 \\ \hline
+  248 & Electromagnetismo I & Alejandro Reyes Coronado & 10 \\ \hline
+  249 & Electromagnetismo I & José Alberto Flandes Mendoza & 10 \\ \hline
+  250 & Electromagnetismo I & Ricardo Méndez Fragoso & 16 \\ \hline
+  251 & Electromagnetismo I & Pablo Antonio Borys Sosa & 16 \\ \hline
+  252 & Electromagnetismo I & Antonio Castellanos Ramírez & 18 \\ \hline
+  253 & Electromagnetismo II & Rocío Jáuregui Renaud & 8 \\ \hline
+  254 & Electromagnetismo II & Luis Fernando Urrutia Rios & 10 \\ \hline
+  255 & Electromagnetismo II & Ángel Prieto Ruiz & 10 \\ \hline
+  256 & Estadística Bayesiana & Ruth Selene Fuentes García & 10 \\ \hline
+  257 & Estadística Bayesiana & Harim García Lamont & 19 \\ \hline
+  258 & Estructuras Discretas & Favio Ezequiel Miranda Perea & 10 \\ \hline
+  259 & Estructuras Discretas & Alma Rosario Arévalo Loyola & 14 \\ \hline
+  260 & Fenómenos Colectivos & Francisco Ramos Gómez & 8 \\ \hline
+  261 & Fenómenos Colectivos & Carlos Enrique Román Velázquez & 8 \\ \hline
+  262 & Fenómenos Colectivos & Francisco Javier Reyes Mora & 8 \\ \hline
+  263 & Fenómenos Colectivos & Luis Felipe del Castillo Dávila & 10 \\ \hline
+  264 & Fenómenos Colectivos & Margarita Sánchez y Sánchez & 10 \\ \hline
+  265 & Fenómenos Colectivos & Iván Santamaría Holek & 10 \\ \hline
+  266 & Fenómenos Colectivos & Soledad Ruiz Matus & 17 \\ \hline
+  267 & Física Computacional & Edgar Vázquez Luis & 7 \\ \hline
+  268 & Física Computacional & Ricardo Méndez Fragoso & 7 \\ \hline
+  269 & Física Computacional & Enrique Cabrera Bravo & 10 \\ \hline
+  270 & Física Computacional & Lucía Medina Gómez & 10 \\ \hline
+  271 & Física Computacional & Roxana Mitzayé Del Castillo Vázquez & 18 \\ \hline
+  272 & Física Estadística & Gerardo Carmona Ruiz & 8 \\ \hline
+  273 & Física Estadística & Guillermo Ramírez Santiago & 10 \\ \hline
+  274 & Física Estadística & Rosalío Fernando Rodríguez Zepeda & 10 \\ \hline
+  275 & Funciones Especiales y Transformadas Integrales & Mariana Martínez González & 8 \\ \hline
+  276 & Funciones Especiales y Transformadas Integrales & Guillermo Monsivais Galindo & 8 \\ \hline
+  277 & Funciones Especiales y Transformadas Integrales & Eduardo Peinado Rodríguez & 8 \\ \hline
+  278 & Funciones Especiales y Transformadas Integrales & Luis Antonio Dávalos Orozco & 10 \\ \hline
+  279 & Funciones Especiales y Transformadas Integrales & Rosario Paredes Gutiérrez & 10 \\ \hline
+  280 & Funciones Especiales y Transformadas Integrales & Mauricio García Vergara & 10 \\ \hline
+  281 & Funciones Especiales y Transformadas Integrales & Lucía Medina Gómez & 11 \\ \hline
+  282 & Funciones Especiales y Transformadas Integrales & Osvaldo Alfonso Téllez Nieto & 13 \\ \hline
+  283 & Funciones Especiales y Transformadas Integrales & Ramón Gustavo Contreras Mayen & 14 \\ \hline
+  284 & Funciones Especiales y Transformadas Integrales & Francisco Javier Martínez Farias & 16 \\ \hline
+  285 & Geometría Analítica I & Juan Flores Torres & 7 \\ \hline
+  286 & Geometría Analítica I & Jorge Chávez Carlos & 8 \\ \hline
+  287 & Geometría Analítica I & Max Neumann Coto & 8 \\ \hline
+  288 & Geometría Analítica I & Rebeca Trejo Luna & 8 \\ \hline
+  289 & Geometría Analítica I & Fernando García Rodríguez & 9 \\ \hline
+  290 & Geometría Analítica I & Jaqueline Rafaela Dolores Cañetas Ortega & 10 \\ \hline
+  291 & Geometría Analítica I & Guillermo Ruiz Galván & 10 \\ \hline
+  292 & Geometría Analítica I & Pablo Suárez Serrato & 10 \\ \hline
+  293 & Geometría Analítica I & Jesús Ángel Núñez Zimbrón & 10 \\ \hline
+  294 & Geometría Analítica I & Edgar Alvarez Zauco & 10 \\ \hline
+  295 & Geometría Analítica I & Javier Bracho Carpizo & 10 \\ \hline
+  296 & Geometría Analítica I & Oscar Alfredo Palmas Velasco & 12 \\ \hline
+  297 & Geometría Analítica I & Guillermo Javier Francisco Sienra Loera & 12 \\ \hline
+  298 & Geometría Analítica I & Federico Sánchez Bringas & 13 \\ \hline
+  299 & Geometría Analítica I & Noel Jaramillo Arce & 14 \\ \hline
+  300 & Geometría Analítica I & Leopoldo Morales López & 14 \\ \hline
+  301 & Geometría Analítica I & Víctor Manuel Ávila Baez & 17 \\ \hline
+  302 & Geometría Analítica I & Adrián Ulises Soto Bañuelos & 18 \\ \hline
+  303 & Geometría Analítica I & Jorge Ortiz Espejel & 18 \\ \hline
+  304 & Geometría Analítica I & Román Ismael Contreras Morales & 19 \\ \hline
+  305 & Geometría Analítica I & Víctor Alberto Cruz Barriguete & 20 \\ \hline
+  306 & Geometría Analítica I & Fidencio Galicia Rodríguez & 21 \\ \hline
+  307 & Geometría Analítica II & Pablo Rosell González & 7 \\ \hline
+  308 & Geometría Analítica II & Álvaro Reyes García & 7 \\ \hline
+  309 & Geometría Analítica II & Rolando Gómez Macedo & 8 \\ \hline
+  310 & Geometría Analítica II & Juan Flores Torres & 8 \\ \hline
+  311 & Geometría Analítica II & Jaqueline Rafaela Dolores Cañetas Ortega & 8 \\ \hline
+  312 & Geometría Analítica II & Gabriel Gutiérrez García & 10 \\ \hline
+  313 & Geometría Analítica II & Carlos Hernández Garciadiego & 10 \\ \hline
+  314 & Geometría Analítica II & Sergio Palafox Delgado & 10 \\ \hline
+  315 & Geometría Analítica II & Elsa Puente Vázquez & 10 \\ \hline
+  316 & Geometría Analítica II & José Guerrero Grajeda & 10 \\ \hline
+  317 & Geometría Analítica II & Alejandra García García & 10 \\ \hline
+  318 & Geometría Analítica II & Francisco Manuel Barrios Paniagua & 10 \\ \hline
+  319 & Geometría Analítica II & Eugenio Garnica Vigil & 12 \\ \hline
+  320 & Geometría Analítica II & Fernando Brambila Paz & 13 \\ \hline
+  321 & Geometría Analítica II & Pablo Barrera Sánchez & 13 \\ \hline
+  322 & Geometría Analítica II & Nora Isabel Pérez Quezadas & 14 \\ \hline
+  323 & Geometría Analítica II & Tonatihu Valdez Hernández & 15 \\ \hline
+  324 & Geometría Analítica II & Herminio Suárez Quiroz & 16 \\ \hline
+  325 & Geometría Analítica II & María de Lourdes Hernández Campos & 17 \\ \hline
+  326 & Geometría Analítica II & Maya Lol Sosa Salas & 17 \\ \hline
+  327 & Geometría Analítica II & Cristobal Falconi Hoyos & 17 \\ \hline
+  328 & Geometría Analítica II & Camilo Camhaji García & 19 \\ \hline
+  329 & Geometría Analítica II & Juan Manuel Martínez Nuño & 20 \\ \hline
+  330 & Geometría Diferencial I & Pierre Michel Bayard & 7 \\ \hline
+  331 & Geometría Diferencial I & Federico Sánchez Bringas & 10 \\ \hline
+  332 & Geometría Diferencial I & María de los Ángeles Sandoval Romero & 10 \\ \hline
+  333 & Geometría Diferencial I & Elhoim Llorente Sumano y Ramírez & 18 \\ \hline
+  334 & Geometría Moderna I & Narda Cordero Michel & 8 \\ \hline
+  335 & Geometría Moderna I & Lilia Montserrat Vite Escobedo & 8 \\ \hline
+  336 & Geometría Moderna I & Verónica Martínez de la Vega y Mansilla & 10 \\ \hline
+  337 & Geometría Moderna I & Francisco de Jesús Struck Chávez & 10 \\ \hline
+  338 & Geometría Moderna I & Vinicio Antonio Gómez Gutiérrez & 10 \\ \hline
+  339 & Geometría Moderna I & Leobardo Fernández Román & 14 \\ \hline
+  340 & Geometría Moderna I & Natalia Jonard Pérez & 17 \\ \hline
+  341 & Geometría Moderna I & Héctor Eduardo Martínez Moreno & 18 \\ \hline
+  342 & Geometría Moderna I & Saúl Arce Rocha & 19 \\ \hline
+  343 & Geometría Moderna I & Jorge Alonso Santos Mellado & 19 \\ \hline
+  344 & Geometría Moderna II & Isabel Alicia Hubard Escalera & 10 \\ \hline
+  345 & Geometría Moderna II & Luis Manuel Venegas Grajales & 18 \\ \hline
+  346 & Inferencia Estadística & Jimmy Hernández Morales & 7 \\ \hline
+  347 & Inferencia Estadística & Edna Gabriela López Estrada & 10 \\ \hline
+  348 & Inferencia Estadística & Carlos Erwin Rodríguez Hernández-Vela & 10 \\ \hline
+  349 & Inferencia Estadística & Alan Riva Palacio Cohen & 12 \\ \hline
+  350 & Inferencia Estadística & Miguel Arturo Ballesteros Montero & 13 \\ \hline
+  351 & Inferencia Estadística & Yolanda Martínez Guerrero & 16 \\ \hline
+  352 & Inferencia Estadística & Antonio Soriano Flores & 18 \\ \hline
+  353 & Inferencia Estadística & Martha Angélica Montes Fonseca & 18 \\ \hline
+  354 & Inglés I & María Azucena Rivera Vidal & 14 \\ \hline
+  355 & Inglés I & Paulina Torres Carranza & 17 \\ \hline
+  356 & Inglés II & Lidia Fabiola Quevedo Rojas & 8 \\ \hline
+  357 & Inglés II & Julio César Escorza Isguerra & 11 \\ \hline
+  358 & Inglés II & Manuel Enrique Camargo Coronel & 13 \\ \hline
+  359 & Inglés III & Martha del Carmen Riveroll Alvarez & 7 \\ \hline
+  360 & Inglés III & Cesar Martinez Salazar & 14 \\ \hline
+  361 & Inglés V & María Teresa Pozos Delgado & 7 \\ \hline
+  362 & Inglés V & Silvia Loera Rivera & 11 \\ \hline
+  363 & Inglés VI & Alejandro Pérez Meléndez & 10 \\ \hline
+  364 & Inglés VI & Benito Peter Nava Kopp & 14 \\ \hline
+  365 & Introducción a Ciencias de la Computación & Amparo López Gaona & 8 \\ \hline
+  366 & Introducción a Ciencias de la Computación & Pedro Ulises Cervantes González & 10 \\ \hline
+  367 & Introducción a Ciencias de la Computación & Canek Peláez Valdés & 13 \\ \hline
+  368 & Introducción a Ciencias de la Computación & Francisco Valdés Souto & 15 \\ \hline
+  369 & Introducción a la Física Cuántica & Sergio Alfonso Pelayo Escalera & 8 \\ \hline
+  370 & Introducción a la Física Cuántica & Raúl Wayne Gómez González & 10 \\ \hline
+  371 & Introducción a la Física Cuántica & Héctor Jesús Díaz Jiménez & 10 \\ \hline
+  372 & Introducción a la Física Cuántica & Augusto Cabrera Manuel & 10 \\ \hline
+  373 & Introducción a la Física Cuántica & Saúl Noé Ramos Sánchez & 12 \\ \hline
+  374 & Introducción a las Matemáticas Discretas & Karina García Buendía & 7 \\ \hline
+  375 & Introducción a las Matemáticas Discretas & Carlos Alberto Serrato Hernández & 7 \\ \hline
+  376 & Introducción a las Matemáticas Discretas & José Luis Miranda Olvera & 8 \\ \hline
+  377 & Introducción a las Matemáticas Discretas & Rita Esther Zuazua Vega & 8 \\ \hline
+  378 & Introducción a las Matemáticas Discretas & María del Rocío Sánchez López & 12 \\ \hline
+  379 & Introducción a las Matemáticas Discretas & Gerardo Miguel Tecpa Galván & 13 \\ \hline
+  380 & Introducción a las Matemáticas Discretas & Mucuy-Kak del Carmen Guevara Aguirre & 15 \\ \hline
+  381 & Introducción a las Matemáticas Discretas & Jesús Alva Samos & 17 \\ \hline
+  382 & Investigación de Operaciones & Leonardo López Monroy & 7 \\ \hline
+  383 & Investigación de Operaciones & Jesús Agustín Cano Garcés & 8 \\ \hline
+  384 & Investigación de Operaciones & Nilse Pamela Romero Basurto & 8 \\ \hline
+  385 & Investigación de Operaciones & Ana Lilia Anaya Muñoz & 10 \\ \hline
+  386 & Investigación de Operaciones & María del Carmen Fernández García & 17 \\ \hline
+  387 & Investigación de Operaciones & Edgar Gil Hernández Díaz & 19 \\ \hline
+  388 & Lógica Matemática I & Luis Jesús Turcio Cuevas & 8 \\ \hline
+  389 & Lógica Matemática I & Carlos Torres Alcaraz & 13 \\ \hline
+  390 & Lógica Matemática I & María de la Asunción Preisser Rodríguez & 17 \\ \hline
+  391 & Lógica Matemática II & José Gabriel Ocampo Márquez & 10 \\ \hline
+  392 & Lógica Matemática II & María de Lourdes Guerrero Zarco & 16 \\ \hline
+  393 & Manejo de Datos & Miguel Murguía Romero & 8 \\ \hline
+  394 & Manejo de Datos & Jessica Santizo Galicia & 8 \\ \hline
+  395 & Manejo de Datos & Araceli Eugenia Mercado Fernández & 8 \\ \hline
+  396 & Manejo de Datos & Miguel Ehécatl Morales Trujillo & 8 \\ \hline
+  397 & Manejo de Datos & Mario González Ruiz & 9 \\ \hline
+  398 & Manejo de Datos & Manuel Alcántara Juárez & 11 \\ \hline
+  399 & Manejo de Datos & Gildardo Bautista García Cano & 12 \\ \hline
+  400 & Manejo de Datos & Gerardo Avilés Rosas & 12 \\ \hline
+  401 & Manejo de Datos & José Alfredo Cobián Campos & 13 \\ \hline
+  402 & Manejo de Datos & Virginia Teodosio Procopio & 14 \\ \hline
+  403 & Manejo de Datos & Javier García García & 16 \\ \hline
+  404 & Manejo de Datos & Miguel Ángel Pérez León & 18 \\ \hline
+  405 & Manejo de Datos & Oscar Ruiz Salinas & 20 \\ \hline
+  406 & Manejo de Datos & Víctor Manuel Carreón Calderón & 20 \\ \hline
+  407 & Manejo de Datos & Benjamín Figueroa Solano & 20 \\ \hline
+  408 & Matemáticas Actuariales del Seguro de Personas I & Elisa Sugey Hérnandez Castañeda & 7 \\ \hline
+  409 & Matemáticas Actuariales del Seguro de Personas I & María Fernanda López Hernández & 7 \\ \hline
+  410 & Matemáticas Actuariales del Seguro de Personas I & Yurguen Hugo Camargo Serafin & 19 \\ \hline
+  411 & Matemáticas Actuariales del Seguro de Personas II & Jorge Luis Reyes García & 7 \\ \hline
+  412 & Matemáticas Actuariales del Seguro de Personas II & Maria Isabel Servin Arellano & 8 \\ \hline
+  413 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Janeth Fernández Ramos & 7 \\ \hline
+  414 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Jorge Luis Reyes García & 8 \\ \hline
+  415 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Elisa Sugey Hérnandez Castañeda & 8 \\ \hline
+  416 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Irma Rocío Villa Valles & 10 \\ \hline
+  417 & Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro & Juan Carlos Vargas Aguilar & 14 \\ \hline
+  418 & Matemáticas Financieras & Irma Rocío Zavala Sierra & 7 \\ \hline
+  419 & Matemáticas Financieras & Ana Laura Duarte Carmona & 21 \\ \hline
+  420 & Matemáticas para las Ciencias Aplicadas I & José Luis Gutiérrez Sánchez & 8 \\ \hline
+  421 & Matemáticas para las Ciencias Aplicadas I & Ricardo Zavaleta Madrid & 8 \\ \hline
+  422 & Matemáticas para las Ciencias Aplicadas I & Manuel Velasco Juan & 10 \\ \hline
+  423 & Matemáticas para las Ciencias Aplicadas I & Luis Enrique Quintanar Cortés & 10 \\ \hline
+  424 & Matemáticas para las Ciencias Aplicadas I & Alejandro Villarreal López & 12 \\ \hline
+  425 & Matemáticas para las Ciencias Aplicadas I & Raúl Jaime Torres Rojas & 16 \\ \hline
+  426 & Matemáticas para las Ciencias Aplicadas II & Omar Recillas Ayala & 8 \\ \hline
+  427 & Matemáticas para las Ciencias Aplicadas II & Arturo Velasco Pelayo & 10 \\ \hline
+  428 & Matemáticas para las Ciencias Aplicadas II & Ricardo Zavaleta Madrid & 10 \\ \hline
+  429 & Matemáticas para las Ciencias Aplicadas II & Víctor Hugo Alvarado Becerril & 10 \\ \hline
+  430 & Matemáticas para las Ciencias Aplicadas II & Juan Carlos Balleza García & 14 \\ \hline
+  431 & Matemáticas para las Ciencias Aplicadas II & Pedro Eduardo Miramontes Vidal & 14 \\ \hline
+  432 & Matemáticas para las Ciencias Aplicadas II & Juan Carlos Díaz Patiño & 15 \\ \hline
+  433 & Matemáticas para las Ciencias Aplicadas II & Héctor Jesús Díaz Jiménez & 18 \\ \hline
+  434 & Matemáticas para las Ciencias Aplicadas II & Juan Guillermo Munguía Fernández & 18 \\ \hline
+  435 & Matemáticas para las Ciencias Aplicadas III & Jorge Clouthier López & 8 \\ \hline
+  436 & Matemáticas para las Ciencias Aplicadas III & Luis Enrique Quintanar Cortés & 8 \\ \hline
+  437 & Matemáticas para las Ciencias Aplicadas III & Daniel Castillo Rodríguez Arana & 8 \\ \hline
+  438 & Matemáticas para las Ciencias Aplicadas III & Pedro Porras Flores & 10 \\ \hline
+  439 & Matemáticas para las Ciencias Aplicadas III & José Luis Gutiérrez Sánchez & 10 \\ \hline
+  440 & Matemáticas para las Ciencias Aplicadas III & Jorge Avella Martínez & 17 \\ \hline
+  441 & Matemáticas para las Ciencias Aplicadas III & Benjamín Millán Ramos & 17 \\ \hline
+  442 & Matemáticas para las Ciencias Aplicadas IV & Mariana Soledad Centeno Sierra & 10 \\ \hline
+  443 & Matemáticas para las Ciencias Aplicadas IV & Isaac Arelio Ríos & 10 \\ \hline
+  444 & Matemáticas para las Ciencias Aplicadas IV & Oscar García Zarco & 10 \\ \hline
+  445 & Matemáticas para las Ciencias Aplicadas IV & Faustino Sánchez Garduño & 12 \\ \hline
+  446 & Matemáticas para las Ciencias Aplicadas IV & Zeus Alberto Valtierra Quintal & 16 \\ \hline
+  447 & Matemáticas para las Ciencias Aplicadas IV & Jorge Avella Martínez & 16 \\ \hline
+  448 & Matemáticas para las Ciencias Aplicadas IV & Jesús Edel Cereceres Delgado & 16 \\ \hline
+  449 & Matemáticas para las Ciencias Aplicadas IV & Víctor Hugo Alvarado Becerril & 19 \\ \hline
+  450 & Mecánica Analítica & María Luisa Marquina Fábrega & 10 \\ \hline
+  451 & Mecánica Analítica & Vivianne Marquina Fábrega & 10 \\ \hline
+  452 & Mecánica Analítica & Rosa María Méndez Vargas & 10 \\ \hline
+  453 & Mecánica Analítica & Graciela Velasco Herrera & 17 \\ \hline
+  454 & Mecánica Cuántica & Luis Fernando Magaña Solís & 8 \\ \hline
+  455 & Mecánica Cuántica & Fernando Matías Moreno Yntriago & 10 \\ \hline
+  456 & Mecánica Cuántica & Héctor Hernández Coronado & 10 \\ \hline
+  457 & Mecánica Cuántica & Enriqueta Hernández Saldaña & 10 \\ \hline
+  458 & Mecánica Cuántica & Carlos Ramírez Ramos & 15 \\ \hline
+  459 & Mecánica Vectorial & Isaías Rodríguez Aguirre & 7 \\ \hline
+  460 & Mecánica Vectorial & Roberto Alejandro Ruelas Mayorga & 8 \\ \hline
+  461 & Mecánica Vectorial & Eric Vázquez Jauregui & 8 \\ \hline
+  462 & Mecánica Vectorial & Manuel Gerardo Quintana García & 8 \\ \hline
+  463 & Mecánica Vectorial & José Antonio Fragoso Uroza & 8 \\ \hline
+  464 & Mecánica Vectorial & Vicenta Sánchez Morales & 10 \\ \hline
+  465 & Mecánica Vectorial & Jerónimo Alonso Cortez Quezada & 10 \\ \hline
+  466 & Mecánica Vectorial & Juan Manuel Eugenio Ramírez de Arellano Niño-Rincón & 10 \\ \hline
+  467 & Mecánica Vectorial & Darío Núñez Zúñiga & 10 \\ \hline
+  468 & Mecánica Vectorial & Ramón Peralta y Fabi & 10 \\ \hline
+  469 & Mecánica Vectorial & Susana Orozco Segovia & 10 \\ \hline
+  470 & Mecánica Vectorial & Luciano Martínez Balbuena & 10 \\ \hline
+  471 & Mecánica Vectorial & Jorge Ramón Soto Mercado & 10 \\ \hline
+  472 & Mecánica Vectorial & Víctor Hugo Meza Laguna & 10 \\ \hline
+  473 & Mecánica Vectorial & Consuelo García Alcántara & 11 \\ \hline
+  474 & Mecánica Vectorial & José Alfredo Heras Gómez & 13 \\ \hline
+  475 & Mecánica Vectorial & Roberto de Jesús León Montiel & 14 \\ \hline
+  476 & Mecánica Vectorial & Francisco Javier Mandujano Sánchez & 16 \\ \hline
+  477 & Mecánica Vectorial & Francisco Espinosa Magaña & 16 \\ \hline
+  478 & Mecánica Vectorial & David García Gudiño & 18 \\ \hline
+  479 & Mercados Financieros y Valuación de Instrumentos & José David Santos Salazar & 7 \\ \hline
+  480 & Mercados Financieros y Valuación de Instrumentos & Jesús Abraham Cantú Orozco & 8 \\ \hline
+  481 & Mercados Financieros y Valuación de Instrumentos & Alma Rosa Bustamante García & 15 \\ \hline
+  482 & Mercados Financieros y Valuación de Instrumentos & Angélica Vargas Serrano & 19 \\ \hline
+  483 & Métodos Cuantitativos en Finanzas & Enrique Maturano Rodríguez & 7 \\ \hline
+  484 & Métodos Cuantitativos en Finanzas & Lizeth Fabiola Sánchez Suárez & 7 \\ \hline
+  485 & Métodos Cuantitativos en Finanzas & Nayeli Castillo Carranco & 7 \\ \hline
+  486 & Métodos Cuantitativos en Finanzas & Jorge Luis Silva Haro & 8 \\ \hline
+  487 & Métodos Cuantitativos en Finanzas & Alberto Cadena Martínez & 16 \\ \hline
+  488 & Métodos Cuantitativos en Finanzas & Daniela Alejandra González Ramírez & 18 \\ \hline
+  489 & Métodos Cuantitativos en Finanzas & Juan Diego Nieves Ledesma & 19 \\ \hline
+  490 & Modelado y Programación & Ana Libia Eslava Cervantes & 8 \\ \hline
+  491 & Modelado y Programación & Odín Miguel Escorza Soria & 10 \\ \hline
+  492 & Modelado y Programación & José de Jesús Galaviz Casas & 13 \\ \hline
+  493 & Modelos de Supervivencia y de Series de Tiempo & Gerardo Sisniega Lira & 7 \\ \hline
+  494 & Modelos de Supervivencia y de Series de Tiempo & Ángel Manuel Godoy Aguilar & 7 \\ \hline
+  495 & Modelos de Supervivencia y de Series de Tiempo & David Chaffrey Moreno Fernández & 8 \\ \hline
+  496 & Modelos de Supervivencia y de Series de Tiempo & Ricardo Ramírez Aldana & 10 \\ \hline
+  497 & Modelos de Supervivencia y de Series de Tiempo & Claudia González González & 10 \\ \hline
+  498 & Modelos de Supervivencia y de Series de Tiempo & Margarita Elvira Chávez Cano & 10 \\ \hline
+  499 & Modelos de Supervivencia y de Series de Tiempo & Luis Antonio Rincón Solís & 10 \\ \hline
+  500 & Modelos de Supervivencia y de Series de Tiempo & Alberto Contreras Cristán & 12 \\ \hline
+  501 & Modelos de Supervivencia y de Series de Tiempo & Guillermina Eslava Gómez & 13 \\ \hline
+  502 & Modelos de Supervivencia y de Series de Tiempo & Rosa Daniela Chávez Aguilar & 18 \\ \hline
+  503 & Modelos de Supervivencia y de Series de Tiempo & Claudia Lara Pérez Soto & 18 \\ \hline
+  504 & Modelos de Supervivencia y de Series de Tiempo & Francisco Sánchez Villarreal & 18 \\ \hline
+  505 & Modelos no Paramétricos y de Regresión & Jaime Vázquez Alamilla & 8 \\ \hline
+  506 & Modelos no Paramétricos y de Regresión & Margarita Elvira Chávez Cano & 9 \\ \hline
+  507 & Modelos no Paramétricos y de Regresión & Inocencio Rafael Madrid Ríos & 9 \\ \hline
+  508 & Modelos no Paramétricos y de Regresión & Jose Salvador Zamora Muñoz & 10 \\ \hline
+  509 & Modelos no Paramétricos y de Regresión & Javier Santibañez Cortés & 10 \\ \hline
+  510 & Modelos no Paramétricos y de Regresión & Lizbeth Naranjo Albarrán & 11 \\ \hline
+  511 & Modelos no Paramétricos y de Regresión & Alejandro Martínez López & 19 \\ \hline
+  512 & Modelos no Paramétricos y de Regresión & Claudia Lara Pérez Soto & 19 \\ \hline
+  513 & Modelos no Paramétricos y de Regresión & Rosa Daniela Chávez Aguilar & 20 \\ \hline
+  514 & Muestreo & José Antonio Flores Díaz & 11 \\ \hline
+  515 & Óptica & José Ignacio Jiménez Mier y Terán & 8 \\ \hline
+  516 & Óptica & José Luis Pérez Mazariego & 10 \\ \hline
+  517 & Óptica & Nadia Ramírez Cruz & 10 \\ \hline
+  518 & Óptica & Adriano Valdés Gómez & 12 \\ \hline
+  519 & Óptica & Víctor Hugo Meza Laguna & 14 \\ \hline
+  520 & Óptica & Ali Michel Angulo Martínez & 16 \\ \hline
+  521 & Pensiones Privadas & José Antonio Valencia Trujillo & 7 \\ \hline
+  522 & Pensiones Privadas & César Adrián Hernández Viveros & 7 \\ \hline
+  523 & Pensiones Privadas & Jonathan González Salgado & 8 \\ \hline
+  524 & Pensiones Privadas & Ernesto Rosas Garcia & 18 \\ \hline
+  525 & Pensiones Privadas & Francisco Fernando Morales Castro & 18 \\ \hline
+  526 & Planeación Estratégica & Mónica Iliana Sánchez Zaragoza & 7 \\ \hline
+  527 & Planeación Estratégica & Felipe Zamora Ramos & 8 \\ \hline
+  528 & Probabilidad I & Jesús Alberto Rodríguez Sánchez & 7 \\ \hline
+  529 & Probabilidad I & Laura Nayeli Liljehult León & 8 \\ \hline
+  530 & Probabilidad I & Guadalupe Carrasco Licea & 8 \\ \hline
+  531 & Probabilidad I & Francisco Pérez Carbajal & 10 \\ \hline
+  532 & Probabilidad I & Perla Marysol Ruiz Arias & 10 \\ \hline
+  533 & Probabilidad I & Yuri Salazar Flores & 10 \\ \hline
+  534 & Probabilidad I & María Asunción Begoña Fernández Fernández & 10 \\ \hline
+  535 & Probabilidad I & Bibiana Obregón Quintana & 12 \\ \hline
+  536 & Probabilidad I & Jaime Vázquez Alamilla & 12 \\ \hline
+  537 & Probabilidad I & Julio César Galindo López & 16 \\ \hline
+  538 & Probabilidad I & Hugo Villaseñor Hernández & 17 \\ \hline
+  539 & Probabilidad II & Daniel Alejandro Zurita Gutiérrez & 8 \\ \hline
+  540 & Probabilidad II & Daniel Cervantes Filoteo & 8 \\ \hline
+  541 & Probabilidad II & Jorge Luis Apátiga Sánchez & 9 \\ \hline
+  542 & Probabilidad II & Alberto Contreras Cristán & 10 \\ \hline
+  543 & Probabilidad II & David Josafat Santana Cobian & 10 \\ \hline
+  544 & Probabilidad II & Sandra Palau Calderón & 10 \\ \hline
+  545 & Probabilidad II & Fernando Guerrero Poblete & 10 \\ \hline
+  546 & Probabilidad II & Marco Arieli Herrera Valdez & 10 \\ \hline
+  547 & Probabilidad II & Ricardo Hoyos Argüelles & 11 \\ \hline
+  548 & Probabilidad II & Luis Antonio Rincón Solís & 11 \\ \hline
+  549 & Probabilidad II & Francisco Daniel Ramírez Calixto & 13 \\ \hline
+  550 & Probabilidad II & Iván Ixcoatl Juárez López & 14 \\ \hline
+  551 & Probabilidad II & Sergio Iván López Ortega & 15 \\ \hline
+  552 & Probabilidad II & Miguel Ángel García Álvarez & 17 \\ \hline
+  553 & Probabilidad II & Juan González Hernández & 18 \\ \hline
+  554 & Probabilidad II & Fernando Díaz López & 19 \\ \hline
+  555 & Procesos Estocásticos I & Sandra Palau Calderón & 8 \\ \hline
+  556 & Procesos Estocásticos I & Adrián González Casanova Soberon & 8 \\ \hline
+  557 & Procesos Estocásticos I & María Clara Fittipaldi & 10 \\ \hline
+  558 & Procesos Estocásticos I & Jorge Ignacio González Cázares & 10 \\ \hline
+  559 & Procesos Estocásticos I & Rodrigo Quijón Hipólito & 10 \\ \hline
+  560 & Procesos Estocásticos I & Ricardo Hoyos Argüelles & 10 \\ \hline
+  561 & Procesos Estocásticos I & Arrigo Coen Coria & 10 \\ \hline
+  562 & Procesos Estocásticos I & Abraham Ramírez Hernández & 18 \\ \hline
+  563 & Procesos Estocásticos I & Francisco Daniel Ramírez Calixto & 19 \\ \hline
+  564 & Procesos Estocásticos I & Sergio Iván López Ortega & 19 \\ \hline
+  565 & Productos Financieros Derivados & Alejandro Hugo Velázquez Roldán & 7 \\ \hline
+  566 & Productos Financieros Derivados & Guillermo Rolando Rosas Figueroa & 8 \\ \hline
+  567 & Productos Financieros Derivados & Jesús Agustín Cano Garcés & 10 \\ \hline
+  568 & Productos Financieros Derivados & Germán Valle Trujillo & 19 \\ \hline
+  569 & Productos Financieros Derivados & Christian Gabriel Miranda Ruíz & 20 \\ \hline
+  570 & Programación & Miguel Murguía Romero & 7 \\ \hline
+  571 & Programación & Armando Orozco Cortés & 7 \\ \hline
+  572 & Programación & Benjamín Figueroa Solano & 8 \\ \hline
+  573 & Programación & María Fernanda Sánchez Puig & 8 \\ \hline
+  574 & Programación & Alejandro Carrillo Nolazco & 8 \\ \hline
+  575 & Programación & Sonia Josefina Valery Lobo & 9 \\ \hline
+  576 & Programación & Luis Enrique Serrano Gutiérrez & 10 \\ \hline
+  577 & Programación & Jaime Ayala Pérez & 11 \\ \hline
+  578 & Programación & Antonio Carrillo Ledesma & 12 \\ \hline
+  579 & Programación & Roberto Méndez Méndez & 12 \\ \hline
+  580 & Programación & Amparo López Gaona & 14 \\ \hline
+  581 & Programación & Pablo Alberto Tintor Jiménez & 18 \\ \hline
+  582 & Programación & Mario González Ruiz & 20 \\ \hline
+  583 & Relatividad & Saúl Noé Ramos Sánchez & 8 \\ \hline
+  584 & Relatividad & Enrique Moreno Méndez & 8 \\ \hline
+  585 & Relatividad & Juan Carlos Degollado Daza & 8 \\ \hline
+  586 & Relatividad & César Simón López Monsalvo & 10 \\ \hline
+  587 & Relatividad & Juan Manuel García Islas & 10 \\ \hline
+  588 & Relatividad & Mariano Chernicoff Minsberg & 10 \\ \hline
+  589 & Relatividad & Yuri Bonder Grimberg & 12 \\ \hline
+  590 & Relatividad & Roberto Allan Sussman Livovsky & 12 \\ \hline
+  591 & Relatividad & Eduardo Peinado Rodríguez & 14 \\ \hline
+  592 & Relatividad & Gustavo Alfredo Arciniega Durán & 18 \\ \hline
+  593 & Relatividad & Pedro Antonio Sánchez Serrano & 18 \\ \hline
+  594 & Seguridad Social & Luis Alberto Galván Contreras & 7 \\ \hline
+  595 & Seguridad Social & Daniela Alejandra González Ramírez & 8 \\ \hline
+  596 & Seguridad Social & María del Pilar Alonso Reyes & 10 \\ \hline
+  597 & Seminario de Álgebra A & Juan Orendain Almada & 8 \\ \hline
+  598 & Seminario de Álgebra A & Emilio Esteban Lluis Puebla & 10 \\ \hline
+  599 & Seminario de Álgebra A & Luis Eduardo García Hernández & 15 \\ \hline
+  600 & Seminario de Álgebra A & Javier Valdez Quijada & 20 \\ \hline
+  601 & Seminario de Aplicaciones Actuariales & Eduardo Torres Luna & 7 \\ \hline
+  602 & Seminario de Aplicaciones Actuariales & Mónica Iliana Sánchez Zaragoza & 8 \\ \hline
+  603 & Seminario de Aplicaciones Actuariales & Víctor Manuel Solís Nájera & 8 \\ \hline
+  604 & Seminario de Aplicaciones Actuariales & Alonso Baranda Lozada & 8 \\ \hline
+  605 & Seminario de Aplicaciones Actuariales & Carlos Díaz Ávalos & 10 \\ \hline
+  606 & Seminario de Aplicaciones Actuariales & Ricardo Ramírez Aldana & 11 \\ \hline
+  607 & Seminario de Aplicaciones Actuariales & Israel Emmanuel Ambriz Lobato & 19 \\ \hline
+  608 & Seminario de Aplicaciones Actuariales & Omar de la Riva Torres & 20 \\ \hline
+  609 & Seminario de Aplicaciones Actuariales & José Fernando Soriano Flores & 21 \\ \hline
+  610 & Seminario de Apoyo a la Titulación en Matemáticas & Natalia Bárbara Mantilla Beniers & 15 \\ \hline
+  611 & Seminario de Apoyo a la Titulación en Matemáticas & Francisco Javier Torres Ayala & 15 \\ \hline
+  612 & Seminario de Ciencias de la Computación & Jonathan Banfi Vázquez & 8 \\ \hline
+  613 & Seminario de Ciencias de la Computación & German Ernesto Zapata Ledesma & 8 \\ \hline
+  614 & Seminario de Ciencias de la Computación & Adriana Ramírez Vigueras & 9 \\ \hline
+  615 & Seminario de Ciencias de la Computación & Armando Castañeda Rojano & 10 \\ \hline
+  616 & Seminario de Ciencias de la Computación & Jorge Luis Ortega Arjona & 10 \\ \hline
+  617 & Seminario de Ciencias de la Computación & Salvador López Mendoza & 10 \\ \hline
+  618 & Seminario de Ciencias de la Computación & José David Flores Peñaloza & 10 \\ \hline
+  619 & Seminario de Ciencias de la Computación & Manuel Cristobal López Michelone & 14 \\ \hline
+  620 & Seminario de Ciencias de la Computación & Luis Alberto Ramírez Bermudez & 17 \\ \hline
+  621 & Seminario de Ciencias de la Computación & Josafat Isai Guerrero Iñiguez & 18 \\ \hline
+  622 & Seminario de Estadística I & Rafael Miranda Cordero & 10 \\ \hline
+  623 & Seminario de Estadística I & Ruth Selene Fuentes García & 11 \\ \hline
+  624 & Seminario de Geometría A & Pablo Rosell González & 8 \\ \hline
+  625 & Seminario de Geometría A & Antonio Lascurain Orive & 14 \\ \hline
+  626 & Seminario de Geometría A & José Collins Castro & 17 \\ \hline
+  627 & Seminario de Topología A & Alejandro Illanes Mejía & 10 \\ \hline
+  628 & Seminario de Topología A & Ernesto Alejandro Vázquez Navarro & 14 \\ \hline
+  629 & Seminario de Topología A & Enrique Guillermo Bazúa Durán & 19 \\ \hline
+  630 & Seminario Matemáticas Aplicadas I & Hortensia Galeana Sánchez & 10 \\ \hline
+  631 & Seminario Matemáticas Aplicadas I & María de la Luz Jimena de Teresa de Oteyza & 10 \\ \hline
+  632 & Seminario Matemáticas Aplicadas I & Adrián González Casanova Soberon & 10 \\ \hline
+  633 & Seminario Matemáticas Aplicadas I & Karla Genoveva Bassols Bello & 14 \\ \hline
+  634 & Seminario Matemáticas Aplicadas I & Pedro José Sobrevilla Moreno & 18 \\ \hline
+  635 & Seminario Matemáticas Aplicadas I & José Guadalupe Vázquez Vázquez & 20 \\ \hline
+  636 & Seminario sobre Enseñanza de las Matemáticas I & Carmen Martínez-Adame Isaís & 10 \\ \hline
+  637 & Seminario sobre Enseñanza de las Matemáticas I & José Rafael Martínez Enríquez & 10 \\ \hline
+  638 & Seminario sobre Enseñanza de las Matemáticas I & Adriana Léon Montes & 14 \\ \hline
+  639 & Seminario sobre Enseñanza de las Matemáticas I & Antonio García Flores & 15 \\ \hline
+  640 & Seminario sobre Enseñanza de las Matemáticas I & Vicente Carrión Velázquez & 19 \\ \hline
+  641 & Taller de Herramientas Computacionales & Armando Orozco Cortés & 8 \\ \hline
+  642 & Temas Selectos de Economía & Luis Alberto Quezada Téllez & 8 \\ \hline
+  643 & Teoría de Gráficas & María del Pilar Valencia Saravia & 7 \\ \hline
+  644 & Teoría de la Medida I & María Emilia Caballero Acosta & 10 \\ \hline
+  645 & Teoría de los Conjuntos I & David Meza Alcántara & 8 \\ \hline
+  646 & Teoría de los Conjuntos I & Ángel Tamariz Mascarúa & 13 \\ \hline
+  647 & Teoría de los Conjuntos I & Rodrígo Edmundo Cepeda Morales & 15 \\ \hline
+  648 & Teoría de los Conjuntos I & Erick García Ramírez & 19 \\ \hline
+  649 & Teoría de los Números I & Alejandro De Las Peñas Castaño & 8 \\ \hline
+  650 & Teoría de los Números I & Elhoim Llorente Sumano y Ramírez & 20 \\ \hline
+  651 & Teoría de los Números II & Ernesto Cruz Guerrero & 8 \\ \hline
+  652 & Teoría de Redes & María Isabel Escalante Membrillo & 17 \\ \hline
+  653 & Teoría del Riesgo & Luis Alberto Olvera García & 7 \\ \hline
+  654 & Teoría del Riesgo & Alejandro Santoyo Cano & 8 \\ \hline
+  655 & Teoría del Riesgo & Roberto Méndez Rosas & 17 \\ \hline
+  656 & Teoría del Riesgo & Yuri Salazar Flores & 19 \\ \hline
+  657 & Teoría del Seguro & María Patricia Luna Díaz & 8 \\ \hline
+  658 & Teoría del Seguro & Alfonso Parrao Guzman & 19 \\ \hline
+  659 & Termodinámica & René Carrillo Moreno & 8 \\ \hline
+  660 & Termodinámica & María Michel Duque Vega & 8 \\ \hline
+  661 & Termodinámica & Rodolfo Patricio Martínez y Romero & 10 \\ \hline
+  662 & Termodinámica & Víctor Manuel Romero Rochín & 10 \\ \hline
+  663 & Termodinámica & Manuel Gerardo Quintana García & 10 \\ \hline
+  664 & Termodinámica & Ignacio Campos Flores & 16 \\ \hline
+  665 & Termodinámica & Carlos Enrique Román Velázquez & 20 \\ \hline
+  666 & Topología I & Gerardo Acosta García & 8 \\ \hline
+  667 & Topología I & Sergio Macías Álvarez & 10 \\ \hline
+  668 & Topología I & Ángel Tamariz Mascarúa & 10 \\ \hline
+  669 & Topología I & Manuel Alejandro Lara Mary & 12 \\ \hline
+  670 & Topología I & María Isabel Puga Espinosa & 13 \\ \hline
+  671 & Topología I & Patricia Pellicer Covarrubias & 16 \\ \hline
+  672 & Topología I & Jorge Moreno Montes & 19 \\ \hline
+  673 & Topología III & Alejandro Illanes Mejía & 9 \\ \hline
+  674 & Variable Compleja I & Emigdio Martínez Ojeda & 10 \\ \hline
+  675 & Variable Compleja I & Héctor Fidencio Sánchez Morgado & 10 \\ \hline
+  676 & Variable Compleja I & Oscar Alfredo Palmas Velasco & 10 \\ \hline
+  677 & Variable Compleja I & Roberto Pichardo Mendoza & 12 \\ \hline
+  678 & Variable Compleja I & Carisa Cano Figueroa & 13 \\ \hline
+  679 & Variable Compleja I & Micho Durdevich Lucic & 16 \\ \hline
+  680 & Variable Compleja I & Mico Djurdjevic & 16 \\ \hline
+  681 & Variable Compleja I & Alejandro Gaona Ordoñez & 18 \\ \hline
+  682 & Variable Compleja I & Jesús Manuel Mayorquín García & 19 \\ \hline
 \end{longtable}}
 
 
@@ -994,7 +1052,7 @@
   \LARGE{F}\large{ACULTAD DE } \LARGE{C}\large{IENCIAS}\\[1.3cm]
 
   \large{
-INFERENCIA ESTADÍSTICA APLICADA PARA GENERAR UNA PROPUESTA DE GRUPOS PARA LAS CARRERAS DE ACTUARÍA, CIENCIAS DE LA COMPUTACIÓN MATEMÁTICAS Y MATEMÁTICAS APLICADAS DE LA FACULTAD DE CIENCIAS  %}\\[2cm]
+INFERENCIA ESTADÍSTICA APLICADA PARA GENERAR UNA PROPUESTA DE GRUPOS PARA LAS CARRERAS DE ACTUARÍA, CIENCIAS DE LA COMPUTACIÓN, MATEMÁTICAS Y MATEMÁTICAS APLICADAS DE LA FACULTAD DE CIENCIAS  %}\\[2cm]
 }\\[1.3cm]
 
   \huge{
@@ -1018,7 +1076,8 @@ TUTOR  }\\%[1cm]
 %Dr. Arrigo Coen Coria  }
 DR. ARRIGO COEN CORIA  }\\[1cm]
 
-\normalsize{CIUDAD UNIVERSITARIA, CD. MX., 2021}
+%\normalsize{CIUDAD UNIVERSITARIA, CD. MX., 2021}
+\normalsize{2021}
 }
 
 \end{minipage}
@@ -1116,13 +1175,35 @@ García\\
 
 \textbf{Datos del sinodal 4:}
 
+M. en C.
 
+Jaime
+
+Vázquez
+
+Alamilla\\
 
 
 \textbf{Datos del sinodal 5:}
 
+M. en C.
+
+Gustavo Adolfo
+
+García
+
+Cano\\
 
 
+\textbf{Datos del sinodal 6:}
+
+Dra.
+
+Ana
+
+Meda 
+
+Guardiola\\
 
 \textbf{Datos del trabajo escrito:}
 

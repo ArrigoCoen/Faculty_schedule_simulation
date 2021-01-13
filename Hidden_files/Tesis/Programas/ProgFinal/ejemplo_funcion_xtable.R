@@ -51,7 +51,7 @@ xtable(mat_asignacion_final[order(mat_asignacion_final[,1],
 
 
 
-
+xtable(mat_info_AG)#Resumen de pruebas AG
 
 
 
