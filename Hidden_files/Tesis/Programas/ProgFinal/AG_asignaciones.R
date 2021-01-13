@@ -32,17 +32,35 @@ source("Fn_Asignacion.R")
 #' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
 #' m_grande_total)
 #'
-#' @return mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
 #' Horario). Contiene la asignación final encontrada con el algoritmo
 #' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
 #'
 #' @examples
-#' mat_asignacion_final <- AG_asignaciones(mat_esqueleto,
+#' list_asignacion_final <- AG_asignaciones(mat_esqueleto,
 #' mat_solicitudes_real,mat_esqueleto_cotas,param)
 #' 
-AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
-                            # mat_esqueleto_cotas,
-                            param){
+AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   ptm <- proc.time()# Start the clock!
   #Se definen las variables que se van a utilizar
   (tam_poblacion <- param$tam_poblacion)
@@ -69,6 +87,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
     # ptm <- proc.time()# Start the clock!
     if(g == 1){#Población inicial
       ### 1) Generar población inicial y 2) Calificar
+      set.seed(1802)
       lista_info_inicial <- poblacion_calif_iniciales(mat_esqueleto,
                                                       mat_solicitudes_real,
                                                       param)#5.22/4.82 min
@@ -324,8 +343,9 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
             main = "Número de genes por generación",
             xlab = "Asignaciones",ylab = "Número de genes")
   }#Fin for(g)
-  cat("\nEl ciclo tardó: ",(proc.time()-ptm_generaciones)[3]/60,
-      " minutos. Para ",num_generaciones," generaciones \n")
+  tiempo_minutos <- (proc.time()-ptm_generaciones)[3]/60
+  cat("\nEl ciclo tardó: ",tiempo_minutos," minutos. Para ",
+      num_generaciones," generaciones \n")
   ##126.403 min = 2hrs 6.4min - 5 generaciones
   ##47.87 min - 3 generaciones
   ##159.75 min - 6 generaciones
@@ -348,6 +368,10 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
   ##153.95 min - 1+9 generaciones tam_pob = 5
   ##39.52 min - 1+2 generaciones tam_pob = 5
   ##394.80 min - 1+9 generaciones tam_pob = 10
+  ##176.08 min - 1+5 generaciones tam_pob = 10
+  ##156.97 min - 1+9 generaciones tam_pob = 5
+  ##116.99 min - 1+2 generaciones tam_pob = 15
+  ##96.63 min - 1+5 generaciones tam_pob = 5
   
   # View(matrices_calif_x_generacion)
   # View(mejores_asig)
@@ -371,23 +395,77 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
   # View(mat_asignacion_final)
   # save(mat_asignacion_final,file = "mat_asignacion_final.RData")
   
+  
+  # Esqueleto asignación final
+  esq_asig_final <- matrix(0,nrow = length(param$Horas),
+                           ncol = length(param$vec_nom_materias_total))
+  rownames(esq_asig_final) <- param$nombre_hrs
+  colnames(esq_asig_final) <- param$vec_nom_materias_total
+  asig_final  <- data.frame(mat_asignacion_final ,Num_Materia = 0)
+  
+  for(r in 1:dim(asig_final )[1]){
+    materia <- asig_final$Materia[r]
+    asig_final$Num_Materia[r] <- arroja_num_materia(materia)
+  }
+  
+  for(m in 1:length(param$vec_nom_materias_total)){
+    materia <- param$vec_nom_materias_total[m]
+    cat("\n Materia ",m,": ",materia)
+    mat_materia <- asig_final  %>% filter(Materia == materia)
+    for(h in 1:length(param$Horas)){
+      hora <- param$Horas[h]
+      mat_hora <- mat_materia %>% filter(Horario == hora)
+      esq_asig_final[h,m] <- dim(mat_hora)[1]
+    }
+  }
+  
+  
+  # Info de grupos sin asignación
+  dif_x_materia <- colSums(mat_esqueleto) - colSums(esq_asig_final)
+  dif_rel <- (colSums(mat_esqueleto) - colSums(esq_asig_final))/colSums(mat_esqueleto)
+  info_gpos_sin_asig <- data.frame(mat_esq = colSums(mat_esqueleto),
+                                   esq_asig_fin = colSums(esq_asig_final),
+                                   gpos_sin_asig = dif_x_materia,
+                                   dif_rel = dif_rel)
+  # View(info_gpos_sin_asig)
+  
+  # Vector con info de AG
+  vec_info_AG <- data.frame(Num_generaciones = num_generaciones+1,
+                            Tam_pob = tam_poblacion,
+                            Tiempo = tiempo_minutos,
+                            Mejor_calif = max(calif_mejor_elem),
+                            Num_genes_asig_fin = dim(mat_asignacion_final)[1],
+                            Calif_asig_fin = calif_mejor_elem[num_generaciones+1],
+                            Prom_genes_gen1 = mean(mat_num_genes[,1]),
+                            Prom_genes_generaciones = mean(
+                              mat_num_genes[,2:(num_generaciones+1)]))
+  
   list_asignacion_final <- list()
   list_asignacion_final[[1]] <- mat_asignacion_final
-  list_asignacion_final[[2]] <- calif_mejor_elem #Vector con calificaciones
-  #de los mejores elementos por generación
-  list_asignacion_final[[3]] <- mat_calif_generaciones #Matriz con
-  #calificaciones de todos los elementos de todas las generaciones
-  list_asignacion_final[[4]] <- matrices_calif_x_generacion #Lista de
-  #' tamaño num_generaciones+1 con las matrices de calificaciones ordenadas
-  #' por generación .
-  list_asignacion_final[[5]] <- mejores_asig #Lista de tamaño
-  #' num_generaciones+1 con la información de los mejores hijos de
-  #' cada generación.
+  list_asignacion_final[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+  list_asignacion_final[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+  list_asignacion_final[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+  list_asignacion_final[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+  list_asignacion_final[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+  list_asignacion_final[[7]] <- mat_esqueleto
+  list_asignacion_final[[8]] <- mat_solicitudes_real
+  list_asignacion_final[[9]] <- param
+  list_asignacion_final[[10]] <- vec_info_AG #Vector con información del AG y sus resultados
+  list_asignacion_final[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+  list_asignacion_final[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+  
   names(list_asignacion_final) <- c("mat_asignacion_final",
                                     "calif_mejor_elem",
                                     "mat_calif_generaciones",
                                     "matrices_calif_x_generacion",
-                                    "mejores_asig")
+                                    "mejores_asig",
+                                    "mat_num_genes",
+                                    "mat_esqueleto",
+                                    "mat_solicitudes_real",
+                                    "param",
+                                    "vec_info_AG",
+                                    "esq_asig_final",
+                                    "info_gpos_sin_asig")
   cat("\nLa función AG_asignaciones tardó: ",(proc.time()-ptm)[3]/60,
       " minutos\n")
   return(list_asignacion_final)
@@ -395,6 +473,23 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,
 
 
 # Ej. ---------------------------------------------------------------------
+list_asignacion_final <- AG_asignaciones(mat_esqueleto,
+                                         mat_solicitudes_real,
+                                         param)#216.81 min
+
+# mat_info_AG <- dat_sem_20202_g06_n05_m004_U534[[10]]
+# mat_info_AG <- rbind(mat_info_AG,list_asignacion_final$mat_info_AG)
+# save(mat_info_AG,file = "mat_info_AG.RData")
+
+dat_sem_20202_g08_n08_m004_U510 <- list_asignacion_final
+dat_sem_20202_g08_n08_m004_U510[[10]] <- mat_info_AG
+save(dat_sem_20202_g08_n08_m004_U510,file = "dat_sem_20202_g08_n08_m004_U-510.RData")
+
+
+
+
+
+# Ej.2 --------------------------------------------------------------------
 
 list_asignacion_final <- AG_asignaciones(mat_esqueleto,mat_solicitudes_real,
                                          mat_esqueleto_cotas,
@@ -458,8 +553,8 @@ View(info_gpos_sin_asig)
 
 mat_info_AG
 # dim(mat_info_AG)
-num_prueba <- 6
-mat_info_AG[num_prueba,3] <- 394.80#min
+num_prueba <- 3
+mat_info_AG[num_prueba,3] <- 96.63#min
 mat_info_AG[num_prueba,4] <- max(calif_mejor_elem)
 mat_info_AG[num_prueba,5] <- dim(mat_asignacion_final)[1]
 mat_info_AG[num_prueba,6] <- calif_mejor_elem[num_generaciones+1]
@@ -467,7 +562,7 @@ mat_info_AG[num_prueba,7] <- mean(mat_num_genes[,1])
 mat_info_AG[num_prueba,8] <- mean(mat_num_genes[,2:(num_generaciones+1)])
 
 mat_info_AG
-
+# View(mat_info_AG)
 
 # Lista 1.2 ---------------------------------------------------------------
 dat_sem_20202_g03_n05_m004_U599 <- list()
@@ -530,6 +625,135 @@ names(dat_sem_20202_g10_n10_m004_U514) <- c("mat_asignacion_final",
                                             "info_gpos_sin_asig")
 
 save(dat_sem_20202_g10_n10_m004_U514,file = "dat_sem_20202_g10_n10_m004_U-514.RData")
+
+
+
+# Lista 4.2 ---------------------------------------------------------------
+dat_sem_20202_g06_n10_m004_U527 <- list()
+dat_sem_20202_g06_n10_m004_U527[[1]] <- mat_asignacion_final
+dat_sem_20202_g06_n10_m004_U527[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+dat_sem_20202_g06_n10_m004_U527[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+dat_sem_20202_g06_n10_m004_U527[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+dat_sem_20202_g06_n10_m004_U527[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+dat_sem_20202_g06_n10_m004_U527[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+dat_sem_20202_g06_n10_m004_U527[[7]] <- mat_esqueleto
+dat_sem_20202_g06_n10_m004_U527[[8]] <- mat_solicitudes_real
+dat_sem_20202_g06_n10_m004_U527[[9]] <- param
+dat_sem_20202_g06_n10_m004_U527[[10]] <- mat_info_AG #Tabla con información del AG y sus resultados
+dat_sem_20202_g06_n10_m004_U527[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+dat_sem_20202_g06_n10_m004_U527[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+
+names(dat_sem_20202_g06_n10_m004_U527) <- c("mat_asignacion_final",
+                                            "calif_mejor_elem",
+                                            "mat_calif_generaciones",
+                                            "matrices_calif_x_generacion",
+                                            "mejores_asig",
+                                            "mat_num_genes",
+                                            "mat_esqueleto",
+                                            "mat_solicitudes_real",
+                                            "param",
+                                            "mat_info_AG",
+                                            "esq_asig_final",
+                                            "info_gpos_sin_asig")
+
+save(dat_sem_20202_g06_n10_m004_U527,file = "dat_sem_20202_g06_n10_m004_U-527.RData")
+
+
+
+
+
+# Lista 5.2 ---------------------------------------------------------------
+dat_sem_20202_g10_n05_m004_U521 <- list()
+dat_sem_20202_g10_n05_m004_U521[[1]] <- mat_asignacion_final
+dat_sem_20202_g10_n05_m004_U521[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+dat_sem_20202_g10_n05_m004_U521[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+dat_sem_20202_g10_n05_m004_U521[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+dat_sem_20202_g10_n05_m004_U521[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+dat_sem_20202_g10_n05_m004_U521[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+dat_sem_20202_g10_n05_m004_U521[[7]] <- mat_esqueleto
+dat_sem_20202_g10_n05_m004_U521[[8]] <- mat_solicitudes_real
+dat_sem_20202_g10_n05_m004_U521[[9]] <- param
+dat_sem_20202_g10_n05_m004_U521[[10]] <- mat_info_AG #Tabla con información del AG y sus resultados
+dat_sem_20202_g10_n05_m004_U521[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+dat_sem_20202_g10_n05_m004_U521[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+
+names(dat_sem_20202_g10_n05_m004_U521) <- c("mat_asignacion_final",
+                                            "calif_mejor_elem",
+                                            "mat_calif_generaciones",
+                                            "matrices_calif_x_generacion",
+                                            "mejores_asig",
+                                            "mat_num_genes",
+                                            "mat_esqueleto",
+                                            "mat_solicitudes_real",
+                                            "param",
+                                            "mat_info_AG",
+                                            "esq_asig_final",
+                                            "info_gpos_sin_asig")
+
+save(dat_sem_20202_g10_n05_m004_U521,file = "dat_sem_20202_g10_n05_m004_U-521.RData")
+
+
+# Lista 2.2 ---------------------------------------------------------------
+dat_sem_20202_g03_n15_m004_U587 <- list()
+dat_sem_20202_g03_n15_m004_U587[[1]] <- mat_asignacion_final
+dat_sem_20202_g03_n15_m004_U587[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+dat_sem_20202_g03_n15_m004_U587[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+dat_sem_20202_g03_n15_m004_U587[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+dat_sem_20202_g03_n15_m004_U587[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+dat_sem_20202_g03_n15_m004_U587[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+dat_sem_20202_g03_n15_m004_U587[[7]] <- mat_esqueleto
+dat_sem_20202_g03_n15_m004_U587[[8]] <- mat_solicitudes_real
+dat_sem_20202_g03_n15_m004_U587[[9]] <- param
+dat_sem_20202_g03_n15_m004_U587[[10]] <- mat_info_AG #Tabla con información del AG y sus resultados
+dat_sem_20202_g03_n15_m004_U587[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+dat_sem_20202_g03_n15_m004_U587[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+
+names(dat_sem_20202_g03_n15_m004_U587) <- c("mat_asignacion_final",
+                                            "calif_mejor_elem",
+                                            "mat_calif_generaciones",
+                                            "matrices_calif_x_generacion",
+                                            "mejores_asig",
+                                            "mat_num_genes",
+                                            "mat_esqueleto",
+                                            "mat_solicitudes_real",
+                                            "param",
+                                            "mat_info_AG",
+                                            "esq_asig_final",
+                                            "info_gpos_sin_asig")
+
+save(dat_sem_20202_g03_n15_m004_U587,file = "dat_sem_20202_g03_n15_m004_U-587.RData")
+
+
+
+# Lista 3.2 ---------------------------------------------------------------
+dat_sem_20202_g06_n05_m004_U534 <- list()
+dat_sem_20202_g06_n05_m004_U534[[1]] <- mat_asignacion_final
+dat_sem_20202_g06_n05_m004_U534[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+dat_sem_20202_g06_n05_m004_U534[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+dat_sem_20202_g06_n05_m004_U534[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+dat_sem_20202_g06_n05_m004_U534[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+dat_sem_20202_g06_n05_m004_U534[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+dat_sem_20202_g06_n05_m004_U534[[7]] <- mat_esqueleto
+dat_sem_20202_g06_n05_m004_U534[[8]] <- mat_solicitudes_real
+dat_sem_20202_g06_n05_m004_U534[[9]] <- param
+dat_sem_20202_g06_n05_m004_U534[[10]] <- mat_info_AG #Tabla con información del AG y sus resultados
+dat_sem_20202_g06_n05_m004_U534[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+dat_sem_20202_g06_n05_m004_U534[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+
+names(dat_sem_20202_g06_n05_m004_U534) <- c("mat_asignacion_final",
+                                            "calif_mejor_elem",
+                                            "mat_calif_generaciones",
+                                            "matrices_calif_x_generacion",
+                                            "mejores_asig",
+                                            "mat_num_genes",
+                                            "mat_esqueleto",
+                                            "mat_solicitudes_real",
+                                            "param",
+                                            "mat_info_AG",
+                                            "esq_asig_final",
+                                            "info_gpos_sin_asig")
+
+save(dat_sem_20202_g06_n05_m004_U534,file = "dat_sem_20202_g06_n05_m004_U-534.RData")
 
 
 

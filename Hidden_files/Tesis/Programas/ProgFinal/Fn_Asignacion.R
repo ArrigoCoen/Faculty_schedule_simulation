@@ -56,6 +56,7 @@
 # install.packages('resample')
 # install.packages('ggpubr')
 # install.packages('xtable')
+# install.packages('readxl')
 
 
 #Loading packages
@@ -67,7 +68,7 @@ library('forecast')
 library('xml2')
 # library('miceadds')
 library('stringr')
-# library('xlsx')
+library('xlsx')
 library("writexl")#Para guardar data frames
 library(RColorBrewer)
 library(astsa, quietly=TRUE, warn.conflicts=FALSE)
@@ -98,7 +99,7 @@ library(dplyr)
 library(resample)
 library(ggpubr)
 library('xtable')
-
+library('readxl')
 
 # param -------------------------------------------------------------------
 param <- list()
@@ -140,14 +141,22 @@ param$mat_nom_prof_total = 0
 param$num_max_asig = 2
 param$cota_TC = 1000
 param$cota_asig = 6000
-param$tam_poblacion = 10
-param$num_generaciones = 9
+param$tam_poblacion = 5
+param$num_generaciones = 2
 param$prob_mutacion = 1/(6+18)
 param$n_cols_mat_calif = 2000
 param$elige_TC = 0.7
+param$mat_info_AG = data.frame(Num_generaciones = 0,
+                               Tam_pob = 0,
+                               Tiempo = 0,
+                               Mejor_calif = 0,
+                               Num_genes_asig_fin = 0,
+                               Calif_asig_fin = 0,
+                               Prom_genes_gen1 = 0,
+                               Prom_genes_generaciones = 0)
 # param$ = 
 # param$ = 
-# param$ = 
+
 
 
 load(file = paste0("Matrices m_grande_total/m_grande_total_",
@@ -165,6 +174,9 @@ load("Matrices m_grande_total/m_grande_total_20151_20201.RData")
 # m_grande_total <- m_grande_total[!is.na(m_grande_total[,1]),]
 # param$m_grande_2015 = m_grande_total[!is.na(m_grande_total[,1]),]
 param$m_grande_2015 = m_grande_total
+
+load("mat_info_AG.RData")
+param$mat_info_AG = mat_info_AG
 
 # param_sim ---------------------------------------------------------------
 param_sim <- list()

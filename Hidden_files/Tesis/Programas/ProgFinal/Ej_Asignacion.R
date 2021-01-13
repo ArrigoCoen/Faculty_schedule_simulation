@@ -201,6 +201,7 @@ arroja_num_materia("Matemáticas Actuariales del Seguro de Personas II")#80
 arroja_num_materia("Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro")#80
 arroja_num_materia("Teoría de los Conjuntos I")
 arroja_num_materia("Teoría del Seguro")#59
+arroja_num_materia("Teoría del Riesgo")#86
 arroja_num_materia("Demografía")
 arroja_num_materia("Demografía I")
 arroja_num_materia("Historia de las Matemáticas I")
