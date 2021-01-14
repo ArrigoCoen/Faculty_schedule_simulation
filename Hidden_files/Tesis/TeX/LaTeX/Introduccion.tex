@@ -5,7 +5,7 @@ En este trabajo se hará un análisis estadístico de los datos recabados de las
 
 \section{Motivación}
 
-Lo que motivó la realización de este trabajo es la aportación que se puede hacer a la Facultad, la cual nos parece de gran utilidad y para el beneficio de los alumnos. Podremos obtener una disminución del tiempo que toma realizar los esqueletos y la asignación de profesores en la Facultad.
+Lo que motivó la realización de este trabajo es la aportación que se puede hacer a la Facultad, la cual nos parece de gran utilidad y para el beneficio de los alumnos. Podremos obtener una disminución del tiempo que toma realizar los esqueletos y la asignación de profesores en la Facultad. Además, el modelo propuesto puede ser aplicado para resolver problemas generales de asignación de recursos.
 
 Actualmente para hacer la asignación de horarios primero se reune el comité encargado de dicha tarea a realizar manualmente los esqueletos de los horarios. Éstos se dan a conocer a los profesores y ellos eligen diferentes opciones de materias y posibles horas en las cuales les gustaría impartir sus clases. Una vez que los profesores han hecho sus solicitudes, se vuelve a hacer una o varias juntas para la asignación final de los horarios que se hace de manera manual.
 
@@ -21,7 +21,7 @@ La principal razón por la cual los profesores no firman las tiras de materias e
 
 Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
   
-  \textbf{Materia:} Curso impartido en la Facultad por algún profesor.
+\textbf{Materia:} Curso impartido en la Facultad por algún profesor.
 
 \textbf{Horario:} Hora en la que se imparte alguna materia.
 
@@ -38,41 +38,41 @@ Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
 
 \section{Nomenclatura}
 
-$m:$ Número de materias que se van a impartir, $m = 202$
+$m:$ Número de materias que se van a impartir, $m = 202$.
   
-  $p:$ Número de profesores que van impartir alguna materia, $p = 1223$
+  $p:$ Número de profesores que van impartir alguna materia, $p = 1223$.
   
-  $t:$ Número de horas del día, $t = 15$
+  $t:$ Número de horas del día, $t = 15$.
   
-  $i:$ Índice para profesores, $i \in \{ 1, 2, 3, \ldots, p \}$
+  $i:$ Índice para profesores, $i \in \{ 1, 2, 3, \ldots, p \}$.
   
-  $j:$ Índice para materias, $j \in \{ 1, 2, 3, \ldots, m \}$
+  $j:$ Índice para materias, $j \in \{ 1, 2, 3, \ldots, m \}$.
   
-  $h:$ Índice para las horas del día, $h \in \{ 1, 2, 3 \ldots, t\}$
+  $h:$ Índice para las horas del día, $h \in \{ 1, 2, 3 \ldots, t\}$.
   
-  $U_{j,i,h}:$ Utilidad de que la materia $j$ sea impartida por  el profesor $i$ a la hora $h$
+  $U_{j,i,h}:$ Utilidad de que la materia $j$ sea impartida por  el profesor $i$ a la hora $h$.
   
-  $x_{j,i,h}:$ Variable binaria que vale $1$ si la materia $j$ es impartida por el profesor $i$ a la hora $h$ y cero en otro caso
+  $x_{j,i,h}:$ Variable binaria que vale $1$ si la materia $j$ es impartida por el profesor $i$ a la hora $h$ y cero en otro caso.
 
-$V_{j,i}:$ Variable binaria que vale $1$ si la materia $j$ puede ser impartida por  el profesor $i$ y cero en otro caso
+$V_{j,i}:$ Variable binaria que vale $1$ si la materia $j$ puede ser impartida por  el profesor $i$ y cero en otro caso.
 
-$s:$ Semestre a simular
+%$s:$ Semestre a simular
 
-$k:$ Número de semestres que se tienen como ventana de información
+$k:$ Número de semestres que se tienen como ventana de información.
 
-\textit{m\_grande:} Matriz en la que se guarda la información por semestres
+\textit{m\_grande:} Matriz en la que se guarda la información por semestres.
 
-$r:$ Matriz \textit{m\_filtrada}, submatriz de \textit{m\_grande}
+%$r:$ Matriz \textit{m\_filtrada}, submatriz de \textit{m\_grande}
 
-\textit{vec\_sem\_sig:} Vector con los semestres que se van a simular
+%\textit{vec\_sem\_sig:} Vector con los semestres que se van a simular
 
-$num\_sim:$ Número de simulaciones de la demanda de alumnos para $s$
+$num\_sim:$ Número de simulaciones de la demanda de alumnos para el semestre a simular.
   
-  $E:$ Matriz de $t$ renglones y $m$ columnas. En cada entrada se tiene la información del número de alumnos simulados en los grupos al crear \textit{mat\_esqueleto}.
-
-$D:$ Matriz de $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene la información de la demanda de alumnos para la hora $i$ y la materia $j$.
-
-$bin\_DUE:$ Matriz binaria de $t$ renglones y $m$ columnas. Tiene un 1 en la entrada $(i,j)$ si $E_{ij}$ o $D_{ij}$ tienen un valor distinto de cero. Tiene un cero cuando ambas matrices (D y E) tienen un cero en la entrada $(i,j)$.
+%  $E:$ Matriz de $t$ renglones y $m$ columnas. En cada entrada se tiene la información del número de alumnos simulados en los grupos al crear \textit{mat\_esqueleto}.
+%
+%$D:$ Matriz de $t$ renglones y $m$ columnas. En la entrada $(i,j)$ se tiene la información de la demanda de alumnos para la hora $i$ y la materia $j$.
+%
+%$bin\_DUE:$ Matriz binaria de $t$ renglones y $m$ columnas. Tiene un 1 en la entrada $(i,j)$ si $E_{ij}$ o $D_{ij}$ tienen un valor distinto de cero. Tiene un cero cuando ambas matrices (D y E) tienen un cero en la entrada $(i,j)$.
 
 %$:$ 
   %
