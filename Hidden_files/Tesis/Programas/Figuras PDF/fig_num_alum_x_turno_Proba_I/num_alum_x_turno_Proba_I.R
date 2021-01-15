@@ -34,6 +34,11 @@ semestres_aux <- sem_par_aux <- c("20150","20155",
                                   "20180","20185",
                                   "20190","20195","20200")
 
+#Varianza y sd
+# var(alum_matutino.ts)
+# sd(alum_matutino.ts)
+# var(alum_vespertino.ts)
+# sd(alum_vespertino.ts)
 
 # plot --------------------------------------------------------------------
 plot(semestres_aux,alum_matutino.ts,ylim=c(-100,750),main = "Probabilidad I",

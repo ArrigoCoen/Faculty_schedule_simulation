@@ -44,8 +44,15 @@ sem_impar <- mat_alum_sem_impar_proba_I[,1]
 sem_par <- mat_alum_sem_par_proba_I[,1]
 
 
+#Varianza y sd
+# var(alum_sem_impar.ts)
+# sd(alum_sem_impar.ts)
+# var(alum_sem_par.ts)
+# sd(alum_sem_par.ts)
+
 # plot --------------------------------------------------------------------
-plot(semestres,alum_sem_par_impar.ts,ylim=c(0,1000),main = "Probabilidad I",
+plot(semestres,alum_sem_par_impar.ts,ylim=c(0,1000),
+     main = "Probabilidad I semestres pares e impares",
      type="n",xlab="Semestres",ylab="Número de alumnos",axes = FALSE)
 points(sem_impar, alum_sem_impar.ts, col=param_graficas$col1_linea,pch="o")
 lines(sem_impar, alum_sem_impar.ts, col=param_graficas$col1_linea)

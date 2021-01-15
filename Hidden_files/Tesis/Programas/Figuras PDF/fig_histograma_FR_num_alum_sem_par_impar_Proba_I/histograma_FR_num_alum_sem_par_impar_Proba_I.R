@@ -26,7 +26,7 @@ hist(vec_alum_x_gpo_impar_proba_I, col=param_graficas$col1_hist,
      breaks = seq(0,200,by = 10),freq = F,ylim=c(0,0.02),
      ylab = "Frecuencia relativa",xlab = "Número alumnos",
      # ylab = "Densidad",xlab = "Número alumnos",
-     main="Probabilidad I semestres par e impar")
+     main="Probabilidad I semestres pares e impares")
 lines(density(vec_alum_x_gpo_impar_proba_I),col=param_graficas$col1_linea,
       lwd=param_graficas$lwd_dens)
 hist(vec_alum_x_gpo_par_proba_I,col=param_graficas$col2_hist,
@@ -36,7 +36,8 @@ lines(density(vec_alum_x_gpo_par_proba_I),col=param_graficas$col2_linea,
 
 legend(130,0.02,c("Semestres impares","Semestres pares"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),lty=c(1,1),
-       cex=1.1,lwd=param_graficas$lwd_dens)
+       #cex=1.1,
+       lwd=param_graficas$lwd_dens)
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "histograma_FR_num_alum_sem_par_impar_Proba_I.pdf"
