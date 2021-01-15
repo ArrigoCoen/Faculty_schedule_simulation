@@ -18,7 +18,8 @@ load("Programas/Figuras PDF/fig_densidades_num_alum_x_gpo_x_sem/lista_num_al_x_g
 # Figura ------------------------------------------------------------------
 #Se crea la base de la gráfica con los datos del semestre 2008-1
 plot(0:100,ylim=c(0,0.025),type="n",
-     main = "Densidades",xlab="Número de alumnos",ylab="Densidad",
+     main = "Densidades por semestre",
+     xlab="Número de alumnos",ylab="Densidad",
      col=param_graficas$col1_linea,pch="o")
 lwd_dens <- 2
 colores <- c(rep("green2",10),#Verdes

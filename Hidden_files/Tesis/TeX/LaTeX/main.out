@@ -21,30 +21,31 @@
 \BOOKMARK [2][-]{subsection.3.1.1}{Prueba de tendencia}{section.3.1}% 21
 \BOOKMARK [2][-]{subsection.3.1.2}{Prueba de estacionalidad}{section.3.1}% 22
 \BOOKMARK [2][-]{subsection.3.1.3}{Prueba de homocedasticidad}{section.3.1}% 23
-\BOOKMARK [1][-]{section.3.2}{An\341lisis estad\355stico por grupo de datos}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.3}{An\341lisis estad\355stico por carrera}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.4}{Distribuci\363n del tama\361o de los grupos}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.5}{Comportamientos por hora}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Simulaci\363n}{}% 28
-\BOOKMARK [1][-]{section.4.1}{Obtenci\363n de nombres de materias}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.2}{Obtenci\363n de los par\341metros q1 y q2}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.3}{Obtenci\363n de nombres de profesores}{chapter.4}% 31
-\BOOKMARK [2][-]{subsection.4.3.1}{Profesores de tiempo completo}{section.4.3}% 32
-\BOOKMARK [2][-]{subsection.4.3.2}{Profesores de asignatura}{section.4.3}% 33
-\BOOKMARK [1][-]{section.4.4}{Simulaci\363n de tama\361o de grupos}{chapter.4}% 34
-\BOOKMARK [1][-]{section.4.5}{Simulaci\363n de solicitudes de profesores}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.6}{Simulaci\363n de la demanda de alumnos}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.7}{Modelo de Mezcla Gaussiana}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.8}{Obtenci\363n de D' y D0}{chapter.4}% 38
-\BOOKMARK [1][-]{section.4.9}{Simulaci\363n de esqueletos}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.10}{Obtenci\363n de mat\137esqueleto}{chapter.4}% 40
-\BOOKMARK [0][-]{chapter.5}{Algoritmo Gen\351tico}{}% 41
-\BOOKMARK [1][-]{section.5.1}{Algoritmo Gen\351tico aplicado a los horarios}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.2}{Resultados del Algoritmo Gen\351tico}{chapter.5}% 43
-\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 44
-\BOOKMARK [0][-]{appendix.alph1.Alph1}{Ap\351ndice Materias agrupadas}{}% 45
-\BOOKMARK [0][-]{appendix.alph1.Alph2}{Ap\351ndice Resultados \372tiles}{}% 46
-\BOOKMARK [0][-]{appendix.alph1.Alph3}{Ap\351ndice Abreviaturas}{}% 47
-\BOOKMARK [0][-]{appendix.alph1.Alph4}{Ap\351ndice Ejemplo de asignaci\363n final}{}% 48
-\BOOKMARK [0][-]{appendix.alph1.Alph5}{Ap\351ndice Observaciones / Notas}{}% 49
-\BOOKMARK [0][-]{appendix*.97}{Bibliograf\355a}{}% 50
+\BOOKMARK [1][-]{section.3.2}{An\341lisis estad\355stico por semestres pares e impares}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.3}{An\341lisis estad\355stico por turnos matutino y vespertino}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.4}{An\341lisis estad\355stico por carrera}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.5}{Distribuci\363n del tama\361o de los grupos}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.6}{Comportamientos por hora}{chapter.3}% 28
+\BOOKMARK [0][-]{chapter.4}{Simulaci\363n}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Obtenci\363n de nombres de materias}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Obtenci\363n de los par\341metros q1 y q2}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Obtenci\363n de nombres de profesores}{chapter.4}% 32
+\BOOKMARK [2][-]{subsection.4.3.1}{Profesores de tiempo completo}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.4.3.2}{Profesores de asignatura}{section.4.3}% 34
+\BOOKMARK [1][-]{section.4.4}{Simulaci\363n de tama\361o de grupos}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.5}{Simulaci\363n de solicitudes de profesores}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.6}{Simulaci\363n de la demanda de alumnos}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.7}{Modelo de Mezcla Gaussiana}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.8}{Obtenci\363n de D' y D0}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.9}{Simulaci\363n de esqueletos}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.10}{Obtenci\363n de mat\137esqueleto}{chapter.4}% 41
+\BOOKMARK [0][-]{chapter.5}{Algoritmo Gen\351tico}{}% 42
+\BOOKMARK [1][-]{section.5.1}{Algoritmo Gen\351tico aplicado a los horarios}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.2}{Resultados del Algoritmo Gen\351tico}{chapter.5}% 44
+\BOOKMARK [0][-]{chapter.6}{Conclusiones}{}% 45
+\BOOKMARK [0][-]{appendix.alph1.Alph1}{Ap\351ndice Materias agrupadas}{}% 46
+\BOOKMARK [0][-]{appendix.alph1.Alph2}{Ap\351ndice Resultados \372tiles}{}% 47
+\BOOKMARK [0][-]{appendix.alph1.Alph3}{Ap\351ndice Abreviaturas}{}% 48
+\BOOKMARK [0][-]{appendix.alph1.Alph4}{Ap\351ndice Ejemplo de asignaci\363n final}{}% 49
+\BOOKMARK [0][-]{appendix.alph1.Alph5}{Ap\351ndice Observaciones / Notas}{}% 50
+\BOOKMARK [0][-]{appendix*.97}{Bibliograf\355a}{}% 51

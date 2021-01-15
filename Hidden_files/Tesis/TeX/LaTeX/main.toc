@@ -22,10 +22,11 @@
 \contentsline {subsection}{\numberline {3.1.1}Prueba de tendencia}{28}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Prueba de estacionalidad}{29}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Prueba de homocedasticidad}{30}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Análisis estadístico por grupo de datos}{32}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Análisis estadístico por carrera}{34}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Distribución del tamaño de los grupos}{36}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Comportamientos por hora}{40}{section.3.5}%
+\contentsline {section}{\numberline {3.2}Análisis estadístico por semestres pares e impares}{32}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Análisis estadístico por turnos matutino y vespertino}{33}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Análisis estadístico por carrera}{35}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Distribución del tamaño de los grupos}{36}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Comportamientos por hora}{39}{section.3.6}%
 \contentsline {chapter}{\numberline {4}Simulación}{43}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Obtención de nombres de materias}{44}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Obtención de los parámetros $q_{1}$ y $q_{2}$}{45}{section.4.2}%

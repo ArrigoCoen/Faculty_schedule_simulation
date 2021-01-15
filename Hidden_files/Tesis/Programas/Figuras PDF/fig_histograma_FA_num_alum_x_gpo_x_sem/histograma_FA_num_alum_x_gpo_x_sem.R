@@ -26,7 +26,7 @@ max(vec_alumnos)#353
 hist(vec_alumnos,col=param_graficas$col1_hist,
      breaks = seq(0,360,by = 10),xlim = c(0,200),
      ylab = "Frecuencia",xlab = "Número alumnos",freq = T,
-     main="Histograma del número de alumnos")
+     main="Histograma del número de alumnos por grupo")
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "histograma_FA_num_alum_x_gpo_x_sem.pdf"

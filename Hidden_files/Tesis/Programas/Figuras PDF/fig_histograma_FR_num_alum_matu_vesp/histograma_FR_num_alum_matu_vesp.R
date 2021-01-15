@@ -22,7 +22,7 @@ max(c(vec_num_alum_x_sem_matutino,vec_num_alum_x_sem_vespertino))#4514
 hist(vec_num_alum_x_sem_matutino,col=param_graficas$col1_hist,
      breaks = seq(0,5000,by = 100),
      freq = F,ylab = "Frecuencia relativa",ylim=c(0,0.0015),
-     main="Histogramas de turnos matutino y vespertino",
+     main="Histogramas por turno",
      xlab = "Número alumnos")
 lines(density(vec_num_alum_x_sem_matutino),col=param_graficas$col1_linea,lwd=param_graficas$lwd_dens)
 hist(vec_num_alum_x_sem_vespertino, col=param_graficas$col2_hist,
@@ -31,7 +31,8 @@ lines(density(vec_num_alum_x_sem_vespertino),col=param_graficas$col2_linea,lwd=p
 
 legend(3200,0.0008,c("Turno matutino","Turno vespertino"),bty = "n",
        col=c(param_graficas$col1_linea,param_graficas$col2_linea),lty=c(1,1),
-       cex=1.1,lwd=param_graficas$lwd_dens)
+       #cex=1.1,
+       lwd=param_graficas$lwd_dens)
 
 # Se guarda la imagen -----------------------------------------------------
 nom_plot <- "histograma_FR_num_alum_matu_vesp.pdf"
