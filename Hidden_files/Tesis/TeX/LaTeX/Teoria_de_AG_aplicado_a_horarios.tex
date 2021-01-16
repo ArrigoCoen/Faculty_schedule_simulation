@@ -20,14 +20,13 @@ Con este proceso se obtiene una generación. El número de generaciones así com
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{diagrama_flujo_AG} %scale = 0.8
-\caption[\textit{Diagrama del Algoritmo Genético}]{\textit{Se muestra el diagrama de flujo que se sigue en el Algoritmo Genético.}}\label{fig_AG}
+\includegraphics[scale = 0.8]{diagrama_flujo_AG} %width=\textwidth
+\caption[\textit{Diagrama de flujo del Algoritmo Genético}]{\textit{Se muestra el diagrama de flujo que se sigue en el Algoritmo Genético.}}\label{fig_AG}
 \end{figure}
 
 En la siguiente sección explicaremos cómo encontramos una buena asignación utilizando el AG. Cabe mencionar que Reeves y Rowe en su libro \textit{Genetic Algorithms: Principles and Perspectives} [\ref{ReevesRowe}], nos indican que se puede generar una nueva población haciendo el cruce y la mutación o utilizando sólo una de ellas. En nuestro caso, la estrategia que seguimos fue utilizar ambas.
 
 
-%\section{Algoritmo Genético para obtener una buena asignación}
 \section{Algoritmo Genético aplicado a los horarios}
 
 El objetivo principal de este proyecto es obtener una matriz con la asignación final de materias, profesores y horas. Para ello haremos uso del AG. A continuación vamos a definir los términos que utilizaremos:
@@ -51,9 +50,44 @@ El objetivo principal de este proyecto es obtener una matriz con la asignación 
 Los pasos que seguimos para obtener la asignación final son:
 
 \begin{enumerate}
+\item \textbf{Definir parámetros iniciales}
+
+\begin{itemize}
+\item[-] $n \in \mathbb{N}$, tamaño de la población.
+
+\item[-] $num\_generacion \in \mathbb{N}$, número de generaciones.
+
+\item[-] $num\_max\_asig \in \mathbb{N}$, número máximo de materias que se le pueden asignar a un profesor.
+
+\item[-] $prob\_mutar \in (0,0.05]$, probabilidad de mutación.
+\end{itemize}
+
+\item \textbf{Fijar semilla}
+
+Con el comando \verb@set.seed(42)@ de \textit{R}, se fija la semilla para poder replicar las simulaciones. En este caso elegimos el 42.
+
+\item \textbf{Simular esqueleto} \label{paso_sim_esq}
+
+Obtener la matriz \textit{mat\_esqueleto} con el procedimiento visto en la Sección \ref{sec_esqueletos}.
+
+\item \textbf{Simular solicitudes pseudo-reales} \label{paso_sim_solicitudes}
+
+Obtener la matriz \textit{mat\_solicitudes} con el procedimiento visto en la Sección \ref{SimSolicitudesProfesores}.
+
+\item \textbf{Definir matrices auxiliares}
+
+Estas matrices nos ayudan durante el proceso sin alterar las matrices originales.
+
+Definir \textit{mat\_aux\_esqueleto} igual a \textit{mat\_esqueleto}.
+
+Definir \textit{mat\_aux\_solicitudes} igual a \textit{mat\_solicitudes}.
+
+%Estas matrices nos ayudan a eliminar información que ya no necesitamos durante el proceso sin alterar las matrices originales.
+
+
 \item \textbf{Generar una población inicial}
 
-Se generan $n$ asignaciones a partir del esqueleto simulado (ver Sección \ref{sec_esqueletos}) y de las solicitudes pseudo-reales simuladas (ver Sección \ref{SimSolicitudesProfesores}).
+Se generan $n$ asignaciones a partir del esqueleto simulado en el paso \ref{paso_sim_esq} y de las solicitudes pseudo-reales simuladas en el paso \ref{paso_sim_solicitudes}.
 
 Para cada asignación, comparamos el número de solicitudes con el número de grupos simulados en el esqueleto. Ésto por materia y por hora. Se tienen dos casos:
 
@@ -73,14 +107,14 @@ De esta manera se asignan todos los posibles grupos que se hayan solicitado. Se 
 \item[-] Un profesor no puede tener más de \textit{num\_max\_asig} materias asignadas.
 \end{itemize}
 
-\item \textbf{Calificar cada asignación de la población}
+\item \textbf{Calificar cada asignación de la población} \label{paso_califica_asig}
 
 Cada asignación tiene 2 tipos de calificaciones:
 
 \begin{enumerate}
 \item Por gen: Se califica cada gen de la asignación. Se premia con +5 si el profesor asignado es de tiempo completo. Se penaliza con -1 por cada asignación que pudo haber tenido un profesor de tiempo completo y tiene un profesor de asignatura. Para tener una calificación diferente para cada grupo, sumamos a cada gen una $\epsilon \in [0,0.1]$.
 
-\item Global: Se califica la asignación completa. Se penaliza con -1 por cada grupo en el esqueleto sin profesor. Se penaliza con -10 por cada materia pedida por algún profesor de tiempo completo y no se le asignó. Se suma el promedio de las calificaciones por gen.
+\item Global: Se califica la asignación completa. Se penaliza por cada grupo en el esqueleto sin profesor, se resta de acuerdo a la diferencia relativa. Se penaliza con -10 por cada materia pedida por algún profesor de tiempo completo y no se le asignó. Se suma el promedio de las calificaciones por gen.
 
 Nota:
 Si el número máximo de asignaciones es 2 y un profesor pidió 3 o más  materias pero sólo se le asignó 1, entonces se penaliza una materia. Si se le asignaron, 2 no hay penalización.
@@ -88,17 +122,15 @@ Si el número máximo de asignaciones es 2 y un profesor pidió 3 o más  materi
 
 \item \textbf{Ordenar de acuerdo a la calificación}
 
-Los genes de cada asignación se ordenan de menor a mayor calificación. Se quiere elegir con mayor probabilidad los genes con mejor calificación.
+Los genes de cada asignación y las asignaciones se ordenan de menor a mayor calificación.
 
-Las asignaciones se ordenan de menor a mayor calificación. Se desea elegir con mayor probabilidad las asignaciones con mejor calificación.
+\item \textbf{Elegir 2 padres} \label{paso_elegir_padres}
 
-\item \textbf{Elegir 2 padres}
+Los padres se eligen con probabilidad: $\mathbb{P}(\text{elegir la asignación } i \text{ ya ordenada}) = \dfrac{2i}{n(n+1)}$, donde $i$ es la posición de la asignación con respecto a su calificación. Se desea elegir con mayor probabilidad las asignaciones con mejor calificación.
 
-Los padres se eligen con probabilidad: $\mathbb{P}(\text{elegir la asignación } i \text{ ya ordenada}) = \dfrac{2i}{n(n+1)}$, donde $i$ es la posición de la asignación con respecto a su calificación.
+\item \textbf{Elegir un gen} \label{paso_elegir_gen}
 
-\item \textbf{Elegir un gen}
-
-Primero se elige al azar un padre (ambos tienen probabilidad $0.5)$. Una vez que se eligió un padre, seleccionar un gen: $\mathbb{P}(\text{elegir el gen } i \text{ ya ordenado}) = \dfrac{2i}{g(g+1)}$, donde $i$ es la posición del gen en la asignación con respecto a su calificación y $g$ es el número de genes que tiene la asignación.
+Primero se elige al azar un padre (ambos tienen probabilidad $0.5)$. Una vez que se eligió un padre, seleccionar un gen: $\mathbb{P}(\text{elegir el gen } i \text{ ya ordenado}) = \dfrac{2i}{g(g+1)}$, donde $i$ es la posición del gen en la asignación con respecto a su calificación y $g$ es el número de genes que tiene la asignación. Se quiere elegir con mayor probabilidad los genes con mejor calificación.
 
 \item \textbf{Mutación}
 
@@ -108,9 +140,12 @@ Se simula un número aleatorio, si ese número es menor a la probabilidad de mut
 
 Una vez seleccionado el gen, éste se agrega al hijo.
 
-\item \textbf{Ajustar información}
+\item \textbf{Ajustar información} \label{paso_ajusta_info}
 
-Se quita la información a los padres, del profesor en el gen elegido:
+\begin{itemize}
+\item[a)] Disminuir en 1 al grupo correspondiente al gen en \textit{mat\_aux\_esqueleto}.
+
+\item[b)] Quitar la información a los padres, del profesor en el gen elegido:
 
 \begin{itemize}
 \item[-] A esa hora y con esa materia para evitar que se elijan genes repetidos para el hijo. Esto puede ocurrir por ejemplo cuando ambos padres tienen el mismo gen.
@@ -122,27 +157,30 @@ Se quita la información a los padres, del profesor en el gen elegido:
 \item[-] Cualquier materia a cualquier hora cuando el profesor ya tiene el número máximo de materias asignadas.
 \end{itemize}
 
-\item \textbf{Repetir 5 - 8}
+\item[c)] Quitar la información correspondiente en la matriz \textit{mat\_aux\_solicitudes}.
+\end{itemize}
 
-Repetir los pasos 5 al 8 hasta que uno de los padres se quede sin genes.
+\item \textbf{Repetir \ref{paso_elegir_gen} - \ref{paso_ajusta_info}}
 
-\item \textbf{Añadir genes}
+Repetir los pasos \ref{paso_elegir_gen} al \ref{paso_ajusta_info} hasta que uno de los padres se quede sin genes.
+
+\item \textbf{Añadir genes} \label{paso_agrega_genes}
 
 Agregar al hijo los genes del padre que aún tiene información.
 
-Con el algoritmo utilizado en la generación de la población inicial, agregar los grupos que falta por asignar de \textit{mat\_esqueleto}.
+Con el algoritmo utilizado en la generación de la población inicial, agregar los grupos que falta por asignar de \textit{mat\_aux\_esqueleto}. Ésto tomando en cuenta las solicitudes en \textit{mat\_aux\_solicitudes}.
 
-\item \textbf{Repetir 4 - 10}
+\item \textbf{Repetir \ref{paso_elegir_padres} - \ref{paso_agrega_genes}}
 
-Repetir los pasos 4 al 10 $n$ veces para poder formar una generación.
+Repetir los pasos \ref{paso_elegir_padres} al \ref{paso_agrega_genes} $n$ veces para poder formar una generación.
 
-\item \textbf{Reemplazar población}
+\item \textbf{Reemplazar población} \label{paso_reemplaza_pob}
 
 Reemplazar a la población con la que se formó la generación.
 
-\item \textbf{Repetir 2 - 12}
+\item \textbf{Repetir \ref{paso_califica_asig} - \ref{paso_reemplaza_pob}}
 
-Repetir los pasos 2 al 12 hasta completar el número de generaciones deseadas.
+Repetir los pasos \ref{paso_califica_asig} al \ref{paso_reemplaza_pob} hasta completar el número de generaciones deseadas.
 
 \item \textbf{Asignación final}
 
@@ -153,9 +191,9 @@ Definir la asignación final como el hijo mejor calificado de la última generac
 Algunas notas que se deben de considerar en la asignación final:
 
 \begin{itemize}
-\item[-] Algunos profesores se les asignaron 2 cálculos
+\item[-] Algunos profesores se les asignaron 2 cálculos.
 
-\item[-] Hay profesores que ya no imparten clases en la Facultad (nota en la sección de los profesores)
+\item[-] Puede haber profesores que ya no imparten clases en la Facultad.
 
 \item[-] No se asignaron todos los grupos simulados en el esqueleto. Ésto porque:
 

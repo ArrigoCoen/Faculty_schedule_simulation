@@ -1,11 +1,25 @@
 \section{Resultados del Algoritmo Genético}
 
-Hicimos algunas pruebas con el AG para definir los parámetros de la asignación final. En la \tablename{~\ref{ResumenPruebasAG}} se puede ver un resumen con los resultados de dichas pruebas. En la primer columna vemos el número de generaciones, para cada prueba. En la segunda columna se encuentra el tamaño de la población, para cada generación. En la tercer columna se observa la calificación del mejor elemento de todas las generaciones. En la cuarta columna se muestra el número de genes de la asignación final. Finalmente en la quinta columna se puede ver la calificación de la asignación final de cada prueba.
+Hicimos algunas pruebas con el AG para definir los parámetros de la asignación final. En la \tablename{~\ref{ResumenPruebasAG}} se puede ver un resumen con los resultados de dichas pruebas. A continuación explicamos lo que contienen sus columnas.
+
+\begin{itemize}
+\item[(1)] Número de generaciones, para cada prueba.
+
+\item[(2)] Tamaño de la población, para cada generación.
+
+\item[(3)] Calificación del mejor elemento de todas las generaciones.
+
+\item[(4)] Número de genes de la asignación final.
+
+\item[(5)] Calificación de la asignación final de cada prueba.
+\end{itemize}
 
 En las últimas 2 pruebas la asignación final no tuvo la mejor calificación de todas las asignaciones generadas. Ésto puede ocurrir porque el AG explora diferentes posibilidades y no necesariamente son siempre mejores que las anteriores.
 
 %También podemos observar que las calificaciones de los mejores elementos es cada vez mayor en cada prueba. Con ello podemos concluir que al incrementar el tamaño de la población o el número de generaciones la asignación final será cada vez mejor.
-Al observar la última columna notamos que al incrementar el tamaño de la población o el número de generaciones la calificación de la asignación final es cada vez mejor. Si comparamos la prueba $1$ con la $2$ vemos que hay una diferencia de $11.82$ puntos, en la calificación. Se incrementaron 10 elementos a la población de 5 a 15 elementos. Si ahora comparamos la prueba $1$ con la $3$ notamos que la diferencia es de $65.24$ puntos, en la calificación. En este caso se incrementó el número de generaciones de 3 a 6.
+Al observar la última columna notamos que al incrementar el tamaño de la población o el número de generaciones la calificación de la asignación final es cada vez mejor. Si comparamos la prueba $1$ con la $2$ vemos que hay una diferencia de $11.82$ puntos, en la calificación. Se incrementaron 10 elementos a la población de 5 a 15 elementos.
+
+Si ahora comparamos la prueba $1$ con la $3$ notamos que la diferencia es de $65.24$ puntos, en la calificación. En este caso se incrementó el número de generaciones de 3 a 6.
 
 Con estas observaciones concluímos que hay un mayor incremento en la calificación cuando se aumenta el número de generaciones que el tamaño de la población.
 
@@ -60,13 +74,15 @@ A continuación presentaremos los resultados obtenidos con el AG correspondiente
 
 
 
-En la \figurename{~\ref{EjcalifMejoresHijos}} vemos las calificaciones de la mejor asignación por generación. Observamos que la mejora en la calificación es considerable de la población inicial a la segunda generación. Notamos que la calificación del mejor elemento de la generación 6 es menor al de la generación 5.
+En la \figurename{~\ref{EjcalifMejoresHijos}} vemos las calificaciones de la mejor asignación por generación. Observamos que la mejora en la calificación es considerable de la población inicial a la segunda generación. Este fenómeno es común en el AG porque la primera generación se simula de manera aleatoria. Para la segunda generación es más probable elegir los mejores elementos de la población. Incluso a nivel gen se tiene una mayor probabilidad de elegir los mejores. Es por ello que se da esa gran diferencia en las calificaciones entre la generación 1 y la 2.
+
+Notamos que la calificación del mejor elemento de la generación 6 es menor a la calificación de la generación 5. Con ésto podemos observar que las diferentes posibilidades que explora el AG no necesariamente son siempre mejores que las anteriores.
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{calif_mejores_hijos_g08_n08_m004_U510.pdf} %scale = 0.7
-\caption[\textit{Calificaciones de mejores asignaciones}]{\textit{Se muestran las calificaciones de la mejor asignación por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifMejoresHijos}
+\includegraphics[scale = 0.7]{calif_mejores_hijos_g08_n08_m004_U510.pdf} %width=\textwidth
+\caption[\textit{Calificaciones de las mejores asignaciones por generación}]{\textit{Se muestran las calificaciones de la mejor asignación por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifMejoresHijos}
 \end{figure}
 
 %En la \figurename{~\ref{EjcalifAsig}} vemos las calificaciones de las asignaciones.
@@ -86,41 +102,53 @@ En la \figurename{~\ref{EjcalifMejoresHijos}} vemos las calificaciones de la mej
 %\end{figure}
 
 
-En la \figurename{~\ref{boxplot_calif_x_generacion}} observamos las gráficas de caja de las calificaciones de las asignaciones, para cada generación. Hay una mejora considerable en las calificaciones de la generación 1 a la 2. Los puntos representan las calificaciones de cada asignación por generación.
+En la \figurename{~\ref{boxplot_calif_x_generacion}} observamos las gráficas de caja de las calificaciones de las asignaciones, para cada generación. Hay una mejora considerable en las calificaciones de la generación 1 a la 2. Los puntos representan las calificaciones de cada asignación por generación. Notamos que las calificaciones de las asignaciones en la generación 6, son muy parecidas. A diferencia de las calificaciones en la generación 3, las cuales varían más.
 
-Notamos que las calificaciones de las asignaciones en la generación 6, son muy parecidas. A diferencia de las calificaciones en la generación 3, las cuales varían más.
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale = 0.7]{boxplot_calif_g08_n08_m004_U510.pdf} %width=\textwidth
+%\caption[\textit{Gráficas de caja de calificaciones de asignaciones por generación}]{\textit{Se muestran las gráficas de caja de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{boxplot_calif_x_generacion}
+%\end{figure}
+
+En la \figurename{~\ref{media_calif_x_generacion}} se puede ver el promedio de las calificaciones de las asignaciones por generación. Al igual que en las Figuras \ref{EjcalifMejoresHijos} y \ref{boxplot_calif_x_generacion} se observa una mejora considerable en la calificación de la generación 1 a la 2. Podemos observar que el promedio de las calificaciones de la generación 7 es menor que el promedio de las calificaciones de la generación 6.
+
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale = 0.7]{media_calif_g08_n08_m004_U510.pdf} %width=\textwidth
+%\caption[\textit{Media de calificaciones de asignaciones por generación}]{\textit{Se muestra el promedio de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{media_calif_x_generacion}
+%\end{figure}
+
+En la \figurename{~\ref{var_calif_x_generacion}} se ve la varianza de las calificaciones de las asignaciones por generación. El valor más pequeño se observa en la generación 6. Al ver la \figurename{~\ref{boxplot_calif_x_generacion}} en dicha generación, notamos que los puntos tienen valores muy similares. La varianza más grande se obtiene en la generación 3. Ésto también se puede ver en la \figurename{~\ref{boxplot_calif_x_generacion}}.
+
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.7]{boxplot_calif_g08_n08_m004_U510.pdf} %width=\textwidth
+\includegraphics[scale = 0.67]{boxplot_calif_g08_n08_m004_U510.pdf} %width=\textwidth
 \caption[\textit{Gráficas de caja de calificaciones de asignaciones por generación}]{\textit{Se muestran las gráficas de caja de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{boxplot_calif_x_generacion}
 \end{figure}
 
-En la \figurename{~\ref{media_calif_x_generacion}} se puede ver el promedio de las calificaciones de las asignaciones por generación. Al igual que en las Figuras \ref{EjcalifMejoresHijos} y \ref{boxplot_calif_x_generacion} se observa una mejora considerable en la calificación de la generación 1 a la 2.
-
-Podemos observar que el promedio de las calificaciones de la generación 7 es menor que el promedio de las calificaciones de la generación 6.
-
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics[scale = 0.7]{media_calif_g08_n08_m004_U510.pdf} %width=\textwidth
+\includegraphics[scale = 0.67]{media_calif_g08_n08_m004_U510.pdf} %width=\textwidth
 \caption[\textit{Media de calificaciones de asignaciones por generación}]{\textit{Se muestra el promedio de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{media_calif_x_generacion}
 \end{figure}
 
-En la \figurename{~\ref{var_calif_x_generacion}} se ve la varianza de las calificaciones de las asignaciones por generación. El valor más pequeño se observa en la generación 6. Al ver la \figurename{~\ref{boxplot_calif_x_generacion}} en dicha generación, notamos que los puntos tienen valores muy similares.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.7]{varianza_g08_n08_m004_U510.pdf} %width=\textwidth
-\caption[\textit{Varianza de calificaciones de asignaciones por generación}]{\textit{Se muestra la varianza de las calificaciones de las asignaciones por generación. Se observa una disminución considerable de la generación 3 a la 4.}}\label{var_calif_x_generacion}
+\caption[\textit{Varianza de calificaciones de asignaciones por generación}]{\textit{Se muestra la varianza de las calificaciones de las asignaciones por generación. Se observa una disminución considerable de la generación 5 a la 6. El valor más grande se encuentra en la generación 3.}}\label{var_calif_x_generacion}
 \end{figure}
 
-En la \figurename{~\ref{boxplot_num_genes_x_generacion}} podemos ver las gráficas de caja del número de genes en las asignaciones por generación. Se observa que los valores tienden a ser cada vez mayores. Los puntos representan el número de genes de cada asignación por generación. Notamos que la media de la generación 2 es considerablemente mayor que la media de la generación 1.
+En la \figurename{~\ref{boxplot_num_genes_x_generacion}} podemos ver las gráficas de caja del número de genes en las asignaciones por generación. Los puntos representan el número de genes de cada asignación por generación. Notamos que la media de la generación 2 es considerablemente mayor que la media de la generación 1.
+
+De la generación 1 a la 6 los promedios del número de genes tienden a ser cada vez mayores. Ésto se logra al agregar los grupos que aún se pueden asignar después de hacer el cruce con los padres.
 
 También podemos observar que el promedio del número de genes en las generaciones 7 y 8 es menor al promedio del número de genes en la generación 6. En las generaciones 4 y 7, el número de genes varía mucho.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[width=\textwidth]{boxplot_num_genes_g08_n08_m004_U510.pdf} %scale = 0.7
+\includegraphics[scale = 0.7]{boxplot_num_genes_g08_n08_m004_U510.pdf} %width=\textwidth
 \caption[\textit{Gráficas de caja del número de genes en asignaciones por generación}]{\textit{Se muestran las gráficas de caja del número de genes en asignaciones por generación. Se observa que los valores tienen una tendencia no decreciente.}}\label{boxplot_num_genes_x_generacion}
 \end{figure}
 
@@ -150,9 +178,9 @@ También podemos observar que el promedio del número de genes en las generacion
 %\dfrac{630}{747} &=& 84.33\% \text{grupos asignados comparado con el 2020-1}
 %\end{eqnarray*}
 
-Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de la asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver el el Apéndice \ref{Ej_AsigFinal}.
+Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de la asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver en el Apéndice \ref{Ej_AsigFinal}.
 
-Dicha matriz tiene 682 grupos asignados, cada uno con materia, profesor y horario correspondiente. En el semestre 2020-1 se tuvieron 747 grupos reales. Se simularon 1091 grupos en \textit{mat\_esqueleto}.
+Dicha matriz tiene 682 grupos asignados, cada uno con materia, profesor y horario correspondiente. En el semestre 2020-1 se tuvieron 747 grupos reales. Se simularon 1091 grupos en \textit{mat\_esqueleto} para el semestre 2020-2.
 
 \begin{table}[H]
 \centering
@@ -183,10 +211,11 @@ Dicha matriz tiene 682 grupos asignados, cada uno con materia, profesor y horari
 A continuación presentamos algunos porcentajes que nos permiten hacer diferentes comparaciones. Las materias optativas y obligatorias que se mecionan, se consideran con respecto a la carrera de Actuaría.
 
 \begin{eqnarray*}
-\dfrac{682}{1091} &=& 62.51\% \text{ grupos asignados}\\
-\dfrac{241 + 18}{1091} &=& 23.73\% \text{ grupos de optativas e inglés sin asignación}\\
-%\dfrac{18}{1091} &=& 1.64\% \text{ grupos de inglés sin asignación}\\
-\dfrac{150}{1091} &=& 13.74\% \text{ grupos de obligatorias sin asignación}\\ %\dfrac{1091 - (682 + 241 + 18)}{1091}
+\dfrac{682}{1091} &=& 62.51\% \text{ grupos asignados}\\\\
+\dfrac{409}{1091} &=& 37.48\% \text{ grupos no asignados}\\\\
+\dfrac{241 + 18}{1091} &=& 23.73\% \text{ grupos de optativas e inglés sin asignación}\\\\
+%\dfrac{18}{1091} &=& 1.64\% \text{ grupos de inglés sin asignación}\\\\
+\dfrac{150}{1091} &=& 13.74\% \text{ grupos de obligatorias sin asignación}\\\\ %\dfrac{1091 - (682 + 241 + 18)}{1091}
 \dfrac{682}{747} &=& 91.29\% \text{ grupos asignados comparados con el 2020-1}
 %\dfrac{1091}{747} &=& 146.05\% \text{ grupos simulados para 2020-2 comparados con el 2020-1}
 \end{eqnarray*}
@@ -197,7 +226,7 @@ A continuación presentamos algunos porcentajes que nos permiten hacer diferente
 %\caption[\textit{Optativas sin grupos asignados}]{\textit{Optativas sin grupos asignados}}
 %\end{figure}
 
-Notamos que casi una cuarta parte de los grupos simulados en \textit{mat\_esqueleto} corresponde a materias optativas y de inglés. Ésto ocurre por dos principales motivos:
+Notamos que casi una cuarta parte de los grupos simulados en \textit{mat\_esqueleto} corresponde a materias optativas y de inglés sin asignación. Ésto ocurre por dos principales motivos:
 
 \begin{enumerate}
 \item No hay solicitudes en \textit{mat\_solicitudes} de los grupos no asignados. Existen materias optativas que no se imparten todos los semestres. Por ello hay ocasiones en las que no se simula la solicitud.
@@ -205,14 +234,18 @@ Notamos que casi una cuarta parte de los grupos simulados en \textit{mat\_esquel
 \item Se les asigna otra materia a esa hora a los profesores que hayan solicitado alguna optativa. Usualmente se les asigna una obligatoria a la hora en la que solicitaron la optativa.
 \end{enumerate}
 
-La principal razón por la que se tiene alrededor de un $10\%$ de materias obligatorias sin asignar es por la forma en la que definimos \textit{mat\_esqueleto}. El modelo de mezcla de normales nos permite que los grupos se distribuyan a lo largo de las horas sin tener picos demasiado altos. Ésto se basa en el supuesto de que los alumnos tienen la misma preferencia por una materia a cierta hora, o a la hora anterior o a la siguiente. Es decir, si un alumno elige \textit{Probabilidad I} a las 10hrs, le es indistinto si la toma a las 9hrs, a las 10hrs o a las 11hrs.
+La principal razón por la que se tiene alrededor de un $10\%$ de materias obligatorias sin asignar es por la forma en la que definimos \textit{mat\_esqueleto}. El modelo de mezcla de normales nos permite que los grupos se distribuyan a lo largo de las horas sin tener picos demasiado altos.
 
-Este fenómeno se observa con mayor claridad en las materias con horarios muy específicos como \textit{Teoría del Seguro, Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro} o \textit{Matemáticas Actuariales del Seguro de Personas I}. En el caso de \textit{Teoría del Seguro} se simularon 4 grupos en \textit{mat\_esqueleto}, a las 8, 10, 13 y 19hrs. Las solicitudes simuladas se pueden ver en la \figurename{~\ref{sol_TeoSeguro}}. Notamos que sólo hay solicitudes a las 8 y a las 19hrs. Con estos datos el algoritmo sólo puede asignar dos grupos, uno a las 8hrs y el otro a las 19hrs.
+Ésto se basa en el supuesto de que los alumnos tienen la misma preferencia por una materia a cierta hora, o a la hora anterior o a la siguiente. Es decir, si un alumno elige \textit{Probabilidad I} a las 10hrs, le es indistinto si la toma a las 9hrs, a las 10hrs o a las 11hrs.
+
+Este fenómeno se observa con mayor claridad en las materias con horarios muy específicos como \textit{Teoría del Seguro, Matemáticas Actuariales para Seguro de Daños, Fianzas y Reaseguro} o \textit{Matemáticas Actuariales del Seguro de Personas I}.
+
+En el caso de \textit{Teoría del Seguro} se simularon 4 grupos en \textit{mat\_esqueleto}, a las 8hrs, 10hrs, 13hrs y 19hrs. Las solicitudes simuladas se pueden ver en la \figurename{~\ref{sol_TeoSeguro}}. Notamos que sólo hay solicitudes a las 8hrs y a las 19hrs. Con estos datos el algoritmo sólo puede asignar dos grupos, uno a las 8hrs y otro a las 19hrs.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{solicitudes_teoria_del_seguro} %width=\textwidth
-\caption[\textit{Solicitudes de la materia ``Teoría del Seguro''}]{\textit{Se muestran las solicitudes simuladas de la materia ``Teoría del Seguro'' para el semestre 2020-2.}}\label{sol_TeoSeguro}
+\caption[\textit{Solicitudes simuladas de la materia ``Teoría del Seguro'' para el semestre 2020-2}]{\textit{Se muestran las solicitudes simuladas de la materia ``Teoría del Seguro'' para el semestre 2020-2.}}\label{sol_TeoSeguro}
 \end{figure}
 
 Por estas razones el algoritmo asigna alrededor del $60\%$ de los grupos simulados. Para aumentar este porcentaje realizamos el siguiente procedimiento:
@@ -227,12 +260,12 @@ Por estas razones el algoritmo asigna alrededor del $60\%$ de los grupos simulad
 \begin{itemize}
 \item[-] Horario: Contiene una asignación predefinida con los grupos que se desean tener en la asignación final.
 
-\item[-] Materias: Contiene el nombre de las materias del vector \textit{vec\_nom\_materias\_total} (ver Sección \ref{Sec_NomMaterias}).
+\item[-] Materias: Contiene el nombre de las materias del vector \textit{vec\_nom\_materias} (ver Sección \ref{Sec_NomMaterias}).
 
-\item[-] Profesores: Contiene la matriz \textit{mat\_nom\_prof\_total}, con la información de cada profesor (ver Sección \ref{nomProfesores}).
+\item[-] Profesores: Contiene la matriz \textit{mat\_nom\_prof}, con la información de cada profesor (ver Sección \ref{nomProfesores}).
 \end{itemize}
 
-\item Leer la hoja \textit{Horario} del archivo creado con la función \verb@read_excel@, en \textit{R}.
+\item Leer la hoja \textit{Horario} del archivo creado con la función \verb@read_excel()@, en \textit{R}.
 
 \item Eliminar la información de las solicitudes correspondiente a la asignación predefinida. Se eliminan los grupos a esa hora o con esa materia.
 
@@ -247,11 +280,5 @@ Por estas razones el algoritmo asigna alrededor del $60\%$ de los grupos simulad
 De esta manera se pueden definir manualmente grupos difíciles de asignar con el AG. Pueden ser materias optativas u obligatorias. Dado que se elimina la información en las solicitudes antes de realizar el AG, no se tienen grupos repetidos en la última asignación.
 
 Cabe aclarar que en el archivo \textit{xlsx}, las hojas \textit{Materias} y \textit{Profesores} nos sirven de guía para llenar de manera adecuada la hoja \textit{Horario}. Evitando los problemas vistos en las Secciones \ref{Sec_NomMaterias} y \ref{nomProfesores} de falta de acentos, nombres incompletos, entre otros.
-
-
-
-
-
-
 
 

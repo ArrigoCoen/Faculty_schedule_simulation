@@ -42,11 +42,11 @@
 \contentsline {section}{\numberline {4.10}Obtención de mat\_esqueleto}{64}{section.4.10}%
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Resultados del Algoritmo Genético}{73}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusiones}{81}{chapter.6}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Materias agrupadas}{83}{appendix.alph1.Alph1}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Resultados útiles}{87}{appendix.alph1.Alph2}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Abreviaturas}{89}{appendix.alph1.Alph3}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Ejemplo de asignación final}{91}{appendix.alph1.Alph4}%
-\contentsline {chapter}{Ap\'{e}ndice \numberline {E}Observaciones / Notas}{115}{appendix.alph1.Alph5}%
-\contentsline {chapter}{Bibliografía}{127}{appendix*.97}%
+\contentsline {section}{\numberline {5.2}Resultados del Algoritmo Genético}{74}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{83}{chapter.6}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {A}Materias agrupadas}{85}{appendix.alph1.Alph1}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {B}Resultados útiles}{89}{appendix.alph1.Alph2}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {C}Abreviaturas}{91}{appendix.alph1.Alph3}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {D}Ejemplo de asignación final}{93}{appendix.alph1.Alph4}%
+\contentsline {chapter}{Ap\'{e}ndice \numberline {E}Observaciones / Notas}{117}{appendix.alph1.Alph5}%
+\contentsline {chapter}{Bibliografía}{129}{appendix*.97}%
