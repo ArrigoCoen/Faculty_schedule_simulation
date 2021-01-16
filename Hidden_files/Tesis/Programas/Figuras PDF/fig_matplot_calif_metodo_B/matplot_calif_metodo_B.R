@@ -1,5 +1,5 @@
 ##########################################################################
-#' En este programa se encuentra el código que genera el heatmap para
+#' En este programa se encuentra el código que genera el matplot para
 #' las calificaciones de la metodología B.
 ##########################################################################
 
@@ -12,32 +12,18 @@
 setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis")
 
 #' Se cargan los datos
-load("Programas/Figuras PDF/fig_heatmap_metodo_B/mat_calif_B.RData")
-library(stats)
+load("Programas/Figuras PDF/fig_matplot_calif_metodo_B/mat_calif_B.RData")
 
-# install.packages('RColorBrewer')
-library(RColorBrewer)
 
 # Figura ------------------------------------------------------------------
 # View(mat_calif_B)
 
-m <- mat_calif_B
-m_ordenada <- m
+matplot(mat_calif_B, type = "l",main = "Metodología B",xlab = "Iteraciones",
+        ylab = "Calificación",ylim = c(-0.5,0.8))
 
-for(i in 1:nrow(m)){
-  m_ordenada[i,] <- sort(m[i,])
-}
-colnames(m_ordenada) <- rep("",dim(m_ordenada)[2])
-
-colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
-heatmap(m_ordenada, Colv = NA, Rowv = NA, scale="none",col=colMain,
-        main = "Calificaciones de métodología B")
-legend(x="bottomright", legend=c(paste0("mín = ",round(min(mat_calif_B),2)),
-                                 paste0("media = ",round(mean(mat_calif_B),2)),
-                                 paste0("máx = ",round(max(mat_calif_B),2))), 
-       fill=colorRampPalette(brewer.pal(8, "Blues"))(3))
 
 # Se guarda la imagen -----------------------------------------------------
-nom_plot <- "heatmap_metodo_B.pdf"
+nom_plot <- "matplot_metodo_B.pdf"
 dev.print(pdf,paste0(param_graficas$dir_TeX,nom_plot),
           width=param_graficas$ancho_pdf, height=param_graficas$altura_pdf)
+

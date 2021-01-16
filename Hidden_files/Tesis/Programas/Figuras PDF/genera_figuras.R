@@ -96,38 +96,44 @@ dev.off()#Para salir de la función par()
 ##### Densidades del número de alumnos por carrera
 source("Programas/Figuras PDF/fig_histogramas_FR_num_alum_x_carrera/histogramas_FR_num_alum_x_carrera.R")
 
-#####
+##### Heatmap de calificaciones de la metodología B
 # source("Programas/Figuras PDF/fig_heatmap_metodo_B/heatmap_metodo_B.R")
 
-#####
+##### Heatmap de calificaciones de la metodología C
 # source("Programas/Figuras PDF/fig_heatmap_metodo_C/heatmap_metodo_C.R")
 
-#####
-source("Programas/Figuras PDF/fig_calif_mejores_hijos/.R")
-
-#####
+##### Histograma con el número de alumnos y modelo gmm inicial
 source("Programas/Figuras PDF/fig_gmm_alum_ini/gmm_alum_ini.R")
 
-#####
+##### Histograma con el número de alumnos y modelo gmm final
 source("Programas/Figuras PDF/fig_gmm_alum_fin/gmm_alum_fin.R")
 
-#####
+##### Histograma con el número de grupos en el esqueleto inicial
 source("Programas/Figuras PDF/fig_gmm_esqueleto_ini/gmm_esqueleto_ini.R")
 
-#####
+##### Histograma con el número de grupos en varios esqueletos y modelo gmm final
 source("Programas/Figuras PDF/fig_gmm_esqueleto_fin/gmm_esqueleto_fin.R")
 
-#####
+##### Plot con calificaciones x generación, generaciones = 8, tam_pob = 8
 source("Programas/Figuras PDF/fig_calificaciones_g08_n08_m004_U510/calificaciones_g08_n08_m004_U510.R")
 
-#####
+##### Boxplot con número de genes x generación, generaciones = 8, tam_pob = 8
 source("Programas/Figuras PDF/fig_num_genes_g08_n08_m004_U510/num_genes_g08_n08_m004_U510.R")
 
-#####
+##### Plot con calificaciones de mejores elementos x generación, generaciones = 8, tam_pob = 8
 source("Programas/Figuras PDF/fig_calif_mejores_hijos_g08_n08_m004_U510/calif_mejores_hijos_g08_n08_m004_U510.R")
 
-#####
-# source("Programas/Figuras PDF//.R")
+##### Matplot de las calificaciones de la metodología A
+source("Programas/Figuras PDF/fig_matplot_calif_metodo_A/matplot_calif_metodo_A.R")
+
+##### Matplot de las calificaciones de la metodología B
+source("Programas/Figuras PDF/fig_matplot_calif_metodo_B/matplot_calif_metodo_B.R")
+
+##### Matplot de las calificaciones de la metodología C
+source("Programas/Figuras PDF/fig_matplot_calif_metodo_C/matplot_calif_metodo_C.R")
+
+##### Matplot de las calificaciones de la metodología D
+source("Programas/Figuras PDF/fig_matplot_calif_metodo_D/matplot_calif_metodo_D.R")
 
 #####
 # source("Programas/Figuras PDF//.R")
@@ -157,5 +163,8 @@ source("Programas/Figuras PDF/fig_calif_mejores_hijos_g08_n08_m004_U510/calif_me
 #####
 # source("Programas/Figuras PDF/fig_num_genes_g10_n10_m004_U514/num_genes_g10_n10_m004_U514.R")
 
-#####
+##### Plot con calificaciones de mejores elementos x generación 10 generaciones, tam_pob = 10
 # source("Programas/Figuras PDF/fig_calif_mejores_hijos_g10_n10_m004_U514/calif_mejores_hijos_g10_n10_m004_U514.R")
+
+##### Plot con calificaciones de mejores elementos x generación
+# source("Programas/Figuras PDF/fig_calif_mejores_hijos/.R")

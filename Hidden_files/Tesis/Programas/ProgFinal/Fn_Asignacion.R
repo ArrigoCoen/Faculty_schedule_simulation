@@ -57,6 +57,7 @@
 # install.packages('ggpubr')
 # install.packages('xtable')
 # install.packages('readxl')
+# install.packages('RColorBrewer')
 
 
 #Loading packages
@@ -100,6 +101,8 @@ library(resample)
 library(ggpubr)
 library('xtable')
 library('readxl')
+library(RColorBrewer)
+
 
 # param -------------------------------------------------------------------
 param <- list()

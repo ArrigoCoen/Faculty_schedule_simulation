@@ -57,24 +57,24 @@
 \contentsline {figure}{\numberline {4.5}{\ignorespaces \textit {Promedio de la desviación estándar: 10 materias, 4 intervalos}}}{48}{figure.caption.55}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces \textit {Promedio de la desviación estándar: 5 materias, 4 intervalos}}}{48}{figure.caption.56}%
 \contentsline {figure}{\numberline {4.7}{\ignorespaces \textit {Diagrama de los intervalos de confianza}}}{48}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con medidas de dispersión de prueba aleatoria}}}{49}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \textit {Matriz con información por materia de prueba aleatoria}}}{49}{figure.caption.58}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {Profesores de tiempo completo: SelectorGadget}}}{50}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{51}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Ejemplo de matriz de solicitudes de un profesor}}}{54}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Ejemplo de matriz con alumnos corregidos}}}{55}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Ejemplo de vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}}}{56}{figure.caption.65}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Ejemplo de matriz con demanda simulada para el 2020-2}}}{57}{figure.caption.66}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Histograma del número de alumnos esperados por hora: Modelo inicial de mezcla de normales}}}{59}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {Vector de profesores de tiempo completo}}}{50}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \textit {Matriz de solicitudes de un profesor}}}{54}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \textit {Matriz con alumnos de ``Modelos de Supervivencia y Series de Tiempo''}}}{55}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \textit {Vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}}}{56}{figure.caption.65}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces \textit {Matriz con demanda simulada para el 2020-2}}}{57}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces \textit {Histograma del número de alumnos esperados por hora: Modelo inicial de mezcla de normales}}}{58}{figure.caption.67}%
 \contentsline {figure}{\numberline {4.16}{\ignorespaces \textit {Histograma del número de alumnos esperados por hora: Modelo final de mezcla de normales}}}{59}{figure.caption.68}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces \textit {Metodología A}}}{61}{figure.caption.69}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces \textit {Metodología B}}}{61}{figure.caption.70}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces \textit {Metodología C}}}{62}{figure.caption.71}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces \textit {Metodología D}}}{62}{figure.caption.72}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces \textit {Calificaciones metodología A}}}{60}{figure.caption.69}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces \textit {Calificaciones metodología B}}}{61}{figure.caption.70}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces \textit {Calificaciones metodología C}}}{62}{figure.caption.71}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces \textit {Calificaciones metodología D}}}{62}{figure.caption.72}%
 \contentsline {figure}{\numberline {4.21}{\ignorespaces \textit {Heatmap metodología B}}}{63}{figure.caption.73}%
 \contentsline {figure}{\numberline {4.22}{\ignorespaces \textit {Heatmap metodología C}}}{63}{figure.caption.74}%
 \contentsline {figure}{\numberline {4.23}{\ignorespaces \textit {Histograma con los datos del esqueleto inicial}}}{65}{figure.caption.75}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces \textit {Histograma con todos los datos de los esqueletos simulados}}}{66}{figure.caption.76}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces \textit {Ejemplo de esqueleto para el semestre 2020-2}}}{67}{figure.caption.77}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces \textit {Histograma con todos los datos de los esqueletos simulados}}}{67}{figure.caption.76}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces \textit {Esqueleto simulado para el semestre 2020-2}}}{67}{figure.caption.77}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces \textit {Diagrama del Algoritmo Genético}}}{70}{figure.caption.78}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces \textit {Calificaciones de mejores asignaciones}}}{74}{figure.caption.80}%
