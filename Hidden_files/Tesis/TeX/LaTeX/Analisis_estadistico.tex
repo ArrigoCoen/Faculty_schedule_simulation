@@ -310,7 +310,7 @@ Viendo las Figuras \ref{histNumAl_x_gpo_x_sem} y \ref{densidadesNumAl_x_gpo_x_se
 
 En la prueba se rechaza $H_{0}$ cuando $D_{n} > D_{n}^{1-\alpha}$. Donde $D_{n}^{1-\alpha}$ nos indica el valor en donde inicia la región de rechazo para un nivel de significancia de $\alpha$ y $n$ es el número de datos de la muestra. Tomamos como hipótesis nula $H_{0}: X$ y $Y$ tienen la misma distribución.
 
-Definimos a $X$ como el vector con el número de alumnos por grupo del semestre 2008-1 al 2020-1. Definimos a $Y$ como un vector de números aleatorios de una distribución $Poisson(\lambda)$. Por el resultado \ref{EMVlambda}, del apéndice \ref{Apend_ResultadosUtiles}, sabemos que el estimador máximo verosímil de $\lambda$ para la distribución $Poisson(\lambda)$ es la media de los datos. Con este estimador $(\hat{\lambda} = 34.18),$ obtuvimos los números aleatorios de $Y$. Utilizamos el siguiente comando en \textit{R}: \verb@Y<-rpois(1000,34.18)@. Tenemos que $Y \sim Poisson(34.18)$.%\hat{\lambda} = 34.18746
+Definimos a $X$ como el vector con el número de alumnos por grupo del semestre 2008-1 al 2020-1. Definimos a $Y$ como un vector de números aleatorios de una distribución $Poisson(\lambda)$. Por el resultado del Apéndice \ref{Apend_ResultadosUtiles}, sabemos que el estimador máximo verosímil de $\lambda$ para la distribución $Poisson(\lambda)$ es la media de los datos. Con este estimador $(\hat{\lambda} = 34.18),$ obtuvimos los números aleatorios de $Y$. Utilizamos el siguiente comando en \textit{R}: \verb@Y<-rpois(1000,34.18)@. Tenemos que $Y \sim Poisson(34.18)$.%\hat{\lambda} = 34.18746
 
 Por [\ref{Miller}] sabemos que:
   

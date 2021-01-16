@@ -1,24 +1,20 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces \textit {Ejemplo de asignación}}}{4}{table.caption.5}%
-\contentsline {table}{\numberline {1.2}{\ignorespaces \textit {Grupos de datos}}}{8}{table.caption.10}%
+\contentsline {table}{\numberline {1.1}{\ignorespaces \textit {Ejemplo de asignación}}}{4}{table.caption.4}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces \textit {Grupos de datos}}}{8}{table.caption.9}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces \textit {Planes de estudio por carrera con clave}}}{10}{table.caption.12}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces \textit {Descripción de las columnas de la matriz ``mat\_posibles\_url''}}}{11}{table.caption.13}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces \textit {Planes de estudio por carrera con clave}}}{10}{table.caption.11}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces \textit {Descripción de las columnas de la matriz ``mat\_posibles\_url''}}}{11}{table.caption.12}%
 \contentsline {table}{\numberline {2.3}{\ignorespaces \textit {Descripción de las columnas de la matriz ``m\_grande``}}}{23}{table.2.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Posibles valores para $q_{1}$ y $q_{2}$}}}{45}{table.caption.51}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces \textit {Diferencias en nombres de profesores de tiempo completo}}}{51}{table.caption.61}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces \textit {Diferencias en nombres de profesores de asignatura}}}{52}{table.caption.62}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {Posibles valores para $q_{1}$ y $q_{2}$}}}{45}{table.caption.50}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces \textit {Diferencias en nombres de profesores de tiempo completo}}}{51}{table.caption.60}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces \textit {Diferencias en nombres de profesores de asignatura}}}{52}{table.caption.61}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces \textit {Resumen de las pruebas del Algoritmo Genético}}}{74}{table.caption.79}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces \textit {Submatriz con asignación final}}}{78}{table.caption.85}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces \textit {Resumen de las pruebas del Algoritmo Genético}}}{74}{table.caption.78}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces \textit {Submatriz con asignación final}}}{78}{table.caption.84}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces \textit {Abreviaturas}\relax }}{91}{table.caption.87}%
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {D.1}{\ignorespaces \textit {Matriz con asignación final}}}{115}{table.alph1.Alph4.1}%
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces \textit {Abreviaturas}}}{85}{table.caption.86}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces \textit {Matriz con asignación final}}}{111}{table.Alph1.2}%
