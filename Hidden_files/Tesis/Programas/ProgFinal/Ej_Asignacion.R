@@ -481,20 +481,89 @@ mat_esqueleto <- lista_info_esqueleto[[1]]
 View(mat_esqueleto)
 
 
+# AG_asignaciones ---------------------------------------------------------
+#' Title AG_asignaciones: Función que aplica el algoritmo genético a las
+#' asignaciones para encontrar una buena asignación.
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+
+list_asignacion_final <- AG_asignaciones(mat_esqueleto,
+                                         mat_solicitudes_real,
+                                         param)#216.81 min
+
+# mat_info_AG <- dat_sem_20202_g06_n05_m004_U534[[10]]
+# mat_info_AG <- rbind(mat_info_AG,list_asignacion_final$mat_info_AG)
+# save(mat_info_AG,file = "mat_info_AG.RData")
+
+dat_sem_20202_g08_n08_m004_U510 <- list_asignacion_final
+dat_sem_20202_g08_n08_m004_U510[[10]] <- mat_info_AG
+save(dat_sem_20202_g08_n08_m004_U510,file = "dat_sem_20202_g08_n08_m004_U-510.RData")
+
+load(file = "mat_info_AG.RData")
+mat_info_AG
+mat_info_AG <- rbind(mat_info_AG,list_asignacion_final$mat_info_AG)
+save(mat_info_AG,file = "mat_info_AG.RData")
+
+list_asignacion_final$mat_info_AG <- mat_info_AG
+dat_sem_20202_g03_n05_m004_U655 <- list_asignacion_final
+save(dat_sem_20202_g03_n05_m004_U655,file = "dat_sem_20202_g03_n05_m004_U-655.RData")
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+# AG_asignaciones_con_xlsx ------------------------------------------------
+#' Title AG_asignaciones_con_xlsx: Función que aplica el algoritmo genético
+#' a las asignaciones para encontrar una buena asignación. La función tiene
+#' la opción de leer un documento de excel con asignaciones previas. En caso
+#' de que si lea el documento, quita las asignaciones previas de las
+#' solicitudes más la respectiva información y genera una asignación.
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+list_asignacion_final <- AG_asignaciones_con_xlsx(mat_esqueleto,
+                                                  mat_solicitudes_real,
+                                                  con_xlsx_1_sin_xlsx_0,
+                                                  param)
 

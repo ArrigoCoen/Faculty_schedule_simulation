@@ -4281,13 +4281,609 @@ ajusta_mat_solicitudes <- function(mat_solicitudes_restantes,gen_elegido){
 }
 
 
-##### **AQUÍ** #####
-
 ############################################################################
-##### ASIGNACIÓN COMPLETA #####
+##### ALGORITMO GENÉTICO #####
 ## Función que manda llamar todas las funciones para obtener la matriz
 ##de asignaciones Materia-Profesor-Horario(-Salón)
 ############################################################################
+
+# AG_asignaciones ---------------------------------------------------------
+#' Title AG_asignaciones: Función que aplica el algoritmo genético a las
+#' asignaciones para encontrar una buena asignación.
+#'
+#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) y 6 renglones que tiene la información de la
+#' solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
+#' horarios. Se quitan los renglones repetidos. Se hace una "intersección"
+#' con los grupos simulados en la matriz "mat_esqueleto" y así se obtienen
+#' las solicitudes pseudo-reales de los profesores.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
+#' m_grande_total)
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+#'
+#' @examples
+#' list_asignacion_final <- AG_asignaciones(mat_esqueleto,
+#' mat_solicitudes_real,mat_esqueleto_cotas,param)
+#' 
+AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
+  ptm <- proc.time()# Start the clock!
+  #Se definen las variables que se van a utilizar
+  (tam_poblacion <- param$tam_poblacion)
+  (num_generaciones <- param$num_generaciones)
+  prob_mutacion <- param$prob_mutacion
+  n_cols_mat_calif <- param$n_cols_mat_calif
+  matrices_calif_x_generacion <- list()
+  mejores_asig <- list()
+  vec_prob_asig <- (2*(1:tam_poblacion))/(tam_poblacion*(tam_poblacion+1))
+  calif_mejor_elem <- rep(0,(num_generaciones+1))
+  colMain <- colorRampPalette(brewer.pal(8, "Blues"))(25)
+  mat_calif_generaciones <- matrix(0,nrow = tam_poblacion,
+                                   ncol = (num_generaciones+1))
+  mat_num_genes <- matrix(0,nrow = tam_poblacion,
+                          ncol = (num_generaciones+1))
+  mat_solicitudes_restantes <- mat_solicitudes_real#1886 5
+  
+  ptm_generaciones <- proc.time()# Start the clock!
+  # g <- 1
+  # g <- 2
+  for(g in 1:num_generaciones){
+    cat("\n *** GENERACIÓN ",g," ***")
+    
+    # ptm <- proc.time()# Start the clock!
+    if(g == 1){#Población inicial
+      ### 1) Generar población inicial y 2) Calificar
+      # set.seed(1802)
+      lista_info_inicial <- poblacion_calif_iniciales(mat_esqueleto,
+                                                      mat_solicitudes_real,
+                                                      param)#5.22/4.82 min
+      mat_calif_asig <- lista_info_inicial[[1]]
+      # pob_ini <- lista_info_inicial[[2]]
+      poblacion <- lista_info_inicial[[2]]
+      for (p in 1:tam_poblacion) {
+        mat_num_genes[p,g] <- dim(poblacion[[p]])[1]
+      }
+      
+      
+      ### 12) Guardar una matriz con la calificación x gpo. de las
+      #' asignaciones (como xiii de T45)
+      matrices_calif_x_generacion[[g]] <- lista_info_inicial[[3]]
+      
+      ### 13) Hacer heatmap de la matriz en 12)
+      heatmap(matrices_calif_x_generacion[[g]][,1:650],
+              Colv = NA, Rowv = NA,
+              main = paste0("Calificaciones ordenadas de generación ",g),
+              scale="none",col=colMain)
+      
+      ### 11) Guardar la mejor asignación de la generación
+      ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+      mejores_asig[[g]] <- list(mat_calif_asig,
+                                poblacion[[ind_mejor_asig]])
+      
+      #Graficar datos
+      calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
+      plot(calif_mejor_elem[1:g],main = "Calificaciones del mejor elemento",
+           xlab = "Generación",ylab = "Calificación")
+      mat_calif_generaciones[,g] <- mat_calif_asig[,2]
+      matplot(mat_calif_generaciones[,1:g],type = "l",
+              main = "Calificaciones de las asignaciones por generación",
+              xlab = "Asignaciones",ylab = "Calificaciones")
+      
+      
+      matplot(mat_num_genes[,1:g],type = "l",
+              main = "Número de genes por generación",
+              xlab = "Asignaciones",ylab = "Número de genes")
+    }#Termina población inicial
+    
+    # ### 13) Hacer heatmap de la matriz en 12)
+    # heatmap(matrices_calif_x_generacion[[g]][,1:650],
+    #         Colv = NA, Rowv = NA,
+    #         main = paste0("Calificaciones ordenadas de generación ",g),
+    #         scale="none",col=colMain)
+    # 
+    # ### 11) Guardar la mejor asignación de la generación
+    # ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+    # mejores_asig[[g]] <- list(mat_calif_asig,
+    #                           poblacion[[ind_mejor_asig]])
+    # 
+    # #Graficar datos
+    # calif_mejor_elem[g] <- mat_calif_asig[tam_poblacion,2]
+    # plot(calif_mejor_elem[1:g],main = "Calificaciones del mejor elemento",
+    #      xlab = "Generación",ylab = "Calificación")
+    # mat_calif_generaciones[,g] <- mat_calif_asig[,2]
+    # matplot(mat_calif_generaciones[,1:g],type = "l",
+    #         main = "Calificaciones de las asignaciones por generación",
+    #         xlab = "Asignaciones",ylab = "Calificaciones")
+    
+    # save(calif_mejor_elem,file = "calif_mejor_elem.RData")
+    # save(mat_calif_generaciones,file = "mat_calif_generaciones.RData")
+    # ptm_pob <- proc.time()# Start the clock!
+    for(n in 1:tam_poblacion){
+      cat("\n *** HIJO ",n," ***")
+      if(n == 1){poblacion_nueva <- list()}
+      hijo <- data.frame(Materia = 0, Profesor = 0,TC = 0,
+                         Horario = 0)
+      esq_hijo <- matrix(0,nrow = length(param$Horas),
+                         ncol = length(param$vec_nom_materias_total))
+      ### 4) Elegir 2 padres con prob = 2i/(n*(n+1))
+      #' La selección es por "Rank Selection":
+      #' a) Elegir 2 individuos aleatoriamente
+      #' b) La asignación con la calificación más alta es el padre 1
+      #' c) Repetir a) y b) para el padre 2
+      #' Nota: Se toman los índices y no los números de las asignaciones
+      #' porque se tiene el vector de probabilidades que depende de
+      #' la posición en la que se encuentren las asignaciones.
+      ind_padres <- c(0,0)
+      (ind_mat_1 <- sample(x = 1:tam_poblacion,size = 2,
+                           prob = vec_prob_asig))
+      (ind_padres[1] <- max(ind_mat_1))
+      (ind_mat_2 <- sample(x = 1:tam_poblacion,size = 2,
+                           prob = vec_prob_asig))
+      
+      #' Para no tener al mismo padre dos veces
+      while(max(ind_mat_2) == max(ind_mat_1)){
+        (ind_mat_2 <- sample(x = 1:tam_poblacion,size = 2,
+                             prob = vec_prob_asig))
+        # cat("\n max(ind_mat_1) = ",max(ind_mat_1))
+        # cat("\n max(ind_mat_2) = ",max(ind_mat_2))
+      }
+      (ind_padres[2] <- max(ind_mat_2))
+      
+      padre_1 <- poblacion[[ind_padres[1]]]
+      padre_2 <- poblacion[[ind_padres[2]]]
+      
+      # write.csv(poblacion[[ind_padres[1]]], file = "padre_1.csv")
+      # write.csv(poblacion[[ind_padres[2]]], file = "padre_2.csv")
+      
+      while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
+        # Repetir hasta que uno de los padres se quede sin genes.
+        
+        ### 5) Con prob = 0.5 se elige un padre
+        (ind_padre_elegido <- sample(x=1:2,size = 1))
+        cat("\n Se eligió al padre ",ind_padre_elegido)
+        # cat(paste("Se eligió al padre ",ind_padre_elegido),
+        #     file="outfile.txt",sep="\n",append=TRUE)
+        
+        if(ind_padre_elegido == 1){
+          padre_elegido <- padre_1
+        }else{
+          padre_elegido <- padre_2
+        }
+        
+        ### 6) Elegir un gen (grupo) del padre seleccionado con prob = 2i/(n*(n+1))
+        (num_genes <- dim(padre_elegido)[1])
+        vec_prob_genes <- (2*(1:num_genes))/(num_genes*(num_genes+1))
+        (ind_gen <- sample(x = 1:num_genes,
+                           size = 1,
+                           prob = vec_prob_genes))
+        (gen_elegido <- padre_elegido[ind_gen,1:4])
+        
+        ### 7) Mutación
+        (r_num_muta <- runif(1))
+        if(r_num_muta<prob_mutacion && dim(mat_solicitudes_restantes)[1]>0){
+          #La 2° condición verifica si aún hay solicitudes para elegir
+          cat("\n Entra a mutación")
+          cat("\n dim(mat_solicitudes_restantes)[1] = ",
+              dim(mat_solicitudes_restantes)[1])
+          # cat("Entra a mutación",file="outfile.txt",sep="\n",append=TRUE)
+          (gen_elegido <- elige_gen_de_solicitud(mat_solicitudes_restantes,
+                                                 hijo,param))
+        }
+        if(r_num_muta<prob_mutacion && dim(mat_solicitudes_restantes)[1]==0){
+          #La 2° condición verifica que ya no hay solicitudes para elegir
+          cat("\n*** La matriz mat_solicitudes_restantes, ya no tiene información ***")
+          cat("\n*** g = ",g," ***")
+          cat("\n*** hijo = ",n," ***")
+        }
+        if(dim(gen_elegido)[1]==0 || is.na(gen_elegido[1])){
+          #' Cuando la matriz de solicitudes restantes tiene pocos
+          #' grupos se arroja un gen lleno de NA's
+          cat("\n Entra al if de *emergencia*")
+          (gen_elegido <- padre_elegido[ind_gen,1:4])
+        }
+        
+        hijo <- rbind(hijo,gen_elegido)
+        (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+        (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
+        esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
+                                                           num_materia_gen] + 1
+        
+        #' Se ajusta la información de las solicitudes
+        mat_solicitudes_restantes <- ajusta_mat_solicitudes(
+          mat_solicitudes_restantes,gen_elegido)
+        
+        
+        ### 8) Ajustar información de los padres con respecto al nuevo
+        ###gen del hijo
+        # (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+        # num_max_gpos[2,num_materia_gen] <- num_max_gpos[2,num_materia_gen] + 1
+        lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
+                                            gen_elegido,mat_esqueleto)
+        # lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
+        #                                     gen_elegido,mat_esqueleto_cotas)
+        padre_1 <- lista_padres[[1]]
+        padre_2 <- lista_padres[[2]]
+      }#Fin while()
+      #' Quitamos el renglón de ceros inicial
+      hijo <- unique(hijo)#Para evitar repeticiones en los grupos
+      hijo <- hijo %>% filter(Profesor != 0)
+      
+      ### 9) Añadir los genes restantes del otro padre al hijo
+      if(dim(padre_1)[1] > 0){
+        for(i in 1:dim(padre_1)[1]){
+          gen_elegido <- padre_1[i,]
+          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+          (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
+          esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
+                                                             num_materia_gen]+1
+        }
+        hijo <- rbind(hijo,padre_1[,1:4])
+      }
+      if(dim(padre_2)[1] > 0){
+        for(i in 1:dim(padre_2)[1]){
+          gen_elegido <- padre_2[i,]
+          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+          (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
+          esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
+                                                             num_materia_gen]+1
+        }
+        hijo <- rbind(hijo,padre_2[,1:4])
+      }
+      
+      #' Se asignan profesores a los grupos faltantes, como la
+      #' población inicial.
+      esq_gpos_faltantes <- mat_esqueleto - esq_hijo
+      lista_asig <- gen_asignacion(esq_gpos_faltantes,
+                                   mat_solicitudes_restantes,
+                                   param)#12.78 seg
+      mat_asig <- lista_asig[[1]]
+      hijo <- rbind(hijo,mat_asig)
+      
+      ### 2) Calificar y 3) Ordenar las calificaciones del hijo
+      # esq_hijo <- gen_esq_hijo(hijo,param)#Grupos con profesor en el hijo
+      lista_hijo <- list(hijo,esq_hijo)
+      lista_calif_hijo <- califica_asignacion(mat_esqueleto,
+                                              mat_solicitudes_real,
+                                              lista_hijo,param)
+      poblacion_nueva[[n]] <- lista_calif_hijo
+      
+      #Cada hijo vuelve a iniciar con la matriz de solicitudes completa
+      mat_solicitudes_restantes <- mat_solicitudes_real#1886 5
+    }#Fin for(n)
+    # cat("\nEl ciclo tardó: ",(proc.time()-ptm_pob)[3]/60,
+    #     " minutos. Para 1 generación \n")#15/37.83min
+    
+    lista_info <- califica_ordena_asig(poblacion_nueva,param)
+    mat_calif_asig <- lista_info[[1]]
+    poblacion <- lista_info[[2]]
+    for (p in 1:tam_poblacion) {
+      mat_num_genes[p,(g+1)] <- dim(poblacion[[p]])[1]
+    }
+    # save(mat_num_genes,file = "mat_num_genes.RData")
+    ### 12) Guardar una matriz con la calificación x gpo. de las
+    #' asignaciones (como xiii de T45)
+    matrices_calif_x_generacion[[(g+1)]] <- lista_info[[3]]
+    
+    ### 13) Hacer heatmap de la matriz en 12)
+    heatmap(matrices_calif_x_generacion[[(g+1)]][,1:650],
+            Colv = NA, Rowv = NA,
+            main = paste0("Calificaciones ordenadas de generación ",g+1),
+            scale="none",col=colMain)
+    
+    ### 11) Guardar la mejor asignación de la generación
+    ind_mejor_asig <- mat_calif_asig[tam_poblacion,1]
+    mejores_asig[[(g+1)]] <- list(mat_calif_asig,
+                                  poblacion[[ind_mejor_asig]])
+    
+    #Graficar datos
+    calif_mejor_elem[(g+1)] <- mat_calif_asig[tam_poblacion,2]
+    plot(calif_mejor_elem[1:(g+1)],
+         main = "Calificaciones del mejor elemento",
+         xlab = "Generación",ylab = "Calificación")
+    mat_calif_generaciones[,(g+1)] <- mat_calif_asig[,2]
+    matplot(mat_calif_generaciones[,1:(g+1)],type = "l",
+            main = "Calificaciones de las asignaciones por generación",
+            xlab = "Asignaciones",ylab = "Calificaciones")
+    
+    matplot(mat_num_genes[,1:(g+1)],type = "l",
+            main = "Número de genes por generación",
+            xlab = "Asignaciones",ylab = "Número de genes")
+  }#Fin for(g)
+  tiempo_minutos <- (proc.time()-ptm_generaciones)[3]/60
+  cat("\nEl ciclo tardó: ",tiempo_minutos," minutos. Para ",
+      num_generaciones," generaciones \n")
+  
+  ### 14) Se define la asignación final
+  mejor_asig <- mejores_asig[[(num_generaciones+1)]][[2]]
+  mat_asignacion_final <- cbind(mejor_asig$Materia,
+                                mejor_asig$Profesor,
+                                mejor_asig$Horario)
+  colnames(mat_asignacion_final) <- c("Materia","Profesor","Horario")
+  # View(mat_asignacion_final)
+  # save(mat_asignacion_final,file = "mat_asignacion_final.RData")
+  
+  
+  # Esqueleto asignación final
+  esq_asig_final <- matrix(0,nrow = length(param$Horas),
+                           ncol = length(param$vec_nom_materias_total))
+  rownames(esq_asig_final) <- param$nombre_hrs
+  colnames(esq_asig_final) <- param$vec_nom_materias_total
+  asig_final  <- data.frame(mat_asignacion_final ,Num_Materia = 0)
+  
+  for(r in 1:dim(asig_final )[1]){
+    materia <- asig_final$Materia[r]
+    asig_final$Num_Materia[r] <- arroja_num_materia(materia)
+  }
+  
+  for(m in 1:length(param$vec_nom_materias_total)){
+    materia <- param$vec_nom_materias_total[m]
+    cat("\n Materia ",m,": ",materia)
+    mat_materia <- asig_final  %>% filter(Materia == materia)
+    for(h in 1:length(param$Horas)){
+      hora <- param$Horas[h]
+      mat_hora <- mat_materia %>% filter(Horario == hora)
+      esq_asig_final[h,m] <- dim(mat_hora)[1]
+    }
+  }
+  
+  
+  # Info de grupos sin asignación
+  dif_x_materia <- colSums(mat_esqueleto) - colSums(esq_asig_final)
+  dif_rel <- (colSums(mat_esqueleto) - colSums(esq_asig_final))/colSums(mat_esqueleto)
+  info_gpos_sin_asig <- data.frame(mat_esq = colSums(mat_esqueleto),
+                                   esq_asig_fin = colSums(esq_asig_final),
+                                   gpos_sin_asig = dif_x_materia,
+                                   dif_rel = dif_rel)
+  # View(info_gpos_sin_asig)
+  
+  # Vector con info de AG
+  vec_info_AG <- data.frame(Num_generaciones = num_generaciones+1,
+                            Tam_pob = tam_poblacion,
+                            Tiempo = tiempo_minutos,
+                            Mejor_calif = max(calif_mejor_elem),
+                            Num_genes_asig_fin = dim(mat_asignacion_final)[1],
+                            Calif_asig_fin = calif_mejor_elem[num_generaciones+1],
+                            Prom_genes_gen1 = mean(mat_num_genes[,1]),
+                            Prom_genes_generaciones = mean(
+                              mat_num_genes[,2:(num_generaciones+1)]))
+  
+  list_asignacion_final <- list()
+  list_asignacion_final[[1]] <- mat_asignacion_final
+  list_asignacion_final[[2]] <- calif_mejor_elem #Vector con calificaciones de los mejores elementos por generación
+  list_asignacion_final[[3]] <- mat_calif_generaciones #Matriz con calificaciones de todos los elementos de todas las generaciones
+  list_asignacion_final[[4]] <- matrices_calif_x_generacion #Lista de tamaño num_generaciones+1 con las matrices de calificaciones ordenadas por generación .
+  list_asignacion_final[[5]] <- mejores_asig #Lista de tamaño num_generaciones+1 con la información de los mejores hijos de cada generación.
+  list_asignacion_final[[6]] <- mat_num_genes #Matriz con el número de genes de todos los elementos por generación
+  list_asignacion_final[[7]] <- mat_esqueleto
+  list_asignacion_final[[8]] <- mat_solicitudes_real
+  list_asignacion_final[[9]] <- param
+  list_asignacion_final[[10]] <- vec_info_AG #Vector con información del AG y sus resultados
+  list_asignacion_final[[11]] <- esq_asig_final #mat_esqueleto de la asignación final
+  list_asignacion_final[[12]] <- info_gpos_sin_asig #Matriz con las columnas: mat_esq (gpos. x materia en mat_esqueleto), esq_asig_fin (gpos. x materia en esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia), dif_rel (diferencia relativa x materia)
+  
+  names(list_asignacion_final) <- c("mat_asignacion_final",
+                                    "calif_mejor_elem",
+                                    "mat_calif_generaciones",
+                                    "matrices_calif_x_generacion",
+                                    "mejores_asig",
+                                    "mat_num_genes",
+                                    "mat_esqueleto",
+                                    "mat_solicitudes_real",
+                                    "param",
+                                    "vec_info_AG",
+                                    "esq_asig_final",
+                                    "info_gpos_sin_asig")
+  cat("\nLa función AG_asignaciones tardó: ",(proc.time()-ptm)[3]/60,
+      " minutos\n")
+  return(list_asignacion_final)
+}
+
+
+# AG_asignaciones_con_xlsx ------------------------------------------------
+#' Title AG_asignaciones_con_xlsx: Función que aplica el algoritmo genético
+#' a las asignaciones para encontrar una buena asignación. La función tiene
+#' la opción de leer un documento de excel con asignaciones previas. En caso
+#' de que si lea el documento, quita las asignaciones previas de las
+#' solicitudes más la respectiva información y genera una asignación.
+#'
+#' @param mat_esqueleto: Matriz de 15 renglones (horas) y 203 columnas
+#' (materias). En la entrada (i,j) se tiene el número de grupos simulados
+#' para la hora i, y la materia j.
+#' @param mat_solicitudes_real: Matriz de 5 columnas (Profesor,TC,Materia,
+#' Num_Materia,Horario) y 6 renglones que tiene la información de la
+#' solicitud de "nom_prof". Se eligen 2 materias y hasta 3 diferentes
+#' horarios. Se quitan los renglones repetidos. Se hace una "intersección"
+#' con los grupos simulados en la matriz "mat_esqueleto" y así se obtienen
+#' las solicitudes pseudo-reales de los profesores.
+#' @param con_xlsx_1_sin_xlsx_0: Variable binaria que vale 1 si se debe
+#' de leer el archivo xlsx y 0 si no.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
+#' m_grande_total)
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+#'
+#' @examples
+#' list_asignacion_final <- AG_asignaciones_con_xlsx(mat_esqueleto,
+#' mat_solicitudes_real,con_xlsx_1_sin_xlsx_0,param)
+#' 
+AG_asignaciones_con_xlsx <- function(mat_esqueleto,
+                                     mat_solicitudes_real,
+                                     con_xlsx_1_sin_xlsx_0,param){
+  if(con_xlsx_1_sin_xlsx_0 == 0){
+    #' Si no se carga el archivo de excel se realiza la asignación
+    #' con el AG de manera norma. Sin modificar las matrices con el
+    #' esqueleto y las solicitudes.
+    list_asignacion_final <- AG_asignaciones(mat_esqueleto,
+                                             mat_solicitudes_real,param)
+  }else{
+    #Si se carga el archivo de excel
+    asig_fijas <- read_excel("horario.xlsx", sheet = "Horario")
+    mat_solicitudes_restantes <- mat_solicitudes_real
+    mat_esqueleto_restante <- mat_esqueleto
+    
+    for(r in 1:dim(asig_fijas)[1]){
+      (materia <- as.character(asig_fijas[r,1]))
+      (prof <- as.character(asig_fijas[r,2]))
+      (hora <- as.character(asig_fijas[r,3]))
+      
+      #Se eliminan las solicitudes
+      (ind_prof <- which(mat_solicitudes_restantes[,1] == prof))
+      (ind_hora <- which(mat_solicitudes_restantes[,5] == hora))
+      (ind_materia <- which(mat_solicitudes_restantes[,3] == materia))
+      (elim_hora_prof <- intersect(ind_prof,ind_hora))
+      (elim_materia_prof <- intersect(ind_prof,ind_materia))
+      (ind_elim <- union(elim_hora_prof,elim_materia_prof))
+      if(length(ind_elim) > 0){
+        mat_solicitudes_restantes <- mat_solicitudes_restantes[-ind_elim,]
+      }
+      
+      #Se eliminan los grupos en el esqueleto
+      (h_hora <- which(7:21 == as.numeric(hora)))
+      (j_materia <- arroja_num_materia(materia))
+      mat_esqueleto_restante[h_hora,j_materia] <- mat_esqueleto_restante[h_hora,
+                                                                         j_materia] - 1
+      
+    }#Fin for(r)
+    list_asignacion_final <- AG_asignaciones(mat_esqueleto_restante,
+                                             mat_solicitudes_restantes,param)
+    list_asignacion_final[[1]] <- rbind(list_asignacion_final[[1]],asig_fijas)
+  }#Fin else
+  
+  return(list_asignacion_final)
+}
+
+
+
+# gen_asignacion_completa -------------------------------------------------
+#' Title gen_asignacion_completa: Función que genera la asignación
+#' completa de todas las materias. Utiliz el AG. Tiene la opción de leer
+#' un archivo de excel con grupos predefinidos.
+#'
+#' @param con_xlsx_1_sin_xlsx_0: Variable binaria que vale 1 si se debe
+#' de leer el archivo xlsx y 0 si no.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @param param_sim: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se encargan de la simulación.
+#' 
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
+#' m_grande_total)
+#' @example param_sim <- list(vec_sem_sig = c(20191,20192,20201),k_sem_ant = 5,
+#' materia = "Estadística III", num_sim = 10, m_filtrada = matrix(0),
+#' sub_m_filtrada = matrix(0,ncol = length(param$nom_cols_MG)))
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+#'
+#' @examples
+#' list_asignacion_final <- gen_asignacion_completa(con_xlsx_1_sin_xlsx_0,
+#'                                                  param,param_sim)
+#' 
+gen_asignacion_completa <- function(con_xlsx_1_sin_xlsx_0,param,param_sim){
+  ptm <- proc.time()# Start the clock!
+  #' 5) Simulación de esqueletos
+  # n_rep <- 10 #12.45 min
+  n_rep <- 5 #5.97/5.59 min
+  # set.seed(1806)
+  # set.seed(42)
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#5.79 min
+  mat_esqueleto <- lista_esq_D_prima[[1]]
+  # View(mat_esqueleto)
+  
+  #' 4b) Simulación de solicitudes de profesores (pseudo-real)
+  # set.seed(1806)
+  # set.seed(42)
+  mat_solicitudes_real <- gen_solicitudes_real(mat_esqueleto,param)#8.3 seg
+  # View(mat_solicitudes_real)
+  
+  #' 10) AG aplicado a asignaciones: Aquí ya va a salir una buena asignación
+  # set.seed(42)
+  list_asignacion_final <- AG_asignaciones_con_xlsx(mat_esqueleto,
+                                                    mat_solicitudes_real,
+                                                    con_xlsx_1_sin_xlsx_0,
+                                                    param)
+  cat("\nLa función gen_asignacion_completa tardó: ",
+      (proc.time()-ptm_generaciones)[3]/60," minutos. \n")
+  return(list_asignacion_final)
+}
+
+
+
 
 
 

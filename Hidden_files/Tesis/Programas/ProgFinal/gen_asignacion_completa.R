@@ -14,8 +14,54 @@ source("Fn_Asignacion.R")
 
 
 # gen_asignacion_completa -------------------------------------------------
-gen_asignacion_completa <- function(param,param_sim){
-
+#' Title gen_asignacion_completa: Función que genera la asignación
+#' completa de todas las materias. Utiliz el AG. Tiene la opción de leer
+#' un archivo de excel con grupos predefinidos.
+#'
+#' @param con_xlsx_1_sin_xlsx_0: Variable binaria que vale 1 si se debe
+#' de leer el archivo xlsx y 0 si no.
+#' @param param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
+#' @param param_sim: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se encargan de la simulación.
+#' 
+#' @example param <- list(nombre_hrs = c("7-8","8-9"),nombre_sem = c("2015-1",
+#' "2015-2"),Semestres = c(20192,20201),Horas = c(7,8,9,10),q1 = 80, q2 = 90,
+#' m_grande_total)
+#' @example param_sim <- list(vec_sem_sig = c(20191,20192,20201),k_sem_ant = 5,
+#' materia = "Estadística III", num_sim = 10, m_filtrada = matrix(0),
+#' sub_m_filtrada = matrix(0,ncol = length(param$nom_cols_MG)))
+#'
+#' @return list_asignacion_final: Lista de 12 elementos:
+#' 1) mat_asignacion_final: Matriz de 3 columnas (Materia,Profesor,
+#' Horario). Contiene la asignación final encontrada con el algoritmo
+#' genético.
+#' 2) calif_mejor_elem: Vector con calificaciones de los mejores elementos
+#' por generación.
+#' 3) mat_calif_generaciones: Matriz con calificaciones de todos los
+#' elementos de todas las generaciones.
+#' 4) matrices_calif_x_generacion: Lista de tamaño num_generaciones+1
+#' con las matrices de calificaciones ordenadas por generación.
+#' 5) mejores_asig: Lista de tamaño num_generaciones+1 con la información
+#' de los mejores hijos de cada generación.
+#' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
+#' por generación.
+#' 7) mat_esqueleto
+#' 8) mat_solicitudes_real
+#' 9) param
+#' 10) vec_info_AG: Vector con información del AG y sus resultados.
+#' 11) esq_asig_final: Esqueleto de la asignación final.
+#' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
+#' materia en mat_esqueleto), esq_asig_fin (gpos. x materia en
+#' esq_asig_final), gpos_sin_asig (gpos. sin asignación x materia),
+#' dif_rel (diferencia relativa x materia).
+#'
+#' @examples
+#' list_asignacion_final <- gen_asignacion_completa(con_xlsx_1_sin_xlsx_0,
+#'                                                  param,param_sim)
+#' 
+gen_asignacion_completa <- function(con_xlsx_1_sin_xlsx_0,param,param_sim){
+  ptm <- proc.time()# Start the clock!
   #' 1-3) Extracción de datos y simulación de alumnos de t+1
   # set.seed(8654)
   # set.seed(1806)
@@ -78,18 +124,24 @@ gen_asignacion_completa <- function(param,param_sim){
   # set.seed(8654)
   # lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#5.79 min
   # mat_esqueleto_cotas <- lista_esq_D_prima[[1]]
-  
-  list_asignacion_final <- AG_asignaciones(mat_esqueleto,mat_solicitudes_real,
-                                           #mat_esqueleto_cotas,
-                                           param)#186.64 min
-  mat_asignacion_final <- list_asignacion_final[[1]]
-  calif_mejor_elem <- list_asignacion_final[[2]]
-  mat_calif_generaciones <- list_asignacion_final[[3]]
-  matrices_calif_x_generacion <- list_asignacion_final[[4]]
-  mejores_asig <- list_asignacion_final[[5]]
-  
-  View(mat_asignacion_final)
-  
-  return(mat_asignaciones)
+  list_asignacion_final <- AG_asignaciones_con_xlsx(mat_esqueleto,
+                                                    mat_solicitudes_real,
+                                                    con_xlsx_1_sin_xlsx_0,
+                                                    param)
+  cat("\nLa función gen_asignacion_completa tardó: ",
+      (proc.time()-ptm_generaciones)[3]/60," minutos. \n")
+  return(list_asignacion_final)
 }
 
+
+
+
+# Ej. ---------------------------------------------------------------------
+# con_xlsx_1_sin_xlsx_0 <- 1 #Leer excel
+con_xlsx_1_sin_xlsx_0 <- 0 #No leer excel
+
+list_asignacion_final <- gen_asignacion_completa(con_xlsx_1_sin_xlsx_0,
+                                                 param,param_sim)
+mat_asignacion_final <- list_asignacion_final[[1]]
+
+View(mat_asignacion_final)
