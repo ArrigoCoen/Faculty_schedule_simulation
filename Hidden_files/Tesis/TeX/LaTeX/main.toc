@@ -43,11 +43,11 @@
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Resultados del Algoritmo Genético}{74}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusiones}{83}{chapter.6}%
-\contentsline {chapter}{\numberline {A} }{85}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Abreviaturas}{85}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Estimador máximo verosímil de $\lambda $}{85}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Materias agrupadas}{86}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Ejemplo de asignación final}{89}{section.Alph1.4}%
-\contentsline {section}{\numberline {A.5}Notas}{112}{section.Alph1.5}%
-\contentsline {chapter}{Bibliografía}{117}{appendix*.90}%
+\contentsline {chapter}{\numberline {6}Conclusiones}{81}{chapter.6}%
+\contentsline {chapter}{\numberline {A} }{83}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Abreviaturas}{83}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Estimador máximo verosímil de $\lambda $}{83}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Materias agrupadas}{84}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Ejemplo de asignación final}{87}{section.Alph1.4}%
+\contentsline {section}{\numberline {A.5}Notas}{110}{section.Alph1.5}%
+\contentsline {chapter}{Bibliografía}{115}{appendix*.90}%

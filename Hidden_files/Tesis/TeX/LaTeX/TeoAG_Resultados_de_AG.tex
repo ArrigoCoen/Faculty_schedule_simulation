@@ -62,49 +62,20 @@ Con estas observaciones concluímos que hay un mayor incremento en la calificaci
 A continuación presentaremos los resultados obtenidos con el AG correspondientes a la prueba con 8 generaciones y 8 elementos por cada población. En esta prueba obtuvimos la mejor calificación en la asignación final de todas las pruebas realizadas. El número de genes varía dependiendo de cada asignación, en este caso se encuentra entre 650 y 690.
 
 
-%que tiene los siguientes parámetros:
-%
-%\begin{itemize}
-%\item[-] Número de generaciones $ = 8$ (población inicial más 9 reemplazamientos).
-%
-%\item[-] Tamaño de la población $ = 8$ (para cada generación).
-%
-%\item[-] Número de genes $ \in [650,690]$ (varía dependiendo de cada asignación).
-%\end{itemize}
-
-
-
 En la \figurename{~\ref{EjcalifMejoresHijos}} vemos las calificaciones de la mejor asignación por generación. Observamos que la mejora en la calificación es considerable de la población inicial a la segunda generación. Este fenómeno es común en el AG porque la primera generación se simula de manera aleatoria. Para la segunda generación es más probable elegir los mejores elementos de la población. Incluso a nivel gen se tiene una mayor probabilidad de elegir los mejores. Es por ello que se da esa gran diferencia en las calificaciones entre la generación 1 y la 2.
 
 Notamos que la calificación del mejor elemento de la generación 6 es menor a la calificación de la generación 5. Con ésto podemos observar que las diferentes posibilidades que explora el AG no necesariamente son siempre mejores que las anteriores.
 
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.7]{calif_mejores_hijos_g08_n08_m004_U510.pdf} %width=\textwidth
-\caption[\textit{Calificaciones de las mejores asignaciones por generación}]{\textit{Se muestran las calificaciones de la mejor asignación por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifMejoresHijos}
-\end{figure}
-
-%En la \figurename{~\ref{EjcalifAsig}} vemos las calificaciones de las asignaciones.
-%
 %\begin{figure}[H]
 %\centering
-%\includegraphics[width=\textwidth]{ej_calif_asignaciones} %scale = 0.7
-%\caption{\textit{Ejemplo con calificaciones de asignaciones.}}\label{EjcalifAsig}
+%\includegraphics[scale = 0.7]{calif_mejores_hijos_g08_n08_m004_U510.pdf} %width=\textwidth
+%\caption[\textit{Calificaciones de las mejores asignaciones por generación}]{\textit{Se muestran las calificaciones de la mejor asignación por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifMejoresHijos}
 %\end{figure}
-
-%En la \figurename{~\ref{EjcalifAsig_x_generacion}} vemos las calificaciones de las asignaciones por generación. Cada línea representa una generación. De abajo hacia arriba se tiene de la primer población a la sexta. Podemos ver que las calificaciones de las poblaciones 4 y 5 son muy parecidas. Al igual que en la \figurename{~\ref{EjcalifMejoresHijos}}, se puede observar una mejora considerable en las calificaciones de las asignaciones de la generación 1 a la 2.
-%
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=\textwidth]{calif_asig_x_generacion.pdf} %scale = 0.7
-%\caption[\textit{Calificaciones de asignaciones por generación}]{\textit{Se muestran las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifAsig_x_generacion}
-%\end{figure}
-
 
 En la \figurename{~\ref{boxplot_calif_x_generacion}} observamos las gráficas de caja de las calificaciones de las asignaciones, para cada generación. Hay una mejora considerable en las calificaciones de la generación 1 a la 2. Los puntos representan las calificaciones de cada asignación por generación. Notamos que las calificaciones de las asignaciones en la generación 6, son muy parecidas. A diferencia de las calificaciones en la generación 3, las cuales varían más.
 
-%\begin{figure}[h]
+%\begin{figure}[H]
 %\centering
 %\includegraphics[scale = 0.7]{boxplot_calif_g08_n08_m004_U510.pdf} %width=\textwidth
 %\caption[\textit{Gráficas de caja de calificaciones de asignaciones por generación}]{\textit{Se muestran las gráficas de caja de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{boxplot_calif_x_generacion}
@@ -112,13 +83,21 @@ En la \figurename{~\ref{boxplot_calif_x_generacion}} observamos las gráficas de
 
 En la \figurename{~\ref{media_calif_x_generacion}} se puede ver el promedio de las calificaciones de las asignaciones por generación. Al igual que en las Figuras \ref{EjcalifMejoresHijos} y \ref{boxplot_calif_x_generacion} se observa una mejora considerable en la calificación de la generación 1 a la 2. Podemos observar que el promedio de las calificaciones de la generación 7 es menor que el promedio de las calificaciones de la generación 6.
 
-%\begin{figure}[h]
+
+%\begin{figure}[H]
 %\centering
 %\includegraphics[scale = 0.7]{media_calif_g08_n08_m004_U510.pdf} %width=\textwidth
 %\caption[\textit{Media de calificaciones de asignaciones por generación}]{\textit{Se muestra el promedio de las calificaciones de las asignaciones por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{media_calif_x_generacion}
 %\end{figure}
 
 En la \figurename{~\ref{var_calif_x_generacion}} se ve la varianza de las calificaciones de las asignaciones por generación. El valor más pequeño se observa en la generación 6. Al ver la \figurename{~\ref{boxplot_calif_x_generacion}} en dicha generación, notamos que los puntos tienen valores muy similares. La varianza más grande se obtiene en la generación 3. Ésto también se puede ver en la \figurename{~\ref{boxplot_calif_x_generacion}}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.67]{calif_mejores_hijos_g08_n08_m004_U510.pdf} %width=\textwidth
+\caption[\textit{Calificaciones de las mejores asignaciones por generación}]{\textit{Se muestran las calificaciones de la mejor asignación por generación. Se observa una mejora considerable en la calificación de la generación 1 a la 2.}}\label{EjcalifMejoresHijos}
+\end{figure}
 
 
 \begin{figure}[H]
@@ -136,7 +115,7 @@ En la \figurename{~\ref{var_calif_x_generacion}} se ve la varianza de las califi
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.7]{varianza_g08_n08_m004_U510.pdf} %width=\textwidth
+\includegraphics[scale = 0.67]{varianza_g08_n08_m004_U510.pdf} %width=\textwidth
 \caption[\textit{Varianza de calificaciones de asignaciones por generación}]{\textit{Se muestra la varianza de las calificaciones de las asignaciones por generación. Se observa una disminución considerable de la generación 5 a la 6. El valor más grande se encuentra en la generación 3.}}\label{var_calif_x_generacion}
 \end{figure}
 
@@ -178,7 +157,7 @@ También podemos observar que el promedio del número de genes en las generacion
 %\dfrac{630}{747} &=& 84.33\% \text{grupos asignados comparado con el 2020-1}
 %\end{eqnarray*}
 
-Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de la asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver en el Apéndice \ref{Ej_AsigFinal}.
+Sabemos que la asignación final es el mejor elemento de la última generación. En la \tablename{~\ref{submatAsigFinal}} presentamos una submatriz de una asignación final. Cabe aclarar que los datos se ordenaron con respecto a la materia (en orden alfabético) y por hora (de menor a mayor). La matriz completa se puede ver en el Apéndice \ref{Ej_AsigFinal}.
 
 Dicha matriz tiene 682 grupos asignados, cada uno con materia, profesor y horario correspondiente. En el semestre 2020-1 se tuvieron 747 grupos reales. Se simularon 1091 grupos en \textit{mat\_esqueleto} para el semestre 2020-2.
 
@@ -190,17 +169,17 @@ Dicha matriz tiene 682 grupos asignados, cada uno con materia, profesor y horari
 1 & Administración Actuarial del Riesgo & Fernando Pérez Márquez & 7 \\ \hline
   133 & Cálculo Diferencial e Integral I & Elena de Oteyza de Oteyza & 7 \\ \hline
   156 & Cálculo Diferencial e Integral II & Héctor Méndez Lango & 11 \\ \hline
-  353 & Inferencia Estadística & Martha Angélica Montes Fonseca & 18 \\ \hline
+%  353 & Inferencia Estadística & Martha Angélica Montes Fonseca & 18 \\ \hline
   401 & Manejo de Datos & José Alfredo Cobián Campos & 13 \\ \hline
   418 & Matemáticas Financieras & Irma Rocío Zavala Sierra & 7 \\ \hline
   498 & Modelos de Supervivencia y de Series de Tiempo & Margarita Elvira Chávez Cano & 10 \\ \hline
-  505 & Modelos no Paramétricos y de Regresión & Jaime Vázquez Alamilla & 8 \\ \hline
+%  505 & Modelos no Paramétricos y de Regresión & Jaime Vázquez Alamilla & 8 \\ \hline
   510 & Modelos no Paramétricos y de Regresión & Lizbeth Naranjo Albarrán & 11 \\ \hline
   534 & Probabilidad I & María Asunción Begoña Fernández Fernández & 10 \\ \hline
   539 & Probabilidad II & Daniel Alejandro Zurita Gutiérrez & 8 \\ \hline
   561 & Procesos Estocásticos I & Arrigo Coen Coria & 10 \\ \hline
   567 & Productos Financieros Derivados & Jesús Agustín Cano Garcés & 10 \\ \hline
-  679 & Variable Compleja I & Micho Durdevich Lucic & 16 \\ \hline
+%  679 & Variable Compleja I & Micho Durdevich Lucic & 16 \\ \hline
 %  680 & Variable Compleja I & Mico Djurdjevic & 16 \\ \hline
   682 & Variable Compleja I & Jesús Manuel Mayorquín García & 19 \\ \hline
 \end{tabular}
@@ -248,37 +227,5 @@ En el caso de \textit{Teoría del Seguro} se simularon 4 grupos en \textit{mat\_
 \caption[\textit{Solicitudes simuladas de la materia ``Teoría del Seguro'' para el semestre 2020-2}]{\textit{Se muestran las solicitudes simuladas de la materia ``Teoría del Seguro'' para el semestre 2020-2.}}\label{sol_TeoSeguro}
 \end{figure}
 
-Por estas razones el algoritmo asigna alrededor del $60\%$ de los grupos simulados. Para aumentar este porcentaje realizamos el siguiente procedimiento:
-
-\begin{enumerate}
-\item Simular \textit{mat\_esqueleto} (ver Sección \ref{sec_esqueletos}).
-
-\item Simular solicitudes pseudo-reales (ver Sección \ref{SimSolicitudesProfesores}).
-
-\item Crear un archivo \textit{xlsx} con 3 hojas:
-
-\begin{itemize}
-\item[-] Horario: Contiene una asignación predefinida con los grupos que se desean tener en la asignación final.
-
-\item[-] Materias: Contiene el nombre de las materias del vector \textit{vec\_nom\_materias} (ver Sección \ref{Sec_NomMaterias}).
-
-\item[-] Profesores: Contiene la matriz \textit{mat\_nom\_prof}, con la información de cada profesor (ver Sección \ref{nomProfesores}).
-\end{itemize}
-
-\item Leer la hoja \textit{Horario} del archivo creado con la función \verb@read_excel()@, en \textit{R}.
-
-\item Eliminar la información de las solicitudes correspondiente a la asignación predefinida. Se eliminan los grupos a esa hora o con esa materia.
-
-\item Eliminar los grupos de la asignación predefinida en \textit{mat\_esqueleto}.
-
-\item Realizar el AG con las nuevas matrices de esqueleto y de solicitudes.
-
-\item Agregar los grupos de la asignación predefinida a los grupos de la asignación obtenida con el AG.
-\end{enumerate}
-
-
-De esta manera se pueden definir manualmente grupos difíciles de asignar con el AG. Pueden ser materias optativas u obligatorias. Dado que se elimina la información en las solicitudes antes de realizar el AG, no se tienen grupos repetidos en la última asignación.
-
-Cabe aclarar que en el archivo \textit{xlsx}, las hojas \textit{Materias} y \textit{Profesores} nos sirven de guía para llenar de manera adecuada la hoja \textit{Horario}. Evitando los problemas vistos en las Secciones \ref{Sec_NomMaterias} y \ref{nomProfesores} de falta de acentos, nombres incompletos, entre otros.
-
+Por estas razones el algoritmo asigna alrededor del $60\%$ de los grupos simulados. Para aumentar este porcentaje, se pueden definir manualmente grupos difíciles de asignar con el AG, en el archivo de excel definido en el paso \ref{paso_cero} del algoritmo. Pueden ser materias optativas u obligatorias. Dado que se elimina la información en las solicitudes antes de realizar el AG, no se tienen grupos repetidos en la última asignación.
 

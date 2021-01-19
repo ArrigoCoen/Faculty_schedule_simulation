@@ -50,6 +50,22 @@ El objetivo principal de este proyecto es obtener una matriz con la asignación 
 Los pasos que seguimos para obtener la asignación final son:
 
 \begin{enumerate}
+\setcounter{enumi}{-1}
+\item \textbf{Crear un archivo \textit{xlsx}} \label{paso_cero}
+
+Crear un archivo \textit{xlsx} con 3 hojas:
+
+\begin{itemize}
+\item[-] Horario: Contiene una asignación predefinida con los grupos que se desean tener en la asignación final.
+
+\item[-] Materias: Contiene el nombre de las materias del vector \textit{vec\_nom\_materias} (ver Sección \ref{Sec_NomMaterias}).
+
+\item[-] Profesores: Contiene la matriz \textit{mat\_nom\_prof}, con la información de cada profesor (ver Sección \ref{nomProfesores}).
+\end{itemize}
+
+Las hojas \textit{Materias} y \textit{Profesores} nos sirven de guía para llenar de manera adecuada la hoja \textit{Horario}. Evitando los problemas vistos en las secciones mencionadas de falta de acentos, nombres incompletos, entre otros.
+
+
 \item \textbf{Definir parámetros iniciales}
 
 \begin{itemize}
@@ -73,6 +89,18 @@ Obtener la matriz \textit{mat\_esqueleto} con el procedimiento visto en la Secci
 \item \textbf{Simular solicitudes pseudo-reales} \label{paso_sim_solicitudes}
 
 Obtener la matriz \textit{mat\_solicitudes} con el procedimiento visto en la Sección \ref{SimSolicitudesProfesores}.
+
+
+\item \textbf{Leer archivo de excel}
+
+Con la función \verb@read_excel()@, en \textit{R}, leer la hoja \textit{Horario} del archivo creado en el paso \ref{paso_cero}.
+
+\item \textbf{Ajustar infomación en matrices}
+
+Eliminar la información de las solicitudes correspondiente a la asignación predefinida. Se eliminan los grupos a esa hora o con esa materia.
+
+Eliminar los grupos de la asignación predefinida en \textit{mat\_esqueleto}.
+
 
 \item \textbf{Definir matrices auxiliares}
 
@@ -185,6 +213,10 @@ Repetir los pasos \ref{paso_califica_asig} al \ref{paso_reemplaza_pob} hasta com
 \item \textbf{Asignación final}
 
 Definir la asignación final como el hijo mejor calificado de la última generación.
+
+\item \textbf{Agregar grupos predefinidos}
+
+Agregar los grupos de la asignación predefinida a los grupos de la asignación final.
 \end{enumerate}
 
 

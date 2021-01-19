@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  18 JAN 2021 21:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  18 JAN 2021 22:52
 entering extended mode
 **./main.tex
 (main.tex
@@ -1935,116 +1935,91 @@ LaTeX Info: Redefining \% on input line 203.
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
  [74]
-<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1366, 578.16pt x 433.62
+<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1373, 578.16pt x 433.62
 pt>
 File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 )
 <use Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf  us
-ed on input line 84.
-(pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
+ed on input line 98.
+(pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
+LaTeX Info: Redefining \. on input line 101.
+LaTeX Info: Redefining \% on input line 101.
  [75]
 <Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1378, 578.16pt x 433.62pt>
 File: Pictures/boxplot_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_calif_g08_n08_m004_U510.pdf  used on 
-input line 126.
+input line 105.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 129.
-LaTeX Info: Redefining \% on input line 129.
- [76 <./Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf>]
-<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1389, 578.16pt x 433.62pt>
+<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1379, 578.16pt x 433.62pt>
 File: Pictures/media_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/media_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/media_calif_g08_n08_m004_U510.pdf  used on in
-put line 132.
+put line 111.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
-<Pictures/varianza_g08_n08_m004_U510.pdf, id=1390, 578.16pt x 433.62pt>
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
+ [76 <./Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf> <./Pictures/boxplot
+_calif_g08_n08_m004_U510.pdf>]
+<Pictures/varianza_g08_n08_m004_U510.pdf, id=1395, 578.16pt x 433.62pt>
 File: Pictures/varianza_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/varianza_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/varianza_g08_n08_m004_U510.pdf  used on input
- line 139.
-(pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
- [77 <./Pictures/boxplot_calif_g08_n08_m004_U510.pdf> <./Pictures/media_calif_g
-08_n08_m004_U510.pdf>]
-<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1407, 578.16pt x 433.62pt
+ line 118.
+(pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
+LaTeX Info: Redefining \. on input line 123.
+LaTeX Info: Redefining \% on input line 123.
+
+[77 <./Pictures/media_calif_g08_n08_m004_U510.pdf> <./Pictures/varianza_g08_n08
+_m004_U510.pdf>]
+<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1413, 578.16pt x 433.62pt
 >
 File: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf  used
- on input line 151.
+ on input line 130.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 5563) in paragraph at lines 193--193
-[]\T1/ptm/m/n/12 Martha An-gé-li-ca Mon-tes
- []
-
-
-Underfull \hbox (badness 8056) in paragraph at lines 196--196
+Underfull \hbox (badness 8056) in paragraph at lines 175--175
 []\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
+Underfull \hbox (badness 10000) in paragraph at lines 178--178
 []\T1/ptm/m/n/12 María Asun-ción Be-go-ña
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--200
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
 []\T1/ptm/m/n/12 Daniel Ale-jan-dro Zu-ri-ta
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 205--205
+Underfull \hbox (badness 4084) in paragraph at lines 184--184
 []\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
  []
 
 
-Underfull \vbox (badness 1895) has occurred while \output is active []
+Underfull \vbox (badness 6016) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 209.
-LaTeX Info: Redefining \% on input line 209.
- [78 <./Pictures/varianza_g08_n08_m004_U510.pdf>]
-Overfull \vbox (22.17256pt too high) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 209.
-LaTeX Info: Redefining \% on input line 209.
-
-[79 <./Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>]
-<Pictures/solicitudes_teoria_del_seguro.png, id=1431, 487.8225pt x 336.50719pt>
+LaTeX Info: Redefining \. on input line 188.
+LaTeX Info: Redefining \% on input line 188.
+ [78 <./Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>]
+LaTeX Info: Redefining \. on input line 214.
+LaTeX Info: Redefining \% on input line 214.
+ [79]
+<Pictures/solicitudes_teoria_del_seguro.png, id=1432, 487.8225pt x 336.50719pt>
 
 File: Pictures/solicitudes_teoria_del_seguro.png Graphic file (type png)
 <use Pictures/solicitudes_teoria_del_seguro.png>
 Package pdftex.def Info: Pictures/solicitudes_teoria_del_seguro.png  used on in
-put line 247.
+put line 226.
 (pdftex.def)             Requested size: 390.25853pt x 269.2061pt.
-
-Underfull \vbox (badness 2941) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
- [80]
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
-
-[81 <./Pictures/solicitudes_teoria_del_seguro.png>]))
+))
 LaTeX Info: Redefining \. on input line 1279.
 LaTeX Info: Redefining \% on input line 1279.
- [82]
+ [80 <./Pictures/solicitudes_teoria_del_seguro.png>]
 \openout2 = `Conclusiones.aux'.
 
  (Conclusiones.tex
@@ -2055,7 +2030,7 @@ Overfull \hbox (1.992pt too wide) in paragraph at lines 17--18
 /cmtt/m/n/12 http : / / www . fciencias . unam .
  []
 
-) [83
+) [81
 
 
 
@@ -2065,7 +2040,7 @@ Overfull \hbox (1.992pt too wide) in paragraph at lines 17--18
  (Apendices.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [84
+ [82
 
 
 
@@ -2084,16 +2059,16 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 5.
 
-[85]) (Ap_materias_agrupadas.tex
+[83]) (Ap_materias_agrupadas.tex
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
- [86]
+ [84]
 LaTeX Info: Redefining \. on input line 69.
 LaTeX Info: Redefining \% on input line 69.
- [87]
+ [85]
 LaTeX Info: Redefining \. on input line 106.
 LaTeX Info: Redefining \% on input line 106.
- [88])
+ [86])
 Underfull \hbox (badness 6220) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Rodrígo Ed-mun-do Ce-pe-da
  []
@@ -2115,7 +2090,7 @@ Underfull \hbox (badness 3568) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[89]
+[87]
 Underfull \hbox (badness 1152) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Ga-briel Ocam-po Már-
  []
@@ -2132,7 +2107,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[90]
+[88]
 Underfull \hbox (badness 1635) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Pa-tri-cio Sán-chez Her-
  []
@@ -2154,7 +2129,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[91]
+[89]
 Underfull \hbox (badness 1231) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Manuel Her-nán-dez Her-nán-
  []
@@ -2176,21 +2151,21 @@ Underfull \hbox (badness 1231) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[92]
+[90]
 Underfull \hbox (badness 8151) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Humberto An-drés Ca-rri-llo
  []
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[93]
+[91]
 Underfull \hbox (badness 2261) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Marco An-to-nio Mon-tes de
  []
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[94]
+[92]
 Underfull \hbox (badness 1484) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Ru-bén Fer-nán-dez Ro-
  []
@@ -2207,14 +2182,14 @@ Underfull \hbox (badness 8151) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[95]
+[93]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Roberto Ale-jan-dro Rue-las
  []
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[96]
+[94]
 Underfull \hbox (badness 7851) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Ramón Gus-ta-vo Con-tre-ras
  []
@@ -2231,7 +2206,7 @@ Underfull \hbox (badness 3568) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[97]
+[95]
 Underfull \hbox (badness 1721) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Víctor Al-ber-to Cruz Ba-rri-
  []
@@ -2253,7 +2228,7 @@ Underfull \hbox (badness 4084) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[98]
+[96]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Héctor Eduar-do Mar-tí-nez
  []
@@ -2280,7 +2255,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[99]
+[97]
 Underfull \hbox (badness 1152) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Ga-briel Ocam-po Már-
  []
@@ -2297,10 +2272,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[100]
+[98]
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
- [101]
+ [99]
 Underfull \hbox (badness 1902) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Pedro Eduar-do Mi-ra-mon-tes
  []
@@ -2322,21 +2297,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[102]
+[100]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Manuel Ge-rar-do Quin-ta-na
  []
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[103]
+[101]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
  []
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[104]
+[102]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
  []
@@ -2348,7 +2323,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[105]
+[103]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Francisco Da-niel Ra-mí-rez
  []
@@ -2360,7 +2335,7 @@ Underfull \hbox (badness 3209) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[106]
+[104]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Francisco Da-niel Ra-mí-rez
  []
@@ -2387,10 +2362,10 @@ Underfull \hbox (badness 4036) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[107]
+[105]
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
- [108]
+ [106]
 Underfull \hbox (badness 1917) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Ernesto Ale-jan-dro Váz-quez
  []
@@ -2442,7 +2417,7 @@ Underfull \hbox (badness 1077) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[109]
+[107]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Manuel Ge-rar-do Quin-ta-na
  []
@@ -2454,7 +2429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-[110]
+[108]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
  []
@@ -2464,13 +2439,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
- [111]
-<Pictures/clases_de_ingles.png, id=1590, 423.83344pt x 268.00125pt>
+ [109]
+<Pictures/clases_de_ingles.png, id=1569, 423.83344pt x 268.00125pt>
 File: Pictures/clases_de_ingles.png Graphic file (type png)
 <use Pictures/clases_de_ingles.png>
 Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 17.
 (pdftex.def)             Requested size: 339.06718pt x 214.40128pt.
-<Pictures/Ej_horarios_20211.png, id=1591, 569.12625pt x 402.75468pt>
+<Pictures/Ej_horarios_20211.png, id=1570, 569.12625pt x 402.75468pt>
 File: Pictures/Ej_horarios_20211.png Graphic file (type png)
 <use Pictures/Ej_horarios_20211.png>
 Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 30.
@@ -2479,16 +2454,16 @@ Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 30.
 LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
 
-[112 <./Pictures/clases_de_ingles.png>]
-<Pictures/clausula99_CCTPA.png, id=1606, 379.4175pt x 124.21407pt>
+[110 <./Pictures/clases_de_ingles.png>]
+<Pictures/clausula99_CCTPA.png, id=1585, 379.4175pt x 124.21407pt>
 File: Pictures/clausula99_CCTPA.png Graphic file (type png)
 <use Pictures/clausula99_CCTPA.png>
 Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 45.
 (pdftex.def)             Requested size: 379.41656pt x 124.21375pt.
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
- [113 <./Pictures/Ej_horarios_20211.png> <./Pictures/clausula99_CCTPA.png>]
-<Pictures/skill_vs_challenge_level.png, id=1619, 471.26062pt x 469.00218pt>
+ [111 <./Pictures/Ej_horarios_20211.png> <./Pictures/clausula99_CCTPA.png>]
+<Pictures/skill_vs_challenge_level.png, id=1598, 471.26062pt x 469.00218pt>
 File: Pictures/skill_vs_challenge_level.png Graphic file (type png)
 <use Pictures/skill_vs_challenge_level.png>
 Package pdftex.def Info: Pictures/skill_vs_challenge_level.png  used on input l
@@ -2496,20 +2471,20 @@ ine 68.
 (pdftex.def)             Requested size: 306.31578pt x 304.84781pt.
 LaTeX Info: Redefining \. on input line 82.
 LaTeX Info: Redefining \% on input line 82.
- [114 <./Pictures/skill_vs_challenge_level.png>]))
+ [112 <./Pictures/skill_vs_challenge_level.png>]))
 LaTeX Info: Redefining \. on input line 1288.
 LaTeX Info: Redefining \% on input line 1288.
- [115]
+ [113]
 LaTeX Info: Redefining \. on input line 1292.
 LaTeX Info: Redefining \% on input line 1292.
- [116
+ [114
 
 
-] [117]
+] [115]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1391.
 LaTeX Info: Redefining \. on input line 1391.
 LaTeX Info: Redefining \% on input line 1391.
- [118]
+ [116]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 1391.
  (main.aux
 LaTeX Info: Redefining \. on input line 21.
@@ -2522,10 +2497,14 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1391.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6458C6FB06999A73538288FEB7707101;3982.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 13945 strings out of 481556
- 227555 string characters out of 2913870
+ 13935 strings out of 481556
+ 227475 string characters out of 2913870
  614416 words of memory out of 3000000
  28329 multiletter control sequences out of 15000+200000
  616772 words of font info for 138 fonts, out of 3000000 for 9000
@@ -2549,9 +2528,9 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (130 pages, 2918641 bytes).
+Output written on main.pdf (128 pages, 2913980 bytes).
 PDF statistics:
- 1872 PDF objects out of 2073 (max. 8388607)
- 425 named destinations out of 1000 (max. 500000)
+ 1850 PDF objects out of 2073 (max. 8388607)
+ 415 named destinations out of 1000 (max. 500000)
  827 words of extra memory for PDF output out of 10000 (max. 10000000)
 
