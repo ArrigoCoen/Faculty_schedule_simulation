@@ -5,12 +5,14 @@ La asignación de horarios depende de los grupos que soliciten los profesores. A
 Como vimos en la \figurename{~\ref{DF_genAsig}} simulamos dos veces las solicitudes de los profesores, en el proceso de asignación. A la primera vez que simulamos las solicitudes la llamaremos \textit{solicitud oculta} y a la segunda la llamaremos \textit{solicitud pseudo-real}. La explicación de su uso lo vemos a continuación.
 
 \begin{itemize}
-\item[-] Solicitud oculta: Nos ayuda para la generación de los esqueletos pero no influye directamente en la asignación final.
+\item[-] Solicitud oculta: Con ella se define el número de grupos para cada materia en cada hora en la generación de los esqueletos. No influye directamente en la asignación final.
 
-\item[-] Solicitud pseudo-real: Es la simulación de las posibles elecciones que los profesores harían. Nos ayuda directamente a realizar la asignación final.
+\item[-] Solicitud pseudo-real: Con ella se asignan las materias a los profesores en sus respectivos horarios. Influye directamente en la asignación final.
 \end{itemize}
 
-El procedimiento para ambos casos es prácticamente el mismo. Primero obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}, la cual tiene la información de la solicitud de un profesor. La matriz tiene 5 columnas \textit{(Profesor, TC, Materia, Num\_Materia, Horario)} y 6 renglones. Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
+El procedimiento para ambos casos es prácticamente el mismo. La diferencia es que la \textit{solicitud pseudo-real} depende del esqueleto simulado y la \textit{solicitud oculta} no.
+
+Primero obtuvimos una matriz, llamada \textit{mat\_1\_solicitud}, la cual tiene la información de la solicitud de un profesor. La matriz tiene 5 columnas \textit{(Profesor, TC, Materia, Num\_Materia, Horario)} y 6 renglones. Los pasos que realizamos para obtener la matriz \textit{mat\_1\_solicitud}, con la solicitud de un profesor, son los siguientes:
 
   \begin{enumerate}
 %\item Definir \textit{m\_grande\_2015} la cual es una submatriz de \textit{m\_grande\_total} con los datos de los semestres del 2015-1 al 2020-1.
@@ -52,6 +54,5 @@ En la \figurename{~\ref{mat_1_solicitud_Margarita}} vemos un ejemplo de la matri
 \caption[\textit{Matriz de solicitudes de un profesor}]{\textit{Se observa un ejemplo de la matriz mat\_1\_solicitud para un profesor de tiempo completo.}}\label{mat_1_solicitud_Margarita}
 \end{figure}
 
-El proceso se repite para cada uno de los profesores en la matriz \textit{mat\_nom\_prof} obtenida en la Sección \ref{nomProfesores}. La matriz formada con las solicitudes de todos los profesores la llamamos \textit{mat\_solicitudes}. A ella le quitamos los renglones repetidos. Con estos pasos realizamos la \textit{solicitud oculta}. Ésta nos sirve para poder simular adecuadamente los esqueletos.
-
-Para realizar la \textit{solicitud pseudo-real} hacemos una comparación del esqueleto generado y la matriz \textit{mat\_solicitudes}. Cabe señalar que la \textit{solicitud pseudo-real} depende del esqueleto simulado y la \textit{solicitud oculta} no.
+El proceso se repite para cada uno de los profesores en la matriz \textit{mat\_nom\_prof} obtenida en la Sección \ref{nomProfesores}. La matriz formada con las solicitudes de todos los profesores la llamamos \textit{mat\_solicitudes}. A ella le quitamos los renglones repetidos. Con estos pasos realizamos la \textit{solicitud oculta}. Para realizar la \textit{solicitud pseudo-real} hacemos una comparación del esqueleto generado con la matriz \textit{mat\_solicitudes}.
+%Con estos pasos realizamos la \textit{solicitud oculta}. Ésta nos sirve para poder simular adecuadamente los esqueletos.

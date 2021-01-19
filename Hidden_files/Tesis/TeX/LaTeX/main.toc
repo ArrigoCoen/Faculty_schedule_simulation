@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {4.6}Simulación de la demanda de alumnos}{54}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Modelo de Mezcla Gaussiana}{57}{section.4.7}%
 \contentsline {section}{\numberline {4.8}Obtención de $D'$ y $D_{0}$}{59}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Simulación de esqueletos}{64}{section.4.9}%
+\contentsline {section}{\numberline {4.9}Simulación de esqueletos}{63}{section.4.9}%
 \contentsline {section}{\numberline {4.10}Obtención de mat\_esqueleto}{64}{section.4.10}%
 \contentsline {chapter}{\numberline {5}Algoritmo Genético}{69}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Algoritmo Genético aplicado a los horarios}{70}{section.5.1}%
@@ -50,4 +50,4 @@
 \contentsline {section}{\numberline {A.3}Materias agrupadas}{86}{section.Alph1.3}%
 \contentsline {section}{\numberline {A.4}Ejemplo de asignación final}{89}{section.Alph1.4}%
 \contentsline {section}{\numberline {A.5}Notas}{112}{section.Alph1.5}%
-\contentsline {chapter}{Bibliografía}{117}{appendix*.91}%
+\contentsline {chapter}{Bibliografía}{117}{appendix*.90}%

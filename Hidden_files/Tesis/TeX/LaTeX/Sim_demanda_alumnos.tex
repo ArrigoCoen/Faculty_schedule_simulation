@@ -11,18 +11,18 @@ La demanda del número de alumnos para el siguiente semestre la hicimos por mate
 
 \item Para cada semestre dentro de la ventana de información se suma el número de alumnos en cada hora.
 
-\item Se obtiene una matriz de $t \times w$ como la que se puede ver en la \figurename{~\ref{matAl_corregidos}}. Recordemos que $t = 15$ y representa el número de horas en las que se imparten clases.
+\item Se obtiene una matriz de $t \times w$ como la que se puede ver en la \figurename{~\ref{matAl_corregidos_y_sim}} (semestres del 2018-1 al 2020-1). Recordemos que $t = 15$ y representa el número de horas en las que se imparten clases.
 \end{enumerate}
 
-\begin{figure}[h]
-\centering
-\includegraphics[scale = 0.8]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
-\caption[\textit{Matriz con alumnos de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Se puede ver la información del número de alumnos reales de la materia ``Modelos de Supervivencia y Series de Tiempo'' por semestre y por hora.}}\label{matAl_corregidos}
-\end{figure}
+%\begin{figure}[h]
+%\centering
+%\includegraphics[scale = 0.8]{mat_alumnos_corregidos_EstadisticaIII} %width=\textwidth
+%\caption[\textit{Matriz con alumnos de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{Se puede ver la información del número de alumnos reales de la materia ``Modelos de Supervivencia y Series de Tiempo'' por semestre y por hora.}}\label{matAl_corregidos}
+%\end{figure}
 
 %Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{~\ref{vec_alum_sim}} vemos el vector con la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Modelos de Supervivencia y Series de Tiempo}.
 
-Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{~\ref{matAl_corregidos_y_sim}} vemos la matriz vista en la \figurename{~\ref{matAl_corregidos}} junto con el vector de alumnos simulados (señalado en rojo). El vector contiene la demanda de alumnos simulados para el semestre 2020-2 de la materia \textit{Modelos de Supervivencia y Series de Tiempo}.
+Con el procedimiento descrito pudimos generar vectores por hora. Aplicamos la función \verb@hw()@ en \textit{R} para obtener la demanda de alumnos esperados para el siguiente semestre. En la \figurename{~\ref{matAl_corregidos_y_sim}} vemos el vector de alumnos simulados (señalado en rojo) para el semestre 2020-2 de la materia \textit{Modelos de Supervivencia y Series de Tiempo}.
 
 Notamos que el valor de la demanda de alumnos es cero cuando en todos los semestres de alguna hora no hay datos. En el ejemplo, es el caso de las 7hrs, 8hrs, 13hrs, 14hrs, 15hrs, 16hrs y 21hrs.
 
@@ -33,7 +33,7 @@ Con estos ejemplos podemos ver de manera tangible que el modelo respeta la estac
 \begin{figure}[H]
 \centering
 \includegraphics[scale = 0.8]{mat_alumnos_corregidos_con_Sim_EstadisticaIII} %width=\textwidth
-\caption[\textit{Vector con demanda simulada para el 2020-2 de ``Modelos de Supervivencia y Series de Tiempo''}]{\textit{En esta figura se señala en rojo el vector con la demanda simulada para el 2020-2 de la materia ``Modelos de Supervivencia y Series de Tiempo''.}}\label{matAl_corregidos_y_sim}
+\caption[\textit{Matriz con alumnos de ``Modelos de Supervivencia y Series de Tiempo'' y vector con demanda simulada para el 2020-2.}]{\textit{Se puede ver la información del número de alumnos reales de la materia ``Modelos de Supervivencia y Series de Tiempo'' por semestre y por hora. Se señala en rojo el vector con la demanda simulada para el 2020-2.}}\label{matAl_corregidos_y_sim}
 \end{figure}
 
 %\begin{figure}[H]
@@ -44,13 +44,9 @@ Con estos ejemplos podemos ver de manera tangible que el modelo respeta la estac
 
 Obtuvimos vectores con la demanda simulada para cada una de las materias y formamos una matriz de $t \times m$, llamada \textit{mat\_demanda\_alumnos}. Recordemos que $m$ es el número de materias que se van a impartir. En la \figurename{~\ref{matDemandaAlum}} podemos ver un ejemplo de cómo se ve la matriz formada.
 
-Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (4). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares.
+Analicemos 2 pares de grupos, primero veamos la columna de \textit{Álgebra Superior II} (2) y la de \textit{Geometría Analítica I} (4). Ambas son materias obligatorias para Actuaría, Matemáticas y Matemáticas Aplicadas. La primera corresponde a semestres pares y la segunda a semestres impares. Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande. Para \textit{Álgebra Superior II} hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares y una de semestres impares.
 
-Notamos que para \textit{Geometría Analítica I}, se tienen alumnos prácticamente en cada hora, pero el número no es muy grande. Para \textit{Álgebra Superior II} hay varias horas con cero alumnos simulados pero hay dos grandes cantidades, una a las 9hrs con 832 alumnos y la otra a las 18hrs con 224 alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia que corresponde a semestres pares y una de semestres impares.
-
-Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \textit{Probabilidad II} (6). La primera es una materia optativa para Matemáticas. La segunda es una materia obligatoria para Actuaría, correspondiente a semestres pares y optativa para Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
-
-El número total de alumnos simulados para \textit{Seminario de Topología A} es menor a 20, en cambio para \textit{Probabilidad II} se tiene una gran cantidad de alumnos a las 8hrs, 9hrs y 10hrs. Considerando los valores que se tienen en el turno vespertino para \textit{Probabilidad II}, notamos que a las 19hrs también hay una gran cantidad de alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia obligatoria y una optativa, así como la diferencia entre el turno matutino y vespertino.
+Ahora analicemos las columnas de \textit{Seminario de Topología A} (3) y \textit{Probabilidad II} (6). La primera es una materia optativa para Matemáticas. La segunda es una materia obligatoria para Actuaría, correspondiente a semestres pares y optativa para Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas. El número total de alumnos simulados para \textit{Seminario de Topología A} es menor a 20, en cambio para \textit{Probabilidad II} se tiene una gran cantidad de alumnos a las 8hrs, 9hrs y 10hrs. Considerando los valores que se tienen en el turno vespertino para \textit{Probabilidad II}, notamos que a las 19hrs también hay una gran cantidad de alumnos. Con esta comparación podemos ejemplificar la diferencia entre una materia obligatoria y una optativa, así como la diferencia entre el turno matutino y vespertino.
 
 
 \begin{figure}[H]
@@ -90,24 +86,26 @@ La línea azul de dicha figura corresponde a la densidad ajustada de 1000 númer
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[scale = 0.65]{gmm_alum_ini.pdf} %width=\textwidth
 \caption[\textit{Histograma del número de alumnos esperados por hora: Modelo inicial de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos esperados por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo inicial de mezcla de normales.}}\label{GMM_alum_ini}
 \end{figure}
 
 En la \figurename{~\ref{GMM_alum_fin}} se puede observar el histograma con el número de alumnos esperados por hora. Los datos corresponden a 5 matrices \textit{mat\_demanda\_alumnos}. Con el comando \verb@mixmdl_D <- normalmixEM(wait_alumnos_final,mixmdl_1_D$mu)@ guardamos el modelo final. En este caso la función recibió los datos del modelo inicial. Los valores de $\mu$ son: $7.49, 10.30, 13.78$ y $17.23$. Para obtener la densidad ajustada, mostrada en la figura (línea azul), utilizamos los valores de $\mu$ y $\sigma$ arrojados por el modelo \textit{mixmdl\_D}.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tiene más información y los valores iniciales son mejores. Se puede ver el pico de las 10hrs, también se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \begin{figure}[H]
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \centering
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \includegraphics[scale = 0.65]{gmm_alum_fin.pdf} %width=\textwidth
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \caption[\textit{Histograma del número de alumnos esperados por hora: Modelo final de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos esperados por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo final de mezcla de normales.}}\label{GMM_alum_fin}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                \end{figure}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                %En la \figurename{~\ref{GMM_ini_fin}} se pueden ver dos histogramas con el número de alumnos esperados por hora.
+
+
+%Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tiene más información y los valores iniciales son mejores. Se puede ver el pico de las 10hrs, también se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.65]{gmm_alum_fin.pdf} %width=\textwidth
+\caption[\textit{Histograma del número de alumnos esperados por hora: Modelo final de mezcla de normales}]{\textit{Se muestra el histograma del número de alumnos esperados por hora. La línea azul corresponde a la densidad ajustada de 1000 números aleatorios con la distribución obtenida con el modelo final de mezcla de normales.}}\label{GMM_alum_fin}
+\end{figure}
+
+Notamos que la densidad se ajusta mejor a los datos. Ésto debido a que para este caso se tiene más información y los valores iniciales son mejores. Se puede ver el pico de las 10hrs, también se observa que se toman en cuenta los picos de las 14hrs, 16hrs y 18hrs.
+
+%En la \figurename{~\ref{GMM_ini_fin}} se pueden ver dos histogramas con el número de alumnos esperados por hora.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 %\begin{figure}[H]
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 %\centering
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 %\subfigure[\textit{Modelo inicial}]{\includegraphics[width=12cm]{gmm_alum_ini.pdf}} %%Ping\"uino %%[angle=30]
@@ -218,9 +216,9 @@ Para cada metodología, realizamos 10 simulaciones y calificamos las matrices $D
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   En la \figurename{~\ref{fig_metodo_A}} vemos las calificaciones por materia de la metodología A. Notamos que se encuentran entre -5 y 1. Ésto quiere decir que en promedio con este método sobra hasta un 500\% de alumnos y falta casi un 100\% al hacer la simulación.
 
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
-\includegraphics[scale = 0.7]{matplot_metodo_A.pdf} %width=\textwidth
+\includegraphics[scale = 0.65]{matplot_metodo_A.pdf} %width=\textwidth
 \caption[\textit{Calificaciones metodología A}]{\textit{Se muestran las calificaciones por materia de la metodología A. Las calificaciones se encuentran entre -5 y 1.}}\label{fig_metodo_A}
 \end{figure}
 
@@ -229,26 +227,26 @@ En la \figurename{~\ref{fig_metodo_B}} vemos las calificaciones por materia de l
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.7]{matplot_metodo_B.pdf} %width=\textwidth
+\includegraphics[scale = 0.65]{matplot_metodo_B.pdf} %width=\textwidth
 \caption[\textit{Calificaciones metodología B}]{\textit{Se muestran las calificaciones por materia de la metodología B. Las calificaciones se encuentran entre -0.5 y 0.8. Hay una mayor concentración entre 0.4 y 0.6.}}\label{fig_metodo_B}
 \end{figure}
 
 En la \figurename{~\ref{fig_metodo_C}} vemos las calificaciones por materia de la metodología C. Notamos que, al igual que en la metodología B, las calificaciones se encuentran entre -0.5 y 0.8. En este caso observamos que hay una mayor concentración de materias (líneas) entre 0.5 y 0.8. Ésto comparado con el método B que tiene una mayor concentración entre 0.4 y 0.6.
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale = 0.7]{matplot_metodo_C.pdf} %width=\textwidth
-%\caption[\textit{Calificaciones metodología C}]{\textit{Se muestran las calificaciones por materia de la metodología C.}}\label{fig_metodo_C}
-%\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale = 0.65]{matplot_metodo_C.pdf} %width=\textwidth
+\caption[\textit{Calificaciones metodología C}]{\textit{Se muestran las calificaciones por materia de la metodología C.}}\label{fig_metodo_C}
+\end{figure}
 
 En la \figurename{~\ref{fig_metodo_D}} vemos las calificaciones por materia de la metodología D. Notamos que se encuentran entre -6 y 0.4. Ésto quiere decir que en promedio con este método sobra hasta un 600\% de alumnos y falta casi un 40\% al hacer la simulación. Podemos observar que sólo una materia tiene calificaciones por debajo de -3. En general todas se concentran entre -2.5 y 0.4.
 
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale = 0.7]{matplot_metodo_D.pdf} %width=\textwidth
-%\caption[\textit{Calificaciones metodología D}]{\textit{Se muestran las calificaciones por materia de la metodología D.}}\label{fig_metodo_D}
-%\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[scale = 0.65]{matplot_metodo_D.pdf} %width=\textwidth
+\caption[\textit{Calificaciones metodología D}]{\textit{Se muestran las calificaciones por materia de la metodología D.}}\label{fig_metodo_D}
+\end{figure}
 
 
 Decidimos analizar las metodologías $B$ y $C$ ya que son las que muestran las mejores calificaciones. Para ello graficamos las matrices de calificaciones con la función \verb@heatmap()@ en \textit{R}. Cabe aclarar que las matrices de calificaciones están ordenadas de menor a mayor por renglones. En la \figurename{~\ref{fig_heatmap_B}} vemos el correspondiente a la metodología $B$. En la \figurename{~\ref{fig_heatmap_C}} vemos el \textit{heatmap} referente a la metodología $C$.
@@ -260,13 +258,6 @@ Decidimos analizar las metodologías $B$ y $C$ ya que son las que muestran las m
 %\caption[\textit{Heatmap metodología B}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología B.}}\label{fig_heatmap_B}
 %\end{figure}
 %
-%%\begin{figure}[H]
-%%\centering
-%%\includegraphics[scale = 0.55]{heatmap_metodo_B.pdf} %width=\textwidth
-%%\caption[\textit{Heatmap metodología B}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología B.}}\label{fig_heatmap_B}
-%%\end{figure}
-%
-%
 %\begin{figure}[H]
 %\centering
 %\includegraphics[scale = 0.55]{heatmap_metodo_C_2} %width=\textwidth
@@ -276,29 +267,16 @@ Decidimos analizar las metodologías $B$ y $C$ ya que son las que muestran las m
 
 Para elegir entre las dos metodologías, tomamos en cuenta que el error relativo estuviera más cercano a cero. Al ver ambos \textit{heatmaps} observamos que el correspondiente al método $B$ es más claro que el del método $C$. Por lo que elegimos la metodología $B$ para simular los esqueletos. %En la siguiente sección explicaremos el procedimiento que seguimos para ésta metodología.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.67]{matplot_metodo_C.pdf} %width=\textwidth
-\caption[\textit{Calificaciones metodología C}]{\textit{Se muestran las calificaciones por materia de la metodología C. Las calificaciones se encuentran entre -0.5 y 0.8. Hay una mayor concentración entre 0.5 y 0.8.}}\label{fig_metodo_C}
-\end{figure}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale = 0.67]{matplot_metodo_D.pdf} %width=\textwidth
-\caption[\textit{Calificaciones metodología D}]{\textit{Se muestran las calificaciones por materia de la metodología D. Las calificaciones se encuentran entre -6 y 0.4.}}\label{fig_metodo_D}
-\end{figure}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   En la metodología $B$ la matriz $D'$ es una matriz \textit{mat\_demanda\_alumnos}. La matriz \textit{mat\_esqueleto} se genera con el modelo de mezcla de normales. En las siguientes secciones se describe a detalle el procedimiento que seguimos para obtener la matriz \textit{mat\_esqueleto}. %Es por ello que se genera con el procedimiento descrito en la Sección \ref{SimDemandaAlumnos}. visto en la Sección \ref{sec_GMM}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.55]{heatmap_metodo_B_2} %width=\textwidth
+\includegraphics[scale = 0.65]{heatmap_metodo_B_2} %width=\textwidth
 \caption[\textit{Heatmap metodología B}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología B.}}\label{fig_heatmap_B}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale = 0.55]{heatmap_metodo_C_2} %width=\textwidth
+\includegraphics[scale = 0.65]{heatmap_metodo_C_2} %width=\textwidth
 \caption[\textit{Heatmap metodología C}]{\textit{Se muestra el heatmap de las calificaciones por materia de la metodología C.}}\label{fig_heatmap_C}
 \end{figure}
