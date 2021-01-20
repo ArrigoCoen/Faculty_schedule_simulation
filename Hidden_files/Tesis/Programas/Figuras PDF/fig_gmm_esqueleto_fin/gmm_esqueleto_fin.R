@@ -17,8 +17,11 @@ library(mixtools)
 
 # Modelos GMM --------------------------------------------------------------
 mixmdl_1_esq <- normalmixEM(wait_mat_esqueleto_inicial,k = 4)#Modelo inicial
-mixmdl_esqueleto <- normalmixEM(wait_mat_esqueleto_final,mixmdl_1_esq$mu)#Modelo final
-
+sort(mixmdl_1_esq$mu)
+mixmdl_esqueleto <- normalmixEM(wait_mat_esqueleto_final,
+                                sort(mixmdl_1_esq$mu),k = 4)#Modelo final
+mixmdl_esqueleto$mu
+mixmdl_esqueleto$sigma
 
 # Figura ------------------------------------------------------------------
 hist(wait_mat_esqueleto_final,freq = F,breaks = seq(6,22,by = 1),
@@ -28,7 +31,7 @@ hist(wait_mat_esqueleto_final,freq = F,breaks = seq(6,22,by = 1),
 
 lines(density(rnorm(1000,mean = mixmdl_esqueleto$mu,sd = mixmdl_esqueleto$sigma)),
       lty=1,lwd=2,col = param_graficas$col1_linea)
-legend(10,0.11,"Modelo de mezcla de normales",
+legend(10.5,0.11,"Modelo de mezcla de normales",
        bty = "n",
        col=param_graficas$col1_linea,lty=c(1,1),
        # cex=1.1,

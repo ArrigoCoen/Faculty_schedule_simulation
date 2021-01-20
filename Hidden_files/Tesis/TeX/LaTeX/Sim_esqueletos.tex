@@ -118,16 +118,23 @@ Los pasos finales son:
 
 \verb@normalmixEM(wait_mat_esqueleto,k = 4,mean=mixmdl_1_esqueleto$mu)@.
 
-En la \figurename{~\ref{hist_wait_esq_fin}}, se puede ver el histograma con todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final de mezcla de normales, \textit{mixmdl\_esqueleto}.
+En la \figurename{~\ref{hist_wait_esq_fin}}, se puede ver el histograma con todos los datos de los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final de mezcla de normales, \textit{mixmdl\_esqueleto}. Se puede ver que con dicha distribución en las horas del turno matutino se van a simular más grupos que en las horas del turno vespertino. En este caso, los valores de $\mu$ y $\sigma$ son:
 
-\item Generar la matriz \textit{mat\_esqueleto} en base al promedio obtenido y a la distribución del modelo final. Por ejemplo, si se tiene una materia con 5 grupos simulados, entonces se simulan 5 números aleatorios con distribución Normal. El comando en \textit{R} es: \verb@round(rnorm(5,mixmdl_esqueleto$mu,mixmdl_esqueleto$sigma))@
-\end{enumerate}
- 
-\begin{figure}[h]
+\begin{itemize}
+\item[-] $\mu = \{7.56, 9.92, 13.01, 18.21 \}$ %$\mu = \{7.560515, 9.924546, 13.015799, 18.216268 \}$
+
+\item[-] $\sigma = \{0.53, 0.72, 2.19, 1.60 \}$ %$\sigma = \{0.5352610, 0.7244501, 2.1976618, 1.6099464 \}$
+\end{itemize}
+
+
+\begin{figure}[H]
 \centering
 \includegraphics[scale = 0.7]{gmm_esqueleto_fin.pdf} %width=\textwidth
 \caption[\textit{Histograma con  todos los datos de los esqueletos simulados}]{\textit{Se muestra el histograma con el número de grupos por hora de todos los esqueletos simulados. La línea azul representa la distribución ajustada por el modelo final.}}\label{hist_wait_esq_fin}
 \end{figure}
+
+\item Generar la matriz \textit{mat\_esqueleto} en base al promedio obtenido y a la distribución del modelo final. Por ejemplo, si se tiene una materia con 5 grupos simulados, entonces se simulan 5 números aleatorios con distribución Normal. El comando en \textit{R} es: \verb@round(rnorm(5,mixmdl_esqueleto$mu,mixmdl_esqueleto$sigma))@
+\end{enumerate}
 
 
 En la \figurename{~\ref{esqueleto20202}} vemos un ejemplo de una submatriz de \textit{mat\_esqueleto} para el semestre 2020-2. Observemos las últimas 4 columnas que corresponden a las materias de \textit{Cálculo Diferencial e Integral I, II, III} y \textit{IV}.

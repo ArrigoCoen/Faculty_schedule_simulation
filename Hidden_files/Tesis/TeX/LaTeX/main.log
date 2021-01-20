@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  18 JAN 2021 22:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  19 JAN 2021 18:08
 entering extended mode
 **./main.tex
 (main.tex
@@ -1867,26 +1867,26 @@ Package pdftex.def Info: Pictures/gmm_esqueleto_ini.pdf  used on input line 80.
 LaTeX Info: Redefining \. on input line 83.
 LaTeX Info: Redefining \% on input line 83.
  [64]
-LaTeX Info: Redefining \. on input line 123.
-LaTeX Info: Redefining \% on input line 123.
+LaTeX Info: Redefining \. on input line 122.
+LaTeX Info: Redefining \% on input line 122.
  [65 <./Pictures/gmm_esqueleto_ini.pdf>]
 <Pictures/gmm_esqueleto_fin.pdf, id=1263, 578.16pt x 433.62pt>
 File: Pictures/gmm_esqueleto_fin.pdf Graphic file (type pdf)
 <use Pictures/gmm_esqueleto_fin.pdf>
-Package pdftex.def Info: Pictures/gmm_esqueleto_fin.pdf  used on input line 128
+Package pdftex.def Info: Pictures/gmm_esqueleto_fin.pdf  used on input line 132
 .
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
 <Pictures/Ej_esqueleto_20202.png, id=1266, 550.30594pt x 342.5297pt>
 File: Pictures/Ej_esqueleto_20202.png Graphic file (type png)
 <use Pictures/Ej_esqueleto_20202.png>
-Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 13
-9.
+Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 14
+6.
 (pdftex.def)             Requested size: 443.57848pt x 276.10953pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2253) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 142.
-LaTeX Info: Redefining \% on input line 142.
+LaTeX Info: Redefining \. on input line 149.
+LaTeX Info: Redefining \% on input line 149.
  [66 <./Pictures/gmm_esqueleto_fin.pdf>]))
 LaTeX Info: Redefining \. on input line 1277.
 LaTeX Info: Redefining \% on input line 1277.
@@ -2024,29 +2024,24 @@ LaTeX Info: Redefining \% on input line 1279.
 
  (Conclusiones.tex
 Cap\'{\i }tulo 6.
-
-Overfull \hbox (1.992pt too wide) in paragraph at lines 17--18
-[]\T1/ptm/m/n/12 No to-das las ma-te-rias se im-par-ten to-dos los días: []$\T1
-/cmtt/m/n/12 http : / / www . fciencias . unam .
- []
-
-) [81
+[81
 
 
 
-]
+])
+LaTeX Info: Redefining \. on input line 1281.
+LaTeX Info: Redefining \% on input line 1281.
+ [82]
 \openout2 = `Apendices.aux'.
 
  (Apendices.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [82
-
-
-
-]
 Ap\'{e}ndice A.
-(Ap_abreviaturas.tex) (Ap_EMV_lambda.tex
+(Ap_abreviaturas.tex
+Overfull \hbox (28.38925pt too wide) in paragraph at lines 8--39
+ [][] 
+ []
+
+) (Ap_EMV_lambda.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 5.
@@ -2059,15 +2054,19 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 5.
 
-[83]) (Ap_materias_agrupadas.tex
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+[83
+
+
+
+]) (Ap_materias_agrupadas.tex
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
  [84]
-LaTeX Info: Redefining \. on input line 69.
-LaTeX Info: Redefining \% on input line 69.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
  [85]
-LaTeX Info: Redefining \. on input line 106.
-LaTeX Info: Redefining \% on input line 106.
+LaTeX Info: Redefining \. on input line 99.
+LaTeX Info: Redefining \% on input line 99.
  [86])
 Underfull \hbox (badness 6220) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Rodrígo Ed-mun-do Ce-pe-da
@@ -2100,14 +2099,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Mauricio Ga-briel Me-di-na
  []
 
-
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+[88]
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Carmen Mar-tí-nez Ada-me
  []
 
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
-[88]
+
 Underfull \hbox (badness 1635) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Pa-tri-cio Sán-chez Her-
  []
@@ -2170,7 +2169,9 @@ Underfull \hbox (badness 1484) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 José Ru-bén Fer-nán-dez Ro-
  []
 
-
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+[93]
 Underfull \hbox (badness 1354) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 María del Car-men Jor-ge y
  []
@@ -2180,9 +2181,7 @@ Underfull \hbox (badness 8151) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Humberto An-drés Ca-rri-llo
  []
 
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
-[93]
+
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Roberto Ale-jan-dro Rue-las
  []
@@ -2216,7 +2215,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Jaqueline Ra-fae-la Do-lo-res
  []
 
-
+LaTeX Info: Redefining \. on input line 14.
+LaTeX Info: Redefining \% on input line 14.
+[96]
 Underfull \hbox (badness 1077) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Elhoim Llo-ren-te Su-mano y
  []
@@ -2226,9 +2227,7 @@ Underfull \hbox (badness 4084) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Francisco de Je-sús Struck
  []
 
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
-[96]
+
 Underfull \hbox (badness 10000) in paragraph at lines 14--14
 []|\T1/ptm/m/n/12 Héctor Eduar-do Mar-tí-nez
  []
@@ -2440,12 +2439,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
  [109]
-<Pictures/clases_de_ingles.png, id=1569, 423.83344pt x 268.00125pt>
+<Pictures/clases_de_ingles.png, id=1573, 423.83344pt x 268.00125pt>
 File: Pictures/clases_de_ingles.png Graphic file (type png)
 <use Pictures/clases_de_ingles.png>
 Package pdftex.def Info: Pictures/clases_de_ingles.png  used on input line 17.
 (pdftex.def)             Requested size: 339.06718pt x 214.40128pt.
-<Pictures/Ej_horarios_20211.png, id=1570, 569.12625pt x 402.75468pt>
+<Pictures/Ej_horarios_20211.png, id=1574, 569.12625pt x 402.75468pt>
 File: Pictures/Ej_horarios_20211.png Graphic file (type png)
 <use Pictures/Ej_horarios_20211.png>
 Package pdftex.def Info: Pictures/Ej_horarios_20211.png  used on input line 30.
@@ -2455,7 +2454,7 @@ LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
 
 [110 <./Pictures/clases_de_ingles.png>]
-<Pictures/clausula99_CCTPA.png, id=1585, 379.4175pt x 124.21407pt>
+<Pictures/clausula99_CCTPA.png, id=1589, 379.4175pt x 124.21407pt>
 File: Pictures/clausula99_CCTPA.png Graphic file (type png)
 <use Pictures/clausula99_CCTPA.png>
 Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 45.
@@ -2463,7 +2462,7 @@ Package pdftex.def Info: Pictures/clausula99_CCTPA.png  used on input line 45.
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
  [111 <./Pictures/Ej_horarios_20211.png> <./Pictures/clausula99_CCTPA.png>]
-<Pictures/skill_vs_challenge_level.png, id=1598, 471.26062pt x 469.00218pt>
+<Pictures/skill_vs_challenge_level.png, id=1602, 471.26062pt x 469.00218pt>
 File: Pictures/skill_vs_challenge_level.png Graphic file (type png)
 <use Pictures/skill_vs_challenge_level.png>
 Package pdftex.def Info: Pictures/skill_vs_challenge_level.png  used on input l
@@ -2497,16 +2496,12 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1391.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 6458C6FB06999A73538288FEB7707101;3982.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 13935 strings out of 481556
- 227475 string characters out of 2913870
- 614416 words of memory out of 3000000
- 28329 multiletter control sequences out of 15000+200000
+ 13945 strings out of 481556
+ 227579 string characters out of 2913870
+ 615416 words of memory out of 3000000
+ 28331 multiletter control sequences out of 15000+200000
  616772 words of font info for 138 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,13n,45p,1049b,645s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2528,9 +2523,9 @@ X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (128 pages, 2913980 bytes).
+Output written on main.pdf (128 pages, 2916135 bytes).
 PDF statistics:
- 1850 PDF objects out of 2073 (max. 8388607)
- 415 named destinations out of 1000 (max. 500000)
+ 1855 PDF objects out of 2073 (max. 8388607)
+ 423 named destinations out of 1000 (max. 500000)
  827 words of extra memory for PDF output out of 10000 (max. 10000000)
 
