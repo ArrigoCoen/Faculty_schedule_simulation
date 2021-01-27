@@ -1,19 +1,19 @@
 \chapter{Conclusiones}
 
 \begin{enumerate}
-\item Este trabajo apoya las necesidades de los alumnos de la Facultad. Dado que se estima el número de grupos necesarios para el siguiente semestre con base a la demanda del número de alumnos. Ésto nos permite que la asignación final dependa del número de alumnos esperados en el siguiente semestre.
+\item Este trabajo apoya las necesidades, con respecto a los horarios de las materias, de los alumnos de la Facultad de Ciencias. El número de grupos necesarios para el siguiente semestre se estima en base a la demanda del número de alumnos. Ésto nos permite proponer una asignación que depende del número de alumnos esperados en el siguiente semestre.
 
-\item Se encontró que el AG es una buena opción para solucionar este problema de maximización. El problema de asignación de horarios se considera como un problema NP-duro. Por lo tanto se requiere un tiempo exponencial para encontrar la solución óptima. El AG nos permite encontrar una buena solución en un periodo corto de tiempo.%no se puede resolver en un tiempo polinomial (razonable)
+\item Se encontró que el Algoritmo Genético es una buena opción para solucionar este problema de maximización. El problema de asignación de horarios se considera como un problema NP-duro. Por lo tanto se requiere un tiempo exponencial para encontrar la solución óptima. El Algoritmo Genético nos permite encontrar una buena solución en un periodo corto de tiempo.%no se puede resolver en un tiempo polinomial (razonable)
 
 \item La división que se hizo de los datos es estadísticamente adecuada. En la Sección \ref{SimDemandaAlumnos} vemos que los datos están divididos por semestres pares e impares y por hora. El modelo distingue entre el tipo de semestre. Puede predecir el número de alumnos para un semestre par o impar. Al hacer la predicción por hora, se puede observar el comportamiento del turno matutino y el del turno vespertino.
 
-\item Con el modelo de mezcla de normales es posible suavizar la distribución que tiene el tamaño de grupos por hora, como vimos en la Sección \ref{sec_esqueletos}. Ésto se basa en el supuesto de que los alumnos tienen la misma preferencia por una materia a cierta hora, o a la hora anterior o a la siguiente. Es decir, si un alumno elige una materia a las 11hrs, le es indistinto si la toma a las 10hrs, a las 11hrs o a las 12hrs.
+\item Con el modelo de mezcla de normales es posible suavizar la distribución que tiene el tamaño de grupos por hora, como vimos en la Sección \ref{sec_esqueletos}. Ésto se basa en el supuesto de que los alumnos tienen la misma preferencia por una materia a cierta hora, o a la hora anterior o a la siguiente. %Es decir, si un alumno elige una materia a las 11hrs, le es indistinto si la toma a las 10hrs, a las 11hrs o a las 12hrs.
 
-\item La definición del archivo de excel, visto en la Sección \ref{Sec_AG_aplicado}, es útil para definir grupos difíciles de asignar con el AG. Permite al usuario introducir parámetros iniciales que no quiere dejar al azar.
+\item El poder definir grupos por medio de un archivo \textit{.xlsx} (ver Sección \ref{Sec_AG_aplicado}), otorga a los usuarios de este programa mayor control en las asignaciones. Con esto permitimos al usuario introducir parámetros iniciales que sean requeridos.
 
-\item El algoritmo propuesto puede ser aplicado en otras escuelas o facultades que cuenten con características similares a las de la Facultad. También puede ser utilizado para resolver problemas generales de asignación de recursos.
+\item El algoritmo propuesto puede ser aplicado en otras escuelas o facultades que cuenten con características similares de información a las de la Facultad de Ciencias. También puede ser utilizado para resolver problemas generales de asignación de recursos.
 
-\item En particular, para las carreras de la Facultad que no pertenecen al Departamento de Matemáticas, el programa realizado se puede ajustar. Se debe de considerar lo siguiente: %(cada inciso tiene un ejemplo):
+\item En particular, para las carreras de la Facultad de Ciencias que no pertenecen al Departamento de Matemáticas, el programa realizado se puede ajustar. Algunas extensiones pueden ser: %Se debe de considerar lo siguiente: %(cada inciso tiene un ejemplo):
 
 %\begin{itemize}
 %\item[a)] Las materias impartidas en los laboratorios duran 2 o más horas: \url{http://www.fciencias.unam.mx/docencia/horarios/20191/1081/830}.
@@ -35,7 +35,7 @@
 \item[-] Hay materias que no inician en horas enteras.
 \end{itemize}
 
-\item La aplicación \textit{SelectorGadget} de \textit{Google} es útil para automatizar el proceso de la descarga de información en páginas web. Como vimos en la Sección \ref{Sec_ED_estructura_URL}, el número de páginas de las que sacamos la información es grande. El proceso de automatización nos sirvió para extraer información en poco tiempo. Este proceso se puede aplicar a diversos problemas. %No sólo para las páginas de la Facultad.
+\item La aplicación \textit{SelectorGadget} de \textit{Google} es útil para automatizar el proceso de la descarga de información en páginas web. Como vimos en la Sección \ref{Sec_ED_estructura_URL}, el número de páginas de las que sacamos la información es grande. El proceso de automatización nos sirvió para extraer información en poco tiempo. Este proceso se puede aplicar a diversos problemas. %No sólo para las páginas de la Facultad de Ciencias.
 
 \end{enumerate}
 

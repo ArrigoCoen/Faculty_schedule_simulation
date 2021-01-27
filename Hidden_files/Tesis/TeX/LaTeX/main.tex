@@ -89,7 +89,8 @@
 \usepackage{multirow} %%Para hacer tablas con filas combinadas
 %\input{nombre_de_archivo} %%To include subfiles in to a subfiles. %%Se pone dentro de los archivos de los capítulos, se pueden guardar secciones o subsecciones.
 \usepackage[title,titletoc]{appendix} %%Para definir apéndices
-\renewcommand{\appendixname}{A} %%Para cambiar "Appendix" por algún otro nombre
+%\renewcommand{\appendixname}{A} %%Para cambiar "Appendix" por algún otro nombre
+%\renewcommand{\appendixname}{Apéndices} %%Para cambiar "Appendix" por algún otro nombre
 
 %%Para poder ingresar el código de R con colores, no sólo usando el entorno "verbatim" %%
 \usepackage{listings} %%NO ACEPTA ACENTOS DENTRO DEL CÓDIGO NI "ñ"
@@ -308,7 +309,7 @@
 \multicolumn{4}{l}{La tabla continúa en la siguiente página}\\
 \endfoot %% Se agrega un texto abajo de cada tabla secundaria
 
-\caption[\textit{Matriz con asignación final}]{\textit{Se muestra la matriz con la asignación final de los horarios. Cada renglón tiene la información de un grupo con una materia, profesor y horario asignado.}}%%Primero imprime "Fin de la Tabla" y luego pone el caption
+\caption[\textit{Matriz con asignación final}]{\textit{Se muestra un ejemplo de una asignación final de los horarios. Cada renglón tiene la información de un grupo con una materia, profesor y horario asignado.}}%%Primero imprime "Fin de la Tabla" y luego pone el caption
 \endlastfoot %% Agregamos un texto al final de la tabla, también se podrían repetir los nombres de las columnas
 
 %\hline 
@@ -1118,7 +1119,7 @@ Núñez
 
 Miriam Gabriela
 
-(Teléfono)
+5815 2034
 
 Universidad Nacional Autónoma de México
 
@@ -1126,7 +1127,7 @@ Facultad de Ciencias
 
 Actuaría
 
-(número de cuenta)\\
+308015403\\
 
 
 \textbf{Datos del tutor:}
@@ -1213,10 +1214,10 @@ Inferencia estadística aplicada para generar una propuesta de grupos para las c
 %Inferencia estadística aplicada para la generación de horarios de las carreras del departamento de matemáticas
 %Inferencia estadística aplicada en la generación de una propuesta de horarios para las carreras del Departamento de Matemáticas
 
-(Número de Páginas) p
+112 p.
 
 2021
-}
+}%%Fin de \setlength{\parskip}{0mm}
 
 
 
@@ -1224,22 +1225,22 @@ Inferencia estadística aplicada para generar una propuesta de grupos para las c
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DEDICATORIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage %%Salto de Página
-\thispagestyle{empty} %Esta página no tiene numeración
+%\newpage %%Salto de Página
+%\thispagestyle{empty} %Esta página no tiene numeración
 
-\begin{flushright}
-\textit{Dedicado a \\}
-\end{flushright}
+%\begin{flushright}
+%\textit{Dedicado a \\}
+%\end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% AGRADECIMIENTOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newpage %%Salto de Página
-\thispagestyle{empty} %Esta página no tiene numeración
-
-\textbf{\Huge{Agradecimientos}}\\
+%\newpage %%Salto de Página
+%\thispagestyle{empty} %Esta página no tiene numeración
+%
+%\textbf{\Huge{Agradecimientos}}\\
 %%\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %%\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
  
-¡Muchas gracias a todos!
+%¡Muchas gracias a todos!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ÍNDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage %%Salto de Página
