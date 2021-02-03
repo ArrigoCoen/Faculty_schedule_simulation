@@ -236,18 +236,10 @@ param_graficas$dir_TeX = "TeX/LaTeX/Pictures/"
 ##Número, Descripción) y tantos renglones como columnas tenga la matriz
 ##m_grande. Contiene la información de las columnas de m_grande.
 
-mat_def_columnas_MG <- matrix(0,ncol = 3,nrow = 37)
+mat_def_columnas_MG <- matrix(0,ncol = 3,nrow = length(param$nom_cols_MG))
 colnames(mat_def_columnas_MG) <- c("Nombre","Número","Descripción")
-mat_def_columnas_MG[,1] <- c("Materia","Profesor","Horario","horario_num","Lugares",
-                             "Alumnos","Salon","Grupo","Carrera","Plan","Semestre",
-                             "Cambios","Turno","Semestre_de_materia","url","Act2000",
-                             "Act2006","Act2015","CdC1994","CdC2013","Mat1983","MAp2017",
-                             "NomMat_Act2000","NomMat_Act2006","NomMat_Act2015",
-                             "NomMat_CdC1994","NomMat_CdC2013","NomMat_Mat1983",
-                             "NomMat_MAp2017","URL_Act2000","URL_Act2006",
-                             "URL_Act2015","URL_CdC1994","URL_CdC2013",
-                             "URL_Mat1983","URL_MAp2017","Num_materia")
-mat_def_columnas_MG[,2] <- 1:37
+mat_def_columnas_MG[,1] <- param$nom_cols_MG
+mat_def_columnas_MG[,2] <- 1:length(param$nom_cols_MG)
 mat_def_columnas_MG[,3] <- c("Nombre del curso impartido",
                              "Nombre de la persona que va a impartir alguna materia",
                              "Hora en la que se imparte alguna materia",
