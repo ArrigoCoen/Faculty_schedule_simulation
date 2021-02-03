@@ -49,4 +49,4 @@
 \contentsline {section}{\numberline {A.2}Estimador máximo verosímil de $\lambda $}{83}{section.alph1.Alph1.2}%
 \contentsline {section}{\numberline {A.3}Materias agrupadas}{84}{section.alph1.Alph1.3}%
 \contentsline {section}{\numberline {A.4}Ejemplo de asignación final}{87}{section.alph1.Alph1.4}%
-\contentsline {chapter}{Bibliografía}{111}{appendix*.86}%
+\contentsline {chapter}{Bibliografía}{111}{appendix*.84}%
