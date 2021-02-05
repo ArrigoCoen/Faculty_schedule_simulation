@@ -68,6 +68,7 @@
 %\newtheorem{teo}{Teorema}[section] %%Para introducir teoremas numerados por sección
 %\newtheorem{defn}{Definition}[section] %%Para introducir definiciones numerados por sección
 
+
 %% Formato del Documento %%
 \usepackage[lmargin=3cm,rmargin=3cm,top=2cm,bottom=2cm]{geometry} % Especificamos la medida de los márgenes en el documento
 \usepackage{enumerate} %% Sirve para poder usar entornos como \itemize, \list_type, \enumerate, ...
@@ -91,6 +92,20 @@
 \usepackage[title,titletoc]{appendix} %%Para definir apéndices
 %\renewcommand{\appendixname}{A} %%Para cambiar "Appendix" por algún otro nombre
 %\renewcommand{\appendixname}{Apéndices} %%Para cambiar "Appendix" por algún otro nombre
+
+%%%Formato del encabezado%%
+\usepackage{fancyhdr} %%Debe de estar debajo del comando "geometry" para que ajuste la línea con el tamaño adecuado.
+\pagestyle{fancy}
+\fancyhf{} %Quita la numeración en el pie de página
+%LO = Left odd
+%RE = Right even
+%RO = Right odd
+%\fancyhead[LO]{\leftmark} % En las páginas impares, parte izquierda del encabezado, aparecerá el nombre de capítulo
+%\fancyhead[RE]{\rightmark} % En las páginas pares, parte derecha del encabezado, aparecerá el nombre de sección
+\fancyhead[RO]{ } % En las páginas impares, parte derecha del encabezado, aparecerá vacío
+\fancyhead[LE]{\leftmark} % En las páginas pares, parte izquierda del encabezado, aparecerá el nombre de capítulo
+\fancyhead[RE,RO]{\thepage} % Números de página en las esquinas de los encabezados
+%\pagestyle{myheadings} %Tipo de encabezados (sin títulos, sólo número de página). The footer is empty in this page style. The header contains the page number on right side (on even pages) or on left side (on odd pages) along with other user-supplied information; there is an exception for the first page of each chapter, where the footer contains centred page number while the header is blank.
 
 %%Para poder ingresar el código de R con colores, no sólo usando el entorno "verbatim" %%
 \usepackage{listings} %%NO ACEPTA ACENTOS DENTRO DEL CÓDIGO NI "ñ"
@@ -1006,6 +1021,7 @@
 \begin{document}
 
 %%Para cambiar el nombre de los títulos de los capítulos/índices/listas/...
+\renewcommand{\chaptername}{ } %%Eliminamos la palabra "Capítulo" de las páginas.
 %\renewcommand{\listfigurename}{LISTA DE FIGURAS} %Cambia el título de la lista de figuras, de "Índice de figuras" a "LISTA DE FIGURAS"
 %\renewcommand{\listtablename}{Lista de Tablas} %Cambia el título de la lista de tablas, de "Índice de tablas" a "Lista de Tablas"
 %\renewcommand{\figurename}{Foto} %Cambia el "caption" de las figuras
@@ -1263,13 +1279,17 @@ Inferencia estadística aplicada para generar una propuesta de grupos para las c
 \newpage %%Salto de Página
 \mainmatter %%Empieza a enumerar con los naturales
 
+
 %% El comando \include{} nos permite tener archivos separados y "mandarlos llamar" para crear un nuevo archivo con todo lo que está incluido. Esto nos sirve para generar archivos MUY grandes, por ejemplo libros con muchos capítulos
 %% Construcción Modular: Dividimos en partes nuestro archivo
 %%%%%%%%%%%% IMPORTANTE: Los archivos que se incluyen NO deben de tener preámbulo, sólo el documento "maestro/principal/main" (i.e. como este) lo debe de contener y es el que se compila, los otros no se compilan (porque no tienen preámbulo).
 
 %%%%% Inicio de capítulos %%%%%
+\include{Introduccion} %%
+\newpage %%Salto de Página
+\thispagestyle{empty} %Esta página no tiene numeración
 
-\include{Introduccion} %%1
+\include{Planteamiento_del_problema} %%1
 
 \include{Extraccion_de_datos} %%2
 

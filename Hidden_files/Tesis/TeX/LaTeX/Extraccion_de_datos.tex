@@ -1,6 +1,6 @@
 \chapter{Extracción de datos}
 
-La fuente de información de donde obtuvimos los datos utilizados son las páginas de los horarios de la Facultad. En la \figurename{~\ref{pagFC}} se muestra un ejemplo de dichas páginas. Cada una de ellas contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Cabe mencionar que sólo tomamos en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
+La fuente de información de donde obtuvimos los datos utilizados son las páginas de internet de los horarios de la Facultad. En la \figurename{~\ref{pagFC}} se muestra un ejemplo de dichas páginas. Cada una de ellas contiene toda la posible información de los grupos de una materia, un semestre y una carrera. Cabe mencionar que sólo tomamos en cuenta la información de las carreras del Departamento de Matemáticas, las cuales son: Actuaría, Ciencias de la Computación, Matemáticas y Matemáticas Aplicadas.
 
 \begin{figure}[H]
 \centering
@@ -13,6 +13,8 @@ La información que se puede extraer de las páginas mencionadas es: nombre de p
 
 
 \section{Estructura de las URL} \label{Sec_ED_estructura_URL}
+
+Recordemos que URL por sus siglas en inglés significa \textit{Uniform Resource Locator}. Cada URL corresponde a una dirección de una página de internet. %Se tiene una URL por cada página web.
 
 Al iniciar la búsqueda de información notamos que las URL de las páginas web de los horarios de la Facultad tienen una estructura similar. Ésto nos permitió poder realizar la búsqueda de la información de una manera automática y mucho más rápida. Observamos que la estructura que siguen las URL mencionadas es la siguiente:
   
@@ -78,7 +80,7 @@ Deseamos obtener información de cada una de esas páginas. Obtener dicha inform
 
 \section{Extracción de datos con la aplicación SelectorGadget} \label{sec_ED_SelectorGadget}
 
-La aplicación \textit{SelectorGadget} permite seleccionar la información deseada y arroja una sección del código CSS de una página web. Dicho código se introduce en \textit{R} para poder seleccionar y descargar la información deseada.
+La aplicación \textit{SelectorGadget} permite seleccionar la información deseada y arroja una sección del código CSS de una página web. Dicho código se introduce en \textit{R} para poder seleccionar y descargar la información deseada. Cabe aclarar que el código mencionado pertence al lenguaje de programación CSS. El cual se utiliza para crear páginas de internet.
 
 A continuación veremos los pasos que se deben de seguir para obtener el código CSS de la información seleccionada. Los colores y señalizaciones mencionados hacen referencia a la \figurename{~\ref{appSelectorGadget}}. %En dicha figura podemos ver un ejemplo del funcionamiento de la aplicación.
 
@@ -104,7 +106,7 @@ A continuación veremos los pasos que se deben de seguir para obtener el código
 
 En el ejemplo mostrado en la \figurename{~\ref{appSelectorGadget}}, se seleccionaron 15 entradas correspondientes a los nombres de los profesores en una página con la información de la materia \textit{Probabilidad I}, en el plan 2015 de Actuaría. Los pasos a seguir son los mismos sin importar la información que se desea obtener, lo único que cambia es el código CSS que arroja la aplicación.
 
-Sabiendo ésto, hicimos un ciclo en \textit{R} que recorre todas las posibles combinaciones de las URL. Encontramos 3 principales tipos de grupos, los cuales describiremos en la siguiente sección.
+Sabiendo ésto, hicimos un ciclo en \textit{R} que recorre todas las posibles combinaciones de las URL. Encontramos 3 principales tipos de grupos, los cuales llamamos \textbf{A}, \textbf{B} y \textbf{C}. Cada uno de ellos, los describiremos en la siguiente sección.
   
   
   \section{Tipos de grupos en las páginas web de la Facultad de Ciencias} \label{TiposDeGpos}
@@ -116,7 +118,7 @@ Sabiendo ésto, hicimos un ciclo en \textit{R} que recorre todas las posibles co
   
   \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{GrupoA} %scale = 0.8
+  \includegraphics[scale = 0.8]{GrupoA} %width=\textwidth
   %\url{http://www.fciencias.unam.mx/docencia/horarios/20201/2017/1707}
   \caption[\textit{Tipo de grupo A}]{\textit{Se muestra un ejemplo de un grupo de tipo A. Corresponde al semestre actual (2020-1).}}\label{GpoA}
   \end{figure}
@@ -125,7 +127,7 @@ Sabiendo ésto, hicimos un ciclo en \textit{R} que recorre todas las posibles co
   
   \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{GrupoB} %scale = 0.8
+  \includegraphics[scale = 0.8]{GrupoB} %width=\textwidth
   %\url{http://www.fciencias.unam.mx/docencia/horarios/20182/217/625}
   \caption[\textit{Tipo de grupo B}]{\textit{Se muestra un ejemplo de un grupo de tipo B. Corresponde a semestres ya finalizados, desde el 2018-2 hasta el 2019-2.}}\label{GpoB}
   \end{figure}
@@ -134,7 +136,7 @@ Sabiendo ésto, hicimos un ciclo en \textit{R} que recorre todas las posibles co
   
   \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{GrupoC} %scale = 0.8
+  \includegraphics[scale = 0.8]{GrupoC} %width=\textwidth
   %\url{http://www.fciencias.unam.mx/docencia/horarios/20181/1556/399}
   \caption[\textit{Tipo de grupo C}]{\textit{Se muestra un ejemplo de un grupo de tipo C. Corresponde a semestres ya finalizados, anteriores al semestre 2018-1, incluyéndolo.}}\label{GpoC}
   \end{figure}
