@@ -1,21 +1,23 @@
 \chapter{Planteamiento del problema}
 %\pagenumbering{arabic} %Para empezar la numeración con números naturales
 
-Lo que motivó la realización de este trabajo es la aportación que se puede hacer a la Facultad, la cual nos parece de gran utilidad y para beneficio de los alumnos. Al disminuir el tiempo que toma realizar los esqueletos de horarios y la asignación de grupos en la Facultad. Además, el modelo propuesto puede ser aplicado para resolver problemas generales de asignación de recursos.
+Actualmente para hacer la asignación de horarios, se reune el comité encargado de dicha tarea a realizar manualmente los esqueletos de los horarios. Éstos se dan a conocer a los profesores y ellos eligen diferentes opciones de materias y posibles horas en las cuales les gustaría impartir sus clases. Una vez que los profesores han hecho sus solicitudes, se vuelve a hacer una o varias juntas para la asignación final de los horarios que se hace de manera manual. Finalmente esta asignación de horarios se publica para los alumnos.
 
-Actualmente para hacer la asignación de horarios, se reune el comité encargado de dicha tarea a realizar manualmente los esqueletos de los horarios. Éstos se dan a conocer a los profesores y ellos eligen diferentes opciones de materias y posibles horas en las cuales les gustaría impartir sus clases. Una vez que los profesores han hecho sus solicitudes, se vuelve a hacer una o varias juntas para la asignación final de los horarios que se hace de manera manual.
+Con estos horarios, los alumnos llenan su tira de materias y van con cada profesor de la materia correspondiente para obtener la firma. El profesor firma si es que el cupo del salón lo permite. En caso de que el alumno no consiga la firma de la materia que desea, deberá buscar una segunda o tercera opción o incluso tener que meterla en algún semestre posterior. Es por ello que el trabajo que hemos realizado depende de la demanda de alumnos por materia y por horario.
 
-Se tienen dos tipos de profesores, los de tiempo completo y los de asignatura. Los profesores de tiempo completo, por contrato, deben de cubrir ciertas horas de clase por lo que al momento de hacer la asignación se debe considerar que ellos requieren cubrir su solicitud. Finalmente se publican los horarios a los alumnos.
+%La principal razón por la cual los profesores no firman las tiras de materias es porque el número de alumnos que desean inscribirse a su clase es mayor al número de lugares disponibles en el salón asignado.
 
-Una vez que los alumnos han elegido las materias que les gustaría tomar deben de ir con el profesor y él o ella les debe de firmar su tira de materias, si es que el cupo del salón lo permite. En caso de que el alumno no consiga la firma de la materia que desea, deberá buscar una segunda o tercera opción o incluso tener que meterla en algún semestre posterior.
+Por lo antes descrito, en este trabajo se pretende reducir el tiempo que toma la elaboración de los esqueletos de horarios y la asignación de grupos para las carreras del Departamento de Matemáticas. 
 
-La principal razón por la cual los profesores no firman las tiras de materias es porque el número de alumnos que desean inscribirse a su clase es mayor al número de lugares disponibles en el salón asignado. Es por ello que el trabajo que hemos realizado depende de la demanda de alumnos por materia y por horario.
+Esta aportación a la Facultad nos parece de gran utilidad y para beneficio de los alumnos. Además, el modelo propuesto puede ser aplicado para resolver problemas generales de asignación de recursos.
 
+%Cabe aclarar que se tienen dos tipos de profesores, los de tiempo completo y los de asignatura. Los profesores de tiempo completo, por contrato, deben de cubrir ciertas horas de clase por lo que al momento de hacer la asignación se debe considerar que ellos requieren cubrir su solicitud.
 
+En las siguientes secciones definimos los conceptos y nomenclatura que utilizaremos a lo largo del trabajo.
 
 \section{Definición de conceptos}
 
-Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
+%Las siguientes son las definiciones que se utilizarán a lo largo del trabajo:
   
 \textbf{Materia:} Curso impartido en la Facultad por algún profesor.
 
@@ -87,16 +89,18 @@ $V_{j,i}:$ Variable binaria que vale $1$ si la materia $j$ puede ser impartida p
 
 En el problema de asignación de horarios se quiere asociar un profesor con una materia y un horario. Existen trabajos que han abordado este problema desde otro punto de vista, por ejemplo Yazdani, Naeri y Zeinali, en su artículo \textit{Algorithms for university course scheduling problems} [\ref{Yazdani}], proponen un modelo en el cual se toman 2 decisiones: la asignación de profesor por materia y el salón en el cual se va a impartir cada materia.
 
-Con la función objetivo planteada en dicho modelo se desea maximizar la utilidad de que el profesor $i$ imparta la materia $j$, más la utilidad de que el profesor $i$ dé clases el día $d$, más la utilidad de que la materia $j$ sea impartida en el día $d$. Como punto de comparación, a continuación veremos las dos diferencias principales entre su modelo y el que proponemos en este trabajo.
+Con la función objetivo planteada en dicho modelo se desea maximizar la utilidad de que el profesor $i$ imparta la materia $j$, más la utilidad de que el profesor $i$ dé clases el día $d$, más la utilidad de que la materia $j$ sea impartida en el día $d$.
+
+Nosotros abordaremos el problema considerando lo siguiente: %A continuación veremos las dos diferencias principales entre su modelo y el que proponemos en este trabajo.
 
 \begin{enumerate}
-\item[1)] No tomamos en cuenta el día en el que se imparte la materia. Ésto porque suponemos que todas las materias se imparten de lunes a viernes, a la misma hora, en el mismo salón.
+\item[1)] Suponemos que todas las materias se imparten de lunes a viernes, a la misma hora, en el mismo salón. %No tomamos en cuenta el día en el que se imparte la materia.
 
 \item[2)] Deseamos maximizar la utilidad de que la materia $j$ sea impartida por  el profesor $i$ a la hora $h$.
 \end{enumerate}
 
 %El problema que se tiene es un problema maximización en el cual se consideran:
-El planteamiento del problema maximización es el siguiente:
+El planteamiento del problema de maximización es el siguiente:
 
 \begin{enumerate}[i)]
 \item Variables de decisión:
@@ -132,7 +136,7 @@ Con las restricciones del tipo (\ref{DarTodasMaterias}) aseguramos que todas las
 Los elementos que consideramos en nuestro modelo son:
   
 \begin{itemize}
-\item[-] Esqueletos de horario: Matriz de $t$ renglones con las horas (7-8, 8-9, $\ldots$, 21-22) y $m$ columnas. La entrada $(h,j)$ contiene el número de grupos simulados de la hora $h$ para la materia $j$.
+\item[-] Esqueletos de horario: Matriz de $t$ renglones, correspondientes a las horas (7-8, 8-9, $\ldots$, 21-22) y $m$ columnas, una por cada materia. La entrada $(h,j)$ contiene el número de grupos simulados de la hora $h$ para la materia $j$.
 
 \item[-] Función calificadora de esqueletos: Califica de acuerdo a qué tan bien o que tan mal se cubre la demanda de los alumnos esperados.
 
@@ -143,7 +147,7 @@ Los elementos que consideramos en nuestro modelo son:
 \item[-] Función calificadora de asignaciones: Califica con respecto al número de grupos simulados.
 \end{itemize}
 
-El conjunto de soluciones se presenta por medio de una matriz de tres columnas. El número de renglones depende del número de grupos se hayan simulado. En el k-ésimo renglón se tiene la información de la k-ésima materia con su respectivo profesor y horario asignados. En la \tablename{~\ref{EjAsig}} se muestra un ejemplo del resultado de la asignación.
+El conjunto de soluciones se presenta por medio de una matriz de tres columnas. El número de renglones depende del número de grupos que se hayan simulado. En el k-ésimo renglón se tiene la información de la k-ésima materia con su respectivo profesor y horario asignados. En la \tablename{~\ref{EjAsig}} se muestra un ejemplo del resultado de la asignación.
 
 \begin{table}[H]
 \centering
