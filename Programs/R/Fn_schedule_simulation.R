@@ -9791,7 +9791,7 @@ AG_asignaciones_con_xlsx <- function(mat_esqueleto,
                                      con_xlsx_1_sin_xlsx_0,param){
   if(con_xlsx_1_sin_xlsx_0 == 0){
     #' Si no se carga el archivo de excel se realiza la asignación
-    #' con el AG de manera norma. Sin modificar las matrices con el
+    #' con el AG de manera normal. Sin modificar las matrices con el
     #' esqueleto y las solicitudes.
     list_asignacion_final <- AG_asignaciones(mat_esqueleto,
                                              mat_solicitudes_real,param)
@@ -9836,8 +9836,8 @@ AG_asignaciones_con_xlsx <- function(mat_esqueleto,
 
 # gen_asignacion_completa -------------------------------------------------
 #' Title gen_asignacion_completa: Función que genera la asignación
-#' completa de todas las materias. Utiliz el AG. Tiene la opción de leer
-#' un archivo de excel con grupos predefinidos.
+#' completa de materias, profesores, horas. Utiliza el Algoritmo Genético.
+#' Tiene la opción de leer un archivo de excel con grupos predefinidos.
 #'
 #' @param con_xlsx_1_sin_xlsx_0: Variable binaria que vale 1 si se debe
 #' de leer el archivo xlsx y 0 si no.
@@ -9867,9 +9867,12 @@ AG_asignaciones_con_xlsx <- function(mat_esqueleto,
 #' de los mejores hijos de cada generación.
 #' 6) mat_num_genes: Matriz con el número de genes de todos los elementos
 #' por generación.
-#' 7) mat_esqueleto
-#' 8) mat_solicitudes_real
-#' 9) param
+#' 7) mat_esqueleto: Matriz con el esqueleto utilizado para generar la
+#' asignación.
+#' 8) mat_solicitudes_real: Matriz con las solicitudes simuladas de los
+#' profesores.
+#' 9) param: Lista con los diferentes parámetros que se utilizan en las
+#' funciones que se mandan llamar.
 #' 10) vec_info_AG: Vector con información del AG y sus resultados.
 #' 11) esq_asig_final: Esqueleto de la asignación final.
 #' 12) info_gpos_sin_asig: Matriz con las columnas: mat_esq (gpos. por
