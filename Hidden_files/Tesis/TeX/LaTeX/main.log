@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  8 FEB 2021 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  9 FEB 2021 20:19
 entering extended mode
 **./main.tex
 (main.tex
@@ -2461,35 +2461,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [77]
-<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1248, 578.16pt x 433.62
+<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1247, 578.16pt x 433.62
 pt>
 File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 )
 <use Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf  us
-ed on input line 94.
+ed on input line 110.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1250, 578.16pt x 433.62pt>
+<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1249, 578.16pt x 433.62pt>
 File: Pictures/boxplot_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_calif_g08_n08_m004_U510.pdf  used on 
-input line 102.
+input line 118.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1254, 578.16pt x 433.62pt>
+<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1253, 578.16pt x 433.62pt>
 File: Pictures/media_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/media_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/media_calif_g08_n08_m004_U510.pdf  used on in
-put line 111.
+put line 127.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
 
 Underfull \vbox (badness 1810) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 114.
-LaTeX Info: Redefining \% on input line 114.
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2513,25 +2513,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [79 <./Pictures/boxplot_calif_g08_n08_m004_U510.pdf> <./Pictures/media_calif_g0
 8_n08_m004_U510.pdf>]
-<Pictures/varianza_g08_n08_m004_U510.pdf, id=1287, 578.16pt x 433.62pt>
+<Pictures/varianza_g08_n08_m004_U510.pdf, id=1286, 578.16pt x 433.62pt>
 File: Pictures/varianza_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/varianza_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/varianza_g08_n08_m004_U510.pdf  used on input
- line 120.
+ line 136.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
-<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1289, 578.16pt x 433.62pt
+<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1288, 578.16pt x 433.62pt
 >
 File: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf  used
- on input line 132.
+ on input line 148.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Info: Redefining \. on input line 165.
-LaTeX Info: Redefining \% on input line 165.
+LaTeX Info: Redefining \. on input line 181.
+LaTeX Info: Redefining \% on input line 181.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 15.13202pt, for example:
@@ -2541,22 +2541,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [80 <./Pictures/varianza_g08_n08_m004_U510.pdf>]
-Underfull \hbox (badness 8056) in paragraph at lines 177--177
+Underfull \hbox (badness 8056) in paragraph at lines 193--193
 []\T1/ptm/m/n/12 Margarita El-vi-ra Chá-vez
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
 []\T1/ptm/m/n/12 María Asun-ción Be-go-ña
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--181
+Underfull \hbox (badness 10000) in paragraph at lines 197--197
 []\T1/ptm/m/n/12 Daniel Ale-jan-dro Zu-ri-ta
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 186--186
+Underfull \hbox (badness 4084) in paragraph at lines 202--202
 []\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
  []
 
@@ -2569,18 +2569,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [81 <./Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>]
-<Pictures/solicitudes_teoria_del_seguro.png, id=1315, 487.8225pt x 336.50719pt>
+<Pictures/solicitudes_teoria_del_seguro.png, id=1314, 487.8225pt x 336.50719pt>
 
 File: Pictures/solicitudes_teoria_del_seguro.png Graphic file (type png)
 <use Pictures/solicitudes_teoria_del_seguro.png>
 Package pdftex.def Info: Pictures/solicitudes_teoria_del_seguro.png  used on in
-put line 228.
+put line 244.
 (pdftex.def)             Requested size: 390.25853pt x 269.2061pt.
 
 Underfull \vbox (badness 2941) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 231.
-LaTeX Info: Redefining \% on input line 231.
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3283,9 +3283,9 @@ onts/type1/urw/symbol/usyr.pfb><C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.
 X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (122 pages, 2521506 bytes).
+Output written on main.pdf (122 pages, 2521224 bytes).
 PDF statistics:
- 1687 PDF objects out of 1728 (max. 8388607)
+ 1686 PDF objects out of 1728 (max. 8388607)
  397 named destinations out of 1000 (max. 500000)
  799 words of extra memory for PDF output out of 10000 (max. 10000000)
 
