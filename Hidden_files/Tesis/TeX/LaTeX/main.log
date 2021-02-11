@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  9 FEB 2021 20:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  10 FEB 2021 19:26
 entering extended mode
 **./main.tex
 (main.tex
@@ -895,28 +895,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1201--1202
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 1223--1224
-
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[4] (main.toc
+[3] (main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has 
@@ -930,8 +909,8 @@ l.35 ...sores de asignatura}{53}{subsection.4.3.2}
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-LaTeX Info: Redefining \. on input line 1279.
-LaTeX Info: Redefining \% on input line 1279.
+LaTeX Info: Redefining \. on input line 1257.
+LaTeX Info: Redefining \% on input line 1257.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -945,7 +924,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.II}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1279 \newpage
+l.1257 \newpage
                 %%Salto de PÃ¡gina [2]
 \openout2 = `Introduccion.aux'.
 
@@ -985,7 +964,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5]
-<Pictures/num_alum_sem_par_impar_Proba_I.pdf, id=333, 578.16pt x 433.62pt>
+<Pictures/num_alum_sem_par_impar_Proba_I.pdf, id=329, 578.16pt x 433.62pt>
 File: Pictures/num_alum_sem_par_impar_Proba_I.pdf Graphic file (type pdf)
 <use Pictures/num_alum_sem_par_impar_Proba_I.pdf>
 Package pdftex.def Info: Pictures/num_alum_sem_par_impar_Proba_I.pdf  used on i
@@ -1008,7 +987,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
  ("C:\Users\miri_\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf, id=341, 578.16pt x 
+<Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf, id=337, 578.16pt x 
 433.62pt>
 File: Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf Graphic file (t
 ype pdf)
@@ -1020,7 +999,7 @@ pdf  used on input line 216.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/num_alum_x_turno_Proba_I.pdf, id=343, 578.16pt x 433.62pt>
+<Pictures/num_alum_x_turno_Proba_I.pdf, id=339, 578.16pt x 433.62pt>
 File: Pictures/num_alum_x_turno_Proba_I.pdf Graphic file (type pdf)
 <use Pictures/num_alum_x_turno_Proba_I.pdf>
 Package pdftex.def Info: Pictures/num_alum_x_turno_Proba_I.pdf  used on input l
@@ -1054,7 +1033,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8 <./Pictures/histograma_FR_num_alum_sem_par_impar_Proba_I.pdf> <./Pictures/nu
 m_alum_x_turno_Proba_I.pdf>]
-<Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf, id=378, 578.16pt x 433.62
+<Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf, id=374, 578.16pt x 433.62
 pt>
 File: Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf Graphic file (type pd
 f)
@@ -1072,8 +1051,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [9 <./Pictures/histograma_FR_num_alum_x_turno_Proba_I.pdf>])
-LaTeX Info: Redefining \. on input line 1292.
-LaTeX Info: Redefining \% on input line 1292.
+LaTeX Info: Redefining \. on input line 1270.
+LaTeX Info: Redefining \% on input line 1270.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1088,7 +1067,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
  (Extraccion_de_datos.tex
   2.
-<Pictures/Fuente_de_info.png, id=400, 735.49782pt x 470.50781pt>
+<Pictures/Fuente_de_info.png, id=396, 735.49782pt x 470.50781pt>
 File: Pictures/Fuente_de_info.png Graphic file (type png)
 <use Pictures/Fuente_de_info.png>
 Package pdftex.def Info: Pictures/Fuente_de_info.png  used on input line 7.
@@ -1098,8 +1077,8 @@ Package pdftex.def Info: Pictures/Fuente_de_info.png  used on input line 7.
 
 
  <./Pictures/Fuente_de_info.png>]
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 74.
+LaTeX Info: Redefining \% on input line 74.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1110,12 +1089,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [12]
-<Pictures/SelectorGadget.png, id=416, 660.96938pt x 477.28313pt>
-File: Pictures/SelectorGadget.png Graphic file (type png)
-<use Pictures/SelectorGadget.png>
-Package pdftex.def Info: Pictures/SelectorGadget.png  used on input line 102.
-(pdftex.def)             Requested size: 443.57848pt x 320.31696pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1125,8 +1098,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-LaTeX Info: Redefining \. on input line 118.
-LaTeX Info: Redefining \% on input line 118.
+<Pictures/SelectorGadget.png, id=422, 660.96938pt x 477.28313pt>
+File: Pictures/SelectorGadget.png Graphic file (type png)
+<use Pictures/SelectorGadget.png>
+Package pdftex.def Info: Pictures/SelectorGadget.png  used on input line 102.
+(pdftex.def)             Requested size: 443.57848pt x 320.31696pt.
+LaTeX Info: Redefining \. on input line 117.
+LaTeX Info: Redefining \% on input line 117.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1137,17 +1115,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [14 <./Pictures/SelectorGadget.png>]
-<Pictures/GrupoA.png, id=436, 534.49687pt x 122.70844pt>
+<Pictures/GrupoA.png, id=432, 534.49687pt x 122.70844pt>
 File: Pictures/GrupoA.png Graphic file (type png)
 <use Pictures/GrupoA.png>
 Package pdftex.def Info: Pictures/GrupoA.png  used on input line 121.
 (pdftex.def)             Requested size: 427.59807pt x 98.16687pt.
-<Pictures/GrupoB.png, id=438, 511.15968pt x 130.23656pt>
+<Pictures/GrupoB.png, id=434, 511.15968pt x 130.23656pt>
 File: Pictures/GrupoB.png Graphic file (type png)
 <use Pictures/GrupoB.png>
 Package pdftex.def Info: Pictures/GrupoB.png  used on input line 130.
 (pdftex.def)             Requested size: 408.92828pt x 104.18938pt.
-<Pictures/GrupoC.png, id=440, 555.57562pt x 112.16907pt>
+<Pictures/GrupoC.png, id=436, 555.57562pt x 112.16907pt>
 File: Pictures/GrupoC.png Graphic file (type png)
 <use Pictures/GrupoC.png>
 Package pdftex.def Info: Pictures/GrupoC.png  used on input line 139.
@@ -1167,12 +1145,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15 <./Pictures/GrupoA.png> <./Pictures/GrupoB.png> <./Pictures/GrupoC.png>]
 (ED_falta_de_info.tex
-<Pictures/FaltaInfo_A.png, id=453, 635.45514pt x 389.99757pt>
+<Pictures/FaltaInfo_A.png, id=449, 635.45514pt x 389.99757pt>
 File: Pictures/FaltaInfo_A.png Graphic file (type png)
 <use Pictures/FaltaInfo_A.png>
 Package pdftex.def Info: Pictures/FaltaInfo_A.png  used on input line 11.
 (pdftex.def)             Requested size: 443.57848pt x 272.24068pt.
-<Pictures/FaltaInfo_B.png, id=456, 615.9375pt x 366.2775pt>
+<Pictures/FaltaInfo_B.png, id=452, 615.9375pt x 366.2775pt>
 File: Pictures/FaltaInfo_B.png Graphic file (type png)
 <use Pictures/FaltaInfo_B.png>
 Package pdftex.def Info: Pictures/FaltaInfo_B.png  used on input line 19.
@@ -1194,12 +1172,12 @@ Overfull \hbox (17.73103pt too wide) in paragraph at lines 23--24
 www . fciencias . unam . mx / docencia / horarios /
  []
 
-<Pictures/FaltaInfo_C.png, id=467, 457.98067pt x 397.079pt>
+<Pictures/FaltaInfo_C.png, id=463, 457.98067pt x 397.079pt>
 File: Pictures/FaltaInfo_C.png Graphic file (type png)
 <use Pictures/FaltaInfo_C.png>
 Package pdftex.def Info: Pictures/FaltaInfo_C.png  used on input line 27.
 (pdftex.def)             Requested size: 366.38503pt x 317.66362pt.
-<Pictures/FaltaInfo_D.png, id=470, 362.10281pt x 246.9225pt>
+<Pictures/FaltaInfo_D.png, id=466, 362.10281pt x 246.9225pt>
 File: Pictures/FaltaInfo_D.png Graphic file (type png)
 <use Pictures/FaltaInfo_D.png>
 Package pdftex.def Info: Pictures/FaltaInfo_D.png  used on input line 35.
@@ -1214,12 +1192,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [17 <./Pictures/FaltaInfo_B.png> <./Pictures/FaltaInfo_C.png>])
 (ED_info_repetida.tex
-<Pictures/InfoRepetida_A_1.png, id=483, 373.395pt x 228.855pt>
+<Pictures/InfoRepetida_A_1.png, id=479, 373.395pt x 228.855pt>
 File: Pictures/InfoRepetida_A_1.png Graphic file (type png)
 <use Pictures/InfoRepetida_A_1.png>
 Package pdftex.def Info: Pictures/InfoRepetida_A_1.png  used on input line 18.
 (pdftex.def)             Requested size: 312.9803pt x 191.8353pt.
-<Pictures/InfoRepetida_A_2.png, id=484, 363.60844pt x 220.57407pt>
+<Pictures/InfoRepetida_A_2.png, id=480, 363.60844pt x 220.57407pt>
 File: Pictures/InfoRepetida_A_2.png Graphic file (type png)
 <use Pictures/InfoRepetida_A_2.png>
 Package pdftex.def Info: Pictures/InfoRepetida_A_2.png  used on input line 19.
@@ -1239,12 +1217,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [18 <./Pictures/FaltaInfo_D.png>]
-<Pictures/InfoRepetida_B_1.png, id=493, 347.79938pt x 263.48438pt>
+<Pictures/InfoRepetida_B_1.png, id=489, 347.79938pt x 263.48438pt>
 File: Pictures/InfoRepetida_B_1.png Graphic file (type png)
 <use Pictures/InfoRepetida_B_1.png>
 Package pdftex.def Info: Pictures/InfoRepetida_B_1.png  used on input line 33.
 (pdftex.def)             Requested size: 312.9803pt x 237.11765pt.
-<Pictures/InfoRepetida_B_2.png, id=494, 465.23813pt x 263.48438pt>
+<Pictures/InfoRepetida_B_2.png, id=490, 465.23813pt x 263.48438pt>
 File: Pictures/InfoRepetida_B_2.png Graphic file (type png)
 <use Pictures/InfoRepetida_B_2.png>
 Package pdftex.def Info: Pictures/InfoRepetida_B_2.png  used on input line 34.
@@ -1271,13 +1249,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [20 <./Pictures/InfoRepetida_B_1.png> <./Pictures/InfoRepetida_B_2.png>]
-<Pictures/Ej_gpo_repetido_1.png, id=516, 319.1925pt x 182.18062pt>
+<Pictures/Ej_gpo_repetido_1.png, id=512, 319.1925pt x 182.18062pt>
 File: Pictures/Ej_gpo_repetido_1.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_1.png>
 Package pdftex.def Info: Pictures/Ej_gpo_repetido_1.png  used on input line 142
 .
 (pdftex.def)             Requested size: 284.52756pt x 162.39597pt.
-<Pictures/Ej_gpo_repetido_2.png, id=517, 516.42938pt x 181.42781pt>
+<Pictures/Ej_gpo_repetido_2.png, id=513, 516.42938pt x 181.42781pt>
 File: Pictures/Ej_gpo_repetido_2.png Graphic file (type png)
 <use Pictures/Ej_gpo_repetido_2.png>
 Package pdftex.def Info: Pictures/Ej_gpo_repetido_2.png  used on input line 143
@@ -1285,7 +1263,7 @@ Package pdftex.def Info: Pictures/Ej_gpo_repetido_2.png  used on input line 143
 (pdftex.def)             Requested size: 426.79134pt x 149.94278pt.
 )
 (ED_otros_problemas_extraer_info.tex
-<Pictures/Ej_un_alumno.png, id=520, 334.24875pt x 57.96657pt>
+<Pictures/Ej_un_alumno.png, id=516, 334.24875pt x 57.96657pt>
 File: Pictures/Ej_un_alumno.png Graphic file (type png)
 <use Pictures/Ej_un_alumno.png>
 Package pdftex.def Info: Pictures/Ej_un_alumno.png  used on input line 10.
@@ -1300,13 +1278,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [21 <./Pictures/Ej_gpo_repetido_1.png> <./Pictures/Ej_gpo_repetido_2.png>]
-<Pictures/Ej_gpo_medias_hrs.png, id=534, 438.8897pt x 62.48344pt>
+<Pictures/Ej_gpo_medias_hrs.png, id=530, 438.8897pt x 62.48344pt>
 File: Pictures/Ej_gpo_medias_hrs.png Graphic file (type png)
 <use Pictures/Ej_gpo_medias_hrs.png>
 Package pdftex.def Info: Pictures/Ej_gpo_medias_hrs.png  used on input line 20.
 
 (pdftex.def)             Requested size: 443.57848pt x 63.15257pt.
-<Pictures/Ej_gpo_horarios_multiples.png, id=537, 568.37344pt x 205.5178pt>
+<Pictures/Ej_gpo_horarios_multiples.png, id=533, 568.37344pt x 205.5178pt>
 File: Pictures/Ej_gpo_horarios_multiples.png Graphic file (type png)
 <use Pictures/Ej_gpo_horarios_multiples.png>
 Package pdftex.def Info: Pictures/Ej_gpo_horarios_multiples.png  used on input 
@@ -1325,12 +1303,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22 <./Pictures/Ej_un_alumno.png> <./Pictures/Ej_gpo_medias_hrs.png> <./Picture
 s/Ej_gpo_horarios_multiples.png>]
-<Pictures/Ej_gpo_ingles.png, id=550, 271.76532pt x 44.41594pt>
+<Pictures/Ej_gpo_ingles.png, id=546, 271.76532pt x 44.41594pt>
 File: Pictures/Ej_gpo_ingles.png Graphic file (type png)
 <use Pictures/Ej_gpo_ingles.png>
 Package pdftex.def Info: Pictures/Ej_gpo_ingles.png  used on input line 39.
 (pdftex.def)             Requested size: 271.76465pt x 44.41582pt.
-<Pictures/Ej_gpo_con_estructura_diferente.png, id=554, 572.89032pt x 202.50656p
+<Pictures/Ej_gpo_con_estructura_diferente.png, id=550, 572.89032pt x 202.50656p
 t>
 File: Pictures/Ej_gpo_con_estructura_diferente.png Graphic file (type png)
 <use Pictures/Ej_gpo_con_estructura_diferente.png>
@@ -1504,8 +1482,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [25])
-LaTeX Info: Redefining \. on input line 1294.
-LaTeX Info: Redefining \% on input line 1294.
+LaTeX Info: Redefining \. on input line 1272.
+LaTeX Info: Redefining \% on input line 1272.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1537,7 +1515,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [28]
-<Pictures/descomposicion_ts_total_alumnos.pdf, id=594, 578.16pt x 433.62pt>
+<Pictures/descomposicion_ts_total_alumnos.pdf, id=590, 578.16pt x 433.62pt>
 File: Pictures/descomposicion_ts_total_alumnos.pdf Graphic file (type pdf)
 <use Pictures/descomposicion_ts_total_alumnos.pdf>
 Package pdftex.def Info: Pictures/descomposicion_ts_total_alumnos.pdf  used on 
@@ -1553,13 +1531,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [29 <./Pictures/descomposicion_ts_total_alumnos.pdf>]
-<Pictures/prom_alum_total_x_sem_ts.pdf, id=607, 578.16pt x 433.62pt>
+<Pictures/prom_alum_total_x_sem_ts.pdf, id=603, 578.16pt x 433.62pt>
 File: Pictures/prom_alum_total_x_sem_ts.pdf Graphic file (type pdf)
 <use Pictures/prom_alum_total_x_sem_ts.pdf>
 Package pdftex.def Info: Pictures/prom_alum_total_x_sem_ts.pdf  used on input l
 ine 112.
 (pdftex.def)             Requested size: 443.57848pt x 332.68423pt.
-<Pictures/cox_stuart_test_randomness.png, id=609, 292.09125pt x 96.36pt>
+<Pictures/cox_stuart_test_randomness.png, id=605, 292.09125pt x 96.36pt>
 File: Pictures/cox_stuart_test_randomness.png Graphic file (type png)
 <use Pictures/cox_stuart_test_randomness.png>
 Package pdftex.def Info: Pictures/cox_stuart_test_randomness.png  used on input
@@ -1577,14 +1555,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [30 <./Pictures/prom_alum_total_x_sem_ts.pdf>]
-<Pictures/cox_stuart_test_increasing_trend.png, id=625, 370.38374pt x 92.59593p
+<Pictures/cox_stuart_test_increasing_trend.png, id=621, 370.38374pt x 92.59593p
 t>
 File: Pictures/cox_stuart_test_increasing_trend.png Graphic file (type png)
 <use Pictures/cox_stuart_test_increasing_trend.png>
 Package pdftex.def Info: Pictures/cox_stuart_test_increasing_trend.png  used on
  input line 143.
 (pdftex.def)             Requested size: 351.86255pt x 87.9656pt.
-<Pictures/num_alum_total_x_sem_barplot.pdf, id=628, 578.16pt x 433.62pt>
+<Pictures/num_alum_total_x_sem_barplot.pdf, id=624, 578.16pt x 433.62pt>
 File: Pictures/num_alum_total_x_sem_barplot.pdf Graphic file (type pdf)
 <use Pictures/num_alum_total_x_sem_barplot.pdf>
 Package pdftex.def Info: Pictures/num_alum_total_x_sem_barplot.pdf  used on inp
@@ -1594,7 +1572,7 @@ ut line 156.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/qs_test_seasonality.png, id=630, 248.42813pt x 72.27pt>
+<Pictures/qs_test_seasonality.png, id=626, 248.42813pt x 72.27pt>
 File: Pictures/qs_test_seasonality.png Graphic file (type png)
 <use Pictures/qs_test_seasonality.png>
 Package pdftex.def Info: Pictures/qs_test_seasonality.png  used on input line 1
@@ -1610,7 +1588,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [31 <./Pictures/cox_stuart_test_randomness.png> <./Pictures/cox_stuart_test_inc
 reasing_trend.png>]
-<Pictures/sd_alum_x_gpo_x_sem_ts.pdf, id=641, 578.16pt x 433.62pt>
+<Pictures/sd_alum_x_gpo_x_sem_ts.pdf, id=636, 578.16pt x 433.62pt>
 File: Pictures/sd_alum_x_gpo_x_sem_ts.pdf Graphic file (type pdf)
 <use Pictures/sd_alum_x_gpo_x_sem_ts.pdf>
 Package pdftex.def Info: Pictures/sd_alum_x_gpo_x_sem_ts.pdf  used on input lin
@@ -1629,13 +1607,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [32 <./Pictures/num_alum_total_x_sem_barplot.pdf> <./Pictures/qs_test_seasonali
 ty.png>]
-<Pictures/jarque_bera_test_normality.png, id=656, 331.2375pt x 92.59593pt>
+<Pictures/jarque_bera_test_normality.png, id=652, 331.2375pt x 92.59593pt>
 File: Pictures/jarque_bera_test_normality.png Graphic file (type png)
 <use Pictures/jarque_bera_test_normality.png>
 Package pdftex.def Info: Pictures/jarque_bera_test_normality.png  used on input
  line 193.
 (pdftex.def)             Requested size: 298.11098pt x 83.33554pt.
-<Pictures/bp_test_homocedasticidad.png, id=658, 301.125pt x 93.34875pt>
+<Pictures/bp_test_homocedasticidad.png, id=654, 301.125pt x 93.34875pt>
 File: Pictures/bp_test_homocedasticidad.png Graphic file (type png)
 <use Pictures/bp_test_homocedasticidad.png>
 Package pdftex.def Info: Pictures/bp_test_homocedasticidad.png  used on input l
@@ -1652,7 +1630,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [33 <./Pictures/sd_alum_x_gpo_x_sem_ts.pdf> <./Pictures/jarque_bera_test_normal
 ity.png>]
-<Pictures/num_alum_sem_par_impar_ts.pdf, id=673, 578.16pt x 433.62pt>
+<Pictures/num_alum_sem_par_impar_ts.pdf, id=669, 578.16pt x 433.62pt>
 File: Pictures/num_alum_sem_par_impar_ts.pdf Graphic file (type pdf)
 <use Pictures/num_alum_sem_par_impar_ts.pdf>
 Package pdftex.def Info: Pictures/num_alum_sem_par_impar_ts.pdf  used on input 
@@ -1671,7 +1649,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [34 <./Pictures/bp_test_homocedasticidad.png> <./Pictures/num_alum_sem_par_impa
 r_ts.pdf>]
-<Pictures/histograma_FR_num_alum_sem_par_impar.pdf, id=686, 578.16pt x 433.62pt
+<Pictures/histograma_FR_num_alum_sem_par_impar.pdf, id=682, 578.16pt x 433.62pt
 >
 File: Pictures/histograma_FR_num_alum_sem_par_impar.pdf Graphic file (type pdf)
 
@@ -1679,7 +1657,7 @@ File: Pictures/histograma_FR_num_alum_sem_par_impar.pdf Graphic file (type pdf)
 Package pdftex.def Info: Pictures/histograma_FR_num_alum_sem_par_impar.pdf  use
 d on input line 232.
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
-<Pictures/num_alum_matu_vesp_ts.pdf, id=688, 578.16pt x 433.62pt>
+<Pictures/num_alum_matu_vesp_ts.pdf, id=684, 578.16pt x 433.62pt>
 File: Pictures/num_alum_matu_vesp_ts.pdf Graphic file (type pdf)
 <use Pictures/num_alum_matu_vesp_ts.pdf>
 Package pdftex.def Info: Pictures/num_alum_matu_vesp_ts.pdf  used on input line
@@ -1689,7 +1667,7 @@ Package pdftex.def Info: Pictures/num_alum_matu_vesp_ts.pdf  used on input line
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/histograma_FR_num_alum_matu_vesp.pdf, id=690, 578.16pt x 433.62pt>
+<Pictures/histograma_FR_num_alum_matu_vesp.pdf, id=686, 578.16pt x 433.62pt>
 File: Pictures/histograma_FR_num_alum_matu_vesp.pdf Graphic file (type pdf)
 <use Pictures/histograma_FR_num_alum_matu_vesp.pdf>
 Package pdftex.def Info: Pictures/histograma_FR_num_alum_matu_vesp.pdf  used on
@@ -1723,7 +1701,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [36 <./Pictures/num_alum_matu_vesp_ts.pdf> <./Pictures/histograma_FR_num_alum_m
 atu_vesp.pdf>]
-<Pictures/histogramas_FA_num_alum_x_carrera.pdf, id=727, 578.16pt x 433.62pt>
+<Pictures/histogramas_FA_num_alum_x_carrera.pdf, id=723, 578.16pt x 433.62pt>
 File: Pictures/histogramas_FA_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FA_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FA_num_alum_x_carrera.pdf  used o
@@ -1739,13 +1717,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [37 <./Pictures/histogramas_FA_num_alum_x_carrera.pdf>]
-<Pictures/histogramas_FR_num_alum_x_carrera.pdf, id=743, 578.16pt x 433.62pt>
+<Pictures/histogramas_FR_num_alum_x_carrera.pdf, id=738, 578.16pt x 433.62pt>
 File: Pictures/histogramas_FR_num_alum_x_carrera.pdf Graphic file (type pdf)
 <use Pictures/histogramas_FR_num_alum_x_carrera.pdf>
 Package pdftex.def Info: Pictures/histogramas_FR_num_alum_x_carrera.pdf  used o
 n input line 277.
 (pdftex.def)             Requested size: 381.58678pt x 286.19008pt.
-<Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf, id=748, 578.16pt x 433.62pt>
+<Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf, id=743, 578.16pt x 433.62pt>
 File: Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf Graphic file (type pdf)
 <use Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf>
 Package pdftex.def Info: Pictures/histograma_FA_num_alum_x_gpo_x_sem.pdf  used 
@@ -1755,7 +1733,7 @@ on input line 289.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=750, 578.16pt x 433.62pt>
+<Pictures/densidades_num_alum_x_gpo_x_sem.pdf, id=745, 578.16pt x 433.62pt>
 File: Pictures/densidades_num_alum_x_gpo_x_sem.pdf Graphic file (type pdf)
 <use Pictures/densidades_num_alum_x_gpo_x_sem.pdf>
 Package pdftex.def Info: Pictures/densidades_num_alum_x_gpo_x_sem.pdf  used on 
@@ -1802,7 +1780,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [40]
-<Pictures/histograma_FR_prueba_KS.pdf, id=791, 578.16pt x 433.62pt>
+<Pictures/histograma_FR_prueba_KS.pdf, id=787, 578.16pt x 433.62pt>
 File: Pictures/histograma_FR_prueba_KS.pdf Graphic file (type pdf)
 <use Pictures/histograma_FR_prueba_KS.pdf>
 Package pdftex.def Info: Pictures/histograma_FR_prueba_KS.pdf  used on input li
@@ -1818,13 +1796,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [41 <./Pictures/histograma_FR_prueba_KS.pdf>]
-<Pictures/num_prom_gpos_x_hora_barplot.pdf, id=805, 578.16pt x 433.62pt>
+<Pictures/num_prom_gpos_x_hora_barplot.pdf, id=801, 578.16pt x 433.62pt>
 File: Pictures/num_prom_gpos_x_hora_barplot.pdf Graphic file (type pdf)
 <use Pictures/num_prom_gpos_x_hora_barplot.pdf>
 Package pdftex.def Info: Pictures/num_prom_gpos_x_hora_barplot.pdf  used on inp
 ut line 359.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/prom_alum_x_hora_barplot.pdf, id=808, 578.16pt x 433.62pt>
+<Pictures/prom_alum_x_hora_barplot.pdf, id=804, 578.16pt x 433.62pt>
 File: Pictures/prom_alum_x_hora_barplot.pdf Graphic file (type pdf)
 <use Pictures/prom_alum_x_hora_barplot.pdf>
 Package pdftex.def Info: Pictures/prom_alum_x_hora_barplot.pdf  used on input l
@@ -1871,7 +1849,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
   4.
-<Pictures/diagrama_flujo.png, id=840, 604.50844pt x 377.15906pt>
+<Pictures/diagrama_flujo.png, id=836, 604.50844pt x 377.15906pt>
 File: Pictures/diagrama_flujo.png Graphic file (type png)
 <use Pictures/diagrama_flujo.png>
 Package pdftex.def Info: Pictures/diagrama_flujo.png  used on input line 17.
@@ -1931,13 +1909,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-<Pictures/mat_med_dispersion.png, id=862, 545.78906pt x 244.66406pt>
+<Pictures/mat_med_dispersion.png, id=858, 545.78906pt x 244.66406pt>
 File: Pictures/mat_med_dispersion.png Graphic file (type png)
 <use Pictures/mat_med_dispersion.png>
 Package pdftex.def Info: Pictures/mat_med_dispersion.png  used on input line 55
 .
 (pdftex.def)             Requested size: 443.57848pt x 198.84505pt.
-<Pictures/prom_SD_5m_12p.png, id=865, 150.5625pt x 249.18094pt>
+<Pictures/prom_SD_5m_12p.png, id=861, 150.5625pt x 249.18094pt>
 File: Pictures/prom_SD_5m_12p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_12p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 64.
@@ -1946,7 +1924,7 @@ Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 64.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/prom_SD_10m_6p.png, id=868, 170.88844pt x 158.09062pt>
+<Pictures/prom_SD_10m_6p.png, id=864, 170.88844pt x 158.09062pt>
 File: Pictures/prom_SD_10m_6p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_6p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_6p.png  used on input line 76.
@@ -1962,7 +1940,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [48 <./Pictures/mat_med_dispersion.png>]
-<Pictures/prom_SD_10m_4p.png, id=881, 168.63pt x 113.67468pt>
+<Pictures/prom_SD_10m_4p.png, id=877, 168.63pt x 113.67468pt>
 File: Pictures/prom_SD_10m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_4p.png  used on input line 86.
@@ -1980,12 +1958,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [49 <./Pictures/prom_SD_5m_12p.png> <./Pictures/prom_SD_10m_6p.png>]
-<Pictures/prom_SD_5m_4p.png, id=890, 168.63pt x 112.92188pt>
+<Pictures/prom_SD_5m_4p.png, id=885, 168.63pt x 112.92188pt>
 File: Pictures/prom_SD_5m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_4p.png  used on input line 97.
 (pdftex.def)             Requested size: 168.62958pt x 112.92159pt.
-<Pictures/intervalos_confianza.png, id=894, 454.69875pt x 148.30406pt>
+<Pictures/intervalos_confianza.png, id=889, 454.69875pt x 148.30406pt>
 File: Pictures/intervalos_confianza.png Graphic file (type png)
 <use Pictures/intervalos_confianza.png>
 Package pdftex.def Info: Pictures/intervalos_confianza.png  used on input line 
@@ -2004,7 +1982,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [50 <./Pictures/prom_SD_10m_4p.png> <./Pictures/prom_SD_5m_4p.png> <./Pictures/
 intervalos_confianza.png>]
-<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=903, 464.4853pt x 295.1025
+<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=899, 464.4853pt x 295.1025
 pt>
 File: Pictures/mat_med_dispersion_pruebaAleatoria.png Graphic file (type png)
 <use Pictures/mat_med_dispersion_pruebaAleatoria.png>
@@ -2021,13 +1999,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51 <./Pictures/mat_med_dispersion_pruebaAleatoria.png>]
-<Pictures/profesores_TC_SelectorGadget.png, id=913, 332.74312pt x 295.85532pt>
+<Pictures/profesores_TC_SelectorGadget.png, id=909, 332.74312pt x 295.85532pt>
 File: Pictures/profesores_TC_SelectorGadget.png Graphic file (type png)
 <use Pictures/profesores_TC_SelectorGadget.png>
 Package pdftex.def Info: Pictures/profesores_TC_SelectorGadget.png  used on inp
 ut line 15.
 (pdftex.def)             Requested size: 266.19484pt x 236.68456pt.
-<Pictures/profesores_TC_sinLimpiar.png, id=915, 448.67625pt x 257.46187pt>
+<Pictures/profesores_TC_sinLimpiar.png, id=911, 448.67625pt x 257.46187pt>
 File: Pictures/profesores_TC_sinLimpiar.png Graphic file (type png)
 <use Pictures/profesores_TC_sinLimpiar.png>
 Package pdftex.def Info: Pictures/profesores_TC_sinLimpiar.png  used on input l
@@ -2076,7 +2054,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [55]
-<Pictures/mat_1_solicitud_Margarita.png, id=953, 507.39563pt x 137.01187pt>
+<Pictures/mat_1_solicitud_Margarita.png, id=948, 507.39563pt x 137.01187pt>
 File: Pictures/mat_1_solicitud_Margarita.png Graphic file (type png)
 <use Pictures/mat_1_solicitud_Margarita.png>
 Package pdftex.def Info: Pictures/mat_1_solicitud_Margarita.png  used on input 
@@ -2095,7 +2073,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [56 <./Pictures/mat_1_solicitud_Margarita.png>]
-<Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png, id=970, 365.86688p
+<Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png, id=966, 365.86688p
 t x 305.64188pt>
 File: Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png Graphic file (
 type png)
@@ -2113,7 +2091,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [57 <./Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png>]
-<Pictures/mat_demanda_alumnos.png, id=981, 420.82219pt x 339.51843pt>
+<Pictures/mat_demanda_alumnos.png, id=977, 420.82219pt x 339.51843pt>
 File: Pictures/mat_demanda_alumnos.png Graphic file (type png)
 <use Pictures/mat_demanda_alumnos.png>
 Package pdftex.def Info: Pictures/mat_demanda_alumnos.png  used on input line 5
@@ -2134,7 +2112,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [58 <./Pictures/mat_demanda_alumnos.png>]
-<Pictures/gmm_alum_ini.pdf, id=990, 578.16pt x 433.62pt>
+<Pictures/gmm_alum_ini.pdf, id=986, 578.16pt x 433.62pt>
 File: Pictures/gmm_alum_ini.pdf Graphic file (type pdf)
 <use Pictures/gmm_alum_ini.pdf>
 Package pdftex.def Info: Pictures/gmm_alum_ini.pdf  used on input line 91.
@@ -2143,7 +2121,7 @@ Package pdftex.def Info: Pictures/gmm_alum_ini.pdf  used on input line 91.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/gmm_alum_fin.pdf, id=992, 578.16pt x 433.62pt>
+<Pictures/gmm_alum_fin.pdf, id=988, 578.16pt x 433.62pt>
 File: Pictures/gmm_alum_fin.pdf Graphic file (type pdf)
 <use Pictures/gmm_alum_fin.pdf>
 Package pdftex.def Info: Pictures/gmm_alum_fin.pdf  used on input line 102.
@@ -2191,7 +2169,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 186.
 
-<Pictures/matplot_metodo_A.pdf, id=1016, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_A.pdf, id=1012, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_A.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_A.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_A.pdf  used on input line 221.
@@ -2200,7 +2178,7 @@ Package pdftex.def Info: Pictures/matplot_metodo_A.pdf  used on input line 221.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/matplot_metodo_B.pdf, id=1018, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_B.pdf, id=1014, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_B.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_B.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_B.pdf  used on input line 230.
@@ -2227,13 +2205,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [62 <./Pictures/matplot_metodo_A.pdf> <./Pictures/matplot_metodo_B.pdf>]
-<Pictures/matplot_metodo_C.pdf, id=1047, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_C.pdf, id=1043, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_C.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_C.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_C.pdf  used on input line 238.
 
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
-<Pictures/matplot_metodo_D.pdf, id=1049, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_D.pdf, id=1045, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_D.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_D.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_D.pdf  used on input line 247.
@@ -2250,7 +2228,7 @@ Overfull \hbox (14.64072pt too wide) in paragraph at lines 270--271
  mat_demanda_alumnos\T1/ptm/m/n/12 . La ma-triz \T1/ptm/m/it/12 mat_esqueleto
  []
 
-<Pictures/heatmap_metodo_B_2.png, id=1052, 631.60968pt x 478.78876pt>
+<Pictures/heatmap_metodo_B_2.png, id=1048, 631.60968pt x 478.78876pt>
 File: Pictures/heatmap_metodo_B_2.png Graphic file (type png)
 <use Pictures/heatmap_metodo_B_2.png>
 Package pdftex.def Info: Pictures/heatmap_metodo_B_2.png  used on input line 27
@@ -2269,7 +2247,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [63 <./Pictures/matplot_metodo_C.pdf>]
-<Pictures/heatmap_metodo_C_2.png, id=1067, 632.3625pt x 479.54156pt>
+<Pictures/heatmap_metodo_C_2.png, id=1063, 632.3625pt x 479.54156pt>
 File: Pictures/heatmap_metodo_C_2.png Graphic file (type png)
 <use Pictures/heatmap_metodo_C_2.png>
 Package pdftex.def Info: Pictures/heatmap_metodo_C_2.png  used on input line 28
@@ -2300,7 +2278,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [65 <./Pictures/heatmap_metodo_C_2.png>]
-<Pictures/gmm_esqueleto_ini.pdf, id=1096, 578.16pt x 433.62pt>
+<Pictures/gmm_esqueleto_ini.pdf, id=1092, 578.16pt x 433.62pt>
 File: Pictures/gmm_esqueleto_ini.pdf Graphic file (type pdf)
 <use Pictures/gmm_esqueleto_ini.pdf>
 Package pdftex.def Info: Pictures/gmm_esqueleto_ini.pdf  used on input line 80.
@@ -2327,13 +2305,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [67 <./Pictures/gmm_esqueleto_ini.pdf>]
-<Pictures/gmm_esqueleto_fin.pdf, id=1135, 578.16pt x 433.62pt>
+<Pictures/gmm_esqueleto_fin.pdf, id=1130, 578.16pt x 433.62pt>
 File: Pictures/gmm_esqueleto_fin.pdf Graphic file (type pdf)
 <use Pictures/gmm_esqueleto_fin.pdf>
 Package pdftex.def Info: Pictures/gmm_esqueleto_fin.pdf  used on input line 132
 .
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/Ej_esqueleto_20202.png, id=1138, 550.30594pt x 342.5297pt>
+<Pictures/Ej_esqueleto_20202.png, id=1133, 550.30594pt x 342.5297pt>
 File: Pictures/Ej_esqueleto_20202.png Graphic file (type png)
 <use Pictures/Ej_esqueleto_20202.png>
 Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 14
@@ -2383,7 +2361,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
   5.
-<Pictures/diagrama_flujo_AG.png, id=1161, 411.03563pt x 354.57469pt>
+<Pictures/diagrama_flujo_AG.png, id=1157, 411.03563pt x 354.57469pt>
 File: Pictures/diagrama_flujo_AG.png Graphic file (type png)
 <use Pictures/diagrama_flujo_AG.png>
 Package pdftex.def Info: Pictures/diagrama_flujo_AG.png  used on input line 23.
@@ -2461,7 +2439,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [77]
-<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1247, 578.16pt x 433.62
+<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1243, 578.16pt x 433.62
 pt>
 File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 )
@@ -2469,7 +2447,7 @@ File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 Package pdftex.def Info: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf  us
 ed on input line 110.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1249, 578.16pt x 433.62pt>
+<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1245, 578.16pt x 433.62pt>
 File: Pictures/boxplot_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_calif_g08_n08_m004_U510.pdf  used on 
@@ -2479,7 +2457,7 @@ input line 118.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1253, 578.16pt x 433.62pt>
+<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1249, 578.16pt x 433.62pt>
 File: Pictures/media_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/media_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/media_calif_g08_n08_m004_U510.pdf  used on in
@@ -2513,13 +2491,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [79 <./Pictures/boxplot_calif_g08_n08_m004_U510.pdf> <./Pictures/media_calif_g0
 8_n08_m004_U510.pdf>]
-<Pictures/varianza_g08_n08_m004_U510.pdf, id=1286, 578.16pt x 433.62pt>
+<Pictures/varianza_g08_n08_m004_U510.pdf, id=1281, 578.16pt x 433.62pt>
 File: Pictures/varianza_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/varianza_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/varianza_g08_n08_m004_U510.pdf  used on input
  line 136.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
-<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1288, 578.16pt x 433.62pt
+<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1283, 578.16pt x 433.62pt
 >
 File: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>
@@ -2546,19 +2524,18 @@ Underfull \hbox (badness 8056) in paragraph at lines 193--193
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
-[]\T1/ptm/m/n/12 María Asun-ción Be-go-ña
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 197--197
 []\T1/ptm/m/n/12 Daniel Ale-jan-dro Zu-ri-ta
  []
 
 
-Underfull \hbox (badness 4084) in paragraph at lines 202--202
+Underfull \hbox (badness 4084) in paragraph at lines 203--203
 []\T1/ptm/m/n/12 Jesús Ma-nuel Ma-yor-quín
  []
+
+
+Underfull \vbox (badness 2050) has occurred while \output is active []
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2569,18 +2546,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [81 <./Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>]
-<Pictures/solicitudes_teoria_del_seguro.png, id=1314, 487.8225pt x 336.50719pt>
+<Pictures/solicitudes_teoria_del_seguro.png, id=1310, 487.8225pt x 336.50719pt>
 
 File: Pictures/solicitudes_teoria_del_seguro.png Graphic file (type png)
 <use Pictures/solicitudes_teoria_del_seguro.png>
 Package pdftex.def Info: Pictures/solicitudes_teoria_del_seguro.png  used on in
-put line 244.
+put line 245.
 (pdftex.def)             Requested size: 390.25853pt x 269.2061pt.
 
 Underfull \vbox (badness 2941) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 247.
-LaTeX Info: Redefining \% on input line 247.
+LaTeX Info: Redefining \. on input line 248.
+LaTeX Info: Redefining \% on input line 248.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2621,8 +2598,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ]
   6.
 [85])
-LaTeX Info: Redefining \. on input line 1302.
-LaTeX Info: Redefining \% on input line 1302.
+LaTeX Info: Redefining \. on input line 1280.
+LaTeX Info: Redefining \% on input line 1280.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3217,8 +3194,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [113])
-LaTeX Info: Redefining \. on input line 1309.
-LaTeX Info: Redefining \% on input line 1309.
+LaTeX Info: Redefining \. on input line 1287.
+LaTeX Info: Redefining \% on input line 1287.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3232,9 +3209,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1412.
-LaTeX Info: Redefining \. on input line 1412.
-LaTeX Info: Redefining \% on input line 1412.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1390.
+LaTeX Info: Redefining \. on input line 1390.
+LaTeX Info: Redefining \% on input line 1390.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3245,22 +3222,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [116]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1412.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1390.
  (main.aux
 LaTeX Info: Redefining \. on input line 21.
 LaTeX Info: Redefining \% on input line 21.
  (Introduccion.aux) (Planteamiento_del_problema.aux)
 (Extraccion_de_datos.aux) (Analisis_estadistico.aux) (Simulacion.aux)
 (Teoria_de_AG_aplicado_a_horarios.aux) (Conclusiones.aux) (Apendices.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1412.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1412.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1390.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1390.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EEFBE3CFFBE6E39F946007065DBF8ECE;4012.
  ) 
 Here is how much of TeX's memory you used:
- 14042 strings out of 481556
- 228780 string characters out of 2913870
+ 14041 strings out of 481556
+ 228773 string characters out of 2913870
  618237 words of memory out of 3000000
  28453 multiletter control sequences out of 15000+200000
  613985 words of font info for 136 fonts, out of 3000000 for 9000
@@ -3283,9 +3260,9 @@ onts/type1/urw/symbol/usyr.pfb><C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.
 X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (122 pages, 2521224 bytes).
+Output written on main.pdf (121 pages, 2520436 bytes).
 PDF statistics:
- 1686 PDF objects out of 1728 (max. 8388607)
- 397 named destinations out of 1000 (max. 500000)
+ 1680 PDF objects out of 1728 (max. 8388607)
+ 396 named destinations out of 1000 (max. 500000)
  799 words of extra memory for PDF output out of 10000 (max. 10000000)
 
