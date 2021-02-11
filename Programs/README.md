@@ -1,3 +1,3 @@
 # Programs
 
-Here we are going to have all the programs that are going to be published on the internet.
+Here we can find all the programs that are used in the assigment.
