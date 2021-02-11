@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  10 FEB 2021 19:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.3.6)  10 FEB 2021 19:44
 entering extended mode
 **./main.tex
 (main.tex
@@ -1859,8 +1859,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [45]
 (Sim_nom_materias.tex
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1909,13 +1909,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-<Pictures/mat_med_dispersion.png, id=858, 545.78906pt x 244.66406pt>
+<Pictures/mat_med_dispersion.png, id=859, 545.78906pt x 244.66406pt>
 File: Pictures/mat_med_dispersion.png Graphic file (type png)
 <use Pictures/mat_med_dispersion.png>
 Package pdftex.def Info: Pictures/mat_med_dispersion.png  used on input line 55
 .
 (pdftex.def)             Requested size: 443.57848pt x 198.84505pt.
-<Pictures/prom_SD_5m_12p.png, id=861, 150.5625pt x 249.18094pt>
+<Pictures/prom_SD_5m_12p.png, id=862, 150.5625pt x 249.18094pt>
 File: Pictures/prom_SD_5m_12p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_12p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 64.
@@ -1924,7 +1924,7 @@ Package pdftex.def Info: Pictures/prom_SD_5m_12p.png  used on input line 64.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/prom_SD_10m_6p.png, id=864, 170.88844pt x 158.09062pt>
+<Pictures/prom_SD_10m_6p.png, id=865, 170.88844pt x 158.09062pt>
 File: Pictures/prom_SD_10m_6p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_6p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_6p.png  used on input line 76.
@@ -1940,7 +1940,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [48 <./Pictures/mat_med_dispersion.png>]
-<Pictures/prom_SD_10m_4p.png, id=877, 168.63pt x 113.67468pt>
+<Pictures/prom_SD_10m_4p.png, id=878, 168.63pt x 113.67468pt>
 File: Pictures/prom_SD_10m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_10m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_10m_4p.png  used on input line 86.
@@ -1958,12 +1958,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [49 <./Pictures/prom_SD_5m_12p.png> <./Pictures/prom_SD_10m_6p.png>]
-<Pictures/prom_SD_5m_4p.png, id=885, 168.63pt x 112.92188pt>
+<Pictures/prom_SD_5m_4p.png, id=886, 168.63pt x 112.92188pt>
 File: Pictures/prom_SD_5m_4p.png Graphic file (type png)
 <use Pictures/prom_SD_5m_4p.png>
 Package pdftex.def Info: Pictures/prom_SD_5m_4p.png  used on input line 97.
 (pdftex.def)             Requested size: 168.62958pt x 112.92159pt.
-<Pictures/intervalos_confianza.png, id=889, 454.69875pt x 148.30406pt>
+<Pictures/intervalos_confianza.png, id=890, 454.69875pt x 148.30406pt>
 File: Pictures/intervalos_confianza.png Graphic file (type png)
 <use Pictures/intervalos_confianza.png>
 Package pdftex.def Info: Pictures/intervalos_confianza.png  used on input line 
@@ -1982,7 +1982,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [50 <./Pictures/prom_SD_10m_4p.png> <./Pictures/prom_SD_5m_4p.png> <./Pictures/
 intervalos_confianza.png>]
-<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=899, 464.4853pt x 295.1025
+<Pictures/mat_med_dispersion_pruebaAleatoria.png, id=900, 464.4853pt x 295.1025
 pt>
 File: Pictures/mat_med_dispersion_pruebaAleatoria.png Graphic file (type png)
 <use Pictures/mat_med_dispersion_pruebaAleatoria.png>
@@ -1999,13 +1999,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51 <./Pictures/mat_med_dispersion_pruebaAleatoria.png>]
-<Pictures/profesores_TC_SelectorGadget.png, id=909, 332.74312pt x 295.85532pt>
+<Pictures/profesores_TC_SelectorGadget.png, id=910, 332.74312pt x 295.85532pt>
 File: Pictures/profesores_TC_SelectorGadget.png Graphic file (type png)
 <use Pictures/profesores_TC_SelectorGadget.png>
 Package pdftex.def Info: Pictures/profesores_TC_SelectorGadget.png  used on inp
 ut line 15.
 (pdftex.def)             Requested size: 266.19484pt x 236.68456pt.
-<Pictures/profesores_TC_sinLimpiar.png, id=911, 448.67625pt x 257.46187pt>
+<Pictures/profesores_TC_sinLimpiar.png, id=912, 448.67625pt x 257.46187pt>
 File: Pictures/profesores_TC_sinLimpiar.png Graphic file (type png)
 <use Pictures/profesores_TC_sinLimpiar.png>
 Package pdftex.def Info: Pictures/profesores_TC_sinLimpiar.png  used on input l
@@ -2054,7 +2054,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [55]
-<Pictures/mat_1_solicitud_Margarita.png, id=948, 507.39563pt x 137.01187pt>
+<Pictures/mat_1_solicitud_Margarita.png, id=949, 507.39563pt x 137.01187pt>
 File: Pictures/mat_1_solicitud_Margarita.png Graphic file (type png)
 <use Pictures/mat_1_solicitud_Margarita.png>
 Package pdftex.def Info: Pictures/mat_1_solicitud_Margarita.png  used on input 
@@ -2073,7 +2073,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [56 <./Pictures/mat_1_solicitud_Margarita.png>]
-<Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png, id=966, 365.86688p
+<Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png, id=967, 365.86688p
 t x 305.64188pt>
 File: Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png Graphic file (
 type png)
@@ -2091,7 +2091,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [57 <./Pictures/mat_alumnos_corregidos_con_Sim_EstadisticaIII.png>]
-<Pictures/mat_demanda_alumnos.png, id=977, 420.82219pt x 339.51843pt>
+<Pictures/mat_demanda_alumnos.png, id=978, 420.82219pt x 339.51843pt>
 File: Pictures/mat_demanda_alumnos.png Graphic file (type png)
 <use Pictures/mat_demanda_alumnos.png>
 Package pdftex.def Info: Pictures/mat_demanda_alumnos.png  used on input line 5
@@ -2112,7 +2112,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [58 <./Pictures/mat_demanda_alumnos.png>]
-<Pictures/gmm_alum_ini.pdf, id=986, 578.16pt x 433.62pt>
+<Pictures/gmm_alum_ini.pdf, id=987, 578.16pt x 433.62pt>
 File: Pictures/gmm_alum_ini.pdf Graphic file (type pdf)
 <use Pictures/gmm_alum_ini.pdf>
 Package pdftex.def Info: Pictures/gmm_alum_ini.pdf  used on input line 91.
@@ -2121,7 +2121,7 @@ Package pdftex.def Info: Pictures/gmm_alum_ini.pdf  used on input line 91.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/gmm_alum_fin.pdf, id=988, 578.16pt x 433.62pt>
+<Pictures/gmm_alum_fin.pdf, id=989, 578.16pt x 433.62pt>
 File: Pictures/gmm_alum_fin.pdf Graphic file (type pdf)
 <use Pictures/gmm_alum_fin.pdf>
 Package pdftex.def Info: Pictures/gmm_alum_fin.pdf  used on input line 102.
@@ -2169,7 +2169,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 186.
 
-<Pictures/matplot_metodo_A.pdf, id=1012, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_A.pdf, id=1013, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_A.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_A.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_A.pdf  used on input line 221.
@@ -2178,7 +2178,7 @@ Package pdftex.def Info: Pictures/matplot_metodo_A.pdf  used on input line 221.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/matplot_metodo_B.pdf, id=1014, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_B.pdf, id=1015, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_B.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_B.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_B.pdf  used on input line 230.
@@ -2205,13 +2205,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-3.13202pt}.
 
 [62 <./Pictures/matplot_metodo_A.pdf> <./Pictures/matplot_metodo_B.pdf>]
-<Pictures/matplot_metodo_C.pdf, id=1043, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_C.pdf, id=1044, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_C.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_C.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_C.pdf  used on input line 238.
 
 (pdftex.def)             Requested size: 375.79955pt x 281.84966pt.
-<Pictures/matplot_metodo_D.pdf, id=1045, 578.16pt x 433.62pt>
+<Pictures/matplot_metodo_D.pdf, id=1046, 578.16pt x 433.62pt>
 File: Pictures/matplot_metodo_D.pdf Graphic file (type pdf)
 <use Pictures/matplot_metodo_D.pdf>
 Package pdftex.def Info: Pictures/matplot_metodo_D.pdf  used on input line 247.
@@ -2228,7 +2228,7 @@ Overfull \hbox (14.64072pt too wide) in paragraph at lines 270--271
  mat_demanda_alumnos\T1/ptm/m/n/12 . La ma-triz \T1/ptm/m/it/12 mat_esqueleto
  []
 
-<Pictures/heatmap_metodo_B_2.png, id=1048, 631.60968pt x 478.78876pt>
+<Pictures/heatmap_metodo_B_2.png, id=1049, 631.60968pt x 478.78876pt>
 File: Pictures/heatmap_metodo_B_2.png Graphic file (type png)
 <use Pictures/heatmap_metodo_B_2.png>
 Package pdftex.def Info: Pictures/heatmap_metodo_B_2.png  used on input line 27
@@ -2247,7 +2247,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [63 <./Pictures/matplot_metodo_C.pdf>]
-<Pictures/heatmap_metodo_C_2.png, id=1063, 632.3625pt x 479.54156pt>
+<Pictures/heatmap_metodo_C_2.png, id=1064, 632.3625pt x 479.54156pt>
 File: Pictures/heatmap_metodo_C_2.png Graphic file (type png)
 <use Pictures/heatmap_metodo_C_2.png>
 Package pdftex.def Info: Pictures/heatmap_metodo_C_2.png  used on input line 28
@@ -2278,7 +2278,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [65 <./Pictures/heatmap_metodo_C_2.png>]
-<Pictures/gmm_esqueleto_ini.pdf, id=1092, 578.16pt x 433.62pt>
+<Pictures/gmm_esqueleto_ini.pdf, id=1093, 578.16pt x 433.62pt>
 File: Pictures/gmm_esqueleto_ini.pdf Graphic file (type pdf)
 <use Pictures/gmm_esqueleto_ini.pdf>
 Package pdftex.def Info: Pictures/gmm_esqueleto_ini.pdf  used on input line 80.
@@ -2305,13 +2305,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [67 <./Pictures/gmm_esqueleto_ini.pdf>]
-<Pictures/gmm_esqueleto_fin.pdf, id=1130, 578.16pt x 433.62pt>
+<Pictures/gmm_esqueleto_fin.pdf, id=1131, 578.16pt x 433.62pt>
 File: Pictures/gmm_esqueleto_fin.pdf Graphic file (type pdf)
 <use Pictures/gmm_esqueleto_fin.pdf>
 Package pdftex.def Info: Pictures/gmm_esqueleto_fin.pdf  used on input line 132
 .
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/Ej_esqueleto_20202.png, id=1133, 550.30594pt x 342.5297pt>
+<Pictures/Ej_esqueleto_20202.png, id=1134, 550.30594pt x 342.5297pt>
 File: Pictures/Ej_esqueleto_20202.png Graphic file (type png)
 <use Pictures/Ej_esqueleto_20202.png>
 Package pdftex.def Info: Pictures/Ej_esqueleto_20202.png  used on input line 14
@@ -2361,7 +2361,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
   5.
-<Pictures/diagrama_flujo_AG.png, id=1157, 411.03563pt x 354.57469pt>
+<Pictures/diagrama_flujo_AG.png, id=1158, 411.03563pt x 354.57469pt>
 File: Pictures/diagrama_flujo_AG.png Graphic file (type png)
 <use Pictures/diagrama_flujo_AG.png>
 Package pdftex.def Info: Pictures/diagrama_flujo_AG.png  used on input line 23.
@@ -2439,7 +2439,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [77]
-<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1243, 578.16pt x 433.62
+<Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf, id=1244, 578.16pt x 433.62
 pt>
 File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 )
@@ -2447,7 +2447,7 @@ File: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf Graphic file (type pdf
 Package pdftex.def Info: Pictures/calif_mejores_hijos_g08_n08_m004_U510.pdf  us
 ed on input line 110.
 (pdftex.def)             Requested size: 404.70924pt x 303.53192pt.
-<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1245, 578.16pt x 433.62pt>
+<Pictures/boxplot_calif_g08_n08_m004_U510.pdf, id=1246, 578.16pt x 433.62pt>
 File: Pictures/boxplot_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/boxplot_calif_g08_n08_m004_U510.pdf  used on 
@@ -2457,7 +2457,7 @@ input line 118.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1249, 578.16pt x 433.62pt>
+<Pictures/media_calif_g08_n08_m004_U510.pdf, id=1250, 578.16pt x 433.62pt>
 File: Pictures/media_calif_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/media_calif_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/media_calif_g08_n08_m004_U510.pdf  used on in
@@ -2491,13 +2491,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [79 <./Pictures/boxplot_calif_g08_n08_m004_U510.pdf> <./Pictures/media_calif_g0
 8_n08_m004_U510.pdf>]
-<Pictures/varianza_g08_n08_m004_U510.pdf, id=1281, 578.16pt x 433.62pt>
+<Pictures/varianza_g08_n08_m004_U510.pdf, id=1282, 578.16pt x 433.62pt>
 File: Pictures/varianza_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/varianza_g08_n08_m004_U510.pdf>
 Package pdftex.def Info: Pictures/varianza_g08_n08_m004_U510.pdf  used on input
  line 136.
 (pdftex.def)             Requested size: 387.36519pt x 290.5239pt.
-<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1283, 578.16pt x 433.62pt
+<Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf, id=1284, 578.16pt x 433.62pt
 >
 File: Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf Graphic file (type pdf)
 <use Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>
@@ -2546,7 +2546,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [81 <./Pictures/boxplot_num_genes_g08_n08_m004_U510.pdf>]
-<Pictures/solicitudes_teoria_del_seguro.png, id=1310, 487.8225pt x 336.50719pt>
+<Pictures/solicitudes_teoria_del_seguro.png, id=1311, 487.8225pt x 336.50719pt>
 
 File: Pictures/solicitudes_teoria_del_seguro.png Graphic file (type png)
 <use Pictures/solicitudes_teoria_del_seguro.png>
@@ -3260,9 +3260,9 @@ onts/type1/urw/symbol/usyr.pfb><C:/Users/miri_/AppData/Local/Programs/MiKTeX 2.
 X 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/miri_/AppData/Local/Programs/
 MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/miri_/AppData/Local/Progr
 ams/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (121 pages, 2520436 bytes).
+Output written on main.pdf (121 pages, 2520694 bytes).
 PDF statistics:
- 1680 PDF objects out of 1728 (max. 8388607)
+ 1681 PDF objects out of 1728 (max. 8388607)
  396 named destinations out of 1000 (max. 500000)
  799 words of extra memory for PDF output out of 10000 (max. 10000000)
 
