@@ -1,7 +1,0 @@
-2) ¿Por qué se dividieron los datos en 4 grupos?
-
-5) ¿Cuál es la app utilizada para obtener información de las páginas de la FC?
-4) ¿Cuáles son los 3 problemas de falta de información que se mencionaron?
-3) Mencionar al menos 6 datos que se pueden obtener de las páginas de los
-horarios de la FC
-1) ¿Cúales son los 4 pasos del algoritmo genético?
