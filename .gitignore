@@ -6,3 +6,4 @@ Hidden_files2
 *.log
 *.tex
 *.gz
+*.synctex(busy)
