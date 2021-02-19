@@ -5,9 +5,6 @@
 
 
 ##### PARÁMETROS INICIALES #####
-#Se establece el directorio en el que se va a trabajar
-# setwd("C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Programs/R")
-
 #' Se instalan los paquetes necesarios para algunas funciones que se van
 #' a utilizar.
 
@@ -59,7 +56,7 @@ library(purrr)
 library(forecast)
 library(xml2)
 library(stringr)
-library(xlsx)
+# library(xlsx)
 library(writexl)
 library(RColorBrewer)
 library(astsa, quietly=TRUE, warn.conflicts=FALSE)
@@ -83,7 +80,7 @@ library(stats)
 library(seastests)
 library(tseries)
 library(lmtest)
-library(het.test)
+# library(het.test)
 library(magrittr)
 library(dplyr)
 library(resample)
@@ -146,8 +143,8 @@ param$mat_nom_prof_total = 0
 param$num_max_asig = 2 #Número máximo de materias asignadas por profesor
 param$cota_TC = 1000 #Cota para ciclo
 param$cota_asig = 6000 #Cota para ciclo
-param$tam_poblacion = 5 #Tamaño de la población en el Algoritmo Genético (AG)
-param$num_generaciones = 2 #Número de generaciones en el AG
+param$tam_poblacion = 25 #Tamaño de la población en el Algoritmo Genético (AG)
+param$num_generaciones = 25 #Número de generaciones en el AG
 param$prob_mutacion = 1/(6+18) #Probabilidad de mutación en el AG
 param$n_cols_mat_calif = 2000 #Cota para el número de columnas
 param$elige_TC = 0.7 #Probabilidad de elegir un profesor de tiempo completo en el AG
@@ -175,7 +172,7 @@ load(file = "mat_nom_prof_total.RData")
 param$mat_nom_prof_total = mat_nom_prof_total
 
 #Matriz con info real de 2015-1 a "sem_fin":
-load("Matrices m_grande_total/m_grande_total_20151_20201.RData")
+load("m_grande_total_20151_20201.RData")
 param$m_grande_2015 = m_grande_total
 
 #Matriz que guarda la información de las pruebas del AG:
@@ -9146,7 +9143,8 @@ ajusta_genes_padres <- function(esq_hijo,padre_1,padre_2,gen_elegido,
   # cat(paste("El padre 2 tiene ",dim(padre_2)[1]," genes."),
   #     file="outfile.txt",sep="\n",append=TRUE)
   
-  (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+  (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1]),
+                                         param))
   (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
   ind_elim_1 <- numeric(0)
   ind_elim_2 <- numeric(0)
@@ -9538,7 +9536,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         }
         
         hijo <- rbind(hijo,gen_elegido)
-        (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+        (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1]),
+                                               param))
         (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
         esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
                                                            num_materia_gen] + 1
@@ -9550,12 +9549,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         
         ### 8) Ajustar información de los padres con respecto al nuevo
         ###gen del hijo
-        # (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
-        # num_max_gpos[2,num_materia_gen] <- num_max_gpos[2,num_materia_gen] + 1
         lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
                                             gen_elegido,mat_esqueleto)
-        # lista_padres <- ajusta_genes_padres(esq_hijo,padre_1,padre_2,
-        #                                     gen_elegido,mat_esqueleto_cotas)
         padre_1 <- lista_padres[[1]]
         padre_2 <- lista_padres[[2]]
       }#Fin while()
@@ -9567,7 +9562,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       if(dim(padre_1)[1] > 0){
         for(i in 1:dim(padre_1)[1]){
           gen_elegido <- padre_1[i,]
-          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1]),
+                                                 param))
           (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
           esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
                                                              num_materia_gen]+1
@@ -9577,7 +9573,8 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       if(dim(padre_2)[1] > 0){
         for(i in 1:dim(padre_2)[1]){
           gen_elegido <- padre_2[i,]
-          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1])))
+          (num_materia_gen <- arroja_num_materia(as.character(gen_elegido[1]),
+                                                 param))
           (ind_hora_gen <- which(7:21 == as.numeric(gen_elegido[4])))
           esq_hijo[ind_hora_gen,num_materia_gen] <- esq_hijo[ind_hora_gen,
                                                              num_materia_gen]+1
@@ -9667,7 +9664,7 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
   
   for(r in 1:dim(asig_final )[1]){
     materia <- asig_final$Materia[r]
-    asig_final$Num_Materia[r] <- arroja_num_materia(materia)
+    asig_final$Num_Materia[r] <- arroja_num_materia(materia,param)
   }
   
   for(m in 1:length(param$vec_nom_materias_total)){
@@ -9819,7 +9816,7 @@ AG_asignaciones_con_xlsx <- function(mat_esqueleto,
       
       #Se eliminan los grupos en el esqueleto
       (h_hora <- which(7:21 == as.numeric(hora)))
-      (j_materia <- arroja_num_materia(materia))
+      (j_materia <- arroja_num_materia(materia,param))
       mat_esqueleto_restante[h_hora,j_materia] <- mat_esqueleto_restante[h_hora,
                                                                          j_materia] - 1
       
@@ -9887,19 +9884,19 @@ AG_asignaciones_con_xlsx <- function(mat_esqueleto,
 gen_asignacion_completa <- function(con_xlsx_1_sin_xlsx_0,param,param_sim){
   ptm <- proc.time()# Start the clock!
   #' 5) Simulación de esqueletos
-  n_rep <- 5 #5.97/5.59 min
-  # set.seed(42)
-  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)#5.79 min
+  n_rep <- 10
+  set.seed(42)
+  lista_esq_D_prima <- metodo_B(n_rep,param,param_sim)
   mat_esqueleto <- lista_esq_D_prima[[1]]
   # View(mat_esqueleto)
   
   #' 4b) Simulación de solicitudes de profesores (pseudo-real)
-  # set.seed(42)
+  set.seed(42)
   mat_solicitudes_real <- gen_solicitudes_real(mat_esqueleto,param)#8.3 seg
   # View(mat_solicitudes_real)
   
   #' 10) AG aplicado a asignaciones: Aquí ya va a salir una buena asignación
-  # set.seed(42)
+  set.seed(42)
   list_asignacion_final <- AG_asignaciones_con_xlsx(mat_esqueleto,
                                                     mat_solicitudes_real,
                                                     con_xlsx_1_sin_xlsx_0,
