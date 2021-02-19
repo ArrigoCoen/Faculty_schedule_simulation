@@ -415,7 +415,7 @@ My_plot_progress <- function(percentages,names_percentages,title_plot)	{
 
 
 
-##### URL #####
+##### POSIBLES URL #####
 #' Funciones que generan la lista de posibles URL de donde se va a extraer
 #' la información de las páginas de la facultad
 
