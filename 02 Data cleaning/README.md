@@ -38,11 +38,11 @@ Besides those problems we found certain web pages that have another format so th
 
 1. _Strings instead of numbers_
 
-![fig](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_one_student.png)
+![fig](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_one_student.PNG)
 
 2. _Classes at different hours_
 
-![fig](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_class_many_hours.png)
+![fig](https://github.com/ArrigoCoen/Faculty_schedule_simulation/blob/master/Figures/Fig_class_many_hours.PNG)
 
 3. _Extra info_
 
