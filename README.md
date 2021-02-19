@@ -5,11 +5,6 @@ We will follow the next pipeline:
 
 ![fig](Figures/Fig_pipeline.png)
 
-<!---
-your comment goes here
-
-# Simulation
--->
 **(1) Data extraction**
 
 1. We use the _posibles_url_ function, to generate all the possible URL's of the Faculty of Sciences, UNAM.
@@ -32,24 +27,32 @@ The _gen_m_grande_total_ function, creates a matrix with the data of several sem
 
 1. We make a new matrix with the number of students per hour for each semester. Using the _gen_mat_alumnos_corregidos_ function.
 
-2. We simulate the
+2. We simulate the number of students for the next semester with the _gen_mat_demanda_alumnos_ function.
 
-3.
+**(4a) Teachers' requests simulation _(hidden)_**
 
-**(4) Teachers' requests simulation**
-
+The simulation of the teachers' requests is made with the _gen_solicitudes_ function.
 
 **(5) Skeletons' simulation**
 
-1. Grading skeletons
+With the matrices simulated in **(3)**, we simulate _n_ skeletons. We apply the Gaussian Mixture Model to that data and we obtain a new skeleton with the parameters of the model.
+
+**(4b) Teachers' requests simulation _(pseudo-real)_**
+
+The simulation of the teachers' real requests is made with the _gen_solicitudes_real_ function.
 
 **(6) Teachers' assignment**
 
+The _gen_asignacion_ function is used to make an assignment of subjects, teachers and hours.
 
 **(7) Grading teachers' assignment**
 
+The grading of each assignment is made with the _califica_asignacion_ function.
 
-**(8) Genetic Algorithm applied to search of assignments**
+**(8) Genetic Algorithm applied to assignments**
 
+We use the theory of Genetic Algorithm to find a good assignment. The function that we use is _AG_asignaciones_con_xlsx_. In this function we have the option to read a _.xlsx_ document with previous subjects assigned to a teacher in an hour.
 
 **(9) Final results**
+
+The final result is a matrix with 3 columns: Subject, Teacher and Hour. The number of rows depends of the simulation made with the Genetic Algorithm. There are some examples in https://github.com/ArrigoCoen/Faculty_schedule_simulation/tree/master/09%20Final%20results/Matrices.
