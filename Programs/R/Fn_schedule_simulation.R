@@ -9477,16 +9477,11 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
       while(max(ind_mat_2) == max(ind_mat_1)){
         (ind_mat_2 <- sample(x = 1:tam_poblacion,size = 2,
                              prob = vec_prob_asig))
-        # cat("\n max(ind_mat_1) = ",max(ind_mat_1))
-        # cat("\n max(ind_mat_2) = ",max(ind_mat_2))
       }
       (ind_padres[2] <- max(ind_mat_2))
       
       padre_1 <- poblacion[[ind_padres[1]]]
       padre_2 <- poblacion[[ind_padres[2]]]
-      
-      # write.csv(poblacion[[ind_padres[1]]], file = "padre_1.csv")
-      # write.csv(poblacion[[ind_padres[2]]], file = "padre_2.csv")
       
       while(dim(padre_1)[1]!=0 && dim(padre_2)[1]!=0){
         # Repetir hasta que uno de los padres se quede sin genes.
@@ -9494,8 +9489,6 @@ AG_asignaciones <- function(mat_esqueleto,mat_solicitudes_real,param){
         ### 5) Con prob = 0.5 se elige un padre
         (ind_padre_elegido <- sample(x=1:2,size = 1))
         cat("\n Se eligió al padre ",ind_padre_elegido)
-        # cat(paste("Se eligió al padre ",ind_padre_elegido),
-        #     file="outfile.txt",sep="\n",append=TRUE)
         
         if(ind_padre_elegido == 1){
           padre_elegido <- padre_1
@@ -9902,7 +9895,7 @@ gen_asignacion_completa <- function(con_xlsx_1_sin_xlsx_0,param,param_sim){
                                                     con_xlsx_1_sin_xlsx_0,
                                                     param)
   cat("\nLa función gen_asignacion_completa tardó: ",
-      (proc.time()-ptm_generaciones)[3]/60," minutos. \n")
+      (proc.time()-ptm)[3]/60," minutos. \n")
   return(list_asignacion_final)
 }
 
