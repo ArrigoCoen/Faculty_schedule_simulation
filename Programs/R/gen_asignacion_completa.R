@@ -72,10 +72,10 @@ info_gpos_sin_asig <- list_asignacion_final[[12]]
 
 
 # Guardar info ------------------------------------------------------------
-dat_sem_20202_g25_n25_m004_U <- list_asignacion_final
+dat_sem_20202_g25_n25_m004_U536 <- list_asignacion_final
 
-save(dat_sem_20202_g25_n25_m004_U,
-     file = "C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/ProgFinal/dat_sem_20202_g25_n25_m004_U-.RData")
+save(dat_sem_20202_g25_n25_m004_U536,
+     file = "C:/Users/miri_/Dropbox/Carpeta compartida MIri/Faculty_schedule_simulation/Hidden_files/Tesis/Programas/ProgFinal/dat_sem_20202_g25_n25_m004_U-536.RData")
 
 
 
